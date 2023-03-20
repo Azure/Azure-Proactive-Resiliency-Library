@@ -1,0 +1,32 @@
+theme = "ace-documentation"
+
+baseURL = 'https://azure.github.io/Azure-Proactive-Resiliency-Library'
+
+languageCode = 'en-us'
+title = 'Azure Proactive Resiliency Library (APRL)'
+
+pygmentsCodeFences = true
+pygmentsStyle = "monokai"
+
+[params]
+disableReadmoreNav = true
+menushortcutsnewtab = true
+site_logo = "/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+home = ["HTML", "JSON", "RSS"]
+
+[[menu.shortcuts]]
+name = "Well-Architected Framework"
+url = "https://aka.ms/waf"
+weight = 1
+
+[[menu.shortcuts]]
+name = "Source Code <i class='fab fa-github'></i>"
+url = "https://aka.ms/aprl/repo"
+weight = 10
