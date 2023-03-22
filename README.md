@@ -1,5 +1,8 @@
 # Azure Proactive Resiliency Library (APRL)
 
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Azure/Azure-Proactive-Resiliency-Library.svg)](http://isitmaintained.com/project/Azure/Azure-Proactive-Resiliency-Library "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/Azure/Azure-Proactive-Resiliency-Library.svg)](http://isitmaintained.com/project/Azure/Azure-Proactive-Resiliency-Library "Percentage of issues still open")
+
 > **Please access the GitHub Pages site, unless looking to contribute, over at: [aka.ms/aprl](https://aka.ms/aprl)**
 
 Welcome to the home of the Azure Proactive Resiliency Library (APRL).
@@ -12,7 +15,7 @@ The library also contains supporting [Azure Resource Graph (ARG)](https://learn.
 
 ## Contributing
 
-> The contribution guide can be found on the GitHub pages site here: [https://aka.ms/aprl/contribute](https://aka.ms/aprl/contribute)
+> The contribution guide can be found on the GitHub pages site here: [aka.ms/aprl/contribute](https://aka.ms/aprl/contribute)
 
 This project only currently accepts Pull Requests from Microsoft FTEs as of today. However, anyone is welcomed to create issues/features requests on the repo for the team to triage and action.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com).
 
