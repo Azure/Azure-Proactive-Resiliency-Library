@@ -18,7 +18,7 @@ Replace this with a brief description of what this Pull Request fixes, changes, 
 
 - [ ] Read the [Contribution Guide](https://azure.github.io/Azure-Proactive-Resiliency-Library/contributing) and ensured this PR is compliant with the guide
 - [ ] Checked for duplicate [Pull Requests](https://github.com/Azure/Azure-Proactive-Resiliency-Library/pulls)
-- [ ] Associated it with relevant [GitHub Issues](https://github.com/AzureAzure-Proactive-Resiliency-Library/issues) or ADO Work Items (Internal Only)
+- [ ] Associated it with relevant [GitHub Issues](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues) or ADO Work Items (Internal Only)
 - [ ] Ensured my code/branch is up-to-date with the latest changes in the `main` [branch](https://github.com/Azure/Azure-Proactive-Resiliency-Library/tree/main)
 - [ ] Ensured PR tests are passing
 - [ ] Updated relevant and associated documentation (e.g. Contribution Guide, Docs etc.)

@@ -5,6 +5,12 @@
     },
     {
       "pattern": "^(https:\\/\\/)?([www.]?)+(microsoft.com\\/)+[\\w\\-\\._~:/?#[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$"
+    },
+    {
+      "pattern": "/Azure-Proactive-Resiliency-Library/"
+    },
+    {
+      "pattern": "^https://vantage-design.com"
     }
   ],
   "httpHeaders": [
