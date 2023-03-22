@@ -22,8 +22,8 @@ defaults:
     shell: bash
 
 jobs:
-  # Build job
-  build:
+  # Build PR job
+  buildpr:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.111.3
