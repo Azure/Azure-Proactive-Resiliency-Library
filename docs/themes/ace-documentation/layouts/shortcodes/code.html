@@ -2,9 +2,9 @@
 {{ .Scratch.Set "identifier" "" }}
 
 {{ $identifier := "" }}
-{{ $filepath := (path.Join (path.Dir .Page.File.Path) (.Get "file"))}}
+{{ $filepath := .Get "file"}}
 {{ if ($filepath) }}
-    {{ .Scratch.Set "content" ($filepath | readFile) }}
+    {{ .Scratch.Set "content" ((path.Join (path.Dir .Page.File.Path) (.Get "file")) | readFile) }}
     {{ .Scratch.Set "identifier" (first 10 (md5 (.Scratch.Get "content"))) }}
 {{ else }}
     {{ .Scratch.Set "content" .Inner }}
