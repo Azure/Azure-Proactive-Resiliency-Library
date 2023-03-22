@@ -9,4 +9,10 @@ This page lists all of the Azure Services under the Specialized Workloads catego
 
 ## Services List
 
+{{< alert style="info" >}}
+
+The below list of services is automatically populated based on the child folders and files in this directory within the source code in the repo.
+
+{{< /alert >}}
+
 {{< childpages >}}
