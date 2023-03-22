@@ -1,10 +1,10 @@
 +++
 title = "Home"
-description = "Welcome to the home of the Azure Proactive Resiliency Library (ARPL)"
+description = "Welcome to the home of the Azure Proactive Resiliency Library (APRL)"
 weight = 1
 +++
 
-Welcome to the home of the Azure Proactive Resiliency Library (ARPL).
+Welcome to the home of the Azure Proactive Resiliency Library (APRL).
 
 <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" width=40%>
 <br><br>
