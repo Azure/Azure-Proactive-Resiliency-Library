@@ -20,25 +20,21 @@ Use the table of contents (TOC) navigation menu on the right to jump to the reco
 {{< /alert >}}
 
 {{< table style="table-striped" >}}
-|  ID   | Resource Category |        Service Name         | Recommendation | Verified by Microsoft Product Group |
-| :---: | :---------------: | :-------------------------: | :------------- | :---------------------------------: |
-| CM-1  |     CHANGE ME     | {{ replace .Name "-" " " }} | CHANGE ME      |                 Yes                 |
-| CM-2  |     CHANGE ME     | {{ replace .Name "-" " " }} | CHANGE ME      |                 Yes                 |
+|  ID   |        Resource Type         | Recommendation | Verified by Microsoft Product Group |
+| :---: | :--------------------------: | :------------- | :---------------------------------: |
+| CM-1  | `Microsoft.Example/changeMe` | CHANGE ME      |                 Yes                 |
+| CM-2  | `Microsoft.Example/changeMe` | CHANGE ME      |                 Yes                 |
 {{< /table >}}
 
 ### CM-1 CHANGE ME
 
-{{< table style="table-striped" >}}
-| Importance |
-| :--------: |
-|     P0     |
-{{< /table >}}
+{{< panel title="Importance/Priority:" style="info" >}} CHANGE ME {{< /panel >}}
 
 #### Recommendation/Guidance
 
 FILL ME IN...
 
-##### Further Information
+##### Resources
 
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
@@ -57,7 +53,7 @@ FILL ME IN...
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -65,7 +61,7 @@ FILL ME IN...
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="pwsh" file="code/cm-1.ps1" >}} {{< /code >}}
+{{< code lang="pwsh" file="code/cm-1/cm-1.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -73,23 +69,19 @@ FILL ME IN...
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="bash" file="code/cm-1.azcli" >}} {{< /code >}}
+{{< code lang="bash" file="code/cm-1/cm-1.azcli" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 ### CM-2 CHANGE ME
 
-{{< table style="table-striped" >}}
-| Importance |
-| :--------: |
-|     P0     |
-{{< /table >}}
+{{< panel title="Importance/Priority:" style="info" >}} CHANGE ME {{< /panel >}}
 
 #### Recommendation/Guidance
 
 FILL ME IN...
 
-##### Further Information
+##### Resources
 
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
