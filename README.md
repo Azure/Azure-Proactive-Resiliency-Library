@@ -1,5 +1,7 @@
 # Azure Proactive Resiliency Library (APRL)
 
+> **Please access the GitHub Pages site, unless looking to contribute, over at: [aka.ms/aprl](https://aka.ms/aprl)**
+
 Welcome to the home of the Azure Proactive Resiliency Library (APRL).
 
 <img src="docs/static/media/img/aprl-white.png" width=40%>
