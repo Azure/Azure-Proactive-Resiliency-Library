@@ -11,6 +11,9 @@
     },
     {
       "pattern": "^https://vantage-design.com"
+    },
+    {
+      "pattern": "/shortcodes/code/"
     }
   ],
   "httpHeaders": [
