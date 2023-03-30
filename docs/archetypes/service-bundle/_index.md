@@ -14,10 +14,10 @@ The presented resiliency recommendations in this guidance include {{ replace .Na
 The below table shows the list of resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources.
 
 {{< table style="table-striped" >}}
-|  ID   |        Resource Type         | Recommendation | Verified by Microsoft Product Group |
-| :---: | :--------------------------: | :------------- | :---------------------------------: |
-| CM-1  | `changeMe`                   | CHANGE ME      |                 Yes                 |
-| CM-2  | `changeMe`                   | CHANGE ME      |                 Yes                 |
+| Recommendation                       | Verified by Microsoft Product Group |
+| :----------------------------------- | :---------------------------------: |
+| [CM-1 - CHANGE ME title](#cm-1---change-me-title) |                 Yes                 |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title) |                 Yes                 |
 {{< /table >}}
 
 ## Recommendations Details
@@ -69,3 +69,5 @@ FILL ME IN...
 {{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
+
+<br>

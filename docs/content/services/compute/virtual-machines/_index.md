@@ -12,37 +12,37 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-|  ID   |        Resource Type         | Recommendation | Verified by Microsoft Product Group |
-| :---: | :--------------------------: | :------------- | :---------------------------------: |
-| vm01 | VirtualMachines | Avoid running a production workload on a single VM | No |
-| vm02 | VirtualMachines | Deploy Virtual Machines across Availability Zones | No |
-| vm03 | VirtualMachines | If Availability Zones are not available, then put each application tier into a separate Availability Set | No |
-| vm04 | VirtualMachines | Replicate Virtual Machines using Azure Site Recovery | No |
-| vm05 | VirtualMachines | Use Managed Disks for Virtual Machine hard disks | No |
-| vm06 | VirtualMachines | Host application or database data on a data disk | No |
-| vm07 | VirtualMachines | Enable Backups on your Virtual Machines | No |
-| vm08 | VirtualMachines | Production VMs should be using Premium disks | No |
-| vm09 | VirtualMachines | There are Virtual Machines in Stopped state | No |
-| vm10 | VirtualMachines | Accelerated Networking is not enabled | No |
-| vm11 | VirtualMachines | Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months | No |
-| vm12 | VirtualMachines | Virtual Machines should not have a Public IP directly associated | No |
-| vm13 | VirtualMachines | Virtual Network Interfaces have an NSG associated | No |
-| vm14 | VirtualMachines | IP Forwarding should only be enabled for Network Virtual Appliances | No |
-| vm15 | VirtualMachines | Customer DNS Servers should be configured in the Virtual Network level | No |
-| vm16 | VirtualMachines | Private IP Address should be configured as Static | No |
-| vm17 | VirtualMachines | Shared disks should only be enabled in Clustered servers | No |
-| vm18 | VirtualMachines | The Network access to the VM disk is set to "Enable Public access from all networks" | No |
-| vm19 | VirtualMachines | Virtual Machine is not compliant with Azure Policies | No |
-| vm20 | VirtualMachines | Enable disk encryption, Enable data at rest encryption by default | No |
-| vm21 | VirtualMachines | Enable Insights to get more visibility into the health and performance of your virtual machine | No |
-| vm22 | VirtualMachines | Diagnostic Settings should be configured for all Azure Resources | No |
-| vm23 | VirtualMachines | Tags are inconsistent across Virtual Machines | No |
-| vm24 | VirtualMachines | Tag shows incorrect value for the Availability Zone number for a Virtual Machine | No |
+| Recommendation | Verified by Microsoft Product Group |
+| :------------- | :---------------------------------: |
+| [VM1 - Avoid running a production workload on a single VM](#vm-1---avoid-running-a-production-workload-on-a-single-vm) | No |
+| [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones) | No |
+| [VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set](#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set) | No |
+| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery) | No |
+| [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks) | No |
+| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk) | No |
+| [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines) | No |
+| [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks) | No |
+| [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state) | No |
+| [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled) | No |
+| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months) | No |
+| [VM-12 - Virtual Machines should not have a Public IP directly associated](#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated) | No |
+| [VM-13 - Virtual Network Interfaces have an NSG associated](#vm-13---virtual-network-interfaces-have-an-nsg-associated) | No |
+| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances) | No |
+| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level) | No |
+| [VM-16 - Private IP Address should be configured as Static](#vm-16---private-ip-address-should-be-configured-as-static) | No |
+| [VM-17 - Shared disks should only be enabled in Clustered servers](#vm-17---shared-disks-should-only-be-enabled-in-clustered-servers) | No |
+| [VM-18 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks) | No |
+| [VM-19 - Virtual Machine is not compliant with Azure Policies](#vm-19---virtual-machine-is-not-compliant-with-azure-policies) | No |
+| [VM-20 - Enable disk encryption, Enable data at rest encryption by default](#vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default) | No |
+| [VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine) | No |
+| [VM-22 - Diagnostic Settings should be configured for all Azure Resources](#vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources) | No |
+| [VM-23 - Tags are inconsistent across Virtual Machines](#vm-23---tags-are-inconsistent-across-virtual-machines) | No |
+| [VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine) | No |
 {{< /table >}}
 
 ## Recommendations Details
 
-### VM01 - Avoid running a production workload on a single VM
+### VM-1 - Avoid running a production workload on a single VM
 
 #### Importance: Critical
 
@@ -66,7 +66,7 @@ A single VM deployment is not resilient to planned or unplanned Azure maintenanc
 
 <br>
 
-### VM02 - Deploy Virtual Machines across Availability Zones
+### VM-2 - Deploy Virtual Machines across Availability Zones
 
 #### Importance: High
 
@@ -90,7 +90,7 @@ Azure availability zones are physically separate locations within each Azure reg
 
 <br>
 
-### VM03 - If Availability Zones are not available, then put each application tier into a separate Availability Set
+### VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set
 
 #### Importance: High
 
@@ -114,7 +114,7 @@ If the region where you are running your application doesn't support Availablity
 
 <br>
 
-### VM-04- Replicate Virtual Machines using Azure Site Recovery
+### VM-4 - Replicate Virtual Machines using Azure Site Recovery
 
 #### Importance: Low
 
@@ -140,7 +140,7 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 <br>
 
-### VM-05 - Use Managed Disks for Virtual Machine hard disks
+### VM-5 - Use Managed Disks for Virtual Machine hard disks
 
 #### Importance: High
 
@@ -166,7 +166,7 @@ Managed disks provide better reliability for VMs in an availability set, because
 
 <br>
 
-### VM-06 - Host application or database data on a data disk
+### VM-6 - Host application or database data on a data disk
 
 #### Importance: Informational
 
@@ -190,7 +190,7 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 <br>
 
-### VM-07 - Enable Backups on your Virtual Machines
+### VM-7 - Enable Backups on your Virtual Machines
 
 #### Importance: Medium
 
@@ -214,7 +214,7 @@ Enable backups for your virtual machines and secure your data
 
 <br>
 
-### VM-08 - Production VMs should be using Premium disks
+### VM-8 - Production VMs should be using Premium disks
 
 #### Importance: Critical
 
@@ -240,7 +240,7 @@ Premium SSD disks offer high-performance, low-latency disk support for I/O-inten
 
 <br>
 
-### VM-09 - There are Virtual Machines in Stopped state
+### VM-9 - There are Virtual Machines in Stopped state
 
 #### Importance: Informational
 
