@@ -1,0 +1,6 @@
+resources
+| where type =~ "microsoft.compute/virtualmachines"
+| extend zonesString = tostring(zones)
+| where zonesString =~ ""
+| distinct name, resourceGroup, zonesString
+| project name, resourceGroup, zonesString
