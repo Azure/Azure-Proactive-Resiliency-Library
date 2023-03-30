@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 {{< table style="table-striped" >}}
 | Recommendation | Verified by Microsoft Product Group |
 | :------------- | :---------------------------------: |
-| [VM1 - Avoid running a production workload on a single VM](#vm-1---avoid-running-a-production-workload-on-a-single-vm) | No |
+| [VM-1 - Avoid running a production workload on a single VM](#vm-1---avoid-running-a-production-workload-on-a-single-vm) | No |
 | [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones) | No |
 | [VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set](#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set) | No |
 | [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery) | No |
@@ -60,11 +60,11 @@ A single VM deployment is not resilient to planned or unplanned Azure maintenanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-01/vm-01.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-1/vm-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-2 - Deploy Virtual Machines across Availability Zones
 
@@ -84,11 +84,11 @@ Azure availability zones are physically separate locations within each Azure reg
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-02/vm-02.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-2/vm-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set
 
@@ -108,11 +108,11 @@ If the region where you are running your application doesn't support Availablity
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-03/vm-03.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-3/vm-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-4 - Replicate Virtual Machines using Azure Site Recovery
 
@@ -134,11 +134,11 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-014/vm-04.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-14/vm-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-5 - Use Managed Disks for Virtual Machine hard disks
 
@@ -160,11 +160,11 @@ Managed disks provide better reliability for VMs in an availability set, because
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-05/vm-05.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-5/vm-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-6 - Host application or database data on a data disk
 
@@ -184,11 +184,11 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-01/vm-01.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-1/vm-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-7 - Enable Backups on your Virtual Machines
 
@@ -208,11 +208,11 @@ Enable backups for your virtual machines and secure your data
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-01/vm-01.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-1/vm-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-8 - Production VMs should be using Premium disks
 
@@ -234,11 +234,11 @@ Premium SSD disks offer high-performance, low-latency disk support for I/O-inten
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-01/vm-01.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-1/vm-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-9 - There are Virtual Machines in Stopped state
 
@@ -258,11 +258,11 @@ Azure Virtual Machines (VM) instances go through different states. There are pro
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-09/vm-09.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-9/vm-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-10 - Accelerated Networking is not enabled
 
@@ -286,7 +286,7 @@ Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, 
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months
 
@@ -310,7 +310,7 @@ When Accelerated Networking is enabled the default Azure Virtual Network interfa
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-12 - Virtual Machines should not have a Public IP directly associated
 
@@ -334,7 +334,7 @@ If a Virtual Machine requires outbound internet connectivity we recommend the us
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-13 - Virtual Network Interfaces have an NSG associated
 
@@ -358,7 +358,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances
 
@@ -388,7 +388,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-15 - Customer DNS Servers should be configured in the Virtual Network level
 
@@ -412,7 +412,7 @@ Configure the DNS Server in the Virtual Network to avoid inconsistency across th
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-16 - Private IP Address should be configured as Static
 
@@ -436,7 +436,7 @@ By default, the Azure DHCP servers assign the private IPv4 address for the prima
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-17 - Shared disks should only be enabled in Clustered servers
 
@@ -460,7 +460,7 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-18 - The Network access to the VM disk is set to "Enable Public access from all networks
 
@@ -484,7 +484,7 @@ Recommended changing to "Disable public access and enable private access" and cr
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-19 - Virtual Machine is not compliant with Azure Policies
 
@@ -508,7 +508,7 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-20 - Enable disk encryption, Enable data at rest encryption by default
 
@@ -537,7 +537,7 @@ There are several types of encryption available for your managed disks, includin
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine
 
@@ -561,7 +561,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-22 - Diagnostic Settings should be configured for all Azure Resources
 
@@ -596,7 +596,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-23 - Tags are inconsistent across Virtual Machines
 
@@ -620,7 +620,7 @@ The Tags assigned to the Virtual Machines are different and if used for automati
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine
 

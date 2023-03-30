@@ -45,7 +45,7 @@ FILL ME IN...
 
 {{< /collapse >}}
 
-<br>
+<br><br>
 
 ### CM-2 - CHANGE ME title
 
@@ -70,4 +70,4 @@ FILL ME IN...
 
 {{< /collapse >}}
 
-<br>
+<br><br>
