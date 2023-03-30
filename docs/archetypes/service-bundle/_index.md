@@ -13,22 +13,18 @@ The presented resiliency recommendations in this guidance include {{ replace .Na
 
 The below table shows the list of resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources.
 
-{{< alert style="info" >}}
-
-Use the table of contents (TOC) navigation menu on the right to jump to the recommendation you wish to review.
-
-{{< /alert >}}
-
 {{< table style="table-striped" >}}
-|  ID   |        Resource Type         | Recommendation | Verified by Microsoft Product Group |
-| :---: | :--------------------------: | :------------- | :---------------------------------: |
-| CM-1  | `Microsoft.Example/changeMe` | CHANGE ME      |                 Yes                 |
-| CM-2  | `Microsoft.Example/changeMe` | CHANGE ME      |                 Yes                 |
+| Recommendation                       | Verified by Microsoft Product Group |
+| :----------------------------------- | :---------------------------------: |
+| [CM-1 - CHANGE ME title](#cm-1---change-me-title) |                 Yes                 |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title) |                 Yes                 |
 {{< /table >}}
 
-### CM-1 CHANGE ME
+## Recommendations Details
 
-{{< panel title="Importance/Priority:" style="info" >}} CHANGE ME {{< /panel >}}
+### CM-1 - CHANGE ME title
+
+#### Importance: CHANGE ME
 
 #### Recommendation/Guidance
 
@@ -40,14 +36,6 @@ FILL ME IN...
 - [CHANGE ME LINK](https://aka.ms)
 
 #### Queries/Scripts
-
-{{< table style="table-striped" >}}
-| Type                 | Available |
-| -------------------- | :-------: |
-| Azure Resource Graph |    Y/N    |
-| Azure PowerShell     |    Y/N    |
-| Azure CLI            |    Y/N    |
-{{< /table >}}
 
 ##### Azure Resource Graph
 
@@ -57,25 +45,11 @@ FILL ME IN...
 
 {{< /collapse >}}
 
-##### Azure PowerShell
+<br>
 
-{{< collapse title="Show/Hide Query/Script" >}}
+### CM-2 - CHANGE ME title
 
-{{< code lang="pwsh" file="code/cm-1/cm-1.ps1" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-##### Azure CLI
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="bash" file="code/cm-1/cm-1.azcli" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-### CM-2 CHANGE ME
-
-{{< panel title="Importance/Priority:" style="info" >}} CHANGE ME {{< /panel >}}
+#### Importance: CHANGE ME
 
 #### Recommendation/Guidance
 
@@ -88,14 +62,6 @@ FILL ME IN...
 
 #### Queries/Scripts
 
-{{< table style="table-striped" >}}
-| Type                 | Available |
-| -------------------- | :-------: |
-| Azure Resource Graph |    Y/N    |
-| Azure PowerShell     |    Y/N    |
-| Azure CLI            |    Y/N    |
-{{< /table >}}
-
 ##### Azure Resource Graph
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -104,18 +70,4 @@ FILL ME IN...
 
 {{< /collapse >}}
 
-##### Azure PowerShell
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="pwsh" file="code/cm-2/cm-2.ps1" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-##### Azure CLI
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="bash" file="code/cm-2/cm-2.azcli" >}} {{< /code >}}
-
-{{< /collapse >}}
+<br>

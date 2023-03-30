@@ -1,0 +1,4 @@
+resources
+| extend PowerState= tostring(properties.extended.instanceView.powerState.displayStatus)
+| where type =~ 'microsoft.compute/virtualmachines' and PowerState == 'VM Stopped'
+| project name,PowerState,resourceGroup,subscriptionId

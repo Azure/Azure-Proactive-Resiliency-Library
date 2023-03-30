@@ -1,0 +1,3 @@
+securityresources
+| where properties.displayName contains "Azure Backup should be enabled for virtual machines"
+| extend backupStatus = properties.status.code
