@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html>
-    {{- partial "head.html" . -}}
-    <body>
+{{- partial "head.html" . -}}
 
-        {{- partial "header.html" . -}}
+<body>
 
-        <div class="container-fluid">
-            <div class="row">
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script>
 
-                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right">
-                    {{- partial "menu.html" . -}}
-                </div>
+  {{- partial "header.html" . -}}
 
-                {{- if and (ne .Site.Params.toc false) (ne .Params.toc false) }}
-                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left">
-                    {{- partial "tableofcontents.html" . -}}
-                </div>
-                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
-                {{else}}
-                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
-                {{end}}
+  <div class="container-fluid">
+    <div class="row">
 
-                    {{- block "main" . }}{{- end }}
-                    
-                    <div class="row">
-                        {{- if and (ne .Site.Params.disableReadmoreNav true) (ne .Params.disableReadmoreNav true) -}}
-                        <div class="position-relative mx-auto col-lg-9">
-                          {{ partial "next-prev-page.html" . }}
-                        </div>
-                        {{- end -}}
-                    </div> <!-- /end of row -->
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right">
+        {{- partial "menu.html" . -}}
+      </div>
 
-                </div>
+      {{- if and (ne .Site.Params.toc false) (ne .Params.toc false) }}
+      <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left">
+        {{- partial "tableofcontents.html" . -}}
+      </div>
+      <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+        {{else}}
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          {{end}}
 
-            </div> <!-- /end of row -->
+          {{- block "main" . }}{{- end }}
 
-        </div> <!-- /end of container -->
+          <div class="row">
+            {{- if and (ne .Site.Params.disableReadmoreNav true) (ne .Params.disableReadmoreNav true) -}}
+            <div class="position-relative mx-auto col-lg-9">
+              {{ partial "next-prev-page.html" . }}
+            </div>
+            {{- end -}}
+          </div> <!-- /end of row -->
 
-        {{- partial "footer.html" . -}}
+        </div>
 
-    </body>
+      </div> <!-- /end of row -->
+
+    </div> <!-- /end of container -->
+
+    {{- partial "footer.html" . -}}
+
+</body>
+
 </html>
