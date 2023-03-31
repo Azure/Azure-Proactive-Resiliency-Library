@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Best practices and resiliency recommendations for Virtual Machines and associated resources.">
+    
+    <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/">
+
+    <title>
+        
+        Virtual Machines | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="https://azure.github.io/Azure-Proactive-Resiliency-Librarycss/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/css/ace.scss">
+
+    
+
+    
+    
+        
+    
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+            <div class="row">
+
+                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>IoT</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#summary-of-recommendations">Summary of Recommendations</a></li>
+    <li><a href="#recommendations-details">Recommendations Details</a>
+      <ul>
+        <li><a href="#vm-1---avoid-running-a-production-workload-on-a-single-vm">VM-1 - Avoid running a production workload on a single VM</a></li>
+        <li><a href="#vm-2---deploy-virtual-machines-across-availability-zones">VM-2 - Deploy Virtual Machines across Availability Zones</a></li>
+        <li><a href="#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set">VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set</a></li>
+        <li><a href="#vm-4---replicate-virtual-machines-using-azure-site-recovery">VM-4 - Replicate Virtual Machines using Azure Site Recovery</a></li>
+        <li><a href="#vm-5---use-managed-disks-for-virtual-machine-hard-disks">VM-5 - Use Managed Disks for Virtual Machine hard disks</a></li>
+        <li><a href="#vm-6---host-application-or-database-data-on-a-data-disk">VM-6 - Host application or database data on a data disk</a></li>
+        <li><a href="#vm-7---enable-backups-on-your-virtual-machines">VM-7 - Enable Backups on your Virtual Machines</a></li>
+        <li><a href="#vm-8---production-vms-should-be-using-premium-disks">VM-8 - Production VMs should be using Premium disks</a></li>
+        <li><a href="#vm-9---there-are-virtual-machines-in-stopped-state">VM-9 - There are Virtual Machines in Stopped state</a></li>
+        <li><a href="#vm-10---accelerated-networking-is-not-enabled">VM-10 - Accelerated Networking is not enabled</a></li>
+        <li><a href="#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months">VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months</a></li>
+        <li><a href="#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated">VM-12 - Virtual Machines should not have a Public IP directly associated</a></li>
+        <li><a href="#vm-13---virtual-network-interfaces-have-an-nsg-associated">VM-13 - Virtual Network Interfaces have an NSG associated</a></li>
+        <li><a href="#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances">VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances</a></li>
+        <li><a href="#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level">VM-15 - Customer DNS Servers should be configured in the Virtual Network level</a></li>
+        <li><a href="#vm-16---private-ip-address-should-be-configured-as-static">VM-16 - Private IP Address should be configured as Static</a></li>
+        <li><a href="#vm-17---shared-disks-should-only-be-enabled-in-clustered-servers">VM-17 - Shared disks should only be enabled in Clustered servers</a></li>
+        <li><a href="#vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks">VM-18 - The Network access to the VM disk is set to &ldquo;Enable Public access from all networks</a></li>
+        <li><a href="#vm-19---virtual-machine-is-not-compliant-with-azure-policies">VM-19 - Virtual Machine is not compliant with Azure Policies</a></li>
+        <li><a href="#vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default">VM-20 - Enable disk encryption, Enable data at rest encryption by default</a></li>
+        <li><a href="#vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine">VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine</a></li>
+        <li><a href="#vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources">VM-22 - Diagnostic Settings should be configured for all Azure Resources</a></li>
+        <li><a href="#vm-23---tags-are-inconsistent-across-virtual-machines">VM-23 - Tags are inconsistent across Virtual Machines</a></li>
+        <li><a href="#vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine">VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</div>
+                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+                
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Virtual Machines</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p>The presented resiliency recommendations in this guidance include Virtual Machines, Virtual Machine Scale Sets, and dependent resources and settings.</p>
+<h2 id="summary-of-recommendations">Summary of Recommendations
+  <a href="#summary-of-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Recommendation</th>
+<th style="text-align:center">Verified by Microsoft Product Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#vm-1---avoid-running-a-production-workload-on-a-single-vm">VM-1 - Avoid running a production workload on a single VM</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-2---deploy-virtual-machines-across-availability-zones">VM-2 - Deploy Virtual Machines across Availability Zones</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set">VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-4---replicate-virtual-machines-using-azure-site-recovery">VM-4 - Replicate Virtual Machines using Azure Site Recovery</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-5---use-managed-disks-for-virtual-machine-hard-disks">VM-5 - Use Managed Disks for Virtual Machine hard disks</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-6---host-application-or-database-data-on-a-data-disk">VM-6 - Host application or database data on a data disk</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-7---enable-backups-on-your-virtual-machines">VM-7 - Enable Backups on your Virtual Machines</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-8---production-vms-should-be-using-premium-disks">VM-8 - Production VMs should be using Premium disks</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-9---there-are-virtual-machines-in-stopped-state">VM-9 - There are Virtual Machines in Stopped state</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-10---accelerated-networking-is-not-enabled">VM-10 - Accelerated Networking is not enabled</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months">VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated">VM-12 - Virtual Machines should not have a Public IP directly associated</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-13---virtual-network-interfaces-have-an-nsg-associated">VM-13 - Virtual Network Interfaces have an NSG associated</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances">VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level">VM-15 - Customer DNS Servers should be configured in the Virtual Network level</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-16---private-ip-address-should-be-configured-as-static">VM-16 - Private IP Address should be configured as Static</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-17---shared-disks-should-only-be-enabled-in-clustered-servers">VM-17 - Shared disks should only be enabled in Clustered servers</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks">VM-18 - The Network access to the VM disk is set to &ldquo;Enable Public access from all networks&rdquo;</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-19---virtual-machine-is-not-compliant-with-azure-policies">VM-19 - Virtual Machine is not compliant with Azure Policies</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default">VM-20 - Enable disk encryption, Enable data at rest encryption by default</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine">VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources">VM-22 - Diagnostic Settings should be configured for all Azure Resources</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-23---tags-are-inconsistent-across-virtual-machines">VM-23 - Tags are inconsistent across Virtual Machines</a></td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine">VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine</a></td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<h2 id="recommendations-details">Recommendations Details
+  <a href="#recommendations-details">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<h3 id="vm-1---avoid-running-a-production-workload-on-a-single-vm">VM-1 - Avoid running a production workload on a single VM
+  <a href="#vm-1---avoid-running-a-production-workload-on-a-single-vm">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-critical">Importance: Critical
+  <a href="#importance-critical">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance">Recommendation/Guidance
+  <a href="#recommendationguidance">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>A single VM deployment is not resilient to planned or unplanned Azure maintenances. Instead, deploy multiple VMs in different Availability Zones, or put them into an Availability Set or Virtual Machine Scale Set, with a Load Balancer in front of them.</p>
+<h4 id="resources">Resources
+  <a href="#resources">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines">https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines</a></li>
+</ul>
+<h4 id="queriesscripts">Queries/Scripts
+  <a href="#queriesscripts">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph">Azure Resource Graph
+  <a href="#azure-resource-graph">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-2---deploy-virtual-machines-across-availability-zones">VM-2 - Deploy Virtual Machines across Availability Zones
+  <a href="#vm-2---deploy-virtual-machines-across-availability-zones">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-high">Importance: High
+  <a href="#importance-high">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-1">Recommendation/Guidance
+  <a href="#recommendationguidance-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures.</p>
+<h4 id="resources-1">Resources
+  <a href="#resources-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/create-portal-availability-zone?tabs=standard">https://learn.microsoft.com/en-us/azure/virtual-machines/create-portal-availability-zone</a></li>
+</ul>
+<h4 id="queriesscripts-1">Queries/Scripts
+  <a href="#queriesscripts-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-1">Azure Resource Graph
+  <a href="#azure-resource-graph-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_825a3dc3f4" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_825a3dc3f4">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_72572aa9e3">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_72572aa9e3">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.compute/virtualmachines&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend zonesString <span style="color:#f92672">=</span> tostring(zones)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> zonesString <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">distinct</span> name, resourceGroup, zonesString
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project name, resourceGroup, zonesString
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set">VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set
+  <a href="#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-high-1">Importance: High
+  <a href="#importance-high-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-2">Recommendation/Guidance
+  <a href="#recommendationguidance-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>If the region where you are running your application doesn&rsquo;t support Availablity Zones, then put your VMs into an Availability Set. In an N-tier application, don&rsquo;t put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests.</p>
+<h4 id="resources-2">Resources
+  <a href="#resources-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines">https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines</a></li>
+</ul>
+<h4 id="queriesscripts-2">Queries/Scripts
+  <a href="#queriesscripts-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-2">Azure Resource Graph
+  <a href="#azure-resource-graph-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-4---replicate-virtual-machines-using-azure-site-recovery">VM-4 - Replicate Virtual Machines using Azure Site Recovery
+  <a href="#vm-4---replicate-virtual-machines-using-azure-site-recovery">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-low">Importance: Low
+  <a href="#importance-low">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-3">Recommendation/Guidance
+  <a href="#recommendationguidance-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>When you replicate Azure VMs using Site Recovery, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication.</p>
+<h4 id="resources-3">Resources
+  <a href="#resources-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li>[&quot;<a href="https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines">https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines</a>
+<a href="https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure">https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure</a>&quot;](&quot;<a href="https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines">https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines</a>
+<a href="https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure">https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure</a>&quot;)</li>
+</ul>
+<h4 id="queriesscripts-3">Queries/Scripts
+  <a href="#queriesscripts-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-3">Azure Resource Graph
+  <a href="#azure-resource-graph-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_62393d9008" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_62393d9008">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_d41d8cd98f">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_d41d8cd98f">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-5---use-managed-disks-for-virtual-machine-hard-disks">VM-5 - Use Managed Disks for Virtual Machine hard disks
+  <a href="#vm-5---use-managed-disks-for-virtual-machine-hard-disks">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-high-2">Importance: High
+  <a href="#importance-high-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-4">Recommendation/Guidance
+  <a href="#recommendationguidance-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Managed disks provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren&rsquo;t subject to the IOPS limits of VHDs created in a storage account.</p>
+<h4 id="resources-4">Resources
+  <a href="#resources-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li>[&quot;<a href="https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines">https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines</a>
+<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set">https://learn.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set</a>&quot;](&quot;<a href="https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines">https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines</a>
+<a href="https://learn.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set">https://learn.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set</a>&quot;)</li>
+</ul>
+<h4 id="queriesscripts-4">Queries/Scripts
+  <a href="#queriesscripts-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-4">Azure Resource Graph
+  <a href="#azure-resource-graph-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-6---host-application-or-database-data-on-a-data-disk">VM-6 - Host application or database data on a data disk
+  <a href="#vm-6---host-application-or-database-data-on-a-data-disk">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational">Importance: Informational
+  <a href="#importance-informational">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-5">Recommendation/Guidance
+  <a href="#recommendationguidance-5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>A data disk is a managed disk that&rsquo;s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting you data on a data disk also helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements.</p>
+<h4 id="resources-5">Resources
+  <a href="#resources-5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#data-disk">https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#data-disk</a></li>
+</ul>
+<h4 id="queriesscripts-5">Queries/Scripts
+  <a href="#queriesscripts-5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-5">Azure Resource Graph
+  <a href="#azure-resource-graph-5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-7---enable-backups-on-your-virtual-machines">VM-7 - Enable Backups on your Virtual Machines
+  <a href="#vm-7---enable-backups-on-your-virtual-machines">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-medium">Importance: Medium
+  <a href="#importance-medium">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-6">Recommendation/Guidance
+  <a href="#recommendationguidance-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Enable backups for your virtual machines and secure your data</p>
+<h4 id="resources-6">Resources
+  <a href="#resources-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/backup/backup-overview">https://learn.microsoft.com/en-us/azure/backup/backup-overview</a></li>
+</ul>
+<h4 id="queriesscripts-6">Queries/Scripts
+  <a href="#queriesscripts-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-6">Azure Resource Graph
+  <a href="#azure-resource-graph-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-8---production-vms-should-be-using-premium-disks">VM-8 - Production VMs should be using Premium disks
+  <a href="#vm-8---production-vms-should-be-using-premium-disks">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-critical-1">Importance: Critical
+  <a href="#importance-critical-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-7">Recommendation/Guidance
+  <a href="#recommendationguidance-7">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.</p>
+<p>Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Use Standard HDD disks for Dev/Test scenarios and less critical workloads at lowest cost.</p>
+<h4 id="resources-7">Resources
+  <a href="#resources-7">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd">https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd</a></li>
+</ul>
+<h4 id="queriesscripts-7">Queries/Scripts
+  <a href="#queriesscripts-7">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-7">Azure Resource Graph
+  <a href="#azure-resource-graph-7">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-9---there-are-virtual-machines-in-stopped-state">VM-9 - There are Virtual Machines in Stopped state
+  <a href="#vm-9---there-are-virtual-machines-in-stopped-state">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational-1">Importance: Informational
+  <a href="#importance-informational-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-8">Recommendation/Guidance
+  <a href="#recommendationguidance-8">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Azure Virtual Machines (VM) instances go through different states. There are provisioning and power states. If a Virtual Machine is not running that indicates the Virtual Machine might facing an issue or is no longer necessary and could be removed helping to reduce costs.</p>
+<h4 id="resources-8">Resources
+  <a href="#resources-8">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing?context=%2Ftroubleshoot%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext">https://learn.microsoft.com/en-us/azure/virtual-machines/</a></li>
+</ul>
+<h4 id="queriesscripts-8">Queries/Scripts
+  <a href="#queriesscripts-8">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-8">Azure Resource Graph
+  <a href="#azure-resource-graph-8">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_724ebf6119" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_724ebf6119">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_c1751f6b67">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_c1751f6b67">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend PowerState<span style="color:#f92672">=</span> tostring(properties.extended.instanceView.powerState.displayStatus)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.compute/virtualmachines&#39;</span> <span style="color:#66d9ef">and</span> PowerState <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;VM Stopped&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project name,PowerState,resourceGroup,subscriptionId
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-10---accelerated-networking-is-not-enabled">VM-10 - Accelerated Networking is not enabled
+  <a href="#vm-10---accelerated-networking-is-not-enabled">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-medium-1">Importance: Medium
+  <a href="#importance-medium-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-9">Recommendation/Guidance
+  <a href="#recommendationguidance-9">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads on supported VM types.</p>
+<h4 id="resources-9">Resources
+  <a href="#resources-9">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview">https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview</a></li>
+</ul>
+<h4 id="queriesscripts-9">Queries/Scripts
+  <a href="#queriesscripts-9">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-9">Azure Resource Graph
+  <a href="#azure-resource-graph-9">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months">VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months
+  <a href="#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-low-1">Importance: Low
+  <a href="#importance-low-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-10">Recommendation/Guidance
+  <a href="#recommendationguidance-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>When Accelerated Networking is enabled the default Azure Virtual Network interface in the GuestOS is replaced for a Mellanox and consecutively its driver is provided from a 3rd party vendor. Marketplace images maintained by Microsoft are offered with the latest version of Mellanox drivers, however, once the Virtual Machine is deployed, the customer is responsible for maintaining the driver up to date.</p>
+<h4 id="resources-10">Resources
+  <a href="#resources-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview">https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview</a></li>
+</ul>
+<h4 id="queriesscripts-10">Queries/Scripts
+  <a href="#queriesscripts-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-10">Azure Resource Graph
+  <a href="#azure-resource-graph-10">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated">VM-12 - Virtual Machines should not have a Public IP directly associated
+  <a href="#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-medium-2">Importance: Medium
+  <a href="#importance-medium-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-11">Recommendation/Guidance
+  <a href="#recommendationguidance-11">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>If a Virtual Machine requires outbound internet connectivity we recommend the use of NAT Gateway or Azure Firewall, this will help to increase security and resiliency of the service as both services have much higher availability and SNAT ports. For inbound internet connectivity we recommend using a load balancing solution such as Azure Load Balancer and Application Gateway.</p>
+<h4 id="resources-11">Resources
+  <a href="#resources-11">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections">https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections</a></li>
+</ul>
+<h4 id="queriesscripts-11">Queries/Scripts
+  <a href="#queriesscripts-11">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-11">Azure Resource Graph
+  <a href="#azure-resource-graph-11">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_d7f05c31f5" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_d7f05c31f5">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_3a531f46d1">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_3a531f46d1">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.compute/virtualmachines&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend nics<span style="color:#f92672">=</span>array_length(properties.networkProfile.networkInterfaces)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mvexpand nic<span style="color:#f92672">=</span>properties.networkProfile.networkInterfaces
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend hostName <span style="color:#f92672">=</span> properties.osProfile.computerName
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> nics <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">or</span> nic.properties.<span style="color:#66d9ef">primary</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;true&#39;</span> <span style="color:#66d9ef">or</span> isempty(nic)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project vmId <span style="color:#f92672">=</span> id,
+</span></span><span style="display:flex;"><span>          vmName <span style="color:#f92672">=</span> name,
+</span></span><span style="display:flex;"><span>          nicId <span style="color:#f92672">=</span> tostring(nic.id),
+</span></span><span style="display:flex;"><span>          hostName
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>leftouter (
+</span></span><span style="display:flex;"><span>    Resources
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.network/networkinterfaces&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend ipConfigsCount<span style="color:#f92672">=</span>array_length(properties.ipConfigurations)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> mvexpand ipconfig<span style="color:#f92672">=</span>properties.ipConfigurations
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend privateIp <span style="color:#f92672">=</span> ipconfig.properties.privateIPAddress,
+</span></span><span style="display:flex;"><span>             publicIpId <span style="color:#f92672">=</span> tostring(ipconfig.properties.publicIPAddress.id)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> ipConfigsCount <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">or</span> ipconfig.properties.<span style="color:#66d9ef">primary</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;true&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project nicId <span style="color:#f92672">=</span> id,
+</span></span><span style="display:flex;"><span>              privateIp,
+</span></span><span style="display:flex;"><span>              publicIpId
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">on</span> nicId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project<span style="color:#f92672">-</span>away nicId1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize <span style="color:#66d9ef">by</span> vmId, vmName, tostring(hostName), nicId, publicIpId, tostring(privateIp)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>leftouter (
+</span></span><span style="display:flex;"><span>    Resources
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.network/publicipaddresses&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project publicIpId <span style="color:#f92672">=</span> id, publicIpAddress <span style="color:#f92672">=</span> properties.ipAddress)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">on</span> publicIpId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> publicIpAddress <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project<span style="color:#f92672">-</span>away publicIpId1
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-13---virtual-network-interfaces-have-an-nsg-associated">VM-13 - Virtual Network Interfaces have an NSG associated
+  <a href="#vm-13---virtual-network-interfaces-have-an-nsg-associated">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational-2">Importance: Informational
+  <a href="#importance-informational-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-12">Recommendation/Guidance
+  <a href="#recommendationguidance-12">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Unless you have a specific reason to, we recommend that you associate a network security group to a subnet, or a network interface, but not both. Since rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface, you can have unexpected communication problems that require troubleshooting.</p>
+<h4 id="resources-12">Resources
+  <a href="#resources-12">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic">https://learn.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic</a></li>
+</ul>
+<h4 id="queriesscripts-12">Queries/Scripts
+  <a href="#queriesscripts-12">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-12">Azure Resource Graph
+  <a href="#azure-resource-graph-12">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances">VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances
+  <a href="#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importancemedium">Importance:Medium
+  <a href="#importancemedium">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-13">Recommendation/Guidance
+  <a href="#recommendationguidance-13">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>IP forwarding enables the virtual machine network interface to:</p>
+<p>Receive network traffic not destined for one of the IP addresses assigned to any of the IP configurations assigned to the network interface.</p>
+<p>Send network traffic with a different source IP address than the one assigned to one of a network interface&rsquo;s IP configurations.</p>
+<p>The setting must be enabled for every network interface that is attached to the virtual machine that receives traffic that the virtual machine needs to forward. A virtual machine can forward traffic whether it has multiple network interfaces or a single network interface attached to it. While IP forwarding is an Azure setting, the virtual machine must also run an application able to forward the traffic, such as firewall, WAN optimization, and load balancing applications.</p>
+<h4 id="resources-13">Resources
+  <a href="#resources-13">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding">https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding</a></li>
+</ul>
+<h4 id="queriesscripts-13">Queries/Scripts
+  <a href="#queriesscripts-13">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-13">Azure Resource Graph
+  <a href="#azure-resource-graph-13">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level">VM-15 - Customer DNS Servers should be configured in the Virtual Network level
+  <a href="#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational-3">Importance: Informational
+  <a href="#importance-informational-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-14">Recommendation/Guidance
+  <a href="#recommendationguidance-14">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Configure the DNS Server in the Virtual Network to avoid inconsistency across the environment.</p>
+<h4 id="resources-14">Resources
+  <a href="#resources-14">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances">https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances</a></li>
+</ul>
+<h4 id="queriesscripts-14">Queries/Scripts
+  <a href="#queriesscripts-14">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-14">Azure Resource Graph
+  <a href="#azure-resource-graph-14">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-16---private-ip-address-should-be-configured-as-static">VM-16 - Private IP Address should be configured as Static
+  <a href="#vm-16---private-ip-address-should-be-configured-as-static">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-low-2">Importance: Low
+  <a href="#importance-low-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-15">Recommendation/Guidance
+  <a href="#recommendationguidance-15">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>By default, the Azure DHCP servers assign the private IPv4 address for the primary IP configuration of the Azure network interface to the network interface within the virtual machine operating system. Dynamic is the default allocation method. Once assigned, dynamic IP addresses are only released if a network interface is deleted, assigned to a different subnet within the same virtual network, or the allocation method is changed to static, and a different IP address is specified. In order to increase consistency and guaranteed IP reservation, we highly recommend configuring Static IPs.</p>
+<h4 id="resources-15">Resources
+  <a href="#resources-15">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/virtual-network-network-interface-addresses?tabs=nic-address-portal#static">https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/virtual-network-network-interface-addresses?tabs=nic-address-portal#static</a></li>
+</ul>
+<h4 id="queriesscripts-15">Queries/Scripts
+  <a href="#queriesscripts-15">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-15">Azure Resource Graph
+  <a href="#azure-resource-graph-15">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-17---shared-disks-should-only-be-enabled-in-clustered-servers">VM-17 - Shared disks should only be enabled in Clustered servers
+  <a href="#vm-17---shared-disks-should-only-be-enabled-in-clustered-servers">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-high-3">Importance: High
+  <a href="#importance-high-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-16">Recommendation/Guidance
+  <a href="#recommendationguidance-16">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Azure shared disks is a feature for Azure managed disks that enables you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure, and should only be used in those situations where the disk will be assigned to more than one Virtual Machine member of a Cluster.</p>
+<h4 id="resources-16">Resources
+  <a href="#resources-16">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared-enable?tabs=azure-portal">https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared-enable?tabs=azure-portal</a></li>
+</ul>
+<h4 id="queriesscripts-16">Queries/Scripts
+  <a href="#queriesscripts-16">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-16">Azure Resource Graph
+  <a href="#azure-resource-graph-16">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks">VM-18 - The Network access to the VM disk is set to &ldquo;Enable Public access from all networks
+  <a href="#vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational-4">Importance: Informational
+  <a href="#importance-informational-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-17">Recommendation/Guidance
+  <a href="#recommendationguidance-17">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Recommended changing to &ldquo;Disable public access and enable private access&rdquo; and creating a Private Endpoint</p>
+<h4 id="resources-17">Resources
+  <a href="#resources-17">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal">https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal</a></li>
+</ul>
+<h4 id="queriesscripts-17">Queries/Scripts
+  <a href="#queriesscripts-17">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-17">Azure Resource Graph
+  <a href="#azure-resource-graph-17">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-19---virtual-machine-is-not-compliant-with-azure-policies">VM-19 - Virtual Machine is not compliant with Azure Policies
+  <a href="#vm-19---virtual-machine-is-not-compliant-with-azure-policies">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-medium-3">Importance: Medium
+  <a href="#importance-medium-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-18">Recommendation/Guidance
+  <a href="#recommendationguidance-18">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>It&rsquo;s important to keep your virtual machine (VM) secure for the applications that you run. Securing your VMs can include one or more Azure services and features that cover secure access to your VMs and secure storage of your data. This article provides information that enables you to keep your VM and applications secure.</p>
+<h4 id="resources-18">Resources
+  <a href="#resources-18">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/security-controls-policy">https://learn.microsoft.com/en-us/azure/virtual-machines/security-controls-policy</a></li>
+</ul>
+<h4 id="queriesscripts-18">Queries/Scripts
+  <a href="#queriesscripts-18">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-18">Azure Resource Graph
+  <a href="#azure-resource-graph-18">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default">VM-20 - Enable disk encryption, Enable data at rest encryption by default
+  <a href="#vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-medium-4">Importance: Medium
+  <a href="#importance-medium-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-19">Recommendation/Guidance
+  <a href="#recommendationguidance-19">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>There are several types of encryption available for your managed disks, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.</p>
+<ul>
+<li>Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments.</li>
+<li>Azure Disk Storage Server-Side Encryption (also referred to as encryption-at-rest or Azure Storage encryption) automatically encrypts data stored on Azure managed disks (OS and data disks) when persisting on the Storage Clusters.</li>
+<li>Encryption at host ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters.</li>
+<li>Confidential disk encryption binds disk encryption keys to the virtual machine&rsquo;s TPM and makes the protected disk content accessible only to the VM.</li>
+</ul>
+<h4 id="resources-19">Resources
+  <a href="#resources-19">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview">https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview</a></li>
+</ul>
+<h4 id="queriesscripts-19">Queries/Scripts
+  <a href="#queriesscripts-19">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-19">Azure Resource Graph
+  <a href="#azure-resource-graph-19">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine">VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine
+  <a href="#vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational-5">Importance: Informational
+  <a href="#importance-informational-5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-20">Recommendation/Guidance
+  <a href="#recommendationguidance-20">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>VM insights monitors the performance and health of your virtual machines and virtual machine scale sets. It monitors their running processes and dependencies on other resources. VM insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. It can also help you understand whether an issue is related to other dependencies.</p>
+<h4 id="resources-20">Resources
+  <a href="#resources-20">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview">https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview</a></li>
+</ul>
+<h4 id="queriesscripts-20">Queries/Scripts
+  <a href="#queriesscripts-20">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-20">Azure Resource Graph
+  <a href="#azure-resource-graph-20">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources">VM-22 - Diagnostic Settings should be configured for all Azure Resources
+  <a href="#vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-low-3">Importance: Low
+  <a href="#importance-low-3">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-21">Recommendation/Guidance
+  <a href="#recommendationguidance-21">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration.
+Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on:</p>
+<ul>
+<li>Resource logs aren&rsquo;t collected until they&rsquo;re routed to a destination.</li>
+<li>Activity logs exist on their own but can be routed to other locations.</li>
+</ul>
+<p>Each Azure resource requires its own diagnostic setting, which defines the following criteria:</p>
+<ul>
+<li>Sources: The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.</li>
+<li>Destinations: One or more destinations to send to.</li>
+</ul>
+<p>A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), create multiple settings. Each resource can have up to five diagnostic settings.</p>
+<h4 id="resources-21">Resources
+  <a href="#resources-21">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal">https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal</a></li>
+</ul>
+<h4 id="queriesscripts-21">Queries/Scripts
+  <a href="#queriesscripts-21">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-21">Azure Resource Graph
+  <a href="#azure-resource-graph-21">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-23---tags-are-inconsistent-across-virtual-machines">VM-23 - Tags are inconsistent across Virtual Machines
+  <a href="#vm-23---tags-are-inconsistent-across-virtual-machines">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-informational-6">Importance: Informational
+  <a href="#importance-informational-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-22">Recommendation/Guidance
+  <a href="#recommendationguidance-22">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>The Tags assigned to the Virtual Machines are different and if used for automation, or billing, or support purposes it could led to incorrect actions.</p>
+<h4 id="resources-22">Resources
+  <a href="#resources-22">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json">https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json</a></li>
+</ul>
+<h4 id="queriesscripts-22">Queries/Scripts
+  <a href="#queriesscripts-22">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-22">Azure Resource Graph
+  <a href="#azure-resource-graph-22">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine">VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine
+  <a href="#vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<h4 id="importance-medium-5">Importance: Medium
+  <a href="#importance-medium-5">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h4 id="recommendationguidance-23">Recommendation/Guidance
+  <a href="#recommendationguidance-23">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<p>The Tags assigned to the Virtual Machines are different and if used for automation, or billing, or support purposes it could led to incorrect actions.</p>
+<h4 id="resources-23">Resources
+  <a href="#resources-23">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json">https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json</a></li>
+</ul>
+<h4 id="queriesscripts-23">Queries/Scripts
+  <a href="#queriesscripts-23">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h4>
+<h5 id="azure-resource-graph-23">Azure Resource Graph
+  <a href="#azure-resource-graph-23">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h5>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3e8ffa6ce9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_3e8ffa6ce9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_e9ad9cb243">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_e9ad9cb243">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">under</span> development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+
+
+    
+
+
+                    
+                    <div class="row"></div> 
+
+                </div>
+
+            </div> 
+
+        </div> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/jquery.min.js"></script> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/popper.min.js"></script> 
+
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Libraryjs/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "https:\/\/azure.github.io\/Azure-Proactive-Resiliency-Library";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Integration on Azure Proactive Resiliency Library (APRL)</title>
+    <link>https://azure.github.io/Azure-Proactive-Resiliency-Library/services/integration/</link>
+    <description>Recent content in Integration on Azure Proactive Resiliency Library (APRL)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Mar 2023 10:12:16 +0000</lastBuildDate><atom:link href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/integration/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

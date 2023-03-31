@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Contribution Guide for the Azure Proactive Resiliency Library (APRL)">
+    
+    <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/contributing/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/contributing/">
+
+    <title>
+        
+        Contributing | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="https://azure.github.io/Azure-Proactive-Resiliency-Librarycss/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/css/ace.scss">
+
+    
+
+    
+    
+        
+    
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+            <div class="row">
+
+                <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>IoT</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+                <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left"><div class="docs-toc">
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#contextbackground">Context/Background</a>
+      <ul>
+        <li><a href="#but-i-dont-have-any-skills-in-hugo">But I don&rsquo;t have any skills in Hugo?</a></li>
+      </ul>
+    </li>
+    <li><a href="#pre-requisites">Pre-Requisites</a></li>
+    <li><a href="#run-and-access-a-local-copy-of-aprl-during-development">Run and Access a Local Copy of APRL During Development</a>
+      <ul>
+        <li><a href="#softwareapplications">Software/Applications</a></li>
+        <li><a href="#winget-install-commands">winget Install Commands</a></li>
+        <li><a href="#other-requirements">Other requirements</a></li>
+      </ul>
+    </li>
+    <li><a href="#useful-resources">Useful Resources</a></li>
+    <li><a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a></li>
+    <li><a href="#creating-a-services-recommendation-page">Creating a Service&rsquo;s Recommendation Page</a></li>
+    <li><a href="#updating-a-services-recommendation-page">Updating a Service&rsquo;s Recommendation Page</a></li>
+    <li><a href="#creating-a-service-category">Creating a Service Category</a></li>
+    <li><a href="#top-tips">Top Tips</a></li>
+  </ul>
+</nav>
+</div>
+</div>
+                <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-8 py-3">
+                
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Contributing</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-warning rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-warning">
+            <h3>Contributions Notice</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Currently we can only accept contributions from Microsoft FTEs. In the future we will look to change this.
+        </div>
+    </div>
+</div>
+
+<p>Looking to contribute to the Azure Proactive Resiliency Library (APRL), well you have made it to the right place/page 👍</p>
+<p>Follow the below instructions, especially the pre-requisites, to get started contributing to the library.</p>
+<h2 id="contextbackground">Context/Background
+  <a href="#contextbackground">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Before jumping into the pre-requisites and specific section contribution guidance, please familiarize yourself with this context/background on how this library is built to help you contribute going forward.</p>
+<p>This <a href="https://aka.ms/aprl">site</a> is built using <a href="https://gohugo.io/">Hugo</a>, a static site generator, that&rsquo;s source code is stored in the <a href="https://aka.ms/aprl/repo">APRL GitHub repo</a> (link in header of this site too) and is hosted on <a href="https://pages.github.com">GitHub Pages</a>, via the repo.</p>
+<p>The reason for the combination of Hugo &amp; GitHub pages is to allow us to present an easy to navigate and consume library, rather than using a native GitHub repo, which is not easy to consume when there are lots of pages and folders. Also Hugo generates the site in such a way that it is also friendly for mobile consumers.</p>
+<h3 id="but-i-dont-have-any-skills-in-hugo">But I don&rsquo;t have any skills in Hugo?
+  <a href="#but-i-dont-have-any-skills-in-hugo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>That&rsquo;s okay and you really don&rsquo;t need them. Hugo just needs you to be able to author markdown (<code>.md</code>) files and it does the rest when it generates the site 👍</p>
+<h2 id="pre-requisites">Pre-Requisites
+  <a href="#pre-requisites">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Read and follow the below sections to leave you in a &ldquo;ready state&rdquo; to contribute to APRL.</p>
+<p>A &ldquo;ready state&rdquo; means you have a forked copy of the <a href="https://aka.ms/aprl/repo"><code>Azure/Azure-Proactive-Resiliency-Library</code> repo</a> cloned to your local machine and open in VS Code.</p>
+<h2 id="run-and-access-a-local-copy-of-aprl-during-development">Run and Access a Local Copy of APRL During Development
+  <a href="#run-and-access-a-local-copy-of-aprl-during-development">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>When in VS Code you should be able to open a terminal and run the below commands to access a copy of the APRL website from a local web server, provided by Hugo, using the following address <a href="http://localhost:1313/Azure-Proactive-Resiliency-Library/"><code>http://localhost:1313/Azure-Proactive-Resiliency-Library/</code></a>:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_4e13fb49e2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_4e13fb49e2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd docs
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<h3 id="softwareapplications">Software/Applications
+  <a href="#softwareapplications">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>To contribute to this project/repo/library you will need the following installed:</p>
+
+<div class="alert alert-success" role="alert">
+    You can use <code>winget</code> to install all the pre-requisites easily for you. See the <a href="#winget-install-commands">below section</a>
+</div>
+
+<ul>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code (VS Code)</a>
+<ul>
+<li>Extensions:
+<ul>
+<li><code>editorconfig.editorconfig</code>, <code>streetsidesoftware.code-spell-checker</code>, <code>ms-vsliveshare.vsliveshare</code>, <code>medo64.render-crlf</code>, <code>vscode-icons-team.vscode-icons</code></li>
+<li>VS Code will recommend automatically to install these when you open this repo, or a fork of it, in VS Code.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://gohugo.io/installation/">Hugo Extended</a></li>
+</ul>
+<h3 id="winget-install-commands">winget Install Commands
+  <a href="#winget-install-commands">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>To install <code>winget</code> follow the <a href="https://learn.microsoft.com/windows/package-manager/winget/#install-winget">install instructions here.</a></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b0d74a9556">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b0d74a9556">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>winget install --id &#39;Git.Git&#39;
+</span></span><span style="display:flex;"><span>winget install --id &#39;Microsoft.VisualStudioCode&#39;
+</span></span><span style="display:flex;"><span>winget install --id &#39;Hugo.Hugo.Extended&#39;
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<h3 id="other-requirements">Other requirements
+  <a href="#other-requirements">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<ul>
+<li><a href="https://github.com/join">A GitHub profile/account</a></li>
+<li>A fork of the <a href="https://aka.ms/aprl/repo"><code>Azure/Azure-Proactive-Resiliency-Library</code> repo</a> into your GitHub org/account and cloned locally to your machine
+<ul>
+<li>Instructions on forking a repo and then cloning it can be found <a href="https://docs.github.com/get-started/quickstart/fork-a-repo">here</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="useful-resources">Useful Resources
+  <a href="#useful-resources">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Below are links to a number of useful resources to have when contributing to APRL:</p>
+<ul>
+<li><a href="https://docs.vantage-design.com/ace/">Ace Documentation Theme (that we use) - Docs</a>
+<ul>
+<li><a href="https://docs.vantage-design.com/ace/shortcodes/">Shortcodes - e.g. Code</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/vantagedesign/ace-documentation">Ace Documentation Theme (that we use) - Repo</a>
+<ul>
+<li><a href="https://github.com/vantagedesign/ace-documentation/tree/master/exampleSite">The Example Site, which is the first link above, source code</a></li>
+</ul>
+</li>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start</a></li>
+<li><a href="https://gohugo.io/documentation/">Hugo Docs</a></li>
+<li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheat Sheet</a></li>
+</ul>
+<h2 id="steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)
+  <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Run the following commands in your terminal of choice from the directory where you fork of the repo is located:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_a9930941d2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_a9930941d2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git pull
+</span></span><span style="display:flex;"><span>git fetch -p
+</span></span><span style="display:flex;"><span>git fetch -p upstream
+</span></span><span style="display:flex;"><span>git pull upstream main
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>Doing this will ensure you have the latest changes from the upstream repo and you are ready to now create a new branch from <code>main</code> by running the below commands:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_137307a376">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_137307a376">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git checkout -b &lt;YOUR-DESIRED-BRANCH-NAME-HERE&gt;
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<h2 id="creating-a-services-recommendation-page">Creating a Service&rsquo;s Recommendation Page
+  <a href="#creating-a-services-recommendation-page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Important</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Make sure you have followed the the <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a> before following this section.
+        </div>
+    </div>
+</div>
+
+<p>The is a common task that is likely to be done is adding a new service to which you want to provide recommendations and supporting queries etc. for example Virtual Machines.</p>
+<p>For this task we use <a href="https://gohugo.io/content-management/archetypes/">Hugo&rsquo;s archetype</a> features which enables you to create a whole directory for a new service with a lot of templated content ready for you to change and use. This can be called by using the following command <code>hugo new --kind service-bundle services/&lt;category&gt;/&lt;service-name</code></p>
+<p>You can see source code of the directory archetype called <code>service-bundle</code> <a href="https://github.com/Azure/Azure-Proactive-Resiliency-Library/tree/main/docs/archetypes/service-bundle">here in the repo.</a></p>
+
+<div class="alert alert-info" role="alert">
+    For the steps below we will use the Virtual Machine service as an example. Please change this to the service you are wanting to create.
+</div>
+
+<p>Steps to follow:</p>
+<ol>
+<li>In your terminal of choice run the following:
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_205012cc52">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_205012cc52">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd docs/
+</span></span><span style="display:flex;"><span>hugo new --kind service-bundle services/compute/virtual-machines
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>You will now see a new folder in <code>content/services/compute</code> called <code>virtual-machines</code>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5aabe0ea12">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5aabe0ea12">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>├───content
+</span></span><span style="display:flex;"><span>│   ├───contributing
+</span></span><span style="display:flex;"><span>│   └───services
+</span></span><span style="display:flex;"><span>│       ├───ai-ml
+</span></span><span style="display:flex;"><span>│       ├───compute
+</span></span><span style="display:flex;"><span>│       │   └───virtual-machines
+</span></span><span style="display:flex;"><span>│       │       └───code
+</span></span><span style="display:flex;"><span>│       │           ├───cm-1
+</span></span><span style="display:flex;"><span>│       │           └───cm-2
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Inside the <code>virtual-machines</code> folder you will see the following files pre-staged
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_4f13827779">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_4f13827779">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│       │   └───virtual-machines
+</span></span><span style="display:flex;"><span>│       │       │   _index.md
+</span></span><span style="display:flex;"><span>│       │       │
+</span></span><span style="display:flex;"><span>│       │       └───code
+</span></span><span style="display:flex;"><span>│       │           ├───cm-1
+</span></span><span style="display:flex;"><span>│       │           │       cm-1.azcli
+</span></span><span style="display:flex;"><span>│       │           │       cm-1.kql
+</span></span><span style="display:flex;"><span>│       │           │       cm-1.ps1
+</span></span><span style="display:flex;"><span>│       │           │
+</span></span><span style="display:flex;"><span>│       │           └───cm-2
+</span></span><span style="display:flex;"><span>│       │                   cm-2.azcli
+</span></span><span style="display:flex;"><span>│       │                   cm-2.kql
+</span></span><span style="display:flex;"><span>│       │                   cm-2.ps1
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Open <code>_index.md</code> in VS Code and make relevant changes
+<ul>
+<li>You can copy the recommendations labelled <code>CM-1</code> or <code>CM-2</code> multiple times to create more recommendations</li>
+</ul>
+</li>
+<li>Update the ARG, PowerShell, AZCLI scripts in the <code>code</code> folder within <code>virtual-machines</code>
+<ul>
+<li>You will see there is a folder, e.g. <code>cm-1</code>, <code>cm-2</code>, per recommendation to help with file structure organization</li>
+</ul>
+</li>
+<li>Save, commit and push your changes to your branch and repo</li>
+<li>Create a <a href="https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">create a Pull Request</a> into the <code>main</code> branch of the upstream repo</li>
+<li>Get it merged</li>
+</ol>
+
+<div class="alert alert-success" role="alert">
+    Don&rsquo;t forget you can see your changes live by running a local copy of the APRL website by following the guidance <a href="#run-and-access-a-local-copy-of-aprl-during-development">here.</a>
+</div>
+
+<h2 id="updating-a-services-recommendation-page">Updating a Service&rsquo;s Recommendation Page
+  <a href="#updating-a-services-recommendation-page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Important</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Make sure you have followed the the <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a> before following this section.
+        </div>
+    </div>
+</div>
+
+<p>This is likely the most common task that will be performed.</p>
+<p>All you need to do is just make edits directly to the existing markdown (<code>.md</code>) files, save your changes, commit, stage and push them to your branch and repo. Then <a href="https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">create a Pull Request</a> into the <code>main</code> branch of the upstream repo and you are done 👍</p>
+
+<div class="alert alert-success" role="alert">
+    Don&rsquo;t forget you can see your changes live by running a local copy of the APRL website by following the guidance <a href="#run-and-access-a-local-copy-of-aprl-during-development">here.</a>
+</div>
+
+<h2 id="creating-a-service-category">Creating a Service Category
+  <a href="#creating-a-service-category">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Important</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Make sure you have followed the the <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a> before following this section.
+        </div>
+    </div>
+</div>
+
+<p>For this task we use <a href="https://gohugo.io/content-management/archetypes/">Hugo&rsquo;s archetype</a> features which enables you to create a whole directory for a new service with a lot of templated content ready for you to change and use. This can be called by using the following command <code>hugo new --kind category-bundle services/&lt;category&gt;</code></p>
+<p>You can see source code of the directory archetype called <code>category-bundle</code> <a href="https://github.com/Azure/Azure-Proactive-Resiliency-Library/tree/main/docs/archetypes/category-bundle">here in the repo.</a></p>
+
+<div class="alert alert-info" role="alert">
+    For the steps below we will use the AAA category as an example. Please change this to the category you are wanting to create.
+</div>
+
+<p>Steps to follow:</p>
+<ol>
+<li>In your terminal of choice run the following:
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_74c806a32d">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_74c806a32d">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd docs/
+</span></span><span style="display:flex;"><span>hugo new --kind category-bundle services/aaa
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>You will now see a new folder in <code>content/services</code> called <code>aaa</code>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_28f2dade0f">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_28f2dade0f">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>├───content
+</span></span><span style="display:flex;"><span>│   │   _index.md
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   ├───contributing
+</span></span><span style="display:flex;"><span>│   │       _index.md
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   └───services
+</span></span><span style="display:flex;"><span>│       │   _index.md
+</span></span><span style="display:flex;"><span>│       │
+</span></span><span style="display:flex;"><span>│       ├───aaa
+</span></span><span style="display:flex;"><span>│       │       _index.md
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Inside the <code>aaa</code> folder you will see the following file <code>_index.md</code> pre-staged
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_3e01afbdc9">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_3e01afbdc9">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>├───aaa
+</span></span><span style="display:flex;"><span>│       │       _index.md
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Open <code>_index.md</code> in VS Code and make relevant changes</li>
+<li>Save, commit and push your changes to your branch and repo</li>
+<li>Create a <a href="https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">create a Pull Request</a> into the <code>main</code> branch of the upstream repo</li>
+<li>Get it merged</li>
+</ol>
+
+<div class="alert alert-success" role="alert">
+    Don&rsquo;t forget you can see your changes live by running a local copy of the APRL website by following the guidance <a href="#run-and-access-a-local-copy-of-aprl-during-development">here.</a>
+</div>
+
+<h2 id="top-tips">Top Tips
+  <a href="#top-tips">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<ol>
+<li>Sometimes the local version of the website may show some inconsistencies that don&rsquo;t reflect the content you have created.
+<ul>
+<li>If this happens, simply kill the Hugo local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> and then restart the Hugo web server by running <code>hugo server -D</code> from the <code>docs/</code> directory</li>
+</ul>
+</li>
+</ol>
+
+
+    
+
+
+                    
+                    <div class="row"></div> 
+
+                </div>
+
+            </div> 
+
+        </div> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/jquery.min.js"></script> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/popper.min.js"></script> 
+
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Libraryjs/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "https:\/\/azure.github.io\/Azure-Proactive-Resiliency-Library";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@ weight = 1
 
 Welcome to the home of the Azure Proactive Resiliency Library (APRL).
 
-<img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" width=40%>
+<img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" width=10%>
 <br><br>
 
 This library is built with the intention of being a staging area for guidance and recommendations that can be used by customers, partners and the field in Well-Architected Framework reliability engagements/assessments; with the intent of the guidance and recommendations being promoted, once tested and validated with customers and partners, into the official [Well-Architected Framework documentation](https://aka.ms/waf).

@@ -45,7 +45,9 @@ FILL ME IN...
 
 {{< /collapse >}}
 
-<br><br>
+<br><br> [Back to top](#summary-of-recommendations)
+
+---
 
 ### CM-2 - CHANGE ME title
 
@@ -70,4 +72,6 @@ FILL ME IN...
 
 {{< /collapse >}}
 
-<br><br>
+<br><br> [Back to top](#summary-of-recommendations)
+
+---

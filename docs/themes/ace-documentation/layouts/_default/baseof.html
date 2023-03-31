@@ -12,7 +12,7 @@
                     {{- partial "menu.html" . -}}
                 </div>
 
-                {{- if and (ne .Site.Params.toc false) (ne .Params.toc false) }}
+                {{- if and (eq .Site.Params.toc false) (eq .Params.toc false) }}
                 <div class="docs-toc large order-lg-2 order-md-0 order-xs-1 col-12 col-lg-2 col-xl-2 position-sticky border-left">
                     {{- partial "tableofcontents.html" . -}}
                 </div>
@@ -22,7 +22,7 @@
                 {{end}}
 
                     {{- block "main" . }}{{- end }}
-                    
+
                     <div class="row">
                         {{- if and (ne .Site.Params.disableReadmoreNav true) (ne .Params.disableReadmoreNav true) -}}
                         <div class="position-relative mx-auto col-lg-9">
