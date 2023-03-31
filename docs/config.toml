@@ -12,6 +12,7 @@ pygmentsStyle = "monokai"
 disableReadmoreNav = true
 menushortcutsnewtab = true
 site_logo = "/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png"
+toc = false
 
 [markup]
   [markup.goldmark]
