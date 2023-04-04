@@ -78,7 +78,7 @@ A single VM deployment is not resilient to planned or unplanned Azure maintenanc
 
 #### Recommendation/Guidance
 
-Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures.
+Azure Availability Zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures.
 
 #### Resources
 
