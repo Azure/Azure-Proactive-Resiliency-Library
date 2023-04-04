@@ -12,33 +12,39 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation | Verified by Microsoft Product Group |
-| :------------- | :---------------------------------: |
-| [VM-1 - Avoid running a production workload on a single VM](#vm-1---avoid-running-a-production-workload-on-a-single-vm) | No |
-| [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones) | No |
-| [VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set](#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set) | No |
-| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery) | No |
-| [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks) | No |
-| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk) | No |
-| [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines) | No |
-| [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks) | No |
-| [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state) | No |
-| [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled) | No |
-| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months) | No |
-| [VM-12 - Virtual Machines should not have a Public IP directly associated](#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated) | No |
-| [VM-13 - Virtual Network Interfaces have an NSG associated](#vm-13---virtual-network-interfaces-have-an-nsg-associated) | No |
-| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances) | No |
-| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level) | No |
-| [VM-16 - Private IP Address should be configured as Static](#vm-16---private-ip-address-should-be-configured-as-static) | No |
-| [VM-17 - Shared disks should only be enabled in Clustered servers](#vm-17---shared-disks-should-only-be-enabled-in-clustered-servers) | No |
-| [VM-18 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks) | No |
-| [VM-19 - Virtual Machine is not compliant with Azure Policies](#vm-19---virtual-machine-is-not-compliant-with-azure-policies) | No |
-| [VM-20 - Enable disk encryption, Enable data at rest encryption by default](#vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default) | No |
-| [VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine) | No |
-| [VM-22 - Diagnostic Settings should be configured for all Azure Resources](#vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources) | No |
-| [VM-23 - Tags are inconsistent across Virtual Machines](#vm-23---tags-are-inconsistent-across-virtual-machines) | No |
-| [VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine) | No |
+| Recommendation                                                                                                                                                                                                                     |  State  | ARG Query Available |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
+| [VM-1 - Avoid running a production workload on a single VM](#vm-1---avoid-running-a-production-workload-on-a-single-vm)                                                                                                            | Preview |         Yes         |
+| [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones)                                                                                                              | Preview |         Yes         |
+| [VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set](#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set) | Preview |         Yes         |
+| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery)                                                                                                        | Preview |         Yes         |
+| [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks)                                                                                                                | Preview |         Yes         |
+| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                | Preview |         Yes         |
+| [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines)                                                                                                                                  | Preview |         Yes         |
+| [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks)                                                                                                                        | Preview |         Yes         |
+| [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state)                                                                                                                          | Preview |         Yes         |
+| [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled)                                                                                                                                    | Preview |         Yes         |
+| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months)                     | Preview |         Yes         |
+| [VM-12 - Virtual Machines should not have a Public IP directly associated](#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated)                                                                              | Preview |         Yes         |
+| [VM-13 - Virtual Network Interfaces have an NSG associated](#vm-13---virtual-network-interfaces-have-an-nsg-associated)                                                                                                            | Preview |         Yes         |
+| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                                        | Preview |         Yes         |
+| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                                  | Preview |         Yes         |
+| [VM-16 - Private IP Address should be configured as Static](#vm-16---private-ip-address-should-be-configured-as-static)                                                                                                            | Preview |         Yes         |
+| [VM-17 - Shared disks should only be enabled in Clustered servers](#vm-17---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                                              | Preview |         Yes         |
+| [VM-18 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-18---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks)                                        | Preview |         Yes         |
+| [VM-19 - Virtual Machine is not compliant with Azure Policies](#vm-19---virtual-machine-is-not-compliant-with-azure-policies)                                                                                                      | Preview |         Yes         |
+| [VM-20 - Enable disk encryption, Enable data at rest encryption by default](#vm-20---enable-disk-encryption-enable-data-at-rest-encryption-by-default)                                                                             | Preview |         Yes         |
+| [VM-21 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-21---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine)                  | Preview |         Yes         |
+| [VM-22 - Diagnostic Settings should be configured for all Azure Resources](#vm-22---diagnostic-settings-should-be-configured-for-all-azure-resources)                                                                              | Preview |         Yes         |
+| [VM-23 - Tags are inconsistent across Virtual Machines](#vm-23---tags-are-inconsistent-across-virtual-machines)                                                                                                                    | Preview |         Yes         |
+| [VM-24 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-24---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine)                                              | Preview |         Yes         |
 {{< /table >}}
+
+{{< alert style="info" >}}
+
+Definitions of states can be found [here]({{< ref "../../../_index.md#definitions-of-terms-used-in-aprl">}})
+
+{{< /alert >}}
 
 ## Recommendations Details
 

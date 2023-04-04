@@ -23,6 +23,19 @@ You can also use the basic search functionality provided by this site to locate 
 
 {{< /alert >}}
 
+### Definitions of Terms Used in APRL
+
+In APRL you will see a number of terms used, like Preview & Verified. The below table provides the definition for each of these terms for clarity.
+
+{{< table style="table-striped" >}}
+
+| Term | Definition |
+| ---- | ---------- |
+| Preview Guidance | Guidance that Microsoft FTEs have created based on customer engagements and is in the process of reviewing with the relevant Azure Product Group Engineering Service owners to ensure the content is valid and accurate |
+| Verified Guidance | Guidance has been signed off by Azure Product Group Engineering Service owners following their review |
+
+{{< /table >}}
+
 ## Contributing
 
 Please see the [contribution guide here]({{< ref "contributing/_index.md">}}).
