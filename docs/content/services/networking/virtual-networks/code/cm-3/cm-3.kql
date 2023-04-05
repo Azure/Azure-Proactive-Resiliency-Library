@@ -1,0 +1,5 @@
+resources
+| where type =~ 'Microsoft.Network/publicIPAddresses'
+| extend sku = tostring(sku.name)
+| where sku != 'Standard'
+| project id,name,resourceGroup,subscriptionId,sku

@@ -1,0 +1,2 @@
+resources
+| where type =~ 'Microsoft.Network/privateEndpoints'

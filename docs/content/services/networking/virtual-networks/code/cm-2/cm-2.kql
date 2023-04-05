@@ -1,0 +1,4 @@
+resources
+| where type =~ 'Microsoft.Network/virtualNetworks'
+| where isnotnull(properties.enableDdosProtection)
+| project name, properties.enableDdosProtection
