@@ -17,11 +17,11 @@ The below table shows the list of resiliency recommendations for Storage Account
 | Recommendation                                                                                                                                                                                                                     |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
 |[SA1 Storage account Redundancy](#sa1-storage-account-redundancy)|  Preview  |         Yes         |
-|[SA2 v1 Classic Storage Account  ](#sa2-v1-classic-storage-account) | Preview  |         Yes          |
+|[SA2 v1 Classic Storage Account](#sa2-v1-classic-storage-account) | Preview  |         Yes          |
 |[SA3 Performance Tier of Storage account](#sa3-performance-tier-of-storage-account) | Preview  |         Yes          |
 |[SA4 Account Kind](#sa4-account-kind) | Preview  |         Yes          |
-|[SA5 Soft delete ](#sa5-soft-delete) | Preview  |         Yes          |
-|[SA6 Versioning ](#sa6-versioning) | Preview  |         Yes          |
+|[SA5 Soft delete](#sa5-soft-delete) | Preview  |         Yes          |
+|[SA6 Versioning](#sa6-versioning) | Preview  |         Yes          |
 |[SA7 Point and time restore for containers](#sa7-point-and-time-restore-for-containers) | Preview  |         Yes          |
 |[SA8 Keep versioning below 100](#sa8-keep-versioning-below-100) |Preview   |         Yes          |
 {{< /table >}}
