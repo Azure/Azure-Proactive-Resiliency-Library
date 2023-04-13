@@ -16,14 +16,14 @@ The below table shows the list of resiliency recommendations for Storage Account
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
-|[SA-1 - Redundancy of storage account](#sa-1---redudancy)|  Preview  |         Yes         |
-|[SA-2 - v1 classic storage?  ](#sa-2---v1-classic-storage) | Preview  |         Yes          |
-|[SA-3 - Performance Tier of Storage account](#sa-3---Performance-Tier) | Preview  |         Yes          |
-|[SA-4 - Account Kind](#sa-4---Account-Kind) | Preview  |         Yes          |
-|[SA-5 - Soft delete ](#sa-5---Soft-delete) | Preview  |         Yes          |
-|[SA-6 - Versioning ](#sa-6---Versioning) | Preview  |         Yes          |
-|[SA-7 - Point and time restore for containers](#sa-6---point-and-time-restore-containers) | Preview  |         Yes          |
-|[SA-8 -Keep versioning below 100](#sa-6---keep-versioning-below-100) |Preview   |         Yes          |
+|[SA1 Storage account Redundancy](#sa1-storage-account-redundancy)|  Preview  |         Yes         |
+|[SA2 v1 Classic Storage Account  ](#sa2-v1-classic-storage-account) | Preview  |         Yes          |
+|[SA3 Performance Tier of Storage account](#sa3-performance-tier-of-storage-account) | Preview  |         Yes          |
+|[SA4 Account Kind](#sa4-account-kind) | Preview  |         Yes          |
+|[SA5 Soft delete ](#sa5-soft-delete) | Preview  |         Yes          |
+|[SA6 Versioning ](#sa6-versioning) | Preview  |         Yes          |
+|[SA7 Point and time restore for containers](#sa7-point-and-time-restore-for-containers) | Preview  |         Yes          |
+|[SA8 Keep versioning below 100](#sa8-keep-versioning-below-100) |Preview   |         Yes          |
 {{< /table >}}
 
 
@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### SA-1 - Redundancy of storage account
+### SA1 Storage account Redundancy
 
 #### Importance: Critical
 
@@ -65,7 +65,7 @@ redudancy=sku.name
 <br><br>
 
 
-### SA-2-Are you using v1 classic storage?
+### SA2 v1 Classic Storage Account
 
 #### Importance: High
 
@@ -94,7 +94,7 @@ Azure classic storage account will retire 31 august 2024. So migrate all workloa
 
 
 
-### SA-3 - Performance Tier
+### SA3 Performance Tier of Storage account
 
 #### Importance: Medium
 
@@ -116,7 +116,7 @@ Consider using appropriate storage performance tier for standard storage/ block 
 <br><br>
 
 
-### SA-4 - Account Kind
+### SA4 Account Kind
 
 #### Importance: Medium
 
@@ -135,7 +135,7 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 <br><br>
 
 
-### SA-5 - Soft Delete
+### SA5 Soft delete
 
 #### Importance: Medium
 
@@ -156,7 +156,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 <br><br>
 
 
-### SA-5 - Versioning
+### SA6 Versioning
 
 #### Importance: Low
 
@@ -175,28 +175,8 @@ Versioning will recover the data which has been modified.
 <br><br>
 
 
-### SA-6 - Soft Delete
 
-#### Importance: Medium
-
-#### Recommendation/Guidance
-
-
-Soft delete option allow for recovering data if its deleted by mistaken. Moreover Lock will prevent accidently deleting storage account
-
-
-##### Resources
-
-- [Soft delete detail docs](https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal )
-
-
-
-
-
-<br><br>
-
-
-### SA-7 - Point and time restore for block blob
+### SA7 Point and time restore for containers
 
 #### Importance: Low
 
@@ -215,11 +195,11 @@ Point and time restore support general purpose v2 account in standard performanc
 <br><br>
 
 
-### SA-8 - Keep versioning below 100 to avoid degrading performance
+### SA8 Keep versioning below 100
 
 #### Importance: Low
 
-#### Recommendation/Guidance 
+#### Recommendation/Guidance
 Using more version increase the latency of the blob listing operation and hence effect reliability of application. Use lifecycle policy to delete older version
 
 ##### Resources
