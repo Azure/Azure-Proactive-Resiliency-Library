@@ -1,0 +1,2 @@
+Resources | where type ==“microsoft.storage/storageaccounts”
+| project StorageAccountName=name,location,id, redudancy=sku.name
