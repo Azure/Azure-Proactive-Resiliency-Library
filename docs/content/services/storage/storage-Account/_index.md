@@ -16,14 +16,14 @@ The below table shows the list of resiliency recommendations for Storage Account
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
-|[SA1 Ensure that storage account is redundant](#sa1-ensure-that-storage-account-is-redundant)|  Preview  |         Yes         |
-|[SA2 Do not use classic storage account](#sa2-do-not-use-classic-storage-account) | Preview  |         Yes          |
-|[SA3 Ensure Performance tier is set as per workload](#sa3-ensure-performance-tier-is-set-as-per-workload) | Preview  |         Yes          |
-|[SA4 Choose right storage account kind for workload](#sa4-choose-right-storage-account-kind-for-workload) | Preview  |         Yes          |
-|[SA5 Enable soft delete for recovery of data](#sa5-enable-soft-delete-for-recovery-of-data) | Preview  |         Yes          |
-|[SA6 enable version for accidental modification](#sa6-enable-version-for-accidental-modification) | Preview  |         Yes          |
-|[SA7 Enable point and time restore for containers for recovery](#sa7-enable-point-and-time-restore-for-containers-for-recovery) | Preview  |         Yes          |
-|[SA8 Keep versioning below 100 for performance](#sa8-keep-versioning-below-100-for-performance) |Preview   |         Yes          |
+|[SA-1 Ensure that storage account is redundant](#sa-1-ensure-that-storage-account-is-redundant)|  Preview  |         Yes         |
+|[SA-2 Do not use classic storage account](#sa-2-do-not-use-classic-storage-account) | Preview  |         Yes          |
+|[SA-3 Ensure Performance tier is set as per workload](#sa-3-ensure-performance-tier-is-set-as-per-workload) | Preview  |         Yes          |
+|[SA-4 Choose right storage account kind for workload](#sa-4-choose-right-storage-account-kind-for-workload) | Preview  |         Yes          |
+|[SA-5 Enable soft delete for recovery of data](#sa-5-enable-soft-delete-for-recovery-of-data) | Preview  |         Yes          |
+|[SA-6 enable version for accidental modification](#sa-6-enable-version-for-accidental-modification) | Preview  |         Yes          |
+|[SA-7 Enable point and time restore for containers for recovery](#sa-7-enable-point-and-time-restore-for-containers-for-recovery) | Preview  |         Yes          |
+|[SA-8 Keep versioning below 100 for performance](#sa-8-keep-versioning-below-100-for-performance) |Preview   |         Yes          |
 {{< /table >}}
 
 
@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### SA1 Ensure that storage account is redundant
+### SA-1 Ensure that storage account is redundant
 
 #### Importance: Critical
 
@@ -65,7 +65,7 @@ redudancy=sku.name
 <br><br>
 
 
-### SA2 Do not use classic storage account
+### SA-2 Do not use classic storage account
 
 #### Importance: High
 
@@ -94,7 +94,7 @@ Azure classic storage account will retire 31 august 2024. So migrate all workloa
 
 
 
-### SA3 Ensure Performance tier is set as per workload
+### SA-3 Ensure Performance tier is set as per workload
 
 #### Importance: Medium
 
@@ -111,12 +111,16 @@ Consider using appropriate storage performance tier for standard storage/ block 
 
 
 
+{{< collapse title="Show/Hide Query/Script" >}}
 
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
 
-### SA4 Choose right storage account kind for workload
+### SA-4 Choose right storage account kind for workload
 
 #### Importance: Medium
 
@@ -130,12 +134,22 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 
 - [Account Kind docs](https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs )
 
+#### Queries/Scripts
 
+
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
 
 <br><br>
 
 
-### SA5 Enable soft delete for recovery of data
+### SA-5 Enable soft delete for recovery of data
 
 #### Importance: Medium
 
@@ -149,14 +163,24 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 - [Soft delete detail docs](https://learn.microsoft.com/en-us/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal )
 
+#### Queries/Scripts
 
+
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
 
 
 
 <br><br>
 
 
-### SA6 enable version for accidental modification
+### SA-6 enable version for accidental modification
 
 
 
@@ -170,7 +194,17 @@ to recover data from accidental modification, enable versioning.
 
 - [Blob versioning](https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview )
 
+#### Queries/Scripts
 
+
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
 
 
 
@@ -192,14 +226,24 @@ Versioning will recover the data which has been modified.
 - [Versioning](https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview )
 
 
+#### Queries/Scripts
 
+
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
 
 
 <br><br>
 
 
 
-### SA7 Enable point and time restore for containers for recovery
+### SA-7 Enable point and time restore for containers for recovery
 
 #### Importance: Low
 
@@ -212,13 +256,23 @@ Point and time restore support general purpose v2 account in standard performanc
 - [Restore overview](https://learn.microsoft.com/en-us/azure/storage/blobs/point-in-time-restore-manage?tabs=portal )
 
 
+#### Queries/Scripts
 
+
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
 
 
 <br><br>
 
 
-### SA8 Keep versioning below 100 for performance
+### SA-8 Keep versioning below 100 for performance
 
 #### Importance: Low
 
@@ -229,5 +283,16 @@ Using more version increase the latency of the blob listing operation and hence 
 
 - [Blob Versioning](https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview )
 
+
+<br><br>
+#### Queries/Scripts
+
+
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-1/vm-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
