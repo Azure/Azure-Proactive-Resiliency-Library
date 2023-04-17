@@ -19,7 +19,7 @@ The below table shows the list of resiliency recommendations for Virtual Network
 | [Vnet-01 - All Subnets should have a Network Security Group associated](#vnet-01---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
 | [Vnet-02 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-02---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
 | [Vnet-03 - All Subnets should have a Network Security Group associated](#vnet-01---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
-| [Vnet-04 - Use Private Link, when available, for shared Azure PaaS services](Vnet-04---Use-Private-Link,-when-available,-for-shared-Azure-PaaS-services) | Preview  |         Yes         |
+| [Vnet-04 - Use Private Link, when available, for shared Azure PaaS services](#vnet-04---use-private-link-when-available-for-shared-azure-paas-services) | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -41,7 +41,6 @@ Network security groups: Network security groups and application security groups
 ##### Resources
 
 - [Azure Virtual Network - Concepts and best practices | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices)
-
 
 #### Queries/Scripts
 
@@ -103,7 +102,7 @@ Standard SKU Public Ip's provide better features such as AZ Support, secure by d
 
 <br><br>
 
-### Vnet-04 - Use Private Link, when available, for shared Azure PaaS services.
+### Vnet-04 - Use Private Link when available for shared Azure PaaS services
 
 #### Importance: Medium
 
