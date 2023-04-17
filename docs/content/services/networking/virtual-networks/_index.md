@@ -16,10 +16,10 @@ The below table shows the list of resiliency recommendations for Virtual Network
 {{< table style="table-striped" >}}
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [Vnet-01 - All Subnets should have a Network Security Group associated](#vnet-01---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
-| [Vnet-02 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-02---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
-| [Vnet-03 - All Subnets should have a Network Security Group associated](#vnet-01---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
-| [Vnet-04 - Use Private Link, when available, for shared Azure PaaS services](#vnet-04---use-private-link-when-available-for-shared-azure-paas-services) | Preview  |         Yes         |
+| [Vnet-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
+| [Vnet-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
+| [Vnet-3 - If Public Ip's are needed , Please use Standard SKU](#vnet-3---if-public-ips-are-needed--please-use-standard-sku) | Preview  |         Yes         |
+| [Vnet-4 - Use Private Link, when available, for shared Azure PaaS services](#vnet-4---use-private-link-when-available-for-shared-azure-paas-services) | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -30,7 +30,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### Vnet-01 - All Subnets should have a Network Security Group associated
+### Vnet-1 - All Subnets should have a Network Security Group associated
 
 #### Importance: High
 
@@ -48,13 +48,13 @@ Network security groups: Network security groups and application security groups
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vnet-1/vnet-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### Vnet-02 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
+### Vnet-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
 
 #### Importance: Medium
 
@@ -72,13 +72,13 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vnet-2/vnet-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### Vnet-03 - If Public Ip's are needed , Please use Standard SKU
+### Vnet-3 - If Public Ip's are needed , Please use Standard SKU
 
 #### Importance: High
 
@@ -96,13 +96,13 @@ Standard SKU Public Ip's provide better features such as AZ Support, secure by d
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-3/cm-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vnet-3/vnet-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### Vnet-04 - Use Private Link when available for shared Azure PaaS services
+### Vnet-4 - Use Private Link when available for shared Azure PaaS services
 
 #### Importance: Medium
 
@@ -121,7 +121,7 @@ Use virtual network service endpoints only when Private Link isn't available and
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-4/cm-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vnet-4/vnet-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
