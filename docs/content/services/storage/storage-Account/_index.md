@@ -58,7 +58,7 @@ redudancy=sku.name
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/sa-1/sa-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -85,7 +85,7 @@ Azure classic storage account will retire 31 august 2024. So migrate all workloa
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/sa-2/sa-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -113,7 +113,7 @@ Consider using appropriate storage performance tier for standard storage/ block 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/cm-3/cm-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/sa-3/sa-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -140,7 +140,7 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/cm-4/cm-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/sa-4/sa-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -169,7 +169,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/cm-5/cm-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/sa-5/sa-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -200,7 +200,7 @@ to recover data from accidental modification, enable versioning.
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/cm-6/cm-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/sa-6/sa-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -234,7 +234,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/cm-7/cm-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/sa-7/sa-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -263,7 +263,7 @@ Using more version increase the latency of the blob listing operation and hence 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/cm-8/cm-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/sa-8/sa-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
