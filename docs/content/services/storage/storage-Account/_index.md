@@ -16,14 +16,14 @@ The below table shows the list of resiliency recommendations for Storage Account
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
-|[SA1 Storage account Redundancy](#sa1-storage-account-redundancy)|  Preview  |         Yes         |
-|[SA2 v1 Classic Storage Account](#sa2-v1-classic-storage-account) | Preview  |         Yes          |
-|[SA3 Performance Tier of Storage account](#sa3-performance-tier-of-storage-account) | Preview  |         Yes          |
-|[SA4 Account Kind](#sa4-account-kind) | Preview  |         Yes          |
-|[SA5 Soft delete](#sa5-soft-delete) | Preview  |         Yes          |
-|[SA6 Versioning](#sa6-versioning) | Preview  |         Yes          |
-|[SA7 Point and time restore for containers](#sa7-point-and-time-restore-for-containers) | Preview  |         Yes          |
-|[SA8 Keep versioning below 100](#sa8-keep-versioning-below-100) |Preview   |         Yes          |
+|[SA1 Ensure that storage account is redundant](#sa1-ensure-that-storage-account-is-redundant)|  Preview  |         Yes         |
+|[SA2 Do not use classic storage account](#sa2-do-not-use-classic-storage-account) | Preview  |         Yes          |
+|[SA3 Ensure Performance tier is set as per workload](#sa3-ensure-performance-tier-is-set-as-per-workload) | Preview  |         Yes          |
+|[SA4 Choose right storage account kind for workload](#sa4-choose-right-storage-account-kind-for-workload) | Preview  |         Yes          |
+|[SA5 Enable soft delete for recovery of data](#sa5-enable-soft-delete-for-recovery-of-data) | Preview  |         Yes          |
+|[SA6 enable version for accidental modification](#sa6-enable-version-for-accidental-modification) | Preview  |         Yes          |
+|[SA7 Enable point and time restore for containers for recovery](#sa7-enable-point-and-time-restore-for-containers-for-recovery) | Preview  |         Yes          |
+|[SA8 Keep versioning below 100 for performance](#sa8-keep-versioning-below-100-for-performance) |Preview   |         Yes          |
 {{< /table >}}
 
 
@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### SA1 Storage account Redundancy
+### SA1 Ensure that storage account is redundant
 
 #### Importance: Critical
 
@@ -65,7 +65,7 @@ redudancy=sku.name
 <br><br>
 
 
-### SA2 v1 Classic Storage Account
+### SA2 Do not use classic storage account
 
 #### Importance: High
 
@@ -94,7 +94,7 @@ Azure classic storage account will retire 31 august 2024. So migrate all workloa
 
 
 
-### SA3 Performance Tier of Storage account
+### SA3 Ensure Performance tier is set as per workload
 
 #### Importance: Medium
 
@@ -116,7 +116,7 @@ Consider using appropriate storage performance tier for standard storage/ block 
 <br><br>
 
 
-### SA4 Account Kind
+### SA4 Choose right storage account kind for workload
 
 #### Importance: Medium
 
@@ -135,7 +135,7 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 <br><br>
 
 
-### SA5 Soft delete
+### SA5 Enable soft delete for recovery of data
 
 #### Importance: Medium
 
@@ -156,7 +156,30 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 <br><br>
 
 
-### SA6 Versioning
+### SA6 enable version for accidental modification
+
+
+
+#### Importance: Medium
+
+#### Recommendation/Guidance
+
+to recover data from accidental modification, enable versioning.
+
+##### Resources
+
+- [Blob versioning](https://learn.microsoft.com/en-us/azure/storage/blobs/versioning-overview )
+
+
+
+
+
+<br><br>
+
+
+### SA6 Enable point and time restore for containers for recovery
+
+
 
 #### Importance: Low
 
@@ -176,7 +199,7 @@ Versioning will recover the data which has been modified.
 
 
 
-### SA7 Point and time restore for containers
+### SA7 Enable point and time restore for containers for recovery
 
 #### Importance: Low
 
@@ -195,7 +218,7 @@ Point and time restore support general purpose v2 account in standard performanc
 <br><br>
 
 
-### SA8 Keep versioning below 100
+### SA8 Keep versioning below 100 for performance
 
 #### Importance: Low
 
