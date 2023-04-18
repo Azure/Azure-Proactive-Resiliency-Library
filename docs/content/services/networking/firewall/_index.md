@@ -152,7 +152,6 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 ##### Resources
 
 - [Azure Firewall Policy hierarchy](https://learn.microsoft.com/azure/firewall-manager/rule-hierarchy)
-- [CHANGE ME LINK](https://learn.microsoft.com/azure/firewall-manager/manage-web-application-firewall-policies)
 
 <br><br>
 
