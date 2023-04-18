@@ -83,13 +83,14 @@ Reliable firewall performance is essential to operate and protect your virtual n
 Monitor metrics related to availability and performance issues. More specifically:
 - *FirewallHealth*: Indicates the overall health of the firewall.
 - *Throughput*: Throughput processed by the firewall. An alert should be triggered if throughput gets close to the documented limits.
-- *SNATPortUtilization*: Percentage of outbound SNAT ports currently in use. An alert should be triggered if this metric gets close to 100% (at which point Source-NATted connections, such as outbound internet connections will start to fail).
+- *SNATPortUtilization*: Percentage of outbound SNAT ports currently in use. An alert should be triggered if this metric gets close to 100% (at which point Source-NATted connections, such as outbound internet connections will start to fail). If you'll need more than 512,000 SNAT ports, deploying a NAT gateway with Azure Firewall can be considered. However, deploying NAT gateway with a zone redundant firewall is not recommended deployment option, as the NAT gateway does not support zonal deployment at this time. In order to use NAT gateway with Azure Firewall, a zonal Firewall deployment is required. In addition, Azure Virtual Network NAT integration is not currently supported in secured virtual hub network architectures.
 
 
 ##### Resources
 
 - [Azure Firewall metrics supported in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkazurefirewalls)
 - [Azure Firewall performance](https://learn.microsoft.com/azure/firewall/firewall-performance)
+- [Scale SNAT ports with Azure Virtual Network NAT](https://learn.microsoft.com/azure/firewall/integrate-with-nat-gateway)
 
 #### Queries/Scripts
 
