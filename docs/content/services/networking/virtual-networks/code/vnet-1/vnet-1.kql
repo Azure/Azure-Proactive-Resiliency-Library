@@ -1,0 +1,7 @@
+resources
+| where type =~ 'Microsoft.Network/virtualnetworks'
+| join (resources
+        | where type =~ 'Microsoft.Network/virtualnetworks'
+        | project id, name, properties.subnets[0].name) on id
+| project SubnetName = tostring(properties.subnets[0].name),NSG = tostring(properties['subnets'][0]['properties']['networkSecurityGroup']['id'])
+| where NSG == ""

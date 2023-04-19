@@ -1,0 +1,3 @@
+Resources
+| where type =~ "Microsoft.Example/changeMe"
+| summarize count() by location
