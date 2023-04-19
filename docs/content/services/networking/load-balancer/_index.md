@@ -16,9 +16,9 @@ The below table shows the list of resiliency recommendations for Load Balancer a
 {{< table style="table-striped" >}}
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [LB-1 - Use Standard SKU](#lb-1---use-standard-sku) | Preview  |         Yes         |
-| [LB-2 - Provision at least two instances](#lb-2---provision-at-least-2-instances) | Preview |         Yes          |
-| [LB-3 - Use outbound rules](#lb-2---use-outbound-rules) | Preview |         Yes          |
+| [LB-1 - Use Standard SKU](#lb-1---use-standard-load-balancer-sku) | Preview  |         Yes         |
+| [LB-2 - Provision at least two instances](#lb-2---provision-at-least-two-instances) | Preview |         Yes          |
+| [LB-3 - Use outbound rules](#lb-3---use-outbound-rules) | Preview |         Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -53,6 +53,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 {{< /collapse >}}
 
 <br><br>
+
 ### LB-2 - Provision at least two instances
 
 #### Importance: High
@@ -75,8 +76,8 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 {{< /collapse >}}
 
 <br><br>
+
 ### LB-3 - Use outbound rules
-a resource
 #### Importance: Medium
 
 #### Recommendation/Guidance
