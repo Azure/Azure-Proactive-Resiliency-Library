@@ -17,7 +17,7 @@ The below table shows the list of resiliency recommendations for Firewall and as
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
 | [FW-1 - Deploy Azure Firewall across multiple availability zones](#fw-1---deploy-azure-firewall-across-multiple-availability-zones)                                                         | Preview  |         Yes          |
-| [FW-2 - Test Azure Firewall performance](#fw-2---test-azure-wirewall-performance)                                                                                  | Preview  |         No           |
+| [FW-2 - Test Azure Firewall performance](#fw-2---test-azure-firewall-performance)                                                                                  | Preview  |         No           |
 | [FW-3 - Monitor Azure Firewall metrics](#fw-3---monitor-azure-firewall-metrics)                                                                                   | Preview  |         Yes          |
 | [FW-4 - Deploy an instance of Azure Firewall per region](#fw-4---deploy-an-instance-of-azure-firewall-per-region)                                                                  | Preview  |         No           |
 | [FW-5 - Configure DDoS Protection on the Azure Firewall VNet](#fw-5---configure-ddos-protection-on-the-azure-firewall-vnet)                                                             | Preview  |         Yes          |

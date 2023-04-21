@@ -1,0 +1,4 @@
+Resources
+| where type =~ 'Microsoft.Network/loadBalancers'
+| summarize count() by resourceGroup
+| where count_ <= 1

@@ -1,0 +1,9 @@
+Resources
+| where type =~ 'Microsoft.Network/loadBalancers'
+| extend backendAddressPools = properties.backendAddressPools
+| mv-expand backendAddressPool = backendAddressPools
+| extend backendIPConfigurations = backendAddressPool.properties.backendIPConfigurations
+| mv-expand backendIPConfiguration = backendIPConfigurations
+| extend outboundRules = backendIPConfiguration.properties.outboundRules
+| mv-expand outboundRule = outboundRules
+| project LoadBalancerName = name, OutboundRuleName = outboundRule.name, OutboundRuleDescription = outboundRule.properties.description, OutboundRuleProtocol = outboundRule.properties.protocol, OutboundRuleSourceAddressPrefix = outboundRule.properties.sourceAddressPrefix, OutboundRuleSourcePortRange = outboundRule.properties.sourcePortRange, OutboundRuleDestinationAddressPrefix = outboundRule.properties.destinationAddressPrefix, OutboundRuleDestinationPortRange = outboundRule.properties.destinationPortRange
