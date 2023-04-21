@@ -18,7 +18,7 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 | :------------------------------------------------ | :------: | :-----------------: |
 | [GW-1 - Chose a Zone-redundant gateway](#gw-1---chose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
 | [GW-2 - Plan for Active-Active mode](#gw-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
-| [GW-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#gw-3---plan-for-site-to-site-VPN-and-azure-expressroute-cpoexisting-connection)                                                         | Preview  |         Yes          |
+| [GW-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#gw-3---plan-for-site-to-site-VPN-and-azure-expressroute-cpoexisting-connection)                                                         | Preview  |         No          |
 | [GW-4 - Plan for geo-redundant circuits](#gw-4---plan-for-geo-redudnant-circuits)                                                       | Preview  |         Yes          |
 | [GW-5 - Monitor circuits and gateway health](#gw-5---monitor-circuits-and-gateway-health)                                               | Preview  |         Yes          |
 | [GW-6 - Enable service health](#gw-6---enable-service-health)                                                                           | Preview  |         Yes          |

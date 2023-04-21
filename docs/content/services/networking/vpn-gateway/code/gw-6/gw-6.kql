@@ -1,3 +1,6 @@
-Resources
-| where type =~ "Microsoft.Example/changeMe"
-| summarize count() by location
+// S2S tunnel connect/disconnect events
+// S2S tunnel connect/disconnect events during the last 24 hours.
+AzureDiagnostics
+| where TimeGenerated > ago(1h)
+| where Category == "TunnelDiagnosticLog" and (status_s == "Connected" or status_s == "Disconnected")
+| project TimeGenerated, Resource , status_s, remoteIP_s, stateChangeReason_s

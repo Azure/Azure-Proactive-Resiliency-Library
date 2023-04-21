@@ -1,3 +1,9 @@
-Resources
-| where type =~ "Microsoft.Example/changeMe"
-| summarize count() by location
+// List all VPN-gateway resources in-scope, along with any metrics associated to Azure Monitor alert rules
+resources
+| where type == "microsoft.insights/metricalerts"
+| mv-expand properties.scopes
+| mv-expand properties.criteria.allOf
+| project VPN-gatewayId = properties_scopes, monitoredMetric = properties_criteria_allOf.metricName
+| summarize monitoredMetrics=make_list(monitoredMetric) by tostring(VPN-gatewayId)
+| join kind=fullouter (resources | where type == "microsoft.network/VPN-gateways" | project rightVPN-gatewayId = id) on $left.firewallId == $right.rightFirewallId
+| project VPN-gatewayId = rightVPN-gatewayId, monitoredMetrics
