@@ -144,7 +144,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 ##### Resources
 
-- [VPN gateway data reference ](https://learn.microsoft.com/en-us/azure/vpn-gateway/monitor-vpn-gateway-reference)
+- [VPN gateway data reference](https://learn.microsoft.com/en-us/azure/vpn-gateway/monitor-vpn-gateway-reference)
 
 #### Queries/Scripts
 
