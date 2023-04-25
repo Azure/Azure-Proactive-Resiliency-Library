@@ -140,7 +140,7 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-14/vm-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-14/vm-14.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
