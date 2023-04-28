@@ -109,7 +109,7 @@ Never terminate primary and secondary connections on the same customer end route
 
 <br><br>
 
-### EXRCT-4 - Diversify primary and secondary connections to customer end ports.
+### EXRCT-4 - Diversify primary and secondary connections to customer end ports
 
 #### Importance: High
 
@@ -157,7 +157,7 @@ ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss
 
 <br><br>
 
-### EXRCT-6 - Configure service health to receive ExpressRoute circuit maintenance notification.
+### EXRCT-6 - Configure service health to receive ExpressRoute circuit maintenance notification
 
 #### Importance: High
 
@@ -229,7 +229,7 @@ Implement multiple ExpressRoute circuits in your Virtual Network for cross premi
 
 <br><br>
 
-### EXRCT-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering.
+### EXRCT-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering
 
 #### Importance: Medium
 
