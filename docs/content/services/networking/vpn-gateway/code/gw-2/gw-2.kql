@@ -1,0 +1,9 @@
+/Resources
+| where type =~ 'Microsoft.Network/virtualNetworkGateways'
+| extend gatewayType = properties.gatewayType, vpnType = properties.vpnType, connections = properties.connections
+| where gatewayType == 'Vpn' and vpnType == 'RouteBased'
+| mv-expand connections
+| extend connectionName = connections.name, connectionStatus = connections.properties.connectionStatus
+| where connectionStatus == 'Connected'
+| summarize ActiveTunnels = count() by tostring(resourceGroup), tostring(name)
+| order by ActiveTunnels desc

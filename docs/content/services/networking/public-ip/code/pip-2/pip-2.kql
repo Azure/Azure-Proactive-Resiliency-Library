@@ -1,0 +1,3 @@
+Resources
+| where type =~ 'Microsoft.Network/natGateways'
+| project name, location, resourceGroup, id

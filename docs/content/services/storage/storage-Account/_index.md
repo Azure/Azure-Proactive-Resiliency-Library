@@ -24,6 +24,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[SA-6 enable version for accidental modification](#sa-6-enable-version-for-accidental-modification) | Preview  |         No          |
 |[SA-7 Enable point and time restore for containers for recovery](#sa-7-enable-point-and-time-restore-for-containers-for-recovery) | Preview  |         No          |
 |[SA-8 Keep versioning below 100 for performance](#sa-8-keep-versioning-below-100-for-performance) |Preview   |         No          |
+
 {{< /table >}}
 
 
@@ -49,7 +50,6 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 - [Azure Storage redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy)
 
 #### Queries/Scripts
-
 
 
 {{< collapse title="Show/Hide Query/Script" >}}

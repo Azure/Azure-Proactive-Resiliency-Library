@@ -1,0 +1,3 @@
+// Find Azure Firewalls that have been deployed as non-zonal/noo-zone-redundant resources
+Resources
+| where type == 'microsoft.network/azurefirewalls' and zones != ""

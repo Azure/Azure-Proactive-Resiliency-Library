@@ -1,0 +1,3 @@
+// Find VPN Gateway that have been deployed as non-zonal/noo-zone-redundant resources
+Resources
+| where type == 'microsoft.network/VPN-gateway' and zones != ""
