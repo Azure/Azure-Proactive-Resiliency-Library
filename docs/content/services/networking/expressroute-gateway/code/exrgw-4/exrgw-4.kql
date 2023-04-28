@@ -1,0 +1,14 @@
+// (In progress)
+// Goal: Show all regions in use, and whether or not there are ErGws in each
+resources
+| where type =~ 'microsoft.network/virtualNetworks'
+| where isnotempty(properties.subnets)
+| where isnotempty(properties.addressSpace.addressPrefixes)
+| extend region = tostring(location)
+| join (
+    resources
+    | where type =~ 'microsoft.network/virtualNetworkGateways'
+    | extend region = tostring(location)
+    | extend ErName = tostring(name)
+) on region
+| project type, name, ErName, region, resourceGroup
