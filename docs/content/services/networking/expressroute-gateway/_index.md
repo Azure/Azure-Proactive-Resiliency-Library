@@ -18,7 +18,7 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ga
 | :------------------------------------------------ | :------: | :-----------------: |
 | [EXRGW-1 - Use Zone-redundant gateway SKUs](#exrgw-1---use-zone-redundant-gateway-skus) | Preview | Yes |
 | [EXRGW-2 - Monitor gateway health](#exrgw-2---monitor-gateway-health) | Preview | Yes |
-| [EXRGW-3 - Use VNET peering for VNET to VNET connectivity](#exrgw-3---usr-vnet-peering-for-vnet-to-vnet-connectivity) | Preview | Yes |
+| [EXRGW-3 - Use VNET peering for VNET to VNET connectivity](#exrgw-3---use-vnet-peering-for-vnet-to-vnet-connectivity) | Preview | Yes |
 | [EXRGW-4 - Configure ExpressRoute Gateways in different regions](#exrgw-4---configure-expressroute-gateways-in-different-regions) | Preview | Yes |
 | [EXRGW-5 - Configure S2S VPN as a backup to ExpressRoute private peering](#exrgw-5---configure-s2s-vpn-as-a-backup-to-expressroute-private-peering) | Preview | Yes |
 {{< /table >}}
