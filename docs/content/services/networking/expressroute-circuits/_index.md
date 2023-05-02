@@ -1,17 +1,17 @@
 +++
-title = "Expressroute Circuits"
-description = "Best practices and resiliency recommendations for Expressroute Circuits and associated resources."
+title = "ExpressRoute Circuits"
+description = "Best practices and resiliency recommendations for ExpressRoute Circuits and associated resources."
 date = "4/28/23"
-author = "CHANGE ME TO YOUR GITHUB USERNAME"
-msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
+author = "ehaslett"
+msAuthor = "ethaslet"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Expressroute Circuits and associated Expressroute Circuits settings.
+The presented resiliency recommendations in this guidance include ExpressRoute Circuits and associated ExpressRoute Circuits settings.
 
 ## Summary of Recommendations
 
-The below table shows the list of resiliency recommendations for Expressroute Circuits and associated resources.
+The below table shows the list of resiliency recommendations for ExpressRoute Circuits and associated resources.
 
 {{< table style="table-striped" >}}
 | Recommendation | State | ARG Query Available |
