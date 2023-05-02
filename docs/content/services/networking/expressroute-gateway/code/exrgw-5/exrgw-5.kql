@@ -1,4 +1,4 @@
-// (In progress)
+// (TBD)
 // Goal: show that for each ErGw configured whether or not a suitable VPN GW is configured
 resources
 | where type =~ "microsoft.network/virtualnetworkgateways"

@@ -1,4 +1,4 @@
-// (In progress)
+// (TBD)
 // Goal: Show all regions in use, and whether or not there are ErGws in each
 resources
 | where type =~ 'microsoft.network/virtualNetworks'
