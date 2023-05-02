@@ -2,8 +2,8 @@
 title = "ExpressRoute Circuits"
 description = "Best practices and resiliency recommendations for ExpressRoute Circuits and associated resources."
 date = "4/28/23"
-author = "ehaslett"
-msAuthor = "ethaslet"
+author = "CHANGE ME TO YOUR GITHUB USERNAME"
+msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
 draft = false
 +++
 
