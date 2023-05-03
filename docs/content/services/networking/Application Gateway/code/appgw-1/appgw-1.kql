@@ -1,0 +1,4 @@
+Resources 
+| where type == "microsoft.network/applicationGateways"
+| where properties.capacity.autoScaleConfiguration != null
+| where properties.capacity.autoScaleConfiguration.minCapacity >= 2
