@@ -45,7 +45,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ##### Resources
 
-https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant
+- [Application Gateway Autoscaling Zone-Redundant](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 #### Queries/Scripts
 
@@ -68,11 +68,11 @@ Ensure that all incoming connections are using HTTP/s for production services.  
 
 ##### Resources
 
-https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway#security
-https://learn.microsoft.com/en-us/azure/application-gateway/ssl-overview
-https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview
-https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs
-https://learn.microsoft.com/en-us/azure/application-gateway/ssl-certificate-management
+- [Application Gateway Security](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway#security)
+- [Application Gateway SSL Overview](https://learn.microsoft.com/en-us/azure/application-gateway/ssl-overview)
+- [Application Gateway SSL Policy Overview](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-policy-overview)
+- [Application Gateway KeyVault Certs](https://learn.microsoft.com/en-us/azure/application-gateway/key-vault-certs)
+- [Application Gateway SSL Cert Management](https://learn.microsoft.com/en-us/azure/application-gateway/ssl-certificate-management)
 
 #### Queries/Scripts
 
@@ -97,8 +97,8 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 
 ##### Resources
 
-https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway
-https://learn.microsoft.com/en-us/azure/application-gateway/features#web-application-firewall
+- [Well-Architected Framework Application Gateway Overview](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway)
+- [Application Gateway - Web Application Firewall](https://learn.microsoft.com/en-us/azure/application-gateway/features#web-application-firewall)
 
 #### Queries/Scripts
 
@@ -122,9 +122,9 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 
 
 ##### Resources
-https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2
-https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2#feature-comparison-between-v1-sku-and-v2-sku
-https://azure.microsoft.com/en-us/updates/application-gateway-v1-will-be-retired-on-28-april-2026-transition-to-application-gateway-v2/
+- [Application Gateway Overview V2](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2)
+- [Application Gateway Feature Comparison Between V1 and V2](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2#feature-comparison-between-v1-sku-and-v2-sku)
+- [Application Gateway V1 Retirement](https://azure.microsoft.com/en-us/updates/application-gateway-v1-will-be-retired-on-28-april-2026-transition-to-application-gateway-v2/)
 
 #### Queries/Scripts
 
@@ -148,8 +148,8 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 
 ##### Resources
 
-https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-metrics
-https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics
+- [Application Gateway Metrics](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-metrics)
+- [Application Gateway Diagnostics](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
 
 #### Queries/Scripts
 
@@ -172,9 +172,8 @@ https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-
 Using custom health probes can help with understand the availability of your backends and allows you to monitor the backend services if they are being affected in any way.
 
 ##### Resources
-https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-probe-overview
-https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway
-https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-create-probe-portal
+- [Application Gateway Probe Overview](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-probe-overview)
+- [Well-Architected Framework Application Gateway Overview](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway)
 
 #### Queries/Scripts
 
@@ -196,8 +195,8 @@ https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-
 Deploying your backend services in a zone-aware configurations ensures that if a specific zone goes down that customers will still have access to the services as the other services located in other zones will still be available.
 
 ##### Resources
-https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway#reliability
-https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2
+- [Well-Architected Framework Application Gateway Reliability](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway#reliability)
+- [Application Gateway V2 Overview](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2)
 
 #### Queries/Scripts
 
@@ -219,8 +218,8 @@ https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2
 Plan for backend maintenance by using connection draining. Connection draining allows
 
 ##### Resources
-https://learn.microsoft.com/en-us/azure/application-gateway/features#connection-draining
-https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings#connection-draining
+- [Application Gateway Connection Draining](https://learn.microsoft.com/en-us/azure/application-gateway/features#connection-draining)
+- [Application Gateway Connection Draining HTTP Settings](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings#connection-draining)
 #### Queries/Scripts
 
 ##### Azure Resource Graph
