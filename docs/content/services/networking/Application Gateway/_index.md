@@ -19,7 +19,7 @@ The below table shows the list of resiliency recommendations for Application Gat
 | [APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#appgw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance) | Preview | Yes |
 | [APPGW-2 - Secure all incoming connections with SSL/TLS](#appgw-2---secure-all-incoming-connections-with-ssl/tls) | Preview | Yes |
 | [APPGW-3 - Enable WAF policies](#appgw-3---enable-waf-policies) | Preview | Yes |
-| [APPGW-4 - Use Application GW V2 instead of V1](appgw-4---use-application-gw-v2-instead-of-v1) | Preview | Yes |
+| [APPGW-4 - Use Application GW V2 instead of V1](#appgw-4---use-application-gw-v2-instead-of-V1) | Preview | Yes |
 | [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic) | Preview | Yes |
 | [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability) | Preview | Yes |
 | [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration) | Preview | Yes |
