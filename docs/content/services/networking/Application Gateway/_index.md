@@ -186,7 +186,7 @@ https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-
 
 {{< /collapse >}}
 
-<br><br> 
+<br><br>
 
 ### APPGW-7 - Deploy backends in a zone-redundant configuration
 
@@ -216,7 +216,7 @@ https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2
 #### Importance: Medium
 
 #### Recommendation/Guidance
-Plan for backend maintenance by using connection draining. Connection draining allows 
+Plan for backend maintenance by using connection draining. Connection draining allows
 
 ##### Resources
 https://learn.microsoft.com/en-us/azure/application-gateway/features#connection-draining
