@@ -1,0 +1,4 @@
+Resources
+| where type == "microsoft.network/applicationGateways"
+| where properties.webApplicationFirewallConfiguration != null
+| project name, waf_enabled = tobool(properties.webApplicationFirewallConfiguration.enabled)

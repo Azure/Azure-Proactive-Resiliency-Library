@@ -1,0 +1,6 @@
+Resources
+| where type == "microsoft.network/applicationGateways"
+| extend sku = tolower(tostring(properties.sku.name))
+| extend is_v2 = iif(startswith(sku, "standard_v2"), true, false)
+| extend is_v1 = iif(startswith(sku, "standard"), not(is_v2), false)
+| project name, is_v1, is_v2

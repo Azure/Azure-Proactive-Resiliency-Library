@@ -1,0 +1,5 @@
+Resources
+| where type == "microsoft.network/applicationGateways"
+| extend appGatewayResourceId = tostring(id)
+| extend zoneRedundant = tostring(properties.enableZoneRedundancy)
+| project appGatewayResourceId, zoneRedundant

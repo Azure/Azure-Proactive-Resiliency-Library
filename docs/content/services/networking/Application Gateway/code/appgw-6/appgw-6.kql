@@ -1,0 +1,6 @@
+Resources
+| where type == "microsoft.network/applicationGateways"
+| extend appGatewayResourceId = tostring(id)
+| mvexpand probeConfig = properties.probes
+| where probeConfig.probeName != "GatewaySslCertificate"
+| project appGatewayResourceId, customHealthProbeUsed = iif(isnotempty(probeConfig.pickHostName), "Yes", "No")
