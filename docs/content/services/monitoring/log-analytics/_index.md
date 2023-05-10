@@ -16,8 +16,8 @@ The below table shows the list of resiliency recommendations for Log Analytics a
 {{< table style="table-striped" >}}
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | Preview  |         Yes         |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | Verified |         No          |
+| [LAW-1 - Enable Log Analytics data export to GRS or GZRS](#law-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Preview  |         No         |
+| [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -28,18 +28,17 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### CM-1 - CHANGE ME title
+### LAW-1 - Enable Log Analytics data export to GRS or GZRS
 
-#### Importance: CHANGE ME
+#### Importance: High
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+Data export in a Log Analytics workspace lets you continuously export data to an Azure Storage account.  Protect your Log Analytics workspace data from the unlikely event of a regional failure by continuously exporting to a geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) account.
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
 
 #### Queries/Scripts
 
@@ -53,7 +52,7 @@ FILL ME IN...
 
 <br><br>
 
-### CM-2 - CHANGE ME title
+### LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
 
 #### Importance: CHANGE ME
 
