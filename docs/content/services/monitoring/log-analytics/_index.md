@@ -30,7 +30,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### LAW-1 - Enable Log Analytics data export to GRS or GZRS
 
-#### Importance: High
+#### Importance: Medium
 
 #### Recommendation/Guidance
 
@@ -46,7 +46,7 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/law-1/law-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -54,16 +54,16 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 ### LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
 
-#### Importance: CHANGE ME
+#### Importance: Medium
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+Link your Log Analytics workspace to an availability zone enabled dedicated cluster to increase the resilience of Azure Monitor features that rely on your Log Analytics workspace and protect your Log Analytics data against the unlikely event of a datacenter failure.
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones)
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters)
 
 #### Queries/Scripts
 
@@ -71,7 +71,7 @@ FILL ME IN...
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/law-2/law-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
