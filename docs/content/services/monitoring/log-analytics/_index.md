@@ -17,7 +17,7 @@ The below table shows the list of resiliency recommendations for Log Analytics a
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
 | [LAW-1 - Enable Log Analytics data export to GRS or GZRS](#law-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Preview  |         No         |
-| [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Preview |         No          |
+| [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Preview |         Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -58,7 +58,7 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 #### Recommendation/Guidance
 
-Link your Log Analytics workspace to an availability zone enabled dedicated cluster to increase the resilience of Azure Monitor features that rely on your Log Analytics workspace and protect your Log Analytics data against the unlikely event of a datacenter failure.
+Link your Log Analytics workspace to an availability zone enabled dedicated cluster to increase the resilience of Azure Monitor features that rely on your Log Analytics workspace and to protect your Log Analytics data against the unlikely event of a datacenter failure.
 
 ##### Resources
 
@@ -72,6 +72,14 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/law-2/law-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+##### Azure CLI
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="bash" file="code/law-2/law-2.azcli" >}} {{< /code >}}
 
 {{< /collapse >}}
 
