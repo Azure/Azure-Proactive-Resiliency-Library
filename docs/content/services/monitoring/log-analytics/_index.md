@@ -18,6 +18,8 @@ The below table shows the list of resiliency recommendations for Log Analytics a
 | :------------------------------------------------ | :------: | :-----------------: |
 | [LAW-1 - Enable Log Analytics data export to GRS or GZRS](#law-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Preview  |         No         |
 | [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Preview |         Yes          |
+| [LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions](#law-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Preview  |         No         |
+| [LAW-4 - Create a health status alert rule for your Log Analytics workspace](#law-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace) | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -39,6 +41,7 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 ##### Resources
 
 - [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
 #### Queries/Scripts
 
@@ -64,6 +67,7 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 - [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones)
 - [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters)
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
 #### Queries/Scripts
 
@@ -80,6 +84,53 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="bash" file="code/law-2/law-2.azcli" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+### LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions
+
+#### Importance: Medium
+
+#### Recommendation/Guidance
+
+If you require a workspace to be available in the unlikely scenario of a region failure then configure data collection to send critical data to multiple workspaces in different regions.
+
+##### Resources
+
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/law-3/law-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+### LAW-4 - Create a health status alert rule for your Log Analytics workspace
+
+#### Importance: Low
+
+#### Recommendation/Guidance
+
+A health status alert will proactively notify you if a workspace becomes unavailable because of a datacenter or regional failure.
+
+##### Resources
+
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health)
+- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/law-4/law-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
