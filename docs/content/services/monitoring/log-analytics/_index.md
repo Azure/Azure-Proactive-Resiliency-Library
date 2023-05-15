@@ -94,7 +94,7 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 #### Recommendation/Guidance
 
-If you require a workspace to be available in the unlikely scenario of a region failure then configure data collection to send critical data to multiple workspaces in different regions.
+If you require a workspace to be available in the unlikely scenario of a regional failure then configure data collection to send critical data to multiple workspaces in different regions.
 
 ##### Resources
 
