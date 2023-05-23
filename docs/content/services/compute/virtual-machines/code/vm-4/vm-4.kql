@@ -1,1 +1,7 @@
-under development
+// Azure Resource Graph Query
+// Find all VMs that do NOT have Replication enabled
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where isnotnull(properties.extended.instanceView)
+| where not(properties.extended.instanceView.replicationState == 'Replicating')
+| project name, id

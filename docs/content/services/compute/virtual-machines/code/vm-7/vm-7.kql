@@ -1,3 +1,6 @@
-securityresources
-| where properties.displayName contains "Azure Backup should be enabled for virtual machines"
-| extend backupStatus = properties.status.code
+// Azure Resource Graph Query
+// Find all VMs that do NOT have Backup enabled
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where isnull(properties.backupProfile)
+| project name, id

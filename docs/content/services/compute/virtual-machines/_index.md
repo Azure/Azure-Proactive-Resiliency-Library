@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
-| [VM-1 - Avoid running a production workload on a single VM](#vm-1---avoid-running-a-production-workload-on-a-single-vm)                                                                                                            | Preview |         No          |
+| [VM-1 - Run production workloads on two or more VMs](#vm-1---run-production-workloads-on-two-or-more-vms)                                                                                                                          | Preview |         Yes          |
 | [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones)                                                                                                              | Preview |         Yes          |
-| [VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set](#vm-3---if-availability-zones-are-not-available-then-put-each-application-tier-into-a-separate-availability-set) | Preview |         No          |
-| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery)                                                                                                        | Preview |         No          |
-| [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks)                                                                                                                | Preview |         No          |
-| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                | Preview |         No          |
+| [VM-3 - If AvailabilitySet is required, then put each application tier into a separate Availability Set](#vm-3---if-availabilityset-is-required-then-put-each-application-tier-into-a-separate-availabilityset)                     | Preview |        Yes          |
+| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery)                                                                                                        | Preview |         Yes          |
+| [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks)                                                                                                                | Preview |         Yes          |
+| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                | Preview |         Yes          |
 | [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines)                                                                                                                                  | Preview |         Yes          |
-| [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks)                                                                                                                        | Preview |         No          |
+| [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks)                                                                                                                        | Preview |         Yes          |
 | [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state)                                                                                                                          | Preview |         Yes          |
 | [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled)                                                                                                                                    | Preview |         No          |
 | [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months)                     | Preview |         Yes          |
@@ -48,7 +48,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### VM-1 - Avoid running a production workload on a single VM
+### VM-1 - Run production workloads on two or more VMs
 
 #### Importance: Critical
 
@@ -96,7 +96,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 <br><br>
 
-### VM-3 - If Availability Zones are not available, then put each application tier into a separate Availability Set
+### VM-3 - If AvailabilitySet is required, then put each application tier into a separate AvailabilitySet
 
 #### Importance: High
 
@@ -229,6 +229,8 @@ Enable backups for your virtual machines and secure your data
 We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
 Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Use Standard HDD disks for Dev/Test scenarios and less critical workloads at lowest cost.
+
+Standard SSDs are acceptable for some Production workloads as well. Please refer to the reference link for more information.
 
 #### Resources
 
@@ -647,5 +649,218 @@ The Tags assigned to the Virtual Machines are different and if used for automati
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/vm-24/vm-24.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-25 - Deploy using Flexible scale set instead of simple Virtual Machines
+
+#### Importance: Medium
+
+#### Recommendation/Guidance
+
+Even single instance VMs should be deployed into a scale set using the Flexible orchestration mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone.
+
+#### Resources
+
+- [When to use VMSS instead of VMs](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#when-to-use-scale-sets-instead-of-virtual-machines)
+- [Azure Well-Architected Framework review - Virtual Machines and Scale Setgs](https://learn.microsoft.com/en-us/azure/well-architected/services/compute/virtual-machines/virtual-machines-review)
+- [Azure Well-Architected Framework review - Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview#why-use-virtual-machine-scale-sets)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-25/vm-25.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-26 - Protection Policy is disabled for all VMSS instances
+
+#### Importance: Informational
+
+#### Recommendation/Guidance
+
+Use VMSS Protection Policy in case you want specific instances to be treated differently from the rest of the scale set instance.
+
+As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don't want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform additional or different tasks than the other members of the scale set. You require these 'special' VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.
+
+#### Resources
+
+- [Instance Protection for Azure Virtual Machine Scale Set instances](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-26/vm-26.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-27 - VMSS Application health monitoring is not enabled
+
+#### Importance: High
+
+#### Recommendation/Guidance
+
+Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for Rolling Upgrades including Automatic OS-Image Upgrades and Automatic VM Guest Patching, which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
+
+#### Resources
+
+- [Using Application Health extension with Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension?tabs=rest-api)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-27/vm-27.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-28 - Automatic repair policy is not enabled
+
+#### Importance: High
+
+#### Recommendation/Guidance
+
+Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. The Application Health extension or Load balancer health probes may find that an instance is unhealthy. Automatic instance repairs will automatically perform instance repairs by deleting the unhealthy instance and creating a new one to replace it.
+
+Grace period is specified in minutes in ISO 8601 format and can be set using the property automaticRepairsPolicy.gracePeriod. Grace period can range between 10 minutes and 90 minutes, and has a default value of 30 minutes.
+
+#### Resources
+
+- [Automatic instance repairs for Azure Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs#requirements-for-using-automatic-instance-repairs)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-28/vm-28.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-29 - VMSS Autoscale is set to Manual scale
+
+#### Importance: High
+
+#### Recommendation/Guidance
+
+Use Custom autoscale based on metrics and schedules.
+
+Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. Autoscale enables your resource to be performant and cost effective by adding and removing instances based on demand.
+
+#### Resources
+
+- [Get started with autoscale in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring)
+- [Overview of autoscale in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-29/vm-29.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+
+<br><br>
+
+### VM-30 - VMSS Custom scale-in policies is not set to default
+
+#### Importance: Informational
+
+#### Recommendation/Guidance
+
+The default custom scale-in policy provides the best algorithm and flexibility for the majority of the scenarios. Use the Newest and Oldest policies when workload requires oldest or newest VMs to be deleted.
+
+A Virtual Machine Scale Set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new virtual machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves.
+
+Users do not need to specify a scale-in policy if they just want the default ordering to be followed.
+
+Note that balancing across availability zones or fault domains does not move instances across availability zones or fault domains. The balancing is achieved through deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
+
+The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in, by way of three scale-in configurations:
+
+- Default
+- NewestVM
+- OldestVM
+
+#### Resources
+
+- [Use custom scale-in policies with Azure Virtual Machine Scale Sets](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring)
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-30/vm-30.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-31 -
+
+#### Importance: Informational
+
+#### Recommendation/Guidance
+
+U
+
+#### Resources
+
+- []()
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-27/vm-27.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+<br><br>
+
+### VM-32 -
+
+#### Importance: Informational
+
+#### Recommendation/Guidance
+
+U
+
+#### Resources
+
+- []()
+
+#### Queries/Scripts
+
+##### Azure Resource Graph
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-27/vm-27.kql" >}} {{< /code >}}
 
 {{< /collapse >}}

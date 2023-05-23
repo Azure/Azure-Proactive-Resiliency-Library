@@ -1,4 +1,6 @@
-resources
+// Azure Resource Graph Query
+// Find all VMs that are not assigned to a Zone
+Resources
 | where type =~ "microsoft.compute/virtualmachines"
 | extend zonesString = tostring(zones)
 | where zonesString =~ ""
