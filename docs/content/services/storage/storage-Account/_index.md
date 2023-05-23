@@ -18,12 +18,13 @@ The below table shows the list of resiliency recommendations for Storage Account
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :-----------------: |
 |[SA-1 Ensure that storage account is redundant](#sa-1-ensure-that-storage-account-is-redundant)|  Preview  |         Yes         |
 |[SA-2 Do not use classic storage account](#sa-2-do-not-use-classic-storage-account) | Preview  |         Yes          |
-|[SA-3 Ensure Performance tier is set as per workload](#sa-3-ensure-performance-tier-is-set-as-per-workload) | Preview  |         Yes          |
-|[SA-4 Choose right storage account kind for workload](#sa-4-choose-right-storage-account-kind-for-workload) | Preview  |         Yes          |
-|[SA-5 Enable soft delete for recovery of data](#sa-5-enable-soft-delete-for-recovery-of-data) | Preview  |         Yes          |
-|[SA-6 enable version for accidental modification](#sa-6-enable-version-for-accidental-modification) | Preview  |         Yes          |
-|[SA-7 Enable point and time restore for containers for recovery](#sa-7-enable-point-and-time-restore-for-containers-for-recovery) | Preview  |         Yes          |
-|[SA-8 Keep versioning below 100 for performance](#sa-8-keep-versioning-below-100-for-performance) |Preview   |         Yes          |
+|[SA-3 Ensure Performance tier is set as per workload](#sa-3-ensure-performance-tier-is-set-as-per-workload) | Preview  |         No          |
+|[SA-4 Choose right storage account kind for workload](#sa-4-choose-right-storage-account-kind-for-workload) | Preview  |         No          |
+|[SA-5 Enable soft delete for recovery of data](#sa-5-enable-soft-delete-for-recovery-of-data) | Preview  |         No          |
+|[SA-6 enable version for accidental modification](#sa-6-enable-version-for-accidental-modification) | Preview  |         No          |
+|[SA-7 Enable point and time restore for containers for recovery](#sa-7-enable-point-and-time-restore-for-containers-for-recovery) | Preview  |         No          |
+|[SA-8 Keep versioning below 100 for performance](#sa-8-keep-versioning-below-100-for-performance) |Preview   |         No          |
+
 {{< /table >}}
 
 
@@ -50,11 +51,6 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 #### Queries/Scripts
 
-##### Azure Resource Graph
-resources
-| where type =="microsoft.storage/storageaccounts"
-| project StorageAccountName=name,location,id,
-redudancy=sku.name
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -79,9 +75,7 @@ Azure classic storage account will retire 31 august 2024. So migrate all workloa
 
 #### Queries/Scripts
 
-##### Azure Resource Graph
- resources
-| where type == "microsoft.classicstorage/storageaccounts"
+
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

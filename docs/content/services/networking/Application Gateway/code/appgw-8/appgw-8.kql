@@ -1,0 +1,5 @@
+Resources
+| where type == "microsoft.network/applicationGateways"
+| extend appGatewayResourceId = tostring(id)
+| extend connectionDrainingEnabled = tostring(properties.backendAddressPoolSettings.connectionDraining.enabled)
+| project appGatewayResourceId, connectionDrainingEnabled
