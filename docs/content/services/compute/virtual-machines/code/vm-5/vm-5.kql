@@ -3,4 +3,4 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where isnull(properties.storageProfile.osDisk.managedDisk)
-| project name, id
+| project recommendationId = "vm-9", name, id

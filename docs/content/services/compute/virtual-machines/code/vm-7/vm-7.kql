@@ -3,4 +3,4 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where isnull(properties.backupProfile)
-| project name, id
+| project recommendationId = "vm-7", name, id

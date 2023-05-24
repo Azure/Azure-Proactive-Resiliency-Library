@@ -8,4 +8,4 @@ Resources
 | summarize VMs = make_set(vmPrefix) by availabilitySet = tostring(properties.availabilitySet.id)
 | where array_length(VMs) > 1
 | extend availabilitySetName = tostring(split(availabilitySet, '/')[8])
-| project availabilitySetName, availabilitySet, VMs
+| project recommendationId = "vm-3", availabilitySetName, availabilitySet, VMs

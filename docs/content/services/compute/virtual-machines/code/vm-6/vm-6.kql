@@ -3,4 +3,4 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where array_length(properties.storageProfile.dataDisks) == 1
-| project name, id
+| project recommendationId = "vm-6", name, id
