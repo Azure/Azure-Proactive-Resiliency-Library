@@ -1,2 +1,5 @@
-﻿// (TBD)
-// Goal: Show where only a single ExpressRoute circuit is deployed, or where there is no diversity to multiple regions
+﻿// Azure Resource Graph Query
+// Under development - Goal: Show where only a single ExpressRoute circuit is deployed, or where there is no diversity to multiple regions
+// ..
+// | project recommendationId = "exrct-8", name, id
+// | order by id asc
