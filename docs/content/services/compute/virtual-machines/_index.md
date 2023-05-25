@@ -17,26 +17,26 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-1 - Run production workloads on two or more VMs](#vm-1---run-production-workloads-on-two-or-more-vms)                                                                                                                          |  High  | Preview |         Yes         |
 | [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones)                                                                                                              |  High  | Preview |         Yes         |
 | [VM-3 - If AvailabilitySet is required, then put each application tier into a separate Availability Set](#vm-3---if-availabilityset-is-required-then-put-each-application-tier-into-a-separate-availabilityset)                    |  High  | Preview |         Yes         |
-| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery)                                                                                                        |  High  | Preview |         Yes         |
+| [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery)                                                                                                        | Medium | Preview |         Yes         |
 | [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks)                                                                                                                |  High  | Preview |         Yes         |
-| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                |  High  | Preview |         Yes         |
-| [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines)                                                                                                                                  |  High  | Preview |         Yes         |
+| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                |  Low   | Preview |         Yes         |
+| [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines)                                                                                                                                  | Medium | Preview |         Yes         |
 | [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks)                                                                                                                        |  High  | Preview |         Yes         |
-| [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state)                                                                                                                          |  High  | Preview |         Yes         |
-| [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled)                                                                                                                                    |  High  | Preview |         Yes          |
-| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months)                     |  High  | Preview |         Yes         |
-| [VM-12 - Virtual Machines should not have a Public IP directly associated](#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated)                                                                              |  High  | Preview |         Yes          |
-| [VM-13 - Virtual Network Interfaces have an NSG associated](#vm-13---virtual-network-interfaces-have-an-nsg-associated)                                                                                                            |  High  | Preview |         Yes          |
-| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                                        |  High  | Preview |         Yes          |
-| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                                  |  High  | Preview |         Yes          |
-| [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                                              |  High  | Preview |         Yes          |
-| [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks)                                        |  High  | Preview |         Yes          |
-| [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---virtual-machine-is-not-compliant-with-azure-policies)                                                                                                      |  High  | Preview |         Yes          |
-| [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-enable-data-at-rest-encryption-by-default)                                                                             |  High  | Preview |         No          |
-| [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine)                  |  High  | Preview |         No          |
-| [VM-21 - Diagnostic Settings should be configured for all Azure Resources](#vm-21---diagnostic-settings-should-be-configured-for-all-azure-resources)                                                                              |  High  | Preview |         No          |
-| [VM-22 - Tags are inconsistent across Virtual Machines](#vm-22---tags-are-inconsistent-across-virtual-machines)                                                                                                                    |  High  | Preview |         No          |
-| [VM-23 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-23---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine)                                              |  High  | Preview |         No          |
+| [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state)                                                                                                                          |  Low   | Preview |         Yes         |
+| [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled)                                                                                                                                    | Medium | Preview |         Yes          |
+| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months)                     |  Low   | Preview |         Yes         |
+| [VM-12 - Virtual Machines should not have a Public IP directly associated](#vm-12---virtual-machines-should-not-have-a-public-ip-directly-associated)                                                                              | Medium | Preview |         Yes          |
+| [VM-13 - Virtual Network Interfaces have an NSG associated](#vm-13---virtual-network-interfaces-have-an-nsg-associated)                                                                                                            |  Low   | Preview |         Yes          |
+| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                                        | Medium | Preview |         Yes          |
+| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                                  |  Low   | Preview |         Yes          |
+| [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                                              | Medium | Preview |         Yes          |
+| [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---the-network-access-to-the-vm-disk-is-set-to-enable-public-access-from-all-networks)                                        |  Low   | Preview |         Yes          |
+| [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---virtual-machine-is-not-compliant-with-azure-policies)                                                                                                      |  Low   | Preview |         Yes          |
+| [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-enable-data-at-rest-encryption-by-default)                                                                             | Medium | Preview |         No          |
+| [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine)                  |  Low   | Preview |         No          |
+| [VM-21 - Diagnostic Settings should be configured for all Azure Resources](#vm-21---diagnostic-settings-should-be-configured-for-all-azure-resources)                                                                              |  Low   | Preview |         No          |
+| [VM-22 - Tags are inconsistent across Virtual Machines](#vm-22---tags-are-inconsistent-across-virtual-machines)                                                                                                                    |  Low   | Preview |         No          |
+| [VM-23 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-23---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine)                                              | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -57,7 +57,7 @@ To safeguard application workloads from downtime due to the temporary unavailabi
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines)
+- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
 
 #### Queries/Scripts
 
@@ -81,7 +81,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/create-portal-availability-zone](https://learn.microsoft.com/en-us/azure/virtual-machines/create-portal-availability-zone?tabs=standard)
+- [Create virtual machines in an availability zone using the Azure portal](https://learn.microsoft.com/azure/virtual-machines/create-portal-availability-zone?tabs=standard)
 
 #### Queries/Scripts
 
@@ -105,7 +105,7 @@ If the region where you are running your application doesn't support Availablity
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines)
+- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
 
 #### Queries/Scripts
 
@@ -121,7 +121,7 @@ If the region where you are running your application doesn't support Availablity
 
 ### VM-4 - Replicate Virtual Machines using Azure Site Recovery
 
-#### Impact: Low
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
@@ -129,9 +129,8 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 #### Resources
 
-- ["<https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines>
-<https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure>"]("<https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines>
-<https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure>")
+- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
+- [Run a test failover (disaster recovery drill) to Azure](https://learn.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure)
 
 #### Queries/Scripts
 
@@ -155,9 +154,8 @@ Managed disks provide better reliability for VMs in an availability set, because
 
 #### Resources
 
-- ["<https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines>
-<https://learn.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set>"]("<https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#virtual-machines>
-<https://learn.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set>")
+- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
+- [Availability options for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set)
 
 #### Queries/Scripts
 
@@ -181,7 +179,7 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#data-disk](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview#data-disk)
+- [Introduction to Azure managed disks - Data disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview#data-disk)
 
 #### Queries/Scripts
 
@@ -205,7 +203,7 @@ Enable backups for your virtual machines and secure your data
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/backup/backup-overview](https://learn.microsoft.com/en-us/azure/backup/backup-overview)
+- [What is the Azure Backup service?](https://learn.microsoft.com/azure/backup/backup-overview)
 
 #### Queries/Scripts
 
@@ -233,7 +231,7 @@ Standard SSDs are acceptable for some Production workloads as well. Please refer
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)
+- [Azure managed disk types](https://learn.microsoft.com/azure/virtual-machines/disks-types#premium-ssd)
 
 #### Queries/Scripts
 
@@ -257,7 +255,7 @@ Azure Virtual Machines (VM) instances go through different states. There are pro
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/](https://learn.microsoft.com/en-us/azure/virtual-machines/states-billing?context=%2Ftroubleshoot%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext)
+- [States and billing status of Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/states-billing?context=%2Ftroubleshoot%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext#power-states-and-billing)
 
 #### Queries/Scripts
 
@@ -283,7 +281,7 @@ This configuration is not always required, evaluate this option according to the
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview)
+- [Accelerated Networking (AccelNet) overview](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview)
 
 #### Queries/Scripts
 
@@ -307,7 +305,7 @@ When Accelerated Networking is enabled the default Azure Virtual Network interfa
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-overview)
+- [Accelerated Networking (AccelNet) overview](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview)
 
 #### Queries/Scripts
 
@@ -331,7 +329,7 @@ If a Virtual Machine requires outbound internet connectivity we recommend the us
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections)
+- [Use Source Network Address Translation (SNAT) for outbound connections](https://learn.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 #### Queries/Scripts
 
@@ -355,7 +353,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic)
+- [How network security groups filter network traffic](https://learn.microsoft.com/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic)
 
 #### Queries/Scripts
 
@@ -385,7 +383,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding)
+- [Enable or disable IP forwarding](https://learn.microsoft.com/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding)
 
 #### Queries/Scripts
 
@@ -409,7 +407,7 @@ Configure the DNS Server in the Virtual Network to avoid inconsistency across th
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
+- [Name resolution for resources in Azure virtual networks](https://learn.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
 
 #### Queries/Scripts
 
@@ -425,7 +423,7 @@ Configure the DNS Server in the Virtual Network to avoid inconsistency across th
 
 ### VM-16 - Shared disks should only be enabled in Clustered servers
 
-#### Impact: High
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
@@ -433,7 +431,7 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared-enable?tabs=azure-portal](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared-enable?tabs=azure-portal)
+- [Azure Shared Disks](https://learn.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-portal)
 
 #### Queries/Scripts
 
@@ -457,7 +455,7 @@ Recommended changing to "Disable public access and enable private access" and cr
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)
+- [Restrict import/export access for managed disks using Azure Private Link](https://learn.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)
 
 #### Queries/Scripts
 
@@ -473,7 +471,7 @@ Recommended changing to "Disable public access and enable private access" and cr
 
 ### VM-18 - Virtual Machine is not compliant with Azure Policies
 
-#### Impact: Medium
+#### Impact: Low
 
 #### Recommendation/Guidance
 
@@ -481,7 +479,8 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/security-controls-policy](https://learn.microsoft.com/en-us/azure/virtual-machines/security-controls-policy)
+- [Policy-driven governance](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-principles#policy-driven-governance)
+- [Azure Policy Regulatory Compliance controls for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/security-policy)
 
 #### Queries/Scripts
 
@@ -510,7 +509,7 @@ There are several types of encryption available for your managed disks, includin
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview)
+- [Overview of managed disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
 
 #### Queries/Scripts
 
@@ -534,7 +533,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-overview)
+- [Overview of VM insights](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)
 
 #### Queries/Scripts
 
@@ -569,7 +568,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+- [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
 #### Queries/Scripts
 
@@ -593,7 +592,7 @@ The Tags assigned to the Virtual Machines are different and if used for automati
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json)
+- [Use tags to organize your Azure resources and management hierarchy](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json)
 
 #### Queries/Scripts
 
@@ -617,7 +616,7 @@ The Tags assigned to the Virtual Machines are different and if used for automati
 
 #### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json)
+- [Use tags to organize your Azure resources and management hierarchy](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json)
 
 #### Queries/Scripts
 
