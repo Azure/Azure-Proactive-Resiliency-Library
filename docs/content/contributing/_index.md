@@ -44,7 +44,7 @@ You can use `winget` to install all the pre-requisites easily for you. See the [
 {{< /alert >}}
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Visual Studio Code (VS Code)](https://code.visualstudio.com/download)
+- [Visual Studio Code (VS Code)](https://code.visualstudio.com/Download)
   - Extensions:
     - `editorconfig.editorconfig`, `streetsidesoftware.code-spell-checker`, `ms-vsliveshare.vsliveshare`, `medo64.render-crlf`, `vscode-icons-team.vscode-icons`
     - VS Code will recommend automatically to install these when you open this repo, or a fork of it, in VS Code.
