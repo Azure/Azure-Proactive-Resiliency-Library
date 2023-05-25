@@ -50,7 +50,7 @@ Even single instance VMs should be deployed into a scale set using the Flexible 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-1/vm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vmss-1/vmss-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -76,7 +76,7 @@ As your application processes traffic, there can be situations where you want sp
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-2/vm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vmss-2/vmss-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -100,7 +100,7 @@ Monitoring your application health is an important signal for managing and upgra
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-3/vm-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vmss-3/vmss-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -126,7 +126,7 @@ Grace period is specified in minutes in ISO 8601 format and can be set using the
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-4/vm-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vmss-4/vmss-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -153,7 +153,7 @@ Autoscale is a built-in feature that helps applications perform their best when 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-5/vm-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vmss-5/vmss-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -189,7 +189,7 @@ The scale-in policy feature provides users a way to configure the order in which
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-6/vm-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vmss-6/vmss-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
