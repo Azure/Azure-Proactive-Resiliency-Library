@@ -7,17 +7,15 @@ msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include {{ replace .Name "-" " " | title }} and associated {{ replace .Name "-" " " | title }} settings.
+The presented resiliency recommendations in this guidance include {{ replace .Name "-" " " | title }} and associated settings.
 
 ## Summary of Recommendations
 
-The below table shows the list of resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources.
-
 {{< table style="table-striped" >}}
-| Recommendation                                    |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | Preview  |         Yes         |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | Verified |         No          |
+| Recommendation                                    |  Impact  |  State   | ARG Query Available |
+| :------------------------------------------------ | :------: | :------: | :-----------------: |
+| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | High/Medium/Low | Preview  |         Yes         |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | High/Medium/Low | Verified |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -30,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### CM-1 - CHANGE ME title
 
-#### Importance: CHANGE ME
+#### Impact: CHANGE ME
 
 #### Recommendation/Guidance
 
@@ -55,7 +53,7 @@ FILL ME IN...
 
 ### CM-2 - CHANGE ME title
 
-#### Importance: CHANGE ME
+#### Impact: CHANGE ME
 
 #### Recommendation/Guidance
 

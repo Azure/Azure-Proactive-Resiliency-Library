@@ -1,6 +1,6 @@
-resources
-| where type =~ "microsoft.compute/virtualmachines"
-| extend zonesString = tostring(zones)
-| where zonesString =~ ""
-| distinct name, resourceGroup, zonesString
-| project name, resourceGroup, zonesString
+// Azure Resource Graph Query
+// Find all VMs that are not assigned to a Zone
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where isnull(properties.hardwareProfile.zone)
+| project recommendationId = "vm-2", name, id
