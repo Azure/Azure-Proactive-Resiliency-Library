@@ -23,11 +23,11 @@ The below table shows the list of resiliency recommendations for Front Door and 
 | [FD-5 - Use end-to-end TLS](#fd-5---use-end-to-end-tls) | Verified |         No          |
 | [FD-6 - Use HTTP to HTTPS redirection](#fd-6---use-http-to-https-redirection) | Verified |         No          |
 | [FD-7 - Use managed TLS certificates](#fd-7---use-managed-tls-certificates) | Verified |         No          |
-| [FD-8 - Use 'Latest' version for customer-managed certificates](#fd-8---use-'latest'-version-for-customer-managed-certificates) | Verified |         No          |
+| [FD-8 - Use latest version for customer-managed certificates](#fd-8---use-latest-version-for-customer-managed-certificates) | Verified |         No          |
 | [FD-9 - Use the same domain name on Front Door and your origin](#fd-9---use-the-same-domain-name-on-front-door-and-your-origin) | Verified |         No          |
 | [FD-10 - Enable the WAF](#fd-10---enable-the-waf) | Verified |         Yes          |
 | [FD-11 - Follow WAF best practices](#fd-11---follow-waf-best-practices) | Verified |         Yes          |
-| [FD-12 - Disable health probes when there’s only one origin in an origin group](#fd-12---disable-health-probes-when-there’s-only-one-origin-in-an-origin-group) | Verified |         No          |
+| [FD-12 - Disable health probes when there is only one origin in an origin group](#fd-12---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group) | Verified |         No          |
 | [FD-13 - Select good health probe endpoints](#fd-13---select-good-health-probe-endpoints) | Verified |         No          |
 | [FD-14 - Use HEAD health probes](#fd-14---use-head-health-probes) | Verified |         No          |
 | [FD-15 - Lock down Application Gateway to receive traffic only from Azure Front Door](#fd-15---lock-down-application-gateway-to-receive-traffic-only-from-azure-front-door) | Verified |         No          |
@@ -85,15 +85,7 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 - [Secure traffic to Azure Front Door origins](https://learn.microsoft.com/en-us/azure/frontdoor/origin-security?tabs=app-service-functions&pivots=front-door-standard-premium)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -111,15 +103,6 @@ When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs
 - [Client library for Java](https://learn.microsoft.com/en-us/java/api/overview/azure/resourcemanager-frontdoor-readme?view=azure-java-preview)
 - [SDK for Python](https://learn.microsoft.com/en-us/python/api/overview/azure/front-door?view=azure-python)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -137,15 +120,7 @@ Front Door tracks extensive telemetry about every request. When you enable cachi
 - [WAF logs](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor?pivots=front-door-standard-premium#waf-logs)
 - [Configure Azure Front Door logs](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-logs)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -161,15 +136,7 @@ Front Door terminates TCP and TLS connections from clients. It then establishes 
 
 - [End-to-end TLS with Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -187,15 +154,7 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 - [Create HTTP to HTTPS redirect rule](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-how-to-redirect-https#create-http-to-https-redirect-rule)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -211,19 +170,11 @@ When Front Door manages your TLS certificates, it reduces your operational costs
 
 - [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
-### FD-8 - Use 'Latest' version for customer-managed certificates
+### FD-8 - Use latest version for customer-managed certificates
 
 #### Importance: Medium
 
@@ -235,15 +186,7 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 
 - [Select the certificate for Azure Front Door to deploy](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell#select-the-certificate-for-azure-front-door-to-deploy)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -261,15 +204,7 @@ Before you rewrite the Host header of your requests, carefully consider whether 
 
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](https://learn.microsoft.com/en-us/azure/architecture/best-practices/host-name-preservation)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -321,7 +256,7 @@ The WAF for Front Door has its own set of best practices for its configuration a
 
 <br><br>
 
-### FD-12 - Disable health probes when there’s only one origin in an origin group
+### FD-12 - Disable health probes when there is only one origin in an origin group
 
 #### Importance: Low
 
@@ -335,15 +270,7 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 - [Health probes](https://learn.microsoft.com/en-us/azure/frontdoor/health-probes)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -359,15 +286,7 @@ Consider the location where you tell Front Door's health probe to monitor. It's 
 
 - [Health Endpoint Monitoring pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -383,15 +302,7 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 
 - [Supported HTTP methods for health probes](https://learn.microsoft.com/en-us/azure/frontdoor/health-probes#supported-http-methods-for-health-probes)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -408,15 +319,7 @@ Certain scenarios can force a customer to implement rules specifically on AppGat
 
 - [Application Gateway behind Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -434,15 +337,7 @@ A WAF policy contains a set of custom rules. The rule consists of match conditio
 
 - [Geo filter WAF policy - GeoMatch](https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-geo-filtering)
 
-#### Queries/Scripts
 
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -460,15 +355,6 @@ Azure Front Door Premium can connect to your origin using Private Link. Your ori
 
 - [Private link for Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/private-link)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
