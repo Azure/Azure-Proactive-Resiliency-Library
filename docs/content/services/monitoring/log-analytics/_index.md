@@ -14,12 +14,12 @@ The presented resiliency recommendations in this guidance include Log Analytics 
 The below table shows the list of resiliency recommendations for Log Analytics and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [LAW-1 - Enable Log Analytics data export to GRS or GZRS](#law-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Preview  |         No         |
-| [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Preview |         Yes          |
-| [LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions](#law-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Preview  |         No         |
-| [LAW-4 - Create a health status alert rule for your Log Analytics workspace](#law-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace) | Preview  |         No         |
+| Recommendation                                    |  Impact   |  State   | ARG Query Available |
+| :------------------------------------------------ | :------: | :------: | :-----------------: |
+| [LAW-1 - Enable Log Analytics data export to GRS or GZRS](#law-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Medium  | Preview  |         No         |
+| [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Medium  | Preview |         Yes          |
+| [LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions](#law-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Medium  | Preview  |         No         |
+| [LAW-4 - Create a health status alert rule for your Log Analytics workspace](#law-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace) | Low  | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -40,8 +40,8 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 ##### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Log Analytics workspace data export in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
 #### Queries/Scripts
 
@@ -65,9 +65,9 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 ##### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones)
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters)
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Enhance data and service resilience in Azure Monitor Logs with availability zones](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones)
+- [Create and manage a dedicated cluster in Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
 #### Queries/Scripts
 
@@ -98,7 +98,7 @@ If you require a workspace to be available in the unlikely scenario of a regiona
 
 ##### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
 #### Queries/Scripts
 
@@ -121,8 +121,8 @@ A health status alert will proactively notify you if a workspace becomes unavail
 
 ##### Resources
 
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health)
-- [https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Monitor Log Analytics workspace health](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
 #### Queries/Scripts
 
