@@ -1,2 +1,5 @@
-﻿// (TBD)
-// Goal: Show where ExpressRoute circuits have primary and secondary connections on the same customer router port
+﻿// Azure Resource Graph Query
+// Under development - Goal: Show where ExpressRoute circuits have primary and secondary connections on the same customer router port
+// ..
+// | project recommendationId = "exrct-4", name, id
+// | order by id asc
