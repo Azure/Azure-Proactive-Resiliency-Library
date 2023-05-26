@@ -1,4 +1,6 @@
-resources
-| extend PowerState= tostring(properties.extended.instanceView.powerState.displayStatus)
-| where type =~ 'microsoft.compute/virtualmachines' and PowerState == 'VM Stopped'
-| project name,PowerState,resourceGroup,subscriptionId
+// Azure Resource Graph Query
+// Find all VMs that are NOT running
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where properties.extended.instanceView.powerState.displayStatus != 'VM running'
+| project recommendationId = "vm-9", name, id

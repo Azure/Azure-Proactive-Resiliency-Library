@@ -11,18 +11,16 @@ The presented resiliency recommendations in this guidance include Firewall and a
 
 ## Summary of Recommendations
 
-The below table shows the list of resiliency recommendations for Firewall and associated resources.
-
 {{< table style="table-striped" >}}
-| Recommendation                                    |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [FW-1 - Deploy Azure Firewall across multiple availability zones](#fw-1---deploy-azure-firewall-across-multiple-availability-zones)                                                         | Preview  |         Yes          |
-| [FW-2 - Test Azure Firewall performance](#fw-2---test-azure-firewall-performance)                                                                                  | Preview  |         No           |
-| [FW-3 - Monitor Azure Firewall metrics](#fw-3---monitor-azure-firewall-metrics)                                                                                   | Preview  |         Yes          |
-| [FW-4 - Deploy an instance of Azure Firewall per region](#fw-4---deploy-an-instance-of-azure-firewall-per-region)                                                                  | Preview  |         No           |
-| [FW-5 - Configure DDoS Protection on the Azure Firewall VNet](#fw-5---configure-ddos-protection-on-the-azure-firewall-vnet)                                                             | Preview  |         Yes          |
-| [FW-6 - Leverage Azure Policy inheritance model](#fw-6---leverage-azure-policy-inheritance-model)                                                                          | Preview  |         No           |
-| [FW-7 - Understand impact of management operations on long running TCP sessions](#fw-7---understand-impact-of-management-operations-on-long-running-tcp-sessions)                                          | Preview  |         No           |
+| Recommendation                                                                                                                                                    | Impact   |  State   | ARG Query Available |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
+| [FW-1 - Deploy Azure Firewall across multiple availability zones](#fw-1---deploy-azure-firewall-across-multiple-availability-zones)                               |  High    | Preview  |         Yes         |
+| [FW-2 - Test Azure Firewall performance](#fw-2---test-azure-firewall-performance)                                                                                 |  High    | Preview  |         No          |
+| [FW-3 - Monitor Azure Firewall metrics](#fw-3---monitor-azure-firewall-metrics)                                                                                   |  High    | Preview  |         Yes         |
+| [FW-4 - Deploy an instance of Azure Firewall per region](#fw-4---deploy-an-instance-of-azure-firewall-per-region)                                                 |  High    | Preview  |         No          |
+| [FW-5 - Configure DDoS Protection on the Azure Firewall VNet](#fw-5---configure-ddos-protection-on-the-azure-firewall-vnet)                                       |  High    | Preview  |         Yes         |
+| [FW-6 - Leverage Azure Policy inheritance model](#fw-6---leverage-azure-policy-inheritance-model)                                                                 |  Medium  | Preview  |         No          |
+| [FW-7 - Understand impact of management operations on long running TCP sessions](#fw-7---understand-impact-of-management-operations-on-long-running-tcp-sessions) |  Medium  | Preview  |         No          |
 
 {{< /table >}}
 
@@ -36,7 +34,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### FW-1 - Deploy Azure Firewall across multiple availability zones
 
-#### Importance: Critical
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -61,7 +59,7 @@ Azure Firewall provides different SLAs when it's deployed in a single availabili
 
 ### FW-2 - Test Azure Firewall performance
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -76,7 +74,7 @@ Reliable firewall performance is essential to operate and protect your virtual n
 
 ### FW-3 - Monitor Azure Firewall metrics
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -84,7 +82,6 @@ Monitor metrics related to availability and performance issues. More specificall
 - *FirewallHealth*: Indicates the overall health of the firewall.
 - *Throughput*: Throughput processed by the firewall. An alert should be triggered if throughput gets close to the documented limits.
 - *SNATPortUtilization*: Percentage of outbound SNAT ports currently in use. An alert should be triggered if this metric gets close to 100% (at which point Source-NATted connections, such as outbound internet connections will start to fail). If you'll need more than 512,000 SNAT ports, deploying a NAT gateway with Azure Firewall can be considered. However, deploying NAT gateway with a zone redundant firewall is not recommended deployment option, as the NAT gateway does not support zonal deployment at this time. In order to use NAT gateway with Azure Firewall, a zonal Firewall deployment is required. In addition, Azure Virtual Network NAT integration is not currently supported in secured virtual hub network architectures.
-
 
 ##### Resources
 
@@ -106,7 +103,7 @@ Monitor metrics related to availability and performance issues. More specificall
 
 ### FW-4 - Deploy an instance of Azure Firewall per region
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -120,7 +117,7 @@ In multi-region environments, deploy an instance of Azure Firewall per region. F
 
 ### FW-5 - Configure DDoS Protection on the Azure Firewall VNet
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -144,7 +141,7 @@ Associate a DDoS protection plan with the virtual network hosting Azure Firewall
 
 ### FW-6 - Leverage Azure Policy inheritance model
 
-#### Importance: Medium
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
@@ -158,7 +155,7 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 
 ### FW-7 - Understand impact of management operations on long running TCP sessions
 
-#### Importance: Medium
+#### Impact: Medium
 
 #### Recommendation/Guidance
 

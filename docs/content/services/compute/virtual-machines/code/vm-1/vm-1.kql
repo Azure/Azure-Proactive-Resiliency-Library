@@ -1,1 +1,6 @@
-under development
+// Azure Resource Graph Query
+// Find all VMs that are not assigned to a Zone nor is associated with an AvailabilitySet
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where isnull(properties.availabilitySetReference) and isnull(properties.hardwareProfile.zone)
+| project recommendationId = "vm-1", name, id

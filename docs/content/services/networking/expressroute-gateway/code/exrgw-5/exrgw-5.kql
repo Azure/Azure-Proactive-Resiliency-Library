@@ -1,13 +1,16 @@
-// (TBD)
-// Goal: show that for each ErGw configured whether or not a suitable VPN GW is configured
+// Azure Resource Graph Query
+// Under development - Goal: Show that for each ErGw configured whether or not a suitable VPN GW is configured
 resources
 | where type =~ "microsoft.network/virtualnetworkgateways"
 | where properties.gatewayType == "ExpressRoute"
-| project name, type, location, subscriptionId, resourceGroup, ErGwSubnet = properties.ipConfigurations[0].properties.subnet.id
-| join (resources
-  | where type =~ "microsoft.network/virtualnetworkgateways"
-  | where properties.gatewayType =~ "VPN"
-  | where properties.vpnType == "RouteBased"
-  | where properties.vpnGatewayGeneration == "Generation2"
-  | project SubName=name, subscriptionId, VpnGwSubnet = properties.ipConfigurations[0].properties.subnet.id) on subscriptionId
-| project ERGw=name, VPNGw=SubName, ErGwSubnet, VpnGwSubnet, location, subscriptionId, resourceGroup
+| project name, id, type, location, subscriptionId, resourceGroup, ErGwSubnet = properties.ipConfigurations[0].properties.subnet.id
+| join (
+    resources
+    | where type =~ "microsoft.network/virtualnetworkgateways"
+    | where properties.gatewayType =~ "VPN"
+    | where properties.vpnType == "RouteBased"
+    | where properties.vpnGatewayGeneration == "Generation2"
+    | project SubName=name, id, subscriptionId, VpnGwSubnet = properties.ipConfigurations[0].properties.subnet.id)
+on subscriptionId
+| project recommendationId = "exrgw-5", ERGwName=name, id, VPNGwName=SubName, ErGwSubnet, VpnGwSubnet, location, subscriptionId, resourceGroup
+| order by id asc

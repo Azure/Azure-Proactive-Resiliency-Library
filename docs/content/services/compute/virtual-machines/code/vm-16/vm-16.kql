@@ -1,1 +1,7 @@
-under development
+// Azure Resource Graph Query
+// Find all Disks configured to be Shared. This is not an indication of an issue, but if a disk with this configuration is assigned to two or more VMs without a proper disk control mechanism (like a WSFC) it can lead to data loss
+Resources
+| where type =~ 'Microsoft.Compute/disks'
+| where isnotnull(properties.maxShares)
+| project recommendationId = "vm-16", name, id
+| order by id asc

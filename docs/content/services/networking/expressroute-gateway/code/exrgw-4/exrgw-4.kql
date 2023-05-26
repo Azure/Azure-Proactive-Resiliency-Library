@@ -1,5 +1,5 @@
-// (TBD)
-// Goal: Show all regions in use, and whether or not there are ErGws in each
+// Azure Resource Graph Query
+// Under development - Goal: Show all regions in use, and whether or not there are ErGws in each
 resources
 | where type =~ 'microsoft.network/virtualNetworks'
 | where isnotempty(properties.subnets)
@@ -9,6 +9,7 @@ resources
     resources
     | where type =~ 'microsoft.network/virtualNetworkGateways'
     | extend region = tostring(location)
-    | extend ErName = tostring(name)
+    | extend ErGwName = tostring(name)
 ) on region
-| project type, name, ErName, region, resourceGroup
+| project recommendationId = "exrgw-4", name, id, ErGwName, region
+| order by id asc
