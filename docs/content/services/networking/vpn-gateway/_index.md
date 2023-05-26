@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 {{< table style="table-striped" >}}
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [GW-1 - Choose a Zone-redundant gateway](#gw-1---chose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
+| [GW-1 - Choose a Zone-redundant gateway](#gw-1---choose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
 | [GW-2 - Plan for Active-Active mode](#gw-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
 | [GW-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#gw-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection)                                                         | Preview  |         No          |
 | [GW-4 - Plan for geo-redundant circuits](#gw-4---plan-for-geo-redundant-circuits)                                                       | Preview  |         Yes          |
@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### GW-1 - Chose a Zone-redundant gateway
+### GW-1 - Choose a Zone-redundant gateway
 
 #### Importance: Critical
 
