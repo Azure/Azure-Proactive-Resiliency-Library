@@ -1,29 +1,27 @@
 +++
 title = "Application Gateway"
-description = "Best practices and resiliency recommendations for ExpressRoute Gateway and associated resources."
+description = "Best practices and resiliency recommendations for Application Gateway and Web Application Firewall and associated resources."
 date = "5/1/23"
 author = "jimays"
 msAuthor = "jimays"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Application Gateway and associated Application Gateway settings.
+The presented resiliency recommendations in this guidance include Application Gateway, Web Application Firewall and associated settings.
 
 ## Summary of Recommendations
 
-The below table shows the list of resiliency recommendations for Application Gateway and associated resources.
-
 {{< table style="table-striped" >}}
-| Recommendation | State | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#appgw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance) | Preview | Yes |
-| [APPGW-2 - Secure all incoming connections with SSL](#appgw-2---secure-all-incoming-connections-with-ssl) | Preview | Yes |
-| [APPGW-3 - Enable WAF policies](#appgw-3---enable-waf-policies) | Preview | Yes |
-| [APPGW-4 - Use Application GW V2 instead of V1](#appgw-4---use-application-gw-v2-instead-of-v1) | Preview | Yes |
-| [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic) | Preview | Yes |
-| [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability) | Preview | Yes |
-| [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration) | Preview | Yes |
-| [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) | Preview | Yes |
+| Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
+| :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
+| [APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#appgw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
+| [APPGW-2 - Secure all incoming connections with SSL](#appgw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
+| [APPGW-3 - Enable WAF policies](#appgw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
+| [APPGW-4 - Use Application GW V2 instead of V1](#appgw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
+| [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | Yes |
+| [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
+| [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
+| [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
 
 {{< /table >}}
 
@@ -37,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance
 
-#### Importance: Critical
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -56,15 +54,13 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 {{< /collapse >}}
 <br><br>
 
-
 ### APPGW-2 - Secure all incoming connections with SSL
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
 Ensure that all incoming connections are using HTTP/s for production services.  Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
-
 
 ##### Resources
 
@@ -86,14 +82,13 @@ Ensure that all incoming connections are using HTTP/s for production services.  
 
 <br><br>
 
-### APPGW-3 - Enable WAF policies
+### APPGW-3 - Enable Web Application Firewall policies
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
 Use Application Gateway with Web Application Firewall (WAF) within an application virtual network to protect inbound HTTP/S traffic from the Internet. The WAF provides centralized protection from possible exploits by using rules based on the OWASP (Open Web Application Security Project) core rule sets.
-
 
 ##### Resources
 
@@ -114,14 +109,14 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 
 ### APPGW-4 - Use Application GW V2 instead of V1
 
-#### Importance: High
+#### Impact: High
 
 #### Recommendation/Guidance
 
 You should use Application Gateway v2 unless there is a compelling reason for using v1. V2 has many more built in features such as autoscaling, static VIPs, Azure KeyVault integration for certificate management and many more features listed in our comparison charts.  Leveraging this updated version allows for better performance and control of how your traffic routed and the ability to make changes to the traffic.
 
-
 ##### Resources
+
 - [Application Gateway Overview V2](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2)
 - [Application Gateway Feature Comparison Between V1 and V2](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2#feature-comparison-between-v1-sku-and-v2-sku)
 - [Application Gateway V1 Retirement](https://azure.microsoft.com/en-us/updates/application-gateway-v1-will-be-retired-on-28-april-2026-transition-to-application-gateway-v2/)
@@ -140,7 +135,7 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 
 ### APPGW-5 - Monitor and Log the configurations and traffic
 
-#### Importance: Medium
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
@@ -165,13 +160,14 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 
 ### APPGW-6 - Use Health Probes to detect backend availability
 
-#### Importance: Medium
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
 Using custom health probes can help with understand the availability of your backends and allows you to monitor the backend services if they are being affected in any way.
 
 ##### Resources
+
 - [Application Gateway Probe Overview](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-probe-overview)
 - [Well-Architected Framework Application Gateway Overview](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway)
 
@@ -189,12 +185,14 @@ Using custom health probes can help with understand the availability of your bac
 
 ### APPGW-7 - Deploy backends in a zone-redundant configuration
 
-#### Importance: Medium
+#### Impact: High
 
 #### Recommendation/Guidance
+
 Deploying your backend services in a zone-aware configurations ensures that if a specific zone goes down that customers will still have access to the services as the other services located in other zones will still be available.
 
 ##### Resources
+
 - [Well-Architected Framework Application Gateway Reliability](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-application-gateway#reliability)
 - [Application Gateway V2 Overview](https://learn.microsoft.com/en-us/azure/application-gateway/overview-v2)
 
@@ -212,14 +210,17 @@ Deploying your backend services in a zone-aware configurations ensures that if a
 
 ### APPGW-8 - Plan for backend maintenance by using connection draining
 
-#### Importance: Medium
+#### Impact: Medium
 
 #### Recommendation/Guidance
-Plan for backend maintenance by using connection draining. Connection draining allows
+
+Plan for backend maintenance by using connection draining. Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the Backend Setting and is applied to all backend pool members during rule creation.
 
 ##### Resources
+
 - [Application Gateway Connection Draining](https://learn.microsoft.com/en-us/azure/application-gateway/features#connection-draining)
 - [Application Gateway Connection Draining HTTP Settings](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings#connection-draining)
+
 #### Queries/Scripts
 
 ##### Azure Resource Graph

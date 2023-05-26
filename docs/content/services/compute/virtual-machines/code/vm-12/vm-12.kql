@@ -1,32 +1,19 @@
+// Azure Resource Graph Query
+// Find all VMs with PublicIPs directly associated with them
 Resources
-| where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces)
-| mvexpand nic=properties.networkProfile.networkInterfaces
-| extend hostName = properties.osProfile.computerName
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
-| project vmId = id,
-          vmName = name,
-          nicId = tostring(nic.id),
-          hostName
-| join kind=leftouter (
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where isnotnull(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| project name, id, nicId = nic.id
+| extend nicId = tostring(nicId)
+| join kind=inner (
     Resources
-    | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations)
-    | mvexpand ipconfig=properties.ipConfigurations
-    | extend privateIp = ipconfig.properties.privateIPAddress,
-             publicIpId = tostring(ipconfig.properties.publicIPAddress.id)
-    | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
-    | project nicId = id,
-              privateIp,
-              publicIpId
-)
-on nicId
-| project-away nicId1
-| summarize by vmId, vmName, tostring(hostName), nicId, publicIpId, tostring(privateIp)
-| join kind=leftouter (
-    Resources
-    | where type =~ 'microsoft.network/publicipaddresses'
-    | project publicIpId = id, publicIpAddress = properties.ipAddress)
-on publicIpId
-| where publicIpAddress != ""
-| project-away publicIpId1
+    | where type =~ 'Microsoft.Network/networkInterfaces'
+    | where isnotnull(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
+    | extend publicIp = tostring(ipconfig.properties.publicIPAddress.id)
+    | where publicIp != ""
+    | project name, nicId = tostring(id), publicIp
+) on nicId
+| project recommendationId = "vm-12", name, id
+| order by id asc
