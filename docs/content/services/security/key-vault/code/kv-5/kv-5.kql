@@ -1,6 +1,6 @@
 // Azure Resource Graph Query
-// Brief description of the intent of the query (focus on returning resources NOT following your recommendation, and usually name and ResourceId are enough for the report)
-Resources
-| where type =~ "Microsoft.Example/changeMe"
-| project recommendationId = "cm-1", name, id
-| order by id asc
+// This resource graph query will return all Key Vaults that do not have diagnostic settings enabled.
+resources
+| where type == "microsoft.keyvault/vaults"
+| where Diag = (isempty (properties.diagnosticSettings))
+| project name, location, resourceGroup, subscriptionId, Diag = tostring(properties.diagnosticSettings)
