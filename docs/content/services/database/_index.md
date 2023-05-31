@@ -63,3 +63,24 @@ By default, the cluster of nodes for the premium availability model is created i
 - [Azure Traffic Manager](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)
 -[Zone Redundant Databases](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)
 
+### SQLDB-4 - Implement Retry Logic
+
+#### Impact: High
+
+#### Recommendation/Guidance
+Although Azure SQL Database is resilient when it concerns transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code can retry the call.
+
+#### Resources
+- [How to Implement Retry Logic](https://learn.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues)
+
+### SQLDB-5 - Monitor your Azure SQL Database in Near Real-Time to Detect Reliability Incidents
+
+#### Impact: Medium
+
+#### Recommendation/Guidance
+Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choose a near real-time monitoring solution to quickly react to incidents.
+
+#### Resources
+- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts)
+- [Azure SQL Database Monitoring](https://learn.microsoft.com/en-us/azure/azure-sql/database/monitoring-sql-database-azure-monitor)
+- [Monitoring SQL Database Reference](https://learn.microsoft.com/en-us/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference)
