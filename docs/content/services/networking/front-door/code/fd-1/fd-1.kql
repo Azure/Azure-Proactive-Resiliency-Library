@@ -1,0 +1,3 @@
+resources
+| where type == "microsoft.Network/trafficmanagerprofiles" or type == "microsoft.cdn/profiles"
+| project recommendationId = "fd-1", name, id
