@@ -2,8 +2,8 @@
 title = "Key Vault"
 description = "Best practices and resiliency recommendations for Key Vault and associated resources."
 date = "5/29/23"
-author = "CHANGE ME TO YOUR GITHUB USERNAME"
-msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
+author = "maheshbenke"
+msAuthor = "maheshbenke"
 draft = false
 +++
 
