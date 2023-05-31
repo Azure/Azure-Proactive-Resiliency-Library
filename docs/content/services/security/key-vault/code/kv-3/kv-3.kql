@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// This resource graph query will return all Key Vaults that does not have a Private Endpoint Connection.
+resources
+| where type == "microsoft.keyvault/vaults"
+| where tostring(properties['privateEndpointConnections'][0]['properties']['provisioningState']) !in ("Succeeded", "Ready", "Pending", "Failed")
+| project name, location, resourceGroup, subscriptionId, PrivatelinkEndpoint = tostring(properties['privateEndpointConnections'][0]['properties']['provisioningState'])
