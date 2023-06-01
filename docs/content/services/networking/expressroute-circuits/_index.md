@@ -18,11 +18,11 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 | :------------------------------------------------ | :------: | :-----------------: |
 | [EXRCT-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#exrct-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | Preview | TBD |
 | [EXRCT-2 - Physical layer diversity](#exrct-2---physical-layer-diversity) | Preview | No |
-| [EXRCT-3 - Diversify primary and secondary connections to customer end routers](#exrct-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | TBD |
-| [EXRCT-4 - Diversify primary and secondary connections to customer end ports](#exrct-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | TBD |
+| [EXRCT-3 - Diversify primary and secondary connections to customer end routers](#exrct-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
+| [EXRCT-4 - Diversify primary and secondary connections to customer end ports](#exrct-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
 | [EXRCT-5 - Monitor ExpressRoute using Azure Monitor](#exrct-5---monitor-expressroute-using-azure-monitor) | Preview | TBD |
 | [EXRCT-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#exrct-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | TBD |
-| [EXRCT-7 - Ensure Bidirectional Forwarding Detection is enabled and configured](#exrct-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | TBD |
+| [EXRCT-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#exrct-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
 | [EXRCT-8 - Implement multiple ExpressRoute circuits](#exrct-8---implement-multiple-expressroute-circuits) | Preview | TBD |
 | [EXRCT-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#exrct-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
 {{< /table >}}

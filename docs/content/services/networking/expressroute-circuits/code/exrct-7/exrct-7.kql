@@ -1,5 +1,1 @@
-﻿// Azure Resource Graph Query
-// Under development - Goal: Show any ExpressRoute circuits where BFD is not configured and enabled
-// ..
-// | project recommendationId = "exrct-7", name, id
-// | order by id asc
+﻿// Not available. The validation for this recommendation cannot be achieved with an Azure Resource Graph query.
