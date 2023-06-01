@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 {{< table style="table-striped" >}}
 | Recommendation | State | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [EXRCT-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#exrct-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | Preview | TBD |
+| [EXRCT-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#exrct-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | Preview | Yes |
 | [EXRCT-2 - Physical layer diversity](#exrct-2---physical-layer-diversity) | Preview | No |
 | [EXRCT-3 - Diversify primary and secondary connections to customer end routers](#exrct-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
 | [EXRCT-4 - Diversify primary and secondary connections to customer end ports](#exrct-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
