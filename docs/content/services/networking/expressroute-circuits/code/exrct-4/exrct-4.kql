@@ -1,5 +1,1 @@
-﻿// Azure Resource Graph Query
-// Under development - Goal: Show where ExpressRoute circuits have primary and secondary connections on the same customer router port
-// ..
-// | project recommendationId = "exrct-4", name, id
-// | order by id asc
+﻿// Not available. The validation for this recommendation cannot be achieved with an Azure Resource Graph query.
