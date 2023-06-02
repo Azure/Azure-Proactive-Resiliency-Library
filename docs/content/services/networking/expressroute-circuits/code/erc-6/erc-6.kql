@@ -1,5 +1,5 @@
 ﻿// Azure Resource Graph Query
 // Under development - Goal: Show any ExpressRoute circuit where service health alerts are not configured
 // ..
-// | project recommendationId = "exrct-6", name, id
+// | project recommendationId = "erc-6", name, id
 // | order by id asc
