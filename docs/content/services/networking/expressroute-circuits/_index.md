@@ -23,7 +23,7 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 | [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | TBD |
 | [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | TBD |
 | [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
-| [ERC-8 - Implement multiple ExpressRoute circuits](#erc-8---implement-multiple-expressroute-circuits) | Preview | TBD |
+| [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Preview | TBD |
 | [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
 {{< /table >}}
 
@@ -205,13 +205,13 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 <br><br>
 
-### ERC-8 - Implement multiple ExpressRoute circuits
+### ERC-8 - Implement multiple geo-redundant ExpressRoute circuits
 
 #### Importance: Medium
 
 #### Recommendation/Guidance
 
-Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency
+Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network for cross premises resiliency
 
 ##### Resources
 
