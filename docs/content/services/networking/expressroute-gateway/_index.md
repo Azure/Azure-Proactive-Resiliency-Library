@@ -12,13 +12,13 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                         | Impact   | State    | ARG Query Available |
+| Recommendation | Impact | State | ARG Query Available |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
-| [EXRGW-1 - Use Zone-redundant gateway SKUs](#exrgw-1---use-zone-redundant-gateway-skus)                                                                | High     | Preview  | Yes |
-| [EXRGW-2 - Monitor gateway health](#exrgw-2---monitor-gateway-health)                                                                                  | High     | Preview  | TBD |
-| [EXRGW-3 - Use VNET peering for VNET to VNET connectivity](#exrgw-3---use-vnet-peering-for-vnet-to-vnet-connectivity)                                  | Medium   | Preview  | TBD |
-| [EXRGW-4 - Configure ExpressRoute Gateways in different regions](#exrgw-4---configure-expressroute-gateways-in-different-regions)                      | Medium   | Preview  | Yes |
-| [EXRGW-5 - Configure S2S VPN as a backup to ExpressRoute private peering](#exrgw-5---configure-s2s-vpn-as-a-backup-to-expressroute-private-peering)    | Medium   | Preview  | Yes |
+| [EXRGW-1 - Use Zone-redundant gateway SKUs](#exrgw-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
+| [EXRGW-2 - Monitor gateway health](#exrgw-2---monitor-gateway-health) | High | Preview | TBD |
+| [EXRGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#exrgw-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | TBD |
+| [EXRGW-4 - Configure ExpressRoute Gateways in different regions](#exrgw-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | Yes |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -80,7 +80,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 <br><br>
 
-### EXRGW-3 - Use VNET peering for VNET to VNET connectivity
+### EXRGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits
 
 #### Impact: Medium
 
@@ -123,30 +123,6 @@ When multiple Azure regions are in use, increase resilience by configuring Expre
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/exrgw-4/exrgw-4.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### EXRGW-5 - Configure S2S VPN as a backup to ExpressRoute private peering
-
-#### Impact: Medium
-
-#### Recommendation/Guidance
-
-Consider using site-to-site VPN as a failover when an ExpressRoute circuit becomes unavailable.
-
-##### Resources
-
-- [Using S2S VPN as a backup for ExpressRoute private peering](https://learn.microsoft.com/en-us/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
-
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/exrgw-5/exrgw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
