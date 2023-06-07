@@ -1,1 +1,15 @@
-under development
+// Start with a list of VMs, format the resourceId in lowercase for joining to the maintenanceresources later
+Resources
+| extend resourceId = tolower(id)
+| project name, location, type, id, resourceId, properties
+| where type =~ 'Microsoft.Compute/virtualMachines'
+// Do the join with mainteinanceresources looking specifically for configurationassignments
+| join kind=leftouter  ( 
+maintenanceresources
+| where type =~ "microsoft.maintenance/configurationassignments"
+| project planName = name, type, maintenanceProps = properties
+| extend resourceId = tostring(maintenanceProps.resourceId)
+) on resourceId
+// Filter to only return resources that have no maintenance configuration assigned
+| where isnull(maintenanceProps)
+| project name, location, type, id, properties
