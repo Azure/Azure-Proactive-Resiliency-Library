@@ -37,7 +37,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-21 - Diagnostic Settings should be configured for all Azure Resources](#vm-21---diagnostic-settings-should-be-configured-for-all-azure-resources)                                                                              |  Low   | Preview |         No          |
 | [VM-22 - Tags are inconsistent across Virtual Machines](#vm-22---tags-are-inconsistent-across-virtual-machines)                                                                                                                    |  Low   | Preview |         No          |
 | [VM-23 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-23---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine)                                              | Medium | Preview |         No          |
-| [VM-24 - Use maintenance configurations for the Virtual Machine](#vm-23---use-maintenance-configurations-for-the-virtual-machine)                                                                                                   | High | Preview |         Yes          |
+| [VM-24 - Use maintenance configurations for the Virtual Machine](#vm-24---use-maintenance-configurations-for-the-virtual-machine)                                                                                                   | High | Preview |         Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}
