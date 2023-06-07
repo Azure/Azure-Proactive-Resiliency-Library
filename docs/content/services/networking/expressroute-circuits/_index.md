@@ -35,8 +35,6 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-## Recommendations Details
-
 ### ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active
 
 #### Importance: Critical
