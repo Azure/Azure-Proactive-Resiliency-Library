@@ -1,8 +1,8 @@
 ﻿// Azure Resource Graph Query
-// Goal: Show any ExpressRoute circuit where one of the connections is not configured (i.e. not IP)
+// Goal: Show any ExpressRoute circuit where one of the connections is not configured (i.e. no IP)
 Resources
 | where type =~ 'Microsoft.Network/expressRouteCircuits'
 | where properties.value[0].provisioningState != 'Succeeded' or properties.value[1].provisioningState != 'Succeeded'
 | where not(properties.peerings[0].properties.primaryPeerAddressPrefix != "null" and  properties.peerings[0].properties.secondaryPeerAddressPrefix != "null")
-| project recommendationId = "exrct-1", name, id, Peer1_IP = properties.peerings[0].properties.primaryPeerAddressPrefix, Peer2_IP = properties.peerings[0].properties.secondaryPeerAddressPrefix
+| project recommendationId = "erc-1", name, id, Peer1_IP = properties.peerings[0].properties.primaryPeerAddressPrefix, Peer2_IP = properties.peerings[0].properties.secondaryPeerAddressPrefix
 | order by id asc

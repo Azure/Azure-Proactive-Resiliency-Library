@@ -16,15 +16,15 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 {{< table style="table-striped" >}}
 | Recommendation | State | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [EXRCT-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#exrct-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | Preview | Yes |
-| [EXRCT-2 - Physical layer diversity](#exrct-2---physical-layer-diversity) | Preview | No |
-| [EXRCT-3 - Diversify primary and secondary connections to customer end routers](#exrct-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
-| [EXRCT-4 - Diversify primary and secondary connections to customer end ports](#exrct-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
-| [EXRCT-5 - Monitor ExpressRoute using Azure Monitor](#exrct-5---monitor-expressroute-using-azure-monitor) | Preview | TBD |
-| [EXRCT-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#exrct-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | TBD |
-| [EXRCT-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#exrct-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
-| [EXRCT-8 - Implement multiple ExpressRoute circuits](#exrct-8---implement-multiple-expressroute-circuits) | Preview | TBD |
-| [EXRCT-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#exrct-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
+| [ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#erc-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | Preview | Yes |
+| [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | Preview | No |
+| [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
+| [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
+| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | TBD |
+| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | TBD |
+| [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
+| [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Preview | TBD |
+| [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -35,9 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-## Recommendations Details
-
-### EXRCT-1 - Ensure both connections of an ExpressRoute circuit are configured and active
+### ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active
 
 #### Importance: Critical
 
@@ -55,13 +53,13 @@ To improve high availability, it's recommended to operate both the connections o
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-1/exrct-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-1/erc-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-2 - Physical layer diversity
+### ERC-2 - Physical layer diversity
 
 #### Importance: High
 
@@ -79,13 +77,13 @@ For better resiliency, plan to have multiple paths between the on-premises edge 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-2/exrct-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-2/erc-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-3 - Diversify primary and secondary connections to customer end routers
+### ERC-3 - Diversify primary and secondary connections to customer end routers
 
 #### Importance: High
 
@@ -103,13 +101,13 @@ Never terminate primary and secondary connections on the same customer end route
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-3/exrct-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-3/erc-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-4 - Diversify primary and secondary connections to customer end ports
+### ERC-4 - Diversify primary and secondary connections to customer end ports
 
 #### Importance: High
 
@@ -127,13 +125,13 @@ Don’t configure both Primary and secondary connections via same port. This cre
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-4/exrct-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-4/erc-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-5 - Monitor ExpressRoute using Azure Monitor
+### ERC-5 - Monitor ExpressRoute using Azure Monitor
 
 #### Importance: High
 
@@ -151,13 +149,13 @@ ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-5/exrct-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-5/erc-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-6 - Configure service health to receive ExpressRoute circuit maintenance notification
+### ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification
 
 #### Importance: High
 
@@ -175,13 +173,13 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-6/exrct-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-6/erc-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-7 - Ensure Bidirectional Forwarding Detection is enabled and configured
+### ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured
 
 #### Importance: High
 
@@ -199,19 +197,19 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-7/exrct-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-7/erc-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-8 - Implement multiple ExpressRoute circuits
+### ERC-8 - Implement multiple geo-redundant ExpressRoute circuits
 
 #### Importance: Medium
 
 #### Recommendation/Guidance
 
-Implement multiple ExpressRoute circuits in your Virtual Network for cross premises resiliency
+Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network for cross premises resiliency
 
 ##### Resources
 
@@ -223,13 +221,13 @@ Implement multiple ExpressRoute circuits in your Virtual Network for cross premi
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-8/exrct-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-8/erc-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRCT-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering
+### ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering
 
 #### Importance: Medium
 
@@ -247,7 +245,7 @@ Consider using site-to-site VPN as a failover when an ExpressRoute circuit becom
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrct-9/exrct-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-9/erc-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
