@@ -39,7 +39,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ##### Resources
 
-- [Azure Key Vault soft-delete overview](https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview)
+- [Azure Key Vault soft-delete overview](https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview)
 
 #### Queries/Scripts
 
@@ -63,7 +63,7 @@ Malicious deletion of a key vault can lead to permanent data loss. A malicious i
 
 ##### Resources
 
-- [Azure Key Vault purge-protection overview](https://learn.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview#purge-protection)
+- [Azure Key Vault purge-protection overview](https://learn.microsoft.com/azure/key-vault/general/soft-delete-overview#purge-protection)
 
 #### Queries/Scripts
 
@@ -87,7 +87,7 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 
 ##### Resources
 
-- [Azure Key Vault Private Link Service overview](https://learn.microsoft.com/en-us/azure/key-vault/general/security-features#network-security)
+- [Azure Key Vault Private Link Service overview](https://learn.microsoft.com/azure/key-vault/general/security-features#network-security)
 
 #### Queries/Scripts
 
@@ -111,7 +111,7 @@ Key vaults define security boundaries for stored secrets. Grouping secrets into 
 
 ##### Resources
 
-- [Azure Key Vault best practices overview](https://learn.microsoft.com/en-us/azure/key-vault/general/best-practices#why-we-recommend-separate-key-vaults)
+- [Azure Key Vault best practices overview](https://learn.microsoft.com/azure/key-vault/general/best-practices#why-we-recommend-separate-key-vaults)
 
 #### Queries/Scripts
 
@@ -135,7 +135,7 @@ Enable logs , set up alerts and retain them as per the retention requirement. Th
 
 ##### Resources
 
-- [Azure Key Vault logging overview](https://learn.microsoft.com/en-us/azure/key-vault/general/logging?tabs=Vault)
+- [Azure Key Vault logging overview](https://learn.microsoft.com/azure/key-vault/general/logging?tabs=Vault)
 
 #### Queries/Scripts
 
