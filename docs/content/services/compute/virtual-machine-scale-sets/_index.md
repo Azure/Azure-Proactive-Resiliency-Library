@@ -134,22 +134,22 @@ Grace period is specified in minutes in ISO 8601 format and can be set using the
 
 ### VMSS-5 - VMSS Autoscale is set to Manual scale
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation:**
 
 Use Custom autoscale based on metrics and schedules.
 
 Autoscale is a built-in feature that helps applications perform their best when demand changes. You can choose to scale your resource manually to a specific instance count, or via a custom Autoscale policy that scales based on metric(s) thresholds, or schedule instance count which scales during designated time windows. Autoscale enables your resource to be performant and cost effective by adding and removing instances based on demand.
 
-#### Resources
+**Resources:**
 
 - [Get started with autoscale in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring)
 - [Overview of autoscale in Azure](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-overview)
 
-#### Queries/Scripts
+**Queries/Scripts:**
 
-##### Azure Resource Graph
+**Azure Resource Graph:**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
