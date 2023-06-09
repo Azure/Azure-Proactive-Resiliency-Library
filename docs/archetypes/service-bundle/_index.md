@@ -1,13 +1,13 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
-description = "Best practices and resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources."
+description = "Best practices and resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources and settings."
 date = "{{ .Date | time.Format ":date_short" }}"
 author = "CHANGE ME TO YOUR GITHUB USERNAME"
 msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include {{ replace .Name "-" " " | title }} and associated settings.
+The presented resiliency recommendations in this guidance include {{ replace .Name "-" " " | title }} and associated resources and settings
 
 ## Summary of Recommendations
 
@@ -28,20 +28,18 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### CM-1 - CHANGE ME title
 
-#### Impact: CHANGE ME
+**Impact: High/Medium/Low**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 FILL ME IN...
 
-##### Resources
+**Resources**
 
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Queries/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -53,20 +51,18 @@ FILL ME IN...
 
 ### CM-2 - CHANGE ME title
 
-#### Impact: CHANGE ME
+**Impact: High/Medium/Low**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 FILL ME IN...
 
-##### Resources
+**Resources**
 
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Queries/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

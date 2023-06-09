@@ -14,10 +14,10 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
-| [EXRGW-1 - Use Zone-redundant gateway SKUs](#exrgw-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
-| [EXRGW-2 - Monitor gateway health](#exrgw-2---monitor-gateway-health) | High | Preview | TBD |
-| [EXRGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#exrgw-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | TBD |
-| [EXRGW-4 - Configure ExpressRoute Gateways in different regions](#exrgw-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | Yes |
+| [EXRG-1 - Use Zone-redundant gateway SKUs](#exrg-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
+| [EXRG-2 - Monitor gateway health](#exrg-2---monitor-gateway-health) | High | Preview | TBD |
+| [EXRG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#exrg-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | TBD |
+| [EXRG-4 - Configure ExpressRoute Gateways in different regions](#exrg-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | Yes |
 
 {{< /table >}}
 
@@ -29,100 +29,92 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### EXRGW-1 - Use Zone-redundant gateway SKUs
+### EXRG-1 - Use Zone-redundant gateway SKUs
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Azure ExpressRoute gateway provides different SLAs when it’s deployed in a single availability zone and when it’s deployed in two or more availability zones. For information about all Azure SLAs, see SLA summary for Azure services. To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure
 
-##### Resources
+**Resources**
 
-- [About ExpressRoute virtual network gateways - Zone-redundant gateway SKUs](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways#zrgw)
-- [About zone-redundant virtual network gateway in Azure availability zones](https://learn.microsoft.com/en-us/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
-- [Create a zone-redundant virtual network gateway in Azure Availability Zones](https://learn.microsoft.com/en-us/azure/vpn-gateway/create-zone-redundant-vnet-gateway)
+- [About ExpressRoute virtual network gateways - Zone-redundant gateway SKUs](https://learn.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways#zrgw)
+- [About zone-redundant virtual network gateway in Azure availability zones](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
+- [Create a zone-redundant virtual network gateway in Azure Availability Zones](https://learn.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrgw-1/exrgw-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/exrg-1/exrg-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRGW-2 - Monitor gateway health
+### EXRG-2 - Monitor gateway health
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Set up monitoring and alerts for Virtual Network Gateway health based on various metrics available.
 
-##### Resources
+**Resources**
 
-- [Alerts for ExpressRoute gateway connections](https://learn.microsoft.com/en-us/azure/expressroute/monitor-expressroute#alerts-for-expressroute-gateway-connections)
-- [Gateway Metrics](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-network-insights#gateway-metrics)
+- [Alerts for ExpressRoute gateway connections](https://learn.microsoft.com/azure/expressroute/monitor-expressroute#alerts-for-expressroute-gateway-connections)
+- [Gateway Metrics](https://learn.microsoft.com/azure/expressroute/expressroute-network-insights#gateway-metrics)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrgw-2/exrgw-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/exrg-2/exrg-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits
+### EXRG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 By default, connectivity between virtual networks are enabled when you link multiple virtual networks to the same ExpressRoute circuit. However, Microsoft advises against using your ExpressRoute circuit for communication between virtual networks and instead uses VNet peering. For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see connectivity between virtual networks over ExpressRoute.
 
-##### Resources
+**Resources**
 
-- [About ExpressRoute virtual network gateways - VNet-to-VNet connectivity](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways#vnet-to-vnet-connectivity)
+- [About ExpressRoute virtual network gateways - VNet-to-VNet connectivity](https://learn.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways#vnet-to-vnet-connectivity)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrgw-3/exrgw-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/exrg-3/exrg-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### EXRGW-4 - Configure ExpressRoute Gateways in different regions
+### EXRG-4 - Configure ExpressRoute Gateways in different regions
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 When multiple Azure regions are in use, increase resilience by configuring ExpressRoute gateways in each region, along with corresponding ExpressRoute circuits.
 
-##### Resources
+**Resources**
 
-- [Designing for disaster recovery with ExpressRoute private peering - Need for redundant connectivity solution](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering#need-for-redundant-connectivity-solution)
+- [Designing for disaster recovery with ExpressRoute private peering - Need for redundant connectivity solution](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering#need-for-redundant-connectivity-solution)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/exrgw-4/exrgw-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/exrg-4/exrg-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

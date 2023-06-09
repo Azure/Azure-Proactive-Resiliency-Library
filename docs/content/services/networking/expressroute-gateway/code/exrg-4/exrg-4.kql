@@ -11,5 +11,5 @@ resources
     | extend region = tostring(location)
     | extend ErGwName = tostring(name)
 ) on region
-| project recommendationId = "exrgw-4", name, id, ErGwName, region
+| project recommendationId = "exrg-4", name, id, ErGwName, region
 | order by id asc
