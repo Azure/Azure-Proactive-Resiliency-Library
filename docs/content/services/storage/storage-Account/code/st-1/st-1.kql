@@ -1,0 +1,3 @@
+Resources | where type =="microsoft.storage/storageaccounts"
+| project recommendationId = "st-1", name,location,id,redudancy=sku.name
+| order by id asc

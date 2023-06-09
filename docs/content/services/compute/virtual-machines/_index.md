@@ -18,10 +18,10 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-2 - Deploy Virtual Machines across Availability Zones](#vm-2---deploy-virtual-machines-across-availability-zones)                                                                                                              |  High  | Preview |         Yes         |
 | [VM-3 - If AvailabilitySet is required, then put each application tier into a separate Availability Set](#vm-3---if-availabilityset-is-required-then-put-each-application-tier-into-a-separate-availabilityset)                    |  High  | Preview |         Yes         |
 | [VM-4 - Replicate Virtual Machines using Azure Site Recovery](#vm-4---replicate-virtual-machines-using-azure-site-recovery)                                                                                                        | Medium | Preview |         Yes         |
-| [VM-5 - Use Managed Disks for Virtual Machine hard disks](#vm-5---use-managed-disks-for-virtual-machine-hard-disks)                                                                                                                |  High  | Preview |         Yes         |
+| [VM-5 - Use Managed Disks for Virtual Machine disks](#vm-5---use-managed-disks-for-virtual-machine-disks)                                                                                                                |  High  | Preview |         Yes         |
 | [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                |  Low   | Preview |         Yes         |
 | [VM-7 - Enable Backups on your Virtual Machines](#vm-7---enable-backups-on-your-virtual-machines)                                                                                                                                  | Medium | Preview |         Yes         |
-| [VM-8 - Production VMs should be using Premium disks](#vm-8---production-vms-should-be-using-premium-disks)                                                                                                                        |  High  | Preview |         Yes         |
+| [VM-8 - Production VMs should be using SSD disks](#vm-8---production-vms-should-be-using-ssd-disks)                                                                                                                        |  High  | Preview |         Yes         |
 | [VM-9 - There are Virtual Machines in Stopped state](#vm-9---there-are-virtual-machines-in-stopped-state)                                                                                                                          |  Low   | Preview |         Yes         |
 | [VM-10 - Accelerated Networking is not enabled](#vm-10---accelerated-networking-is-not-enabled)                                                                                                                                    | Medium | Preview |         Yes          |
 | [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---accelerated-networking-is-enabled-make-sure-you-update-the-guestos-nic-driver-every-6-months)                     |  Low   | Preview |         Yes         |
@@ -35,9 +35,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-enable-data-at-rest-encryption-by-default)                                                                             | Medium | Preview |         No          |
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-insights-to-get-more-visibility-into-the-health-and-performance-of-your-virtual-machine)                  |  Low   | Preview |         No          |
 | [VM-21 - Diagnostic Settings should be configured for all Azure Resources](#vm-21---diagnostic-settings-should-be-configured-for-all-azure-resources)                                                                              |  Low   | Preview |         No          |
-| [VM-22 - Tags are inconsistent across Virtual Machines](#vm-22---tags-are-inconsistent-across-virtual-machines)                                                                                                                    |  Low   | Preview |         No          |
-| [VM-23 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine](#vm-23---tag-shows-incorrect-value-for-the-availability-zone-number-for-a-virtual-machine)                                              | Medium | Preview |         No          |
-| [VM-24 - Use maintenance configurations for the Virtual Machine](#vm-24---use-maintenance-configurations-for-the-virtual-machine)                                                                                                   | High | Preview |         Yes          |
+| [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-virtual-machine) | High | Preview | Yes |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -145,7 +143,7 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 <br><br>
 
-### VM-5 - Use Managed Disks for Virtual Machine hard disks
+### VM-5 - Use Managed Disks for Virtual Machine disks
 
 #### Impact: High
 
@@ -218,13 +216,13 @@ Enable backups for your virtual machines and secure your data
 
 <br><br>
 
-### VM-8 - Production VMs should be using Premium disks
+### VM-8 - Production VMs should be using SSD disks
 
 #### Impact: High
 
 #### Recommendation/Guidance
 
-We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
+We have identified that you are using standard hard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard-hdd disks to standard-ssd or premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
 Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Use Standard HDD disks for Dev/Test scenarios and less critical workloads at lowest cost.
 
@@ -583,55 +581,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 <br><br>
 
-### VM-22 - Tags are inconsistent across Virtual Machines
-
-#### Impact: Low
-
-#### Recommendation/Guidance
-
-The Tags assigned to the Virtual Machines are different and if used for automation, or billing, or support purposes it could led to incorrect actions.
-
-#### Resources
-
-- [Use tags to organize your Azure resources and management hierarchy](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json)
-
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/vm-22/vm-22.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### VM-23 - Tag shows incorrect value for the Availability Zone number for a Virtual Machine
-
-#### Impact: Medium
-
-#### Recommendation/Guidance
-
-The Tags assigned to the Virtual Machines are different and if used for automation, or billing, or support purposes it could led to incorrect actions.
-
-#### Resources
-
-- [Use tags to organize your Azure resources and management hierarchy](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json)
-
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/vm-23/vm-23.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### VM-24 - Use maintenance configurations for the Virtual Machine
+### VM-22 - Use maintenance configurations for the Virtual Machine
 
 #### Impact: High
 
@@ -649,9 +599,8 @@ The maintenance configuration settings allows user to schedule and manage update
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-24/vm-24.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-22/vm-22.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
-
