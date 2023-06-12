@@ -142,7 +142,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/ge-5/gw-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gw-5/gw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
