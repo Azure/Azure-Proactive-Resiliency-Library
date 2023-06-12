@@ -50,7 +50,7 @@ To automatically deploy your virtual network gateways across availability zones,
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vpng-1/vpng-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gw-1/gw-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -75,7 +75,7 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vpng-2/vpng-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gw-2/gw-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -98,7 +98,7 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vpng-3/vpng-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gw-3/gw-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -121,7 +121,7 @@ To plan for disaster recovery, set up Site-to-Site VPN in more than one location
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vpng-4/vpng-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gw-4/gw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -142,7 +142,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vpng-5/vpng-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ge-5/gw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -165,7 +165,7 @@ VPN Gateway uses service health to notify about planned and unplanned maintenanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vpng-6/vpng-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gw-6/gw-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
