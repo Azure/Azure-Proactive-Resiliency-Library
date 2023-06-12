@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### LAW-1 - Enable Log Analytics data export to GRS or GZRS
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -55,7 +55,7 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 ### LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -75,7 +75,7 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 {{< /collapse >}}
 
-##### Azure CLI
+**Azure CLI**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -84,9 +84,10 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 {{< /collapse >}}
 
 <br><br>
+
 ### LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -105,9 +106,10 @@ If you require a workspace to be available in the unlikely scenario of a regiona
 {{< /collapse >}}
 
 <br><br>
+
 ### LAW-4 - Create a health status alert rule for your Log Analytics workspace
 
-#### Importance: Low
+**Impact: Low**
 
 **Recommendation/Guidance**
 
