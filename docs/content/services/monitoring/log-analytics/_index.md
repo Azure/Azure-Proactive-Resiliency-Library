@@ -32,20 +32,18 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### LAW-1 - Enable Log Analytics data export to GRS or GZRS
 
-#### Importance: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Data export in a Log Analytics workspace lets you continuously export data to an Azure Storage account.  Protect your Log Analytics workspace data from the unlikely event of a regional failure by continuously exporting to a geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) account.
 
-##### Resources
+**Resources**
 
-- [Log Analytics workspace data export in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
-- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Log Analytics workspace data export in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/logs/logs-data-export)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -57,21 +55,19 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 ### LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
 
-#### Importance: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Link your Log Analytics workspace to an availability zone enabled dedicated cluster to increase the resilience of Azure Monitor features that rely on your Log Analytics workspace and to protect your Log Analytics data against the unlikely event of a datacenter failure.
 
-##### Resources
+**Resources**
 
-- [Enhance data and service resilience in Azure Monitor Logs with availability zones](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/availability-zones)
-- [Create and manage a dedicated cluster in Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters)
-- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Enhance data and service resilience in Azure Monitor Logs with availability zones](https://learn.microsoft.com/azure/azure-monitor/logs/availability-zones)
+- [Create and manage a dedicated cluster in Azure Monitor Logs](https://learn.microsoft.com/azure/azure-monitor/logs/logs-dedicated-clusters)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -79,7 +75,7 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 {{< /collapse >}}
 
-##### Azure CLI
+**Azure CLI**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -88,21 +84,20 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 {{< /collapse >}}
 
 <br><br>
+
 ### LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions
 
-#### Importance: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 If you require a workspace to be available in the unlikely scenario of a regional failure then configure data collection to send critical data to multiple workspaces in different regions.
 
-##### Resources
+**Resources**
 
-- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -111,22 +106,21 @@ If you require a workspace to be available in the unlikely scenario of a regiona
 {{< /collapse >}}
 
 <br><br>
+
 ### LAW-4 - Create a health status alert rule for your Log Analytics workspace
 
-#### Importance: Low
+**Impact: Low**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 A health status alert will proactively notify you if a workspace becomes unavailable because of a datacenter or regional failure.
 
-##### Resources
+**Resources**
 
-- [Monitor Log Analytics workspace health](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-health)
-- [Azure Monitor configuration recommendations](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-logs#configuration-recommendations)
+- [Monitor Log Analytics workspace health](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-workspace-health)
+- [Azure Monitor configuration recommendations](https://learn.microsoft.com/azure/azure-monitor/best-practices-logs#configuration-recommendations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

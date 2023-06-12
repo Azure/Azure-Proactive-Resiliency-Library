@@ -16,12 +16,12 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                  |  State   | ARG Query Available |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :-----------------: |
-| [GW-1 - Choose a Zone-redundant gateway](#gw-1---choose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
-| [GW-2 - Plan for Active-Active mode](#gw-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
-| [GW-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#gw-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection)                                                         | Preview  |         No          |
-| [GW-4 - Plan for geo-redundant circuits](#gw-4---plan-for-geo-redundant-circuits)                                                       | Preview  |         Yes          |
-| [GW-5 - Monitor circuits and gateway health](#gw-5---monitor-circuits-and-gateway-health)                                               | Preview  |         Yes          |
-| [GW-6 - Enable service health](#gw-6---enable-service-health)                                                                           | Preview  |         Yes          |
+| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
+| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
+| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection)                                                         | Preview  |         No          |
+| [VPNG-4 - Plan for geo-redundant circuits](#vpng-4---plan-for-geo-redundant-circuits)                                                       | Preview  |         Yes          |
+| [VPNG-5 - Monitor circuits and gateway health](#vpng-5---monitor-circuits-and-gateway-health)                                               | Preview  |         Yes          |
+| [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                           | Preview  |         Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -32,23 +32,21 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### GW-1 - Choose a Zone-redundant gateway
+### VPNG-1 - Choose a Zone-redundant gateway
 
 #### Importance: Critical
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Azure VPN gateway provides different SLAs when it's deployed in a single availability zone and when it's deployed in two or more availability zones. For information about all Azure SLAs, see [SLA summary for Azure services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure.
 
-##### Resources
+**Resources**
 
-- [Zone redundant Virtual network gateway in availability zone](https://learn.microsoft.com/en-us/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
-- [Gateway SKU](https://learn.microsoft.com/en-us/azure/vpn-gateway/about-zone-redundant-vnet-gateways#gwskus)
+- [Zone redundant Virtual network gateway in availability zone](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
+- [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways#gwskus)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -58,24 +56,22 @@ To automatically deploy your virtual network gateways across availability zones,
 
 <br><br>
 
-### GW-2 - Plan for Active-Active mode
+### VPNG-2 - Plan for Active-Active mode
 
-#### Importance: High
+**Importance: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 The active-active mode is available for all SKUs except Basic or Standard.
 Active-active gateways have two Gateway IP configurations and two public IP addresses.
 
 
-##### Resources
+**Resources**
 
-- [Active-active VPN gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/active-active-portal#gateway)
-- [Gateway SKU](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
+- [Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
+- [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -84,23 +80,21 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 {{< /collapse >}}
 
 <br><br>
-### GW-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
+### VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
 
-#### Importance: High
+**Importance: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 During the initial planning phase, you want to decide whether you want to configure an ExpressRoute connection.
 An Azure ExpressRoute circuit provide a private dedicated connection into Azure.You also need to identify the bandwidth and the SKU type requirement for your business needs. Configure a Site-to-Site VPN as a failover path for ExpressRoute
 
-##### Resources
+**Resources**
 
-- [Configure a Site-to-Site VPN as a failover path for ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager#configuration-designs)
-- [Limit and limitations](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations)
+- [Configure a Site-to-Site VPN as a failover path for ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#configuration-designs)
+- [Limit and limitations](https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -109,23 +103,21 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 {{< /collapse >}}
 
 <br><br>
-### GW-4 - Plan for geo-redundant circuits
+### VPNG-4 - Plan for geo-redundant circuits
 
-#### Importance: High
+**Importance: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 To plan for disaster recovery, set up Site-to-Site VPN in more than one location. You can create IP Sec connectivity in the same metro or different metro and choose to work with different service providers for diverse paths
 
-##### Resources
+**Resources**
 
-- [Highly available cross-premises](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable)
-- [About VPN gateway redundancy](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable#about-vpn-gateway-redundancy)
+- [Highly available cross-premises](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable)
+- [About VPN gateway redundancy](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-vpn-gateway-redundancy)
 
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -134,21 +126,19 @@ To plan for disaster recovery, set up Site-to-Site VPN in more than one location
 {{< /collapse >}}
 
 <br><br>
-### GW-5 - Monitor circuits and gateway health
+### VPNG-5 - Monitor circuits and gateway health
 
-#### Importance: High
+**Importance: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Set up monitoring and alerts for Virtual Network Gateway health based on various metrics available.
 
-##### Resources
+**Resources**
 
-- [VPN gateway data reference](https://learn.microsoft.com/en-us/azure/vpn-gateway/monitor-vpn-gateway-reference)
+- [VPN gateway data reference](https://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -158,22 +148,20 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 <br><br>
 
-### GW-6 - Enable service health
+### VPNG-6 - Enable service health
 
-#### Importance: High
+**Importance: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 VPN Gateway uses service health to notify about planned and unplanned maintenance. Configuring service health will notify you about changes made to your VPN connectivity.
 
-##### Resources
+**Resources**
 
-- [Getting started with Azure Metrics Explorer](hhttps://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-getting-started)
-- [Monitor VPN gateway](hhttps://learn.microsoft.com/en-us/azure/vpn-gateway/monitor-vpn-gateway-reference#metrics)
+- [Getting started with Azure Metrics Explorer](hhttps://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)
+- [Monitor VPN gateway](hhttps://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference#metrics)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

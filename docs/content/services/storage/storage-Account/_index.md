@@ -36,9 +36,9 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ST-1 - Ensure that Storage Account is redundant
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers other options for how your data is replicated in the primary or paired region:
 
@@ -47,11 +47,11 @@ Data in an Azure Storage account is always replicated three times in the primary
 - GRS replicate additional 3 copies to secondary region and provides sixteen 9s availability.
 - GZRS provides both high availability and redundancy across geo replication. It provides sixteen 9s durability over a given year.
 
-##### Resources
+**Resources**
 
 - [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -63,17 +63,17 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 ### ST-2 - Do not use classic Storage Account
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Azure classic Storage Account will retire 31 august 2024. So migrate all workload from classic storage to v2.
 
-##### Resources
+**Resources**
 
 - [storage account retirement announcement](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/)
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -85,17 +85,17 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 
 ### ST-3 - Ensure Performance tier is set as per workload
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Consider using appropriate storage performance tier for standard storage / block blob / append blob / file-share and page blob. Each workload scenario requires appropriate Performance tier and its important that based on the type of transaction and blob type/file type appropriate performance tier is selected. Failing to do so will create performance bottleneck.
 
-##### Resources
+**Resources**
 
 - [Performance Tier](https://learn.microsoft.com/azure/storage/common/storage-account-overview#performance-tiers )
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -107,17 +107,17 @@ Consider using appropriate storage performance tier for standard storage / block
 
 ### ST-4 - Choose right storage account kind for workload
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are composed of blocks, each of which is identified by a block ID. A block blob can include up to 50,000 blocks
 
-##### Resources
+**Resources**
 
 - [Storage Account Kind docs](https://learn.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs )
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -129,17 +129,17 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 
 ### ST-5 - Enable soft delete for recovery of data
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Soft delete option allow for recovering data if its deleted by mistaken. Moreover Lock will prevent accidentally deleting storage account.
 
-##### Resources
+**Resources**
 
 - [Soft delete detail docs](https://learn.microsoft.com//azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal )
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -151,17 +151,17 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 ### ST-6 - Enable version for accidental modification
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 to recover data from accidental modification, enable versioning.
 
-##### Resources
+**Resources**
 
 - [Blob versioning](https://learn.microsoft.com/azure/storage/blobs/versioning-overview )
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -173,18 +173,18 @@ to recover data from accidental modification, enable versioning.
 
 ### ST-7 - Enable point and time restore for containers for recovery
 
-#### Impact: Low
+**Impact: Low**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 You can use point-in-time restore to restore one or more sets of block blobs to a previous state
 Point and time restore support general purpose v2 account in standard performance tier. Its a mechanism to protect data
 
-##### Resources
+**Resources**
 
 - [Restore overview](https://learn.microsoft.com/azure/storage/blobs/point-in-time-restore-manage?tabs=portal)
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -196,17 +196,17 @@ Point and time restore support general purpose v2 account in standard performanc
 
 ### ST-8 - Keep versioning below 1000 for performance
 
-#### Impact: Low
+**Impact: Low**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions.
 
-##### Resources
+**Resources**
 
 - [Blob Versioning](https://learn.microsoft.com/azure/storage/blobs/versioning-overview)
 
-#### Queries/Scripts
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

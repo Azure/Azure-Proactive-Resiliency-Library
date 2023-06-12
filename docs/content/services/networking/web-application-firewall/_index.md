@@ -34,19 +34,17 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### WA-1 - Associate Web Application Firewall policy with Azure Application Gateway
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 When you create a policy of WAF, it must be associated to an application gateway to take effect. Application Gateway has two versions of the WAF sku: Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policy associations are only supported for the Application Gateway WAF_v2 sku.
 
-#### Resources
+**Resources**
 
 - [Web Application Firewall policy overview](https://learn.microsoft.com/azure/web-application-firewall/ag/policy-overview)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -58,20 +56,18 @@ When you create a policy of WAF, it must be associated to an application gateway
 
 ### WA-2 - Associate Web Application Firewall with Azure Front Door
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 Azure Front Door has two tiers: Front Door Standard and Front Door Premium. WAF is natively integrated with Front Door Premium with full capabilities. For Front Door Standard, only custom rules are supported.
 
-#### Resources
+**Resources**
 
 - [Azure Web Application Firewall on Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -83,19 +79,17 @@ Azure Front Door has two tiers: Front Door Standard and Front Door Premium. WAF 
 
 ### WA-3 - Review best practice for Web Application Firewall on Azure Application Gateway
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Review and apply best practices for using the web application firewall (WAF) on Azure Application Gateway.
 
-#### Resources
+**Resources**
 
 - [Best practices for Web Application Firewall on Application Gateway](https://learn.microsoft.com/azure/web-application-firewall/ag/best-practices)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -107,19 +101,17 @@ Review and apply best practices for using the web application firewall (WAF) on 
 
 ### WA-4 - Review best practice for Web Application Firewall on Azure Front Door
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Review and apply best practices for using the web application firewall (WAF) on Azure Front Door.
 
-#### Resources
+**Resources**
 
 - [Best practices for Web Application Firewall (WAF) on Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-best-practices)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -131,20 +123,18 @@ Review and apply best practices for using the web application firewall (WAF) on 
 
 ### WA-5 - Identify a blocked legitimate request for Web Application Firewall on Azure Front Door
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 WAF could blocks a legitimate request that it shouldn't (a false positive). You can identify requests that have been blocked within the last 24 hours through Log Analytics.
 
-#### Resources
+**Resources**
 
 - [Azure Web Application Firewall monitoring and logging - Access Log](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor?pivots=front-door-standard-premium#access-logs)
 - [Understanding WAF logs](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-tuning?pivots=front-door-standard-premium#understanding-waf-logs)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -156,20 +146,18 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). You 
 
 ### WA-6 - Identify a blocked legitimate request for Web Application Firewall on Azure Application Gateway
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 WAF could blocks a legitimate request that it shouldn't (a false positive). You can identify requests that have been blocked within the last 24 hours through Log Analytics.
 
-#### Resources
+**Resources**
 
 - [Azure Web Application Firewall Monitoring and Logging](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-waf-metrics#logs-and-diagnostics)
 - [Diagnostic logs](https://learn.microsoft.com/azure/web-application-firewall/ag/web-application-firewall-logs#diagnostic-logs)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -181,20 +169,18 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). You 
 
 ### WA-7 - Fixing a false positive for Web Application Firewall on Azure Application Gateway
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 WAF could blocks a legitimate request that it shouldn't (a false positive). The rule 942130 is the one that matched the 1=1 string, you can do a few things to stop this from blocking your traffic.
 
-#### Resources
+**Resources**
 
 - [Web Application Firewall exclusion lists](https://learn.microsoft.com/azure/web-application-firewall/ag/application-gateway-waf-configuration?tabs=portal)
 - [Fixing a false positive](https://learn.microsoft.com/azure/web-application-firewall/ag/web-application-firewall-troubleshoot#fixing-false-positives)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -206,20 +192,18 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). The 
 
 ### WA-8 - Monitor Web Application Firewall
 
-#### Impact: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Monitoring the health of your application gateway is important. Monitoring the health of your WAF and the applications that it protects are supported by integration with Microsoft Defender for Cloud, Azure Monitor, and Azure Monitor logs.
 
-#### Resources
+**Resources**
 
 - [WAF monitoring](https://learn.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-monitoring)
 - [Azure Monitor Workbook for WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Workbook%20-%20WAF%20Monitor%20Workbook)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
