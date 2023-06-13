@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### LB-1 - Use Standard Load Balancer SKU
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -54,7 +54,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 ### LB-2 - Provision at least two instances
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -74,7 +74,8 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 <br><br>
 
 ### LB-3 - Use outbound rules
-**Importance: Medium**
+
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
