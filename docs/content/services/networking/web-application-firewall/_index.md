@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include Web Applicatio
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [WA-1 - Associate Web Application Firewall policy with Azure Application Gateway](#wa-1---associate-web-application-firewall-policy-with-azure-application-gateway)                                                                                                                          |  High  | GA |         Yes         |
-| [WA-2 - Associate Web Application Firewall with Azure Front Door](#wa-2---associate-web-application-firewall-with-azure-front-door)                                                                                                              |  High  | GA |         Yes         |
-| [WA-3 - Review best practice for Web Application Firewall on Azure Application Gateway](#wa-3---review-best-practice-for-web-application-firewall-on-azure-application-gateway)                    |  Medium  | GA |         No         |
-| [WA-4 - Review best practice for Web Application Firewall on Azure Front Door](#wa-4---review-best-practice-for-web-application-firewall-on-azure-front-door)                                                                                                        | Medium | GA |         No         |
-| [WA-5 - Identify a blocked legitimate request for Web Application Firewall on Azure Front Door](#wa-5---identify-a-blocked-legitimate-request-for-web-application-firewall-on-azure-front-door)                                                                                                                |  High  | GA |         Yes         |
-| [WA-6 - Identify a blocked legitimate request for Web Application Firewall on Azure Application Gateway](#wa-6---identify-a-blocked-legitimate-request-for-web-application-firewall-on-azure-application-gateway)                                                                                                                |  High  | GA |         Yes         |
-| [WA-7 - Fixing a false positive for Web Application Firewall on Azure Application Gateway](#wa-7---fixing-a-false-positive-for-web-application-firewall-on-azure-application-gateway)                                                                                                                |  High  | GA |         No         |
-| [WA-8 - Monitor Web Application Firewall](#wa-8---monitor-web-application-firewall)                                                                                                                |  Medium  | GA |         No         |
+| [WAF-1 - Associate Web Application Firewall policy with Azure Application Gateway](#waf-1---associate-web-application-firewall-policy-with-azure-application-gateway)                                                                                                                          |  High  | GA |         Yes         |
+| [WAF-2 - Associate Web Application Firewall with Azure Front Door](#waf-2---associate-web-application-firewall-with-azure-front-door)                                                                                                              |  High  | GA |         Yes         |
+| [WAF-3 - Review best practice for Web Application Firewall on Azure Application Gateway](#waf-3---review-best-practice-for-web-application-firewall-on-azure-application-gateway)                    |  Medium  | GA |         No         |
+| [WAF-4 - Review best practice for Web Application Firewall on Azure Front Door](#waf-4---review-best-practice-for-web-application-firewall-on-azure-front-door)                                                                                                        | Medium | GA |         No         |
+| [WAF-5 - Identify a blocked legitimate request for Web Application Firewall on Azure Front Door](#waf-5---identify-a-blocked-legitimate-request-for-web-application-firewall-on-azure-front-door)                                                                                                                |  High  | GA |         Yes         |
+| [WAF-6 - Identify a blocked legitimate request for Web Application Firewall on Azure Application Gateway](#waf-6---identify-a-blocked-legitimate-request-for-web-application-firewall-on-azure-application-gateway)                                                                                                                |  High  | GA |         Yes         |
+| [WAF-7 - Fixing a false positive for Web Application Firewall on Azure Application Gateway](#waf-7---fixing-a-false-positive-for-web-application-firewall-on-azure-application-gateway)                                                                                                                |  High  | GA |         No         |
+| [WAF-8 - Monitor Web Application Firewall](#waf-8---monitor-web-application-firewall)                                                                                                                |  Medium  | GA |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### WA-1 - Associate Web Application Firewall policy with Azure Application Gateway
+### WAF-1 - Associate Web Application Firewall policy with Azure Application Gateway
 
 **Impact: High**
 
@@ -48,13 +48,13 @@ When you create a policy of WAF, it must be associated to an application gateway
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-1/wa-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-1/waf-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-2 - Associate Web Application Firewall with Azure Front Door
+### WAF-2 - Associate Web Application Firewall with Azure Front Door
 
 **Impact: High**
 
@@ -71,13 +71,13 @@ Azure Front Door has two tiers: Front Door Standard and Front Door Premium. WAF 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-2/wa-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-2/waf-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-3 - Review best practice for Web Application Firewall on Azure Application Gateway
+### WAF-3 - Review best practice for Web Application Firewall on Azure Application Gateway
 
 **Impact: Medium**
 
@@ -93,13 +93,13 @@ Review and apply best practices for using the web application firewall (WAF) on 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-3/wa-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-3/waf-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-4 - Review best practice for Web Application Firewall on Azure Front Door
+### WAF-4 - Review best practice for Web Application Firewall on Azure Front Door
 
 **Impact: Medium**
 
@@ -115,13 +115,13 @@ Review and apply best practices for using the web application firewall (WAF) on 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-4/wa-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-4/waf-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-5 - Identify a blocked legitimate request for Web Application Firewall on Azure Front Door
+### WAF-5 - Identify a blocked legitimate request for Web Application Firewall on Azure Front Door
 
 **Impact: High**
 
@@ -138,13 +138,13 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). You 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-5/wa-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-5/waf-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-6 - Identify a blocked legitimate request for Web Application Firewall on Azure Application Gateway
+### WAF-6 - Identify a blocked legitimate request for Web Application Firewall on Azure Application Gateway
 
 **Impact: High**
 
@@ -161,13 +161,13 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). You 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-6/wa-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-6/waf-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-7 - Fixing a false positive for Web Application Firewall on Azure Application Gateway
+### WAF-7 - Fixing a false positive for Web Application Firewall on Azure Application Gateway
 
 **Impact: High**
 
@@ -184,13 +184,13 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). The 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-7/wa-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-7/waf-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### WA-8 - Monitor Web Application Firewall
+### WAF-8 - Monitor Web Application Firewall
 
 **Impact: Medium**
 
@@ -207,7 +207,7 @@ Monitoring the health of your application gateway is important. Monitoring the h
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/wa-8/wa-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/waf-8/waf-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

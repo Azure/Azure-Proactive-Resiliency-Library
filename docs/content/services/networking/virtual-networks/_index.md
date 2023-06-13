@@ -18,8 +18,7 @@ The below table shows the list of resiliency recommendations for Virtual Network
 | :------------------------------------------------ | :------: | :-----------------: |
 | [Vnet-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
 | [Vnet-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
-| [Vnet-3 - If Public Ip's are needed , Please use Standard SKU](#vnet-3---if-public-ips-are-needed--please-use-standard-sku) | Preview  |         Yes         |
-| [Vnet-4 - Use Private Link, when available, for shared Azure PaaS services](#vnet-4---use-private-link-when-available-for-shared-azure-paas-services) | Preview  |         Yes         |
+| [Vnet-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services) | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -32,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### Vnet-1 - All Subnets should have a Network Security Group associated
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -54,7 +53,7 @@ Network security groups: Network security groups and application security groups
 
 ### Vnet-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -74,31 +73,9 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 <br><br>
 
-### Vnet-3 - If Public Ip's are needed , Please use Standard SKU
+### Vnet-3 - When available, use Private Endpoints instead of Service Endpoints for PaaS Services
 
-**Importance: High**
-
-**Recommendation/Guidance**
-
-Standard SKU Public Ip's provide better features such as AZ Support, secure by default, granular routing control.
-
-**Resources**
-
-- [Public IP addresses in Azure - Azure Virtual Network | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/vnet-3/vnet-3.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### Vnet-4 - Use Private Link when available for shared Azure PaaS services
-
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -113,7 +90,7 @@ Use virtual network service endpoints only when Private Link isn't available and
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vnet-4/vnet-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vnet-3/vnet-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

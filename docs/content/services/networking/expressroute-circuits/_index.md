@@ -37,7 +37,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active
 
-#### Importance: Critical
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -59,7 +59,7 @@ To improve high availability, it's recommended to operate both the connections o
 
 ### ERC-2 - Physical layer diversity
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -81,7 +81,7 @@ For better resiliency, plan to have multiple paths between the on-premises edge 
 
 ### ERC-3 - Diversify primary and secondary connections to customer end routers
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -103,7 +103,7 @@ Never terminate primary and secondary connections on the same customer end route
 
 ### ERC-4 - Diversify primary and secondary connections to customer end ports
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -125,7 +125,7 @@ Don’t configure both Primary and secondary connections via same port. This cre
 
 ### ERC-5 - Monitor ExpressRoute using Azure Monitor
 
-**Importance: High**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -147,7 +147,7 @@ ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss
 
 ### ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification
 
-**Importance: High**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -169,7 +169,7 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 
 ### ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -191,7 +191,7 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 ### ERC-8 - Implement multiple geo-redundant ExpressRoute circuits
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -213,7 +213,7 @@ Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network f
 
 ### ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
