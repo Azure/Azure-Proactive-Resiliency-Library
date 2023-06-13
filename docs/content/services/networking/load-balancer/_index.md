@@ -16,9 +16,9 @@ The below table shows the list of resiliency recommendations for Load Balancer a
 {{< table style="table-striped" >}}
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [LB-1 - Use Standard SKU](#lb-1---use-standard-load-balancer-sku) | Preview  |         Yes         |
-| [LB-2 - Provision at least two instances](#lb-2---provision-at-least-two-instances) | Preview |         Yes          |
-| [LB-3 - Use outbound rules](#lb-3---use-outbound-rules) | Preview |         Yes          |
+| [LB-1 - Use Standard Load Balancer SKU](#lb-1---use-standard-load-balancer-sku) | Preview  |         Yes         |
+| [LB-2 - Ensure the Backend Pool contains at least two instances](#lb-2---ensure-the-backend-pool-contains-at-least-two-instances) | Preview |         Yes          |
+| [LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads](#lb-3---use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | Preview |         Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -52,13 +52,14 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 <br><br>
 
-### LB-2 - Provision at least two instances
+### LB-2 - Ensure the Backend Pool contains at least two instances
 
 **Impact: High**
 
 **Recommendation/Guidance**
 
  Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
+
 **Resources**
 
 - [Resiliency checklist for specific Azure services- Azure Load Balancer](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#azure-load-balancer)
@@ -73,13 +74,14 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 <br><br>
 
-### LB-3 - Use outbound rules
+### LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads
 
 **Impact: Medium**
 
 **Recommendation/Guidance**
 
 Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with VNet NAT.
+
 **Resources**
 
 - [Resiliency checklist for specific Azure services- Azure Load Balancer](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#azure-load-balancer)
