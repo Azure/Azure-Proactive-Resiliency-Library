@@ -1,4 +1,4 @@
-/Resources
+Resources
 | where type =~ 'Microsoft.Network/virtualNetworkGateways'
 | extend gatewayType = properties.gatewayType, vpnType = properties.vpnType, connections = properties.connections
 | where gatewayType == 'Vpn' and vpnType == 'RouteBased'

@@ -30,7 +30,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### PIP-1 - Use Standard SKU
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -55,7 +55,7 @@ Note - All basic SKU public IP addresses are created as non-zonal. Any IP that i
 
 ### PIP-2 - Use NAT gateway for outbound connectivity to avoid SNAT Exhaustion
 
-**Importance: Medium**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
