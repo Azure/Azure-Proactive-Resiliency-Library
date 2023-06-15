@@ -1,6 +1,6 @@
 +++
 title = "VPN Gateway"
-description = "Best practices and resiliency recommendations for Vpn Gateway and associated resources."
+description = "Best practices and resiliency recommendations for VPN Gateway and associated resources."
 date = "4/20/23"
 author = "sitarant"
 msAuthor = "sitarant"
@@ -19,8 +19,8 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 | [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
 | [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
 | [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection)                                                         | Preview  |         No          |
-| [VPNG-4 - Plan for geo-redundant circuits](#vpng-4---plan-for-geo-redundant-circuits)                                                       | Preview  |         Yes          |
-| [VPNG-5 - Monitor circuits and gateway health](#vpng-5---monitor-circuits-and-gateway-health)                                               | Preview  |         Yes          |
+| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections)                                                       | Preview  |         Yes          |
+| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                               | Preview  |         Yes          |
 | [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                           | Preview  |         Yes          |
 {{< /table >}}
 
@@ -34,7 +34,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### VPNG-1 - Choose a Zone-redundant gateway
 
-#### Importance: Critical
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -50,7 +50,7 @@ To automatically deploy your virtual network gateways across availability zones,
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/gw-1/gw-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vpng-1/vpng-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -58,13 +58,12 @@ To automatically deploy your virtual network gateways across availability zones,
 
 ### VPNG-2 - Plan for Active-Active mode
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
 The active-active mode is available for all SKUs except Basic or Standard.
 Active-active gateways have two Gateway IP configurations and two public IP addresses.
-
 
 **Resources**
 
@@ -75,14 +74,15 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/gw-2/gw-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vpng-2/vpng-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
+
 ### VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
 
-**Importance: High**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -98,14 +98,15 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/gw-3/gw-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vpng-3/vpng-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
-### VPNG-4 - Plan for geo-redundant circuits
 
-**Importance: High**
+### VPNG-4 - Plan for geo-redundant VPN connections
+
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -116,19 +117,19 @@ To plan for disaster recovery, set up Site-to-Site VPN in more than one location
 - [Highly available cross-premises](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable)
 - [About VPN gateway redundancy](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-vpn-gateway-redundancy)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/gw-4/gw-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vpng-4/vpng-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
-### VPNG-5 - Monitor circuits and gateway health
 
-**Importance: High**
+### VPNG-5 - Monitor connections and gateway health
+
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -142,7 +143,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/gw-5/gw-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vpng-5/vpng-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -150,7 +151,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 ### VPNG-6 - Enable service health
 
-**Importance: High**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
@@ -165,7 +166,7 @@ VPN Gateway uses service health to notify about planned and unplanned maintenanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/gw-6/gw-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vpng-6/vpng-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

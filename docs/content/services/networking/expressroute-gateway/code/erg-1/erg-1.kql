@@ -4,5 +4,5 @@ Resources
 | where type =~ "Microsoft.Network/virtualNetworkGateways"
 | where properties.gatewayType == "ExpressRoute"
 | where properties.sku.tier !contains 'AZ'
-| project recommendationId = "exrgw-1", name, id, ["sku-tier"] = properties.sku.tier, location
+| project recommendationId = "ergw-1", name, id, ["sku-tier"] = properties.sku.tier, location
 | order by id asc

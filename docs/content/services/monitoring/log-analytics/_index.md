@@ -16,10 +16,10 @@ The below table shows the list of resiliency recommendations for Log Analytics a
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Impact   |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [LAW-1 - Enable Log Analytics data export to GRS or GZRS](#law-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Medium  | Preview  |         No         |
-| [LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#law-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Medium  | Preview |         Yes          |
-| [LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions](#law-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Medium  | Preview  |         No         |
-| [LAW-4 - Create a health status alert rule for your Log Analytics workspace](#law-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace) | Low  | Preview  |         No         |
+| [LOG-1 - Enable Log Analytics data export to GRS or GZRS](#log-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Medium  | Preview  |         No         |
+| [LOG-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#log-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Medium  | Preview |         Yes          |
+| [LOG-3 - Configure data collection to send critical data to multiple workspaces in different regions](#log-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Medium  | Preview  |         No         |
+| [LOG-4 - Create a health status alert rule for your Log Analytics workspace](#log-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace) | Low  | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -30,7 +30,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### LAW-1 - Enable Log Analytics data export to GRS or GZRS
+### LOG-1 - Enable Log Analytics data export to GRS or GZRS
 
 **Impact: Medium**
 
@@ -47,13 +47,13 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/law-1/law-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/log-1/log-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### LAW-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
+### LOG-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
 
 **Impact: Medium**
 
@@ -71,7 +71,7 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/law-2/law-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/log-2/log-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -79,13 +79,13 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="bash" file="code/law-2/law-2.azcli" >}} {{< /code >}}
+{{< code lang="bash" file="code/log-2/log-2.azcli" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### LAW-3 - Configure data collection to send critical data to multiple workspaces in different regions
+### LOG-3 - Configure data collection to send critical data to multiple workspaces in different regions
 
 **Impact: Medium**
 
@@ -101,13 +101,13 @@ If you require a workspace to be available in the unlikely scenario of a regiona
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/law-3/law-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/log-3/log-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### LAW-4 - Create a health status alert rule for your Log Analytics workspace
+### LOG-4 - Create a health status alert rule for your Log Analytics workspace
 
 **Impact: Low**
 
@@ -124,7 +124,7 @@ A health status alert will proactively notify you if a workspace becomes unavail
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/law-4/law-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/log-4/log-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
