@@ -17,8 +17,8 @@ The presented resiliency recommendations in this guidance include Azure Traffic 
 | [TM-1 - Traffic Manager Monitor Status Should be Online](#tm-1---traffic-manager-monitor-status-should-be-online)     |  High    | Preview  | Yes |
 | [TM-2 - Traffic manager profiles should have more than one endpoint](#tm-2---traffic-manager-profiles-should-have-more-than-one-endpoint)                                   |  High    | Preview  | Yes |
 | [TM-3 - Configure at least one endpoint within a another region](#tm-3---configure-at-least-one-endpoint-within-a-another-region)                                                        |  Medium    | Preview  | Yes |
-| [TM-4 - TTL value of user profiles should be in 60 Seconds ](#tm-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                                             |  Medium    | Preview  | Yes |
-| [TM-5 - Ensure endpoint configured to "All (World)" for geographic profiles](#tm-5---ensure-endpoint-configured-to-"all-(world)"-for-geographic-profiles)                       |  Medium  | Preview  | Yes |
+| [TM-4 - TTL value of user profiles should be in 60 Seconds](#tm-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                                             |  Medium    | Preview  | Yes |
+| [TM-5 - Ensure endpoint configured to All World for geographic profiles](#tm-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles)                       |  Medium  | Preview  | Yes |
 
 
 {{< /table >}}
@@ -109,7 +109,7 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 **Resources**
 
-- [ Configure DNS Time to Live to 60 seconds).](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-performance-recommendations#configure-dns-time-to-live-to-60-seconds)
+- [Configure DNS Time to Live to 60 seconds).](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-performance-recommendations#configure-dns-time-to-live-to-60-seconds)
 - [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds).](https://aka.ms/Um3xr5)
 
 **Resource Graph Query/Scripts**
@@ -122,7 +122,7 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 <br><br>
 
-### TM-5 -  Ensure endpoint configured to “All (World)” for geographic profiles
+### TM-5 -  Ensure endpoint configured to All World for geographic profiles
 
 **Impact: Medium**
 
