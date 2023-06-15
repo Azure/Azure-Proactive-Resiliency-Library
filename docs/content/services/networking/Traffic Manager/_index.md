@@ -122,7 +122,7 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 <br><br>
 
-### TM-5 -  Ensure endpoint configured to All World for geographic profiles
+### TM-5 - Ensure endpoint configured to All World for geographic profiles
 
 **Impact: Medium**
 
