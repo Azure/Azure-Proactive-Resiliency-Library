@@ -1,0 +1,5 @@
+﻿// Azure Resource Graph Query
+// Under development - Goal: Show where only a single ExpressRoute circuit is deployed, or where there is no diversity to multiple regions
+// ..
+// | project recommendationId = "erc-8", name, id
+// | order by id asc

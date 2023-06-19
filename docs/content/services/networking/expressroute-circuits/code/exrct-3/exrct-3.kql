@@ -1,5 +1,0 @@
-﻿// Azure Resource Graph Query
-// Under development - Goal: Show where ExpressRoute circuits have primary and secondary connections on the same customer end router
-// ..
-// | project recommendationId = "exrct-3", name, id
-// | order by id asc

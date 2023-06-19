@@ -1,0 +1,6 @@
+Resources
+| where type == 'microsoft.network/trafficmanagerprofiles'
+| extend d = parse_json(properties)
+| mv-expand endpoint = d.endpoints
+| extend endpointMonitorStatus = endpoint.properties.endpointMonitorStatus
+| project name, endpointMonitorStatus, properties.trafficRoutingMethod

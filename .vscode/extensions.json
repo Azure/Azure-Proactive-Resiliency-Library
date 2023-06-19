@@ -4,6 +4,7 @@
     "streetsidesoftware.code-spell-checker",
     "ms-vsliveshare.vsliveshare",
     "medo64.render-crlf",
-    "vscode-icons-team.vscode-icons"
+    "vscode-icons-team.vscode-icons",
+    "github.copilot-chat"
   ]
 }

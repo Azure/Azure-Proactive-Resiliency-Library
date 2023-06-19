@@ -1,0 +1,5 @@
+resources
+| where type == "microsoft.cdn/profiles"
+| extend s = tostring(sku.name)
+| where s != "Premium_AzureFrontDoor"
+| project id, name, resourceGroup, sku.name, subscriptionId

@@ -1,5 +1,0 @@
-﻿// Azure Resource Graph Query
-// Under development - Goal: Show any ExpressRoute circuits where monitoring and/or alerting is not configured
-// ..
-// | project recommendationId = "exrct-5", name, id
-// | order by id asc

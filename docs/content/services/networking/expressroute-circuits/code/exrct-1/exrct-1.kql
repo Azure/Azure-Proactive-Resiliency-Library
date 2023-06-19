@@ -1,5 +1,0 @@
-﻿// Azure Resource Graph Query
-// Under development - Goal: Show any ExpressRoute circuits both connections of an ExpressRoute circuit are NOT configured and/or active
-// ..
-// | project recommendationId = "exrct-1", name, id
-// | order by id asc
