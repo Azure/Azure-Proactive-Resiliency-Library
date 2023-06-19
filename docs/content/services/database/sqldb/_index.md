@@ -1,6 +1,6 @@
 +++
-title = "Databases"
-description = "Best Practices and Resiliency Recommendations for Database Services"
+title = "SQL DB"
+description = "Best Practices and Resiliency Recommendations for Azure SQL Database"
 date = "2023-05-30"
 author = "temalo"
 msAuthor = "temalo"
