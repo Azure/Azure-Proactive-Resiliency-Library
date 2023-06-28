@@ -1,0 +1,4 @@
+// Azure Resource Graph Query
+// TODO: Work in progress
+resources
+| where type =~ 'microsoft.web/serverfarms'
