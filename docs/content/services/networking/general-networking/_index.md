@@ -16,9 +16,9 @@ The presented resiliency recommendations in this guidance include General Networ
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
 | [NW-1 - Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure](#nw-1---use-expressroute-as-the-primary-connectivity-channel-for-connecting-an-on-premises-network-to-azure) | Networking | High | Preview  |         No         |
 | [NW-2 - Simulate a failure path to ensure that connectivity is available over alternative paths](#nw-2---simulate-a-failure-path-to-ensure-that-connectivity-is-available-over-alternative-paths) | Networking | High | Preview |         No          |
-| [NW-3 - Use a global load balancer to distribute traffic and failover across regions](nw-3---use-a-global-load-balancer-to-distribute-traffic-and-failover-across-regions) | Networking | Medium | Preview  |         No         |
-| [NW-4 - Eliminate all single points of failure from the data path, both on-premises and hosted on Azure](nw-4---eliminate-all-single-points-of-failure-from-the-data-path,-both-on-premises-and-hosted-on-azure) | Networking | High | Preview  |         No         |
-| [NW-5 - Assess critical application dependencies with health probes](nw-5---assess-critical-application-dependencies-with-health-probes) | Networking | Medium | Preview  |         No         |
+| [NW-3 - Use a global load balancer to distribute traffic and failover across regions](#nw-3---use-a-global-load-balancer-to-distribute-traffic-and-failover-across-regions) | Networking | Medium | Preview  |         No         |
+| [NW-4 - Eliminate all single points of failure from the data path, both on-premises and hosted on Azure](#nw-4---eliminate-all-single-points-of-failure-from-the-data-path,-both-on-premises-and-hosted-on-azure) | Networking | High | Preview  |         No         |
+| [NW-5 - Assess critical application dependencies with health probes](#nw-5---assess-critical-application-dependencies-with-health-probes) | Networking | Medium | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
