@@ -1,5 +1,8 @@
 ﻿// Azure Resource Graph Query
-// Under development - Goal: Show any ExpressRoute circuit where service health alerts are not configured
-// ..
-// | project recommendationId = "erc-6", name, id
-// | order by id asc
+// Goal: Show any Service Health alerts associated with ExpressRoute Circuits
+
+resources
+| where type =~ "microsoft.insights/activitylogalerts"
+| where properties.condition.allOf[0].equals =~ "ServiceHealth"
+| where properties.condition.allOf[1].containsAny contains "ExpressRoute Circuits"
+| project recommendationId = "erc-6", id, name
