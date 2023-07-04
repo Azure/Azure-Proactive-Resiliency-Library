@@ -39,7 +39,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure. You can use VPNs as a source of backup connectivity to enhance connectivity resiliency.
 For cross-premises connectivity, by using Azure ExpressRoute or VPN, ensure that there are redundant connections from different locations.
-At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths. For more information, see Cross-network connectivity.
+At least two redundant connections should be established across two or more Azure regions and peering locations to ensure there are no single points of failure. An active/active load-shared configuration provides path diversity and promotes availability of network connection paths.
 
 **Resources**
 
@@ -63,7 +63,7 @@ At least two redundant connections should be established across two or more Azur
 
 **Recommendation/Guidance**
 
-The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using site-to-site VPN connectivity as a backup path for ExpressRoute provides an extra layer of network resiliency for cross-premises connectivity. For more information, see Using site-to-site VPN as a backup for ExpressRoute private peering.
+The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using site-to-site VPN connectivity as a backup path for ExpressRoute provides an extra layer of network resiliency for cross-premises connectivity.
 
 **Resources**
 
@@ -87,7 +87,7 @@ The failure of a connection path onto other connection paths should be tested to
 
 **Recommendation/Guidance**
 
-Azure Front Door, Azure Traffic Manager, or third-party content delivery network services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. Traffic Manager is a DNS-based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low time-to-live (TTL) value should be used for DNS records, though not all ISPs honor this setting. For application scenarios that require transparent failover, Azure Front Door should be used. For more information, see Disaster Recovery using Azure Traffic Manager and Routing architecture overview.
+Azure Front Door, Azure Traffic Manager, or third-party content delivery network services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. Traffic Manager is a DNS-based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low time-to-live (TTL) value should be used for DNS records, though not all ISPs honor this setting. For application scenarios that require transparent failover, Azure Front Door should be used.
 
 **Resources**
 
@@ -111,7 +111,7 @@ Azure Front Door, Azure Traffic Manager, or third-party content delivery network
 
 **Recommendation/Guidance**
 
-Single-instance Network Virtual Appliances (NVAs) introduce significant connectivity risk, whether deployed in Azure or within an on-premises datacenter. For more information, see Deploy highly available network virtual appliances.
+Single-instance Network Virtual Appliances (NVAs) introduce significant connectivity risk, whether deployed in Azure or within an on-premises datacenter.
 
 **Resources**
 
@@ -135,7 +135,7 @@ Single-instance Network Virtual Appliances (NVAs) introduce significant connecti
 
 **Recommendation/Guidance**
 
-Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores. In this approach, traffic isn't sent to backend instances that can't successfully process requests due to dependency failures. For more information, see Health Endpoint Monitoring pattern.
+Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores. In this approach, traffic isn't sent to backend instances that can't successfully process requests due to dependency failures.
 
 **Resources**
 
