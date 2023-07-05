@@ -20,8 +20,8 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 | [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | Preview | No |
 | [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
 | [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
-| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | TBD |
-| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | TBD |
+| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | Yes |
+| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | Yes |
 | [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
 | [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Preview | TBD |
 | [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
