@@ -61,7 +61,7 @@ Azure implements multi-tier isolation approach with rack, DC, zone, and region i
 
 **Recommendation/Guidance**
 
-Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the Service-Managed failover option allows Azure Cosmos DB to fail over automatically to the next available region with no user action needed. 
+Cosmos DB is a battle-tested service with extremely high uptime and resiliency, but even the most resilient of systems sometimes run into a small hiccup. Should a region become unavailable, the Service-Managed failover option allows Azure Cosmos DB to fail over automatically to the next available region with no user action needed.
 
 **Resources**
 
@@ -128,7 +128,7 @@ Within a globally distributed database environment, there is a direct relationsh
 
 **Recommendation/Guidance**
 
-Cosmos DB automatically backs up your data and there is no way to turn back ups off. In short, you are always protected. But should any mishap occur – a process that went haywire and deleted data it shouldn’t, customer data was overwritten by accident, etc. – minimizing the time it takes to revert the changes is of the essence. With continuous mode, you can self-serve restore your database/collection to a point in time before such mishap occurred. With periodic mode, however, you must contact Microsoft support, which despite us striving to provide speedy help will inevitably increase the restore time. 
+Cosmos DB automatically backs up your data and there is no way to turn back ups off. In short, you are always protected. But should any mishap occur – a process that went haywire and deleted data it shouldn’t, customer data was overwritten by accident, etc. – minimizing the time it takes to revert the changes is of the essence. With continuous mode, you can self-serve restore your database/collection to a point in time before such mishap occurred. With periodic mode, however, you must contact Microsoft support, which despite us striving to provide speedy help will inevitably increase the restore time.
 
 **Resources**
 
@@ -150,7 +150,7 @@ Cosmos DB automatically backs up your data and there is no way to turn back ups 
 
 **Recommendation/Guidance**
 
-Cosmos DB limits single response to 4 MB. If your query requests a large amount of data or data from multiple backend partitions, the results will span multiple pages for which separate requests must be issued. Each result page will indicate whether more results are available and provide a continuation token to access the next page. You must include a while loop in your code and traverse the pages until no more results are available. 
+Cosmos DB limits single response to 4 MB. If your query requests a large amount of data or data from multiple backend partitions, the results will span multiple pages for which separate requests must be issued. Each result page will indicate whether more results are available and provide a continuation token to access the next page. You must include a while loop in your code and traverse the pages until no more results are available.
 
 **Resources**
 
@@ -192,7 +192,7 @@ Cosmos DB SDKs by default handle large number of transient errors and automatica
 
 **Recommendation/Guidance**
 
-It is good practice to monitor the availability and responsiveness of your Azure Cosmos DB resources and have alerts in place for your workload to stay proactive in case an unforeseen event occurs. 
+It is good practice to monitor the availability and responsiveness of your Azure Cosmos DB resources and have alerts in place for your workload to stay proactive in case an unforeseen event occurs.
 
 **Resources**
 
