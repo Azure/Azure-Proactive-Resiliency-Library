@@ -197,5 +197,3 @@ It is good practice to monitor the availability and responsiveness of your Azure
 **Resources**
 
 - [Create alerts for Azure Cosmos DB using Azure Monitor | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/create-alerts)
-
-<br><br>
