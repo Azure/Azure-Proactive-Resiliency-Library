@@ -16,7 +16,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | :------------------------------------------------------------------------------------------------------------------ | :-------------: | :------: | :-----------------: |
 | [AKS-1 - Create an AKS cluster across availability zones](#aks-1---create-an-aks-cluster-across-availability-zones) | High/Medium/Low | Preview  |         Yes         |
 | [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                         | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
+| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                 | High/Medium/Low | Verified |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
@@ -87,18 +87,20 @@ To prevent misconfigured or rogue application pods from accidentally killing sys
 
 <br><br>
 
-### CM-2 - CHANGE ME title
+### AKS-3 - Enable AKS-managed Azure AD integration
 
-#### Impact: CHANGE ME
+#### Impact: High
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+Enabling Azure AD integration on an AKS cluster provides several benefits for managing access to the cluster. By using Azure AD, you can centralize user and group management, enforce multi-factor authentication, and enable role-based access control (RBAC) for fine-grained access control to cluster resources. Additionally, Azure AD provides a secure and scalable authentication mechanism that can be integrated with other Azure services and third-party identity providers.
+
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [Azure AD integration](https://learn.microsoft.com/en-us/azure/aks/concepts-identity#azure-ad-integration)
+- [Use Azure role-based access control for AKS](https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?source=recommendations)
+- [Manage AKS local accounts](https://learn.microsoft.com/en-us/azure/aks/manage-local-accounts-managed-azure-ad?source=recommendations)
 
 #### Queries/Scripts
 
