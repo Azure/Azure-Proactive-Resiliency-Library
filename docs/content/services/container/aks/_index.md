@@ -12,16 +12,16 @@ The presented resiliency recommendations in this guidance include Aks and associ
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                      |     Impact      |  State   | ARG Query Available |
-| :------------------------------------------------------------------------------------------------------------------ | :-------------: | :------: | :-----------------: |
-| [AKS-1 - Create an AKS cluster across availability zones](#aks-1---create-an-aks-cluster-across-availability-zones) | High/Medium/Low | Preview  |         Yes         |
-| [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                         | High/Medium/Low | Verified |         No          |
-| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                 | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                   | High/Medium/Low | Verified |         No          |
+| Recommendation                                                                                                                                |     Impact      |  State   | ARG Query Available |
+| :-------------------------------------------------------------------------------------------------------------------------------------------- | :-------------: | :------: | :-----------------: |
+| [AKS-1 - Create an AKS cluster across availability zones](#aks-1---create-an-aks-cluster-across-availability-zones)                           | High/Medium/Low | Preview  |         Yes         |
+| [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                                                   | High/Medium/Low | Verified |         No          |
+| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           | High/Medium/Low | Verified |         No          |
+| [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) | High/Medium/Low | Verified |         No          |
+| [AKS-5 - Provide dedicated nodes using taints and tolerations](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 | High/Medium/Low | Verified |         No          |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Verified |         No          |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Verified |         No          |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Verified |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -63,7 +63,7 @@ By deploying resources such as aks clusters, virtual machines, storage, and data
 
 ### AKS-2 - Isolate system pods
 
-#### Impact: Medium
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -115,18 +115,18 @@ Enabling Azure AD integration on an AKS cluster provides several benefits for ma
 <br><br>
 
 
-### CM-2 - CHANGE ME title
+### AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs
 
-#### Impact: CHANGE ME
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+The Azure CNI networking solution for AKS provides several benefits for managing IP addresses and network connectivity for cluster Pods. By dynamically allocating IPs to Pods from the Pod subnet, the solution leads to better utilization of IPs in the cluster compared to traditional CNI solutions that do static allocation of IPs for every node. The solution is scalable and flexible, allowing node and pod subnets to be scaled independently and shared across multiple node pools or AKS clusters. The solution also provides high performance, with direct connectivity between Pods and resources in the VNet. Additionally, the solution enables separate VNet policies for Pods, which can be configured differently from node policies. Finally, the solution supports Kubernetes network policies, including both Azure Network Policies and Calico. Overall, the Azure CNI networking solution provides a powerful and flexible networking solution for AKS clusters.
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [Configure Azure CNI networking](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni-dynamic-ip-allocation)
+- [Configure Azure CNI Overlay networking](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay)
 
 #### Queries/Scripts
 
@@ -141,18 +141,19 @@ FILL ME IN...
 <br><br>
 
 
-### CM-2 - CHANGE ME title
+### AKS-5 - Provide dedicated nodes using taints and tolerations
 
-#### Impact: CHANGE ME
+#### Impact: Medium
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+The Kubernetes scheduler uses taints and tolerations to restrict what workloads can run on nodes. Limit access for resource-intensive applications, such as ingress controllers, to specific nodes. Keep node resources available for workloads that require them, and don't allow scheduling of other workloads on the nodes.
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [Best practices for advanced scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler)
+- [Node pool scaling considerations and best practices](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-run-at-scale#node-pool-scaling-considerations-and-best-practices)
+- [Best practices for basic scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler)
 
 #### Queries/Scripts
 
