@@ -19,7 +19,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           | High/Medium/Low | Verified |         No          |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) | High/Medium/Low | Verified |         No          |
 | [AKS-5 - Provide dedicated nodes using taints and tolerations](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 | High/Medium/Low | Verified |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Verified |         No          |
+| [AKS-6 - Plan for multiregion deployment](#aks-5---plan-for-multiregion-deployment)                                                           | High/Medium/Low | Verified |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Verified |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Verified |         No          |
 {{< /table >}}
@@ -168,18 +168,19 @@ The Kubernetes scheduler uses taints and tolerations to restrict what workloads 
 <br><br>
 
 
-### CM-2 - CHANGE ME title
+### AKS-5 - Plan for multiregion deployment
 
-#### Impact: CHANGE ME
+#### Impact: Low
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+An AKS cluster is deployed into a single region. To protect your system from region failure, deploy your application into multiple AKS clusters across different regions. When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it's essential to consider the sum of each Kubernetes cluster as a coupled unit. You might want to develop code-driven strategies for automated deployment and configuration to ensure that each Kubernetes instance is as identical as possible.
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [Plan for multiregion deployment](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
+- [Cluster deployment and bootstrapping](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster#cluster-deployment-and-bootstrapping)
+- [AKS baseline for multiregion clusters](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
 
 #### Queries/Scripts
 
