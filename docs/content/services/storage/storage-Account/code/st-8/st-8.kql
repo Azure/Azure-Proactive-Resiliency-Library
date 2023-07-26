@@ -1,1 +1,4 @@
-under development
+//Set variable values to approroriate storage account and resource group
+$storageAccount = "StorageAccountName"
+$resourceGroupName='ResourceGroupName'
+Get-AzStorageBlobServiceProperty -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccount
