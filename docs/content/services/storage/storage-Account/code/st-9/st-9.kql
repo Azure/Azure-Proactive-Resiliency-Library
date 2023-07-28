@@ -1,0 +1,4 @@
+$subscriptionId = (Get-AzContext).Subscription.Id
+$ResourceGroupName="TypeRGName"
+$StorageAccountName="TypeStorageAccountName"
+Get-AzDiagnosticSetting -ResourceId  /subscriptions/$subscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAccountName | select -ExpandProperty Metrics

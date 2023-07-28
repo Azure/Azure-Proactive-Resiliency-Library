@@ -24,6 +24,8 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-6 - Enable version for accidental modification](#st-6---enable-version-for-accidental-modification)                                                |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
 |[ST-8 - Keep versioning below 100 for performance](#st-8---keep-versioning-below-1000-for-performance)                                                 |   Low    | Preview  |         No          |
+|[ST-9 - Configure Diagnostic Settings for all Azure Resources](#st-9---Configure-Diagnostic-Settings-for-all-Azure-Resources)                                                 |   Low    | Preview  |         No          |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -215,3 +217,25 @@ Having a large number of versions per blob can increase the latency for blob lis
 {{< /collapse >}}
 
 <br><br>
+
+### ST-9 - Configure Diagnostic Settings for all Azure Resources
+
+**Impact: Low**
+
+**Recommendation/Guidance**
+
+Enabling diagnostic settings allow you to capture and view diagnostic information so that you can troubleshoot any failures.
+**Resources**
+
+- [Diagnostic Setting for Storage Account](https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="/code/st-9/st-9.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
