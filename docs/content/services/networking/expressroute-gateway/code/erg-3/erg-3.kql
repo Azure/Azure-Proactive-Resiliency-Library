@@ -1,0 +1,5 @@
+// Azure Resource Graph Query
+// Under development - Goal: Show where an ER circuit is shared to multiple VNETs and VNETs are not peered. Implies hairpinning at MSEE to go VNET to VNET
+// ..
+//| project recommendationId = "erg-3", name, id,
+//| order by id asc

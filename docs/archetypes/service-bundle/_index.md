@@ -1,21 +1,21 @@
 +++
 title = "{{ replace .Name "-" " " | title }}"
-description = "Best practices and resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources."
+description = "Best practices and resiliency recommendations for {{ replace .Name "-" " " | title }} and associated resources and settings."
 date = "{{ .Date | time.Format ":date_short" }}"
 author = "CHANGE ME TO YOUR GITHUB USERNAME"
 msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include {{ replace .Name "-" " " | title }} and associated settings.
+The presented resiliency recommendations in this guidance include {{ replace .Name "-" " " | title }} and associated resources and settings.
 
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact  |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | High/Medium/Low | Preview  |         Yes         |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | High/Medium/Low | Verified |         No          |
+| Recommendation                                    |  Category                                                               |  Impact         |  State   | ARG Query Available |
+| :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
+| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | Compatibility/Compliance/Disaster Recovery/High Availability/Management | High/Medium/Low | Preview  |         Yes         |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | Monitoring/Networking/Performance/Scalability/Security/Storage          | High/Medium/Low | Verified |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -28,20 +28,20 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### CM-1 - CHANGE ME title
 
-#### Impact: CHANGE ME
+**Category: Compatibility/Compliance/Disaster Recovery/High Availability/Management/Monitoring/Networking/Performance/Scalability/Security/Storage**
 
-#### Recommendation/Guidance
+**Impact: High/Medium/Low**
+
+**Recommendation/Guidance**
 
 FILL ME IN...
 
-##### Resources
+**Resources**
 
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -53,20 +53,20 @@ FILL ME IN...
 
 ### CM-2 - CHANGE ME title
 
-#### Impact: CHANGE ME
+**Category: Compatibility/Compliance/Disaster Recovery/High Availability/Management/Monitoring/Networking/Performance/Scalability/Security/Storage**
 
-#### Recommendation/Guidance
+**Impact: High/Medium/Low**
+
+**Recommendation/Guidance**
 
 FILL ME IN...
 
-##### Resources
+**Resources**
 
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

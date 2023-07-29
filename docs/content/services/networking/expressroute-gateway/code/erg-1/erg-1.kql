@@ -1,0 +1,8 @@
+﻿// Azure Resource Graph Query
+// For all VNGs of type ExpressRoute, show any that do not have AZ in the SKU tier
+Resources
+| where type =~ "Microsoft.Network/virtualNetworkGateways"
+| where properties.gatewayType == "ExpressRoute"
+| where properties.sku.tier !contains 'AZ'
+| project recommendationId = "ergw-1", name, id, ["sku-tier"] = properties.sku.tier, location
+| order by id asc

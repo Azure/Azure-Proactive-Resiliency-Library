@@ -20,8 +20,8 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 | [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | Preview | No |
 | [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
 | [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
-| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | TBD |
-| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | TBD |
+| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | Yes |
+| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | Yes |
 | [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
 | [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Preview | TBD |
 | [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
@@ -37,19 +37,17 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active
 
-#### Importance: Critical
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 To improve high availability, it's recommended to operate both the connections of an ExpressRoute circuit in active-active mode. If you let the connections operate in active-active mode, Microsoft network will load balance the traffic across the connections on per-flow basis.
 
-##### Resources
+**Resources**
 
-- [Designing for high availability with ExpressRoute - Active-active connections](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections)
+- [Designing for high availability with ExpressRoute - Active-active connections](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -61,19 +59,17 @@ To improve high availability, it's recommended to operate both the connections o
 
 ### ERC-2 - Physical layer diversity
 
-#### Importance: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 For better resiliency, plan to have multiple paths between the on-premises edge and the peering locations (provider/Microsoft edge locations). This configuration can be achieved by going through different service provider or through a different location from the on-premises network.
 
-##### Resources
+**Resources**
 
-- [Azure Well-Architected Framework review - Azure ExpressRoute - Design Checklist](https://learn.microsoft.com/en-us/azure/well-architected/services/networking/azure-expressroute#recommendations)
+- [Azure Well-Architected Framework review - Azure ExpressRoute - Design Checklist](https://learn.microsoft.com/azure/well-architected/services/networking/azure-expressroute#recommendations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -85,19 +81,17 @@ For better resiliency, plan to have multiple paths between the on-premises edge 
 
 ### ERC-3 - Diversify primary and secondary connections to customer end routers
 
-#### Importance: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Never terminate primary and secondary connections on the same customer end router. This creates a single point of failure.
 
-##### Resources
+**Resources**
 
-- [Designing for high availability with ExpressRoute - First mile physical layer design considerations](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute#first-mile-physical-layer-design-considerations)
+- [Designing for high availability with ExpressRoute - First mile physical layer design considerations](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#first-mile-physical-layer-design-considerations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -109,19 +103,17 @@ Never terminate primary and secondary connections on the same customer end route
 
 ### ERC-4 - Diversify primary and secondary connections to customer end ports
 
-#### Importance: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Don’t configure both Primary and secondary connections via same port. This creates a single point of failure.
 
-##### Resources
+**Resources**
 
-- [Designing for high availability with ExpressRoute - First mile physical layer design considerations](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute#first-mile-physical-layer-design-considerations)
+- [Designing for high availability with ExpressRoute - First mile physical layer design considerations](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#first-mile-physical-layer-design-considerations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -133,19 +125,17 @@ Don’t configure both Primary and secondary connections via same port. This cre
 
 ### ERC-5 - Monitor ExpressRoute using Azure Monitor
 
-#### Importance: High
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
 
-##### Resources
+**Resources**
 
-- [Monitoring Azure ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/monitor-expressroute)
+- [Monitoring Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/monitor-expressroute)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -157,19 +147,17 @@ ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss
 
 ### ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification
 
-#### Importance: High
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 ExpressRoute uses service health to notify about planned and unplanned maintenance. Configuring service health will notify you about changes made to your ExpressRoute circuits.
 
-##### Resources
+**Resources**
 
-- [How to view and configure alerts for Azure ExpressRoute circuit maintenance](https://learn.microsoft.com/en-us/azure/expressroute/maintenance-alerts)
+- [How to view and configure alerts for Azure ExpressRoute circuit maintenance](https://learn.microsoft.com/azure/expressroute/maintenance-alerts)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -181,19 +169,17 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 
 ### ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured
 
-#### Importance: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). You can configure ExpressRoute over your edge routing devices or your Partner Edge routing devices (if you went with managed Layer 3 connection service).
 
-##### Resources
+**Resources**
 
-- [https://learn.microsoft.com/en-us/azure/expressroute/expressroute-bfd](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-bfd)
+- [https://learn.microsoft.com/azure/expressroute/expressroute-bfd](https://learn.microsoft.com/azure/expressroute/expressroute-bfd)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -205,19 +191,17 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 ### ERC-8 - Implement multiple geo-redundant ExpressRoute circuits
 
-#### Importance: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network for cross premises resiliency
 
-##### Resources
+**Resources**
 
-- [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
+- [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -229,19 +213,17 @@ Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network f
 
 ### ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering
 
-#### Importance: Medium
+**Impact: Medium**
 
-#### Recommendation/Guidance
+**Recommendation/Guidance**
 
 Consider using site-to-site VPN as a failover when an ExpressRoute circuit becomes unavailable.
 
-##### Resources
+**Resources**
 
-- [Using S2S VPN as a backup for ExpressRoute private peering](https://learn.microsoft.com/en-us/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
+- [Using S2S VPN as a backup for ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

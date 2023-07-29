@@ -1,2 +1,6 @@
 // Azure Resource Graph Query
-// Under development
+// Find all zonal VMs that are not deployed in a VMSS
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where isnull(zones) == false and isnull(properties.virtualMachineScaleSet)
+| project recommendationId = "vmss-1", name, id
