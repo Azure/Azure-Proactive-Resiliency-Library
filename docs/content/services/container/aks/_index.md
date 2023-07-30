@@ -19,8 +19,8 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           |      High       | Preview |         No          |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) |     Medium      | Preview |         No          |
 | [AKS-5 - Provide dedicated nodes using taints and tolerations](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 |      High       | Preview |         No          |
-| [AKS-6 - Plan for multiregion deployment](#aks-5---plan-for-multiregion-deployment)                                                           |      High       | Preview |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Preview |         No          |
+| [AKS-6 - Plan for multiregion deployment](#aks-6---plan-for-multiregion-deployment)                                                           |      High       | Preview |         No          |
+| [AKS-7 - Back up Azure Kubernetes Service](#aks-7---back-up-azure-kubernetes-service)                                                         |       Low       | Preview |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Preview |         No          |
 {{< /table >}}
 
@@ -55,7 +55,7 @@ By deploying resources such as aks clusters, virtual machines, storage, and data
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-1/aks-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -81,7 +81,7 @@ To prevent misconfigured or rogue application pods from accidentally killing sys
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-2/aks-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -108,7 +108,7 @@ Enabling Azure AD integration on an AKS cluster provides several benefits for ma
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-3/aks-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -168,7 +168,7 @@ The Kubernetes scheduler uses taints and tolerations to restrict what workloads 
 <br><br>
 
 
-### AKS-5 - Plan for multiregion deployment
+### AKS-6 - Plan for multiregion deployment
 
 #### Impact: Low
 
@@ -195,18 +195,18 @@ An AKS cluster is deployed into a single region. To protect your system from reg
 <br><br>
 
 
-### CM-2 - CHANGE ME title
+### AKS-7 - Back up Azure Kubernetes Service
 
-#### Impact: CHANGE ME
+#### Impact: Low
 
 #### Recommendation/Guidance
 
-FILL ME IN...
+AKS is increasingly being used for stateful applications that require a backup strategy. Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations."
 
 ##### Resources
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [AKS Backups](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-cluster-backup)
+- [Best Practices for AKS Backups](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-storage)
 
 #### Queries/Scripts
 
