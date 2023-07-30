@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// Find AKS clusters with auto-scaling enabled
+Resources
+| where type == "microsoft.containerservice/managedclusters"
+| extend autoScaling = tostring (parse_json(properties.agentPoolProfiles.[0].enableAutoScaling))
+| project name, autoScaling

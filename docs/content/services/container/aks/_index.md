@@ -18,7 +18,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                                                   |      High       | Preview |         No          |
 | [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           |      High       | Preview |         No          |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) |     Medium      | Preview |         No          |
-| [AKS-5 - Provide dedicated nodes using taints and tolerations](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 |      High       | Preview |         No          |
+| [AKS-5 - Enable the cluster autoscaler on an existing cluster](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 |      High       | Preview |         No          |
 | [AKS-6 - Plan for multiregion deployment](#aks-6---plan-for-multiregion-deployment)                                                           |      High       | Preview |         No          |
 | [AKS-7 - Back up Azure Kubernetes Service](#aks-7---back-up-azure-kubernetes-service)                                                         |       Low       | Preview |         No          |
 | [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Preview |         No          |
@@ -134,20 +134,20 @@ The Azure CNI networking solution for AKS provides several benefits for managing
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-4/aks-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
 
-### AKS-5 - Provide dedicated nodes using taints and tolerations
+### AKS-5 - Enable the cluster autoscaler on an existing cluster
 
 #### Impact: Medium
 
 #### Recommendation/Guidance
 
-The Kubernetes scheduler uses taints and tolerations to restrict what workloads can run on nodes. Limit access for resource-intensive applications, such as ingress controllers, to specific nodes. Keep node resources available for workloads that require them, and don't allow scheduling of other workloads on the nodes.
+AKS provides several options for scaling your cluster to meet changing demands. You can scale the number of nodes in a node pool manually or automatically based on metrics such as CPU utilization or custom metrics. You can also use virtual node scaling to add additional capacity to your cluster using Azure Container Instances. AKS also supports horizontal pod autoscaling, which automatically scales the number of pods in a deployment based on CPU utilization or custom metrics. Finally, AKS provides cluster autoscaling, which automatically scales the number of nodes in a node pool based on pod resource requests and the available capacity in the cluster. With these scaling options, you can ensure that your AKS cluster can handle varying workloads and optimize resource utilization.
 
 ##### Resources
 
@@ -161,7 +161,7 @@ The Kubernetes scheduler uses taints and tolerations to restrict what workloads 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-5/aks-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
