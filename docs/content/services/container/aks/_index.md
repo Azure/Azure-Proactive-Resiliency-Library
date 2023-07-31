@@ -12,16 +12,16 @@ The presented resiliency recommendations in this guidance include Aks and associ
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                |     Impact      |  State  | ARG Query Available |
-| :-------------------------------------------------------------------------------------------------------------------------------------------- | :-------------: | :-----: | :-----------------: |
-| [AKS-1 - Create an AKS cluster across availability zones](#aks-1---create-an-aks-cluster-across-availability-zones)                           |      High       | Preview |         Yes         |
-| [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                                                   |      High       | Preview |         No          |
-| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           |      High       | Preview |         No          |
-| [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) |     Medium      | Preview |         No          |
-| [AKS-5 - Enable the cluster autoscaler on an existing cluster](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 |      High       | Preview |         No          |
-| [AKS-6 - Plan for multiregion deployment](#aks-6---plan-for-multiregion-deployment)                                                           |      High       | Preview |         No          |
-| [AKS-7 - Back up Azure Kubernetes Service](#aks-7---back-up-azure-kubernetes-service)                                                         |       Low       | Preview |         No          |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title)                                                                                             | High/Medium/Low | Preview |         No          |
+| Recommendation                                                                                                                                | Impact |  State  | ARG Query Available |
+| :-------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
+| [AKS-1 - Create an AKS cluster across availability zones](#aks-1---create-an-aks-cluster-across-availability-zones)                           |  High  | Preview |         Yes         |
+| [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                                                   |  High  | Preview |         Yes         |
+| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           |  High  | Preview |         Yes         |
+| [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) | Medium | Preview |         Yes         |
+| [AKS-5 - Enable the cluster autoscaler on an existing cluster](#aks-5---provide-dedicated-nodes-using-taints-and-tolerations)                 |  High  | Preview |         Yes         |
+| [AKS-6 - Plan for multiregion deployment](#aks-6---plan-for-multiregion-deployment)                                                           |  High  | Preview |         No          |
+| [AKS-7 - Back up Azure Kubernetes Service](#aks-7---back-up-azure-kubernetes-service)                                                         |  Low   | Preview |         No          |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -188,7 +188,7 @@ An AKS cluster is deployed into a single region. To protect your system from reg
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-6/aks-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -214,87 +214,8 @@ AKS is increasingly being used for stateful applications that require a backup s
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-7/aks-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
-
-
-### CM-2 - CHANGE ME title
-
-#### Impact: CHANGE ME
-
-#### Recommendation/Guidance
-
-FILL ME IN...
-
-##### Resources
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-
-### CM-2 - CHANGE ME title
-
-#### Impact: CHANGE ME
-
-#### Recommendation/Guidance
-
-FILL ME IN...
-
-##### Resources
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-
-### CM-2 - CHANGE ME title
-
-#### Impact: CHANGE ME
-
-#### Recommendation/Guidance
-
-FILL ME IN...
-
-##### Resources
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-#### Queries/Scripts
-
-##### Azure Resource Graph
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
