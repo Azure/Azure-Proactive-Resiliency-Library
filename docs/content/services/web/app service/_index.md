@@ -16,10 +16,10 @@ The presented resiliency recommendations in this guidance include App Service an
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
 | [App-1 - Enable diagnostics logging](#app-1---enable-diagnostics-logging) | High | Preview | No |
 | [App-2 - Monitor performance](#app-2---monitor-performance) | Medium | Preview | No |
-| [App-3 - Separate web apps from web APIs ](#app-3---separate-web-apps-from-web-apis) | Low | Preview | Yes |
+| [App-3 - Separate web apps from web APIs](#app-3---separate-web-apps-from-web-apis) | Low | Preview | Yes |
 | [App-4 - Create a separate storage account for logs](#app-4---create-a-separate-storage-account-for-logs) | Medium | Preview | No |
-| [App-5 - Deploy to a staging slot. ](#app-5---deploy-to-a-staging-slot) | Medium | Preview | Yes |
-| [App-6 - Store configuration as app settings ](#app-6---store-configuration-as-app-settings) | Medium | Preview | No |
+| [App-5 - Deploy to a staging slot.](#app-5---deploy-to-a-staging-slot) | Medium | Preview | Yes |
+| [App-6 - Store configuration as app settings](#app-6---store-configuration-as-app-settings) | Medium | Preview | No |
 
 {{< /table >}}
 

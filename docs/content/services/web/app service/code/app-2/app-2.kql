@@ -1,7 +1,8 @@
 // Azure Resource Graph Query
+// This query is checking if multiple applications are hosted on a app service plan
 resources
 | where type == "microsoft.web/sites"
 | extend AppServicePlanId = tostring(properties.serverFarmId)
 | project kind, AppServicePlanId
 | summarize WebCount = countif(kind == 'app'),  APICount = countif(kind == 'api'), AppsCount = count() by AppServicePlanId , AppServicePlanName = tostring(split(AppServicePlanId, "/")[-1])
-| where WebCount +APICount > 0 and AppsCount > 1 // This query is checking if multiple applications are hosted on a app service plan
+| where WebCount +APICount > 0 and AppsCount > 1
