@@ -23,7 +23,8 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         No          |
 |[ST-6 - Enable version for accidental modification](#st-6---enable-version-for-accidental-modification)                                                |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
-|[ST-8 - Keep versioning below 100 for performance](#st-8---keep-versioning-below-1000-for-performance)                                                 |   Low    | Preview  |         No          |
+|[ST-9 - Configure Diagnostic Settings for all Azure Resources](#st-9---configure-diagnostic-settings-for-all-azure-resources)                                                 |   Low    | Preview  |         No          |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -155,11 +156,13 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 **Recommendation/Guidance**
 
-to recover data from accidental modification, enable versioning.
+To recover data from accidental modification or deletion enable versioning.
+Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions.
 
 **Resources**
 
 - [Blob versioning](https://learn.microsoft.com/azure/storage/blobs/versioning-overview )
+
 
 **Resource Graph Query/Scripts**
 
@@ -194,7 +197,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 <br><br>
 
-### ST-8 - Keep versioning below 1000 for performance
+
 
 **Impact: Low**
 
@@ -215,3 +218,25 @@ Having a large number of versions per blob can increase the latency for blob lis
 {{< /collapse >}}
 
 <br><br>
+
+### ST-9 - Configure Diagnostic Settings for all Azure Resources
+
+**Impact: Low**
+
+**Recommendation/Guidance**
+
+Enabling diagnostic settings allow you to capture and view diagnostic information so that you can troubleshoot any failures.
+**Resources**
+
+- [Diagnostic Setting for Storage Account](https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="/code/st-9/st-9.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
