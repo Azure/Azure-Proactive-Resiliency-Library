@@ -1,1 +1,3 @@
-under development
+Resources | where type =~'microsoft.storage/storageaccounts'
+| where isnull(properties.accessTier)
+| project recommendationId = 'st-3', name, id, accessTier="not defined - GeneralPurpose V1
