@@ -1,4 +1,9 @@
+// Azure Resource Graph Query
+// Find all LoadBalancers which only have 1 backend pool defined
 Resources
 | where type =~ 'Microsoft.Network/loadBalancers'
-| summarize count() by resourceGroup
-| where count_ <= 1
+| extend backendAddressPools = properties.backendAddressPools
+| mv-expand backendAddressPool = backendAddressPools
+| extend backendIPConfigurations = backendAddressPool.properties.backendIPConfigurations
+| where array_length(backendIPConfigurations) < 2
+| project "lb-2", name
