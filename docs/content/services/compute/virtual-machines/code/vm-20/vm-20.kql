@@ -14,5 +14,5 @@ Resources
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
 | where ExtensionName !contains "MicrosoftMonitoringAgent" and ExtensionName !contains "Microsoft.Azure.Monitoring.DependencyAgent" and ExtensionName !contains "OMSAgentForLinux" and ExtensionName !contains "DependencyAgentLinux"
-| summarize Extensions = make_list(ExtensionName) by id, Name, OSType
+| summarize Extensions = make_list(ExtensionName) by "vm-20", id, Name, OSType
 | order by tolower(Name) asc
