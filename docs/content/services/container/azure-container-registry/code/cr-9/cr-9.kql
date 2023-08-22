@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// Find all Container Registries that don't have zone redundancy enabled
+Resources
+| where type =~ "microsoft.containerregistry/registries"
+| where properties['adminUserEnabled'] == "true"
+| project recommendationId = "cr-9", name, id
+| order by id asc
