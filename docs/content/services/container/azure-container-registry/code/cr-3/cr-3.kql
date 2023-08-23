@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// Find all Container Registries and list potential replication regions
+Resources
+| where type =~ "microsoft.containerregistry/registries"
+| project name, id
+| union (Resources | where type =~ "microsoft.containerregistry/registries/replications" | project name, id)
+| order by id asc
