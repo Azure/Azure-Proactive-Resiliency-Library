@@ -1,7 +1,15 @@
 // Azure Resource Graph Query
-// Find all Container Registries and list potential replication regions
+// Find all Container Registries that do not have geo-replication enabled
 Resources
 | where type =~ "microsoft.containerregistry/registries"
-| project name, id
-| union (Resources | where type =~ "microsoft.containerregistry/registries/replications" | project name, id)
-| order by id asc
+| project registryName = name, registryId = id, primaryRegion = location
+| join kind=leftouter (
+    Resources
+    | where type =~ "microsoft.containerregistry/registries/replications"
+    | project replicationRegion=name, replicationId = id
+    | extend registryId=strcat_array(array_slice(split(replicationId, '/'), 0, -3), '/')
+    ) on registryId
+| project-away registryId1, replicationId
+| where isempty(replicationRegion)
+| project recommendationId = "vm-1", registryName, registryId
+| order by registryId asc
