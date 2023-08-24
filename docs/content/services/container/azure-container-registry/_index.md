@@ -108,21 +108,15 @@ Geo-replication is available with Premium registries.
 
 **Recommendation/Guidance**
 
-Each container registry includes an admin user account, which is disabled by default. The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials.
+Some characteristics of your images themselves can impact pull performance:
 
-Use a managed identity for Azure resources to authenticate to an Azure container registry from another Azure resource, without needing to provide or manage registry credentials.
+- Image size - Minimize the sizes of your images by removing unnecessary layers or reducing the size of layers. One way to reduce image size is to use the multi-stage Docker build approach to include only the necessary runtime components. Also check whether your image can include a lighter base OS image. And if you use a deployment environment such as Azure Container Instances that caches certain base images, check whether you can swap an image layer for one of the cached images.
+
+- Number of layers - Balance the number of layers used. If you have too few, you don’t benefit from layer reuse and caching on the host. Too many, and your deployment environment spends more time pulling and decompressing. Five to 10 layers is optimal.
 
 **Resources**
 
 - [Registry authentication options - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cr-4/cr-4.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -178,10 +172,12 @@ Although you might experiment with a specific host type, such as Azure Container
 
 **Recommendation/Guidance**
 
-The storage constraints of each container registry service tier are intended to align with a typical scenario: Basic for getting started, Standard for most production applications, and Premium for hyper-scale performance and geo-replication. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
+The storage constraints of each container registry service tier are intended to align with a typical scenario: Basic for getting started, Standard for most production applications, and Premium for hyper-scale performance and geo-replication. Throughout the life of your registry, you should manage its size by periodically deleting unused content. Consider also enabling a retention policy to automatically delete untagged image manifests to free up storage space.
+
 **Resources**
 
 - [Registry best practices - Manage registry size](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#manage-registry-size)
+- [Retention Policy](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-retention-policy#about-the-retention-policy)
 
 **Resource Graph Query/Scripts**
 
@@ -277,7 +273,7 @@ When you have critical applications and business processes relying on Azure reso
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/CR-11/CR-11.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-11/cr-11.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
