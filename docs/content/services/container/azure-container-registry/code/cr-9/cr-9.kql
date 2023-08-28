@@ -2,6 +2,6 @@
 // Find all Container Registries that have the admin user enabled
 Resources
 | where type =~ "microsoft.containerregistry/registries"
-| where properties['adminUserEnabled'] == "true"
+| where properties.adminUserEnabled == "true"
 | project recommendationId = "cr-9", name, id
 | order by id asc

@@ -2,6 +2,6 @@
 // Find all Container Registries that don't have zone redundancy enabled
 Resources
 | where type =~ "microsoft.containerregistry/registries"
-| where properties['zoneRedundancy'] == "Disabled"
+| where properties.zoneRedundancy == "Disabled"
 | project recommendationId = "cr-2", name, id
 | order by id asc

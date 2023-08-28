@@ -2,6 +2,6 @@
 // Find all Container Registries that have anonymous pull access enabled
 Resources
 | where type =~ "microsoft.containerregistry/registries"
-| where properties['anonymousPullEnabled'] == "true"
+| where properties.anonymousPullEnabled == "true"
 | project recommendationId = "cr-8", name, id
 | order by id asc
