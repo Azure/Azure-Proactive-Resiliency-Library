@@ -1,6 +1,6 @@
 // Azure Resource Graph Query
 // Find all Container Registries that are not using the Premium tier
-Resources
+resources
 | where type =~ "microsoft.containerregistry/registries"
 | where sku.name != "Premium"
 | project recommendationId = "cr-1", name, id
