@@ -23,9 +23,9 @@ The presented resiliency recommendations in this guidance include Container Regi
 | [CR-7 - Manage registry size](#cr-7---manage-registry-size)                                                                                                                                                                        | Medium | Preview |         Yes         |
 | [CR-8 - Disable anonymous pull access](#cr-8---disable-anonymous-pull-access)                                                                                                                                                      | Medium | Preview |         Yes         |
 | [CR-9 - Use an Azure managed identity to authenticate to an Azure container registry](#cr-9---use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry)                                                        | Medium | Preview |         Yes         |
-| [CR-10 - Configure Diagnostic Settings for all Azure Resources](#cr-10---configure-diagnostic-settings-for-all-azure-resources)                                                                                                    | Medium | Preview |         Yes         |
+| [CR-10 - Configure Diagnostic Settings for all Azure Resources](#cr-10---configure-diagnostic-settings-for-all-azure-resources)                                                                                                    | Medium | Preview |         No         |
 | [CR-11 - Monitor Azure Container Registry with Azure Monitor](#cr-11---monitor-azure-container-registry-with-azure-monitor)                                                                                                        | Medium | Preview |         No          |
-| [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy)                                                                                                        | Medium | Preview |         No
+| [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy)                                                                                                                                                            | Medium | Preview |         Yes
 {{< /table >}}
 {{< alert style="info" >}}
 
@@ -92,6 +92,7 @@ Geo-replication is available with Premium registries.
 **Resources**
 
 - [Registry best practices - Enable geo-replication](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#geo-replicate-multi-region-deployments)
+- [Geo-Replicate Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication)
 
 **Resource Graph Query/Scripts**
 
@@ -217,6 +218,7 @@ Use a managed identity for Azure resources to authenticate to an Azure container
 **Resources**
 
 - [Registry authentication options - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
+- [Authenticate with managed identity - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication-managed-identity?tabs=azure-cli)
 
 **Resource Graph Query/Scripts**
 
@@ -239,6 +241,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 **Resources**
 
 - [Monitoring Azure Container Registry data reference - Resource Logs](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#resource-logs)
+- [Monitor Azure Container Registry - Enable diagnostic logs](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service#collection-and-routing)
 
 <br><br>
 
@@ -253,7 +256,7 @@ When you have critical applications and business processes relying on Azure reso
 **Resources**
 
 - [Monitoring Azure Container Registry data reference](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#metrics)
-
+- [Monitor Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service)
 <br><br>
 
 ### CR-12 - Enable soft delete policy
