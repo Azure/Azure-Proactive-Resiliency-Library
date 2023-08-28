@@ -2,6 +2,6 @@
 // Find all disks that are not encrypted
 Resources
 | where type == "microsoft.compute/disks"
-| project "vm-19", diskName=name, encryptionType=properties.encryption.type, diskState=properties.diskState
+| project recommendationId="vm-19", diskName=name, id, encryptionType=properties.encryption.type, diskState=properties.diskState
 | where encryptionType !in ("EncryptionAtRestWithCustomerKey", "EncryptionAtRestWithPlatformAndCustomerKeys", "EncryptionAtRestWithPlatformKey")
 | order by diskName asc

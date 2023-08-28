@@ -4,7 +4,7 @@ Resources
 | where type == 'microsoft.compute/virtualmachines'
 | extend
     JoinID = toupper(id),
-    Name = tostring(properties.osProfile.computerName),
+    vmName = name,
     OSType = tostring(properties.storageProfile.osDisk.osType)
 | join kind=leftouter(
     Resources
@@ -14,5 +14,5 @@ Resources
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
 | where ExtensionName !contains "MicrosoftMonitoringAgent" and ExtensionName !contains "Microsoft.Azure.Monitoring.DependencyAgent" and ExtensionName !contains "OMSAgentForLinux" and ExtensionName !contains "DependencyAgentLinux"
-| summarize Extensions = make_list(ExtensionName) by "vm-20", id, Name, OSType
-| order by tolower(Name) asc
+| summarize Extensions = make_list(ExtensionName) by recommendationId="vm-20", vmName, id, OSType
+| order by tolower(vmName) asc
