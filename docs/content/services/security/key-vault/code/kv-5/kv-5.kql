@@ -1,6 +1,2 @@
 // Azure Resource Graph Query
-// This resource graph query will return all Key Vaults that do not have diagnostic settings enabled.
-resources
-| where type == "microsoft.keyvault/vaults"
-| where Diag = (isempty (properties.diagnosticSettings))
-| project name, location, resourceGroup, subscriptionId, Diag = tostring(properties.diagnosticSettings)
+// Not available. The validation for this recommendation cannot be achieved with an Azure Resource Graph query.
