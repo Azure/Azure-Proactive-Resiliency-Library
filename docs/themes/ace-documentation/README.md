@@ -2,7 +2,7 @@
 
 ![Product thumbnail](https://raw.githubusercontent.com/vantagedesign/assets/master/ace-documentation/ace-thumbnail-shadow.png)
 
-Create beautiful documentation for your projects with Ace for Hugo. Powered by Bootstrap and SASS, featuring must-have features such as syntax highlighting, copy-able code blocks, full search, a responsive layout and the power of Markdown to create your content. 
+Create beautiful documentation for your projects with Ace for Hugo. Powered by Bootstrap and SASS, featuring must-have features such as syntax highlighting, copy-able code blocks, full search, a responsive layout and the power of Markdown to create your content.
 
 Writing documentation has never been so easy.
 
@@ -14,12 +14,12 @@ Other shortcodes allow you to use Bootstrap components in your content, such as 
 Full search allows your users to quickly find the content they require, and a responsive design makes your documentation available on both desktop and mobile devices.
 
 ### Beautiful minimalist design
-With a minimal design, the attention of users is focused on that which matters: your content. 
+With a minimal design, the attention of users is focused on that which matters: your content.
 
 
 
 ## Demo & documentation
-The documentation for Ace was, of course, built with Ace. Therefore, the documentation for Ace also serves as a demo. 
+The documentation for Ace was, of course, built with Ace. Therefore, the documentation for Ace also serves as a demo.
 
  - [Ace demo & documentation](https://docs.vantage-design.com/ace)
 
@@ -30,7 +30,7 @@ The documentation for Ace was, of course, built with Ace. Therefore, the documen
 - [Download from GitHub](https://github.com/vantagedesign/ace-documentation/releases)
 - Clone the repo `git clone https://github.com/vantagedesign/ace-documentation.git`
 
-*Note:* this theme only works with Hugo's extended version, due to the SCSS compile functionality. 
+*Note:* this theme only works with Hugo's extended version, due to the SCSS compile functionality.
 
 
 
@@ -56,7 +56,7 @@ We use GitHub Issues as the official bug tracker for the Ace documentation. When
 
 ## Contributing to Ace
 
-Contributions are highly appreciated and may be done by reporting issues with new feature suggestions or bug fixes, or by making pull requests. We'll try our best to get those sorted as soon as possible. 
+Contributions are highly appreciated and may be done by reporting issues with new feature suggestions or bug fixes, or by making pull requests. We'll try our best to get those sorted as soon as possible.
 
 Please make pull requests to the [dev branch](https://github.com/vantagedesign/ace-documentation/tree/dev). Make sure you're always running the latest version of Ace and that you are not committing breaking changes.
 
@@ -77,8 +77,3 @@ Please make pull requests to the [dev branch](https://github.com/vantagedesign/a
 - [Design systems](https://vantage-design.com/products/design-systems/)
 - [Page templates](https://vantage-design.com/products/page-templates/)
 - [Documentation themes](https://vantage-design.com/products/documentation-themes/)
-
-### Social Media
-
-- Facebook: <https://www.facebook.com/vantagedesignofficial>
-- Instagram: <https://www.instagram.com/vantagedesignofficial>
