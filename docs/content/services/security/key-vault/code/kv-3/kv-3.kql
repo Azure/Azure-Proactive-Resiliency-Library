@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.keyvault/vaults"
 | where tostring(properties['privateEndpointConnections'][0]['properties']['provisioningState']) !in ("Succeeded", "Ready", "Pending", "Failed")
-| project name, location, resourceGroup, subscriptionId, PrivatelinkEndpoint = tostring(properties['privateEndpointConnections'][0]['properties']['provisioningState'])
+| project recommendationId = "kv-3", name, id, location, resourceGroup, subscriptionId, PrivatelinkEndpoint = tostring(properties['privateEndpointConnections'][0]['properties']['provisioningState'])
