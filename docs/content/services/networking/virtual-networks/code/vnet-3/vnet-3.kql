@@ -1,2 +1,3 @@
 resources
 | where type =~ 'Microsoft.Network/privateEndpoints'
+| project recommendationId = "vnet-3", name, id, location

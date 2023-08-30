@@ -3,7 +3,7 @@ title = "Virtual Networks"
 description = "Best practices and resiliency recommendations for Virtual Networks and associated resources."
 date = "4/4/23"
 author = "CHANGE ME TO YOUR GITHUB USERNAME"
-msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
+msAuthor = "maheshbenke"
 draft = false
 +++
 
@@ -16,9 +16,9 @@ The below table shows the list of resiliency recommendations for Virtual Network
 {{< table style="table-striped" >}}
 | Recommendation                                    |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :-----------------: |
-| [Vnet-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
-| [Vnet-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
-| [Vnet-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services) | Preview  |         Yes         |
+| [VNET-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
+| [VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
+| [VNET-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services) | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -29,7 +29,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### Vnet-1 - All Subnets should have a Network Security Group associated
+### VNET-1 - All Subnets should have a Network Security Group associated
 
 **Impact: High**
 
@@ -51,7 +51,7 @@ Network security groups: Network security groups and application security groups
 
 <br><br>
 
-### Vnet-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
+### VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
 
 **Impact: Medium**
 
@@ -73,7 +73,7 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 <br><br>
 
-### Vnet-3 - When available, use Private Endpoints instead of Service Endpoints for PaaS Services
+### VNET-3 - When available, use Private Endpoints instead of Service Endpoints for PaaS Services
 
 **Impact: Medium**
 
