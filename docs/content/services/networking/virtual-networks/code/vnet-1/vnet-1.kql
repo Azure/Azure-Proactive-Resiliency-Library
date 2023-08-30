@@ -3,5 +3,5 @@ resources
 | join (resources
         | where type =~ 'Microsoft.Network/virtualnetworks'
         | project id, name, properties.subnets[0].name) on id
-| project SubnetName = tostring(properties.subnets[0].name),NSG = tostring(properties['subnets'][0]['properties']['networkSecurityGroup']['id'])
+| project recommendationId = "vnet-1", name = tostring(properties.subnets[0].name), id, NSG = tostring(properties['subnets'][0]['properties']['networkSecurityGroup']['id'])
 | where NSG == ""
