@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.keyvault/vaults"
 | where tostring(properties['enablePurgeProtection']) !contains "true"
-| project name, location, resourceGroup, subscriptionId, enablePurgeProtection = tostring(properties['enablePurgeProtection'])
+| project recommendationId = "kv-2", name, id, location, resourceGroup, subscriptionId, enablePurgeProtection = tostring(properties['enablePurgeProtection'])
