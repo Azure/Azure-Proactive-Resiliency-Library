@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.keyvault/vaults"
 | where tostring(properties['enableSoftDelete']) !contains "true"
-| project name, location, resourceGroup, subscriptionId, softDeleteEnabled = tostring(properties['enableSoftDelete'])
+| project recommendationId = "kv-1", name, id, location, resourceGroup, subscriptionId, softDeleteEnabled = tostring(properties['enableSoftDelete'])
