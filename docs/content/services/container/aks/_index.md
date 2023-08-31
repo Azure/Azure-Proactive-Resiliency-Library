@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                | Impact |  State  | ARG Query Available |
 | :-------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [AKS-1 - Create an AKS cluster across availability zones](#aks-1---create-an-aks-cluster-across-availability-zones)                           |  High  | Preview |         Yes         |
+| [AKS-1 - Deploy AKS cluster across availability zones](#aks-1---deploy-aks-cluster-across-availability-zones)                                 |  High  | Preview |         Yes         |
 | [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                                                   |  High  | Preview |         Yes         |
 | [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           |  High  | Preview |         Yes         |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) | Medium | Preview |         Yes         |
@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AKS-1 - Create an AKS cluster across availability zones
+### AKS-1 - Deploy AKS cluster across availability zones
 
 #### Impact: High
 
