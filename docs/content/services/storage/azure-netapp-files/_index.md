@@ -21,7 +21,7 @@ The presented resiliency recommendations in this guidance include Azure Netapp F
 | [ANF-5 - Enable Cross-zone replication of Azure NetApp Files volumes](#anf-5---enable-cross-zone-replication-of-azure-netapp-files-volumes) | High Availability | High | Preview  |         No         |
 | [ANF-6 - Use snapshot and backup for in-region data protection in Azure NetApp Files](#anf-6---use-snapshot-and-backup-for-in-region-data-protection-in-azure-netapp-files) | High Availability | High | Preview  |         No         |
 | [ANF-7 - Monitor Azure Netapp Files metric to better understand usage pattern and performance](#anf-7---monitor-azure-netapp-files-metric-to-better-understand-usage-pattern-and-performance) | Monitoring | High | Preview  |         No         |
-| [ANF-8 - Use snapshot,backup for in-region data protection in Azure NetApp Files](#anf-2---use-availability-zones-for-high-availability-in-azure-netapp-files) | Governance | High | Preview  |         No         |
+| [ANF-8 - Use Azure policy to enforce organizational standards and to assess compliance at-scale in Azure NetApp Files](#anf-8---use-azure-policy-to-enforce-organizational-standards-and-to-assess-compliance-at-scale-in-azure-netapp-files) | Governance | High | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
