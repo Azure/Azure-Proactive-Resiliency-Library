@@ -1,6 +1,6 @@
 +++
-title = "Aks"
-description = "Best practices and resiliency recommendations for Aks and associated resources."
+title = "AKS"
+description = "Best practices and resiliency recommendations for AKS and associated resources."
 date = "7/16/23"
 author = "dcint"
 msAuthor = "dacintro"
@@ -143,7 +143,7 @@ The Azure CNI networking solution for AKS provides several benefits for managing
 
 ### AKS-5 - Enable the cluster autoscaler on an existing cluster
 
-#### Impact: Medium
+#### Impact: High
 
 #### Recommendation/Guidance
 
@@ -170,7 +170,7 @@ AKS provides several options for scaling your cluster to meet changing demands. 
 
 ### AKS-6 - Plan for multiregion deployment
 
-#### Impact: Low
+#### Impact: High
 
 #### Recommendation/Guidance
 
