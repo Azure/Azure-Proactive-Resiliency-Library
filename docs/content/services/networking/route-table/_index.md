@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Category: Monitoring**
 
 **Impact: Low**
- 
+
 **Recommendation/Guidance**
 
 Create Alerts for administrative operations such as Create or Update Route Table with Azure Monitor to detect unauthorized/undesired changes to production resources, this alert can help identify undesired changes in routing, such as attempts to by-pass firewalls or from accessing resources externally.
