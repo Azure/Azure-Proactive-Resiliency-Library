@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// Network Profile for AKS Clusters
+Resources
+| where type == "microsoft.containerservice/managedclusters"
+| extend networkProfile = tostring (parse_json(properties.networkProfile.networkPlugin))
+| project name, networkProfile
