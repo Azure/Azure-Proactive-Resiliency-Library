@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// Query AKS clusters with availability zones enabled
+Resources
+| where type == "microsoft.containerservice/managedclusters"
+| extend zones = tostring(parse_json(properties.agentPoolProfiles[0].availabilityZones))
+| project name, zones

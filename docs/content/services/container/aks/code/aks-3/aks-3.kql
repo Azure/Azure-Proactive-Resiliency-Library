@@ -1,0 +1,8 @@
+// Azure Resource Graph Query
+//description: Returns a list of AKS clusters with AAD enabled
+Resources
+| where type == "microsoft.containerservice/managedclusters"
+| extend aadProfile = tostring (parse_json(properties.aadProfile))
+| extend disablelocalAdmin = tostring(parse_json(properties.disableLocalAccounts))
+| extend RBAC = tostring(parse_json(properties.enableRBAC))
+| project name, aadProfile, disablelocalAdmin, RBAC
