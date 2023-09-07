@@ -1,4 +1,4 @@
 resources
 | where type =~ 'Microsoft.Network/virtualNetworks'
-| where isnotnull(properties.enableDdosProtection)
+| where tostring(properties.enableDdosProtection) contains "false"
 | project recommendationId = "vnet-2", name, id, properties.enableDdosProtection
