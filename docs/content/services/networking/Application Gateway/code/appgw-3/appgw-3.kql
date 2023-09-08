@@ -1,4 +1,7 @@
-Resources
+// Azure Resource Graph Query
+// You can use the following Azure Resource Graph query to check if an WAF has been enabled
+resources
 | where type == "microsoft.network/applicationGateways"
-| where properties.webApplicationFirewallConfiguration != null
-| project name, waf_enabled = tobool(properties.webApplicationFirewallConfiguration.enabled)
+| where properties.webApplicationFirewallConfiguration.enabled == true
+| project name, id
+
