@@ -1,5 +1,15 @@
-Resources
-| where type == "microsoft.network/applicationGateways"
-| extend ssl_enabled = tobool(properties.sslCertificates[0].keyVaultSecretId != null or properties.sslCertificates[0].keyVaultSecretUrl != null)
-| where properties.frontendPorts[0].port == 443 and ssl_enabled == true
-| project name, ssl_enabled
+// Azure Resource Graph Query
+// You can use the following Azure Resource Graph query to check if an HTTP rule is using an SSL certificate or is using Azure Key Vault to store the certificates
+Resources 
+| where type =~ 'Microsoft.Network/applicationGateways/httpListeners' 
+| extend sslCert = tostring(properties.sslCertificate.keyVaultSecretId) 
+| project name, sslCert
+
+// Azure Resource Graph Query
+// If you want to be informed when no SSL certificates are used, you can modify the query as follow
+Resources 
+| where type =~ 'Microsoft.Network/applicationGateways/httpListeners' 
+| extend sslCert = tostring(properties.sslCertificate.keyVaultSecretId) 
+| project name, sslCert 
+| where sslCert == ""
+
