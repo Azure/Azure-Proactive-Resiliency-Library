@@ -1,4 +1,8 @@
+// Azure Resource Graph Query
+// Find all Application Gateways without autoscaling configured or less than 2 instances assigned
 Resources
-| where type == "microsoft.network/applicationGateways"
-| where properties.capacity.autoScaleConfiguration != null
-| where properties.capacity.autoScaleConfiguration.minCapacity >= 2
+| wheretype == "microsoft.network/applicationGateways"
+| whereproperties.capacity.autoScaleConfiguration != null
+| whereisnull(properties.autoscaleConfiguration) or properties.autoscaleConfiguration.minCapacity <= 2
+| project id,name, autoscaleConfiguration, properties
+
