@@ -18,7 +18,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [APPGW-2 - Secure all incoming connections with SSL](#appgw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
 | [APPGW-3 - Enable WAF policies](#appgw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
 | [APPGW-4 - Use Application GW V2 instead of V1](#appgw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
-| [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | Yes |
+| [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | No |
 | [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
 | [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
 | [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
