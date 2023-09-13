@@ -1,6 +1,5 @@
-Resources
-| where type == "microsoft.network/applicationGateways"
-| extend appGatewayResourceId = tostring(id)
-| mvexpand probeConfig = properties.probes
-| where probeConfig.probeName != "GatewaySslCertificate"
-| project appGatewayResourceId, customHealthProbeUsed = iif(isnotempty(probeConfig.pickHostName), "Yes", "No")
+// Azure Resource Graph Query
+// You can use the following Azure Resource Graph query to check which App GWs are not using SSL certs
+| where type =~ 'microsoft.network/applicationgateways'
+| where isnotempty(properties.sslCertificates)
+| project name
