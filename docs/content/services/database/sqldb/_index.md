@@ -15,12 +15,13 @@ The presented resiliency recommendations in this guidance include Azure Database
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                  | Impact  |  State  | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----:  | :-----: | :-----------------: |
-| [SQLDB-1 - Use Active Geo Replication to Create a Readable Secondary in Another Region](#sqldb-1---use-active-geo-replication-to-create-a-readable-secondary-in-another-region)                   | High  | Preview |         No          |
-| [SQLDB-2 - Use Auto Failover Groups that can include one or multiple databases, typically used by the same application](#sqldb-2---use-auto-failover-groups-that-can-include-one-or-multiple-databases-typically-used-by-the-same-application)                                                 |  High    | Preview |         No          |
-| [SQLDB-3 - Use a Zone-Redundant database](#sqldb-3---use-a-zone-redundant-database)                                                       | Medium  | Preview |         No          |
-| [SQLDB-4 - Implement Retry Logic](#sqldb-4---implement-retry-logic)                                                                             |  High   | Preview |         No          |
-| [SQLDB-5 - Monitor your Azure SQL Database in near-real time to detect reliability incidents](#sqldb-5---monitor-your-azure-sql-database-in-near-real-time-to-detect-reliability-incidents)                                                                               |  High   | Preview |         No          |
-| [SQLDB-6 - Back up your keys](#sqldb-6---back-up-your-keys)                                                   |  Medium    | Preview |         No          |
+| [SQLDB-1 - Use Active Geo Replication to Create a Readable Secondary in Another Region](#sqldb-1---use-active-geo-replication-to-create-a-readable-secondary-in-another-region) | High    | Preview |         No          |
+| [SQLDB-2 - Use Auto Failover Groups that can include one or multiple databases, typically used by the same application](#sqldb-2---use-auto-failover-groups-that-can-include-one-or-multiple-databases-typically-used-by-the-same-application)                                                           |  High   | Preview |         No          |
+| [SQLDB-3 - Use a Zone-Redundant database](#sqldb-3---use-a-zone-redundant-database)                                                                                             | Medium  | Preview |         No          |
+| [SQLDB-4 - Implement Retry Logic](#sqldb-4---implement-retry-logic)                                                                                                             |  High   | Preview |         No          |
+| [SQLDB-5 - Monitor your Azure SQL Database in near-real time to detect reliability incidents](#sqldb-5---monitor-your-azure-sql-database-in-near-real-time-to-detect-reliability-incidents)                                                                                    |  High   | Preview |         No          |
+| [SQLDB-6 - Back up your keys](#sqldb-6---back-up-your-keys)                                                                                                                     | Medium  | Preview |         No          |
+| [SQLDB-7 - Test application fault resiliency](#sqldb-7---test-application-fault-resiliency)                                                                                     | Medium  | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -95,3 +96,15 @@ It is highly recommended to use Azure Key Vault (AKV) to store encryption keys r
 #### Resources
 - [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
 - [Getting Started with Always Encrypted](https://learn.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-landing?view=azuresql)
+
+### SQLDB-7 - Test application fault resiliency
+
+#### Impact: Medium
+
+#### Recommendation/Guidance
+
+High availability is a fundamental part of the SQL Database platform that works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events would impact an application before you deploy it to production. You can manually trigger a failover by calling a special API to restart a database, or an elastic pool. In the case of a zone-redundant serverless or provisioned General Purpose database or elastic pool, the API call would result in redirecting client connections to the new primary in an Availability Zone different from the Availability Zone of the old primary. So in addition to testing how failover impacts existing database sessions, you can also verify if it changes the end-to-end performance due to changes in network latency. Because the restart operation is intrusive and a large number of them could stress the platform, only one failover call is allowed every 15 minutes for each database or elastic pool.
+
+#### Resources
+
+- [Test application fault resiliency](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#testing-application-fault-resiliency)
