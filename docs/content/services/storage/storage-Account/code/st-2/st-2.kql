@@ -1,3 +1,5 @@
-"resources
+// Azure Resource Graph Query
+// Find all Azure classic Storage Account
+resources
 | where type =~ 'microsoft.classicstorage/storageaccounts'
-| project recommendationId = 'st-2', name, id, type"
+| project recommendationId = 'st-2', name, id, type

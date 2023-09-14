@@ -495,6 +495,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 **Resources**
 
 - [Overview of VM insights](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)
+- [Did the extension install properly?](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-troubleshoot#did-the-extension-install-properly)
 
 **Resource Graph Query/Scripts**
 
