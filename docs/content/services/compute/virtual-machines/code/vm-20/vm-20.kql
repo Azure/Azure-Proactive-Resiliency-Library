@@ -1,1 +1,18 @@
-under development
+// Azure Resource Graph Query
+// Find all VMs that do not have the VM Insights extension installed
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| extend
+    JoinID = toupper(id),
+    vmName = name,
+    OSType = tostring(properties.storageProfile.osDisk.osType)
+| join kind=leftouter(
+    Resources
+    | where type == 'microsoft.compute/virtualmachines/extensions'
+    | extend
+        VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+        ExtensionName = name
+) on $left.JoinID == $right.VMId
+| where ExtensionName !contains "MicrosoftMonitoringAgent" and ExtensionName !contains "Microsoft.Azure.Monitoring.DependencyAgent" and ExtensionName !contains "OMSAgentForLinux" and ExtensionName !contains "DependencyAgentLinux"
+| summarize Extensions = make_list(ExtensionName) by recommendationId="vm-20", vmName, id, OSType
+| order by tolower(vmName) asc
