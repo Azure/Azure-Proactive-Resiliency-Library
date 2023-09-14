@@ -225,7 +225,7 @@ Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances.
 
 **Resources**
 
-- [Azure Application Gateway infrastructure configuration | Microsoft Learn]([https://learn.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#size-of-the-subnet))
+- [Azure Application Gateway infrastructure configuration | Microsoft Learn](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#size-of-the-subnet)
 
 **Resource Graph Query/Scripts**
 
