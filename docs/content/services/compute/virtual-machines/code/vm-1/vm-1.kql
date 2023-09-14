@@ -1,6 +1,15 @@
 // Azure Resource Graph Query
-// Find all VMs that are not assigned to a Zone nor is associated with an AvailabilitySet
-Resources
+// Find single VMs per ResourceGroup and/or with unique naming convention.
+// Customize the query to meet your naming standards, replace the "5" (prefix) with the number of characters you want to compare (name, 0, 5)
+resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
-| where isnull(properties.availabilitySetReference) and isnull(properties.hardwareProfile.zone)
-| project recommendationId = "vm-1", name, id
+| extend vmPrefix = substring(name, 0, 5)
+| project resourceGroup, vmPrefix, name, id
+| summarize VMCount = count() by resourceGroup, vmPrefix
+| where VMCount == 1
+| join kind=leftouter (
+    resources
+    | where type =~ 'Microsoft.Compute/virtualMachines'
+    | project resourceGroup, name, id
+)on resourceGroup
+| project  recommendationId = "vm-1", name, id, resourceGroup

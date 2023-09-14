@@ -1,6 +1,5 @@
-// Start with a list of VMs, format the resourceId in lowercase for joining to the maintenanceresources later
-// Do the join with mainteinanceresources looking specifically for configurationassignments
-// Filter to only return resources that have no maintenance configuration assigned
+// Azure Resource Graph Query
+// Find VMS that do not have maintenance configuration assigned
 Resources
 | extend resourceId = tolower(id)
 | project name, location, type, id, resourceId, properties
@@ -12,5 +11,5 @@ maintenanceresources
 | extend resourceId = tostring(maintenanceProps.resourceId)
 ) on resourceId
 | where isnull(maintenanceProps)
-| project recommendationId = "vm-22",name, location, type, id, properties
+| project recommendationId = "vm-22",name, id
 | order by id asc

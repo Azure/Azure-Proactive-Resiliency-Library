@@ -3,5 +3,5 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where isnotnull(properties.extended.instanceView)
-| where not(properties.extended.instanceView.replicationState == 'Replicating')
+| where properties.extended.instanceView.replicationState != 'Replicating'
 | project recommendationId = "vm-4", name, id
