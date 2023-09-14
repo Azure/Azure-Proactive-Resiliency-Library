@@ -22,7 +22,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
 | [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
 | [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
-| [APPGW-9 - Ensure Application Gateway Subnet is using a 24 subnet mask](#appgw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
+| [APPGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#appgw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
 
 {{< /table >}}
 
@@ -215,7 +215,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 {{< /collapse >}}
 
-### APPGW-9 - Ensure Application Gateway Subnet is using a 24 subnet mask
+### APPGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
 
 **Impact: High**
 
