@@ -12,10 +12,10 @@ The presented resiliency recommendations in this guidance include {{ replace .Na
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Category                                                               |  Impact         |  State   | ARG Query Available |
-| :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
-| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | Compatibility/Compliance/Disaster Recovery/High Availability/Management | High/Medium/Low | Preview  |         Yes         |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | Monitoring/Networking/Performance/Scalability/Security/Storage          | High/Medium/Low | Verified |         No          |
+| Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
+| :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
+| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | Compatibility/Compliance/Disaster Recovery/High Availability/Management | High/Medium/Low | Preview/Verified  |         Yes         |
+| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | Monitoring/Networking/Performance/Scalability/Security/Storage          | High/Medium/Low | Preview/Verified  |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -28,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### CM-1 - CHANGE ME title
 
-**Category: Compatibility/Compliance/Disaster Recovery/High Availability/Management/Monitoring/Networking/Performance/Scalability/Security/Storage**
+**Category: Application Resilience/Automation/Availability/Access & Security/Governance/Disaster Recovery/System Efficiency/Monitoring/Networking/Storage**
 
 **Impact: High/Medium/Low**
 
@@ -53,7 +53,7 @@ FILL ME IN...
 
 ### CM-2 - CHANGE ME title
 
-**Category: Compatibility/Compliance/Disaster Recovery/High Availability/Management/Monitoring/Networking/Performance/Scalability/Security/Storage**
+**Category: Application Resilience/Automation/Availability/Access & Security/Governance/Disaster Recovery/System Efficiency/Monitoring/Networking/Storage**
 
 **Impact: High/Medium/Low**
 
