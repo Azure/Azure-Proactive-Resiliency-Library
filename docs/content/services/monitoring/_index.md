@@ -1,9 +1,7 @@
 +++
 title = "Monitoring"
 description = "Monitoring Services"
-date = "5/9/23"
-author = "judyer28"
-msAuthor = "judyer"
+date = 2023-03-21T10:12:16Z
 draft = false
 +++
 
