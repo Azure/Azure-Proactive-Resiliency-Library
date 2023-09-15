@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.network/applicationGateways"
 | where properties.webApplicationFirewallConfiguration.enabled == true
-| project name, id
+| project  recommendationId = "appgw-3", name, id, resourceGroup
