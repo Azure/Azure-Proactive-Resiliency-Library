@@ -1,5 +1,7 @@
+// Azure Resource Graph Query
+// Find all LoadBalancers using Basic SKU
 resources
 | where type =~ 'Microsoft.Network/loadbalancers'
 | extend sku = tostring(sku.name)
-| where sku != 'Standard'
-| project id,name,resourceGroup,subscriptionId,sku
+| where sku == 'Basic'
+| project recommendationId = "lb-1", name, id, sku
