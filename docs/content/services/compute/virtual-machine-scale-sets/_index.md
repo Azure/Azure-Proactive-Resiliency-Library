@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                              | Impact  |  State  | ARG Query Available |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----:  | :-----: | :-----------------: |
-| [VMSS-1 - Deploy VMSSs with Flex orchestration mode instead of Uniform](#vmss-1---deploy-vmsss-with-flex-orchestration-mode-instead-of-uniform)                                                              | Medium  | Preview |         No          |
-| [VMSS-2 - Enable Virtual Machine Scale Sets application health monitoring](#vmss-2---enable-virtual-machine-scale-sets-application-health-monitoring)                                                       |  Low    | Preview |         No          |
-| [VMSS-3 - Enable Automatic repair policy](#vmss-3---enable-automatic-repair-policy)                                                                                                                         |  High   | Preview |         No          |
-| [VMSS-4 - Configure Virtual Machine Scale Sets Autoscale to Custom and configure the scaling metrics](#vmss-4---configure-virtual-machine-scale-sets-autoscale-to-custom-and-configure-the-scaling-metrics) |  High   | Preview |         No          |
-| [VMSS-5 - Enable Predictive autoscale and configure at least for Forecast Only](#vmss-5---enable-predictive-autoscale-and-configure-at-least-for-forecast-only)                                             |  Low    | Preview |         No          |
-| [VMSS-6 - Disable Force strictly even balance across zones to avoid scale in and out fail attempts](#vmss-6---disable-force-strictly-even-balance-across-zones-to-avoid-scale-in-and-out-fail-attempts)     |  Low    | Preview |         No          |
-| [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                     |  Low    | Preview |         No          |
-| [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                             |  Low    | Preview |         No          |
+| [VMSS-1 - Deploy VMSS with Flex orchestration mode instead of Uniform](#vmss-1---deploy-vmss-with-flex-orchestration-mode-instead-of-uniform)                                                              |  Medium | Preview |         Yes         |
+| [VMSS-2 - Enable VMSS application health monitoring](#vmss-2---enable-vmss-application-health-monitoring)                                                                                                   |  Medium | Preview |         No          |
+| [VMSS-3 - Enable Automatic Repair policy](#vmss-3---enable-automatic-repair-policy)                                                                                                                         |  High   | Preview |         No          |
+| [VMSS-4 - Configure VMSS autoscale to custom and configure the scaling metrics](#vmss-4---configure-vmss-autoscale-to-custom-and-configure-the-scaling-metrics)                                             |  High   | Preview |         Yes         |
+| [VMSS-5 - Enable Predictive Autoscale and configure at least for Forecast Only](#vmss-5---enable-predictive-autoscale-and-configure-at-least-for-forecast-only)                                             |  Low    | Preview |         Yes         |
+| [VMSS-6 - Disable Force strictly even balance across zones to avoid scale in and out fail attempts](#vmss-6---disable-force-strictly-even-balance-across-zones-to-avoid-scale-in-and-out-fail-attempts)     |  High   | Preview |         Yes         |
+| [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                     |  Medium | Preview |         Yes         |
+| [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                             |  High   | Preview |         Yes         |
 | [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated)                                                                           |  Low    | Preview |         No          |
 {{< /table >}}
 
@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### VMSS-1 - Deploy VMSSs with Flex orchestration mode instead of Uniform
+### VMSS-1 - Deploy VMSS with Flex orchestration mode instead of Uniform
 
 **Impact: Medium**
 
@@ -56,7 +56,7 @@ Even single instance VMs should be deployed into a scale set using the Flexible 
 
 <br><br>
 
-### VMSS-2 - Enable Virtual Machine Scale Sets application health monitoring
+### VMSS-2 - Enable VMSS application health monitoring
 
 **Category: Monitoring**
 
@@ -80,7 +80,7 @@ Monitoring your application health is an important signal for managing and upgra
 
 <br><br>
 
-### VMSS-3 - Enable Automatic repair policy
+### VMSS-3 - Enable Automatic Repair policy
 
 **Category: Automation**
 
@@ -106,7 +106,7 @@ Grace period is specified in minutes in ISO 8601 format and can be set using the
 
 <br><br>
 
-### VMSS-4 - Configure Virtual Machine Scale Sets Autoscale to Custom and configure the scaling metrics
+### VMSS-4 - Configure VMSS Autoscale to custom and configure the scaling metrics
 
 **Category: System Efficiency**
 

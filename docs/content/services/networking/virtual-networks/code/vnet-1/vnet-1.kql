@@ -1,7 +1,8 @@
+// Azure Resource Graph Query
+// Find Subnets without NSG associated
 resources
 | where type =~ 'Microsoft.Network/virtualnetworks'
-| join (resources
-        | where type =~ 'Microsoft.Network/virtualnetworks'
-        | project id, name, properties.subnets[0].name) on id
-| project recommendationId = "vnet-1", name = tostring(properties.subnets[0].name), id, NSG = tostring(properties['subnets'][0]['properties']['networkSecurityGroup']['id'])
-| where NSG == ""
+| mv-expand subnets = properties.subnets
+| extend sn = string_size(subnets.properties.networkSecurityGroup)
+| where sn == 0
+| project recommendationId = "vnet-1", name, id, subnets.name, NSG="NSG: False"
