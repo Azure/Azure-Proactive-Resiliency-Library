@@ -1,3 +1,2 @@
-Resources | where type =="microsoft.storage/storageaccounts"
-| where kind == "Storage"
-| project recommendationId = "st-4", name, id, StgKind = "Storage - general purpose v1"
+// Azure Resource Graph Query
+// under development

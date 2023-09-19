@@ -2,5 +2,5 @@
 // This resource graph query will return all Key Vaults that do not have Purge Protection enabled.
 resources
 | where type == "microsoft.keyvault/vaults"
-| where tostring(properties['enablePurgeProtection']) !contains "true"
-| project recommendationId = "kv-2", name, id, location, resourceGroup, subscriptionId, enablePurgeProtection = tostring(properties['enablePurgeProtection'])
+| where isnull(properties.enablePurgeProtection) or properties.enablePurgeProtection != "true"
+| project recommendationId = "kv-2", name, id, enablePurgeProtection = "disabled"
