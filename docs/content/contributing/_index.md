@@ -1,7 +1,7 @@
 +++
 title = "Contributing"
 description = "Contribution Guide for the Azure Proactive Resiliency Library (APRL)"
-weight = 2
+weight = 3
 +++
 {{< panel title="Contributions Notice" style="warning" >}} Currently we can only accept contributions from Microsoft FTEs. In the future we will look to change this. {{< /panel >}}
 

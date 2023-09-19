@@ -17,8 +17,8 @@ The presented resiliency recommendations in this guidance include Key Vault and 
 | [KV-1 - Key vaults should have soft delete enabled](#kv-1---key-vaults-should-have-soft-delete-enabled) | High | Preview  |         Yes         |
 | [KV-2 - Key vaults should have purge protection enabled](#kv-2---key-vaults-should-have-purge-protection-enabled) | High | Preview |         Yes          |
 | [KV-3 - Enable Azure Private Link Service for Key vault](#kv-3---enable-azure-private-link-service-for-key-vault) | High | Preview |         Yes          |
-| [KV-4 - Use separate key vaults per application per environment](#kv-4---use-separate-key-vaults-per-application-per-environment) | High | Preview |         Yes          |
-| [KV-5 - Diagnostic logs in Key Vault should be enabled](#kv-5---diagnostic-logs-in-key-vault-should-be-enabled) | Low | Preview |         Yes          |
+| [KV-4 - Use separate key vaults per application per environment](#kv-4---use-separate-key-vaults-per-application-per-environment) | High | Preview |   No          |
+| [KV-5 - Diagnostic logs in Key Vault should be enabled](#kv-5---diagnostic-logs-in-key-vault-should-be-enabled) | Low | Preview |         no          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -30,6 +30,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 ## Recommendations Details
 
 ### KV-1 - Key vaults should have soft delete enabled
+
+**Category: Disaster Recovery**
 
 **Impact: High**
 
@@ -53,6 +55,8 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ### KV-2 - Key vaults should have purge protection enabled
 
+**Category: Disaster Recovery**
+
 **Impact: High**
 
 **Recommendation/Guidance**
@@ -74,6 +78,8 @@ Malicious deletion of a key vault can lead to permanent data loss. A malicious i
 <br><br>
 
 ### KV-3 - Enable Azure Private Link Service for Key vault
+
+**Category: Networking**
 
 **Impact: High**
 
@@ -97,6 +103,8 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 
 ### KV-4 - Use separate key vaults per application per environment
 
+**Category: Governance**
+
 **Impact: High**
 
 **Recommendation/Guidance**
@@ -118,6 +126,8 @@ Key vaults define security boundaries for stored secrets. Grouping secrets into 
 <br><br>
 
 ### KV-5 - Diagnostic logs in Key Vault should be enabled
+
+**Category: Monitoring**
 
 **Impact: Low**
 

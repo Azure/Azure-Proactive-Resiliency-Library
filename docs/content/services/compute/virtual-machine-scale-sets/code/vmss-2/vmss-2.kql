@@ -1,2 +1,5 @@
 // Azure Resource Graph Query
 // Under development
+// resources
+//| where type == "microsoft.compute/virtualmachinescalesets"
+//| project recommendationId = "vmss-2", name, id
