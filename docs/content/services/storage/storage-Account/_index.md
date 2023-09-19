@@ -14,17 +14,16 @@ The presented resiliency recommendations in this guidance include Storage Accoun
 The below table shows the list of resiliency recommendations for Storage Account and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                        |  Impact  |  State   | ARG Query Available |
+| Recommendation                                                                                                                                        |  Impact  |  State   | ARG/Script Available|
 | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :-----:  | :-----:  | :-----------------: |
 |[ST-1 - Ensure that storage account is redundant](#st-1---ensure-that-storage-account-is-redundant)                                                    |   High   | Preview  |         Yes         |
 |[ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                |   High   | Preview  |         Yes         |
-|[ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                        |  Medium  | Preview  |         No          |
+|[ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                        |  Medium  | Preview  |         Yes         |
 |[ST-4 - Choose right storage account kind for workload](#st-4---choose-right-storage-account-kind-for-workload)                                        |  Medium  | Preview  |         No          |
-|[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         No          |
-|[ST-6 - Enable version for accidental modification](#st-6---enable-version-for-accidental-modification)                                                |  Medium  | Preview  |         No          |
-|[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
-|[ST-8 - Keep fewer than 1000 versions per blob](#st-8---keep-fewer-than-1000-versions-per-blob)                                                        |   Low    | Preview  |         No          |
-|[ST-9 - Configure Diagnostic Settings for all Azure Resources](#st-9---configure-diagnostic-settings-for-all-azure-resources)                                                 |   Low    | Preview  |         No          |
+|[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         Yes          |
+|[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         Yes          |
+|[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         Yes          |
+|[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         Yes          |
 
 {{< /table >}}
 
@@ -37,6 +36,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 ## Recommendations Details
 
 ### ST-1 - Ensure that Storage Account is redundant
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -65,6 +66,8 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 ### ST-2 - Do not use classic Storage Account
 
+**Category: Governance**
+
 **Impact: High**
 
 **Recommendation/Guidance**
@@ -86,6 +89,8 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 <br><br>
 
 ### ST-3 - Ensure Performance tier is set as per workload
+
+**Category: System Efficiency**
 
 **Impact: Medium**
 
@@ -109,6 +114,8 @@ Consider using appropriate storage performance tier for standard storage / block
 
 ### ST-4 - Choose right storage account kind for workload
 
+**Category: System Efficiency**
+
 **Impact: Medium**
 
 **Recommendation/Guidance**
@@ -131,6 +138,8 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 
 ### ST-5 - Enable soft delete for recovery of data
 
+**Category: Disaster Recovery**
+
 **Impact: Medium**
 
 **Recommendation/Guidance**
@@ -141,17 +150,19 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 - [Soft delete detail docs](https://learn.microsoft.com//azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal )
 
-**Resource Graph Query/Scripts**
+**Script**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-5/st-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/st-5/st-5.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ST-6 - Enable version for accidental modification
+### ST-6 - Enable version for accidental modification and keep the number of versions below 1000
+
+**Category: Disaster Recovery**
 
 **Impact: Medium**
 
@@ -164,18 +175,19 @@ Having a large number of versions per blob can increase the latency for blob lis
 
 - [Blob versioning](https://learn.microsoft.com/azure/storage/blobs/versioning-overview )
 
-
-**Resource Graph Query/Scripts**
+**Script**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-6/st-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/st-6/st-6.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
 ### ST-7 - Enable point and time restore for containers for recovery
+
+**Category: Disaster Recovery**
 
 **Impact: Low**
 
@@ -188,56 +200,36 @@ Point and time restore support general purpose v2 account in standard performanc
 
 - [Restore overview](https://learn.microsoft.com/azure/storage/blobs/point-in-time-restore-manage?tabs=portal)
 
-**Resource Graph Query/Scripts**
+**Script**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-7/st-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/st-7/st-7.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ST-8 - Keep fewer than 1000 versions per blob
+### ST-8 - Configure Diagnostic Settings for all Azure Resources
 
-**Impact: Low**
-
-**Recommendation/Guidance**
-
-Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions.
-
-**Resources**
-
-- [Blob Versioning](https://learn.microsoft.com/azure/storage/blobs/versioning-overview)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="/code/st-8/st-8.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### ST-9 - Configure Diagnostic Settings for all Azure Resources
+**Category: Monitoring**
 
 **Impact: Low**
 
 **Recommendation/Guidance**
 
 Enabling diagnostic settings allow you to capture and view diagnostic information so that you can troubleshoot any failures.
+
 **Resources**
 
 - [Diagnostic Setting for Storage Account](https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage)
 
-**Resource Graph Query/Scripts**
+**Script**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-9/st-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="/code/st-8/st-8.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
-
