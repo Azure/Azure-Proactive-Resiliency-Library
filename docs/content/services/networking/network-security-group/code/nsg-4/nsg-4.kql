@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// This query will return all NSGs that do not have flow logs enabled
+resources
+| where type =~ "microsoft.network/networksecuritygroups"
+| where isnull(properties.flowLogs)
+| project recommendationId = "nsg-4", name, id, param1 = "NSG Flow Logs Disabled"
