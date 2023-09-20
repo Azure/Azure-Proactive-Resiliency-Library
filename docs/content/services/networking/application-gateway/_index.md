@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include Application Ga
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#appgw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
-| [APPGW-2 - Secure all incoming connections with SSL](#appgw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
-| [APPGW-3 - Enable WAF policies](#appgw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
-| [APPGW-4 - Use Application GW V2 instead of V1](#appgw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
-| [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | Yes |
-| [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
-| [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
-| [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
+| [AGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#agw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
+| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
+| [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
+| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
+| [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | Yes |
+| [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
+| [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
+| [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
 
 {{< /table >}}
 
@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance
+### AGW-1 - Ensure autoscaling is used with a minimum of 2 instance
 
 **Impact: High**
 
@@ -48,11 +48,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/appgw-1/appgw-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-1/AGW-1.kql" >}} {{< /code >}}
 {{< /collapse >}}
 <br><br>
 
-### APPGW-2 - Secure all incoming connections with SSL
+### AGW-2 - Secure all incoming connections with SSL
 
 **Impact: High**
 
@@ -72,13 +72,13 @@ Ensure that all incoming connections are using HTTP/s for production services.  
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-2/appgw-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-2/AGW-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-3 - Enable Web Application Firewall policies
+### AGW-3 - Enable Web Application Firewall policies
 
 **Impact: High**
 
@@ -95,13 +95,13 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-3/appgw-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-3/AGW-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-4 - Use Application GW V2 instead of V1
+### AGW-4 - Use Application GW V2 instead of V1
 
 **Impact: High**
 
@@ -119,13 +119,13 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-4/appgw-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-4/AGW-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-5 - Monitor and Log the configurations and traffic
+### AGW-5 - Monitor and Log the configurations and traffic
 
 **Impact: Medium**
 
@@ -142,13 +142,13 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-5/appgw-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-5/AGW-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-6 - Use Health Probes to detect backend availability
+### AGW-6 - Use Health Probes to detect backend availability
 
 **Impact: Medium**
 
@@ -165,13 +165,13 @@ Using custom health probes can help with understand the availability of your bac
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-6/appgw-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-6/AGW-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-7 - Deploy backends in a zone-redundant configuration
+### AGW-7 - Deploy backends in a zone-redundant configuration
 
 **Impact: High**
 
@@ -188,13 +188,13 @@ Deploying your backend services in a zone-aware configurations ensures that if a
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-7/appgw-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-7/AGW-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-8 - Plan for backend maintenance by using connection draining
+### AGW-8 - Plan for backend maintenance by using connection draining
 
 **Impact: Medium**
 
@@ -211,7 +211,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-8/appgw-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/AGW-8/AGW-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
