@@ -107,6 +107,10 @@ def runAprlQuery(query, subscriptionId):
   for result in results:
     if 'id' in result:
       affectedResources.append(result['id'])
+    elif 'name' in result:
+      affectedResources.append(result['name'])
+
+  affectedResources = sorted(list(set(affectedResources)))
 
   aprlQueryResult = {
     "id": query['id'],
