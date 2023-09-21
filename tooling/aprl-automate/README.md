@@ -2,7 +2,7 @@
 
 This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure resource types present in a given subscription and outputs the results to a file in a CSV (default) or JSON format.
 
-```
+```bash
 aprl-automate> python aprl_automate.py --help
 usage: aprl_automate.py [-h] -s ID [-p PATH] [-j] [-e] [-w WORKERS]
 
@@ -28,17 +28,17 @@ options:
 #### Setting up the Python environment:
 > **_NOTE:_**  Installation starts with cloning of this repo.  The following commands are run from the 'tooling/aprl-automate' folder.  If you run the script from a different directory, you will need to add the '--path' parameter to point to where files in 'docs/content/services' of this repo are located on your local machine.  Access to the subscription being queried is based on your active Azure CLI credentials.
 
-```
+```bash
 aprl-automate> python -m venv .venv
 aprl-automate> ./.venv/Scripts/activate
 (.venv) aprl-automate> pip install -r requirements.txt
 ```
 
 #### Running the aprl-automate command
-```
+```bash
 (.venv) aprl-automate> az login
 (.venv) aprl-automate> python aprl_automate.py --id 00000000-0000-0000-0000-000000000000 --exclude-errors
-``````
+```
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
