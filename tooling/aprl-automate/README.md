@@ -20,12 +20,12 @@ options:
 
 ## Installation
 
-### Software Requirements:
+### Software Requirements
 - Python     >= 3.11.x
 - pip        >= 23.2.x
 - Azure CLI  >= 2.52.0
 
-#### Setting up the Python environment:
+#### Setting up the Python environment
 > **_NOTE:_**  Installation starts with cloning of this repo.  The following commands are run from the 'tooling/aprl-automate' folder.  If you run the script from a different directory, you will need to add the '--path' parameter to point to where files in 'docs/content/services' of this repo are located on your local machine.  Access to the subscription being queried is based on your active Azure CLI credentials.
 
 ```bash
@@ -43,7 +43,7 @@ aprl-automate> ./.venv/Scripts/activate
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit [Contributor License Agreements](https://cla.opensource.microsoft.com).
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
