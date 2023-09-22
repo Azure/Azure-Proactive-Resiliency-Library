@@ -40,7 +40,7 @@ aprl-automate> ./.venv/Scripts/activate
 #### Running the aprl-automate command
 ```bash
 (.venv) aprl-automate> az login
-(.venv) aprl-automate> python aprl_automate.py --id 00000000-0000-0000-0000-000000000000 --exclude-errors
+(.venv) aprl-automate> python aprl_automate.py --ids 00000000-0000-0000-0000-000000000000
 ```
 ## Contributing
 
