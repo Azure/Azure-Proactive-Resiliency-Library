@@ -6,7 +6,9 @@ This tool runs all of the Azure Proactive Resiliency Library queries based on th
 aprl-automate> python aprl-automate.py --help
 usage: aprl-automate.py [-h] -s ID [ID ...] [-p PATH] [-j] [-c] [-l JSON_FIFLE] [-w WORKERS]
 
-This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure resource types present in the given set of subscriptions and outputs a populated Excel workbook based on the Action Plan Template.
+This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure
+resource types present in the given set of subscriptions and outputs a populated Excel
+workbook based on the Action Plan Template.
 
 options:
   -h, --help            show this help message and exit
