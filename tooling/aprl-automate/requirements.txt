@@ -5,3 +5,4 @@ azure-identity
 
 pandas
 argparse
+openpyxl

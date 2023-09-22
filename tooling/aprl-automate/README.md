@@ -1,19 +1,22 @@
 # APRL Automation Tool (aprl-automate)
 
-This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure resource types present in a given subscription and outputs the results to a file in a CSV (default) or JSON format.
+This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure resource types present in the given set of subscriptions and outputs a populated Excel workbook based on the Action Plan Template.
 
 ```bash
-aprl-automate> python aprl_automate.py --help
-usage: aprl_automate.py [-h] -s ID [-p PATH] [-j] [-e] [-w WORKERS]
+aprl-automate> python aprl-automate.py --help
+usage: aprl-automate.py [-h] -s ID [ID ...] [-p PATH] [-j] [-c] [-l JSON_FIFLE] [-w WORKERS]
 
-This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure resource types present in a given subscription.
+This tool runs all of the Azure Proactive Resiliency Library queries based on the Azure resource types present in the given set of subscriptions and outputs a populated Excel workbook based on the Action Plan Template.
 
 options:
   -h, --help            show this help message and exit
-  -s ID, --id ID        Subscription ID
+  -s ID [ID ...], --ids ID [ID ...]
+                        List of Subscription IDs
   -p PATH, --path PATH  Path to APRL queries
-  -j, --json            Output to JSON file instead of CSV
-  -e, --exclude-errors  Exclude queries that return errors from output
+  -j, --output-json     Output to JSON file
+  -c, --output-csv      Output to CSV file
+  -l JSON_FIFLE, --load-json JSON_FIFLE
+                        Load an JSON file with query results
   -w WORKERS, --workers WORKERS
                         Number of concurrent workers
 ```
