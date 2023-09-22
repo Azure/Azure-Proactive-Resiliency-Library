@@ -13,6 +13,7 @@ disableReadmoreNav = true
 menushortcutsnewtab = true
 site_logo = "/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png"
 toc = false
+ordersectionsby = "title"
 
 [markup]
   [markup.goldmark]

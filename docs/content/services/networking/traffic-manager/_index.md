@@ -14,12 +14,11 @@ The presented resiliency recommendations in this guidance include Azure Traffic 
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [TM-1 - Traffic Manager Monitor Status Should be Online](#tm-1---traffic-manager-monitor-status-should-be-online)     |  High    | Preview  | Yes |
-| [TM-2 - Traffic manager profiles should have more than one endpoint](#tm-2---traffic-manager-profiles-should-have-more-than-one-endpoint)                                   |  High    | Preview  | Yes |
-| [TM-3 - Configure at least one endpoint within a another region](#tm-3---configure-at-least-one-endpoint-within-a-another-region)                                                        |  Medium    | Preview  | Yes |
-| [TM-4 - TTL value of user profiles should be in 60 Seconds](#tm-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                                             |  Medium    | Preview  | Yes |
-| [TM-5 - Ensure endpoint configured to "(All World)" for geographic profiles](#tm-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles)                       |  Medium  | Preview  | Yes |
-
+| [TRAF-1 - Traffic Manager Monitor Status Should be Online](#traf-1---traffic-manager-monitor-status-should-be-online)     |  High    | Preview  | Yes |
+| [TRAF-2 - Traffic manager profiles should have more than one endpoint](#traf-2---traffic-manager-profiles-should-have-more-than-one-endpoint)                                   |  High    | Preview  | Yes |
+| [TRAF-3 - Configure at least one endpoint within a another region](#traf-3---configure-at-least-one-endpoint-within-a-another-region)                                                        |  Medium    | Preview  | Yes |
+| [TRAF-4 - TTL value of user profiles should be in 60 Seconds](#traf-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                                             |  Medium    | Preview  | Yes |
+| [TRAF-5 - Ensure endpoint configured to "(All World)" for geographic profiles](#traf-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles)                       |  Medium  | Preview  | Yes |
 
 {{< /table >}}
 
@@ -31,7 +30,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### TM-1 - Traffic Manager Monitor Status Should be Online
+### TRAF-1 - Traffic Manager Monitor Status Should be Online
 
 **Impact: High**
 
@@ -48,11 +47,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/tm-1/tm-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/TRAF-1/TRAF-1.kql" >}} {{< /code >}}
 {{< /collapse >}}
 <br><br>
 
-### TM-2 - Traffic manager profiles should have more than one endpoint
+### TRAF-2 - Traffic manager profiles should have more than one endpoint
 
 **Impact: High**
 
@@ -64,18 +63,17 @@ When configuring the Azure traffic manager, you should provision minimum of two 
 
 - [Traffic Manager Endpoint Types](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-endpoint-types)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/tm-2/tm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/TRAF-2/TRAF-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### TM-3 - Configure at least one endpoint within a another region
+### TRAF-3 - Configure at least one endpoint within a another region
 
 **Impact: Medium**
 
@@ -88,18 +86,17 @@ Profiles should have more than one endpoint to ensure availability if one of the
 - [Reliability recommendations
 ](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations#add-at-least-one-more-endpoint-to-the-profile-preferably-in-another-azure-region)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/tm-3/tm-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/TRAF-3/TRAF-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### TM-4 - TTL value of user profiles should be in 60 Seconds
+### TRAF-4 - TTL value of user profiles should be in 60 Seconds
 
 **Impact: Medium**
 
@@ -116,13 +113,13 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/tm-4/tm-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/TRAF-4/TRAF-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### TM-5 - Ensure endpoint configured to "(All World)" for geographic profiles
+### TRAF-5 - Ensure endpoint configured to "(All World)" for geographic profiles
 
 **Impact: Medium**
 
@@ -139,9 +136,8 @@ For geographic routing, traffic is routed to endpoints based on defined regions.
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/tm-5/tm-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/TRAF-5/TRAF-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
-
