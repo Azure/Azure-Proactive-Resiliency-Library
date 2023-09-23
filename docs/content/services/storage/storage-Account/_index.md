@@ -106,7 +106,7 @@ Consider using appropriate storage performance tier for standard storage / block
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-3/st-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-3/st-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -130,7 +130,7 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-4/st-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-4/st-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

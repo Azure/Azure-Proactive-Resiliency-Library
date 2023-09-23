@@ -1,4 +1,4 @@
 resources
 | where type == "microsoft.cdn/cdnwebapplicationfirewallpolicies"
 | where properties['policySettings']['enabledState'] == "Enabled"
-| project recommendationId = "fd-10", name, id
+| project recommendationId = "afd-10", name, id

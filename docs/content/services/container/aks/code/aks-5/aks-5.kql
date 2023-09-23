@@ -1,6 +1,7 @@
 // Azure Resource Graph Query
-// Find AKS clusters with auto-scaling enabled
+// Find AKS clusters with auto-scaling disabled
 Resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend autoScaling = tostring (parse_json(properties.agentPoolProfiles.[0].enableAutoScaling))
-| project name, autoScaling
+| where autoScaling == "false"
+| project recommendationId="aks-5", name, id, param1=strcat("autoScaling :", autoScaling)

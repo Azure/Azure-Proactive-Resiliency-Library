@@ -3,5 +3,5 @@
 Resources
 | where type =~ "microsoft.network/applicationGateways"
 | where isnull(properties.webApplicationFirewallConfiguration)
-| project recommendationId = "appgw-3", name, id, param1 = "webApplicationFirewallConfiguration: isNull"
+| project recommendationId = "agw-3", name, id, param1 = "webApplicationFirewallConfiguration: isNull"
 | order by id asc
