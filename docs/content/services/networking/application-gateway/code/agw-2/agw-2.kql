@@ -1,5 +1,5 @@
-Resources
+resources
 | where type == "microsoft.network/applicationGateways"
-| extend ssl_enabled = tobool(properties.sslCertificates[0].keyVaultSecretId != null or properties.sslCertificates[0].keyVaultSecretUrl != null)
-| where properties.frontendPorts[0].port == 443 and ssl_enabled == true
-| project name, ssl_enabled
+| extend ssl_enabled = tobool(isnotnull(properties.sslCertificates[0].keyVaultSecretId) or isnotnull(properties.sslCertificates[0].keyVaultSecretUrl))
+| where properties.frontendPorts[0].port == 443 and ssl_enabled == "true"
+| project recommendationId="agw-2",name,id, param1=strcat("ssl_enabled: ", ssl_enabled)

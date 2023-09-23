@@ -12,4 +12,4 @@ resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | project resourceGroup, name, id
 )on resourceGroup
-| project  recommendationId = "vm-1", name, id, resourceGroup
+| project  recommendationId = "vm-1", name, id, param1=resourceGroup

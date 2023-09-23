@@ -3,5 +3,5 @@
 resources
 | where type == "microsoft.compute/virtualmachinescalesets"
 | where properties.platformFaultDomainCount > 1
-| project recommendationId = "vmss-7", name, id, platformFaultDomainCount = "platformFaultDomainCount: Static"
+| project recommendationId = "vmss-7", name, id, param1 = "platformFaultDomainCount: Static"
 | order by id asc

@@ -4,5 +4,5 @@ resources
 | project resourceGroup, resourceType = type
 | summarize resourceTypes = make_set(resourceType) by resourceGroup
 | where array_index_of(resourceTypes, "microsoft.containerregistry/registries") != -1
-| project recommendationId = "cr-6", resourceGroup, resourceTypes
-| order by resourceGroup asc
+| project recommendationId = "cr-6", name=strcat("resourceGroup: ",resourceGroup), id="", resourceTypes
+| order by name asc
