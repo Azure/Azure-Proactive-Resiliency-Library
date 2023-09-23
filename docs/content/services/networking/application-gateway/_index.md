@@ -48,7 +48,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/AGW-1/AGW-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-1/agw-1.kql" >}} {{< /code >}}
 {{< /collapse >}}
 <br><br>
 
@@ -72,7 +72,7 @@ Ensure that all incoming connections are using HTTP/s for production services.  
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-2/AGW-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-2/agw-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -95,7 +95,7 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-3/AGW-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-3/agw-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -119,7 +119,7 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-4/AGW-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-4/agw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -142,7 +142,7 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-5/AGW-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-5/agw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -165,7 +165,7 @@ Using custom health probes can help with understand the availability of your bac
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-6/AGW-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-6/agw-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -188,7 +188,7 @@ Deploying your backend services in a zone-aware configurations ensures that if a
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-7/AGW-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-7/agw-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -211,7 +211,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/AGW-8/AGW-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-8/agw-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

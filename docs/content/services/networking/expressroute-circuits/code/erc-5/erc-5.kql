@@ -11,4 +11,4 @@ resources
   | where type =~ "microsoft.network/expressRouteCircuits"
   | project name, rightErCId = id)
   on $left.ErCId == $right.rightErCId
-| project recommendationId = "erc-5", name, ExpressRouteCircuitID = rightErCId, monitoredMetrics
+| project recommendationId = "erc-5", name, param1=strcat("ExpressRouteCircuitID: ", rightErCId), param2=strcat("monitoredMetrics: ",monitoredMetrics)

@@ -1,4 +1,4 @@
 //This query returns default consistency level for all Cosmos DB accounts.
-Resources
+resources
 | where type =~ 'Microsoft.DocumentDb/databaseAccounts'
-| project recommendationId='cosmos-4', name, consistency=properties.consistencyPolicy.defaultConsistencyLevel, id
+| project recommendationId='cosmos-4', name, id, param1=strcat("consistency: ", properties.consistencyPolicy.defaultConsistencyLevel)
