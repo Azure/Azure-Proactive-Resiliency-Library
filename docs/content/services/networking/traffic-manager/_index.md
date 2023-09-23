@@ -1,10 +1,10 @@
 +++
 title = "Traffic Manager"
 description = "Best practices and resiliency recommendations for Azure Traffic Manager."
-date = "6/13/23"
+date = "9/21/23"
 author = "chinthakaru"
 msAuthor = "crupasinghe"
-draft = true
+draft = false
 +++
 
 The presented resiliency recommendations in this guidance include Azure Traffic Manager and associated settings.
@@ -40,14 +40,14 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Resources**
 
-- [Azure Traffic Manager endpoint monitoring](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring)
-- [Enable or disable health checks](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#enable-or-disable-health-checks-preview)
-- [Troubleshooting degraded state on Azure Traffic Manager](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-troubleshooting-degraded)
+- [Azure Traffic Manager endpoint monitoring](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)
+- [Enable or disable health checks](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#enable-or-disable-health-checks-preview)
+- [Troubleshooting degraded state on Azure Traffic Manager](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-troubleshooting-degraded)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/TRAF-1/TRAF-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/traf-1/traf-1.kql" >}} {{< /code >}}
 {{< /collapse >}}
 <br><br>
 
@@ -61,13 +61,13 @@ When configuring the Azure traffic manager, you should provision minimum of two 
 
 **Resources**
 
-- [Traffic Manager Endpoint Types](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-endpoint-types)
+- [Traffic Manager Endpoint Types](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/TRAF-2/TRAF-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/traf-2/traf-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -84,13 +84,13 @@ Profiles should have more than one endpoint to ensure availability if one of the
 **Resources**
 
 - [Reliability recommendations
-](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations#add-at-least-one-more-endpoint-to-the-profile-preferably-in-another-azure-region)
+](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#add-at-least-one-more-endpoint-to-the-profile-preferably-in-another-azure-region)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/TRAF-3/TRAF-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/traf-3/traf-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -106,14 +106,14 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 **Resources**
 
-- [Configure DNS Time to Live to 60 seconds).](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-performance-recommendations#configure-dns-time-to-live-to-60-seconds)
+- [Configure DNS Time to Live to 60 seconds).](https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations#configure-dns-time-to-live-to-60-seconds)
 - [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds).](https://aka.ms/Um3xr5)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/TRAF-4/TRAF-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/traf-4/traf-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -129,14 +129,14 @@ For geographic routing, traffic is routed to endpoints based on defined regions.
 
 **Resources**
 
-- [Add an endpoint configured to "All (World)"](https://learn.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations#add-an-endpoint-configured-to-all-world)
+- [Add an endpoint configured to "All (World)"](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#add-an-endpoint-configured-to-all-world)
 - [Traffic Manager profile - GeographicProfile (Add an endpoint configured to ""All (World)"").](https://aka.ms/Rf7vc5)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/TRAF-5/TRAF-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/traf-5/traf-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

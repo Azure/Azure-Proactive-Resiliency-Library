@@ -6,4 +6,4 @@ resources
 | project firewallId = properties_scopes, monitoredMetric = properties_criteria_allOf.metricName
 | summarize monitoredMetrics=make_list(monitoredMetric) by tostring(firewallId)
 | join kind=fullouter (resources | where type == "microsoft.network/azurefirewalls" | project rightFirewallId = id) on $left.firewallId == $right.rightFirewallId
-| project firewallId = rightFirewallId, monitoredMetrics
+| project recommendationid="afw-3",name, id, param1= rightFirewallId, param2= monitoredMetrics

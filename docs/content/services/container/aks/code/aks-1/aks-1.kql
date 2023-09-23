@@ -1,6 +1,7 @@
 // Azure Resource Graph Query
-// Query AKS clusters with availability zones enabled
-Resources
+// Query AKS clusters not using zones
+resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend zones = tostring(parse_json(properties.agentPoolProfiles[0].availabilityZones))
-| project name, zones
+| where isempty(zones)
+| project recommendationid="aks-1", name, id, param1=strcat("zones: ", zones)

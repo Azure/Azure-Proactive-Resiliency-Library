@@ -3,5 +3,5 @@
 resources
 | where type == "microsoft.compute/virtualmachinescalesets"
 | where properties.orchestrationMode == "Uniform" and properties.zoneBalance == "True"
-| project recommendationId = "vmss-6", name, id, zoneBalance = "strictly zoneBalance: Enabled"
+| project recommendationId = "vmss-6", name, id, param1 = "strictly zoneBalance: Enabled"
 | order by id asc
