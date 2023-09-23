@@ -26,18 +26,21 @@ options:
 ## Installation
 
 ### Software Requirements
-- Python     >= 3.11.x
-- pip        >= 23.2.x
-- Azure CLI  >= 2.52.0
+- [GitHub CLI >= 2.32.x](https://cli.github.com/)
+- [Python     >= 3.11.x](https://www.python.org/downloads/)
+- [Azure CLI  >= 2.52.x](https://learn.microsoft.com/cli/azure/install-azure-cli)
 
 #### Setting up the Python environment
-> **_NOTE:_**  Installation starts with cloning of this repo.  The following commands are run from the 'tooling/aprl-automate' folder.  If you run the script from a different directory, you will need to add the '--path' parameter to point to where files in 'docs/content/services' of this repo are located on your local machine.  Access to the subscription being queried is based on your active Azure CLI credentials.
-
 ```bash
+> gh clone https://github.com/Azure/Azure-Proactive-Resiliency-Library
+> cd ./Azure-Proactive-Resiliency-Library/tooling/aprl-automate
 aprl-automate> python -m venv .venv
 aprl-automate> ./.venv/Scripts/activate
+(.venv) aprl-automate> python -m ensurepip --upgrade
 (.venv) aprl-automate> pip install -r requirements.txt
 ```
+
+> **_NOTE:_**  Installation starts with cloning of this repo.  The following commands are run from the 'tooling/aprl-automate' folder.  If you run the script from a different directory, you will need to add the '--path' parameter to point to where files in 'docs/content/services' of this repo are located on your local machine.  Access to the subscription being queried is based on your active Azure CLI credentials.
 
 #### Running the aprl-automate command
 ```bash
