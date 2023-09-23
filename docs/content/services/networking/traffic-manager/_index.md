@@ -1,10 +1,10 @@
 +++
 title = "Traffic Manager"
 description = "Best practices and resiliency recommendations for Azure Traffic Manager."
-date = "6/13/23"
+date = "9/21/23"
 author = "chinthakaru"
 msAuthor = "crupasinghe"
-draft = true
+draft = false
 +++
 
 The presented resiliency recommendations in this guidance include Azure Traffic Manager and associated settings.

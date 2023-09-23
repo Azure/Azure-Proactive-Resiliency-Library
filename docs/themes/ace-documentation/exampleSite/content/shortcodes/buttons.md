@@ -17,7 +17,7 @@ The button shortcode allows you to add a button to the page. This button is a HT
 ## Usage
 Place the following shortcode on the page
 {{< code lang="html" >}}
-{{</* button style="STYLE" link="https://yourwebsite.com" */>}} [content] {{</* /button */>}}
+{{</* button style="STYLE" link="https://azure.github.io/Azure-Proactive-Resiliency-Library/" */>}} [content] {{</*/button*/>}}
 {{< /code >}}
 
 ### Parameters
