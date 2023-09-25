@@ -59,12 +59,13 @@ Note - All basic SKU public IP addresses are created as non-zonal. Any IP that i
 
 **Recommendation/Guidance**
 
-Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet.. We don't recommend exceeding 100 simultaneous outbound connections to a public IP address per worker.  Avoid communicating with downstream services through public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.
+Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet. We don't recommend exceeding 100 simultaneous outbound connections to a public IP address per worker. Avoid communicating with downstream services through public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.
 
 **Resources**
 
 - [Use NAT GW for outbound connectivity](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#use-nat-gateway-for-outbound-connectivity)
 - [TCP and SNAT Ports](https://learn.microsoft.com/azure/architecture/framework/services/compute/azure-app-service/reliability#tcp-and-snat-ports)
+
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}

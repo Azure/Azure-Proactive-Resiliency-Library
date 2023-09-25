@@ -38,7 +38,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Recommendation/Guidance**
 
-Azure Firewall provides different SLAs when it's deployed in a single availability zone and when it's deployed in two or more availability zones. For information about all Azure SLAs, see [SLA summary for Azure services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
+Azure Firewall provides different SLAs when it's deployed in a single availability zone and when it's deployed in two or more availability zones.
 
 **Resources**
 
@@ -94,7 +94,6 @@ Monitor metrics related to availability and performance issues. More specificall
 
 - [Azure Firewall metrics supported in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkazurefirewalls)
 - [Azure Firewall performance](https://learn.microsoft.com/azure/firewall/firewall-performance)
-- [Scale SNAT ports with Azure Virtual Network NAT](https://learn.microsoft.com/azure/firewall/integrate-with-nat-gateway)
 
 **Resource Graph Query/Scripts**
 
@@ -134,7 +133,7 @@ In multi-region environments, deploy an instance of Azure Firewall per region. F
 
 **Recommendation/Guidance**
 
-Associate a DDoS protection plan with the virtual network hosting Azure Firewall. A DDoS protection plan provides enhanced mitigation features to defend your firewall from DDoS attacks. Azure Firewall Manager is an integrated tool to create your firewall infrastructure and DDoS protection plans. For more information, see [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](https://learn.microsoft.com/azure/firewall-manager/configure-ddos).
+Associate a DDoS protection plan with the virtual network hosting Azure Firewall. A DDoS protection plan provides enhanced mitigation features to defend your firewall from DDoS attacks. Azure Firewall Manager is an integrated tool to create your firewall infrastructure and DDoS protection plans.
 
 **Resources**
 

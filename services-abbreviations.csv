@@ -1,179 +1,31 @@
-﻿Azure Service Name,Abbreviation,Resource provider namespace
-Azure Cognitive Search,srch,Microsoft.Search/searchServices
-Azure Cognitive Services,cog,Microsoft.CognitiveServices/accounts
-Azure Machine Learning workspace,mlw,Microsoft.MachineLearningServices/workspaces
-Azure Analysis Services server,as,Microsoft.AnalysisServices/servers
-Azure Databricks,dbw,Microsoft.Databricks/workspaces
-Azure Data Explorer cluster,dec,Microsoft.Kusto/clusters
-Azure Data Explorer cluster database,dedb,Microsoft.Kusto/clusters/databases
-Azure Data Factory,adf,Microsoft.DataFactory/factories
-Azure Digital Twin instance,dt,Microsoft.DigitalTwins/digitalTwinsInstances
-Azure Stream Analytics,asa,Microsoft.StreamAnalytics/cluster
-Azure Synapse Analytics Workspaces,synw,Microsoft.Synapse/workspaces
-Azure Synapse Analytics SQL Dedicated Pool,syndp,Microsoft.Synapse/workspaces/sqlPools
-Azure Synapse Analytics Spark Pool,synsp,Microsoft.Synapse/workspaces/sqlPools
-Data Lake Store account,dls,Microsoft.DataLakeStore/accounts
-Data Lake Analytics account,dla,Microsoft.DataLakeAnalytics/accounts
-Event Hubs namespace,evhns,Microsoft.EventHub/namespaces
-Event hub,evh,Microsoft.EventHub/namespaces/eventHubs
-Event Grid,evg,Microsoft.EventGrid/domains
-Event Grid domain,evgd,Microsoft.EventGrid/domains
-Event Grid subscriptions,evgs,Microsoft.EventGrid/eventSubscriptions
-Event Grid topic,evgt,Microsoft.EventGrid/domains/topics
-Event Grid system topic,egst,Microsoft.EventGrid/systemTopics
-HDInsight - Hadoop cluster,hadoop,Microsoft.HDInsight/clusters
-HDInsight - HBase cluster,hbase,Microsoft.HDInsight/clusters
-HDInsight - Kafka cluster,kafka,Microsoft.HDInsight/clusters
-HDInsight - Spark cluster,spark,Microsoft.HDInsight/clusters
-HDInsight - Storm cluster,storm,Microsoft.HDInsight/clusters
-HDInsight - ML Services cluster,mls,Microsoft.HDInsight/clusters
-IoT hub,iot,Microsoft.Devices/IotHubs
-Provisioning services,provs,Microsoft.Devices/provisioningServices
-Provisioning services certificate,pcert,Microsoft.Devices/provisioningServices/certificates
-Power BI Embedded,pbi,Microsoft.PowerBIDedicated/capacities
-Time Series Insights environment,tsi,Microsoft.TimeSeriesInsights/environments
-App Service environment,ase,Microsoft.Web/hostingEnvironments
-App Service Plan,asp,Microsoft.Web/serverFarms
-Azure Load Testing instance,lt,Microsoft.LoadTestService/loadTests
-Availability set,avail,Microsoft.Compute/availabilitySets
-Azure Arc enabled server,arcs,Microsoft.HybridCompute/machines
-Azure Arc enabled Kubernetes cluster,arck,Microsoft.Kubernetes/connectedClusters
-Batch accounts,ba,Microsoft.Batch/batchAccounts
-Cloud service,cld,Microsoft.Compute/cloudServices
-Communication Services,acs,Microsoft.Communication/communicationServices
-Disk encryption set,des,Microsoft.Compute/diskEncryptionSets
-Function app,func,Microsoft.Web/sites
-Gallery,gal,Microsoft.Compute/galleries
-Hosting environment,host,Microsoft.Web/hostingEnvironments
-Image template,it,Microsoft.VirtualMachineImages/imageTemplates
-Managed disk (OS),osdisk,Microsoft.Compute/disks
-Managed disk (data),disk,Microsoft.Compute/disks
-Notification Hubs,ntf,Microsoft.NotificationHubs/namespaces/notificationHubs
-Notification Hubs namespace,ntfns,Microsoft.NotificationHubs/namespaces
-Proximity placement group,ppg,Microsoft.Compute/proximityPlacementGroups
-Snapshot,snap,Microsoft.Compute/snapshots
-Static web app,stapp,Microsoft.Web/staticSites
-Virtual machine,vm,Microsoft.Compute/virtualMachines
-Virtual machine scale set,vmss,Microsoft.Compute/virtualMachineScaleSets
-Virtual machine maintenance configuration,mc,Microsoft.Maintenance/maintenanceConfigurations
-Web app,app,Microsoft.Web/sites
-AKS cluster,aks,Microsoft.ContainerService/managedClusters
-Container apps,ca,Microsoft.App/containerApps
-Container apps environment,cae,Microsoft.App/managedEnvironments
-Container registry,cr,Microsoft.ContainerRegistry/registries
-Container instance,ci,Microsoft.ContainerInstance/containerGroups
-Service Fabric cluster,sf,Microsoft.ServiceFabric/clusters
-Service Fabric managed cluster,sfmc,Microsoft.ServiceFabric/managedClusters
-Azure Cosmos DB database,cosmos,Microsoft.DocumentDB/databaseAccounts/sqlDatabases
-Azure Cosmos DB for Apache Cassandra account,coscas,Microsoft.DocumentDB/databaseAccounts
-Azure Cosmos DB for MongoDB account,cosmon,Microsoft.DocumentDB/databaseAccounts
-Azure Cosmos DB for NoSQL account,cosno,Microsoft.DocumentDb/databaseAccounts
-Azure Cosmos DB for Table account,costab,Microsoft.DocumentDb/databaseAccounts
-Azure Cosmos DB for Apache Gremlin account,cosgrm,Microsoft.DocumentDb/databaseAccounts
-Azure Cosmos DB PostgreSQL cluster,cospos,Microsoft.DBforPostgreSQL/serverGroupsv2
-Azure Cache for Redis instance,redis,Microsoft.Cache/Redis
-Azure SQL Database server,sql,Microsoft.Sql/servers
-Azure SQL database,sqldb,Microsoft.Sql/servers/databases
-Azure SQL Elastic Job agent,sqlja,Microsoft.Sql/servers/jobAgents
-Azure SQL Elastic Pool,sqlep,Microsoft.Sql/servers/elasticpool
-MariaDB server,maria,Microsoft.DBforMariaDB/servers
-MariaDB database,mariadb,Microsoft.DBforMariaDB/servers/databases
-MySQL database,mysql,Microsoft.DBforMySQL/servers
-PostgreSQL database,psql,Microsoft.DBforPostgreSQL/servers
-SQL Server Stretch Database,sqlstrdb,Microsoft.Sql/servers/databases
-SQL Managed Instance,sqlmi,Microsoft.Sql/managedInstances
-App Configuration store,appcs,Microsoft.AppConfiguration/configurationStores
-Maps account,map,Microsoft.Maps/accounts
-SignalR,sigr,Microsoft.SignalRService/SignalR
-WebPubSub,wps,Microsoft.SignalRService/webPubSub
-Azure Managed Grafana,amg,Microsoft.Dashboard/grafana
-API management service instance,apim,Microsoft.ApiManagement/service
-Integration account,ia,Microsoft.Logic/integrationAccounts
-Logic apps,logic,Microsoft.Logic/workflows
-Service Bus namespace,sbns,Microsoft.ServiceBus/namespaces
-Service Bus queue,sbq,Microsoft.ServiceBus/namespaces/queues
-Service Bus topic,sbt,Microsoft.ServiceBus/namespaces/topics
-Service Bus topic subscription,sbts,Microsoft.ServiceBus/namespaces/topics/subscriptions
-Automation account,aa,Microsoft.Automation/automationAccounts
-Azure Policy definition,poldef,Microsoft.Authorization/policyDefinitions
-Alerts,monal,"microsoft.insights/activityLogAlerts,
-Microsoft.Insights/metricAlerts,
-microsoft.insights/scheduledqueryrules,
-microsoft.alertsmanagement/smartdetectoralertrules"
-Application Insights,appi,Microsoft.Insights/components
-Azure Monitor action group,ag,Microsoft.Insights/actionGroups
-Azure Monitor data collection rules,dcr,Microsoft.Insights/dataCollectionRules
-Blueprint,bp,Microsoft.Blueprint/blueprints
-Blueprint assignment,bpa,Microsoft.Blueprint/blueprints/artifacts
-Log Analytics workspace,log,Microsoft.OperationalInsights/workspaces
-Log Analytics query packs,pack,Microsoft.OperationalInsights/querypacks
-Management group,mg,Microsoft.Management/managementGroups
-Microsoft Purview instance,pview,Microsoft.Purview/accounts
-Resource group,rg,Microsoft.Resources/resourceGroups
-Template specs name,ts,Microsoft.Resources/templateSpecs
-Azure Migrate project,migr,Microsoft.Migrate/assessmentProjects
-Database Migration Service instance,dms,Microsoft.DataMigration/services
-Recovery Services vault,rsv,Microsoft.RecoveryServices/vaults
-Application gateway,agw,Microsoft.Network/applicationGateways
-Application security group (ASG),asg,Microsoft.Network/applicationSecurityGroups
-CDN profile,cdnp,Microsoft.Cdn/profiles
-CDN endpoint,cdne,Microsoft.Cdn/profiles/endpoints
-Connections,con,Microsoft.Network/connections
-Ddos Protection Plan,ddos,Microsoft.Network/connections
-DNS,pbdnsz,Microsoft.Network/dnsZones
-DNS private resolver,dnspr,Microsoft.Network/dnsResolvers
-DNS private resolver inbound endpoint,in,Microsoft.Network/dnsResolvers/inboundEndpoints
-DNS private resolver outbound endpoint,out,Microsoft.Network/dnsResolvers/outboundEndpoints
-Private DNS Zone,pvdnsz,Microsoft.Network/privateDnsZones
-Azure Firewall,afw,Microsoft.Network/azureFirewalls
-Firewall policy,afwp,Microsoft.Network/firewallPolicies
-ExpressRoute circuit,erc,Microsoft.Network/expressRouteCircuits
-ExpressRoute Gateway,erg,Microsoft.Network/expressRouteGateway
-Azure Front Door,afd,Microsoft.Cdn/profiles
-Front Door (Standard/Premium) endpoint,fde,Microsoft.Cdn/profiles/afdEndpoints
-Front Door firewall policy,fdfp,Microsoft.Network/frontdoorWebApplicationFirewallPolicies
-Front Door (classic),afd,Microsoft.Network/frontDoors
-Load balancer,lb,Microsoft.Network/loadBalancers
-Local network gateway,lgw,Microsoft.Network/localNetworkGateways
-NAT gateway,ng,Microsoft.Network/natGateways
-Network security group,nsg,Microsoft.Network/networkSecurityGroups
-Network Watcher,nw,Microsoft.Network/networkWatchers
-Private Link,pl,Microsoft.Network/privateLinkServices
-Private endpoint,pep,Microsoft.Network/privateEndpoints
-Public IP,pip,Microsoft.Network/publicIPAddresses
-Public IP address prefix,ippre,Microsoft.Network/publicIPPrefixes
-Route filter,rf,Microsoft.Network/routeFilters
-Route server,rtserv,Microsoft.Network/virtualHubs
-Route table,rt,Microsoft.Network/routeTables
-Service endpoint policy,se,Microsoft.serviceEndPointPolicies
-Traffic Manager profiles,traf,Microsoft.Network/trafficManagerProfiles
-Route Table,udr,Microsoft.Network/routeTables/routes
-Virtual network,vnet,Microsoft.Network/virtualNetworks
-Virtual WAN,vwan,Microsoft.Network/virtualWans
-Virtual network gateway,vgw,Microsoft.Network/virtualNetworkGateways
-Azure Bastion,bas,Microsoft.Network/bastionHosts
-Key vault,kv,Microsoft.KeyVault/vaults
-Managed identity,id,Microsoft.ManagedIdentity/userAssignedIdentities
-VPN Gateway,vpng,Microsoft.Network/vpnGateways
-VPN connection,vcn,Microsoft.Network/vpnGateways/vpnConnections
-VPN site,vst,Microsoft.Network/vpnGateways/vpnSites
-Web Application Firewall,waf,Microsoft.Network/firewallPolicies
-Web Application Firewall (WAF) policy rule group,wafrg,Microsoft.Network/firewallPolicies/ruleGroups
-Azure Netapp Files,anf,Microsoft.NetApp/netAppAccounts
-Azure StorSimple,ssimp,Microsoft.StorSimple/managers
-Backup Vault name,bvault,Microsoft.DataProtection/backupVaults
-Backup Vault policy,bkpol,Microsoft.DataProtection/backupVaults/backupPolicies
-File share,share,Microsoft.Storage/storageAccounts/fileServices/shares
-Storage account,st,Microsoft.Storage/storageAccounts
-Storage Sync Service name,sss,Microsoft.StorageSync/storageSyncServices
-Virtual desktop host pool,vdpool,Microsoft.DesktopVirtualization/hostPools
-Virtual desktop application group,vdag,Microsoft.DesktopVirtualization/applicationGroups
-Virtual desktop workspace,vdws,Microsoft.DesktopVirtualization/workspaces
-Virtual desktop scaling plan,vdscaling,Microsoft.DesktopVirtualization/scalingPlans
-Azure SQL Data Warehouse,sqldw,Microsoft.Sql/servers
-Define,wadf,N/A
-Design,wads,N/A
-Test,wats,N/A
-Deploy,wadp,N/A
-Monitor,wamn,N/A
-Respond,ward,N/A
+﻿type,name,abbreviation
+microsoft.databricks/workspaces,Azure Databricks,dbw
+microsoft.eventgrid/domains,Event Grid,evg
+microsoft.web/serverfarms,App Service Plan,asp
+microsoft.virtualmachineimages/imagetemplates,Image template,it
+microsoft.compute/virtualmachines,Virtual machine,vm
+microsoft.compute/virtualmachinescalesets,Virtual machine scale set,vmss
+microsoft.containerregistry/registries,Container registry,cr
+microsoft.documentdb/databaseaccounts/sqldatabases,Azure Cosmos DB database,cosmos
+microsoft.sql/servers/databases,Azure SQL database,sqldb
+microsoft.operationalinsights/workspaces,Log Analytics workspace,log
+microsoft.network/applicationgateways,Application gateway,agw
+microsoft.network/connections,Ddos Protection Plan,ddos
+microsoft.network/privatednszones,Private DNS Zone,pvdnsz
+microsoft.network/azurefirewalls,Azure Firewall,afw
+microsoft.network/expressroutecircuits,ExpressRoute circuit,erc
+microsoft.network/expressroutegateway,ExpressRoute Gateway,erg
+microsoft.cdn/profiles,Azure Front Door,afd
+microsoft.network/loadbalancers,Load balancer,lb
+microsoft.network/networksecuritygroups,Network security group,nsg
+microsoft.network/networkwatchers,Network Watcher,nw
+microsoft.network/privateendpoints,Private endpoint,pep
+microsoft.network/publicipaddresses,Public IP,pip
+microsoft.network/routetables,Route table,rt
+microsoft.network/trafficmanagerprofiles,Traffic Manager profiles,traf
+microsoft.network/virtualnetworks,Virtual network,vnet
+microsoft.keyvault/vaults,Key vault,kv
+microsoft.network/vpngateways,VPN Gateway,vpng
+microsoft.network/firewallpolicies,Web Application Firewall,waf
+microsoft.netapp/netappaccounts,Azure Netapp Files,anf
+microsoft.storage/storageaccounts,Storage account,st

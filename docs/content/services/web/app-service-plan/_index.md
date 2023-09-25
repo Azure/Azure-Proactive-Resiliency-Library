@@ -7,7 +7,7 @@ msAuthor = "kunalbabre"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include App Service and associated settings.
+The presented resiliency recommendations in this guidance include App Service Plan and associated settings.
 
 ## Summary of Recommendations
 
@@ -89,14 +89,14 @@ It is recommended to avoid scaling up or down your Azure App Service instances f
 
 <br><br>
 
-### ASP-4 - Create separate App Service plans for production and test 
+### ASP-4 - Create separate App Service plans for production and test
 
 
 **Impact: High**
 
 **Recommendation/Guidance**
 
-It is strongly recommended to create separate App Service plans for production and test environments. Avoid using slots within your production deployment for testing purposes. When apps within the same App Service plan share VM instances, combining production and test deployments can have adverse effects on the production environment. For instance, load tests conducted on the test deployment may degrade the live production site. By isolating test deployments in a separate plan, you ensure the separation and protection of the production version. 
+It is strongly recommended to create separate App Service plans for production and test environments. Avoid using slots within your production deployment for testing purposes. When apps within the same App Service plan share VM instances, combining production and test deployments can have adverse effects on the production environment. For instance, load tests conducted on the test deployment may degrade the live production site. By isolating test deployments in a separate plan, you ensure the separation and protection of the production version.
 
 **Resources**
 
