@@ -1,13 +1,13 @@
 +++
-title = "App Service"
-description = "Best practices and resiliency recommendations for App Service and associated resources."
+title = "Web App"
+description = "Best practices and resiliency recommendations for Web App and associated resources."
 date = "6/27/23"
 author = "kunalbabre"
 msAuthor = "kunalbabre"
 draft = true
 +++
 
-The presented resiliency recommendations in this guidance include App Service and associated settings.
+The presented resiliency recommendations in this guidance include Web App and associated settings.
 
 ## Summary of Recommendations
 
@@ -18,7 +18,7 @@ The presented resiliency recommendations in this guidance include App Service an
 | [APP-2 - Monitor performance](#app-2---monitor-performance) | Medium | Preview | No |
 | [APP-3 - Separate web apps from web APIs](#app-3---separate-web-apps-from-web-apis) | Low | Preview | Yes |
 | [APP-4 - Create a separate storage account for logs](#app-4---create-a-separate-storage-account-for-logs) | Medium | Preview | No |
-| [APP-5 - Deploy to a staging slot.](#app-5---deploy-to-a-staging-slot) | Medium | Preview | Yes |
+| [APP-5 - Deploy to a staging slot](#app-5---deploy-to-a-staging-slot) | Medium | Preview | Yes |
 | [APP-6 - Store configuration as app settings](#app-6---store-configuration-as-app-settings) | Medium | Preview | No |
 
 {{< /table >}}
@@ -41,7 +41,7 @@ Enabling diagnostics logging for your Azure App Service is important for monitor
 
 **Resources**
 
-- [Enable diagnostics logging for apps in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs)
+- [Enable diagnostics logging for apps in Azure App Service](https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 
 <br><br>
 
@@ -51,14 +51,14 @@ Enabling diagnostics logging for your Azure App Service is important for monitor
 
 **Recommendation/Guidance**
 
-Use a performance monitoring service such [Application Insights](https://learn.microsoft.com/en-us/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
+Use a performance monitoring service such [Application Insights](https://learn.microsoft.com/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
 Enable monitoring on your web applications based on ASP.NET, ASP.NET Core, Java, and Node.js running on Azure App Service. Previously, you needed to manually instrument your app, but the latest extension/agent is now built into the App Service image by default.
 
 **Resources**
 
-- [Application Insights](https://learn.microsoft.com/en-us/azure/application-insights/app-insights-overview)
-- [Application monitoring for Azure App Service](https://learn.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps)
+- [Application Insights](https://learn.microsoft.com/azure/application-insights/app-insights-overview)
+- [Application monitoring for Azure App Service](https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps)
 
 <br><br>
 
@@ -72,7 +72,7 @@ If your solution has both a web front end and a web API, consider decomposing th
 
 **Resources**
 
-- [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
+- [Resiliency checklist for specific Azure services](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#app-service)
 
 **Resource Graph Query/Scripts**
 
@@ -94,7 +94,7 @@ Create a separate storage account for logs. Don't use the same storage account f
 
 **Resources**
 
-- [Resiliency checklist](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
+- [Resiliency checklist](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#app-service)
 
 <br><br>
 
@@ -109,7 +109,7 @@ Create a deployment slot for staging. Deploy application updates to the staging 
 Consider creating a deployment slot to hold the last-known-good (LKG) deployment. When you deploy an update to production, move the previous production deployment into the LKG slot. This makes it easier to roll back a bad deployment. If you discover a problem later, you can quickly revert to the LKG version.
 **Resources**
 
-- [Set up staging environments in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service-web/web-sites-staged-publishing)
+- [Set up staging environments in Azure App Service](https://learn.microsoft.com/azure/app-service-web/web-sites-staged-publishing)
 
 **Resource Graph Query/Scripts**
 
@@ -131,6 +131,6 @@ Use app settings to hold configuration settings as app settings. Define the sett
 
 **Resources**
 
-- [Configure web apps in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service-web/web-sites-configure)
+- [Configure web apps in Azure App Service](https://learn.microsoft.com/azure/app-service-web/web-sites-configure)
 
 <br><br>

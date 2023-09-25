@@ -6,3 +6,4 @@ resources
 | project kind, AppServicePlanId
 | summarize WebCount = countif(kind == 'app'),  APICount = countif(kind == 'api'), AppsCount = count() by AppServicePlanId , AppServicePlanName = tostring(split(AppServicePlanId, "/")[-1])
 | where WebCount +APICount > 0 and AppsCount > 1
+| project recommendationId="app-2", ["name"]=AppServicePlanName, ["id"]=AppServicePlanId
