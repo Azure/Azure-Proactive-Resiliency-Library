@@ -4,7 +4,7 @@ description = "Best practices and resiliency recommendations for Web App and ass
 date = "6/27/23"
 author = "kunalbabre"
 msAuthor = "kunalbabre"
-draft = true
+draft = false
 +++
 
 The presented resiliency recommendations in this guidance include Web App and associated settings.
@@ -60,6 +60,14 @@ Enable monitoring on your web applications based on ASP.NET, ASP.NET Core, Java,
 - [Application Insights](https://learn.microsoft.com/azure/application-insights/app-insights-overview)
 - [Application monitoring for Azure App Service](https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/app-2/app-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### App-3 - Separate web apps from web APIs
@@ -73,14 +81,6 @@ If your solution has both a web front end and a web API, consider decomposing th
 **Resources**
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#app-service)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/app-2/app-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -115,7 +115,7 @@ Consider creating a deployment slot to hold the last-known-good (LKG) deployment
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/app-2/app-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/app-5/app-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
