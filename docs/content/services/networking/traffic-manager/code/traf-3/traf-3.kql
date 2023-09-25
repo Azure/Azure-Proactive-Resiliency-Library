@@ -4,4 +4,4 @@
 | mv-expand endpoint = endpoints
 | extend endpointName = endpoint.name
 | extend endpointLocation = endpoint.properties.endpointLocation
-| project name,endpointName, endpointLocation, properties.trafficRoutingMethod
+| project recommendationId="traf-3", name, id, endpointName, endpointLocation, properties.trafficRoutingMethod
