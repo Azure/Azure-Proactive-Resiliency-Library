@@ -3,4 +3,4 @@ Resources
 | extend d = parse_json(properties)
 | mv-expand endpoint = d.endpoints
 | extend endpointMonitorStatus = endpoint.properties.endpointMonitorStatus
-| project name, endpointMonitorStatus, properties.trafficRoutingMethod
+| project recommendationId="traf-1", name, id, endpointMonitorStatus, properties.trafficRoutingMethod
