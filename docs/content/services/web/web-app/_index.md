@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enabling diagnostics logging for your Azure App Service is important for monitoring and diagnostics purposes. It includes application logging and web server logging.
 
@@ -49,7 +49,7 @@ Enabling diagnostics logging for your Azure App Service is important for monitor
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use a performance monitoring service such [Application Insights](https://learn.microsoft.com/azure/application-insights/app-insights-overview) to monitor application performance and behavior under load. Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
@@ -74,7 +74,7 @@ Enable monitoring on your web applications based on ASP.NET, ASP.NET Core, Java,
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 If your solution has both a web front end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
 
@@ -88,7 +88,7 @@ If your solution has both a web front end and a web API, consider decomposing th
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Create a separate storage account for logs. Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
@@ -102,7 +102,7 @@ Create a separate storage account for logs. Don't use the same storage account f
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Create a deployment slot for staging. Deploy application updates to the staging slot, and verify the deployment before swapping it into production. This reduces the chance of a bad update in production. It also ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time. For more information
 
@@ -125,7 +125,7 @@ Consider creating a deployment slot to hold the last-known-good (LKG) deployment
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use app settings to hold configuration settings as app settings. Define the settings in your Resource Manager templates, or using PowerShell, so that you can apply them as part of an automated deployment / update process, which is more reliable.
 

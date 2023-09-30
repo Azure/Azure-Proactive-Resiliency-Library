@@ -32,9 +32,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### LOG-1 - Enable Log Analytics data export to GRS or GZRS
 
+**Category: Disaster Recovery**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Data export in a Log Analytics workspace lets you continuously export data to an Azure Storage account.  Protect your Log Analytics workspace data from the unlikely event of a regional failure by continuously exporting to a geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) account.
 
@@ -55,9 +57,11 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 ### LOG-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster
 
+**Category: Availability**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Link your Log Analytics workspace to an availability zone enabled dedicated cluster to increase the resilience of Azure Monitor features that rely on your Log Analytics workspace and to protect your Log Analytics data against the unlikely event of a datacenter failure.
 
@@ -75,21 +79,15 @@ Link your Log Analytics workspace to an availability zone enabled dedicated clus
 
 {{< /collapse >}}
 
-**Azure CLI**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="bash" file="code/log-2/log-2.azcli" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 <br><br>
 
 ### LOG-3 - Configure data collection to send critical data to multiple workspaces in different regions
 
+**Category: Disaster Recovery**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 If you require a workspace to be available in the unlikely scenario of a regional failure then configure data collection to send critical data to multiple workspaces in different regions.
 
@@ -109,9 +107,11 @@ If you require a workspace to be available in the unlikely scenario of a regiona
 
 ### LOG-4 - Create a health status alert rule for your Log Analytics workspace
 
+**Category: Monitoring**
+
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 A health status alert will proactively notify you if a workspace becomes unavailable because of a datacenter or regional failure.
 

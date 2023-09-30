@@ -52,7 +52,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it's recommended that you run production workloads on two or more VMs using VMSS Flex. To achieve this you can use:
 
@@ -79,7 +79,7 @@ To safeguard application workloads from downtime due to the temporary unavailabi
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Availability Zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures.
 
@@ -103,7 +103,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Availability sets will be retired in the near future. Modernize your workloads by migrating them from VMs to VMSS Flex. With VMSS Flex, you can deploy your VMs in one of two ways:
 
@@ -132,7 +132,7 @@ In an N-tier application, it's recommended that you place each application tier 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When you replicate Azure VMs using Site Recovery, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication.
 
@@ -157,7 +157,7 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Managed disks provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren't subject to the IOPS limits of VHDs created in a storage account.
 
@@ -182,7 +182,7 @@ Managed disks provide better reliability for VMs in an availability set, because
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting you data on a data disk also helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements.
 
@@ -206,7 +206,7 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enable backups for your virtual machines to secure and quickly recover your data. The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
@@ -230,7 +230,7 @@ Enable backups for your virtual machines to secure and quickly recover your data
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Premium SSD disks offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. Standard SSD Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels.
 
@@ -264,7 +264,7 @@ If you want to upgrade from Standard HDD to Premium SSD disks, consider the foll
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Virtual Machines (VM) instances go through different states. There are provisioning and power states. If a Virtual Machine is not running that indicates the Virtual Machine might facing an issue or is no longer necessary and could be removed helping to reduce costs.
 
@@ -288,7 +288,7 @@ Azure Virtual Machines (VM) instances go through different states. There are pro
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads on supported VM types.
 
@@ -314,7 +314,7 @@ This configuration is not always required, evaluate this option according to the
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When Accelerated Networking is enabled the default Azure Virtual Network interface in the GuestOS is replaced for a Mellanox and consecutively its driver is provided from a 3rd party vendor. Marketplace images maintained by Microsoft are offered with the latest version of Mellanox drivers, however, once the Virtual Machine is deployed, the customer is responsible for maintaining the driver up to date.
 
@@ -338,7 +338,7 @@ When Accelerated Networking is enabled the default Azure Virtual Network interfa
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 If a Virtual Machine requires outbound internet connectivity we recommend the use of NAT Gateway or Azure Firewall, this will help to increase security and resiliency of the service as both services have much higher availability and SNAT ports. For inbound internet connectivity we recommend using a load balancing solution such as Azure Load Balancer and Application Gateway.
 
@@ -362,7 +362,7 @@ If a Virtual Machine requires outbound internet connectivity we recommend the us
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Unless you have a specific reason to, we recommend that you associate a network security group to a subnet, or a network interface, but not both. Since rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface, you can have unexpected communication problems that require troubleshooting.
 
@@ -386,7 +386,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 IP forwarding enables the virtual machine network interface to:
 
@@ -416,7 +416,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Configure the DNS Server in the Virtual Network to avoid inconsistency across the environment.
 
@@ -440,7 +440,7 @@ Configure the DNS Server in the Virtual Network to avoid inconsistency across th
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure shared disks is a feature for Azure managed disks that enables you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure, and should only be used in those situations where the disk will be assigned to more than one Virtual Machine member of a Cluster.
 
@@ -464,7 +464,7 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Recommended changing to "Disable public access and enable private access" and creating a Private Endpoint
 
@@ -488,7 +488,7 @@ Recommended changing to "Disable public access and enable private access" and cr
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 It's important to keep your virtual machine (VM) secure for the applications that you run. Securing your VMs can include one or more Azure services and features that cover secure access to your VMs and secure storage of your data. This article provides information that enables you to keep your VM and applications secure.
 
@@ -513,7 +513,7 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 There are several types of encryption available for your managed disks, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.
 
@@ -542,7 +542,7 @@ There are several types of encryption available for your managed disks, includin
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 VM insights monitors the performance and health of your virtual machines and virtual machine scale sets. It monitors their running processes and dependencies on other resources. VM insights can help deliver predictable performance and availability of vital applications by identifying performance bottlenecks and network issues. It can also help you understand whether an issue is related to other dependencies.
 
@@ -567,7 +567,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Platform metrics are sent automatically to Azure Monitor Metrics by default and without configuration.
 Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on:
@@ -602,7 +602,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The maintenance configuration settings allows user to schedule and manage updates, ensuring the VM updates/interruptions are done in planned timeframe.
 

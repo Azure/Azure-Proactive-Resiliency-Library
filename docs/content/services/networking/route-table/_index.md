@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Create Alerts for administrative operations such as Create or Update Route Table with Azure Monitor to detect unauthorized/undesired changes to production resources, this alert can help identify undesired changes in routing, such as attempts to by-pass firewalls or from accessing resources externally.
 
@@ -56,7 +56,7 @@ Create Alerts for administrative operations such as Create or Update Route Table
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
 You can set locks that prevent either deletions or modifications. In the portal, these locks are called Delete and Read-only.

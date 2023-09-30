@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
@@ -59,7 +59,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Create Alerts for administrative operations such as Create or Update Network Security Group rules with Azure Monitor to detect unauthorized/undesired changes to production resources, this alert can help identify undesired changes in the default security, such as attempts to by-pass firewalls or from accessing resources externally.
 
@@ -83,7 +83,7 @@ Create Alerts for administrative operations such as Create or Update Network Sec
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permissions.
 You can set locks that prevent either deletions or modifications. In the portal, these locks are called Delete and Read-only.
@@ -108,7 +108,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 It's vital to monitor, manage, and know your own network so that you can protect and optimize it. You need to know the current state of the network, who's connecting, and where users are connecting from. You also need to know which ports are open to the internet, what network behavior is expected, what network behavior is irregular, and when sudden rises in traffic happen.
 
@@ -134,7 +134,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 You can use an Azure network security group to filter network traffic between Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 

@@ -41,7 +41,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers other options for how your data is replicated in the primary or paired region:
 
@@ -70,7 +70,7 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure classic Storage Account will retire 31 august 2024. So migrate all workload from classic storage to v2.
 
@@ -94,7 +94,7 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Consider using appropriate storage performance tier for standard storage / block blob / append blob / file-share and page blob. Each workload scenario requires appropriate Performance tier and its important that based on the type of transaction and blob type/file type appropriate performance tier is selected. Failing to do so will create performance bottleneck.
 
@@ -118,7 +118,7 @@ Consider using appropriate storage performance tier for standard storage / block
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are composed of blocks, each of which is identified by a block ID. A block blob can include up to 50,000 blocks
 
@@ -142,7 +142,7 @@ Block blobs are optimized for uploading large amounts of data efficiently. Block
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Soft delete option allow for recovering data if its deleted by mistaken. Moreover Lock will prevent accidentally deleting storage account.
 
@@ -166,7 +166,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 To recover data from accidental modification or deletion enable versioning.
 Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions.
@@ -191,7 +191,7 @@ Having a large number of versions per blob can increase the latency for blob lis
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 You can use point-in-time restore to restore one or more sets of block blobs to a previous state
 Point and time restore support general purpose v2 account in standard performance tier. Its a mechanism to protect data
@@ -216,7 +216,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enabling diagnostic settings allow you to capture and view diagnostic information so that you can troubleshoot any failures.
 
