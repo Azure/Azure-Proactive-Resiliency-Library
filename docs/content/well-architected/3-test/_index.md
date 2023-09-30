@@ -17,10 +17,11 @@ Before deploying the system, comprehensive tests are conducted to validate the d
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                  |  Category              |  Impact  |  State     | ARG Query Available |
 | :---------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------: | :------: | :------:   | :-----------------: |
-| [WATS-1 - Test your applications for availability and resiliency](#wats-1---test-your-applications-for-availability-and-resiliency)             | Application Resilience | Medium   |  Verified  |         No          |
+| [WATS-1 - Test your applications for availability and resiliency](#wats-1---test-your-applications-for-availability-and-resiliency)             | Application Resilience | High   |  Verified  |         No          |
 | [WATS-2 - Consider building logic into your workload to handle errors](#wats-2---consider-building-logic-into-your-workload-to-handle-errors)   | Application Resilience | High     |  Verified  |         No          |
-| [WATS-3 - Perform disaster recovery tests reguarly](#wats-3---perform-disaster-recovery-tests-reguarly)                                         | Disaster Recovery      | Medium   |  Verified  |         No          |
+| [WATS-3 - Perform disaster recovery tests regularly](#wats-3---perform-disaster-recovery-tests-regularly)                                         | Disaster Recovery      | Medium   |  Verified  |         No          |
 | [WATS-4 - Use chaos engineering to test Azure applications](#wats-4---use-chaos-engineering-to-test-azure-applications)                         | Application Resilience | Medium   |  Verified  |         No          |
+| [WATS-5 - Test application fault resiliency](#wats-5---test-application-fault-resiliency)                         | Application Resilience | High   |  Verified  |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -35,7 +36,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Category: Application Resilience**
 
-**Impact: Medium**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -135,11 +136,11 @@ Apply chaos engineering principles when you:
 
 <br><br>
 
-### WATS-4  - Test application fault resiliency
+### WATS-5 - Test application fault resiliency
 
 **Category: Application Resilience**
 
-**Impact: Medium**
+**Impact: High**
 
 **Guidance**
 

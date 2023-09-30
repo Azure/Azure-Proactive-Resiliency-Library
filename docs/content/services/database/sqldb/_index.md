@@ -21,7 +21,6 @@ The presented resiliency recommendations in this guidance include Azure Database
 | [SQLDB-4 - Implement Retry Logic](#sqldb-4---implement-retry-logic)                                                                                                             |  High   | Preview |         No          |
 | [SQLDB-5 - Monitor your Azure SQL Database in near-real time to detect reliability incidents](#sqldb-5---monitor-your-azure-sql-database-in-near-real-time-to-detect-reliability-incidents)                                                                                    |  High   | Preview |         No          |
 | [SQLDB-6 - Back up your keys](#sqldb-6---back-up-your-keys)                                                                                                                     | Medium  | Preview |         No          |
-| [SQLDB-7 - Test application fault resiliency](#sqldb-7---test-application-fault-resiliency)                                                                                     | Medium  | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
