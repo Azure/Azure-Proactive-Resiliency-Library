@@ -19,7 +19,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                           |  High  | Preview |         Yes         |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips) | Medium | Preview |         Yes         |
 | [AKS-5 - Enable the cluster autoscaler on an existing cluster](#aks-5---enable-the-cluster-autoscaler-on-an-existing-cluster)                 |  High  | Preview |         Yes         |
-| [AKS-6 - Plan for multiregion deployment](#aks-6---plan-for-multiregion-deployment)                                                           |  High  | Preview |         No          |
+| [AKS-6 - Plan for multi-region deployment](#aks-6---plan-for-multi-region-deployment)                                                           |  High  | Preview |         No          |
 | [AKS-7 - Back up Azure Kubernetes Service](#aks-7---back-up-azure-kubernetes-service)                                                         |  Low   | Preview |         No          |
 
 {{< /table >}}
