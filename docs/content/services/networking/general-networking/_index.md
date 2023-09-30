@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure. You can use VPNs as a source of backup connectivity to enhance connectivity resiliency.
 For cross-premises connectivity, by using Azure ExpressRoute or VPN, ensure that there are redundant connections from different locations.
@@ -61,7 +61,7 @@ At least two redundant connections should be established across two or more Azur
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The failure of a connection path onto other connection paths should be tested to validate connectivity and operational effectiveness. Using site-to-site VPN connectivity as a backup path for ExpressRoute provides an extra layer of network resiliency for cross-premises connectivity.
 
@@ -85,7 +85,7 @@ The failure of a connection path onto other connection paths should be tested to
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Front Door, Azure Traffic Manager, or third-party content delivery network services can be used to direct inbound requests to external-facing application endpoints deployed across multiple regions. Traffic Manager is a DNS-based load balancer, so failover must wait for DNS propagation to occur. A sufficiently low time-to-live (TTL) value should be used for DNS records, though not all ISPs honor this setting. For application scenarios that require transparent failover, Azure Front Door should be used.
 
@@ -109,7 +109,7 @@ Azure Front Door, Azure Traffic Manager, or third-party content delivery network
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Single-instance Network Virtual Appliances (NVAs) introduce significant connectivity risk, whether deployed in Azure or within an on-premises datacenter.
 
@@ -133,7 +133,7 @@ Single-instance Network Virtual Appliances (NVAs) introduce significant connecti
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Custom health probes should be used to assess overall application health including downstream components and dependent services, such as APIs and datastores. In this approach, traffic isn't sent to backend instances that can't successfully process requests due to dependency failures.
 

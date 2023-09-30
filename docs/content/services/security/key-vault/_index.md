@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete.When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default). The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion
 
@@ -59,7 +59,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Malicious deletion of a key vault can lead to permanent data loss. A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.
 
@@ -83,7 +83,7 @@ Malicious deletion of a key vault can lead to permanent data loss. A malicious i
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Private Link Service enables you to access Azure Key Vault and Azure hosted customer/partner services over a Private Endpoint in your virtual network. An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
@@ -107,7 +107,7 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Key vaults define security boundaries for stored secrets. Grouping secrets into the same vault increases the blast radius of a security event because attacks might be able to access secrets across concerns. To mitigate access across concerns, consider what secrets a specific application should have access to, and then separate your key vaults based on this delineation. Separating key vaults by application is the most common boundary. Security boundaries, however, can be more granular for large applications, for example, per group of related services.
 
@@ -131,7 +131,7 @@ Key vaults define security boundaries for stored secrets. Grouping secrets into 
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enable logs , set up alerts and retain them as per the retention requirement. This enables you to monitor how and when your key vaults are accessed, and by whom.
 

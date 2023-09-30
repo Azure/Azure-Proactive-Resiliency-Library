@@ -36,7 +36,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Firewall provides different SLAs when it's deployed in a single availability zone and when it's deployed in two or more availability zones.
 
@@ -59,7 +59,7 @@ Azure Firewall provides different SLAs when it's deployed in a single availabili
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Reliable firewall performance is essential to operate and protect your virtual networks in Azure. More advanced features (like those found in Azure Firewall Premium) require more processing capacity. This will affect firewall performance and impact the overall network performance. Before you deploy Azure Firewall, the performance needs to be tested and evaluated to ensure it meets your expectations. Not only should Azure Firewall handle the current traffic on a network, but it should also be ready for potential traffic growth. It's recommended to evaluate on a test network and not in a production environment. The testing should attempt to replicate the production environment as close as possible. This includes the network topology, and emulating the actual characteristics of the expected traffic through the firewall.
 
@@ -82,7 +82,7 @@ Reliable firewall performance is essential to operate and protect your virtual n
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Monitor metrics related to availability and performance issues. More specifically:
 
@@ -109,7 +109,7 @@ Monitor metrics related to availability and performance issues. More specificall
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 In multi-region environments, deploy an instance of Azure Firewall per region. For workloads designed to be resistant to failures and fault tolerant, remember to consider that instances of Azure Firewall and Azure Virtual Network are regional resources.
 
@@ -131,7 +131,7 @@ In multi-region environments, deploy an instance of Azure Firewall per region. F
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Associate a DDoS protection plan with the virtual network hosting Azure Firewall. A DDoS protection plan provides enhanced mitigation features to defend your firewall from DDoS attacks. Azure Firewall Manager is an integrated tool to create your firewall infrastructure and DDoS protection plans.
 
@@ -153,7 +153,7 @@ Associate a DDoS protection plan with the virtual network hosting Azure Firewall
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Firewall policy allows you to define a rule hierarchy and enforce compliance. It provides a hierarchical structure to overlay a central base policy on top of a child application team policy. The base policy has a higher priority and runs before the child policy. Use an Azure custom role definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group.
 
@@ -175,7 +175,7 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Firewall is designed to be available and redundant. Every effort is made to avoid service disruptions. However, there are few scenarios where Azure Firewall can potentially drop long running TCP sessions. The following scenarios can potentially drop long running TCP sessions:
 

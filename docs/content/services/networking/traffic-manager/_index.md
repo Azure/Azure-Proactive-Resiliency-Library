@@ -34,7 +34,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
   Monitor status should be online to provide the failover for application workload.  If the health of your Traffic Manager displays a Degraded status, then the status of one or more endpoints may be Degraded.
 
@@ -55,7 +55,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When configuring the Azure traffic manager, you should provision minimum of two endpoints to fail-over the workload to a another instance.
 
@@ -77,7 +77,7 @@ When configuring the Azure traffic manager, you should provision minimum of two 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Profiles should have more than one endpoint to ensure availability if one of the endpoints fails. It is also recommended that endpoints be in different regions.
 
@@ -100,7 +100,7 @@ Profiles should have more than one endpoint to ensure availability if one of the
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Time to Live (TTL) affects how recent of a response a client will get when it makes a request to Azure Traffic Manager. Reducing the TTL value means that the client will be routed to a functioning endpoint faster in the case of a failover. Configure your TTL to 60 seconds to route traffic to a health endpoint as quickly as possible.
 
@@ -123,7 +123,7 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 For geographic routing, traffic is routed to endpoints based on defined regions. When a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" for geographic profiles will avoid traffic black holing and guarantee service remains available.
 

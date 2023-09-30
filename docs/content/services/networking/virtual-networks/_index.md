@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Network security groups: Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. NSG's provide a security layer on Subnet level.
 
@@ -55,7 +55,7 @@ Network security groups: Network security groups and application security groups
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. P.S.  DDoS IP Protection is currently not available in East US 2 and West Europe regions.
 
@@ -77,7 +77,7 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use virtual network service endpoints only when Private Link isn't available and there are no concerns with unauthorized movement of data. The VNet service endpoint feature (turning on VNet service endpoint on the network side and setting up appropriate VNet ACLs on the Azure service side) limits the Azure service access to the allowed VNet and subnet, thus providing a network level security and isolation of the Azure service traffic. All traffic using VNet service endpoints flows over Microsoft backbone, thus providing another layer of isolation from the public internet
 

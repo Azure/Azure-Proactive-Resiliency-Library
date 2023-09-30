@@ -38,7 +38,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
@@ -62,7 +62,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure availability zones are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.
 
@@ -86,7 +86,7 @@ Azure availability zones are physically separate locations within each suppo
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Service levels are an attribute of a capacity pool. Service levels are defined and differentiated by the allowed maximum throughput for a volume in the capacity pool based on the quota that is assigned to the volume.The throughput limit for a volume is determined by the combination of the following factors:
 
@@ -114,7 +114,7 @@ The QoS type (auto or manual) of the capacity pool
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Standard network feature enables higher IP limits and standard VNet features such as network security groups and user-defined routes on delegated subnets, and additional connectivity patterns.
 Please check the supported regions for standard network feature [here](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies#supported-regions-for-standard-network-feature)
@@ -139,7 +139,7 @@ Please check the supported regions for standard network feature [here](https://d
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens.
 
@@ -163,7 +163,7 @@ The cross-zone replication (CZR) capability provides data protection between vol
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure NetApp Files snapshot technology delivers stability, scalability, and swift recoverability without impacting performance.
 Azure NetApp Files supports a fully managed backup solution for long-term recovery, archive, and compliance. Backups can be restored to new volumes in the same region as the backup. Backups created by Azure NetApp Files are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning.
@@ -189,7 +189,7 @@ Azure NetApp Files supports a fully managed backup solution for long-term recove
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. With these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.
 
@@ -213,7 +213,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The Azure Policy built-in definitions for Azure NetApp Files enable organization admins to restrict creation of unsecure volumes or audit existing volumes. Each policy definition in Azure Policy has a single effect. That effect determines what happens when the policy rule is evaluated to match.
 

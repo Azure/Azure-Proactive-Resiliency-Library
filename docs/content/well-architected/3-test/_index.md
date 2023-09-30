@@ -85,7 +85,7 @@ Key points:
 
 <br><br>
 
-### WATS-3 - Perform disaster recovery tests reguarly
+### WATS-3 - Perform disaster recovery tests regularly
 
 **Category: Disaster Recovery**
 
@@ -132,5 +132,23 @@ Apply chaos engineering principles when you:
 **Resources**
 
 - [Use chaos engineering to test Azure applications](https://learn.microsoft.com/azure/well-architected/resiliency/chaos-engineering)
+
+<br><br>
+
+### WATS-4  - Test application fault resiliency
+
+**Category: Application Resilience**
+
+**Impact: Medium**
+
+**Guidance**
+
+High availability is a fundamental part of the SQL Database platform that works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events would impact an application before you deploy it to production. You can manually trigger a failover by calling a special API to restart a database, or an elastic pool.
+
+In the case of a zone-redundant serverless or provisioned General Purpose database or elastic pool, the API call would result in redirecting client connections to the new primary in an Availability Zone different from the Availability Zone of the old primary. So in addition to testing how failover impacts existing database sessions, you can also verify if it changes the end-to-end performance due to changes in network latency. Because the restart operation is intrusive and a large number of them could stress the platform, only one failover call is allowed every 15 minutes for each database or elastic pool.
+
+**Resources**
+
+- [Test application fault resiliency](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#testing-application-fault-resiliency)
 
 <br><br>

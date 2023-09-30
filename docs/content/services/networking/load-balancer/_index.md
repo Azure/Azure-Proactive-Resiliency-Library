@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Select Standard SKU Standard Load Balancer provides a dimension of reliability that Basic does not - that of availability zones and zone resiliency. This means when a zone goes down, your zone-redundant Standard Load Balancer will not be impacted. This ensures your deployments can withstand zone failures within a region. In addition, Standard Load Balancer supports global load balancing ensuring your application is not impacted by region failures either. Basic load balancers don't have a Service Level Agreement (SLA).
 
@@ -56,7 +56,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
  Deploy Azure LB with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair LB with Virtual Machine Scale Sets.
 
@@ -78,7 +78,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with VNet NAT.
 

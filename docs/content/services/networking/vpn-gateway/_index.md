@@ -36,7 +36,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure VPN gateway provides different SLAs when it's deployed in a single availability zone and when it's deployed in two or more availability zones. For information about all Azure SLAs, see [SLA summary for Azure services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure.
@@ -60,7 +60,7 @@ To automatically deploy your virtual network gateways across availability zones,
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The active-active mode is available for all SKUs except Basic or Standard.
 Active-active gateways have two Gateway IP configurations and two public IP addresses.
@@ -84,7 +84,7 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 During the initial planning phase, you want to decide whether you want to configure an ExpressRoute connection.
 An Azure ExpressRoute circuit provide a private dedicated connection into Azure.You also need to identify the bandwidth and the SKU type requirement for your business needs. Configure a Site-to-Site VPN as a failover path for ExpressRoute
@@ -108,7 +108,7 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 To plan for disaster recovery, set up Site-to-Site VPN in more than one location. You can create IP Sec connectivity in the same metro or different metro and choose to work with different service providers for diverse paths
 
@@ -131,7 +131,7 @@ To plan for disaster recovery, set up Site-to-Site VPN in more than one location
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Set up monitoring and alerts for Virtual Network Gateway health based on various metrics available.
 
@@ -153,7 +153,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 VPN Gateway uses service health to notify about planned and unplanned maintenance. Configuring service health will notify you about changes made to your VPN connectivity.
 

@@ -34,24 +34,22 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### AKS-1 - Deploy AKS cluster across availability zones
 
-#### Impact: High
+**Category: Availability**
 
-#### Recommendation/Guidance
+**Impact: High**
+
+**Guidance**
 
 Azure Availability Zones are a high-availability offering that protects applications and data from datacenter-level failures. Availability Zones are unique physical locations within an Azure region that are equipped with independent power, cooling, and networking. Each Availability Zone is made up of one or more datacenters and is designed to be highly available and fault tolerant.
 
 By deploying resources such as aks clusters, virtual machines, storage, and databases across multiple Availability Zones in the same region, you can protect your applications and data from datacenter-level failures. If one Availability Zone goes down, the other Availability Zones in the region can continue to provide service.
 
-
-
-##### Resources
+**Resources**
 
 - [AKS Availability Zones](https://learn.microsoft.com/en-us/azure/aks/availability-zones)
 - [Zone Balancing](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -63,21 +61,21 @@ By deploying resources such as aks clusters, virtual machines, storage, and data
 
 ### AKS-2 - Isolate system pods
 
-#### Impact: High
+**Category: Governance**
 
-#### Recommendation/Guidance
+**Impact: High**
+
+**Guidance**
 
 AKS automatically assigns the label kubernetes.azure.com/mode: system to nodes in a system node pool. This label signals to AKS that system pods should be scheduled on nodes in this pool. However, you can still schedule application pods on these nodes if you choose to do so.
 
 To prevent misconfigured or rogue application pods from accidentally killing system pods, it is recommended that you isolate critical system pods from your application pods. This can be achieved by scheduling system pods on dedicated node pools or by using node selectors to ensure that system pods are only scheduled on nodes with the kubernetes.azure.com/mode: system label.
 
-##### Resources
+**Resources**
 
 - [System and user node pools](https://learn.microsoft.com/en-us/azure/aks/use-system-pools?tabs=azure-cli#system-and-user-node-pools)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -89,22 +87,21 @@ To prevent misconfigured or rogue application pods from accidentally killing sys
 
 ### AKS-3 - Enable AKS-managed Azure AD integration
 
-#### Impact: High
+**Category: Access & Security**
 
-#### Recommendation/Guidance
+**Impact: High**
+
+**Guidance**
 
 Enabling Azure AD integration on an AKS cluster provides several benefits for managing access to the cluster. By using Azure AD, you can centralize user and group management, enforce multi-factor authentication, and enable role-based access control (RBAC) for fine-grained access control to cluster resources. Additionally, Azure AD provides a secure and scalable authentication mechanism that can be integrated with other Azure services and third-party identity providers.
 
-
-##### Resources
+**Resources**
 
 - [Azure AD integration](https://learn.microsoft.com/en-us/azure/aks/concepts-identity#azure-ad-integration)
 - [Use Azure role-based access control for AKS](https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?source=recommendations)
 - [Manage AKS local accounts](https://learn.microsoft.com/en-us/azure/aks/manage-local-accounts-managed-azure-ad?source=recommendations)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -114,23 +111,22 @@ Enabling Azure AD integration on an AKS cluster provides several benefits for ma
 
 <br><br>
 
-
 ### AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs
 
-#### Impact: Medium
+**Category: Networking**
 
-#### Recommendation/Guidance
+**Impact: Medium**
+
+**Guidance**
 
 The Azure CNI networking solution for AKS provides several benefits for managing IP addresses and network connectivity for cluster Pods. By dynamically allocating IPs to Pods from the Pod subnet, the solution leads to better utilization of IPs in the cluster compared to traditional CNI solutions that do static allocation of IPs for every node. The solution is scalable and flexible, allowing node and pod subnets to be scaled independently and shared across multiple node pools or AKS clusters. The solution also provides high performance, with direct connectivity between Pods and resources in the VNet. Additionally, the solution enables separate VNet policies for Pods, which can be configured differently from node policies. Finally, the solution supports Kubernetes network policies, including both Azure Network Policies and Calico. Overall, the Azure CNI networking solution provides a powerful and flexible networking solution for AKS clusters.
 
-##### Resources
+**Resources**
 
 - [Configure Azure CNI networking](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni-dynamic-ip-allocation)
 - [Configure Azure CNI Overlay networking](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -140,24 +136,23 @@ The Azure CNI networking solution for AKS provides several benefits for managing
 
 <br><br>
 
-
 ### AKS-5 - Enable the cluster autoscaler on an existing cluster
 
-#### Impact: High
+**Category: System Efficiency**
 
-#### Recommendation/Guidance
+**Impact: High**
+
+**Guidance**
 
 AKS provides several options for scaling your cluster to meet changing demands. You can scale the number of nodes in a node pool manually or automatically based on metrics such as CPU utilization or custom metrics. You can also use virtual node scaling to add additional capacity to your cluster using Azure Container Instances. AKS also supports horizontal pod autoscaling, which automatically scales the number of pods in a deployment based on CPU utilization or custom metrics. Finally, AKS provides cluster autoscaling, which automatically scales the number of nodes in a node pool based on pod resource requests and the available capacity in the cluster. With these scaling options, you can ensure that your AKS cluster can handle varying workloads and optimize resource utilization.
 
-##### Resources
+**Resources**
 
 - [Best practices for advanced scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler)
 - [Node pool scaling considerations and best practices](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-run-at-scale#node-pool-scaling-considerations-and-best-practices)
 - [Best practices for basic scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -167,24 +162,23 @@ AKS provides several options for scaling your cluster to meet changing demands. 
 
 <br><br>
 
+### AKS-6 - Plan for multi-region deployment
 
-### AKS-6 - Plan for multiregion deployment
+**Category: Disaster Recovery**
 
-#### Impact: High
+**Impact: High**
 
-#### Recommendation/Guidance
+**Guidance**
 
 An AKS cluster is deployed into a single region. To protect your system from region failure, deploy your application into multiple AKS clusters across different regions. When deploying multiple Kubernetes clusters in highly available and geographically distributed configurations, it's essential to consider the sum of each Kubernetes cluster as a coupled unit. You might want to develop code-driven strategies for automated deployment and configuration to ensure that each Kubernetes instance is as identical as possible.
 
-##### Resources
+**Resources**
 
 - [Plan for multiregion deployment](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 - [Cluster deployment and bootstrapping](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster#cluster-deployment-and-bootstrapping)
 - [AKS baseline for multiregion clusters](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -194,23 +188,22 @@ An AKS cluster is deployed into a single region. To protect your system from reg
 
 <br><br>
 
-
 ### AKS-7 - Back up Azure Kubernetes Service
 
-#### Impact: Low
+**Category: Disaster Recovery**
 
-#### Recommendation/Guidance
+**Impact: Low**
+
+**Guidance**
 
 AKS is increasingly being used for stateful applications that require a backup strategy. Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations."
 
-##### Resources
+**Resources**
 
 - [AKS Backups](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-cluster-backup)
 - [Best Practices for AKS Backups](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-storage)
 
-#### Queries/Scripts
-
-##### Azure Resource Graph
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

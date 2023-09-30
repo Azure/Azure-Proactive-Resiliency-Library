@@ -35,9 +35,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### AGW-1 - Ensure autoscaling is used with a minimum of 2 instance
 
+**Category: System Efficiency**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
  When configuring the Application Gateway you should provision autoscaling and a minimum of two instances to minimize the effects of a single failing component. This allows for the opportunity to leverage the full capabilities of having a Layer 7 Load Balancing services. The creation of every new instance can take several minutes so having a minimum instance count of two ensure if one goes down for any reason that there is not a complete loss of connectivity to the backend services.  Auto scale allows the Application Gateway to scale out based on the traffic requirements without the need of manual intervention.
 
@@ -48,15 +50,20 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
+
 {{< code lang="sql" file="code/agw-1/agw-1.kql" >}} {{< /code >}}
+
 {{< /collapse >}}
+
 <br><br>
 
 ### AGW-2 - Secure all incoming connections with SSL
 
+**Category: Access & Security**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Ensure that all incoming connections are using HTTP/s for production services.  Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
 
@@ -80,9 +87,11 @@ Ensure that all incoming connections are using HTTP/s for production services.  
 
 ### AGW-3 - Enable Web Application Firewall policies
 
+**Category: Access & Security**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use Application Gateway with Web Application Firewall (WAF) within an application virtual network to protect inbound HTTP/S traffic from the Internet. The WAF provides centralized protection from possible exploits by using rules based on the OWASP (Open Web Application Security Project) core rule sets.
 
@@ -103,9 +112,11 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 
 ### AGW-4 - Use Application GW V2 instead of V1
 
+**Category: System Efficiency**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 You should use Application Gateway v2 unless there is a compelling reason for using v1. V2 has many more built in features such as autoscaling, static VIPs, Azure KeyVault integration for certificate management and many more features listed in our comparison charts.  Leveraging this updated version allows for better performance and control of how your traffic routed and the ability to make changes to the traffic.
 
@@ -127,9 +138,11 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 
 ### AGW-5 - Monitor and Log the configurations and traffic
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enable logs that can be stored in storage accounts, Log Analytics, and other monitoring services.  If NSGs are applied NSG flow logs can be enabled and stored for traffic audit and to provide insights into the traffic flowing into your Azure Cloud.
 
@@ -150,9 +163,11 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 
 ### AGW-6 - Use Health Probes to detect backend availability
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Using custom health probes can help with understand the availability of your backends and allows you to monitor the backend services if they are being affected in any way.
 
@@ -173,9 +188,11 @@ Using custom health probes can help with understand the availability of your bac
 
 ### AGW-7 - Deploy backends in a zone-redundant configuration
 
+**Category: Availability**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Deploying your backend services in a zone-aware configurations ensures that if a specific zone goes down that customers will still have access to the services as the other services located in other zones will still be available.
 
@@ -196,9 +213,11 @@ Deploying your backend services in a zone-aware configurations ensures that if a
 
 ### AGW-8 - Plan for backend maintenance by using connection draining
 
+**Category: Governance**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Plan for backend maintenance by using connection draining. Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the Backend Setting and is applied to all backend pool members during rule creation.
 
