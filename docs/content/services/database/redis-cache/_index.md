@@ -2,8 +2,8 @@
 title = "Redis Cache"
 description = "Best practices and resiliency recommendations for Redis Cache and associated resources and settings."
 date = "10/2/23"
-author = "CHANGE ME TO YOUR GITHUB USERNAME"
-msAuthor = "CHANGE ME TO YOUR MICROSOFT ALIAS"
+author = "ejhenry"
+msAuthor = "ejhenry"
 draft = false
 +++
 
@@ -14,8 +14,7 @@ The presented resiliency recommendations in this guidance include Redis Cache an
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
-| [CM-1 - CHANGE ME title](#cm-1---change-me-title) | Compatibility/Compliance/Disaster Recovery/High Availability/Management | High/Medium/Low | Preview/Verified  |         Yes         |
-| [CM-2 - CHANGE ME title](#cm-2---change-me-title) | Monitoring/Networking/Performance/Scalability/Security/Storage          | High/Medium/Low | Preview/Verified  |         No          |
+| [REDIS-1 - Enable zone redundancy for Azure Cache for](#redis-1---enable-zone-redundancy-for-azure-cache-for-redis) | High Availability | High | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -26,51 +25,25 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### CM-1 - CHANGE ME title
+### REDIS-1 - Enable zone redundancy for Azure Cache for Redis
 
-**Category: Application Resilience/Automation/Availability/Access & Security/Governance/Disaster Recovery/System Efficiency/Monitoring/Networking/Storage**
+**Category: Availability**
 
-**Impact: High/Medium/Low**
+**Impact: High**
 
 **Recommendation/Guidance**
 
-FILL ME IN...
+Azure Cache for Redis supports zone redundancy in its Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple Availability Zones. Zone redundancy provides higher resilience and availability.
 
 **Resources**
 
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
+- [Enable zone redundancy for Azure Cache for Redis](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-how-to-zone-redundancy)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### CM-2 - CHANGE ME title
-
-**Category: Application Resilience/Automation/Availability/Access & Security/Governance/Disaster Recovery/System Efficiency/Monitoring/Networking/Storage**
-
-**Impact: High/Medium/Low**
-
-**Recommendation/Guidance**
-
-FILL ME IN...
-
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/redis-1/redis-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
