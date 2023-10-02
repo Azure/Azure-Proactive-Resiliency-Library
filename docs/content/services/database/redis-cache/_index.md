@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Redis Cache an
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
-| [REDIS-1 - Enable zone redundancy for Azure Cache for](#redis-1---enable-zone-redundancy-for-azure-cache-for-redis) | High Availability | High | Preview  |         Yes         |
+| [REDIS-1 - Enable zone redundancy for Azure Cache for Redis](#redis-1---enable-zone-redundancy-for-azure-cache-for-redis) | High Availability | High | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
