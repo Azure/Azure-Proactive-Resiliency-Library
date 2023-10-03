@@ -3,4 +3,4 @@
 Resources
 | where type == "microsoft.network/applicationGateways"
 | extend appGatewayResourceId = tostring(id)
-| project  recommendationId = "appgw-7", name, id, resourceGroup
+| project  recommendationId = "appgw-7", name, id, tags, param1=resourceGroup
