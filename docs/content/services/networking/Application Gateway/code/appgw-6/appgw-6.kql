@@ -1,6 +1,7 @@
 // Azure Resource Graph Query
 // You can use the following Azure Resource Graph query to check which App GWs are not using SSL certs
+Resources
 | where type =~ 'microsoft.network/applicationgateways'
 | where isnotempty(properties.sslCertificates)
 | project name
-| project  recommendationId = "appgw-6", name, id, tags, param1=resourceGroup
+| project  recommendationId="appgw-6", name, id, tags, param1=resourceGroup
