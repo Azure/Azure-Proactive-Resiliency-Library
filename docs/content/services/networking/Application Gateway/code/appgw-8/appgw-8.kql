@@ -4,5 +4,5 @@ AppGW-8
 Resources
 | where type == "microsoft.network/applicationGateways"
 | extend appGatewayResourceId = tostring(id)
-| project  recommendationId = "appGw-8", name, id, tags, param1=resourceGroup
+| project  recommendationId="appGw-8", name, id, tags, param1=resourceGroup
 
