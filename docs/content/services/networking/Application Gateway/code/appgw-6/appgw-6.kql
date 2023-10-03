@@ -3,4 +3,4 @@
 | where type =~ 'microsoft.network/applicationgateways'
 | where isnotempty(properties.sslCertificates)
 | project name
-| project  recommendationId = "appgw-6", name, id, resourceGroup
+| project  recommendationId = "appgw-6", name, id, tags, param1=resourceGroup
