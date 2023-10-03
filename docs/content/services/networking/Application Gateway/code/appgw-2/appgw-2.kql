@@ -3,15 +3,7 @@
 Resources 
 | where type =~ 'Microsoft.Network/applicationGateways/httpListeners' 
 | extend sslCert = tostring(properties.sslCertificate.keyVaultSecretId) 
-| project recommendationId = "appgw-2", name, id, tags, param1=resourceGroup, param2=sslCert 
+| project recommendationId="appgw-2", name, id, tags, param1=resourceGroup, param2=sslCert 
 
-or
 
-// Azure Resource Graph Query
-// If you want to be informed when no SSL certificates are used, you can modify the query as follow
-Resources 
-| where type =~ 'Microsoft.Network/applicationGateways/httpListeners' 
-| extend sslCert = tostring(properties.sslCertificate.keyVaultSecretId) 
-| where sslCert == ""
-| project recommendationId = "appgw-2", name, id, tags, param1=resourceGroup, param2=sslCert 
 
