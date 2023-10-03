@@ -1,6 +1,7 @@
 // Azure Resource Graph Query
 // You can use the following Azure Resource Graph query to check if the Application Gateway is either V1 or
+Resources
 | where type =~ 'microsoft.network/applicationgateways'
 | extend sku = tostring(properties.sku.name)
 | project name, sku
-| project  recommendationId = "appgw-4", name, id, tags, param1=resourceGroup
+| project  recommendationId="appgw-4", name, id, tags, param1=resourceGroup
