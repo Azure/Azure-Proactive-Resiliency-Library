@@ -3,4 +3,4 @@
 | where type =~ 'microsoft.network/applicationgateways'
 | extend sku = tostring(properties.sku.name)
 | project name, sku
-| project  recommendationId = "appgw-4", name, id, resourceGroup
+| project  recommendationId = "appgw-4", name, id, tags, param1=resourceGroup
