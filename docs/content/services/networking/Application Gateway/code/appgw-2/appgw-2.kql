@@ -3,7 +3,7 @@
 Resources 
 | where type =~ 'Microsoft.Network/applicationGateways/httpListeners' 
 | extend sslCert = tostring(properties.sslCertificate.keyVaultSecretId) 
-| project recommendationId="appgw-2", name, id, tags, param1=resourceGroup, param2=sslCert 
+| project recommendationId="appgw-2", name, id, tags, resourceGroup, sslCert 
 
 
 
