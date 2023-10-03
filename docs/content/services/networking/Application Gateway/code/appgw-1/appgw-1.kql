@@ -4,5 +4,5 @@ Resources
 | wheretype == "microsoft.network/applicationGateways"
 | whereproperties.capacity.autoScaleConfiguration != null
 | whereisnull(properties.autoscaleConfiguration) or properties.autoscaleConfiguration.minCapacity <= 2
-| project recommendationId = "appgw-1",name, id, autoscaleConfiguration, properties
+| project recommendationId = "appgw-1",name, id, tags, param1=autoscaleConfiguration, param2=properties
 
