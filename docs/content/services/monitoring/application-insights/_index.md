@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for Application Ins
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
-| [INS-1 - Convert Classic Deployments](#ins-1---convert-classic-deployments) | Availability | Medium | Preview  |         Yes         |
+| [APPI-1 - Convert Classic Deployments](#appi-1---convert-classic-deployments) | Availability | Medium | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -27,7 +27,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### INS-1 - Convert Classic Deployments
+### APPI-1 - Convert Classic Deployments
 
 **Category: Availability**
 
@@ -45,7 +45,7 @@ Classic Application Insights will be retired in February 2024. To minimize disru
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/ins-1/ins-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/appi-1/appi-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
