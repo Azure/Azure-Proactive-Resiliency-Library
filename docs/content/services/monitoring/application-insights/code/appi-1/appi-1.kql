@@ -1,5 +1,5 @@
 resources
 | where type =~ "microsoft.insights/components"
 | extend IngestionMode = properties.IngestionMode
-| where IngestionMode =~ 'ApplicatonInsights'
+| where IngestionMode =~ 'ApplicationInsights'
 | project recommendationId= "APPI-1", name, id, param1="ApplicationInsightsDeploymentType: Classic"
