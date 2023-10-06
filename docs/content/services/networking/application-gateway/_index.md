@@ -14,6 +14,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
+<<<<<<< HEAD
 | [APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#appgw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
 | [APPGW-2 - Secure all incoming connections with SSL](#appgw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
 | [APPGW-3 - Enable WAF policies](#appgw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
@@ -23,6 +24,16 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
 | [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
 | [APPGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#appgw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
+=======
+| [AGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#agw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
+| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
+| [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
+| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
+| [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | Yes |
+| [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
+| [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
+| [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
+>>>>>>> 7aa2c4b534c9e334f066d2d4a0cea5ff49f12ca6
 
 {{< /table >}}
 
@@ -34,11 +45,13 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance
+### AGW-1 - Ensure autoscaling is used with a minimum of 2 instance
+
+**Category: System Efficiency**
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
  When configuring the Application Gateway you should provision autoscaling and a minimum of two instances to minimize the effects of a single failing component. This allows for the opportunity to leverage the full capabilities of having a Layer 7 Load Balancing services. The creation of every new instance can take several minutes so having a minimum instance count of two ensure if one goes down for any reason that there is not a complete loss of connectivity to the backend services.  Auto scale allows the Application Gateway to scale out based on the traffic requirements without the need of manual intervention.
 
@@ -49,15 +62,20 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/appgw-1/appgw-1.kql" >}} {{< /code >}}
+
+{{< code lang="sql" file="code/agw-1/agw-1.kql" >}} {{< /code >}}
+
 {{< /collapse >}}
+
 <br><br>
 
-### APPGW-2 - Secure all incoming connections with SSL
+### AGW-2 - Secure all incoming connections with SSL
+
+**Category: Access & Security**
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Ensure that all incoming connections are using HTTP/s for production services.  Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
 
@@ -73,17 +91,19 @@ Ensure that all incoming connections are using HTTP/s for production services.  
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-2/appgw-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-2/agw-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-3 - Enable Web Application Firewall policies
+### AGW-3 - Enable Web Application Firewall policies
+
+**Category: Access & Security**
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use Application Gateway with Web Application Firewall (WAF) within an application virtual network to protect inbound HTTP/S traffic from the Internet. The WAF provides centralized protection from possible exploits by using rules based on the OWASP (Open Web Application Security Project) core rule sets.
 
@@ -96,17 +116,19 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-3/appgw-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-3/agw-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-4 - Use Application GW V2 instead of V1
+### AGW-4 - Use Application GW V2 instead of V1
+
+**Category: System Efficiency**
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 You should use Application Gateway v2 unless there is a compelling reason for using v1. V2 has many more built in features such as autoscaling, static VIPs, Azure KeyVault integration for certificate management and many more features listed in our comparison charts.  Leveraging this updated version allows for better performance and control of how your traffic routed and the ability to make changes to the traffic.
 
@@ -120,17 +142,19 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-4/appgw-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-4/agw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-5 - Monitor and Log the configurations and traffic
+### AGW-5 - Monitor and Log the configurations and traffic
+
+**Category: Monitoring**
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enable logs that can be stored in storage accounts, Log Analytics, and other monitoring services.  If NSGs are applied NSG flow logs can be enabled and stored for traffic audit and to provide insights into the traffic flowing into your Azure Cloud.
 
@@ -143,17 +167,19 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-5/appgw-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-5/agw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-6 - Use Health Probes to detect backend availability
+### AGW-6 - Use Health Probes to detect backend availability
+
+**Category: Monitoring**
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Using custom health probes can help with understand the availability of your backends and allows you to monitor the backend services if they are being affected in any way.
 
@@ -166,17 +192,19 @@ Using custom health probes can help with understand the availability of your bac
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-6/appgw-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-6/agw-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-7 - Deploy backends in a zone-redundant configuration
+### AGW-7 - Deploy backends in a zone-redundant configuration
+
+**Category: Availability**
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Deploying your backend services in a zone-aware configurations ensures that if a specific zone goes down that customers will still have access to the services as the other services located in other zones will still be available.
 
@@ -189,17 +217,19 @@ Deploying your backend services in a zone-aware configurations ensures that if a
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-7/appgw-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-7/agw-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### APPGW-8 - Plan for backend maintenance by using connection draining
+### AGW-8 - Plan for backend maintenance by using connection draining
+
+**Category: Governance**
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Plan for backend maintenance by using connection draining. Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the Backend Setting and is applied to all backend pool members during rule creation.
 
@@ -211,7 +241,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 **Resource Graph Query/Scripts**
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/appgw-8/appgw-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-8/agw-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
