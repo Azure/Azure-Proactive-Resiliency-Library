@@ -4,4 +4,4 @@ Resources
 | where type =~ 'Microsoft.Compute/disks'
 | where sku.name == 'Standard_LRS' and sku.tier == 'Standard'
 | where managedBy != ""
-| project recommendationId = "vm-8", name, id, managedBy
+| project recommendationId = "vm-8", name, id, param1=strcat("managedBy: ", managedBy)

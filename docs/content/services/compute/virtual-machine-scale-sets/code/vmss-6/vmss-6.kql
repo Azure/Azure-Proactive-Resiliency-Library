@@ -1,2 +1,7 @@
 // Azure Resource Graph Query
-// Under development
+// Find VMSS instances where strictly zoneBalance is set to True
+resources
+| where type == "microsoft.compute/virtualmachinescalesets"
+| where properties.orchestrationMode == "Uniform" and properties.zoneBalance == "True"
+| project recommendationId = "vmss-6", name, id, param1 = "strictly zoneBalance: Enabled"
+| order by id asc

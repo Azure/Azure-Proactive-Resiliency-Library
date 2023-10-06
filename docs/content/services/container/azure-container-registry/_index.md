@@ -37,9 +37,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### CR-1 - Use Premium tier for critical production workloads
 
+**Category: System Efficiency**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Choose a service tier of Azure Container Registry that meets your performance needs. The Premium tier provides the greatest bandwidth and highest rate of concurrent read and write operations when you have high-volume deployments. Use Basic for getting started, Standard for most production applications, and Premium for hyper-scale performance and geo-replication.
 
@@ -59,9 +61,11 @@ Choose a service tier of Azure Container Registry that meets your performance ne
 
 ### CR-2 - Enable zone redundancy
 
+**Category: Availability**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Container Registry supports optional zone redundancy. Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region.
 
@@ -81,9 +85,11 @@ Azure Container Registry supports optional zone redundancy. Zone redundancy prov
 
 ### CR-3 - Enable geo-replication
 
+**Category: Disaster Recovery**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Use Azure Container Registry's geo-replication feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. You can also configure regional webhooks to notify you of events in specific replicas such as when images are pushed.
 
@@ -106,9 +112,11 @@ Geo-replication is available with Premium registries.
 
 ### CR-4 - Maximize pull performance
 
+**Category: System Efficiency**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Some characteristics of your images themselves can impact pull performance:
 
@@ -124,9 +132,11 @@ Some characteristics of your images themselves can impact pull performance:
 
 ### CR-5 - Use Repository namespaces
 
+**Category: Access & Security**
+
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 By using repository namespaces, you can allow sharing a single registry across multiple groups within your organization. Registries can be shared across deployments and teams. Azure Container Registry supports nested namespaces, enabling group isolation. However, the registry manages all repositories independently, not as a hierarchy.
 
@@ -138,9 +148,11 @@ By using repository namespaces, you can allow sharing a single registry across m
 
 ### CR-6 - Move Container Registry to a dedicated resource group
 
+**Category: Governance**
+
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.
 
@@ -162,9 +174,11 @@ Although you might experiment with a specific host type, such as Azure Container
 
 ### CR-7 - Manage registry size
 
+**Category: System Efficiency**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The storage constraints of each container registry service tier are intended to align with a typical scenario: Basic for getting started, Standard for most production applications, and Premium for hyper-scale performance and geo-replication. Throughout the life of your registry, you should manage its size by periodically deleting unused content. Consider also enabling a retention policy to automatically delete untagged image manifests to free up storage space.
 
@@ -185,9 +199,11 @@ The storage constraints of each container registry service tier are intended to 
 
 ### CR-8 - Disable anonymous pull access
 
+**Category: Access & Security**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 By default, access to pull or push content from an Azure container registry is only available to authenticated users. Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. Warning: Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using repository-scoped tokens, all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.
 
@@ -207,9 +223,11 @@ By default, access to pull or push content from an Azure container registry is o
 
 ### CR-9 - Use an Azure managed identity to authenticate to an Azure container registry
 
+**Category: Access & Security**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Each container registry includes an admin user account, which is disabled by default. The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials.
 
@@ -232,9 +250,11 @@ Use a managed identity for Azure resources to authenticate to an Azure container
 
 ### CR-10 - Configure Diagnostic Settings for all Azure Resources
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
@@ -247,9 +267,11 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 ### CR-11 - Monitor Azure Container Registry with Azure Monitor
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. Azure Container Registry creates monitoring data using Azure Monitor, which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
@@ -261,9 +283,11 @@ When you have critical applications and business processes relying on Azure reso
 
 ### CR-12 - Enable soft delete policy
 
+**Category: Disaster Recovery**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Once you enable the soft delete policy, ACR manages the deleted artifacts as the soft deleted artifacts with a set retention period. Thereby you have ability to list, filter, and restore the soft deleted artifacts. Once the retention period is complete, all the soft deleted artifacts are auto-purged.
 

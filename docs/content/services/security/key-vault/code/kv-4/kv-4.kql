@@ -1,5 +1,2 @@
 // Azure Resource Graph Query
-// This resource graph query will return all Key Vaults in your Azure environment, if there are multiple application then we should have multiple Key Vaults.
-resources
-| where type == "microsoft.keyvault/vaults"
-| project recommendationId = "kv-4", name, id, location, resourceGroup, subscriptionId
+// under development

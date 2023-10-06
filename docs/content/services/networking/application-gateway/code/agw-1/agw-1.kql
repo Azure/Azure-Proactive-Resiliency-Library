@@ -5,4 +5,3 @@ Resources
 | whereproperties.capacity.autoScaleConfiguration != null
 | whereisnull(properties.autoscaleConfiguration) or properties.autoscaleConfiguration.minCapacity <= 2
 | project recommendationId="appgw-1",name, id, tags, autoscaleConfiguration, properties
-

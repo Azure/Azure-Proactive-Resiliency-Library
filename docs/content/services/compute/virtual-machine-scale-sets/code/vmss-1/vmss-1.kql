@@ -1,6 +1,6 @@
 // Azure Resource Graph Query
-// Find all zonal VMs that are not deployed in a VMSS
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| where isnull(zones) == false and isnull(properties.virtualMachineScaleSet)
-| project recommendationId = "vmss-1", name, id
+// Find all zonal VMs that are NOT deployed with Flex orchestration mode
+resources
+| where type == "microsoft.compute/virtualmachinescalesets"
+| where properties.orchestrationMode != "Flexible"
+| project recommendationId = "vmss-1", name, id, param1 = strcat("orchestrationMode: ", tostring(properties.orchestrationMode))

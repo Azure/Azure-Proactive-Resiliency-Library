@@ -1,4 +1,4 @@
 resources
 | where type == "microsoft.network/frontdoorwebapplicationfirewallpolicies"
 | where properties['managedRules']['managedRuleSets'][0]['ruleSetType'] == "Microsoft_DefaultRuleSet"
-| project recommendationId = "fd-11", name, id
+| project recommendationId = "afd-11", name, id

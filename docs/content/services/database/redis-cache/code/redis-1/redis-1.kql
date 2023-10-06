@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// Find Cache for Redis instances with one or no Zones selected
+resources
+| where type == "microsoft.cache/redis"
+| where array_length(zones) <= 1 or isnull(zones)
+| project recommendationId = "redis-1", name, id, param1 = "AvailabilityZones: Single Zone"
+| order by id asc

@@ -11,5 +11,5 @@ resources
     | extend region = tostring(location)
     | extend ErGwName = tostring(name)
 ) on region
-| project recommendationId = "erg-4", name, id, ErGwName, region
+| project recommendationId = "erg-4", name, id, param1=strcat("ErGwName: ",ErGwName), param2=region
 | order by id asc

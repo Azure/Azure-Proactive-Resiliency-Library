@@ -1,7 +1,7 @@
 +++
 title = "Contributing"
 description = "Contribution Guide for the Azure Proactive Resiliency Library (APRL)"
-weight = 2
+weight = 3
 +++
 {{< panel title="Contributions Notice" style="warning" >}} Currently we can only accept contributions from Microsoft FTEs. In the future we will look to change this. {{< /panel >}}
 
@@ -147,9 +147,10 @@ hugo new --kind service-bundle services/compute/virtual-machines
     - You can copy the recommendations labelled `CM-1` or `CM-2` multiple times to create more recommendations
 5. Update the ARG, PowerShell, AZCLI scripts in the `code` folder within `virtual-machines`
     - You will see there is a folder, e.g. `cm-1`, `cm-2`, per recommendation to help with file structure organization
-6. Save, commit and push your changes to your branch and repo
-7. Create a [create a Pull Request](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) into the `main` branch of the upstream repo
-8. Get it merged
+6. Ensure you use the correct Azure resource abbreviations provided within our Cloud Adoption Framework (CAF) documentation [here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations). For example, use `vm` for Virtual Machines.
+7. Save, commit and push your changes to your branch and repo
+8. Create a [create a Pull Request](https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) into the `main` branch of the upstream repo
+9. Get it merged
 
 {{< alert style="success" >}}
 Don't forget you can see your changes live by running a local copy of the APRL website by following the guidance [here.](#run-and-access-a-local-copy-of-aprl-during-development)
@@ -219,4 +220,3 @@ Don't forget you can see your changes live by running a local copy of the APRL w
 
 1. Sometimes the local version of the website may show some inconsistencies that don't reflect the content you have created.
      - If this happens, simply kill the Hugo local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> and then restart the Hugo web server by running `hugo server -D` from the `docs/` directory
-

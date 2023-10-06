@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Public IP addresses with a standard SKU can be created as non-zonal, zonal, or zone-redundant in regions that support availability zones.
 A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
@@ -57,14 +57,15 @@ Note - All basic SKU public IP addresses are created as non-zonal. Any IP that i
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
-Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet.. We don't recommend exceeding 100 simultaneous outbound connections to a public IP address per worker.  Avoid communicating with downstream services through public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.
+Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT gateway for outbound traffic from your virtual networks. NAT gateway scales dynamically and provides secure connections for traffic headed to the internet. We don't recommend exceeding 100 simultaneous outbound connections to a public IP address per worker. Avoid communicating with downstream services through public IP addresses when a private address (Private Endpoint) or Service Endpoint through vNet Integration could be used.
 
 **Resources**
 
 - [Use NAT GW for outbound connectivity](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#use-nat-gateway-for-outbound-connectivity)
 - [TCP and SNAT Ports](https://learn.microsoft.com/azure/architecture/framework/services/compute/azure-app-service/reliability#tcp-and-snat-ports)
+
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}

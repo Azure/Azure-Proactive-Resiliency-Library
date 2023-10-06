@@ -28,9 +28,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### IT-1 - Use Generation 2 virtual machine source image
 
+**Impact: Availability**
+
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When building your Image Templates, utilize source images that support generation 2 virtual machines. Generation 2 VMs support key features that aren't supported in generation 1 VMs.These features include increased memory, support for larger >2TB disks, it uses the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs which can improve boot and installation times, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
 
@@ -44,7 +46,7 @@ When building your Image Templates, utilize source images that support generatio
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The Azure Image Builder service that is used to deploy Image Templates doesn't currently support availability zones. Therefore, when building your Image Templates, replicate them to a secondary region, preferably to your primary region's paired region. This will allow you to quickly recover from a region failure and continue to deploy virtual machines from your Image Templates.
 

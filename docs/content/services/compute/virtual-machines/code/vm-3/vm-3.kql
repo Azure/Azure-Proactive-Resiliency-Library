@@ -4,8 +4,8 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where isnotnull(properties.availabilitySet)
-| extend vmPrefix = substring(properties.osProfile.computerName, 0, 5)
+| extend vmPrefix = substring(name, 0, 5)
 | summarize VMs = make_set(vmPrefix) by availabilitySet = tostring(properties.availabilitySet.id)
 | where array_length(VMs) > 1
 | extend availabilitySetName = tostring(split(availabilitySet, '/')[8])
-| project recommendationId = "vm-3", availabilitySetName, availabilitySet, VMs
+| project recommendationId = "vm-3", name=availabilitySetName, id="", param1=strcat("availabilitySet: ",availabilitySet), param2 = strcat("VMs :", VMs)

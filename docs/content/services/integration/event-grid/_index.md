@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enabling diagnostic settings allow you to capture and view diagnostic information so that you can troubleshoot any failures. The following table shows the settings available for different types of Event Grid resources - custom topics, system topics, and domains.
 
@@ -57,7 +57,7 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When Event Grid can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as dead-lettering. By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
 
@@ -81,7 +81,7 @@ When Event Grid can't deliver an event within a certain time period or after try
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 You can use private endpoints to allow ingress of events directly from your virtual network to your custom topics and domains securely over a private link without going through the public internet. The private endpoint uses an IP address from the VNet address space for your custom topic or domain.
 

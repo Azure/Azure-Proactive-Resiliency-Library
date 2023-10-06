@@ -1,5 +1,7 @@
 // Azure Resource Graph Query
-// Find AKS clusters with taints.
+// Find AKS clusters not using taints.
+resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend taint = tostring(parse_json(properties.agentPoolProfiles[1].nodeTaints))
-| project name, taint
+| where isempty(taint)
+| project recommendationid="aks-2", name, id, param1=strcat("taint: ", taint)

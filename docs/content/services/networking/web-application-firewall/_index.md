@@ -36,7 +36,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When you create a policy of WAF, it must be associated to an application gateway to take effect. Application Gateway has two versions of the WAF sku: Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policy associations are only supported for the Application Gateway WAF_v2 sku.
 
@@ -58,7 +58,7 @@ When you create a policy of WAF, it must be associated to an application gateway
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Web Application Firewall (WAF) on Azure Front Door provides centralized protection for your web applications. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 Azure Front Door has two tiers: Front Door Standard and Front Door Premium. WAF is natively integrated with Front Door Premium with full capabilities. For Front Door Standard, only custom rules are supported.
@@ -81,7 +81,7 @@ Azure Front Door has two tiers: Front Door Standard and Front Door Premium. WAF 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Review and apply best practices for using the web application firewall (WAF) on Azure Application Gateway.
 
@@ -103,7 +103,7 @@ Review and apply best practices for using the web application firewall (WAF) on 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Review and apply best practices for using the web application firewall (WAF) on Azure Front Door.
 
@@ -125,7 +125,7 @@ Review and apply best practices for using the web application firewall (WAF) on 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 WAF could blocks a legitimate request that it shouldn't (a false positive). You can identify requests that have been blocked within the last 24 hours through Log Analytics.
 
@@ -148,7 +148,7 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). You 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 WAF could blocks a legitimate request that it shouldn't (a false positive). You can identify requests that have been blocked within the last 24 hours through Log Analytics.
 
@@ -171,7 +171,7 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). You 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 WAF could blocks a legitimate request that it shouldn't (a false positive). The rule 942130 is the one that matched the 1=1 string, you can do a few things to stop this from blocking your traffic.
 
@@ -194,7 +194,7 @@ WAF could blocks a legitimate request that it shouldn't (a false positive). The 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Monitoring the health of your application gateway is important. Monitoring the health of your WAF and the applications that it protects are supported by integration with Microsoft Defender for Cloud, Azure Monitor, and Azure Monitor logs.
 

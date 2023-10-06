@@ -215,6 +215,8 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 {{< /collapse >}}
 
+<br><br>
+
 ### APPGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
 
 **Impact: High**
@@ -232,8 +234,4 @@ Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances.
 {{< collapse title="Show/Hide Query/Script" >}}
 {{< code lang="sql" file="code/appgw-1/appgw-9.kql" >}} {{< /code >}}
 {{< /collapse >}}
-<br><br>
-
-
-
 <br><br>

@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-//This will display the name of the deployment slot
-//for the application if no slot is defined the results will be empty
-
-resources
-| where type == "microsoft.web/sites"
-| project  AppName = name, slot = tostring(properties.slotName)

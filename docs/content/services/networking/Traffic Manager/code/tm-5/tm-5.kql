@@ -1,8 +1,0 @@
-Resources
-| where type == 'microsoft.network/trafficmanagerprofiles'
-| extend endpoints = properties.endpoints
-| mv-expand endpoint = endpoints
-| extend endpointName = endpoint.name
-| extend endpointLocation = endpoint.properties.endpointLocation
-| extend ttl = toint(properties.dnsConfig.ttl)
-| project name,endpointName, properties.trafficRoutingMethod, endpointLocation,ttl,GeoMapping = tostring(endpoint.properties.geoMapping)

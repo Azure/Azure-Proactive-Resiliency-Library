@@ -1,3 +1,4 @@
 // Find Azure Firewalls that have been deployed as non-zonal/noo-zone-redundant resources
-Resources
+resources
 | where type == 'microsoft.network/azurefirewalls' and zones != ""
+| project recommendationid="afw-1",name, id

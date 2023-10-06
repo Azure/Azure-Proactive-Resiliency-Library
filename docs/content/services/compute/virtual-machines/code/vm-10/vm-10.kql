@@ -11,5 +11,5 @@ Resources
     | project nicName = tostring(split(tostring(id), '/')[8])
 ) on nicName
 | summarize NicNames = make_set(nicName) by name, id
-| project recommendationId = "vm-10", name, id, NicNames
+| project recommendationId = "vm-10", name, id, param1=NicNames
 | order by id asc
