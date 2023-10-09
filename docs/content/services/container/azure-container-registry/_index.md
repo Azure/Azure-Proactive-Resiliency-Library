@@ -128,6 +128,14 @@ Some characteristics of your images themselves can impact pull performance:
 
 - [Registry authentication options - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/cr-4/cr-4.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### CR-5 - Use Repository namespaces
@@ -144,6 +152,13 @@ By using repository namespaces, you can allow sharing a single registry across m
 
 - [Registry best practices - use repository namespaces](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/cr-5/cr-5.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 <br><br>
 
 ### CR-6 - Move Container Registry to a dedicated resource group
@@ -263,6 +278,13 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 - [Monitoring Azure Container Registry data reference - Resource Logs](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#resource-logs)
 - [Monitor Azure Container Registry - Enable diagnostic logs](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service#collection-and-routing)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/cr-10/cr-10.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 <br><br>
 
 ### CR-11 - Monitor Azure Container Registry with Azure Monitor
@@ -279,6 +301,15 @@ When you have critical applications and business processes relying on Azure reso
 
 - [Monitoring Azure Container Registry data reference](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#metrics)
 - [Monitor Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/cr-11/cr-11.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### CR-12 - Enable soft delete policy
