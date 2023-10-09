@@ -1,12 +1,4 @@
 // Azure Resource Graph Query
-<<<<<<< HEAD
-// You can use the following Azure Resource Graph query to check if the Application Gateway is either V1 or
-Resources
-| where type =~ 'microsoft.network/applicationgateways'
-| extend sku = tostring(properties.sku.name)
-| project name, sku
-| project  recommendationId="appgw-4", name, id, tags, resourceGroup
-=======
 // This query will return all Application Gateways in your Azure environment and will identify if they are v1 or v2
 resources
 | where type =~ "microsoft.network/applicationGateways"
@@ -14,4 +6,4 @@ resources
 | where sku != "waf_v2" and sku != "standard_v2"
 | project recommendationId = "agw-4", name, id, param1 = "sku: v1"
 | order by id asc
->>>>>>> 7aa2c4b534c9e334f066d2d4a0cea5ff49f12ca6
+

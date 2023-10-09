@@ -23,7 +23,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                     |  Medium | Preview |         Yes         |
 | [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                             |  High   | Preview |         Yes         |
 | [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated)                                                                           |  Low    | Preview |         No          |
-| [VMSS-10 - Check VMSS Image Version](#vmss-10---check-vmss-image-version)                                                                           |  High    | Preview |         Yes      
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -262,24 +262,3 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 
 <br><br>
 
-### VMSS-10 - check VMSS Image Version
-
-**Category: Availability**
-
-**Impact: High**
-
-**Guidance**
-
-Ensure current versions of images are in use to avoid disruption after image deprecation. This ensurest that if these images are deprecated that you will not be impacted as you will no longer be able to deploy any additional VMs or VMSS once the image has been deprecated
-
-**Resources**
-
-- [Deprecated Azure Marketplace images - Azure Virtual Machines | Microsoft Learn]([https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones](https://learn.microsoft.com/en-us/azure/virtual-machines/deprecated-images#How%20do%20I%20migrate%20my%20workloads%20to%20another%20image?))
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/vmss-10/vmss-10.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
