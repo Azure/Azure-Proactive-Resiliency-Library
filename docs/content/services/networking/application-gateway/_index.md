@@ -14,21 +14,18 @@ The presented resiliency recommendations in this guidance include Application Ga
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-
-
-| [APPGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#appgw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
-| [APPGW-2 - Secure all incoming connections with SSL](#appgw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
-| [APPGW-3 - Enable WAF policies](#appgw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
-| [APPGW-4 - Use Application GW V2 instead of V1](#appgw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
-| [APPGW-5 - Monitor and Log the configurations and traffic](#appgw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | No |
-| [APPGW-6 - Use Health Probes to detect backend availability](#appgw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
-| [APPGW-7 - Deploy backends in a zone-redundant configuration](#appgw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | No |
-| [APPGW-8 - Plan for backend maintenance by using connection draining](#appgw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
-| [APPGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#appgw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
-=======
+| [AGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#agw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
+| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
+| [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
+| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
+| [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | No |
+| [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
+| [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | No |
+| [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
+| [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
 
 {{< /table >}}
-
+========
 {{< alert style="info" >}}
 
 Definitions of states can be found [here]({{< ref "../../../_index.md#definitions-of-terms-used-in-aprl">}})
@@ -239,7 +236,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 <br><br>
 
-### APPGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
+### AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
 
 **Impact: High**
 
@@ -254,6 +251,6 @@ Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances.
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/appgw-1/appgw-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-1/agw-9.kql" >}} {{< /code >}}
 {{< /collapse >}}
 <br><br>
