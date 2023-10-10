@@ -4,4 +4,4 @@ resources
 | where type == "microsoft.compute/virtualmachinescalesets"
 | extend VMSSName = name
 | extend ImageReference = tostring(properties.virtualMachineProfile.storageProfile.imageReference.version)
-| project VMSSName, ImageReference
+| project recommendationId="vmss-10",name,id, param1="ImageReference"
