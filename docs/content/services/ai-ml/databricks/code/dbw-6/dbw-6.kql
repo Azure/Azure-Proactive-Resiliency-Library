@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// Find all VMs that only have a single Disk
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where array_length(properties.storageProfile.dataDisks) < 1
+| project recommendationId = "dbw-6", name, id

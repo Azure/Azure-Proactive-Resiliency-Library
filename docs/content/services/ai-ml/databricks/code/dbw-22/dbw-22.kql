@@ -1,0 +1,15 @@
+// Azure Resource Graph Query
+// Find VMS that do not have maintenance configuration assigned
+Resources
+| extend resourceId = tolower(id)
+| project name, location, type, id, resourceId, properties
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| join kind=leftouter (
+maintenanceresources
+| where type =~ "microsoft.maintenance/configurationassignments"
+| project planName = name, type, maintenanceProps = properties
+| extend resourceId = tostring(maintenanceProps.resourceId)
+) on resourceId
+| where isnull(maintenanceProps)
+| project recommendationId = "dbw-22",name, id
+| order by id asc

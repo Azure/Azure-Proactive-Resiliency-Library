@@ -1,0 +1,14 @@
+// Azure Resource Graph Query
+// Find all VMs with Accelerated Networking Enabled - GuestOS admins should validate the drivers for these VMs. This is not an indication of an issue as the query does not have access to the GuestOS.
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| project name, id, nicName = tostring(split(tostring(nic.id), '/')[8])
+| join kind=inner (
+    Resources
+    | where type =~ 'Microsoft.Network/networkInterfaces'
+    | where properties.enableAcceleratedNetworking == true
+    | project nicName = tostring(split(tostring(id), '/')[8])
+) on nicName
+| project recommendationId = "dbw-11", name, id
+| order by id asc
