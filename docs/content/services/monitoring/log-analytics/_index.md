@@ -143,7 +143,6 @@ A health status alert will proactively notify you if a workspace becomes unavail
 
  For long-term storage, it might be necessary to move logs from Azure Monitor to a more cost-effective storage solution, such as Azure Blob Storage. This allows you to keep logs for an extended period of time without incurring high costs.
 
-
 **Resources**
 
 - [Data retention and archive in Azure Monitor Logs](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2)
