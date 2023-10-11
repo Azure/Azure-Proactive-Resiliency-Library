@@ -1,16 +1,1 @@
-// Azure Resource Graph Query
-// Find all DBW NICs that have an NSG durectly associated with them
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| where isnotnull(properties.networkProfile.networkInterfaces)
-| mv-expand nic=properties.networkProfile.networkInterfaces
-| project name, id, nicId = nic.id
-| extend nicId = tostring(nicId)
-| join kind=inner (
-    Resources
-    | where type =~ 'Microsoft.Network/networkInterfaces'
-    | where isnotnull(properties.networkSecurityGroup)
-    | project nicId = tostring(id)
-) on nicId
-| project recommendationId = "dbw-13", name, id
-| order by id asc
+// under-development

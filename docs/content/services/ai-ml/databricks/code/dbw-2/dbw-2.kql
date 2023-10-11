@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Find all VMs that are not assigned to a Zone
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| where isnull(zones)
-| project recommendationId = "dbw-2", name, id, param1="Zones: No Zone"
+// under-development

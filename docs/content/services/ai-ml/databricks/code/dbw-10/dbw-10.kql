@@ -1,15 +1,1 @@
-// Azure Resource Graph Query
-// Find all DBW NICs that do not have Accelerated Networking enabled
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| mv-expand nic=properties.networkProfile.networkInterfaces
-| project name, id, nicName = tostring(split(tostring(nic.id), '/')[8])
-| join kind=inner (
-    Resources
-    | where type =~ 'Microsoft.Network/networkInterfaces'
-    | where properties.enableAcceleratedNetworking == false
-    | project nicName = tostring(split(tostring(id), '/')[8])
-) on nicName
-| summarize NicNames = make_set(nicName) by name, id
-| project recommendationId = "dbw-10", name, id, param1=NicNames
-| order by id asc
+// under-development

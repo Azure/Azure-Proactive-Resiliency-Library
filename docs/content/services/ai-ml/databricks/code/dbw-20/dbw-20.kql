@@ -1,18 +1,1 @@
-// Azure Resource Graph Query
-// Find all VMs that do not have the DBW Insights extension installed
-resources
-| where type == 'microsoft.compute/virtualmachines'
-| extend
-    JoinID = toupper(id),
-    vmName = name,
-    OSType = tostring(properties.storageProfile.osDisk.osType)
-| join kind=leftouter(
-    resources
-    | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend
-        VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
-        ExtensionName = name
-) on $left.JoinID == $right.VMId
-| where ExtensionName !contains "MicrosoftMonitoringAgent" and ExtensionName !contains "Microsoft.Azure.Monitoring.DependencyAgent" and ExtensionName !contains "OMSAgentForLinux" and ExtensionName !contains "DependencyAgentLinux"
-| summarize param2 = strcat ("Extensions: ", make_list(ExtensionName)) by recommendationId="dbw-20", name=vmName, id, param1=OSType
-| order by tolower(name) asc
+// under-development

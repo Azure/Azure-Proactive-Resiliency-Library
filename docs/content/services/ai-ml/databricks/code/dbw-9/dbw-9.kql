@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Find all VMs that are NOT running
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| where properties.extended.instanceView.powerState.displayStatus != 'DBW running'
-| project recommendationId = "dbw-9", name, id
+// under-development
