@@ -145,7 +145,7 @@ hugo new --kind service-bundle services/compute/virtual-machines
 {{< /code >}}
 4. Open `_index.md` in VS Code and make relevant changes
     - You can copy the recommendations labelled `CM-1` or `CM-2` multiple times to create more recommendations
-5. Update the ARG, PowerShell, AZCLI scripts in the `code` folder within `virtual-machines`
+5. Update Azure Resource Graph queries, PowerShell, AZCLI scripts in the `code` folder within `virtual-machines`
     - You will see there is a folder, e.g. `cm-1`, `cm-2`, per recommendation to help with file structure organization
 6. Ensure you use the correct Azure resource abbreviations provided within our Cloud Adoption Framework (CAF) documentation [here](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations). For example, use `vm` for Virtual Machines.
 7. Save, commit and push your changes to your branch and repo
@@ -154,6 +154,33 @@ hugo new --kind service-bundle services/compute/virtual-machines
 
 {{< alert style="success" >}}
 Don't forget you can see your changes live by running a local copy of the APRL website by following the guidance [here.](#run-and-access-a-local-copy-of-aprl-during-development)
+{{< /alert >}}
+
+## Automation Standards for Recommendations
+
+When creating recommendations for a service, please follow the below standards:
+
+### Azure Resource Graph (ARG) Queries
+
+1. ARG query columns name returned should only include the following:
+  | Column Name | Required | Example | Description |
+  |:---:|:---:|:---:|:---:|
+  | recommendationId | Yes | aks-1 | The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number. |
+  | name | Yes | test-aks | The resource name of the Azure resource that does not adher to the APRL recommendation. |
+  | id | Yes | /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-resource-group/providers/Microsoft.ContainerService/managedClusters/test-aks | The resource ID of the Azure resource that does not adhere to the APRL recommendation. |
+  | tags | No | {"Environment":"Test","Department":"IT"} | Any relevant tags associated to the resource that does not adhere to the APRL recommendation. |
+  | param1 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+  | param2 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+  | param3 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+  | param4 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+  | param5 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+
+1. If the ARG query is under development, the query should have a single line stating: `// under-development`
+
+1. If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: `// cannot-be-validated-with-arg`
+
+{{< alert style="info" >}}
+If you need support with validating a query, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
 {{< /alert >}}
 
 ## Updating a Service's Recommendation Page
