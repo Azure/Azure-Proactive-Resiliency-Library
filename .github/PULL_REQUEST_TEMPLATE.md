@@ -3,6 +3,13 @@
 
 Replace this with a brief description of what this Pull Request fixes, changes, etc.
 
+## Related Issues/Work Items
+
+Replace this with a list of related GitHub Issues and/or ADO Work Items (Internal Only)
+
+- To associate a GitHub Issue, use a [key word](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) preceded with the GitHub issue number.
+- To associate an ADO Work Item, use the key word `AB#` succeeded with the [ADO Work Item ID](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
+
 ## This PR fixes/adds/changes/removes
 
 1. *Replace me*
