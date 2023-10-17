@@ -23,6 +23,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                     |  Medium | Preview |         Yes         |
 | [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                             |  High   | Preview |         Yes         |
 | [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated)                                                                           |  Low    | Preview |         No          |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -261,3 +262,4 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 {{< /collapse >}}
 
 <br><br>
+
