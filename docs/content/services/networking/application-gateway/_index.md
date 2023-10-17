@@ -18,13 +18,13 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | Yes |
 | [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
 | [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | Yes |
-| [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | Yes |
+| [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                       |  Medium  | Preview  | No |
 | [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                   |  Medium  | Preview  | Yes |
-| [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | Yes |
+| [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | No |
 | [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
+| [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
 
 {{< /table >}}
-
 {{< alert style="info" >}}
 
 Definitions of states can be found [here]({{< ref "../../../_index.md#definitions-of-terms-used-in-aprl">}})
@@ -227,11 +227,29 @@ Plan for backend maintenance by using connection draining. Connection draining h
 - [Application Gateway Connection Draining HTTP Settings](https://learn.microsoft.com/azure/application-gateway/configuration-http-settings#connection-draining)
 
 **Resource Graph Query/Scripts**
-
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/agw-8/agw-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
+<br><br>
+
+### AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
+
+**Impact: High**
+
+**Recommendation/Guidance**
+
+Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances. Although a /24 subnet isn't required per Application Gateway v2 SKU deployment, it is highly recommended. This is to ensure that Application Gateway v2 has sufficient space for autoscaling expansion and maintenance upgrades.
+
+**Resources**
+
+- [Azure Application Gateway infrastructure configuration | Microsoft Learn](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#size-of-the-subnet)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+{{< code lang="sql" file="code/agw-1/agw-9.kql" >}} {{< /code >}}
+{{< /collapse >}}
 <br><br>
