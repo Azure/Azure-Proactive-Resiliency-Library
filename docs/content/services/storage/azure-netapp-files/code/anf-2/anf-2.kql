@@ -1,1 +1,6 @@
-// Not available. The validation for this recommendation cannot be achieved with an Azure Resource Graph query.
+// under-development
+// This Resource Graph query will return all NetApp Volumes without AVzone defined.
+resources
+| where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+| where zones == "[]"
+| project recommendationId = "ANF-2", name, id, tags, param1='', param2='', param3='', param4='', param5=''
