@@ -227,6 +227,7 @@ When you create your VMSS, use availability zones to protect your applications a
 **Resources**
 
 - [Create a Virtual Machine Scale Set that uses Availability Zones](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones)
+- [Update scale set to add availability zones](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones?tabs=cli-1%2Cportal-2#update-scale-set-to-add-availability-zones)
 
 **Resource Graph Query/Scripts**
 
