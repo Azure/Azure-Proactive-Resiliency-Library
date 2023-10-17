@@ -9,6 +9,6 @@ resources
     | where tostring(properties.targetResourceUri) contains "Microsoft.Compute/virtualMachineScaleSets"
     | project id = tostring(properties.targetResourceUri), autoscalesettings = properties
 ) on id
-| where isnull(autoscalesettings) or autoscalesettings.enabled == "disabled" and autoscalesettings.predictiveAutoscalePolicy.scaleMode == "Disabled"
+| where autoscalesettings.enabled == "true" and autoscalesettings.predictiveAutoscalePolicy.scaleMode == "Disabled"
 | project recommendationId = "vmss-5", name, id, param1 = "predictiveAutoscalePolicy_scaleMode: Disabled"
 | order by id asc
