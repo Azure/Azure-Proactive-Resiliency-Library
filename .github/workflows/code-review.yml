@@ -34,7 +34,7 @@
             VALIDATE_YAML: true
             VALIDATE_BASH: true
             VALIDATE_EDITORCONFIG: true
-            FILTER_REGEX_EXCLUDE: ".*docs/themes/ace-documentation/.*|.*opensource/.*"
+            FILTER_REGEX_EXCLUDE: ".*docs/themes/ace-documentation/.*"
 
     markdown-link-check:
       name: Markdown Link Check
