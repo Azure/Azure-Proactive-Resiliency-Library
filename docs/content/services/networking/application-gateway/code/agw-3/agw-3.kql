@@ -2,6 +2,7 @@
 // This query will return all Application Gateways that do not have WAF enabled
 Resources
 | where type =~ "microsoft.network/applicationGateways"
-| where isnull(properties.webApplicationFirewallConfiguration)
+| where properties.firewallpolicy != ""
 | project recommendationId = "agw-3", name, id, param1 = "webApplicationFirewallConfiguration: isNull"
 | order by id asc
+
