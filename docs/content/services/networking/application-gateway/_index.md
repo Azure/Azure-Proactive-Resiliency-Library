@@ -25,7 +25,6 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
 
 {{< /table >}}
-========
 {{< alert style="info" >}}
 
 Definitions of states can be found [here]({{< ref "../../../_index.md#definitions-of-terms-used-in-aprl">}})
