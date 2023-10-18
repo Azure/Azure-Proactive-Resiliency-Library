@@ -1,4 +1,5 @@
 Resources
 | where type =~ 'Microsoft.Network/virtualNetworkGateways'
 | extend gatewayType = properties.gatewayType, vpnType = properties.vpnType, connections = properties.connections, activeactive=properties.activeActive
-|  project recommendationId = "vpn-2",  name,type,location, gatewayType,vpnType,activeactive
+| where activeactive == false
+| project recommendationId = "vpn-2",  name,id, tags, param1=strcat("managedBy: ", managedBy), type,location, gatewayType,vpnType,activeactive
