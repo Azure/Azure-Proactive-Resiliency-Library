@@ -1,0 +1,19 @@
+// Azure Resource Graph Query
+// Find all LoadBalancers with with regional or zonal public IP Addresses
+resources
+| where type == "microsoft.network/loadbalancers"
+| where tolower(sku.name) != 'basic'
+| mv-expand feIPconfigs = properties.frontendIPConfigurations
+| extend
+    PIPid = toupper(feIPconfigs.properties.publicIPAddress.id),
+    JoinID = toupper(id)
+| join kind=leftouter (
+    resources
+    | where type == "microsoft.network/publicipaddresses"
+    | where isnull(zones) or array_length(zones) < 2
+    | extend
+        LBid = toupper(substring(properties.ipConfiguration.id, 0, indexof(properties.ipConfiguration.id, '/frontendIPConfigurations'))),
+        InnerID = toupper(id)
+) on $left.JoinID == $right.LBid
+| distinct name, name1, id, id1
+| project recommendationId = "lb-4", name, id, param1="Zones: No Zone or Zonal", param2=strcat("PIP id:", " ", id1)
