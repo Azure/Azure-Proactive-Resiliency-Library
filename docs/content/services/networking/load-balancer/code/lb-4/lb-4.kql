@@ -5,15 +5,29 @@ resources
 | where tolower(sku.name) != 'basic'
 | mv-expand feIPconfigs = properties.frontendIPConfigurations
 | extend
+    feConfigName = (feIPconfigs.name),
+    PrivateSubnetId = toupper(feIPconfigs.properties.subnet.id),
+    PrivateIPZones = feIPconfigs.zones,
     PIPid = toupper(feIPconfigs.properties.publicIPAddress.id),
     JoinID = toupper(id)
-| join kind=leftouter (
-    resources
-    | where type == "microsoft.network/publicipaddresses"
-    | where isnull(zones) or array_length(zones) < 2
+| where isnotempty(PrivateSubnetId)
+| where isnull(PrivateIPZones) or array_length(PrivateIPZones) < 2
+| project name, feConfigName, id
+| union (resources
+    | where type == "microsoft.network/loadbalancers"
+    | where tolower(sku.name) != 'basic'
+    | mv-expand feIPconfigs = properties.frontendIPConfigurations
     | extend
-        LBid = toupper(substring(properties.ipConfiguration.id, 0, indexof(properties.ipConfiguration.id, '/frontendIPConfigurations'))),
-        InnerID = toupper(id)
-) on $left.JoinID == $right.LBid
-| distinct name, name1, id, id1
-| project recommendationId = "lb-4", name, id, param1="Zones: No Zone or Zonal", param2=strcat("PIP id:", " ", id1)
+        feConfigName = (feIPconfigs.name),
+        PIPid = toupper(feIPconfigs.properties.publicIPAddress.id),
+        JoinID = toupper(id)
+    | where isnotempty(PIPid)
+    | join kind=innerunique (
+        resources
+        | where type == "microsoft.network/publicipaddresses"
+        | where isnull(zones) or array_length(zones) < 2
+        | extend
+            LBid = toupper(substring(properties.ipConfiguration.id, 0, indexof(properties.ipConfiguration.id, '/frontendIPConfigurations'))),
+            InnerID = toupper(id)
+    ) on $left.PIPid == $right.InnerID)
+| project recommendationId = "lb-4", name, id, param1="Zones: No Zone or Zonal", param2=strcat("Frontend IP Configuration:", " ", feConfigName)
