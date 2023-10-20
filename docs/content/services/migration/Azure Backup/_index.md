@@ -28,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Recovery services vaults
 
-**Category: Availability**
+**Category: Monitoring**
 
 **Impact: Medium**
 
