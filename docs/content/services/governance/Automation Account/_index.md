@@ -26,7 +26,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AA-1 - Set up disaster recovery of Automation accounts and its dependent resources 
+### AA-1 - Set up disaster recovery of Automation accounts and its dependent resources
 
 **Category: Availability**
 
