@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Automation acc
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Impact  |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [AA-1 - Set up disaster recovery of Automation accounts and its dependent resources ](#aa-1---set-up-disaster-recovery-of-automation-accounts-and-its-dependent-resources) | High | Preview  |         No         |
+| [AA-1 - Set up disaster recovery of Automation accounts and its dependent resources](#aa-1---set-up-disaster-recovery-of-automation-accounts-and-its-dependent-resources) | High | Preview  |         No         |
 
 {{< /table >}}
 
