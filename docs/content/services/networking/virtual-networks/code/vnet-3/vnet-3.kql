@@ -5,4 +5,4 @@ resources
 | mv-expand subnets = properties.subnets
 | extend se = string_size(subnets.properties.serviceEndpoints)
 | where se >= 1
-| project recommendationId = "vnet-3", name, id, subnets.name, Param1="ServiceEndpoints: true"
+| project recommendationId = "vnet-3", name, id, tags, subnets.name, Param1="ServiceEndpoints: true"
