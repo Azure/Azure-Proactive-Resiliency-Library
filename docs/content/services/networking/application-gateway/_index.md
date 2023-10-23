@@ -23,7 +23,6 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                 |  High    | Preview  | No |
 | [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining) |  Medium  | Preview  | Yes |
 | [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask)                       |  High    | Preview  | Yes |
-
 {{< /table >}}
 {{< alert style="info" >}}
 
@@ -235,7 +234,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 <br><br>
 
-### AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
+### agw-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
 
 **Impact: High**
 
