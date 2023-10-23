@@ -1,3 +1,5 @@
 // Find VPN Gateway that have been deployed as non-zonal/noo-zone-redundant resources
 Resources
-| where type == 'microsoft.network/VPN-gateway' and zones != ""
+| where type =~ 'Microsoft.Network/virtualNetworkGateways'
+| where  isnull(zones)==true
+| project recommendationId = "vpng-1", name, id, tags, param1=strcat("managedBy: ", managedBy)
