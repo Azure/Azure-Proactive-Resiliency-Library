@@ -19,6 +19,7 @@ The presented resiliency recommendations in this guidance include Key Vault and 
 | [KV-3 - Enable Azure Private Link Service for Key vault](#kv-3---enable-azure-private-link-service-for-key-vault) | High | Preview |         Yes          |
 | [KV-4 - Use separate key vaults per application per environment](#kv-4---use-separate-key-vaults-per-application-per-environment) | High | Preview |   No          |
 | [KV-5 - Diagnostic logs in Key Vault should be enabled](#kv-5---diagnostic-logs-in-key-vault-should-be-enabled) | Low | Preview |         no          |
+| [KV-6 - Enable Firewall on Key Vault](#kv-6---enable-firewall-on-key-vault) | Low | Preview |         no          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -148,3 +149,25 @@ Enable logs , set up alerts and retain them as per the retention requirement. Th
 {{< /collapse >}}
 
 <br><br>
+
+### KV-6 - Enable Firewall on Key Vault
+
+**Category: Governance**
+
+**Impact: High**
+
+**Guidance**
+
+Key vault's firewall prevents unauthorized traffic from reaching your key vault and provides an additional layer of protection for your secrets. Enable the firewall to make sure that only traffic from allowed networks can access your key vault.
+
+**Resources**
+
+- [Configure Azure Key Vault Firewall and Virtual Networks](https://learn.microsoft.com/en-us/azure/key-vault/general/network-security)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/kv-6/kv-6.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
