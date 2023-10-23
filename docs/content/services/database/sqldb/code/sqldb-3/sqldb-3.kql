@@ -1,4 +1,5 @@
 Resources
 | where type =~ 'microsoft.sql/servers/databases'
 | where tolower(tostring(properties.zoneRedundant))=~'false'
-|project databaseId = id, databaseName = name, IszoneRedundant = tolower(tostring(properties.zoneRedundant)), recommendationId = "SQLDB-3"
+|project recommendationId = "SQLDB-3", name, id
+
