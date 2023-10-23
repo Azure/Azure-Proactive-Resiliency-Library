@@ -2,4 +2,4 @@
 resources
 | where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
 | where zones == "[]"
-| project recommendationId = "ANF-2", name, id, tags, param1='', param2='', param3='', param4='', param5=''
+| project recommendationId = "ANF-2", name, id, tags
