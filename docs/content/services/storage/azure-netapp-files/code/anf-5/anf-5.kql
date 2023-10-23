@@ -3,7 +3,7 @@ resources
 | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
 | extend NetAC0 = tostring(split(name,'/')[0])
 | join kind=leftouter (resources
-    | where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+    | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
     | extend NetAC1 = tostring(split(name,'/')[0])
     | project id,NetAC1,remid=tostring(properties.dataProtection.replication.remoteVolumeResourceId)) on $left.id == $right.remid
 | where properties.volumeType != 'DataProtection' and NetAC0 != NetAC1
