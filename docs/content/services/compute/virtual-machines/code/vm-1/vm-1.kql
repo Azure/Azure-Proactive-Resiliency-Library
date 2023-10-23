@@ -1,15 +1,1 @@
-// Azure Resource Graph Query
-// Find single VMs per ResourceGroup and/or with unique naming convention.
-// Customize the query to meet your naming standards, replace the "5" (prefix) with the number of characters you want to compare (name, 0, 5)
-resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| extend vmPrefix = substring(name, 0, 5)
-| project resourceGroup, vmPrefix, name, id
-| summarize VMCount = count() by resourceGroup, vmPrefix
-| where VMCount == 1
-| join kind=leftouter (
-    resources
-    | where type =~ 'Microsoft.Compute/virtualMachines'
-    | project resourceGroup, name, id
-)on resourceGroup
-| project  recommendationId = "vm-1", name, id, param1=resourceGroup
+// under-development

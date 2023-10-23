@@ -1,7 +1,7 @@
 +++
 title = "Load Balancer"
 description = "Best practices and resiliency recommendations for Load Balancer and associated resources."
-date = "4/12/23"
+date = "10/19/23"
 author = "lachaves"
 msAuthor = "luchaves"
 draft = false
@@ -14,11 +14,12 @@ The presented resiliency recommendations in this guidance include Load Balancer 
 The below table shows the list of resiliency recommendations for Load Balancer and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [LB-1 - Use Standard Load Balancer SKU](#lb-1---use-standard-load-balancer-sku) | Preview  |         Yes         |
-| [LB-2 - Ensure the Backend Pool contains at least two instances](#lb-2---ensure-the-backend-pool-contains-at-least-two-instances) | Preview |         Yes          |
-| [LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads](#lb-3---use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | Preview |         Yes          |
+| Recommendation                                    |  Impact  |  State   | ARG Query Available |
+| :------------------------------------------------ | :------: | :------: | :-----------------: |
+| [LB-1 - Use Standard Load Balancer SKU](#lb-1---use-standard-load-balancer-sku) | High | Preview  |  Yes         |
+| [LB-2 - Ensure the Backend Pool contains at least two instances](#lb-2---ensure-the-backend-pool-contains-at-least-two-instances) | High | Preview |   Yes          |
+| [LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads](#lb-3---use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | Medium | Preview |    Yes          |
+| [LB-4 - Ensure Standard Load Balancer is zone-redundant](#lb-4---ensure-standard-load-balancer-is-zone-redundant) | High | Preview | Yes |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -91,6 +92,28 @@ Outbound rules ensure that you are not faced with connection failures as a resul
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/lb-3/lb-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### LB-4 - Ensure Standard Load Balancer is zone-redundant
+
+**Impact: High**
+
+**Guidance**
+
+ In a region with Availability Zones, a Standard Load Balancer can be zone-redundant with traffic served by a single IP address. A single frontend IP address survives zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members no matter the zone. Up to one availability zone can fail and the data path survives as long as the remaining zones in the region remain healthy.
+
+**Resources**
+
+- [Load Balancer and Availability Zones](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones#zone-redundant)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/lb-4/lb-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
