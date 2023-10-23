@@ -11,5 +11,5 @@ resources
     ) on registryId
 | project-away registryId1, replicationId
 | where isempty(replicationRegion)
-| project recommendationId = "vm-1", name=registryName, id=registryId
+| project recommendationId = "cr-3", name=registryName, id=registryId
 | order by id asc

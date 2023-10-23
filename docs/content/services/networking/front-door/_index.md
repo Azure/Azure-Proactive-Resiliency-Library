@@ -47,7 +47,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 For most solutions, you should use either Front Door or Azure Traffic Manager, but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
@@ -75,7 +75,7 @@ However, as part of a complex architecture, you might choose to use Traffic Mana
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Front Door's features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn't been sent through Front Door.
 
@@ -89,7 +89,7 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.
 
@@ -105,7 +105,7 @@ When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Front Door tracks extensive telemetry about every request. When you enable caching, your origin servers might not receive every request, so it's important that you use the Front Door logs to understand how your solution is running and responding to your clients.
 
@@ -121,7 +121,7 @@ Front Door tracks extensive telemetry about every request. When you enable cachi
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each point of presence (PoP) to the origin. It's a good practice to secure each of these connections with TLS, even for origins that are hosted in Azure. This approach ensures that your data is always encrypted during transit.
 
@@ -135,7 +135,7 @@ Front Door terminates TCP and TLS connections from clients. It then establishes 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 It's a good practice for clients to use HTTPS to connect to your service. However, sometimes you need to accept HTTP requests to allow for older clients or clients who might not understand the best practice.
 
@@ -151,7 +151,7 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates the managed TLS certificates.
 
@@ -165,7 +165,7 @@ When Front Door manages your TLS certificates, it reduces your operational costs
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 If you decide to use your own TLS certificates, then consider setting the Key Vault certificate version to 'Latest'. By using 'Latest', you avoid having to reconfigure Front Door to use new versions of your certificate and waiting for the certificate to be deployed throughout Front Door's environments.
 
@@ -179,7 +179,7 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Front Door can rewrite the Host header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. This feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the Host header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like session affinity and authentication and authorization might not work correctly.
 
@@ -195,7 +195,7 @@ Before you rewrite the Host header of your requests, carefully consider whether 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a wide range of attacks.
 
@@ -217,7 +217,7 @@ For internet-facing applications, we recommend you enable the Front Door web app
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 The WAF for Front Door has its own set of best practices for its configuration and use.
 
@@ -239,7 +239,7 @@ The WAF for Front Door has its own set of best practices for its configuration a
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Front Door's health probes are designed to detect situations where an origin is unavailable or unhealthy. When a health probe detects a problem with an origin, Front Door can be configured to send traffic to another origin in the origin group.
 
@@ -255,7 +255,7 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Consider the location where you tell Front Door's health probe to monitor. It's usually a good idea to monitor a webpage or location that you specifically design for health monitoring. Your application logic can consider the status of all of the critical components required to serve production traffic including application servers, databases, and caches. That way, if any component fails, Front Door can route your traffic to another instance of your service
 
@@ -269,7 +269,7 @@ Consider the location where you tell Front Door's health probe to monitor. It's 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Health probes can use either the GET or HEAD HTTP method. It's a good practice to use the HEAD method for health probes, which reduces the amount of traffic load on your origins.
 
@@ -283,7 +283,7 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Lock down Application Gateway to receive traffic only from Azure Front Door when using Azure Front Door and Application Gateway to protect HTTP/S applications.
 Certain scenarios can force a customer to implement rules specifically on AppGateway: For example, if ModSec Core Rule Set (CRS) 2.2.9, CRS 3.0, or CRS 3.1 rules are required, rules can be only implemented on AppGatway. Rate-limiting and geo-filtering are available only on Azure Front Door, not on AppGateway.
@@ -298,7 +298,7 @@ Certain scenarios can force a customer to implement rules specifically on AppGat
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 By default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions.
 
@@ -315,7 +315,7 @@ For a geo filtering rule, a match variable is either RemoteAddr or SocketAddr. R
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure Private Link enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet.
 

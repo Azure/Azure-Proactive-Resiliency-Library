@@ -31,9 +31,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ERG-1 - Use Zone-redundant gateway SKUs
 
+**Category: Availability**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Azure ExpressRoute gateway provides different SLAs when it’s deployed in a single availability zone and when it’s deployed in two or more availability zones. For information about all Azure SLAs, see SLA summary for Azure services. To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure
 
@@ -55,9 +57,11 @@ Azure ExpressRoute gateway provides different SLAs when it’s deployed in a sin
 
 ### ERG-2 - Monitor gateway health
 
+**Category: Monitoring**
+
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Set up monitoring and alerts for Virtual Network Gateway health based on various metrics available.
 
@@ -78,9 +82,11 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 ### ERG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits
 
+**Category: Networking**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 By default, connectivity between virtual networks are enabled when you link multiple virtual networks to the same ExpressRoute circuit. However, Microsoft advises against using your ExpressRoute circuit for communication between virtual networks and instead uses VNet peering. For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see connectivity between virtual networks over ExpressRoute.
 
@@ -100,9 +106,11 @@ By default, connectivity between virtual networks are enabled when you link mult
 
 ### ERG-4 - Configure ExpressRoute Gateways in different regions
 
+**Category: Disaster Recovery**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When multiple Azure regions are in use, increase resilience by configuring ExpressRoute gateways in each region, along with corresponding ExpressRoute circuits.
 

@@ -23,6 +23,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                     |  Medium | Preview |         Yes         |
 | [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                             |  High   | Preview |         Yes         |
 | [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated)                                                                           |  Low    | Preview |         No          |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -35,9 +36,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### VMSS-1 - Deploy VMSS with Flex orchestration mode instead of Uniform
 
+**Category: System Efficiency**
+
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Even single instance VMs should be deployed into a scale set using the Flexible orchestration mode to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone.
 
@@ -62,7 +65,7 @@ Even single instance VMs should be deployed into a scale set using the Flexible 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for Rolling Upgrades including Automatic OS-Image Upgrades and Automatic VM Guest Patching, which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using Automatic Instance Repairs.
 
@@ -86,7 +89,7 @@ Monitoring your application health is an important signal for managing and upgra
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enabling automatic instance repairs for Azure Virtual Machine Scale Sets helps achieve high availability for applications by maintaining a set of healthy instances. The Application Health extension or Load balancer health probes may find that an instance is unhealthy. Automatic instance repairs will automatically perform instance repairs by deleting the unhealthy instance and creating a new one to replace it.
 
@@ -139,7 +142,7 @@ Autoscale is a built-in feature that helps applications perform their best when 
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
 
@@ -163,7 +166,7 @@ Predictive autoscale uses machine learning to help manage and scale Azure Virtua
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Microsoft recommends disabling the setting that enforces strictly even distribution of VM instances across Availability Zones within a region in your VMSS configuration. In other words, you should allow Azure to distribute VM instances unevenly across Availability Zones.
 
@@ -193,7 +196,7 @@ While Azure VMSS provides the option to enforce even distribution of VM instance
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 With max spreading, the scale set spreads your VMs across as many fault domains as possible within each zone. This spreading could be across greater or fewer than five fault domains per zone. With static fixed spreading, the scale set spreads your VMs across exactly five fault domains per zone. If the scale set cannot find five distinct fault domains per zone to satisfy the allocation request, the request fails.
 
@@ -217,13 +220,14 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When you create your VMSS, use availability zones to protect your applications and data against unlikely datacenter failure.
 
 **Resources**
 
 - [Create a Virtual Machine Scale Set that uses Availability Zones](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones)
+- [Update scale set to add availability zones](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones?tabs=cli-1%2Cportal-2#update-scale-set-to-add-availability-zones)
 
 **Resource Graph Query/Scripts**
 
@@ -241,7 +245,7 @@ When you create your VMSS, use availability zones to protect your applications a
 
 **Impact: Low**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
 
@@ -258,3 +262,4 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 {{< /collapse >}}
 
 <br><br>
+

@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 A private endpoint has two custom properties, static IP address and the network interface name. These properties must be set when the private endpoint is created. I the state is not in Succeeded state, there might be a problem with the private endpoint or with the associated resource.
 

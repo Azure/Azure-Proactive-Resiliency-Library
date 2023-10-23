@@ -39,7 +39,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 To improve high availability, it's recommended to operate both the connections of an ExpressRoute circuit in active-active mode. If you let the connections operate in active-active mode, Microsoft network will load balance the traffic across the connections on per-flow basis.
 
@@ -61,7 +61,7 @@ To improve high availability, it's recommended to operate both the connections o
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 For better resiliency, plan to have multiple paths between the on-premises edge and the peering locations (provider/Microsoft edge locations). This configuration can be achieved by going through different service provider or through a different location from the on-premises network.
 
@@ -83,7 +83,7 @@ For better resiliency, plan to have multiple paths between the on-premises edge 
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Never terminate primary and secondary connections on the same customer end router. This creates a single point of failure.
 
@@ -105,7 +105,7 @@ Never terminate primary and secondary connections on the same customer end route
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Don’t configure both Primary and secondary connections via same port. This creates a single point of failure.
 
@@ -127,7 +127,7 @@ Don’t configure both Primary and secondary connections via same port. This cre
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
 
@@ -149,7 +149,7 @@ ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 ExpressRoute uses service health to notify about planned and unplanned maintenance. Configuring service health will notify you about changes made to your ExpressRoute circuits.
 
@@ -171,7 +171,7 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 
 **Impact: High**
 
-**Recommendation/Guidance**
+**Guidance**
 
 When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). You can configure ExpressRoute over your edge routing devices or your Partner Edge routing devices (if you went with managed Layer 3 connection service).
 
@@ -193,7 +193,7 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network for cross premises resiliency
 
@@ -215,7 +215,7 @@ Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network f
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Consider using site-to-site VPN as a failover when an ExpressRoute circuit becomes unavailable.
 

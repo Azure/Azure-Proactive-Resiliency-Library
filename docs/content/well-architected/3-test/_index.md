@@ -17,10 +17,11 @@ Before deploying the system, comprehensive tests are conducted to validate the d
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                  |  Category              |  Impact  |  State     | ARG Query Available |
 | :---------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------: | :------: | :------:   | :-----------------: |
-| [WATS-1 - Test your applications for availability and resiliency](#wats-1---test-your-applications-for-availability-and-resiliency)             | Application Resilience | Medium   |  Verified  |         No          |
+| [WATS-1 - Test your applications for availability and resiliency](#wats-1---test-your-applications-for-availability-and-resiliency)             | Application Resilience | High   |  Verified  |         No          |
 | [WATS-2 - Consider building logic into your workload to handle errors](#wats-2---consider-building-logic-into-your-workload-to-handle-errors)   | Application Resilience | High     |  Verified  |         No          |
-| [WATS-3 - Perform disaster recovery tests reguarly](#wats-3---perform-disaster-recovery-tests-reguarly)                                         | Disaster Recovery      | Medium   |  Verified  |         No          |
+| [WATS-3 - Perform disaster recovery tests regularly](#wats-3---perform-disaster-recovery-tests-regularly)                                         | Disaster Recovery      | Medium   |  Verified  |         No          |
 | [WATS-4 - Use chaos engineering to test Azure applications](#wats-4---use-chaos-engineering-to-test-azure-applications)                         | Application Resilience | Medium   |  Verified  |         No          |
+| [WATS-5 - Test application fault resiliency](#wats-5---test-application-fault-resiliency)                         | Application Resilience | High   |  Verified  |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -35,7 +36,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Category: Application Resilience**
 
-**Impact: Medium**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -85,7 +86,7 @@ Key points:
 
 <br><br>
 
-### WATS-3 - Perform disaster recovery tests reguarly
+### WATS-3 - Perform disaster recovery tests regularly
 
 **Category: Disaster Recovery**
 
@@ -132,5 +133,23 @@ Apply chaos engineering principles when you:
 **Resources**
 
 - [Use chaos engineering to test Azure applications](https://learn.microsoft.com/azure/well-architected/resiliency/chaos-engineering)
+
+<br><br>
+
+### WATS-5 - Test application fault resiliency
+
+**Category: Application Resilience**
+
+**Impact: High**
+
+**Guidance**
+
+High availability is a fundamental part of the SQL Database platform that works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events would impact an application before you deploy it to production. You can manually trigger a failover by calling a special API to restart a database, or an elastic pool.
+
+In the case of a zone-redundant serverless or provisioned General Purpose database or elastic pool, the API call would result in redirecting client connections to the new primary in an Availability Zone different from the Availability Zone of the old primary. So in addition to testing how failover impacts existing database sessions, you can also verify if it changes the end-to-end performance due to changes in network latency. Because the restart operation is intrusive and a large number of them could stress the platform, only one failover call is allowed every 15 minutes for each database or elastic pool.
+
+**Resources**
+
+- [Test application fault resiliency](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#testing-application-fault-resiliency)
 
 <br><br>
