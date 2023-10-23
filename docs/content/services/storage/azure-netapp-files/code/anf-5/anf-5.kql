@@ -1,4 +1,3 @@
-// under-development
 // This Resource Graph query will return all NetApp Volumes without Cross-Zone Replication.
 resources
 | where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
