@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.keyvault/vaults"
 | where isnull(properties.privateEndpointConnections) or properties.privateEndpointConnections[0].properties.provisioningState != ("Succeeded")
-| project recommendationId = "kv-3", name, id, PrivatelinkEndpoint = "No Private Endpoint"
+| project recommendationId = "kv-3", name, id, tags, PrivatelinkEndpoint = "No Private Endpoint"
