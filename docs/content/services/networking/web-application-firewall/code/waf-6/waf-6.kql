@@ -1,4 +1,0 @@
-AzureDiagnostics
-| where Category == 'ApplicationGatewayFirewallLog'
-| where TimeGenerated > ago(1d)
-| where action_s == 'Block'
