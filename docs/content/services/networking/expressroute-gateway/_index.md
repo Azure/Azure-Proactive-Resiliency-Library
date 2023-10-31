@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Gateway"
 description = "Best practices and resiliency recommendations for ExpressRoute Gateway and associated resources."
-date = "4/18/23"
+date = "10/31/23"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -14,10 +14,10 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
-| [ERG-1 - Use Zone-redundant gateway SKUs](#erg-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
+| [ERG-1 - Use Zone-redundant gateway SKUs](#erg-1---use-zone-redundant-gateway-skus) | High | GA | Yes |
 | [ERG-2 - Monitor gateway health](#erg-2---monitor-gateway-health) | High | Preview | TBD |
 | [ERG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#erg-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | TBD |
-| [ERG-4 - Configure ExpressRoute Gateways in different regions](#erg-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | Yes |
+| [ERG-4 - Configure ExpressRoute Gateways in different regions](#erg-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | TBD |
 
 {{< /table >}}
 
