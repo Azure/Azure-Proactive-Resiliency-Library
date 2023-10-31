@@ -162,6 +162,13 @@ When creating recommendations for a service, please follow the below standards:
 
 ### Azure Resource Graph (ARG) Queries
 
+1. All ARG queries should have two comments at the top of the query, one comment stating  `Azure Resource Graph Query` and another comment providing a description of the query results returned. For example:
+
+    ```kql
+    // Azure Resource Graph Query
+    // Provides a list of Azure Container Registry resources that do not have soft delete enabled
+    ```
+
 1. ARG query columns name returned should only include the following:
   | Column Name | Required | Example | Description |
   |:---:|:---:|:---:|:---:|
