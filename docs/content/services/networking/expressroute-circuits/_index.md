@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Circuits"
 description = "Best practices and resiliency recommendations for ExpressRoute Circuits and associated resources."
-date = "4/28/23"
+date = "10/31/23"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -14,17 +14,17 @@ The presented resiliency recommendations in this guidance include ExpressRoute C
 The below table shows the list of resiliency recommendations for ExpressRoute Circuits and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation | State | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#erc-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | Preview | Yes |
-| [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | Preview | No |
-| [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | Preview | No |
-| [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | Preview | No |
-| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Preview | Yes |
-| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Preview | Yes |
-| [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | Preview | No |
-| [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Preview | TBD |
-| [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Preview | TBD |
+| Recommendation | Impact | State | ARG Query Available |
+| :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
+| [ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#erc-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | High | Preview | Yes |
+| [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | High | Preview | No |
+| [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | High | Preview | No |
+| [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | High | Preview | No |
+| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Medium | Preview | Yes |
+| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Medium | Preview | Yes |
+| [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | High | Preview | No |
+| [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Medium | Preview | TBD |
+| [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Medium | Preview | TBD |
 {{< /table >}}
 
 {{< alert style="info" >}}
