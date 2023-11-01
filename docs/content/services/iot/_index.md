@@ -1,11 +1,11 @@
 +++
-title = "IoT"
-description = "Internet of Things (IoT) Services"
-date = 2023-03-21T10:12:16Z
+title = "Internet of Things"
+description = "Internet of Things Services"
+date = 2023-10-21T10:12:16Z
 draft = false
 +++
 
-This page lists all of the Azure Services under the IoT category for which the APRL has guidance, recommendations and queries for.
+This page lists all of the Azure Services under the Internet of Things category for which the APRL has guidance, recommendations and queries for.
 
 ## Services List
 
