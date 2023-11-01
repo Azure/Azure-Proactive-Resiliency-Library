@@ -170,7 +170,12 @@ When creating recommendations for a service, please follow the below standards:
     ```
 
 1. ARG query columns name returned should only include the following:
-  | Column Name | Required | Example | Description |
+
+{{< alert style="info" >}}
+NOTE: The column names should be in the order they are listed and match exactly.
+{{< /alert >}}
+
+  | Column Name | Required | Information Returned (Example) | Description |
   |:---:|:---:|:---:|:---:|
   | recommendationId | Yes | aks-1 | The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number. |
   | name | Yes | test-aks | The resource name of the Azure resource that does not adher to the APRL recommendation. |
