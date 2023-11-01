@@ -1,11 +1,11 @@
 +++
-title = "Internet of Things"
-description = "Internet of Things Services"
-date = 2023-10-21T10:12:16Z
+title = "Governance"
+description = "Governance Services"
+date = 2023-10-11T10:12:16Z
 draft = false
 +++
 
-This page lists all of the Azure Services under the Internet of Things category for which the APRL has guidance, recommendations and queries for.
+This page lists all of the Azure Services under the Governance category for which the APRL has guidance, recommendations and queries for.
 
 ## Services List
 
