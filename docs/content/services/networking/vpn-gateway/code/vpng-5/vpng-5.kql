@@ -11,4 +11,4 @@ resources
   | project VPNgatewayId = tolower(id), name
 ) on VPNgatewayId
 |where isnull(monitoredMetrics)
-|project id=VPNgatewayId1, name
+|project recommendationId="vpng-5", id=VPNgatewayId1, name
