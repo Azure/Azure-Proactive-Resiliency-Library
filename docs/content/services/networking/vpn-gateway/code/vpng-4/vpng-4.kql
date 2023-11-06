@@ -1,14 +1,1 @@
-Resources
-| where type =~ 'Microsoft.Network/virtualNetworkGateways'
-| extend gatewayType = properties.gatewayType, vpnType = properties.vpnType, connections = properties.connections
-| where gatewayType == 'Vpn' and vpnType == 'RouteBased'
-| mv-expand connections
-| extend connectionName = connections.name, connectionResourceId = connections.id
-| join kind=inner (
-    Resources
-    | where type =~ 'Microsoft.Network/connections'
-    | project id, resourceGroup, location
-) on $left.connectionResourceId == $right.id
-| summarize count() by tostring(resourceGroup), tostring(connectionName), tostring(location)
-| where count_ > 1
-| order by resourceGroup, connectionName, location
+// in development
