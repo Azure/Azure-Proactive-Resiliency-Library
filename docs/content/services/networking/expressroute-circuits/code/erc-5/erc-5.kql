@@ -1,14 +1,1 @@
-﻿// Azure Resource Graph Query
-// Goal: Show ExpressRoute circuits where metric alerts are configured and/or are null
-
-resources
-| where type =~ "microsoft.insights/metricalerts"
-| mv-expand properties.scopes
-| mv-expand properties.criteria.allOf
-| project ErCId = properties_scopes, monitoredMetric = properties_criteria_allOf.metricName
-| summarize monitoredMetrics=make_list(monitoredMetric) by tostring(ErCId)
-| join kind=fullouter (resources
-  | where type =~ "microsoft.network/expressRouteCircuits"
-  | project name, rightErCId = id)
-  on $left.ErCId == $right.rightErCId
-| project recommendationId = "erc-5", name, param1=strcat("ExpressRouteCircuitID: ", rightErCId), param2=strcat("monitoredMetrics: ",monitoredMetrics)
+﻿// under-development
