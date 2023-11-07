@@ -4,5 +4,5 @@ Resources
 | where type =~ 'Microsoft.Network/expressRouteCircuits'
 | where properties.value[0].provisioningState != 'Succeeded' or properties.value[1].provisioningState != 'Succeeded'
 | where not(properties.peerings[0].properties.primaryPeerAddressPrefix != "null" and  properties.peerings[0].properties.secondaryPeerAddressPrefix != "null")
-| project recommendationId = "erc-1", name, id, param1 = strcat("Peer1_IP: ",properties.peerings[0].properties.primaryPeerAddressPrefix), param2=strcat("Peer2_IP: ", properties.peerings[0].properties.secondaryPeerAddressPrefix)
+| project recommendationId = "erc-1", name, id, tags, param1 = strcat("Peer1_IP: ",properties.peerings[0].properties.primaryPeerAddressPrefix), param2=strcat("Peer2_IP: ", properties.peerings[0].properties.secondaryPeerAddressPrefix)
 | order by id asc
