@@ -14,11 +14,11 @@ The presented resiliency recommendations in this guidance include Web Applicatio
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [WAF-1 - Review best practice for Web Application Firewall on Azure Application Gateway](#waf-1---review-best-practice-for-web-application-firewall-on-azure-application-gateway) | Medium | GA | No |
-| [WAF-2 - Review best practice for Web Application Firewall on Azure Front Door](#waf-2---review-best-practice-for-web-application-firewall-on-azure-front-door) | Medium | GA | No |
-| [WAF-3 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked](#waf-3---review-logs-for-web-application-firewall-on-azure-front-door-for-legitimate-requests-that-are-blocked) | High | GA | No |
-| [WAF-4 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked](#waf-4---review-logs-for-web-application-firewall-on-azure-application-gateway-for-legitimate-requests-that-are-blocked) | High | GA | No |
-| [WAF-5 - Monitor Web Application Firewall](#waf-5---monitor-web-application-firewall) | Medium | GA | No |
+| [WAF-1 - Review best practice for Web Application Firewall on Azure Application Gateway](#waf-1---review-best-practice-for-web-application-firewall-on-azure-application-gateway) | Medium | Verified | No |
+| [WAF-2 - Review best practice for Web Application Firewall on Azure Front Door](#waf-2---review-best-practice-for-web-application-firewall-on-azure-front-door) | Medium | Verified | No |
+| [WAF-3 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked](#waf-3---review-logs-for-web-application-firewall-on-azure-front-door-for-legitimate-requests-that-are-blocked) | High | Verified | No |
+| [WAF-4 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked](#waf-4---review-logs-for-web-application-firewall-on-azure-application-gateway-for-legitimate-requests-that-are-blocked) | High | Verified | No |
+| [WAF-5 - Monitor Web Application Firewall](#waf-5---monitor-web-application-firewall) | Medium | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
