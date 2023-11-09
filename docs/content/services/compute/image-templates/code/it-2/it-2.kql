@@ -1,5 +1,1 @@
-// Azure Resource Graph Query
-// List all Image Templates with their associated regions to help determine if images are replicated
-resources
-| where type =~ "microsoft.virtualmachineimages/imagetemplates"
-| project recommendationId = "it-1", name, location, id
+// under development
