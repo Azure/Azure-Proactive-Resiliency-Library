@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Display Apps with NULL deployment slotname
-resources
-| where type == "microsoft.web/sites"
-| where isnull(properties.slotName)
-| project recommendationId="app-5", name, id
+// under development
