@@ -92,7 +92,6 @@ By default, the cluster of nodes for the premium availability model is created i
 
 **Resources**
 
-- [Azure Traffic Manager](https://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview)
 -[Zone Redundant Databases](https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla)
 
 **Resource Graph Query/Scripts**
