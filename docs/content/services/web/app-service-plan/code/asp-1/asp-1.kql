@@ -1,8 +1,1 @@
-// Azure Resource Graph Query
-// The query filters the qualified App Service Plans that do not have Zone Redundancy enabled.
-resources
-| where type =~ 'microsoft.web/serverfarms'
-| extend zoneRedundant = tobool(properties.zoneRedundant)
-| extend sku_tier = tostring(sku.tier)
-| where sku_tier !in ("Free", "LinuxFree", "Basic", "WorkflowStandard", "ElasticPremium", "Dynamic", "Shared", "", "Isolated", "Standard") and zoneRedundant == false
-| project recommendationid="asp-1", name, id, sku_tier, zoneRedundant
+// under development
