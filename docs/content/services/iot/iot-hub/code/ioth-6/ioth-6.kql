@@ -1,5 +1,1 @@
-Resources
-| where type == "microsoft.devices/iothubs"
-| extend fallbackEnabled=properties.routing.fallbackRoute.isEnabled
-| project recommendationId="ioth-6", id, name, param1=strcat("Resource group: ", resourceGroup), param2=strcat("Fallback enabled: ", fallbackEnabled)
-| where param2 == false
+// under-development
