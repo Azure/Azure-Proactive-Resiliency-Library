@@ -1,5 +1,1 @@
-resources
-| where type == "microsoft.network/applicationgateways"
-| extend s = tostring(properties.sku.tier)
-| where s != "WAF_v2"
-| project id, name, resourceGroup, properties.sku.tier, subscriptionId
+// under development
