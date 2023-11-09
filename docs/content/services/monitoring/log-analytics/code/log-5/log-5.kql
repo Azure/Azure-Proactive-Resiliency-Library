@@ -1,6 +1,1 @@
-//Configure minimal logging and retention of logs.
-//Query to get the list of Log analytics workspaces and their current configured retention period
-resources
-| where type == "microsoft.operationalinsights/workspaces"
-| extend RetentionPeriod = tostring(properties.retentionInDays), SkuName=tostring(properties.sku.name)
-| project recommendationId="log-5",name,id,tags,param1=strcat("RetentionPeriod: ", RetentionPeriod),param2=strcat("SkuName: ", SkuName)
+// under development
