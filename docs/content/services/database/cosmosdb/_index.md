@@ -15,9 +15,9 @@ The presented resiliency recommendations in this guidance include Cosmos DB and 
 | Recommendation                                    | Impact         |  State   | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :-----------------: |
 | [COSMOS-1 – Configure at least two regions for high availability](#cosmos-1---configure-at-least-two-regions-for-high-availability) | High | Preview  |         Yes         |
-| [COSMOS-2 – Enable service-managed failover for multi-region accounts with single write region](#cosmos-2---enable-service-managed-failover-for-multi-region-accounts-with-single-write-region)  | High | Preview |         Yes          |
+| [COSMOS-2 – Enable service-managed failover for multi-region accounts with single write region](#cosmos-2---enable-service-managed-failover-for-multi-region-accounts-with-single-write-region)  | High | Preview |         No          |
 | [COSMOS-3 – Evaluate multi-region write capability](#cosmos-3---evaluate-multi-region-write-capability)  | High | Preview |         Yes          |
-| [COSMOS-4 – Choose appropriate consistency mode reflecting data durability requirements](#cosmos-4---choose-appropriate-consistency-mode-reflecting-data-durability-requirements)  | High | Preview |         Yes          |
+| [COSMOS-4 – Choose appropriate consistency mode reflecting data durability requirements](#cosmos-4---choose-appropriate-consistency-mode-reflecting-data-durability-requirements)  | High | Preview |         No          |
 | [COSMOS-5 – Configure continuous backup mode](#cosmos-5---configure-continuous-backup-mode)  | High | Preview |         Yes          |
 | [COSMOS-6 – Ensure query results are fully drained](#cosmos-6---ensure-query-results-are-fully-drained)  | High | Preview |         No          |
 | [COSMOS-7 – Maintain singleton pattern in your client](#cosmos-7---maintain-singleton-pattern-in-your-client)  | Medium | Preview |         No          |

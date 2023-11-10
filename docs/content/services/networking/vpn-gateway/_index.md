@@ -20,7 +20,7 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 | [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
 | [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection)                                                         | Preview  |         No          |
 | [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections)                                                       | Preview  |         Yes          |
-| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                               | Preview  |         Yes          |
+| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                               | Preview  |         No          |
 | [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                           | Preview  |         Yes          |
 {{< /table >}}
 
