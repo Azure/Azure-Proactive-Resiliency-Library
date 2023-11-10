@@ -1,5 +1,1 @@
-resources
-| where type =~'microsoft.sql/servers/databases'
-| where  isnull(properties['failoverGroupId'])
-| project "recommendationid=SQLDB-2",id, name, param1= strcat("databaseid:", properties['databaseId'])
-
+// under-development

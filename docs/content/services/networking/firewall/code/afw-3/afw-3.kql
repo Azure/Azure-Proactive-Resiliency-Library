@@ -1,9 +1,1 @@
-// List all Azure Firewalls resources in-scope, along with any metrics associated to Azure Monitor alert rules
-resources
-| where type == "microsoft.insights/metricalerts"
-| mv-expand properties.scopes
-| mv-expand properties.criteria.allOf
-| project firewallId = properties_scopes, monitoredMetric = properties_criteria_allOf.metricName
-| summarize monitoredMetrics=make_list(monitoredMetric) by tostring(firewallId)
-| join kind=fullouter (resources | where type == "microsoft.network/azurefirewalls" | project rightFirewallId = id) on $left.firewallId == $right.rightFirewallId
-| project recommendationid="afw-3",name, id, param1= rightFirewallId, param2= monitoredMetrics
+// under-development

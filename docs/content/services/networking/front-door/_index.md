@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for Front Door and 
 {{< table style="table-striped" >}}
 | Recommendation                                    | Impact  | State   | ARG Query Available |
 | :------------------------------------------------ | :------: |:------: | :-----------------: |
-| [AFD-1 - Avoid combining Traffic Manager and Front Door](#afd-1---avoid-combining-traffic-manager-and-front-door) | High |Preview  |         Yes         |
+| [AFD-1 - Avoid combining Traffic Manager and Front Door](#afd-1---avoid-combining-traffic-manager-and-front-door) | High |Preview  |         No        |
 | [AFD-2 - Restrict traffic to your origins](#afd-2---restrict-traffic-to-your-origins) | High | Preview |         No          |
 | [AFD-3 - Use the latest API version and SDK version](#afd-3---use-the-latest-api-version-and-sdk-version) | High | Preview |         No          |
 | [AFD-4 - Configure logs](#afd-4---configure-logs) | Medium | Preview |         No          |
@@ -25,8 +25,8 @@ The below table shows the list of resiliency recommendations for Front Door and 
 | [AFD-7 - Use managed TLS certificates](#afd-7---use-managed-tls-certificates) | Medium | Preview |         No          |
 | [AFD-8 - Use latest version for customer-managed certificates](#afd-8---use-latest-version-for-customer-managed-certificates) | Medium | Preview |         No          |
 | [AFD-9 - Use the same domain name on Front Door and your origin](#afd-9---use-the-same-domain-name-on-front-door-and-your-origin) | Medium | Preview |         No          |
-| [AFD-10 - Enable the WAF](#afd-10---enable-the-waf) | Medium | Preview |         Yes          |
-| [AFD-11 - Follow WAF best practices](#afd-11---follow-waf-best-practices) | High | Preview |         Yes          |
+| [AFD-10 - Enable the WAF](#afd-10---enable-the-waf) | Medium | Preview |         No          |
+| [AFD-11 - Follow WAF best practices](#afd-11---follow-waf-best-practices) | High | Preview |         No          |
 | [AFD-12 - Disable health probes when there is only one origin in an origin group](#afd-12---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group) | Low | Preview |         No          |
 | [AFD-13 - Select good health probe endpoints](#afd-13---select-good-health-probe-endpoints) | Medium | Preview |         No          |
 | [AFD-14 - Use HEAD health probes](#afd-14---use-head-health-probes) | Medium | Preview |         No          |

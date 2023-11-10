@@ -1,5 +1,1 @@
-Resources
-| where type == "microsoft.devices/iothubs"
-| project recommendationId="ioth-2", name, id, param1=strcat("Resource group: ", resourceGroup), param2=strcat("tier: ", tostring(sku.tier))
-| where param2 =~ 'Free'
-| order by name
+// under-development
