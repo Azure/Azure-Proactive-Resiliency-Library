@@ -169,6 +169,10 @@ When creating recommendations for a service, please follow the below standards:
     // Provides a list of Azure Container Registry resources that do not have soft delete enabled
     ```
 
+1. If the ARG query is under development, the query should have a single line stating: `// under-development`
+
+1. If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: `// cannot-be-validated-with-arg`
+
 1. ARG query columns name returned should only include the following:
 
 {{< alert style="info" >}}
@@ -186,10 +190,6 @@ NOTE: The column names should be in the order they are listed and match exactly.
   | param3 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
   | param4 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
   | param5 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
-
-1. If the ARG query is under development, the query should have a single line stating: `// under-development`
-
-1. If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: `// cannot-be-validated-with-arg`
 
 {{< alert style="info" >}}
 If you need support with validating a query, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
