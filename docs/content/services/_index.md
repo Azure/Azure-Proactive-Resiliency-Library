@@ -2,6 +2,7 @@
 title = "Azure Services"
 description = "The landing page for all Azure Services covered as part of APRL"
 date = 2023-03-21T10:12:16Z
+weight = 1
 draft = false
 +++
 
