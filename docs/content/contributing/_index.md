@@ -136,7 +136,7 @@ hugo new --kind service-bundle services/compute/virtual-machines
 │       │           ├───cm-1
 │       │           │       cm-1.azcli
 │       │           │       cm-1.kql
-│       │           │       cm-1.ps1
+│       │           │       cm-1// cannot-be-validated-with-arg
 │       │           │
 │       │           └───cm-2
 │       │                   cm-2.azcli

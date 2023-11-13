@@ -1,5 +1,4 @@
-// Azure Resource Graph Query
-// Under development - Goal: Show all regions in use, and whether or not there are ErGws in each
+// under-development - Goal: Show all regions in use, and whether or not there are ErGws in each
 resources
 | where type =~ 'microsoft.network/virtualNetworks'
 | where isnotempty(properties.subnets)

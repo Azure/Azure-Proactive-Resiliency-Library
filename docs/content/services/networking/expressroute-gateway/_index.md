@@ -15,8 +15,8 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 | Recommendation | Impact | State | ARG Query Available |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
 | [ERG-1 - Use Zone-redundant gateway SKUs](#erg-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
-| [ERG-2 - Monitor gateway health](#erg-2---monitor-gateway-health) | High | Preview | TBD |
-| [ERG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#erg-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | TBD |
+| [ERG-2 - Monitor gateway health](#erg-2---monitor-gateway-health) | High | Preview | No |
+| [ERG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#erg-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | No |
 | [ERG-4 - Configure ExpressRoute Gateways in different regions](#erg-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | Yes |
 
 {{< /table >}}
