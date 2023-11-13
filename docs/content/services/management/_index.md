@@ -1,11 +1,11 @@
 +++
-title = "Governance"
-description = "Governance Services"
-date = 2023-10-11T10:12:16Z
+title = "Management"
+description = "Management Services"
+date = 2023-03-21T10:12:16Z
 draft = false
 +++
 
-This page lists all of the Azure Services under the Governance category for which the APRL has guidance, recommendations and queries for.
+This page lists all of the Azure Services under the Management category for which the APRL has guidance, recommendations and queries for.
 
 ## Services List
 
