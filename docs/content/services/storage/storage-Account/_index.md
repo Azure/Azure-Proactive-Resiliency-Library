@@ -24,7 +24,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
 |[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         No          |
-|[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
+|[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         Yes          |
 |[ST-10 - Disallow Storage Account Public Access When Possible](#st-10---disallow-storage-account-public-access-when-possible)                          |   Medium    | Preview  |         No          |
 {{< /table >}}
 
