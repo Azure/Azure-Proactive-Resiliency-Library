@@ -237,11 +237,10 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 ### ST-9 - Enable Cross Region Connectivity
 
-<<<<<<< HEAD
+
 **Category: Backup**
 =======
 **Category: Disaster Recovery**
->>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
 
 **Impact: Medium**
 
@@ -251,11 +250,7 @@ Enable cross region restore. This option allows you to conduct drills to meet au
 
 **Resources**
 
-<<<<<<< HEAD
-- [Guidance and Best Practices - Azure Backup](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
-=======
 - [Guidance bestg practices](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
->>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
 
 **Script**
 
@@ -266,7 +261,6 @@ Enable cross region restore. This option allows you to conduct drills to meet au
 {{< /collapse >}}
 
 <br><br>
-<<<<<<< HEAD
 
 ### ST-10 - Disallow Storage Account Public Access When Possible
 
@@ -291,5 +285,4 @@ Disallow storage account public access when possible in order to maintain optima
 {{< /collapse >}}
 
 <br><br>
-=======
->>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
+
