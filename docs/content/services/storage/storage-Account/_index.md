@@ -34,7 +34,6 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         Yes          |
 |[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
 
->>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
 {{< /table >}}
 
 {{< alert style="info" >}}
