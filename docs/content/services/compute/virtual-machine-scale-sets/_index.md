@@ -23,6 +23,8 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                     |  Medium | Preview |         Yes         |
 | [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                             |  High   | Preview |         Yes         |
 | [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated)                                                                           |  Low    | Preview |         No          |
+| [VMSS-10 - Keep VMSS Image Version Up to Date](#vmss-10---keep-vmss-image-version-up-to-date)                                                                           |  Low    | Preview |         Yes          |
+| [VMSS-11 - Use SSD Disks for VMSS Instances in Prod Environments](#vmss-9---use-ssd-disks-for-vmss-instances-in-prod-environments)                                                                           |  Low    | Preview |         Yes          |
 
 {{< /table >}}
 
@@ -263,3 +265,51 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 
 <br><br>
 
+### VMSS-10 - Keep VMSS Image Version Up to Date
+
+**Category: Availability**
+
+**Impact: Medium**
+
+**Guidance**
+
+Ensure current versions of images are in use to avoid disruption after image deprecation. This ensurest that if these images are deprecated that you will not be impacted as you will no longer be able to deploy any additional VMs or VMSS once the image has been deprecated.
+
+**Resources**
+
+- [Deprecated Azure Marketplace Images](https://learn.microsoft.com/en-us/azure/virtual-machines/deprecated-images)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vmss-10/vmss-10.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VMSS-11 - Use SSD Disks for VMSS Instances in Prod Environments
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+It is advised that you use SSD disks for Production workloads. Using HDD could impact your resources as it should only be used for non-critical resources and for resources that require infrequent access.
+
+**Resources**
+
+- [Managed Disks Overview](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
+- [Disk Type Comparison](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vmss-11/vmss-11.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>

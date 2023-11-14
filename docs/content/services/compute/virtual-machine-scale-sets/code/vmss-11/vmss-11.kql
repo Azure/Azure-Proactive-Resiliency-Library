@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// This query will return any VMs/VMSS that are not using SSD Disks
+resources
+| where type == "microsoft.compute/virtualmachines"
+| extend diskType = tostring(properties.storageProfile.osDisk.managedDisk.storageAccountType)
+| where diskType == "Standard_LRS" or isempty(diskType)
+| project recommendationId = 'st-11', name, id, param1=diskType
