@@ -20,20 +20,12 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                |   High   | Preview  |         Yes         |
 |[ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                        |  Medium  | Preview  |         Yes         |
 |[ST-4 - Choose right storage account kind for workload](#st-4---choose-right-storage-account-kind-for-workload)                                        |  Medium  | Preview  |         No          |
-<<<<<<< HEAD
 |[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         No          |
 |[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
 |[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         No          |
 |[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
 |[ST-10 - Disallow Storage Account Public Access When Possible](#st-10---disallow-storage-account-public-access-when-possible)                          |   Medium    | Preview  |         No          |
-=======
-|[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         Yes          |
-|[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         Yes          |
-|[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         Yes          |
-|[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         Yes          |
-|[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
-
 {{< /table >}}
 
 {{< alert style="info" >}}
