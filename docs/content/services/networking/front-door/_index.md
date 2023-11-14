@@ -83,6 +83,14 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 - [Secure traffic to Azure Front Door origins](https://learn.microsoft.com/azure/frontdoor/origin-security?tabs=app-service-functions&pivots=front-door-standard-premium)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-2/afd-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-3 - Use the latest API version and SDK version
@@ -98,6 +106,14 @@ When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs
 - [REST API Reference](https://learn.microsoft.com/rest/api/frontdoor/)
 - [Client library for Java](https://learn.microsoft.com/java/api/overview/azure/resourcemanager-frontdoor-readme?view=azure-java-preview)
 - [SDK for Python](https://learn.microsoft.com/python/api/overview/azure/front-door?view=azure-python)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-3/afd-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -115,6 +131,14 @@ Front Door tracks extensive telemetry about every request. When you enable cachi
 - [WAF logs](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor?pivots=front-door-standard-premium#waf-logs)
 - [Configure Azure Front Door logs](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-logs)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-4/afd-4.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-5 - Use end-to-end TLS
@@ -128,6 +152,14 @@ Front Door terminates TCP and TLS connections from clients. It then establishes 
 **Resources**
 
 - [End-to-end TLS with Azure Front Door](https://learn.microsoft.com/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-5/afd-5.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -145,6 +177,14 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 - [Create HTTP to HTTPS redirect rule](https://learn.microsoft.com/azure/frontdoor/front-door-how-to-redirect-https#create-http-to-https-redirect-rule)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-6/afd-6.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-7 - Use managed TLS certificates
@@ -159,6 +199,14 @@ When Front Door manages your TLS certificates, it reduces your operational costs
 
 - [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-7/afd-7.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-8 - Use latest version for customer-managed certificates
@@ -172,6 +220,14 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 **Resources**
 
 - [Select the certificate for Azure Front Door to deploy](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell#select-the-certificate-for-azure-front-door-to-deploy)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-8/afd-8.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -188,6 +244,14 @@ Before you rewrite the Host header of your requests, carefully consider whether 
 **Resources**
 
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](https://learn.microsoft.com/azure/architecture/best-practices/host-name-preservation)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-9/afd-9.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -249,6 +313,14 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 - [Health probes](https://learn.microsoft.com/azure/frontdoor/health-probes)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-12/afd-12.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-13 - Select good health probe endpoints
@@ -262,6 +334,14 @@ Consider the location where you tell Front Door's health probe to monitor. It's 
 **Resources**
 
 - [Health Endpoint Monitoring pattern](https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-13/afd-13.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -277,6 +357,14 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 
 - [Supported HTTP methods for health probes](https://learn.microsoft.com/azure/frontdoor/health-probes#supported-http-methods-for-health-probes)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-14/afd-14.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-15 - Lock down Application Gateway to receive traffic only from Azure Front Door
@@ -291,6 +379,14 @@ Certain scenarios can force a customer to implement rules specifically on AppGat
 **Resources**
 
 - [Application Gateway behind Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-15/afd-15.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -309,6 +405,14 @@ For a geo filtering rule, a match variable is either RemoteAddr or SocketAddr. R
 
 - [Geo filter WAF policy - GeoMatch](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-geo-filtering)
 
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-16/afd-16.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### AFD-17 - Secure your Origin with Private Link in Azure Front Door
@@ -324,5 +428,13 @@ Azure Front Door Premium can connect to your origin using Private Link. Your ori
 **Resources**
 
 - [Private link for Azure Front Door](https://learn.microsoft.com/azure/frontdoor/private-link)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/afd-17/afd-17.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>

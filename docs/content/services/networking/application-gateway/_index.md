@@ -250,6 +250,6 @@ Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances.
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
-{{< code lang="sql" file="code/agw-1/agw-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/agw-9/agw-9.kql" >}} {{< /code >}}
 {{< /collapse >}}
 <br><br>
