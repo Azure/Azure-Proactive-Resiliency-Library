@@ -237,9 +237,8 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 ### ST-9 - Enable Cross Region Connectivity
 
-
 **Category: Backup**
-=======
+
 **Category: Disaster Recovery**
 
 **Impact: Medium**
