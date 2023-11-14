@@ -20,12 +20,21 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                |   High   | Preview  |         Yes         |
 |[ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                        |  Medium  | Preview  |         Yes         |
 |[ST-4 - Choose right storage account kind for workload](#st-4---choose-right-storage-account-kind-for-workload)                                        |  Medium  | Preview  |         No          |
+<<<<<<< HEAD
 |[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         No          |
 |[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
 |[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         No          |
 |[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
 |[ST-10 - Disallow Storage Account Public Access When Possible](#st-10---disallow-storage-account-public-access-when-possible)                          |   Medium    | Preview  |         No          |
+=======
+|[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         Yes          |
+|[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         Yes          |
+|[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         Yes          |
+|[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         Yes          |
+|[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
+
+>>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -237,7 +246,11 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 ### ST-9 - Enable Cross Region Restore
 
+<<<<<<< HEAD
 **Category: Backup**
+=======
+**Category: Disaster Recovery**
+>>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
 
 **Impact: Medium**
 
@@ -247,7 +260,11 @@ Enable cross region restore. This option allows you to conduct drills to meet au
 
 **Resources**
 
+<<<<<<< HEAD
 - [Guidance and Best Practices - Azure Backup](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
+=======
+- [Guidance bestg practices](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
+>>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
 
 **Script**
 
@@ -258,6 +275,7 @@ Enable cross region restore. This option allows you to conduct drills to meet au
 {{< /collapse >}}
 
 <br><br>
+<<<<<<< HEAD
 
 ### ST-10 - Disallow Storage Account Public Access When Possible
 
@@ -282,3 +300,5 @@ Disallow storage account public access when possible in order to maintain optima
 {{< /collapse >}}
 
 <br><br>
+=======
+>>>>>>> e5448b0e0d0145d62d31d52830a5f40590084440
