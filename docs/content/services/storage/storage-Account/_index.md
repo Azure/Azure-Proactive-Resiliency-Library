@@ -24,7 +24,8 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
 |[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         No          |
-
+|[ST-9 - Enable cross region connectivity](#st-9---enable-cross-region-connectivity)                          |   Medium    | Preview  |         No          |
+|[ST-10 - Disallow Storage Account Public Access When Possible](#st-10---disallow-storage-account-public-access-when-possible)                          |   Medium    | Preview  |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -229,6 +230,54 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="/code/st-8/st-8.ps1" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ST-9 - Enable Cross Region Restore
+
+**Category: Backup**
+
+**Impact: Medium**
+
+**Guidance**
+
+Enable cross region restore. This option allows you to conduct drills to meet audit or compliance requirements, and to restore the VM or its disk if there's a disaster in the primary region.  This change upgrades backup storage from GRS to RA-GRS and does result in an increase in cost.
+
+**Resources**
+
+- [Guidance and Best Practices - Azure Backup](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
+
+**Script**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="/code/st-9/st-9.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ST-10 - Disallow Storage Account Public Access When Possible
+
+**Category: Access & Security**
+
+**Impact: Medium**
+
+**Guidance**
+
+Disallow storage account public access when possible in order to maintain optimal security. By ensuring that public access in disallowed it makes it easier to avoid anonymous access to your data.
+
+**Resources**
+
+- [Guidance and Best Practices - Azure Backup](https://learn.microsoft.com/en-us/azure/backup/guidance-best-practices)
+
+**Script**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="/code/st-10/st-10.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
