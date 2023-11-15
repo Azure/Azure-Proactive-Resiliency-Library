@@ -1,4 +1,4 @@
-// Azure Resource Graph 
+// Azure Resource Graph
 // Query to determine if the storage accounts have cross tenant replication enabled
 resources
 | where type =~ "microsoft.storage/storageaccounts"
