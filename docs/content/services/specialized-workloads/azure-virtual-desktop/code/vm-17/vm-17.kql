@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// Find all Disks with "Enable public access from all networks" enabled
+Resources
+| where type =~ 'Microsoft.Compute/disks'
+| where properties.publicNetworkAccess == "Enabled"
+| project recommendationId = "vm-17", name, id
+| order by id asc
