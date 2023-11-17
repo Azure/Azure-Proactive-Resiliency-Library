@@ -28,5 +28,5 @@ Replace this with a list of related GitHub Issues and/or ADO Work Items (Interna
 - [ ] Associated it with relevant [GitHub Issues](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues) or ADO Work Items (Internal Only)
 - [ ] Ensured my code/branch is up-to-date with the latest changes in the `main` [branch](https://github.com/Azure/Azure-Proactive-Resiliency-Library/tree/main)
 - [ ] Ensured PR tests are passing
-- [ ] Performed testing and provided evidence (e.g. screenshot of output) for any changes associated to ARG queries and/or scripts (e.g. screenshot)
+- [ ] Performed testing and provided evidence (e.g. screenshot of output) for any changes associated to ARG queries and/or scripts
 - [ ] Updated relevant and associated documentation (e.g. Contribution Guide, Docs etc.)
