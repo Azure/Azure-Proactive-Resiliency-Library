@@ -14,8 +14,8 @@ The presented resiliency recommendations in this guidance include Event Grid and
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State   | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
-| [EVG-1 - Configure Diagnostic Settings for all Azure Resources](#evg-1---configure-diagnostic-settings-for-all-azure-resources) | Monitoring | Low | Preview  |         Yes         |
-| [EVG-2 - Configure Dead-letter to save events that cannot be delivered](#evg-2---configure-dead-letter-to-save-events-that-cannot-be-delivered) | Automation          | Low | Preview |         Yes          |
+| [EVG-1 - Configure Diagnostic Settings for all Azure Resources](#evg-1---configure-diagnostic-settings-for-all-azure-resources) | Monitoring | Low | Preview  |         No        |
+| [EVG-2 - Configure Dead-letter to save events that cannot be delivered](#evg-2---configure-dead-letter-to-save-events-that-cannot-be-delivered) | Automation          | Low | Preview |         No          |
 | [EVG-3 - Configure Private Endpoints](#evg-3---configure-private-endpoints) | Access & Security          | Low | Preview |         Yes          |
 {{< /table >}}
 

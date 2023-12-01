@@ -1,0 +1,4 @@
+resources
+| where type == "microsoft.sql/servers/databases"
+| where  (properties['currentBackupStorageRedundancy'] ) <> 'Geo'
+| project "recommendationId=sqldb-1", id, name, param1=strcat("CurrentGeoRedudancy:", properties['currentBackupStorageRedundancy'] )

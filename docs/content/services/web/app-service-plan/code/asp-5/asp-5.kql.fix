@@ -1,0 +1,9 @@
+// Azure Resource Graph Query
+// Azure Resource Graph
+// App Service Plans that are not setup to use standard or premium SKUs.
+// TODO: Extend this query to show automatic scaling or App level automatic scale
+resources
+| where type =~ "microsoft.insights/autoscalesettings"
+| where properties.targetResourceUri contains "microsoft.web/serverfarms"
+| project AppServicePlan = split(properties.targetResourceUri, '/')[8], ResourceGroup = split(properties.targetResourceUri, '/')[4],id=properties.targetResourceUri
+| project recommendationid="asp-5", ["name"]=AppServicePlan, ["id"]=id

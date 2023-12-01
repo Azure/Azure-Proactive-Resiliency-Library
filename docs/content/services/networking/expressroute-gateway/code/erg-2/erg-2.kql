@@ -1,5 +1,1 @@
-// Azure Resource Graph Query
-// Under development - Goal: For each VNG of type ExpressRoute, show any that do not have monitors and alerts
-// ..
-//| project recommendationId = "ergw-2", name, id,
-//| order by id asc
+// under-development
