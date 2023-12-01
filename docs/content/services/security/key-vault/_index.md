@@ -16,9 +16,9 @@ The presented resiliency recommendations in this guidance include Key Vault and 
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
 | [KV-1 - Key vaults should have soft delete enabled](#kv-1---key-vaults-should-have-soft-delete-enabled) | High | Preview  |         Yes         |
 | [KV-2 - Key vaults should have purge protection enabled](#kv-2---key-vaults-should-have-purge-protection-enabled) | High | Preview |         Yes          |
-| [KV-3 - Enable Azure Private Link Service for Key vault](#kv-3---enable-azure-private-link-service-for-key-vault) | High | Preview |         Yes          |
+| [KV-3 - Enable Azure Private Link Service for Key vault](#kv-3---enable-azure-private-link-service-for-key-vault) | High | Preview |         No          |
 | [KV-4 - Use separate key vaults per application per environment](#kv-4---use-separate-key-vaults-per-application-per-environment) | High | Preview |   No          |
-| [KV-5 - Diagnostic logs in Key Vault should be enabled](#kv-5---diagnostic-logs-in-key-vault-should-be-enabled) | Low | Preview |         no          |
+| [KV-5 - Diagnostic logs in Key Vault should be enabled](#kv-5---diagnostic-logs-in-key-vault-should-be-enabled) | Low | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}

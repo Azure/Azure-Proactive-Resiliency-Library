@@ -14,11 +14,11 @@ The presented resiliency recommendations in this guidance include App Service Pl
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Impact  |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [ASP-1 - Migrate App Service to availability Zone Support](#asp-1---migrate-app-service-to-availability-zone-support) | High | Preview  |         Yes         |
-| [ASP-2 - Use Standard or Premium tier](#asp-2---use-standard-or-premium-tier) | High | Preview |         Yes          |
+| [ASP-1 - Migrate App Service to availability Zone Support](#asp-1---migrate-app-service-to-availability-zone-support) | High | Preview  |         No         |
+| [ASP-2 - Use Standard or Premium tier](#asp-2---use-standard-or-premium-tier) | High | Preview |         No          |
 | [ASP-3 - Avoid scaling up or down](#asp-3---avoid-scaling-up-or-down) | Medium | Preview |         No          |
 | [ASP-4 - Create separate App Service plans for production and test](#asp-4---create-separate-app-service-plans-for-production-and-test) | High | Preview |         No          |
-| [ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests](#asp-5---enable-autoscaleautomatic-scaling-to-ensure-adequate-resources-are-available-to-service-requests) | Medium | Preview |         Yes (partial)          |
+| [ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests](#asp-5---enable-autoscaleautomatic-scaling-to-ensure-adequate-resources-are-available-to-service-requests) | Medium | Preview |         Yes          |
 {{< /table >}}
 {{< alert style="info" >}}
 
@@ -64,6 +64,12 @@ The use of the Standard or Premium tier for Azure App Service Plan is crucial fo
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
 
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/asp-2/asp-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -86,6 +92,11 @@ It is recommended to avoid scaling up or down your Azure App Service instances f
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
 
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/asp-3/asp-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -102,6 +113,11 @@ It is strongly recommended to create separate App Service plans for production a
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
 
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/asp-4/asp-4.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 <br><br>
 
@@ -113,11 +129,16 @@ It is strongly recommended to create separate App Service plans for production a
 
 It is highly recommended to enable Autoscale/Automatic Scaling for your Azure App Service to ensure that sufficient resources are available to handle incoming requests. Autoscaling is rule based scaling while Automatic Scaling newer platform feature that performs automatic scale out and in based on HTTP traffic.
 
-
 **Resources**
 
 - [Automatic scaling in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/manage-automatic-scaling?tabs=azure-portal)
 - [Auto Scale Web Apps](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-get-started)
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/asp-5/asp-5.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
 
 **Resource Graph Query/Scripts**
 

@@ -1,6 +1,1 @@
-// Determine if dedicated cluster is AZ enabled
-// Currently no resource graph query to determine if a LAW is linked to a dedicated cluster
-resources
-| where type == 'microsoft.operationalinsights/clusters'
-| extend AvailabilityZonesEnabled = tostring(properties.isAvailabilityZonesEnabled)
-| project recommendationId="log-2", name, id, param1=strcat("AvailabilityZonesEnabled: ", AvailabilityZonesEnabled)
+// cannot-be-validated-with-arg
