@@ -19,7 +19,7 @@
       "pattern": "^https:\/\/aka.ms\/opensource\/.*$"
     },
     {
-      "pattern": "^https:\/\/review\/.learn\/.microsoft.com(?:\/.*)?$"
+      "pattern": "^https://review.learn.microsoft.com*"
     }
   ],
   "httpHeaders": [
