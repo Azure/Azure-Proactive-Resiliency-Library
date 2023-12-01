@@ -1,23 +1,21 @@
 +++
-title = "Azure site recovery"
-description = "Best practices and resiliency recommendations for Azure Site recovery and associated resources."
+title = "Azure Site Recovery"
+description = "Best practices and resiliency recommendations for Azure Site Recovery and associated resources."
 date = "11/23/23"
 author = "pesousa"
 msAuthor = "pesousa"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Azure site recovery and dependent resources and settings.
+The presented resiliency recommendations in this guidance include Azure Site Recovery and dependent resources and settings.
 
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [ASR-1 - Ensure static IP addresses configured in VM failover settings are available in the failover subnet](#asr-1---ensure-static-ip-addresses-configured-in-vm-failover-settings-are-available-in-the-failover-subnet)                                                                                                                          |  High  | Preview |         Yes         |
-| [ASR-2 - Perform a Test Failover to validate the functionality and performance of the VMs in the target location](#asr-1---perform-a-test-failover-to-validade-the-functionality-and-performance-of-the-VMs-in-the-target-location)                                                                                                                          |  High  | Preview |         Yes         |
-
-
+| [ASR-1 - Ensure static IP addresses configured in VM failover settings are available in the failover subnet](#asr-1---ensure-static-ip-addresses-configured-in-vm-failover-settings-are-available-in-the-failover-subnet)|  High  | Preview |         No         |
+| [ASR-2 - Perform a test failover to validate the functionality and performance of the VMs in the target location](#asr-2---perform-a-test-failover-to-validate-the-functionality-and-performance-of-the-vms-in-the-target-location) | High  | Preview |         Yes         |
 
 {{< /table >}}
 
@@ -53,7 +51,7 @@ Ensure static IP addresses configured in VM failover settings are available in t
 
 <br><br>
 
-### ASR-2 - Perform a Test Failover to validate the functionality and performance of the VMs in the target location
+### ASR-2 - Perform a test failover to validate the functionality and performance of the VMs in the target location
 
 **Category: Availability**
 
