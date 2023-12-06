@@ -1,0 +1,17 @@
+resources
+| where type =~ 'microsoft.insights/activitylogalerts'
+| extend severity = "Sev4"
+| extend enabled = tobool(properties["enabled"])
+| extend ResourceHealth = case(
+    tostring(properties.condition.allOf[0].equals) == "ResourceHealth" and tostring(properties.condition.allOf[0].field) == "category", "Yes",
+    "No"
+)
+| extend AlertHealth = case(
+    tostring(properties.condition.allOf[0].equals) == "ServiceHealth" and tostring(properties.condition.allOf[0].field) == "category", "Yes",
+    "No"
+)
+| extend alertProperties = todynamic(properties)
+| extend actionGroups = alertProperties.actions.actionGroups
+| extend actionGroups = iif(array_length(alertProperties.actions.actionGroups) > 0, "Yes", "No")
+| project id,name,enabled,severity,subscriptionId, ResourceHealth, AlertHealth, actionGroups
+| order by tolower(name) asc
