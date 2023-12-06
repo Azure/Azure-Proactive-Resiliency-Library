@@ -1,4 +1,1 @@
-AzureDiagnostics
-| where Category == 'ApplicationGatewayFirewallLog'
-| where TimeGenerated > ago(1d)
-| where action_s == 'Block'
+// cannot-be-validated-with-arg

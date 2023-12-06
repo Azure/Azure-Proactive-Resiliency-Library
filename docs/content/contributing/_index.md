@@ -162,8 +162,24 @@ When creating recommendations for a service, please follow the below standards:
 
 ### Azure Resource Graph (ARG) Queries
 
+1. All ARG queries should have two comments at the top of the query, one comment stating  `Azure Resource Graph Query` and another comment providing a description of the query results returned. For example:
+
+    ```kql
+    // Azure Resource Graph Query
+    // Provides a list of Azure Container Registry resources that do not have soft delete enabled
+    ```
+
+1. If the ARG query is under development, the query should have a single line stating: `// under-development`
+
+1. If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: `// cannot-be-validated-with-arg`
+
 1. ARG query columns name returned should only include the following:
-  | Column Name | Required | Example | Description |
+
+{{< alert style="info" >}}
+NOTE: The column names should be in the order they are listed and match exactly.
+{{< /alert >}}
+
+  | Column Name | Required | Information Returned (Example) | Description |
   |:---:|:---:|:---:|:---:|
   | recommendationId | Yes | aks-1 | The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number. |
   | name | Yes | test-aks | The resource name of the Azure resource that does not adher to the APRL recommendation. |
@@ -174,10 +190,6 @@ When creating recommendations for a service, please follow the below standards:
   | param3 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
   | param4 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
   | param5 | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
-
-1. If the ARG query is under development, the query should have a single line stating: `// under-development`
-
-1. If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: `// cannot-be-validated-with-arg`
 
 {{< alert style="info" >}}
 If you need support with validating a query, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
