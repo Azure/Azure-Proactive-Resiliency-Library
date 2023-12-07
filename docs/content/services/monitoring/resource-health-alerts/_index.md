@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for Resources Healt
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category      |  Impact   |   State   | ARG Query Available |
 | :------------------------------------------------ | :------------: | :--------:| :--------:| :------------------:|
-| [MSR-1 - Configure Resource Health Alerts](#msr-1---congifure-resource-health-alerts) | Monitoring | Low| Preview  |    Yes      |
+| [MSR-1 - Configure Resource Health Alerts](#msr-1---configure-resource-health-alerts) | Monitoring | Low| Preview  |    Yes      |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -29,7 +29,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### MSR-1 - Configure Resource Health Alerts
 
-**Category:Monitoring**
+**Category: Monitoring**
 
 **Impact: Low**
 
@@ -37,12 +37,9 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 Resource health helps you diagnose and get support when an Azure issue impacts your resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk. Based on the health status, Resource Health provides you with recommendations with the goal of reducing the time you spent troubleshooting. For available resources, the recommendations focus on how to solve the most common problems customers encounter. If the resource is unavailable due to an Azure unplanned event, the focus will be on assisting you during and after the recovery process.
 
-**Note* The query will show also about "Alerts Health" configured, in the case the target service is only configured under this section.
-
-
 **Resources**
 
-- [Resource Health ](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)
+- [Resource Health](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)
 - [Configure Resource Health alerts in the Azure portal](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide#create-a-resource-health-alert-rule-in-the-azure-portal )
 - [Alerts Health](https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal)
 
@@ -55,4 +52,3 @@ Resource health helps you diagnose and get support when an Azure issue impacts y
 {{< /collapse >}}
 
 <br><br>
-
