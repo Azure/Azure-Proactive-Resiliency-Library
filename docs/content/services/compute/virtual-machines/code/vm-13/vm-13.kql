@@ -1,1 +1,13 @@
-// under-development
+Resources
+| where type =~ 'Microsoft.Network/networkInterfaces'
+| where isnotnull(properties.networkSecurityGroup)
+| project nicId = tostring(id), nicName = split(id, '/')[8]
+| join kind=leftouter (
+    Resources
+    | where type =~ 'Microsoft.Compute/virtualMachines'
+    | where isnotnull(properties.networkProfile.networkInterfaces)
+    | mv-expand nic=properties.networkProfile.networkInterfaces
+    | project vmName = name, vmId = id, nicId = nic.id
+    | extend nicId = tostring(nicId)
+) on nicId
+| project recommendationId = "vm-13", name=vmName, id = vmId, param1 = strcat("nic-name=", nicName)
