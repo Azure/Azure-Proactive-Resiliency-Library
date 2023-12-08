@@ -34,6 +34,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### AFW-1 - Deploy Azure Firewall across multiple availability zones
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -57,6 +59,8 @@ Azure Firewall provides different SLAs when it's deployed in a single availabili
 
 ### AFW-2 - Test Azure Firewall performance
 
+**Category: System Efficiency**
+
 **Impact: High**
 
 **Guidance**
@@ -79,6 +83,8 @@ Reliable firewall performance is essential to operate and protect your virtual n
 <br><br>
 
 ### AFW-3 - Monitor Azure Firewall metrics
+
+**Category: Monitoring**
 
 **Impact: High**
 
@@ -107,6 +113,8 @@ Monitor metrics related to availability and performance issues. More specificall
 
 ### AFW-4 - Deploy an instance of Azure Firewall per region
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -128,6 +136,8 @@ In multi-region environments, deploy an instance of Azure Firewall per region. F
 <br><br>
 
 ### AFW-5 - Configure DDoS Protection on the Azure Firewall VNet
+
+**Category: Access & Security**
 
 **Impact: High**
 
@@ -151,6 +161,8 @@ Associate a DDoS protection plan with the virtual network hosting Azure Firewall
 
 ### AFW-6 - Leverage Azure Policy inheritance model
 
+**Category: Governance**
+
 **Impact: Medium**
 
 **Guidance**
@@ -172,6 +184,8 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 <br><br>
 
 ### AFW-7 - Understand impact of management operations on long running TCP sessions
+
+**Category: System Efficiency**
 
 **Impact: Medium**
 
