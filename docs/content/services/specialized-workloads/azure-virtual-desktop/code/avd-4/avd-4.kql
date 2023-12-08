@@ -1,4 +1,1 @@
-desktopvirtualizationresources
-| where type == "microsoft.desktopvirtualization/hostpools/sessionhosts"
-| where isnull(zones)
-| project recommendationId = "avd-2", name, id, tags, param1="Availability Zones: No Zones"
+//under Development

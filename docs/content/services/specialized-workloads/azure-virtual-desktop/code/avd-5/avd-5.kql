@@ -1,4 +1,1 @@
-resources
-| where type == "microsoft.desktopvirtualization/hostpools"
-| where isnull(plan)
-| project recommendationId = "avd-1", name, id, tags, param1="Scaling Plan: No Plan"
+//under Development
