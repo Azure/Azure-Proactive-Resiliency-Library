@@ -104,7 +104,7 @@ configuration:
           label: 'Needs: Attention :wave:'
       - removeLabel:
           label: 'Needs: Author Feedback'
-      description: 'If author comments on issue with label Needs: Author Feedback then adjust labels'
+      description: 'If author comments on issue with label Needs: Author Feedback, then adjust labels'
     - if:
       - payloadType: Issues
       - not:
@@ -115,7 +115,7 @@ configuration:
       then:
       - removeLabel:
           label: 'Status: No Recent Activity'
-      description: 'If issue is closed and had Status: No Recent Activity then remove the label.'
+      description: 'If issue is closed and had Status: No Recent Activity, then remove the label.'
     - if:
       - payloadType: Issue_Comment
       - hasLabel:
@@ -123,7 +123,7 @@ configuration:
       then:
       - removeLabel:
           label: 'Status: No Recent Activity'
-      description: 'If comment on issue and has label Status: No Recent Activity then remove the label.'
+      description: 'If comment on issue and has label Status: No Recent Activity, then remove the label.'
     - if:
       - payloadType: Pull_Request
       - isAction:
@@ -206,13 +206,13 @@ configuration:
       then:
       - enableAutoMerge:
           mergeMethod: Squash
-      description: 'If pr opened and has label auto-merge :heavy_check_mark: then disableAutoMerge.'
+      description: 'If pr opened and has label auto-merge :heavy_check_mark: added, then disableAutoMerge.'
     - if:
       - payloadType: Pull_Request
       - labelRemoved:
           label: 'auto-merge :heavy_check_mark:'
       then:
       - disableAutoMerge
-      description: 'If pr opened and has label auto-merge :heavy_check_mark: removed then disableAutoMerge.'
+      description: 'If pr opened and has label auto-merge :heavy_check_mark: removed, then disableAutoMerge.'
 onFailure:
 onSuccess:
