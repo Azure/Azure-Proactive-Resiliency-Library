@@ -1,0 +1,5 @@
+resources
+| where type == 'microsoft.containerservice/managedclusters'
+| project id, name, location, properties.agentPoolProfiles
+| mv-expand properties_agentPoolProfiles
+| project id, name, location, properties_agentPoolProfiles.name, properties_agentPoolProfiles.orchestratorVersion, properties_agentPoolProfiles.currentOrchestratorVersion, number_of_zones=array_length(properties_agentPoolProfiles.availabilityZones)
