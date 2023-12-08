@@ -1,3 +1,5 @@
+// Azure Resource Graph Query
+// Provides a list of virtual machines and associated NICs that do not have an NSG associated to them.
 Resources
 | where type =~ 'Microsoft.Network/networkInterfaces'
 | where isnotnull(properties.networkSecurityGroup)
