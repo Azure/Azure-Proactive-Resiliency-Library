@@ -1,0 +1,4 @@
+resources
+| where type == "microsoft.desktopvirtualization/hostpools"
+| where isnull(zones)
+| project recommendationId = "avd-2", name, id, tags, param1="Availability Zones: No Zones"

@@ -1,0 +1,4 @@
+resources
+| where type == "microsoft.desktopvirtualization/hostpools"
+| where properties['publicNetworkAccess'] == "Enabled"
+| project recommendationId = "avd-4", name, id, tags, param1="Public Network Access: Yes"
