@@ -15,12 +15,11 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
 | [AVD-1 Disable public network access on host pool](#avd-1---disable-public-network-access-on-host-pool)  | Medium       |      Networking and Connectivity | Preview  |      Yes         |
-| [AVD-2 Use Private link when connecting to File Share or Key Vault  ](#avd-2---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
-| [AVD-3 Deploy Host Pools in an Availability Zone](#avd-3---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       Yes        |
-| [AVD-4 Deploy Session Hosts in an Availability Zone](#avd-4---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       Yes        |
-| [AVD-5 Assign Scaling Plan for Host Pools](#avd-5---assign-scaling-plan-for-host-pools) | Low|  Application Delivery | Preview |       Yes        |
+| [AVD-2 Use Private link when connecting to File Share or Key Vault](#avd-2---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
+| [AVD-3 Deploy Host Pools in an Availability Zone](#avd-3---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       No        |
+| [AVD-4 Deploy Session Hosts in an Availability Zone](#avd-4---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
+| [AVD-5 Assign Scaling Plan for Host Pools](#avd-5---assign-scaling-plan-for-host-pools) | Low|  Application Delivery | Preview |       No       |
 | [AVD-6 Deploy Session Hosts close to users](#avd-6---deploy-session-hosts-close-to-users) | Medium |  Networking and Connectivity | Preview |       No        |
-
 
 {{< /table >}}
 
@@ -70,7 +69,6 @@ Adjust the configuration options for Azure Private Link. When you use this servi
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -78,7 +76,6 @@ Adjust the configuration options for Azure Private Link. When you use this servi
 {{< code lang="sql" file="code/avd-2/avd-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
 
 <br><br>
 
@@ -95,7 +92,6 @@ By distributing your session hosts across all zones you have increased the resil
 
 - [Learn More](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-support-for-azure/ba-p/3636262#:~:text=By%20distributing%20your%20session%20hosts%20across%20all%20zones,one%20third%20of%20your%20user%20estate%20is%20impacted.)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -103,7 +99,6 @@ By distributing your session hosts across all zones you have increased the resil
 {{< code lang="sql" file="code/avd-3/avd-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
 
 <br><br>
 
@@ -121,9 +116,6 @@ Deploy session hosts in an availability zone or an availability set to help prot
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
 
-
-
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -131,7 +123,6 @@ Deploy session hosts in an availability zone or an availability set to help prot
 {{< code lang="sql" file="code/avd-4/avd-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
 
 <br><br>
 
@@ -150,7 +141,6 @@ Adjust the settings of scaling plans to improve cost efficiency.
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#scaling-plans)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -159,10 +149,7 @@ Adjust the settings of scaling plans to improve cost efficiency.
 
 {{< /collapse >}}
 
-
 <br><br>
-
-
 
 ### AVD-6 - Deploy Session Hosts close to users
 
@@ -178,7 +165,6 @@ The location of a session host correlates directly with the latency that end use
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -186,6 +172,5 @@ The location of a session host correlates directly with the latency that end use
 {{< code lang="sql" file="code/avd-6/avd-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
 
 <br><br>
