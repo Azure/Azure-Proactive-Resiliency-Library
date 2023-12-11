@@ -1,1 +1,5 @@
-// under-development
+// Azure Resource Graph Query
+resources
+|  where type == "microsoft.containerservice/managedclusters"
+|  extend monitoring = tostring (parse_json(properties.azureMonitorProfile.metrics.enabled))
+|  project recommendationId="aks-24", name, id, param1=strcat("azureMonitorProfileEnabled:", monitoring)

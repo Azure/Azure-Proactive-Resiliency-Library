@@ -1,1 +1,5 @@
-// under-development
+// Azure Resource Graph Query
+resources
+| where type == "microsoft.containerservice/managedclusters"
+| project id, name, sku.name, sku.tier
+| project recommendationid="aks-22", name, id, param1=strcat("tier: ", sku.tier)

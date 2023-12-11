@@ -1,1 +1,4 @@
-// under-development
+// Azure Resource Graph Query
+resources
+|  where type == "microsoft.containerservice/managedclusters"
+|  extend networkProfile = tostring (parse_json(properties.networkProfile.networkPolicy))
