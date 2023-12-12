@@ -1,5 +1,5 @@
 // Azure Resource Graph Query
 resources
 |  where type == "microsoft.containerservice/managedclusters"
-|  extend publicNetworkAccess = tostring (parse_json(properties.publicNetworkAccess))
-|  project recommendationId="aks-15", name, id, param1=strcat("publicNetworkAccess:", publicNetworkAccess)
+|  extend privateClusterEnabled = tostring (parse_json(properties.apiServerAccessProfile.enablePrivateCluster))
+|  project recommendationId="aks-15", name, id, param1=strcat("privateClusterEnabled:", privateClusterEnabled)

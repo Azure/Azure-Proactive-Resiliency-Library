@@ -1,1 +1,5 @@
-// cannot-be-validated-with-arg
+// Azure Resource Graph Query
+resources
+|  where type == "microsoft.containerservice/managedclusters"
+|  extend gitops = tostring (parse_json(properties.addOnProfiles.gitops.enabled))
+|  project recommendationId="aks-27", name, id, param1=strcat("gitopsEnabled:", gitops)
