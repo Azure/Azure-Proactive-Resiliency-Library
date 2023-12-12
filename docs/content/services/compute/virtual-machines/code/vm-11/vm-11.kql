@@ -3,12 +3,12 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | mv-expand nic=properties.networkProfile.networkInterfaces
-| project name, id, nicName = tostring(split(tostring(nic.id), '/')[8])
+| project name, id, nicName = tostring(split(tostring(nic.id), '/')[8]), tags
 | join kind=inner (
     Resources
     | where type =~ 'Microsoft.Network/networkInterfaces'
     | where properties.enableAcceleratedNetworking == true
     | project nicName = tostring(split(tostring(id), '/')[8])
 ) on nicName
-| project recommendationId = "vm-11", name, id
+| project recommendationId = "vm-11", name, id, tags
 | order by id asc

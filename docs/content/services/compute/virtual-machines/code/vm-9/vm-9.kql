@@ -3,4 +3,4 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where properties.extended.instanceView.powerState.displayStatus != 'VM running'
-| project recommendationId = "vm-9", name, id
+| project recommendationId = "vm-9", name, id, tags
