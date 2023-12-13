@@ -1,3 +1,6 @@
+// Azure Resource Graph Query
+// Provide a list for "Resource health" alerts and "Alert health" configured and if it is enable or not under Services Health in the Azure portal. It will also show the subscription and if has the notification email configured ( action group) or not.
+
 resources
 | where type =~ 'microsoft.insights/activitylogalerts'
 | extend severity = "Sev4"
