@@ -16,5 +16,5 @@ resources
 | extend alertProperties = todynamic(properties)
 | extend actionGroups = alertProperties.actions.actionGroups
 | extend actionGroups = iif(array_length(alertProperties.actions.actionGroups) > 0, "Yes", "No")
-| project id,name,enabled,severity,subscriptionId, ResourceHealth, AlertHealth, actionGroups
+| project recommendationId="msr-1", name, id, param1=strcat("Enabled: ", enabled),param2=strcat("SubscriptionId: ", subscriptionId), param3=strcat("ResourceHealth: ", ResourceHealth), param4=strcat("AlertHealth: ",AlertHealth), param5=strcat("actionGroups: ", actionGroups)
 | order by tolower(name) asc
