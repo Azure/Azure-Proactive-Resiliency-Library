@@ -1,1 +1,10 @@
-// under-development
+// Azure Resource Graph Query
+// Find VMSS instances that do NOT have automatic VM guest patching enabled
+resources
+| where type == "microsoft.compute/virtualmachinescalesets"
+| where isnotnull(properties.virtualMachineProfile.osProfile.windowsConfiguration) and properties.virtualMachineProfile.osProfile.windowsConfiguration.patchSettings.patchMode != "AutomaticByPlatform"
+| project recommendationId = "vmss-9", name, id, param1 = "patchMode: AutomaticByPlatform"
+| union (resources
+| where type == "microsoft.compute/virtualmachinescalesets"
+| where isnotnull(properties.virtualMachineProfile.osProfile.linuxConfiguration) and properties.virtualMachineProfile.osProfile.linuxConfiguration.patchSettings.patchMode != "AutomaticByPlatform"
+| project recommendationId = "vmss-9", name, id, param1 = "patchMode: AutomaticByPlatform")

@@ -10,5 +10,5 @@ resources
     | project id = tostring(properties.targetResourceUri), autoscalesettings = properties
 ) on id
 | where isnull(autoscalesettings) or autoscalesettings.enabled == "false"
-| project recommendationId = "vmss-4", name, id, param1 = "autoscalesettings: Manual"
+| project recommendationId = "vmss-4", name, id, param1 = "autoscalesettings: Enabled"
 | order by id asc
