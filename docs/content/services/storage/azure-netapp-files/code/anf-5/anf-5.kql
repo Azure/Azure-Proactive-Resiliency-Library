@@ -1,4 +1,4 @@
-// This Resource Graph query will return all NetApp Volumes without Cross-Zone Replication.
+// This Resource Graph query will return all NetApp Volumes without Cross-Region Replication.
 resources
 | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
 | extend NetAC0 = tostring(split(name,'/')[0])
@@ -6,5 +6,5 @@ resources
     | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
     | extend NetAC1 = tostring(split(name,'/')[0])
     | project id,NetAC1,remid=tostring(properties.dataProtection.replication.remoteVolumeResourceId)) on $left.id == $right.remid
-| where properties.volumeType != 'DataProtection' and NetAC0 != NetAC1
-| project recommendationId = "ANF-5", name, id, tags
+| where properties.volumeType != 'DataProtection' and NetAC0 == NetAC1
+| project recommendationId = "ANF-1", name, id, tags
