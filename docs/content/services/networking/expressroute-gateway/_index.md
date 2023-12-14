@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Gateway"
 description = "Best practices and resiliency recommendations for ExpressRoute Gateway and associated resources."
-date = "4/18/23"
+date = "12/11/23"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
