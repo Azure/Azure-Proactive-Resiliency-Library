@@ -3,4 +3,4 @@
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where isnull(zones)
-| project recommendationId = "vm-2", name, id, param1="Zones: No Zone"
+| project recommendationId="vm-2", name, id, tags, param1="No Zone"
