@@ -54,7 +54,7 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/anf-3/anf-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/anf-1/anf-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -79,7 +79,7 @@ Please check the supported regions for standard network feature [here](https://d
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/anf-4/anf-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/anf-2/anf-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -103,7 +103,7 @@ Azure availability zones are physically separate locations within each suppo
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/anf-2/anf-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/anf-3/anf-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -129,7 +129,7 @@ Azure NetApp Files supports a fully managed backup solution for long-term recove
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/anf-6/anf-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/anf-4/anf-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -153,7 +153,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/anf-1/anf-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/anf-5/anf-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -177,7 +177,7 @@ The cross-zone replication (CZR) capability provides data protection between vol
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/anf-5/anf-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/anf-6/anf-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
