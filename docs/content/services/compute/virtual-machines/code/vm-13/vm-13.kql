@@ -6,7 +6,7 @@ Resources
 | mv-expand ipConfigurations = properties.ipConfigurations, nsg = properties.networkSecurityGroup
 | project nicId = tostring(id), subnetId = tostring(ipConfigurations.properties.subnet.id), nsgName=split(nsg.id, '/')[8]
 | parse kind=regex subnetId with '/virtualNetworks/' virtualNetwork '/subnets/' subnet
-    | join kind=leftouter (
+    | join kind=inner (
         Resources
         | where type =~ 'Microsoft.Network/NetworkSecurityGroups' and isnotnull(properties.subnets)
         | project name, resourceGroup, subnet=properties.subnets
