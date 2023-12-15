@@ -3,5 +3,5 @@
 Resources
 | where type =~ 'Microsoft.Compute/disks'
 | where isnotnull(properties.maxShares)
-| project recommendationId = "vm-16", name, id
+| project recommendationId = "vm-16", name, id, tags
 | order by id asc

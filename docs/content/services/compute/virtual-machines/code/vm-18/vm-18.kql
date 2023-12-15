@@ -5,4 +5,4 @@ PolicyResources
 | where properties.complianceState == 'NonCompliant'
 | extend vmResourceId = properties.resourceId, vmresourceType = properties.resourceType, PolicyAssignmentName = properties.policyAssignmentName
 | where vmresourceType == 'Microsoft.Compute/virtualMachines'
-| project recommendationId = "vm-18", name = tostring(split(tostring(properties.resourceId), '/')[8]), id=vmResourceId, param1 = strcat ("Policyname: ", name)
+| project recommendationId = "vm-18", name = tostring(split(tostring(properties.resourceId), '/')[8]), id=vmResourceId, tags, param1 = strcat ("Policyname: ", name)
