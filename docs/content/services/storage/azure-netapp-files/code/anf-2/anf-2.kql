@@ -2,4 +2,4 @@
 resources
 | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
 | where properties.networkFeatures != "Standard"
-| project recommendationId = "ANF-4", name, id, tags
+| project recommendationId = "ANF-2", name, id, tags

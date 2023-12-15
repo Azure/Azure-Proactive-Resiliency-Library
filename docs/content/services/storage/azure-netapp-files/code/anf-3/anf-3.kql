@@ -2,4 +2,4 @@
 resources
 | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
 | where zones == "[]"
-| project recommendationId = "ANF-2", name, id, tags
+| project recommendationId = "ANF-3", name, id, tags

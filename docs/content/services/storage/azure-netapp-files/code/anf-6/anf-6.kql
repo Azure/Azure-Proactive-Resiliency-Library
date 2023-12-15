@@ -7,4 +7,4 @@ resources
     | extend NetAC1 = tostring(split(name,'/')[0])
     | project id,NetAC1,remid=tostring(properties.dataProtection.replication.remoteVolumeResourceId)) on $left.id == $right.remid
 | where properties.volumeType != 'DataProtection' and NetAC0 != NetAC1
-| project recommendationId = "ANF-5", name, id, tags
+| project recommendationId = "ANF-6", name, id, tags
