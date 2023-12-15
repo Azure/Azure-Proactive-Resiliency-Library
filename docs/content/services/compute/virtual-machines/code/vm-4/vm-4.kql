@@ -3,7 +3,7 @@
 // Run query to see results.
 resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
-| project name, id
+| project name, id, tags
 | join kind=leftouter (
     recoveryservicesresources
     | where type =~ 'Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems'
@@ -14,5 +14,5 @@ resources
 | where isnull(id1)
 | project-away id1
 | project-away name1
-| project recommendationId = "vm-4", name, id
+| project recommendationId = "vm-4", name, id, tags
 | order by id asc
