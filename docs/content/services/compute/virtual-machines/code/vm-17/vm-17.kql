@@ -3,5 +3,5 @@
 Resources
 | where type =~ 'Microsoft.Compute/disks'
 | where properties.publicNetworkAccess == "Enabled"
-| project recommendationId = "vm-17", name, id
+| project recommendationId = "vm-17", name, id, tags
 | order by id asc
