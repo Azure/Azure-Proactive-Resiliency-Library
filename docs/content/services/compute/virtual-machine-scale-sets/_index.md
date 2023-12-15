@@ -34,7 +34,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 {{< /alert >}}
 
-## Recommendations Details
+## Recommendations Details 
 
 ### VMSS-1 - Deploy VMSS with Flex orchestration mode instead of Uniform
 
