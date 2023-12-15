@@ -13,6 +13,6 @@ resources
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
-| summarize param2 = strcat ("Extensions: ", make_list(ExtensionName)) by recommendationId="vm-20", name=vmName, id, param1=OSType
+| summarize param2 = strcat ("Extensions: ", make_list(ExtensionName)) by recommendationId="vm-20", name=vmName, id, tags=strcat(tags), param1=OSType
 | where param2 !contains "MicrosoftMonitoringAgent" and param2 !contains "OMSAgentforLinux" and param2 !contains "AzureMonitorWindowsAgent" and param2 !contains "AzureMonitorLinuxAgent"
 | order by tolower(name) asc
