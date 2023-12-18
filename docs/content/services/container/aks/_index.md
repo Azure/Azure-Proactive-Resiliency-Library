@@ -143,7 +143,7 @@ Enabling Azure AD integration on an AKS cluster provides several benefits for ma
 
 **Guidance**
 
-The Azure CNI networking solution for AKS provides several benefits for managing IP addresses and network connectivity for cluster Pods. By dynamically allocating IPs to Pods from the Pod subnet, the solution leads to better utilization of IPs in the cluster compared to traditional CNI solutions that do static allocation of IPs for every node. The solution is scalable and flexible, allowing node and pod subnets to be scaled independently and shared across multiple node pools or AKS clusters. The solution also provides high performance, with direct connectivity between Pods and resources in the VNet. Additionally, the solution enables separate VNet policies for Pods, which can be configured differently from node policies. Finally, the solution supports Kubernetes network policies, including both Azure Network Policies and Calico. Overall, the Azure CNI networking solution provides a powerful and flexible networking solution for AKS clusters.
+The Azure CNI networking solution provides several benefits for managing IP addresses and network connectivity for cluster pods including dynamic allocation of IPs to pods, allowing node and pod subnets to scale independently, direct network connectivity between pods and resources in the VNET and allowing different network policies for pods and nodes. It also supports different networking policies including Azure Network Policies and Calico.
 
 **Resources**
 
@@ -506,7 +506,7 @@ Starting with Kubernetes version 1.26, in-tree persistent volume types kubernete
 
 <br><br>
 
-### AKS-18 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits.
+### AKS-18 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits
 
 
 **Category: System Efficiency**
