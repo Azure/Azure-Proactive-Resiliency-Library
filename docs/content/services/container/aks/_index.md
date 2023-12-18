@@ -298,7 +298,7 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 
 **Guidance**
 
-It’s important to keep your AKS secure for the applications that you run. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place, enforces organizational standards, built-in security policies and assess compliance at-scale.
+It’s important to keep your AKS cluster secure for the applications that you run. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place, enforces organizational standards, built-in security policies and assess compliance at-scale.
 
 **Resources**
 
@@ -324,7 +324,7 @@ It’s important to keep your AKS secure for the applications that you run. Azur
 
 **Guidance**
 
-When you create your VMs, use availability zones to protect your applications and data against unlikely data center failure.
+When you create your cluster, use availability zones to protect your applications and data against unlikely data center failure.
 
 **Resources**
 
@@ -382,7 +382,7 @@ In AKS Premium_ZRS and StandardSSD_ZRS disk types are supported. ZRS disk could 
 
 **Guidance**
 
-Local accounts provide a legacy non auditable means of accessing an AKS cluster and are not recommended for use.
+Local accounts provide a legacy non-auditable means of accessing an AKS cluster and are not recommended for use.
 
 **Resources**
 
@@ -540,7 +540,7 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 
 **Guidance**
 
-To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods. No need to wait for Kubernetes cluster auto-scaler to deploy VM compute nodes to run more pods, avoid a transaction lost during AKS default escalation method.
+To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, pods provision much faster than through the Kubernetes cluster auto-scaler.
 
 **Resources**
 
@@ -617,7 +617,7 @@ Alerts help you detect and address issues before users notice them by proactivel
 
 **Guidance**
 
-Production AKS clusters should be configured with the Standard tier. The AKS free service doesn't offer a financially backed SLA and nodes scalability is limited. To obtain that SLA, Standard tier must be selected.
+Production AKS clusters should be configured with the Standard tier. The AKS free service doesn't offer a financially backed SLA and node scalability is limited. To obtain that SLA, Standard tier must be selected.
 
 **Resources**
 
@@ -841,7 +841,7 @@ AKS kubelet controller uses liveness probes to validate containers and applicati
 
 **Guidance**
 
-Configure ReplicaSet's in the POD or Deployment manifests to maintain a stable set of replica Pods running at any given time. This feature will guarantee the availability of a specified number of identical Pods.
+Configure ReplicaSets in the Pod or Deployment manifests to maintain a stable set of replica Pods running at any given time. This feature will guarantee the availability of a specified number of identical Pods.
 
 **Resources**
 
