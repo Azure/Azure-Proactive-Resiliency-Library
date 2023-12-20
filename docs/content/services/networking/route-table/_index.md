@@ -44,7 +44,7 @@ Create Alerts for administrative operations such as Create or Update Route Table
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/rt-1/rt-1.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/rt-1/rt-1.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -69,7 +69,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/rt-2/rt-2.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/rt-2/rt-2.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
