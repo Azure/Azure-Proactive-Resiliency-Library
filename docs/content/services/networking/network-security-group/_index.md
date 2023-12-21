@@ -79,7 +79,7 @@ Create Alerts for administrative operations such as Create or Update Network Sec
 
 ### NSG-3 - Configure locks for Network Security Groups to avoid accidental changes and/or deletion
 
-**Category: **
+**Category: Governance**
 
 **Impact: Medium**
 
