@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.keyvault/vaults"
 | where isnull(properties.enableSoftDelete) or properties.enableSoftDelete != "true"
-| project recommendationId = "kv-1", name, id, tags, param1 = strcat("softDeleteEnabled: disabled")
+| project recommendationId = "kv-1", name, id, tags, param1 = "softDeleteEnabled: disabled"
