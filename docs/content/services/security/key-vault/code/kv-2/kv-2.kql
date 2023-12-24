@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.keyvault/vaults"
 | where isnull(properties.enablePurgeProtection) or properties.enablePurgeProtection != "true"
-| project recommendationId = "kv-2", name, id, tags, param1= "EnablePurgeProtection: Disabled"
+| project recommendationId = "kv-2", name, id, tags, param1 = "EnablePurgeProtection: Disabled"
