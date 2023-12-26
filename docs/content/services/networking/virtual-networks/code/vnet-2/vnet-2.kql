@@ -1,5 +1,5 @@
 // Azure Resource Graph Query
-// Find Subnets without NSG associated
+// Find virtual networks without DDoS Protection
 resources
 | where type =~ 'Microsoft.Network/virtualNetworks'
 | where isnull(properties.enableDdosProtection) or properties.enableDdosProtection contains "false"
