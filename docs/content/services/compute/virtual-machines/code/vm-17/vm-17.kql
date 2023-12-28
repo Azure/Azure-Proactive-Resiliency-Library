@@ -1,7 +1,22 @@
 // Azure Resource Graph Query
 // Find all Disks with "Enable public access from all networks" enabled
-Resources
+resources
 | where type =~ 'Microsoft.Compute/disks'
 | where properties.publicNetworkAccess == "Enabled"
-| project recommendationId = "vm-17", name, id, tags
+| extend lowerCaseId = tolower(id)
+| join kind = leftouter (
+    resources
+    | where type =~ 'Microsoft.Compute/virtualMachines'
+    | project osDiskVmName = name, osDiskId = tostring(properties.storageProfile.osDisk.managedDisk.id)
+    | join kind = fullouter (
+        resources
+        | where type =~ 'Microsoft.Compute/virtualMachines'
+        | mv-expand dataDisks = properties.storageProfile.dataDisks
+        | project dataDiskVmName = name, dataDiskId = tostring(dataDisks.managedDisk.id)
+        )
+        on $left.osDiskId == $right.dataDiskId
+    | project diskId = tolower(coalesce(osDiskId, dataDiskId)), vmName = coalesce(osDiskVmName, dataDiskVmName)
+    )
+    on $left.lowerCaseId == $right.diskId
+| project recommendationId = "vm-17", name, id, tags, param1 = iif(isempty(vmName), "VMName: n/a", strcat("VMName: ", vmName))
 | order by id asc
