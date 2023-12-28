@@ -86,6 +86,8 @@ It is recommended to avoid scaling up or down your Azure App Service instances f
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
 
+**Resource Graph Query/Scripts**
+
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/asp-3/asp-3.kql" >}} {{< /code >}}
@@ -106,6 +108,8 @@ It is strongly recommended to create separate App Service plans for production a
 **Resources**
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
+
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
