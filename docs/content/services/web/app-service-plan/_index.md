@@ -64,12 +64,6 @@ The use of the Standard or Premium tier for Azure App Service Plan is crucial fo
 
 - [Resiliency checklist for specific Azure services](https://learn.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service)
 
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/asp-2/asp-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -133,12 +127,6 @@ It is highly recommended to enable Autoscale/Automatic Scaling for your Azure Ap
 
 - [Automatic scaling in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/manage-automatic-scaling?tabs=azure-portal)
 - [Auto Scale Web Apps](https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-get-started)
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/asp-5/asp-5.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 **Resource Graph Query/Scripts**
 
