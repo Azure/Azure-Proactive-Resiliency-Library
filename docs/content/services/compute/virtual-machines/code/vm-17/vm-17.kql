@@ -3,21 +3,21 @@
 resources
 | where type =~ 'Microsoft.Compute/disks'
 | where properties.publicNetworkAccess == "Enabled"
-| extend lowerCaseId = tolower(id)
+| project id, name, tags, lowerCaseDiskId = tolower(id)
 | join kind = leftouter (
     resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
-    | project osDiskVmName = name, osDiskId = tostring(properties.storageProfile.osDisk.managedDisk.id)
+    | project osDiskVmName = name, lowerCaseOsDiskId = tolower(properties.storageProfile.osDisk.managedDisk.id)
     | join kind = fullouter (
         resources
         | where type =~ 'Microsoft.Compute/virtualMachines'
         | mv-expand dataDisks = properties.storageProfile.dataDisks
-        | project dataDiskVmName = name, dataDiskId = tostring(dataDisks.managedDisk.id)
+        | project dataDiskVmName = name, lowerCaseDataDiskId = tolower(dataDisks.managedDisk.id)
         )
-        on $left.osDiskId == $right.dataDiskId
-    | project diskId = tolower(coalesce(osDiskId, dataDiskId)), vmName = coalesce(osDiskVmName, dataDiskVmName)
+        on $left.lowerCaseOsDiskId == $right.lowerCaseDataDiskId
+    | project lowerCaseDiskId = coalesce(lowerCaseOsDiskId, lowerCaseDataDiskId), vmName = coalesce(osDiskVmName, dataDiskVmName)
     )
-    on $left.lowerCaseId == $right.diskId
+    on lowerCaseDiskId
 | summarize vmNames = make_set(vmName) by name, id, tostring(tags)
 | extend param1 = iif(isempty(vmNames[0]), "VMName: n/a", strcat("VMName: ", strcat_array(vmNames, ", ")))
 | project recommendationId = "vm-17", name, id, tags, param1
