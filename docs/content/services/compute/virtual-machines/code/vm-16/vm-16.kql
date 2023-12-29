@@ -18,5 +18,7 @@ resources
     | project diskId = tolower(coalesce(osDiskId, dataDiskId)), vmName = coalesce(osDiskVmName, dataDiskVmName)
     )
     on $left.lowerCaseId == $right.diskId
-| project recommendationId = "vm-16", name, id, tags, param1 = strcat("DiskState: ", properties.diskState), param2 = iif(isempty(vmName), "VMName: n/a", strcat("VMName: ", vmName))
+| summarize vmNames = make_set(vmName) by name, id, tostring(tags), diskState = tostring(properties.diskState)
+| extend param1 = strcat("DiskState: ", diskState), param2 = iif(isempty(vmNames[0]), "VMName: n/a", strcat("VMName: ", strcat_array(vmNames, ", ")))
+| project recommendationId = "vm-16", name, id, tags, param1, param2
 | order by id asc
