@@ -2,14 +2,16 @@
 // Find all VM NICs that do not have Accelerated Networking enabled
 resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
-| mv-expand nic=properties.networkProfile.networkInterfaces
-| project name, id, tags, nicName = tostring(split(tostring(nic.id), '/')[8])
-| join kind=inner (
+| mv-expand nic = properties.networkProfile.networkInterfaces
+| project name, id, tags, lowerCaseNicId = tolower(nic.id)
+| join kind = inner (
     resources
     | where type =~ 'Microsoft.Network/networkInterfaces'
     | where properties.enableAcceleratedNetworking == false
-    | project nicName = tostring(split(tostring(id), '/')[8])
-) on nicName
-| summarize NicNames = make_set(nicName) by name, id, tostring(tags)
-| project recommendationId = "vm-10", name, id, tags, param1=strcat("nicNames: ", NicNames)
+    | project nicName = split(id, "/")[8], lowerCaseNicId = tolower(id)
+    )
+    on lowerCaseNicId
+| summarize nicNames = make_set(nicName) by name, id, tostring(tags)
+| extend param1 = strcat("NicName: ", strcat_array(nicNames, ", "))
+| project recommendationId = "vm-10", name, id, tags, param1
 | order by id asc
