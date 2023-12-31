@@ -10,7 +10,7 @@ Get-AzNetworkSecurityGroup |
             recommendationId = 'nsg-1'
             name             = $nsg.Name
             id               = $nsg.Id
-            tags             = if ($nsg.Tag) { ($nsg.Tag.GetEnumerator() |% { "{""$($_.Key)"":""$($_.Value)""}" }) -join ',' } else { '' }
+            tags             = if ($nsg.Tag) { ($nsg.Tag.GetEnumerator() | ForEach-Object -Process { "{""$($_.Key)"":""$($_.Value)""}" }) -join ',' } else { '' }
             param1           = 'DiagnosticSetting: Disabled'
         }
     }
