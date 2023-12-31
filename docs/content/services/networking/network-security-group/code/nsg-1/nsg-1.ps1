@@ -1,5 +1,5 @@
 # Azure PowerShell Script
-# Provides a list of Network Security Group resources that do not have diagnostic setting.
+# Find all Network Security Groups without diagnostic settings configured.
 Get-AzNetworkSecurityGroup |
     Where-Object -FilterScript {
         (Get-AzDiagnosticSetting -ResourceId $_.Id) -eq $null
