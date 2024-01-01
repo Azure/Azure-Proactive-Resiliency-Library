@@ -19,4 +19,4 @@ resources
     )
     on $left.lowerCaseNsgId == $right.lowerCaseNsgIdOfScope
 | where isempty(lowerCaseNsgIdOfScope)
-| project recommendationId = "nsg-2", name, id, tags
+| project recommendationId = "nsg-2", name, id, tags, param1 = "ModificationAlert: Not configured/Disabled"
