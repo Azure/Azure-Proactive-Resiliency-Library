@@ -100,6 +100,14 @@ You can set locks that prevent either deletions or modifications. In the portal,
 
 {{< /collapse >}}
 
+**Script**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="powershell" file="code/nsg-3/nsg-3.ps1" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### NSG-4 - Configure NSG Flow Logs
