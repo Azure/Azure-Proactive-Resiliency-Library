@@ -23,6 +23,7 @@ Get-AzNetworkSecurityGroup | ForEach-Object -Process {
             name             = $nsg.Name
             id               = $nsg.Id
             tags             = if ($nsg.Tag) { ($nsg.Tag.GetEnumerator() | ForEach-Object -Process { "{""$($_.Key)"":""$($_.Value)""}" }) -join ',' } else { '' }
+            param1           = 'ResourceLock: Not configured'
         }
     }
 }
