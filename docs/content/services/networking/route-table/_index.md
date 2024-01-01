@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Route Table an
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State   | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
-| [RT-1 - Monitor changes in Route Tables with Azure Monitor](#rt-1---monitor-changes-in-route-tables-with-azure-monitor) | Monitoring | Low | Preview  |         No         |
+| [RT-1 - Monitor changes in Route Tables with Azure Monitor](#rt-1---monitor-changes-in-route-tables-with-azure-monitor) | Monitoring | Low | Preview  |         Yes         |
 | [RT-2 - Configure locks for Route Tables to avoid accidental changes or deletion](#rt-2---configure-locks-for-route-tables-to-avoid-accidental-changes-or-deletion) | Governance         | Low | Preview |         No          |
 {{< /table >}}
 
