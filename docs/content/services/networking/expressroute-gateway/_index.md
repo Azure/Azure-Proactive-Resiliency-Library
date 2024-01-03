@@ -14,10 +14,10 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
-| [ERG-1 - Use Zone-redundant gateway SKUs](#erg-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
-| [ERG-2 - Monitor gateway health](#erg-2---monitor-gateway-health) | High | Preview | No |
-| [ERG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#erg-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | No |
-| [ERG-4 - Configure ExpressRoute Gateways in different regions](#erg-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | No |
+| [ERGW-1 - Use Zone-redundant gateway SKUs](#ergw-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
+| [ERGW-2 - Monitor gateway health](#ergw-2---monitor-gateway-health) | High | Preview | No |
+| [ERGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#ergw-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | No |
+| [ERGW-4 - Configure ExpressRoute Gateways in different regions](#ergw-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | No |
 
 {{< /table >}}
 
@@ -29,7 +29,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### ERG-1 - Use Zone-redundant gateway SKUs
+### ERGW-1 - Use Zone-redundant gateway SKUs
 
 **Category: Availability**
 
@@ -49,13 +49,13 @@ Azure ExpressRoute gateway provides different SLAs when it’s deployed in a sin
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/erg-1/erg-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ergw-1/ergw-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ERG-2 - Monitor gateway health
+### ERGW-2 - Monitor gateway health
 
 **Category: Monitoring**
 
@@ -74,13 +74,13 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/erg-2/erg-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ergw-2/ergw-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ERG-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits
+### ERGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits
 
 **Category: Networking**
 
@@ -98,13 +98,13 @@ By default, connectivity between virtual networks are enabled when you link mult
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/erg-3/erg-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ergw-3/ergw-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ERG-4 - Configure ExpressRoute Gateways in different regions
+### ERGW-4 - Configure ExpressRoute Gateways in different regions
 
 **Category: Disaster Recovery**
 
@@ -122,7 +122,7 @@ When multiple Azure regions are in use, increase resilience by configuring Expre
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/erg-4/erg-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ergw-4/ergw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
