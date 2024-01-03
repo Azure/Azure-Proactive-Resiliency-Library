@@ -14,11 +14,11 @@ The presented resiliency recommendations in this guidance include General Networ
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State   | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
-| [NW-1 - Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure](#nw-1---use-expressroute-as-the-primary-connectivity-channel-for-connecting-an-on-premises-network-to-azure) | Networking | High | Preview  |         No         |
-| [NW-2 - Simulate a failure path to ensure that connectivity is available over alternative paths](#nw-2---simulate-a-failure-path-to-ensure-that-connectivity-is-available-over-alternative-paths) | Networking | High | Preview |         No          |
-| [NW-3 - Use a global load balancer to distribute traffic and failover across regions](#nw-3---use-a-global-load-balancer-to-distribute-traffic-and-failover-across-regions) | Networking | Medium | Preview  |         No         |
-| [NW-4 - Eliminate all single points of failure from the data path both on-premises and hosted on Azure](#nw-4---eliminate-all-single-points-of-failure-from-the-data-path-both-on-premises-and-hosted-on-azure) | Networking | Medium | Preview  |         No         |
-| [NW-5 - Assess critical application dependencies with health probes](#nw-5---assess-critical-application-dependencies-with-health-probes) | Networking | Medium | Preview  |         No         |
+| [GNW-1 - Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure](#gnw-1---use-expressroute-as-the-primary-connectivity-channel-for-connecting-an-on-premises-network-to-azure) | Networking | High | Preview  |         No         |
+| [GNW-2 - Simulate a failure path to ensure that connectivity is available over alternative paths](#gnw-2---simulate-a-failure-path-to-ensure-that-connectivity-is-available-over-alternative-paths) | Networking | High | Preview |         No          |
+| [GNW-3 - Use a global load balancer to distribute traffic and failover across regions](#gnw-3---use-a-global-load-balancer-to-distribute-traffic-and-failover-across-regions) | Networking | Medium | Preview  |         No         |
+| [GNW-4 - Eliminate all single points of failure from the data path both on-premises and hosted on Azure](#gnw-4---eliminate-all-single-points-of-failure-from-the-data-path-both-on-premises-and-hosted-on-azure) | Networking | Medium | Preview  |         No         |
+| [GNW-5 - Assess critical application dependencies with health probes](#gnw-5---assess-critical-application-dependencies-with-health-probes) | Networking | Medium | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -29,7 +29,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### NW-1 - Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure
+### GNW-1 - Use ExpressRoute as the primary connectivity channel for connecting an on-premises network to Azure
 
 **Category: Networking**
 
@@ -49,13 +49,13 @@ At least two redundant connections should be established across two or more Azur
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/nw-1/nw-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gnw-1/gnw-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### NW-2 - Simulate a failure path to ensure that connectivity is available over alternative paths
+### GNW-2 - Simulate a failure path to ensure that connectivity is available over alternative paths
 
 **Category: Networking**
 
@@ -73,13 +73,13 @@ The failure of a connection path onto other connection paths should be tested to
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/nw-2/nw-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gnw-2/gnw-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### NW-3 - Use a global load balancer to distribute traffic and failover across regions
+### GNW-3 - Use a global load balancer to distribute traffic and failover across regions
 
 **Category: Networking**
 
@@ -97,13 +97,13 @@ Azure Front Door, Azure Traffic Manager, or third-party content delivery network
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/nw-3/nw-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gnw-3/gnw-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### NW-4 - Eliminate all single points of failure from the data path both on-premises and hosted on Azure
+### GNW-4 - Eliminate all single points of failure from the data path both on-premises and hosted on Azure
 
 **Category: Networking**
 
@@ -121,13 +121,13 @@ Single-instance Network Virtual Appliances (NVAs) introduce significant connecti
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/nw-4/nw-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gnw-4/gnw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### NW-5 - Assess critical application dependencies with health probes
+### GNW-5 - Assess critical application dependencies with health probes
 
 **Category: Networking**
 
@@ -145,7 +145,7 @@ Custom health probes should be used to assess overall application health includi
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/nw-5/nw-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/gnw-5/gnw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

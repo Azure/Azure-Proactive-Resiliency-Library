@@ -247,7 +247,7 @@ When you create your VMSS, use availability zones to protect your applications a
 
 **Guidance**
 
-Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
+Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs. Note that the KQL below will not return Virtual Machine Scale Sets using Uniform orchestration.
 
 **Resources**
 
