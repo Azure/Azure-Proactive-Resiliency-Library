@@ -1,1 +1,14 @@
-// under-development
+// Azure Resource Graph Query
+// Display App Service with the count of deployment slots for Apps under eligible App service plans and it shows if deployment slot is enabled or not
+
+resources
+| where type =~ 'microsoft.web/sites' or type =~ 'microsoft.web/sites/slots'
+| extend isSlot = iff(type =~ 'microsoft.web/sites/slots', 1, 0)
+| extend AspName = iff(isSlot == 1, split(name, '/')[0], name)
+| extend Sku = tostring(properties.sku)
+| where Sku in ("Standard", "Premium", "IsolatedV2")
+| project id, name, AspName, isSlot, Sku
+| summarize Slots = countif(isSlot == 1) by id, name, AspName, Sku
+| extend recommendationid = "asp-5"
+| extend DeploymentSlotEnabled = iff(Slots > 1, true, false)
+| project recommendationid, name, id, Sku, Slots, DeploymentSlotEnabled
