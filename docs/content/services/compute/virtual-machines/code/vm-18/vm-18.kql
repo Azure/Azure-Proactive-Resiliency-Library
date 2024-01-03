@@ -1,8 +1,6 @@
 // Azure Resource Graph Query
 // Find all VMs in "NonCompliant" state with Azure Policies
 PolicyResources
-| where type =~ 'microsoft.policyinsights/policystates'
-| where properties.complianceState == 'NonCompliant'
-| extend vmResourceId = properties.resourceId, vmresourceType = properties.resourceType, PolicyAssignmentName = properties.policyAssignmentName
-| where vmresourceType == 'Microsoft.Compute/virtualMachines'
+| where type =~ "Microsoft.PolicyInsights/policyStates" and properties.resourceType =~ "Microsoft.Compute/virtualMachines" and properties.complianceState =~ "NonCompliant"
+| extend vmResourceId = properties.resourceId, PolicyAssignmentName = properties.policyAssignmentName
 | project recommendationId = "vm-18", name = tostring(split(tostring(properties.resourceId), '/')[8]), id=vmResourceId, tags, param1 = strcat ("Policyname: ", PolicyAssignmentName)
