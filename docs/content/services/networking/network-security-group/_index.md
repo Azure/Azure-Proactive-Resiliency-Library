@@ -15,10 +15,10 @@ The presented resiliency recommendations in this guidance include Network Securi
 | Recommendation                                                                                                                                                                |  Category         |  Impact   |  State     | ARG Query Available |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------:  | :------:  | :------:   | :-----------------: |
 | [NSG-1 - Configure Diagnostic Settings for all Azure Resources](#nsg-1---configure-diagnostic-settings-for-all-azure-resources)                                               | Monitoring        |  Medium   | Preview    |     No          |
-| [NSG-2 - Monitor changes in Network Security Groups with Azure Monitor](#nsg-2---monitor-changes-in-network-security-groups-with-azure-monitor)                               | Monitoring        |     Low   | Preview    |     No          |
-| [NSG-3 - Monitor changes in Network Security Groups with Azure Monitor](#nsg-3---configure-locks-for-network-security-groups-to-avoid-accidental-changes-andor-deletion)      | Governance        |     Low   | Preview    |     No          |
-| [NSG-4 - Monitor changes in Network Security Groups with Azure Monitor](#nsg-4---configure-nsg-flow-logs)                                                                     | Monitoring        |  Medium   | Preview    |     Yes          |
-| [NSG-5 - Monitor changes in Network Security Groups with Azure Monitor](#nsg-5---the-nsg-only-has-default-security-rules-make-sure-to-configure-the-necessary-rules)          | Access & Security |  Medium   | Preview    |     Yes          |
+| [NSG-2 - Monitor changes in Network Security Groups with Azure Monitor](#nsg-2---monitor-changes-in-network-security-groups-with-azure-monitor)                               | Monitoring        |     Low   | Preview    |     Yes          |
+| [NSG-3 - Configure locks for Network Security Groups to avoid accidental changes and/or deletion](#nsg-3---configure-locks-for-network-security-groups-to-avoid-accidental-changes-andor-deletion)      | Governance        |     Low   | Preview    |     No          |
+| [NSG-4 - Configure NSG Flow Logs](#nsg-4---configure-nsg-flow-logs)                                                                     | Monitoring        |  Medium   | Preview    |     Yes         |
+| [NSG-5 - The NSG only has Default Security Rules, make sure to configure the necessary rules](#nsg-5---the-nsg-only-has-default-security-rules-make-sure-to-configure-the-necessary-rules)          | Access & Security |  Medium   | Preview    |     Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}
