@@ -43,15 +43,13 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 - [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings)
 
-**Resource Graph Query**
+**Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/nsg-1/nsg-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
-**Script**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
