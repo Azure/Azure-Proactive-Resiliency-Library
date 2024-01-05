@@ -39,11 +39,14 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Recommendation/Guidance**
 
-Adjust the configuration options for Azure Private Link. When you use this service with Azure Virtual Desktop, you can disable the public endpoints for Azure Virtual Desktop control plane components and use private endpoints to avoid using public IP addresses.
+Configuration options to disable the public endpoints for Azure Virtual Desktop control plane components and use private endpoints to avoid using public IP addresses.
+
+Access of data made more reliable through enhanced security, lower latency with the implementation of the encrypted connection between your virtual network and your data source, without exposing your data to the public internet.
 
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#recommendations-3)
+- [Private Endpoint](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
 
 **Resource Graph Query/Scripts**
 
@@ -63,11 +66,15 @@ Adjust the configuration options for Azure Private Link. When you use this servi
 
 **Recommendation/Guidance**
 
-Adjust the configuration options for Azure Private Link. When you use this service with Azure Virtual Desktop, you can disable the public endpoints for Azure Virtual Desktop control plane components and use private endpoints to avoid using public IP addresses.
+Configuration options  to validate access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
+
+For a resilient AVD environment that ensures secure access to the services through the Private Link platform which will handle the connectivity between the consumer and services over the Azure backbone network.
+
 
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
+- [Private link](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
 
 **Resource Graph Query/Scripts**
 
@@ -86,11 +93,14 @@ Adjust the configuration options for Azure Private Link. When you use this servi
 **Impact: High**
 **Recommendation/Guidance**
 
-By distributing your session hosts across all zones you have increased the resiliency of your overall Azure Virtual Desktop service to your end customer. If you have distributed your session hosts across three zones and one zone becomes unavailable, only one third of your user estate is impacted.
+Distributing session hosts across all zones increases the resiliency of your overall Azure Virtual Desktop service to your end customer. If you have distributed your session hosts across three zones and one zone becomes unavailable, only one third of your user estate is impacted.
+
+Increase application resiliency and availability for virtual machines. Maintain synchronous replication, withstand datacenter failures, and ensure customer impact is minimal to none.
 
 **Resources**
 
 - [Learn More](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-support-for-azure/ba-p/3636262#:~:text=By%20distributing%20your%20session%20hosts%20across%20all%20zones,one%20third%20of%20your%20user%20estate%20is%20impacted.)
+- [Availability Zones](https://learn.microsoft.com/en-us/azure/well-architected/reliability/regions-availability-zones)
 
 **Resource Graph Query/Scripts**
 
@@ -110,11 +120,14 @@ By distributing your session hosts across all zones you have increased the resil
 
 **Recommendation/Guidance**
 
-Deploy session hosts in an availability zone or an availability set to help protect your environment from outages.
+Deploy session hosts in an availability zone or an availability set helps protect the environment from outages.
+
+Enhances reliability by minimizing latency and impacts reliability helping keep the data synchronized and protecting from outages. If one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones.
 
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
+- [Availability Zones](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
 
 **Resource Graph Query/Scripts**
 
@@ -134,12 +147,14 @@ Deploy session hosts in an availability zone or an availability set to help prot
 
 **Recommendation/Guidance**
 
+Adjust the settings of scaling plans the minimum and maximum percentage of hosts and the capacity threshold. By changing these settings, you can optimize the number of session hosts that are online and ready to accept user sessions, improving cost efficiency.
+
 Use scaling plans, which automatically turn hosts off and on to help ensure adequate performance for users.
-Adjust the settings of scaling plans to improve cost efficiency.
+
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#scaling-plans)
+- [Scaling Plans](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#scaling-plans)
 
 **Resource Graph Query/Scripts**
 
@@ -159,11 +174,15 @@ Adjust the settings of scaling plans to improve cost efficiency.
 
 **Recommendation/Guidance**
 
-The location of a session host correlates directly with the latency that end users experience. If you use FSLogix, the distance between your host pool location and the FSLogix storage location also affects your end-user experience. Deploy session hosts close to user locations.
+Deploy session hosts close to user locations.
+
+The location of a session host correlates directly with the latency that end users experience. If you use FSLogix, the distance between your host pool location and the FSLogix storage location also affects your end-user experience.
+
 
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
+- [Session Hosts Settings](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
 
 **Resource Graph Query/Scripts**
 

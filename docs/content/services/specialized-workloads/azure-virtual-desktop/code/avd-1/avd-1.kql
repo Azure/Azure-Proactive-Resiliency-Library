@@ -1,3 +1,5 @@
+// Azure Resource Graph Query
+// Provides a list of Host Pools that have public access enabled.
 resources
 | where type == "microsoft.desktopvirtualization/hostpools"
 | where properties['publicNetworkAccess'] == "Enabled"
