@@ -1,20 +1,21 @@
 +++
-title = "Azure site recovery"
-description = "Best practices and resiliency recommendations for Azure Site recovery and associated resources."
-date = "10/20/23"
-author = "poven"
-msAuthor = "poven"
+title = "Azure Site Recovery"
+description = "Best practices and resiliency recommendations for Azure Site Recovery and associated resources."
+date = "11/23/23"
+author = "pesousa"
+msAuthor = "pesousa"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Azure site recovery and dependent resources and settings.
+The presented resiliency recommendations in this guidance include Azure Site Recovery and dependent resources and settings.
 
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [ASR-1 - Ensure static IP addresses configured in VM failover settings are available in the failover subnet](#asr-1---ensure-static-ip-addresses-configured-in-vm-failover-settings-are-available-in-the-failover-subnet)                                                                                                                          |  High  | Preview |         No         |
+| [ASR-1 - Ensure static IP addresses configured in VM failover settings are available in the failover subnet](#asr-1---ensure-static-ip-addresses-configured-in-vm-failover-settings-are-available-in-the-failover-subnet)|  High  | Preview |         No         |
+| [ASR-2 - Perform a test failover to validate the functionality and performance of the VMs in the target location](#asr-2---perform-a-test-failover-to-validate-the-functionality-and-performance-of-the-vms-in-the-target-location) | High  | Preview |         Yes         |
 
 {{< /table >}}
 
@@ -45,6 +46,31 @@ Ensure static IP addresses configured in VM failover settings are available in t
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/asr-1/asr-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ASR-2 - Perform a test failover to validate the functionality and performance of the VMs in the target location
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+Perform a test failover to validate your BCDR strategy and ensure that your applications are functioning correctly in the target region. This can be done without impacting your production environment.
+Test your Disaster Recovery plan periodically without any data loss or downtime, using test failovers.
+
+**Resources**
+
+- [Run a test failover](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill#run-a-test-failover)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/asr-2/asr-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
