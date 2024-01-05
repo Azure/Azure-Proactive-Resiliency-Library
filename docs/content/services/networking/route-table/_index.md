@@ -48,8 +48,6 @@ Create Alerts for administrative operations such as Create or Update Route Table
 
 {{< /collapse >}}
 
-**Script**
-
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="powershell" file="code/rt-1/rt-1.ps1" >}} {{< /code >}}
