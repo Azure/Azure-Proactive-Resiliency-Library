@@ -51,6 +51,12 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 {{< /collapse >}}
 
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="powershell" file="code/nsg-1/nsg-1.ps1" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
 
 ### NSG-2 - Monitor changes in Network Security Groups with Azure Monitor
