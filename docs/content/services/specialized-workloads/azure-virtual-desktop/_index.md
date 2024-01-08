@@ -36,9 +36,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Recommendation/Guidance**
 
-Configuration options  to validate access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
-
-For a resilient AVD environment that ensures secure access to the services through the Private Link platform which will handle the connectivity between the consumer and services over the Azure backbone network.
+Private Link is available for other Azure services that work in conjunction with Azure Virtual Desktop, such as Azure Files and Key Vault. For a reesiliency standpoint, we recommending implementing private endpoints for these services to reducing exposure to potential internet-related issues such as latency, packet loss, and/or downtime. This can lead to more reliable communication between AVD and dependent services. 
 
 
 **Resources**
