@@ -14,12 +14,9 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [AVD-1 Disable public network access on host pool](#avd-1---disable-public-network-access-on-host-pool)  | Medium       |      Networking and Connectivity | Preview  |      Yes         |
-| [AVD-2 Use Private link when connecting to File Share or Key Vault](#avd-2---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
-| [AVD-3 Deploy Host Pools in an Availability Zone](#avd-3---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       No        |
-| [AVD-4 Deploy Session Hosts in an Availability Zone](#avd-4---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
-| [AVD-5 Assign Scaling Plan for Host Pools](#avd-5---assign-scaling-plan-for-host-pools) | Low|  Application Delivery | Preview |       No       |
-| [AVD-6 Deploy Session Hosts close to users](#avd-6---deploy-session-hosts-close-to-users) | Medium |  Networking and Connectivity | Preview |       No        |
+| [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
+| [AVD-2 Deploy Host Pools in an Availability Zone](#avd-2---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       No        |
+| [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
 
 {{< /table >}}
 
@@ -31,34 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AVD-1 - Disable Public Network Access on Host Pool
-
-**Category: Access & Security/Networking and Connectivity**
-
-**Impact: Medium**
-
-**Recommendation/Guidance**
-
-Configuration options to disable the public endpoints for Azure Virtual Desktop control plane components and use private endpoints to avoid using public IP addresses.
-
-Access of data made more reliable through enhanced security, lower latency with the implementation of the encrypted connection between your virtual network and your data source, without exposing your data to the public internet.
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#recommendations-3)
-- [Private Endpoint](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-1/avd-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AVD-2 - Use Private link when connecting to File Share or Key Vault
+### AVD-1 - Use Private link when connecting to File Share or Key Vault
 
 **Category: Access & Security/Networking and Connectivity**
 
@@ -80,13 +50,13 @@ For a resilient AVD environment that ensures secure access to the services throu
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-2/avd-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-1/avd-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVD-3 - Deploy Host Pools in an Availability Zone
+### AVD-2 - Deploy Host Pools in an Availability Zone
 
 **Category: Application Resilience/Availability**
 
@@ -106,13 +76,13 @@ Increase application resiliency and availability for virtual machines. Maintain 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-3/avd-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-2/avd-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVD-4 - Deploy Session Hosts in an Availability Zone
+### AVD-3 - Deploy Session Hosts in an Availability Zone
 
 **Category: Application Resilience/Availability**
 
@@ -133,62 +103,7 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-4/avd-4.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AVD-5 - Assign Scaling Plan for Host Pools
-
-**Category: Application Resilience/Automation/System Efficiency**
-
-**Impact: Low**
-
-**Recommendation/Guidance**
-
-Adjust the settings of scaling plans the minimum and maximum percentage of hosts and the capacity threshold. By changing these settings, you can optimize the number of session hosts that are online and ready to accept user sessions, improving cost efficiency.
-
-Use scaling plans, which automatically turn hosts off and on to help ensure adequate performance for users.
-
-
-**Resources**
-
-- [Scaling Plans](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#scaling-plans)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-5/avd-5.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AVD-6 - Deploy Session Hosts close to users
-
-**Category: Networking and Connectivity**
-
-**Impact: Medium**
-
-**Recommendation/Guidance**
-
-Deploy session hosts close to user locations.
-
-The location of a session host correlates directly with the latency that end users experience. If you use FSLogix, the distance between your host pool location and the FSLogix storage location also affects your end-user experience.
-
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
-- [Session Hosts Settings](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-6/avd-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-3/avd-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
