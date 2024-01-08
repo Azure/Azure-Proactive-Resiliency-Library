@@ -6,7 +6,7 @@ resources
 | extend isSlot = iff(type =~ 'microsoft.web/sites/slots', 1, 0)
 | extend AspName = iff(isSlot == 1, split(name, '/')[0], name)
 | extend Sku = tostring(properties.sku)
-| where Sku in ("Standard", "Premium", "IsolatedV2")
+| where tolower(Sku) contains "standard" or tolower(Sku) contains "premium" or tolower(Sku) contains "isolatedv2"
 | project id, name, AspName, isSlot, Sku
 | summarize Slots = countif(isSlot == 1) by id, name, AspName, Sku
 | extend recommendationid = "asp-5"

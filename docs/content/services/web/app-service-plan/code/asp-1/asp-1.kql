@@ -6,5 +6,5 @@ resources
 | where type =~ 'microsoft.web/serverfarms'
 | extend zoneRedundant = tobool(properties.zoneRedundant)
 | extend sku_tier = tostring(sku.tier)
-| where (sku_tier !in ("Free", "LinuxFree", "Basic", "WorkflowStandard", "ElasticPremium", "Dynamic", "Shared", "", "Standard")) and zoneRedundant == false
+| where (tolower(sku_tier) contains "isolated" or tolower(sku_tier) contains "premium") and zoneRedundant == false
 | project recommendationid="asp-1", name, id, sku_tier, zoneRedundant
