@@ -57,7 +57,7 @@ Network security groups: Network security groups and application security groups
 
 **Guidance**
 
-Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. P.S.  DDoS IP Protection is currently not available in East US 2 and West Europe regions.
+Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network.
 
 **Resources**
 

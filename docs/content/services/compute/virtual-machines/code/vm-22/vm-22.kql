@@ -2,7 +2,7 @@
 // Find VMS that do not have maintenance configuration assigned
 Resources
 | extend resourceId = tolower(id)
-| project name, location, type, id, resourceId, properties
+| project name, location, type, id, tags, resourceId, properties
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | join kind=leftouter (
 maintenanceresources
@@ -11,5 +11,5 @@ maintenanceresources
 | extend resourceId = tostring(maintenanceProps.resourceId)
 ) on resourceId
 | where isnull(maintenanceProps)
-| project recommendationId = "vm-22",name, id
+| project recommendationId = "vm-22",name, id, tags
 | order by id asc
