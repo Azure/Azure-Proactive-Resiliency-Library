@@ -1,7 +1,7 @@
 +++
 title = "Azure Virtual Desktop"
 description = "Best practices and resiliency recommendations for Azure Virtual Desktop and associated resources and settings."
-date = "12/7/23"
+date = "1/9/24"
 author = "yshafner"
 msAuthor = "yonahshafner"
 draft = false
@@ -17,6 +17,10 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
 | [AVD-2 Deploy Host Pools in an Availability Zone](#avd-2---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       No        |
 | [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
+| [AVD-4 Deploy Domain Controllers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-in-azure-virtual-network-across-availability-zones)  | Medium |  Identity | Preview |       No        |
+| [AVD-5 Implement RDP Shortpath for public or managed networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)  | Medium |  Networking | Preview |       No        |
+| [AVD-6 Implement a multi-region BCDR plan](#avd-6---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
+
 
 {{< /table >}}
 
@@ -101,6 +105,82 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/avd-3/avd-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AVD-4 - Deploy Domain Controllers in Azure Virtual Network Across Availability Zones
+
+**Category: Availability/Identity**
+
+**Impact: Medium**
+
+**Recommendation/Guidance**
+
+When using an AD DS identity solution, it is recommended to deploy domain controllers on azure virtual machines across availability zones. This improves the reliability of the environment by being independent of an on premises connection as well as creates a shorter path for user’s authentication improving performance.
+
+This is not recommended for an AAD Identity solution.
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/identity/adds-extend-domain#reliability)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avd-4/avd-4.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AVD-5 - Implement RDP Shortpath for public or managed networks
+
+**Category: Networking**
+
+**Impact: Medium**
+
+**Recommendation/Guidance**
+
+It is recommended to enable RDP Shortpath for AVD. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods.
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-shortpath?tabs=managed-networks)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avd-5/avd-5.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AVD-6 - Implement a multi-region BCDR plan
+
+**Category: Backup**
+
+**Impact: Medium**
+
+**Recommendation/Guidance**
+
+It is recommended to adopt a multi-region deployment (active-active) for AVD. Each region should contain at least identity, name resolution, AVD management resources, and session hosts resources in case of primary region outage.
+
+**Resources**
+
+- [Multi-region BCDR](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
+- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/business-continuity#active-active-scenarios)
+
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avd-5/avd-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
