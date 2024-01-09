@@ -1,5 +1,6 @@
 // Azure Resource Graph Query
+// Returns all AKS clusters not running on the Standard tier
 resources
 | where type == "microsoft.containerservice/managedclusters"
-| project id, name, sku.name, sku.tier
-| project recommendationid="aks-22", name, id, param1=strcat("tier: ", sku.tier)
+| where sku.tier != "Standard"
+| project recommendationId="aks-22", id, name, sku.name, sku.tier

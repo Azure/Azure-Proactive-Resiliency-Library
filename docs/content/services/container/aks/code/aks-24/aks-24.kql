@@ -1,5 +1,7 @@
 // Azure Resource Graph Query
+// Returns whether each AKS cluster has Azure Monitor enabled and Container Insights enabled
 resources
 |  where type == "microsoft.containerservice/managedclusters"
-|  extend monitoring = tostring (parse_json(properties.azureMonitorProfile.metrics.enabled))
-|  project recommendationId="aks-24", name, id, param1=strcat("azureMonitorProfileEnabled:", monitoring)
+|  extend azureMonitor = tostring (parse_json(properties.azureMonitorProfile.metrics.enabled))
+|  extend insights = tostring (parse_json(properties.addonProfiles.omsagent.enabled))
+|  project recommendationId="aks-24",id, name, azureMonitorProfileEnabled=azureMonitor, containerInsightsEnabled=insights

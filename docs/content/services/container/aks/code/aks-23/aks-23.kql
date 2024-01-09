@@ -1,5 +1,6 @@
 // Azure Resource Graph Query
+// Returns the API Server restrictions for each AKS cluster
 resources
 |  where type == "microsoft.containerservice/managedclusters"
 |  extend apiServerRange = tostring (parse_json(properties.apiServerAccessProfile.authorizedIPRanges))
-|  project recommendationId="aks-23", name, id, param1=strcat("Authorized IP Ranges:", apiServerRange)
+|  project recommendationId="aks-23", id, name, Authorized_IP_Ranges=iff(isempty(apiServerRange), "No IP restrictions", apiServerRange)

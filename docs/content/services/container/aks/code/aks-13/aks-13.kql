@@ -1,6 +1,6 @@
 // Azure Resource Graph Query
+// Returns each AKS cluster with whether local accounts are disabled on that cluster or not
 resources
 |  where type == "microsoft.containerservice/managedclusters"
 |  extend disableLocalAccounts = tostring (parse_json(properties.disableLocalAccounts))
-| where disableLocalAccounts == "false"
-| project recommendationId="aks-13", name, id, param1=strcat("disableLocalAccounts:", disableLocalAccounts)
+|  project recommendationId="aks-13", id, name, localAccountsDisabled=disableLocalAccounts
