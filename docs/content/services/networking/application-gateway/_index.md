@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [AGW-1 - Set a minimum instance count of 2 for resiliency](#agw-1---set-a-minimum-instance-count-of-2-for-resiliency)     |  High    | Preview  | Yes |
+| [AGW-1 - Set a minimum instance count of 2](#agw-1---set-a-minimum-instance-count-of-2)     |  High    | Preview  | Yes |
 | [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | No |
 | [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
 | [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | No |
@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AGW-1 - Set a minimum instance count of 2 for resiliency
+### AGW-1 - Set a minimum instance count of 2
 
 **Category: System Efficiency**
 
@@ -41,7 +41,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
- Azure Application Gateways v2 are always deployed in a highly available fashion, deployed with multiple instances by default regardless of your autoscaling configuration. However, creating a new instance can take upto six or seven minutes. In order to avoid downtime for various failure modes, it is recommended that you configure a minimum instance count of two, ideally with Availability Zone support. By doing this, you will always have at least two instances in your Azure Application Gateway under normal circumstances. If one of them was to have a problem, there will always be another instance present to handle the traffic while a new instance is being created. Also, continue to leverage auto scaling to dynamically scale out based on the traffic requirements without the need of manual intervention.
+Azure Application Gateways v2 are always deployed in a highly available fashion, deployed with multiple instances by default regardless of your autoscaling configuration. However, creating a new instance can take up to six or seven minutes. In order to avoid downtime for various failure modes, it is recommended that you configure a minimum instance count of two, ideally with Availability Zone support. By doing this, you will always have at least two instances in your Azure Application Gateway under normal circumstances. If one of them was to have a problem, there will always be another instance present to handle the traffic while a new instance is being created. Also, continue to leverage auto scaling to dynamically scale out based on the traffic requirements without the need of manual intervention.
 
 **Resources**
 
