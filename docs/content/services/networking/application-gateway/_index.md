@@ -41,7 +41,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
- Azure Application Gateways v2 are always deployed in a highly available fashion, deployed with multiple instances by default. This is regardless of your autoscaling configuration. However, creating a new instance can take upto six or seven minutes. In order to avoid downtime for various failure modes, it is recommended that you configure a minimum instance count of two, ideally with Availability Zone support. This way you will always have at least two instances in your Azure Application Gateway under normal circumstances. If one of them had a problem, there will always be other instance preent to handle the traffic while a new instance is being created. Also, continue to leverage Auto scaling to dynamically scale out based on the traffic requirements without the need of manual intervention.
+ Azure Application Gateways v2 are always deployed in a highly available fashion, deployed with multiple instances by default regardless of your autoscaling configuration. However, creating a new instance can take upto six or seven minutes. In order to avoid downtime for various failure modes, it is recommended that you configure a minimum instance count of two, ideally with Availability Zone support. By doing this, you will always have at least two instances in your Azure Application Gateway under normal circumstances. If one of them was to have a problem, there will always be another instance present to handle the traffic while a new instance is being created. Also, continue to leverage auto scaling to dynamically scale out based on the traffic requirements without the need of manual intervention.
 
 **Resources**
 
