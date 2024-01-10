@@ -34,7 +34,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies)                                                                                                    |  Low   | Verified |         Yes         |
 | [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-and-data-at-rest-encryption-by-default)                                                                                | Medium | Verified |         Yes          |
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights)                                                                                              |  Low   | Verified |         Yes          |
-| [VM-21 - Diagnostic Settings should be configured for all Azure Resources](#vm-21---configure-diagnostic-settings-for-all-azure-resources)                                                                                         |  Low   | Preview  |         Yes         |
+| [VM-21 - Diagnostic Settings should be configured for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines)                                                                                         |  Low   | Preview  |         Yes         |
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | High | Preview | Yes |
 {{< /table >}}
 
@@ -561,7 +561,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 
 <br><br>
 
-### VM-21 - Configure diagnostic settings for all Azure resources
+### VM-21 - Configure diagnostic settings for all Azure Virtual Machines
 
 **Category: Monitoring**
 

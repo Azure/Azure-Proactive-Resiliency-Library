@@ -23,7 +23,7 @@ The presented resiliency recommendations in this guidance include Container Regi
 | [CR-7 - Manage registry size](#cr-7---manage-registry-size)                                                                                                                                                                        | Medium | Preview |         No         |
 | [CR-8 - Disable anonymous pull access](#cr-8---disable-anonymous-pull-access)                                                                                                                                                      | Medium | Preview |         Yes         |
 | [CR-9 - Use an Azure managed identity to authenticate to an Azure container registry](#cr-9---use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry)                                                        | Medium | Preview |         No         |
-| [CR-10 - Configure Diagnostic Settings for all Azure Resources](#cr-10---configure-diagnostic-settings-for-all-azure-resources)                                                                                                    | Medium | Preview |         No         |
+| [CR-10 - Configure Diagnostic Settings for all Azure Container Registries](#cr-10---configure-diagnostic-settings-for-all-azure-container-registries)                                                                                                    | Medium | Preview |         No         |
 | [CR-11 - Monitor Azure Container Registry with Azure Monitor](#cr-11---monitor-azure-container-registry-with-azure-monitor)                                                                                                        | Medium | Preview |         No          |
 | [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy)                                                                                                                                                            | Medium | Preview |         Yes
 {{< /table >}}
@@ -263,7 +263,7 @@ Use a managed identity for Azure resources to authenticate to an Azure container
 
 <br><br>
 
-### CR-10 - Configure Diagnostic Settings for all Azure Resources
+### CR-10 - Configure Diagnostic Settings for all Azure Container Registries
 
 **Category: Monitoring**
 
