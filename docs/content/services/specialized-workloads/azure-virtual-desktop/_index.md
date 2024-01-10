@@ -18,8 +18,8 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-2 Deploy Host Pools in an Availability Zone](#avd-2---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       No        |
 | [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
 | [AVD-4 Deploy Domain Controllers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-in-azure-virtual-network-across-availability-zones)  | Medium |  Identity | Preview |       No        |
-| [AVD-5 Implement RDP Shortpath for public or managed networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)  | Medium |  Networking | Preview |       No        |
-| [AVD-6 Implement a multi-region BCDR plan](#avd-6---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
+| [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)  | Medium |  Networking | Preview |       No        |
+| [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
 
 
 {{< /table >}}
