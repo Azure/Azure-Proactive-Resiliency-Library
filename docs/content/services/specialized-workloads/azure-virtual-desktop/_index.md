@@ -136,7 +136,7 @@ This is not recommended for an AAD Identity solution.
 
 <br><br>
 
-### AVD-5 - Implement RDP Shortpath for public or managed networks
+### AVD-5 - Implement RDP Shortpath for Public or Managed Networks
 
 **Category: Networking**
 
@@ -160,7 +160,7 @@ It is recommended to enable RDP Shortpath for AVD. The removal of extra relay po
 
 <br><br>
 
-### AVD-6 - Implement a multi-region BCDR plan
+### AVD-6 - Implement a Multi-Region BCDR Plan
 
 **Category: Backup**
 
@@ -168,7 +168,7 @@ It is recommended to enable RDP Shortpath for AVD. The removal of extra relay po
 
 **Recommendation/Guidance**
 
-It is recommended to adopt a multi-region deployment (active-active) for AVD. Each region should contain at least identity, name resolution, AVD management resources, and session hosts resources in case of primary region outage.
+It is recommended to adopt a multi-region deployment (active-active) for AVD. Each region should contain at least identity, name resolution, AVD management resources, and session hosts in case of a primary region outage.
 
 **Resources**
 
@@ -180,7 +180,7 @@ It is recommended to adopt a multi-region deployment (active-active) for AVD. Ea
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-5/avd-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-6/avd-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
