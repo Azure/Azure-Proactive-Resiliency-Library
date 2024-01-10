@@ -21,7 +21,6 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)  | Medium |  Networking | Preview |       No        |
 | [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
 
-
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -118,9 +117,9 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 
 **Recommendation/Guidance**
 
-When using an AD DS identity solution, it is recommended to deploy domain controllers on azure virtual machines across availability zones. This improves the reliability of the environment by being independent of an on premises connection as well as creates a shorter path for user’s authentication improving performance.
+When using an AD DS identity solution with AVD, it is recommended to deploy domain controllers on azure virtual machines across availability zones. This improves the reliability of the environment by being independent of an on premises connection as well as creates a shorter path for user’s authentication improving performance.
 
-This is not recommended for an AAD Identity solution.
+This recommendation is not relevant when you are utilizing Microsoft Entra as the identity provider.
 
 **Resources**
 
@@ -144,7 +143,7 @@ This is not recommended for an AAD Identity solution.
 
 **Recommendation/Guidance**
 
-It is recommended to enable RDP Shortpath for AVD. The removal of extra relay points reduces round-trip time, which improves connection reliability and user experience with latency-sensitive applications and input methods.
+It is recommended to enable RDP Shortpath for AVD. RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. By default, Remote Desktop Protocol (RDP) tries to establish connection using UDP and uses a TCP-based reverse connect transport as a fallback connection mechanism. TCP-based reverse connect transport provides the best compatibility with various networking configurations and has a high success rate for establishing RDP connections. UDP-based transport offers better connection reliability and more consistent latency.
 
 **Resources**
 
