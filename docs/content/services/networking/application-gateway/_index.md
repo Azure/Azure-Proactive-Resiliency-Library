@@ -45,7 +45,7 @@ Azure Application Gateways v2 are always deployed in a highly available fashion,
 
 **Resources**
 
-- [Application Gateway Autoscaling Zone-Redundant](https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability)
+- [Application Gateway Autoscaling Zone-Redundant](https://learn.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability)
 
 **Resource Graph Query/Scripts**
 
