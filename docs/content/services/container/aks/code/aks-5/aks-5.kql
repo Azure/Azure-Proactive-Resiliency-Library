@@ -4,4 +4,4 @@ Resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend autoScaling = tostring (parse_json(properties.agentPoolProfiles.[0].enableAutoScaling))
 | where autoScaling == "false"
-| project recommendationId="aks-5", name, id, param1=strcat("autoScaling :", autoScaling)
+| project recommendationId="aks-5", name, id, tags, param1=strcat("autoScaling :", autoScaling)

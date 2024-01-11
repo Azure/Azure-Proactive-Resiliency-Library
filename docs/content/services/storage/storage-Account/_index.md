@@ -23,7 +23,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         No          |
 |[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
-|[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         No          |
+|[ST-8 - Configure Diagnostic Settings for all storage accounts](#st-8---configure-diagnostic-settings-for-all-storage-accounts)                          |   Low    | Preview  |         No          |
 
 {{< /table >}}
 
@@ -154,7 +154,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-5/st-5.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="/code/st-5/st-5.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -179,7 +179,7 @@ Having a large number of versions per blob can increase the latency for blob lis
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-6/st-6.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="/code/st-6/st-6.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -204,13 +204,13 @@ Point and time restore support general purpose v2 account in standard performanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-7/st-7.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="/code/st-7/st-7.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ST-8 - Configure Diagnostic Settings for all Azure Resources
+### ST-8 - Configure Diagnostic Settings for all storage accounts
 
 **Category: Monitoring**
 
@@ -228,7 +228,7 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="/code/st-8/st-8.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="/code/st-8/st-8.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 

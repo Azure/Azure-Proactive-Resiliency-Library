@@ -14,7 +14,7 @@ microsoft.network/connections,Ddos Protection Plan,ddos
 microsoft.network/privatednszones,Private DNS Zone,pvdnsz
 microsoft.network/azurefirewalls,Azure Firewall,afw
 microsoft.network/expressroutecircuits,ExpressRoute circuit,erc
-microsoft.network/expressroutegateway,ExpressRoute Gateway,erg
+microsoft.network/expressroutegateway,ExpressRoute Gateway,ergw
 microsoft.cdn/profiles,Azure Front Door,afd
 microsoft.network/loadbalancers,Load balancer,lb
 microsoft.network/networksecuritygroups,Network security group,nsg

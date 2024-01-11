@@ -4,4 +4,4 @@ resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend networkProfile = tostring (parse_json(properties.networkProfile.networkPlugin))
 | where networkProfile =="kubenet"
-| project recommendationId="aks-4", name,id,param1=strcat("networkProfile :",networkProfile)
+| project recommendationId="aks-4", name, id, tags, param1=strcat("networkProfile :",networkProfile)
