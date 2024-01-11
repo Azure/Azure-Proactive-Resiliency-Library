@@ -1,6 +1,6 @@
 // Azure Resource Graph Query
-// Returns the API Server restrictions for each AKS cluster
+// Returns whether the GitOps add on is enabled for each AKS cluster
 resources
 |  where type == "microsoft.containerservice/managedclusters"
-|  extend apiServerRange = tostring (parse_json(properties.apiServerAccessProfile.authorizedIPRanges))
-|  project recommendationId="aks-23", id, name, Authorized_IP_Ranges=iff(isempty(apiServerRange), "No IP restrictions", apiServerRange)
+|  extend gitops = tostring (parse_json(properties.addOnProfiles.gitops.enabled))
+|  project recommendationId="aks-23", id, name, param1=strcat("gitopsEnabled: ", iff(isempty(gitops), "false", "true"))

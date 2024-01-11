@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Returns each AKS cluster, whether it has a network policy and which network policy is enabled
-resources
-|  where type == "microsoft.containerservice/managedclusters"
-|  extend networkProfile = tostring(parse_json(properties.networkProfile.networkPlugin))
-|  project recommendationId="aks-8", id, name, hasNetworkProfile=iff(isnotnull(networkProfile), "true", "false"), networkProfile=iff(isempty(networkProfile), "None", networkProfile)
+// cannot-be-validated-with-arg

@@ -1,6 +1,0 @@
-// Azure Resource Graph Query
-// Returns whether the GitOps add on is enabled for each AKS cluster
-resources
-|  where type == "microsoft.containerservice/managedclusters"
-|  extend gitops = tostring (parse_json(properties.addOnProfiles.gitops.enabled))
-|  project recommendationId="aks-27", id, name, gitopsEnabled=iff(isempty(gitops), "false", "true")

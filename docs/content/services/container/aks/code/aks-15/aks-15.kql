@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Returns the AKS cluster and whether it is a private cluster
-resources
-|  where type == "microsoft.containerservice/managedclusters"
-|  extend privateClusterEnabled = tostring (parse_json(properties.apiServerAccessProfile.enablePrivateCluster))
-|  project recommendationId="aks-15", id, name, privateClusterEnabled=iff(isempty(privateClusterEnabled), "false", "true")
+// cannot-be-validated-with-arg

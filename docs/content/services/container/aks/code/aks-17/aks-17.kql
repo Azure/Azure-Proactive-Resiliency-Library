@@ -1,1 +1,8 @@
-// cannot-be-validated-with-arg
+// Azure Resource Graph Query
+// Returns each AKS cluster with its nodepools and the taints set for each nodepool
+resources
+| where type == "microsoft.containerservice/managedclusters"
+| mv-expand agentPoolProfile = properties.agentPoolProfiles
+| extend taint = tostring(parse_json(agentPoolProfile.nodeTaints))
+| extend nodePool = tostring(parse_json(agentPoolProfile.name))
+| project recommendationid="aks-17", id, name, param1=strcat("nodepoolName: ", nodePool), param2=strcat("taint: ", taint)

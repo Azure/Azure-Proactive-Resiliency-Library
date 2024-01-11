@@ -1,8 +1,7 @@
 // Azure Resource Graph Query
-// Returns each AKS cluster with its nodepools and the taints set for each nodepool
+// Returns whether each AKS cluster has Azure Monitor enabled and Container Insights enabled
 resources
-| where type == "microsoft.containerservice/managedclusters"
-| mv-expand agentPoolProfile = properties.agentPoolProfiles
-| extend taint = tostring(parse_json(agentPoolProfile.nodeTaints))
-| extend nodePool = tostring(parse_json(agentPoolProfile.name))
-| project recommendationid="aks-20", id, name, nodepoolName=nodePool, taint=taint
+|  where type == "microsoft.containerservice/managedclusters"
+|  extend azureMonitor = tostring (parse_json(properties.azureMonitorProfile.metrics.enabled))
+|  extend insights = tostring (parse_json(properties.addonProfiles.omsagent.enabled))
+|  project recommendationId="aks-20",id, name, param1=strcat("azureMonitorProfileEnabled: ", azureMonitor), param2=strcat("containerInsightsEnabled: ", insights)

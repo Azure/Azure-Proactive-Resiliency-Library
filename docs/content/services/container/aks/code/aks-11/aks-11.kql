@@ -1,7 +1,1 @@
-// Azure Resource Graph Query
-// Returns each AKS cluster name and location with the nodepool versions and number of availability zones setup for each nodepool
-resources
-| where type == 'microsoft.containerservice/managedclusters'
-| project id, name, location, properties.agentPoolProfiles
-| mv-expand properties_agentPoolProfiles
-| project recommendationId="aks-11", id, name, properties_agentPoolProfiles.name, properties_agentPoolProfiles.orchestratorVersion, properties_agentPoolProfiles.currentOrchestratorVersion, number_of_zones=array_length(properties_agentPoolProfiles.availabilityZones)
+// cannot-be-validated-with-arg
