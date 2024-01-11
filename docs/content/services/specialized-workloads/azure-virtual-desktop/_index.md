@@ -15,11 +15,13 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
 | [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
-| [AVD-2 Deploy Host Pools in an Availability Zone](#avd-2---deploy-host-pools-in-an-availability-zone)  | Medium|  Application Delivery | Preview |       No        |
+| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd)  | Medium |  Resiliency/Monitoring | Preview |       No        |
 | [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
 | [AVD-4 Deploy Domain Controllers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-in-azure-virtual-network-across-availability-zones)  | Medium |  Identity | Preview |       No        |
 | [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)  | Medium |  Networking | Preview |       No        |
-| [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
+| [AVD-6 Implement a Multi-Region BCDR Plan](#avd-7---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
+| [AVD-7 Store Golden Image Redundantly for Disaster Recovery](#avd-7---store-golden-image-redundantly-for-disaster-recovery)  | Low |  Backup | Preview |       No        |
+| [AVD-8 Capacity Planning for AVD Resources](#avd-8---capacity-planning-for-avd-resources)  | Low |  Compute | Preview |       No        |
 
 {{< /table >}}
 
@@ -56,21 +58,23 @@ Private Link is available for other Azure services that work in conjunction with
 
 <br><br>
 
-### AVD-2 - Deploy Host Pools in an Availability Zone
+### AVD-2 - Monitor Service Health and Resource Health of AVD
 
-**Category: Application Resilience/Availability**
+**Category: Resiliency/Monitoring**
 
-**Impact: High**
+**Impact: Medium**
+
 **Recommendation/Guidance**
 
-Distributing session hosts across all zones increases the resiliency of your overall Azure Virtual Desktop service to your end customer. If you have distributed your session hosts across three zones and one zone becomes unavailable, only one third of your user estate is impacted.
+Use Service Health to stay informed about the health of the Azure services and regions that you use to insure their availability.
+Set up Service Health alerts so that you stay aware of service issues, planned maintenance, or other changes that might affect your Azure Virtual Desktop resources.
+Use Resource Health to monitor your VMs and storage solutions.
 
-Increase application resiliency and availability for virtual machines. Maintain synchronous replication, withstand datacenter failures, and ensure customer impact is minimal to none.
 
 **Resources**
 
-- [Learn More](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-support-for-azure/ba-p/3636262#:~:text=By%20distributing%20your%20session%20hosts%20across%20all%20zones,one%20third%20of%20your%20user%20estate%20is%20impacted.)
-- [Availability Zones](https://learn.microsoft.com/en-us/azure/well-architected/reliability/regions-availability-zones)
+- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/monitoring#resource-health)
+
 
 **Resource Graph Query/Scripts**
 
@@ -180,6 +184,63 @@ It is recommended to adopt a multi-region deployment (active-active) for AVD. Ea
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/avd-6/avd-6.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+
+
+### AVD-7 - Store Golden Image Redundantly for Disaster Recovery
+
+**Category: Backup**
+
+**Impact: Low**
+
+**Recommendation/Guidance**
+
+If a full BCDR strategy is not in place, consider using zone-redundant storage to store golden images across availability zones. Having the image available will allow for faster recovery in case of zonal or regional outage.
+
+**Resources**
+
+- [Golden Image](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/business-continuity#golden-images)
+- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#fault-tolerance)
+
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avd-7/avd-7.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AVD-8 - Capacity Planning for AVD Resources
+
+**Category: Backup**
+
+**Impact: Low**
+
+**Recommendation/Guidance**
+
+Monitor and plan for subscription limits. Closely monitor your Azure Virtual Desktop deployments, and keep track of resource usage within your subscription. By proactively monitoring capacity, you can identify potential challenges early on, and you can take suitable actions to avoid reaching limits.
+Consider scaling across multiple subscriptions if further scaling is needed, or work with Azure support to adjust limits based on your business requirements.
+To handle a large number of users, consider scaling horizontally by creating multiple host pools.
+
+
+**Resources**
+
+- [Capacity Planning](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/business-continuity#capacity-planning)
+- [Learn More](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#azure-virtual-desktop-limitations)
+
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avd-8/avd-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
