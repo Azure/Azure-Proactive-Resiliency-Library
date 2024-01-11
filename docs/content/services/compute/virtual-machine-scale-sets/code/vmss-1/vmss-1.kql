@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.compute/virtualmachinescalesets"
 | where properties.orchestrationMode != "Flexible"
-| project recommendationId = "vmss-1", name, id, param1 = strcat("orchestrationMode: ", tostring(properties.orchestrationMode))
+| project recommendationId = "vmss-1", name, id, tags, param1 = strcat("orchestrationMode: ", tostring(properties.orchestrationMode))

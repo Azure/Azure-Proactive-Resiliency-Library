@@ -3,5 +3,5 @@
 resources
 | where type == "microsoft.compute/virtualmachinescalesets"
 | where array_length(zones) <= 1 or isnull(zones)
-| project recommendationId = "vmss-8", name, id, param1 = "AvailabilityZones: Single Zone"
+| project recommendationId = "vmss-8", name, id, tags, param1 = "AvailabilityZones: Single Zone"
 | order by id asc
