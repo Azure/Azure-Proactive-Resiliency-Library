@@ -14,9 +14,9 @@ The presented resiliency recommendations in this guidance include App Service Pl
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Impact  |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [ASP-1 - Migrate App Service to availability Zone Support](#asp-1---migrate-app-service-to-availability-zone-support) | High | Preview  |         No         |
-| [ASP-2 - Use Standard or Premium tier](#asp-2---use-standard-or-premium-tier) | High | Preview |         No          |
-| [ASP-3 - Avoid scaling up or down](#asp-3---avoid-scaling-up-or-down) | Medium | Preview |         No          |
+| [ASP-1 - Migrate App Service to availability Zone Support](#asp-1---migrate-app-service-to-availability-zone-support) | High | Preview  |         Yes         |
+| [ASP-2 - Use Standard or Premium tier](#asp-2---use-standard-or-premium-tier) | High | Preview |         Yes          |
+| [ASP-3 - Avoid scaling up or down](#asp-3---avoid-scaling-up-or-down) | Medium | Preview |         Yes          |
 | [ASP-4 - Create separate App Service plans for production and test](#asp-4---create-separate-app-service-plans-for-production-and-test) | High | Preview |         No          |
 | [ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests](#asp-5---enable-autoscaleautomatic-scaling-to-ensure-adequate-resources-are-available-to-service-requests) | Medium | Preview |         Yes          |
 {{< /table >}}
