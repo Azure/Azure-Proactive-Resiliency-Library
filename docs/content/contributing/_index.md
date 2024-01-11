@@ -173,6 +173,8 @@ When creating recommendations for a service, please follow the below standards:
 
 1. If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: `// cannot-be-validated-with-arg`
 
+1. Queries should only return resources that do not adhere to the APRL recommendation. For example, if the recommendation is to enable soft delete Azure Container Registries, the associated query should only return Azure Container Registry resources that do not have soft delete enabled.
+
 1. ARG query columns name returned should only include the following:
 
 {{< alert style="info" >}}
