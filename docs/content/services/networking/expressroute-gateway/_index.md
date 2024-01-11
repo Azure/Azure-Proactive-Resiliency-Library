@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Gateway"
 description = "Best practices and resiliency recommendations for ExpressRoute Gateway and associated resources."
-date = "12/11/23"
+date = "01/11/24"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -17,7 +17,6 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 | [ERGW-1 - Use Zone-redundant gateway SKUs](#ergw-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
 | [ERGW-2 - Monitor gateway health](#ergw-2---monitor-gateway-health) | High | Preview | No |
 | [ERGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#ergw-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | No |
-| [ERGW-4 - Configure ExpressRoute Gateways in different regions](#ergw-4---configure-expressroute-gateways-in-different-regions) | Medium | Preview | No |
 
 {{< /table >}}
 
@@ -99,30 +98,6 @@ By default, connectivity between virtual networks are enabled when you link mult
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/ergw-3/ergw-3.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### ERGW-4 - Configure ExpressRoute Gateways in different regions
-
-**Category: Disaster Recovery**
-
-**Impact: Medium**
-
-**Guidance**
-
-When multiple Azure regions are in use, increase resilience by configuring ExpressRoute gateways in each region, along with corresponding ExpressRoute circuits.
-
-**Resources**
-
-- [Designing for disaster recovery with ExpressRoute private peering - Need for redundant connectivity solution](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering#need-for-redundant-connectivity-solution)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/ergw-4/ergw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
