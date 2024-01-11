@@ -226,7 +226,7 @@ If a full BCDR strategy is not in place, consider using zone-redundant storage t
 **Recommendation/Guidance**
 
 Monitor and plan for subscription limits. Closely monitor your Azure Virtual Desktop deployments, and keep track of resource usage within your subscription. By proactively monitoring capacity, you can identify potential challenges early on, and you can take suitable actions to avoid reaching limits.
-Consider scaling across multiple subscriptions if further scaling is needed, or work with Azure support to adjust limits based on your business requirements.
+Consider scaling across multiple subscriptions if further scaling is required, or work with Azure support to adjust limits based on your business requirements.
 To handle a large number of users, consider scaling horizontally by creating multiple host pools.
 
 
