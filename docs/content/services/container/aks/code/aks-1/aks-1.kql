@@ -4,4 +4,4 @@ resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend zones = tostring(parse_json(properties.agentPoolProfiles[0].availabilityZones))
 | where isempty(zones)
-| project recommendationid="aks-1", name, id, param1=strcat("zones: ", zones)
+| project recommendationid="aks-1", name, id, tags, param1=strcat("zones: ", zones)
