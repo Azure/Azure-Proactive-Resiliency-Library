@@ -21,30 +21,25 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-5 - Enable the cluster autoscaler on an existing cluster](#aks-5---enable-the-cluster-autoscaler-on-an-existing-cluster)                 |  High  | Preview |         Yes         |
 | [AKS-6 - Plan for multi-region deployment](#aks-6---plan-for-multi-region-deployment)                                                         |  High  | Preview |         No          |
 | [AKS-7 - Back up Azure Kubernetes Service](#aks-7---back-up-azure-kubernetes-service)                                                         |  Low   | Preview |         No          |
-| [AKS-8 - Control traffic flow with network policies](#aks-8---control-traffic-flow-with-network-policies)                                                                                           |  Low   | Preview |         Yes          |
-| [AKS-9 - Plan an AKS version upgrade](#aks-9---plan-an-aks-version-upgrade)                                                                   |  High  | Preview |         No          |
-| [AKS-10 - Remediate AKS non-compliant Azure Policies](#aks-10---remediate-aks-non-compliant-azure-policies)                                                                                          |  Low   | Preview |         No          |
-| [AKS-11 - Deploy AKS across availability zones](#aks-11---deploy-aks-across-availability-zones)                                               |  High  | Preview |         Yes          |
-| [AKS-12 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications](#aks-12---ensure-that-persistent-volumes-in-storage-account-are-redundant-for-pods-with-stateful-applications)                                 |  Low   | Preview |         No          |
-| [AKS-13 - Disable Local Account Access to AKS](#aks-13---disable-local-account-access-to-aks)                                                 |  High  | Preview |         Yes          |
-| [AKS-14 - Remediate Azure Advisor recommendations](#aks-14---remediate-azure-advisor-recommendations)                                         |  High  | Preview |         No          |
-| [AKS-15 - Deploy a private AKS cluster if public access is not required](#aks-15---deploy-a-private-aks-cluster-if-public-access-is-not-required) |  Low   | Preview |         Yes          |
-| [AKS-16 - Keep a consistent configuration between regions with the API Server Authorized IP Addresses](#aks-16---keep-a-consistent-configuration-between-regions-with-the-api-server-authorized-ip-addresses)                                         |  High   | Preview |         No          |
-| [AKS-17 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers](#aks-17---upgrade-persistent-volumes-with-deprecated-version-to-azure-csi-drivers)                                                             |  High   | Preview |         No          |
-| [AKS-18 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits.](#aks-18---implement-resource-quota-to-ensure-that-kubernetes-resources-do-not-exceed-hard-resource-limits)                                     |  Low    | Preview |         No          |
-| [AKS-19 - Attach Virtual Nodes (ACI) to the AKS cluster](#aks-19---attach-virtual-nodes-aci-to-the-aks-cluster)                               |  Low    | Preview |         No          |
-| [AKS-20 - Isolate application (User) pods](#aks-20---isolate-application-user-pods)                                                           |  Medium | Preview |         Yes          |
-| [AKS-21 - Enable AKS Monitor alerts](#aks-21---enable-aks-monitor-alerts)                                                                     |  High   | Preview |         No          |
-| [AKS-22 - Update AKS tier to Standard](#aks-22---update-aks-tier-to-standard)                                                                 |  High   | Preview |         Yes          |
-| [AKS-23 - Configure the API server Public IP access for public clusters](#aks-23---configure-the-api-server-public-ip-access-for-public-clusters)                                                                       |  High   | Preview |         Yes          |
-| [AKS-24 - Enable AKS Monitoring](#aks-24---enable-aks-monitoring)                                                                             |  High   | Preview |         Yes          |
-| [AKS-25 - Use Ephemeral Disks on AKS clusters](#aks-25---use-ephemeral-disks-on-aks-clusters)                                                 |  Medium | Preview |         No          |
-| [AKS-26 - Enable Azure Policies configured for AKS](#aks-26---enable-azure-policies-configured-for-aks)                                       |  Low    | Preview |         No          |
-| [AKS-27 - Enable GitOps when using DevOps frameworks](#aks-27---enable-gitops-when-using-devops-frameworks)                                   |  Low    | Preview |         Yes          |
-| [AKS-28 - Use the Azure KeyVault provider for Secrets Store CSI Driver](#aks-28---use-the-azure-keyvault-provider-for-secrets-store-csi-driver) |  High   | Preview |         No          |
-| [AKS-29 - Configure affinity or anti-affinity rules based on application requirements](#aks-29---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                                         |  High   | Preview |         No          |
-| [AKS-30 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-30---configures-pods-liveness-readiness-and-startup-probes)           |  High   | Preview |         No          |
-| [AKS-31 - Configure Pod replication in production applications to guarantee availability](#aks-31---configure-pod-replication-in-production-applications-to-guarantee-availability)                                                      |  High   | Preview |         No          |
+| [AKS-8 - Plan an AKS version upgrade](#aks-8---plan-an-aks-version-upgrade)                                                                   |  High  | Preview |         No          |
+| [AKS-9 - Remediate AKS non-compliant Azure Policies](#aks-9---remediate-aks-non-compliant-azure-policies)                                                                                          |  Low   | Preview |         No          |
+| [AKS-10 - Deploy AKS across availability zones](#aks-10---deploy-aks-across-availability-zones)                                               |  High  | Preview |         Yes          |
+| [AKS-11 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications](#aks-11---ensure-that-persistent-volumes-in-storage-account-are-redundant-for-pods-with-stateful-applications)                                 |  Low   | Preview |         No          |
+| [AKS-12 - Disable Local Account Access to AKS](#aks-12---disable-local-account-access-to-aks)                                                 |  High  | Preview |         Yes          |
+| [AKS-13 - Remediate Azure Advisor recommendations](#aks-13---remediate-azure-advisor-recommendations)                                         |  High  | Preview |         No          |
+| [AKS-14 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers](#aks-14---upgrade-persistent-volumes-with-deprecated-version-to-azure-csi-drivers)                                                             |  High   | Preview |         No          |
+| [AKS-15 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits.](#aks-15---implement-resource-quota-to-ensure-that-kubernetes-resources-do-not-exceed-hard-resource-limits)                                     |  Low    | Preview |         No          |
+| [AKS-16 - Attach Virtual Nodes (ACI) to the AKS cluster](#aks-16---attach-virtual-nodes-aci-to-the-aks-cluster)                               |  Low    | Preview |         No          |
+| [AKS-17 - Isolate application (User) pods](#aks-17---isolate-application-user-pods)                                                           |  Medium | Preview |         Yes          |
+| [AKS-18 - Enable AKS Monitor alerts](#aks-18---enable-aks-monitor-alerts)                                                                     |  High   | Preview |         No          |
+| [AKS-19 - Update AKS tier to Standard](#aks-19---update-aks-tier-to-standard)                                                                 |  High   | Preview |         Yes          |
+| [AKS-20 - Enable AKS Monitoring](#aks-20---enable-aks-monitoring)                                                                             |  High   | Preview |         Yes          |
+| [AKS-21 - Use Ephemeral Disks on AKS clusters](#aks-21---use-ephemeral-disks-on-aks-clusters)                                                 |  Medium | Preview |         No          |
+| [AKS-22 - Enable Azure Policies configured for AKS](#aks-22---enable-azure-policies-configured-for-aks)                                       |  Low    | Preview |         No          |
+| [AKS-23 - Enable GitOps when using DevOps frameworks](#aks-23---enable-gitops-when-using-devops-frameworks)                                   |  Low    | Preview |         Yes          |
+| [AKS-24 - Configure affinity or anti-affinity rules based on application requirements](#aks-24---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                                         |  High   | Preview |         No          |
+| [AKS-25 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-25---configures-pods-liveness-readiness-and-startup-probes)           |  High   | Preview |         No          |
+| [AKS-26 - Configure Pod replication in production applications to guarantee availability](#aks-26---configure-pod-replication-in-production-applications-to-guarantee-availability)                                                      |  High   | Preview |         No          |
 
 {{< /table >}}
 
@@ -237,32 +232,7 @@ AKS is increasingly being used for stateful applications that require a backup s
 
 <br><br>
 
-### AKS-8 - Control traffic flow with network policies
-
-**Category: Access & Security**
-
-**Impact: Low**
-
-**Guidance**
-
-Use network policies to allow or deny traffic to pods. By default, all traffic is allowed between pods within a cluster. For improved security, define rules that limit pod communication. Network policies allow or deny traffic to the pod based on settings such as assigned labels, namespace, or traffic port. Network policies are a cloud-native way to control the flow of traffic for pods. As pods are dynamically created in an AKS cluster, required network policies can be automatically applied. To use network policy, enable the feature when you create a new AKS cluster. You can't enable network policy on an existing AKS cluster. Plan ahead to enable network policy on the necessary clusters.
-
-**Resources**
-
-- [Control traffic with network policies](https://learn.microsoft.com/azure/aks/operator-best-practices-network#control-traffic-flow-with-network-policies)
-- [Using network policies](https://learn.microsoft.com/azure/aks/use-network-policies)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-8/aks-8.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AKS-9 - Plan an AKS version upgrade
+### AKS-8 - Plan an AKS version upgrade
 
 **Category: Compliance**
 
@@ -284,13 +254,13 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-9/aks-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-8/aks-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-10 - Remediate AKS non-compliant Azure Policies
+### AKS-9 - Remediate AKS non-compliant Azure Policies
 
 **Category: Compliance**
 
@@ -298,7 +268,7 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 
 **Guidance**
 
-It’s important to keep your AKS cluster secure for the applications that you run. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place, enforces organizational standards, built-in security policies and assess compliance at-scale.
+Azure Policy helps manage the compliance state of your Kubernetes clusters, enforces organizational standards, has built-in security policies and assesses compliance at-scale. To prevent outages due to deprecations of cluster or API versions or non-compliance issues that could lead to disabling of resources, you need to ensure that your AKS clusters are in compliance with all applicable Azure policies.
 
 **Resources**
 
@@ -310,13 +280,13 @@ It’s important to keep your AKS cluster secure for the applications that you r
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-10/aks-10.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-9/aks-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-11 - Deploy AKS across availability zones
+### AKS-10 - Deploy AKS across availability zones
 
 **Category: High Availability**
 
@@ -336,13 +306,13 @@ When you create your cluster, use availability zones to protect your application
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-11/aks-11.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-10/aks-10.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-12 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications
+### AKS-11 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications
 
 
 **Category: High Availability**
@@ -367,13 +337,13 @@ In AKS Premium_ZRS and StandardSSD_ZRS disk types are supported. ZRS disk could 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-12/aks-12.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-11/aks-11.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-13 - Disable Local Account Access to AKS
+### AKS-12 - Disable Local Account Access to AKS
 
 
 **Category: Identity**
@@ -394,13 +364,13 @@ Local accounts provide a legacy non-auditable means of accessing an AKS cluster 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-13/aks-13.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-12/aks-12.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-14 - Remediate Azure Advisor recommendations
+### AKS-13 - Remediate Azure Advisor recommendations
 
 
 **Category: Monitoring**
@@ -425,62 +395,7 @@ Azure Advisor can recommend solutions that will help improve the performance, hi
 
 <br><br>
 
-### AKS-15 - Deploy a private AKS cluster if public access is not required
-
-
-**Category: Security**
-
-**Impact: Low**
-
-**Guidance**
-
-As you manage clusters in Azure Kubernetes Service (AKS), workload and data security is a key consideration. When you run multi-tenant clusters using logical isolation, you especially need to secure resource and workload access. Minimize the risk of attack by isolating the AKS cluster from public access.
-One of the most important ways to secure your cluster is to secure access to the Kubernetes API server.  To secure and audit access to the API server, limit access and provide the lowest possible permission levels.
-
-
-**Resources**
-
-- [Operator Best Practices in Cluster Security](https://learn.microsoft.com/azure/aks/operator-best-practices-cluster-security?tabs=azure-cli)
-- [Private Clusters](https://learn.microsoft.com/azure/aks/private-clusters?tabs=azure-portal)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-15/aks-15.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AKS-16 - Keep a consistent configuration between regions with the API Server Authorized IP Addresses
-
-
-**Category: Security**
-
-**Impact: High**
-
-**Guidance**
-
-The Kubernetes API server is the core of the Kubernetes control plane and is the central way to interact with and manage your clusters. To improve the security of your clusters and minimize the risk of attacks, we recommend limiting the IP address ranges that can access the API server. To do this, you can use the API server authorized IP ranges feature.
-
-It is important to keep a consistent configuration between clusters to avoid security and governance problems.
-
-**Resources**
-
-- [API Server Authorized IP Ranges](https://learn.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-16/aks-16.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AKS-17 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers
+### AKS-14 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers
 
 
 **Category: Storage**
@@ -500,13 +415,13 @@ Starting with Kubernetes version 1.26, in-tree persistent volume types kubernete
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-17/aks-17.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-14/aks-14.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-18 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits
+### AKS-15 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits
 
 
 **Category: System Efficiency**
@@ -525,13 +440,13 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-18/aks-18.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-15/aks-15.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-19 - Attach Virtual Nodes (ACI) to the AKS cluster
+### AKS-16 - Attach Virtual Nodes (ACI) to the AKS cluster
 
 
 **Category: Scalability**
@@ -551,13 +466,13 @@ To rapidly scale application workloads in an AKS cluster, you can use virtual no
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-19/aks-19.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-16/aks-16.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-20 - Isolate application (User) pods
+### AKS-17 - Isolate application (User) pods
 
 
 **Category: Governance**
@@ -578,13 +493,13 @@ Isolate critical system pods from your application pods to prevent misconfigured
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-20/aks-20.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-17/aks-17.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-21 - Enable AKS Monitor alerts
+### AKS-18 - Enable AKS Monitor alerts
 
 **Category: Monitoring**
 
@@ -603,13 +518,13 @@ Alerts help you detect and address issues before users notice them by proactivel
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-21/aks-21.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-18/aks-18.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-22 - Update AKS tier to Standard
+### AKS-19 - Update AKS tier to Standard
 
 **Category: Resiliency**
 
@@ -628,37 +543,13 @@ Production AKS clusters should be configured with the Standard tier. The AKS fre
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-22/aks-22.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-19/aks-19.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-23 - Configure the API server Public IP access for public clusters
-
-**Category: Security**
-
-**Impact: High**
-
-**Guidance**
-
-The Kubernetes API server is the core of the Kubernetes control plane and is the central way to interact with and manage your clusters. To improve the security of your clusters and minimize the risk of attacks, we recommend limiting the IP address ranges that can access the API server.
-
-**Resources**
-
-- [API Server Authorized IP Ranges](https://learn.microsoft.com/azure/aks/api-server-authorized-ip-ranges)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-23/aks-23.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AKS-24 - Enable AKS Monitoring
+### AKS-20 - Enable AKS Monitoring
 
 **Category: Monitoring**
 
@@ -676,13 +567,13 @@ Azure Monitor collects events, captures container logs, collects CPU/Memory info
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-24/aks-24.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-20/aks-20.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-25 - Use Ephemeral Disks on AKS clusters
+### AKS-21 - Use Ephemeral Disks on AKS clusters
 
 **Category: Performance**
 
@@ -700,13 +591,13 @@ Ephemeral OS disks provide lower read/write latency on the OS disk of AKS agent 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-25/aks-25.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-21/aks-21.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-26 - Enable Azure Policies configured for AKS
+### AKS-22 - Enable Azure Policies configured for AKS
 
 **Category: Governance**
 
@@ -725,13 +616,13 @@ Azure Policies allow companies to enforce governance best practices in the AKS c
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-26/aks-26.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-22/aks-22.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-27 - Enable GitOps when using DevOps frameworks
+### AKS-23 - Enable GitOps when using DevOps frameworks
 
 **Category: Automation**
 
@@ -739,8 +630,7 @@ Azure Policies allow companies to enforce governance best practices in the AKS c
 
 **Guidance**
 
-GitOps is an operating model for cloud-native applications that stores application and declarative infrastructure code in Git to be used as the source of truth for automated continuous delivery. With GitOps, you describe the desired state of your entire system in a git repository, and a GitOps operator deploys it to your environment, which is often a Kubernetes cluster. This solution can be used in conjunction with Azure DevOps.
-
+GitOps is an operating model for cloud-native applications that stores application and declarative infrastructure code in Git to be used as the source of truth for automated continuous delivery. With GitOps, you describe the desired state of your entire system in a git repository, and a GitOps operator deploys it to your environment, which is often a Kubernetes cluster. To prevent potential outages or unsuccessful failover scenarios, GitOps helps maintain the configuration of all AKS clusters to the intended configuration.
 
 **Resources**
 
@@ -751,39 +641,13 @@ GitOps is an operating model for cloud-native applications that stores applicati
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-27/aks-27.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-23/aks-23.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-28 - Use the Azure KeyVault provider for Secrets Store CSI Driver
-
-**Category: Security**
-
-**Impact: High**
-
-**Guidance**
-
-The Azure Key Vault provider for Secrets Store CSI Driver allows for the integration of an Azure Key Vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a CSI volume to allow secure access to secrets and HTTPS/TLS certificates.
-
-
-**Resources**
-
-- [CSI Secrets Store Driver](https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver)
-- [GitOps for AKS - Reference Architecture](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-28/aks-28.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AKS-29 - Configure affinity or anti-affinity rules based on application requirements
+### AKS-24 - Configure affinity or anti-affinity rules based on application requirements
 
 **Category: High Availability**
 
@@ -802,13 +666,13 @@ Configure Topology Spread Constraints to control how Pods are spread across your
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-29/aks-29.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-24/aks-24.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-30 - Configures Pods Liveness, Readiness, and Startup Probes
+### AKS-25 - Configures Pods Liveness, Readiness, and Startup Probes
 
 **Category: High Availability**
 
@@ -827,13 +691,13 @@ AKS kubelet controller uses liveness probes to validate containers and applicati
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-30/aks-30.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-25/aks-25.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-31 - Configure pod replication in production applications to guarantee availability
+### AKS-26 - Configure pod replication in production applications to guarantee availability
 
 **Category: High Availability**
 
@@ -851,7 +715,7 @@ Configure ReplicaSets in the Pod or Deployment manifests to maintain a stable se
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-31/aks-31.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-26/aks-26.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
