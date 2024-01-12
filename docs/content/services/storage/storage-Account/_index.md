@@ -23,7 +23,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 |[ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                      |  Medium  | Preview  |         No          |
 |[ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) |  Medium  | Preview  |         No          |
 |[ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                  |   Low    | Preview  |         No          |
-|[ST-8 - Configure Diagnostic Settings for all Azure Resources](#st-8---configure-diagnostic-settings-for-all-azure-resources)                          |   Low    | Preview  |         No          |
+|[ST-8 - Configure Diagnostic Settings for all storage accounts](#st-8---configure-diagnostic-settings-for-all-storage-accounts)                          |   Low    | Preview  |         No          |
 
 {{< /table >}}
 
@@ -210,7 +210,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 <br><br>
 
-### ST-8 - Configure Diagnostic Settings for all Azure Resources
+### ST-8 - Configure Diagnostic Settings for all storage accounts
 
 **Category: Monitoring**
 

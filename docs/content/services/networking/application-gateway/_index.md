@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                              | Impact   | State    | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [AGW-1 - Ensure autoscaling is used with a minimum of 2 instance](#agw-1---ensure-autoscaling-is-used-with-a-minimum-of-2-instance)     |  High    | Preview  | Yes |
+| [AGW-1 - Set a minimum instance count of 2](#agw-1---set-a-minimum-instance-count-of-2)     |  High    | Preview  | Yes |
 | [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                   |  High    | Preview  | No |
 | [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                        |  High    | Preview  | Yes |
 | [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                             |  High    | Preview  | No |
@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AGW-1 - Ensure autoscaling is used with a minimum of 2 instance
+### AGW-1 - Set a minimum instance count of 2
 
 **Category: System Efficiency**
 
@@ -41,11 +41,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
- When configuring the Application Gateway you should provision autoscaling and a minimum of two instances to minimize the effects of a single failing component. This allows for the opportunity to leverage the full capabilities of having a Layer 7 Load Balancing services. The creation of every new instance can take several minutes so having a minimum instance count of two ensure if one goes down for any reason that there is not a complete loss of connectivity to the backend services.  Auto scale allows the Application Gateway to scale out based on the traffic requirements without the need of manual intervention.
+Azure Application Gateways v2 are always deployed in a highly available fashion, deployed with multiple instances by default regardless of your autoscaling configuration. However, creating a new instance can take up to six or seven minutes. In order to avoid downtime for various failure modes, it is recommended that you configure a minimum instance count of two, ideally with Availability Zone support. By doing this, you will always have at least two instances in your Azure Application Gateway under normal circumstances. If one of them was to have a problem, there will always be another instance present to handle the traffic while a new instance is being created. Also, continue to leverage auto scaling to dynamically scale out based on the traffic requirements without the need of manual intervention.
 
 **Resources**
 
-- [Application Gateway Autoscaling Zone-Redundant](https://learn.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+- [Application Gateway Autoscaling Zone-Redundant](https://learn.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability)
 
 **Resource Graph Query/Scripts**
 

@@ -4,4 +4,4 @@ resources
 | where type == "microsoft.containerservice/managedclusters"
 | extend taint = tostring(parse_json(properties.agentPoolProfiles[1].nodeTaints))
 | where isempty(taint)
-| project recommendationid="aks-2", name, id, param1=strcat("taint: ", taint)
+| project recommendationid="aks-2", name, id, tags, param1=strcat("taint: ", taint)
