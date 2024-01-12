@@ -61,13 +61,6 @@ However, as part of a complex architecture, you might choose to use Traffic Mana
 - [Azure Traffic Manager](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-overview)
 - [Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-overview)
 
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/afd-1/afd-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
