@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Network Securi
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                |  Category         |  Impact   |  State     | ARG Query Available |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------:  | :------:  | :------:   | :-----------------: |
-| [NSG-1 - Configure Diagnostic Settings for all Azure Resources](#nsg-1---configure-diagnostic-settings-for-all-azure-resources)                                               | Monitoring        |  Medium   | Preview    |     No          |
+| [NSG-1 - Configure Diagnostic Settings for all network security groups](#nsg-1---configure-diagnostic-settings-for-all-network-security-groups)                                               | Monitoring        |  Medium   | Preview    |     No          |
 | [NSG-2 - Monitor changes in Network Security Groups with Azure Monitor](#nsg-2---monitor-changes-in-network-security-groups-with-azure-monitor)                               | Monitoring        |     Low   | Preview    |     Yes          |
 | [NSG-3 - Configure locks for Network Security Groups to avoid accidental changes and/or deletion](#nsg-3---configure-locks-for-network-security-groups-to-avoid-accidental-changes-andor-deletion)      | Governance        |     Low   | Preview    |     No          |
 | [NSG-4 - Configure NSG Flow Logs](#nsg-4---configure-nsg-flow-logs)                                                                     | Monitoring        |  Medium   | Preview    |     Yes         |
@@ -29,7 +29,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### NSG-1 - Configure Diagnostic Settings for all Azure Resources
+### NSG-1 - Configure Diagnostic Settings for all network security groups
 
 **Category: Monitoring**
 
@@ -48,6 +48,12 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/nsg-1/nsg-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="powershell" file="code/nsg-1/nsg-1.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -97,6 +103,12 @@ You can set locks that prevent either deletions or modifications. In the portal,
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/nsg-3/nsg-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="powershell" file="code/nsg-3/nsg-3.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 

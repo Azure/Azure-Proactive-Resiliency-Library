@@ -1,1 +1,13 @@
-// under-development
+// Azure Resource Graph Query
+// Provides a list of Azure App Service Plans and the number of changes that was made to the pricing tier, if the count is higher that 3 it means you need to avoid scaling up and down that often
+
+resourcechanges
+| extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
+changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId,
+changedProperties = properties.changes, changeCount = properties.changeAttributes.changesCount
+| where changeTime > ago(14d)
+| join kind=inner (resources | project resources_Name = name, resources_Type = type, resources_Subscription= subscriptionId, resources_ResourceGroup= resourceGroup, id) on $left.targetResourceId == $right.id
+| where resources_Type contains "microsoft.web/serverfarms"
+| where changedProperties['sku.name'].propertyChangeType == 'Update' or changedProperties['sku.tier'].propertyChangeType == 'Update'
+| summarize count() by targetResourceId, resources_Name  ,tostring(changedProperties['sku.name'].previousValue), tostring(changedProperties['sku.tier'].newValue)
+| project recommendationid="asp-3", ["id"]=targetResourceId, resources_Name, ['changedProperties_sku.name_previousValue'], ['changedProperties_sku.tier_newValue'], count_

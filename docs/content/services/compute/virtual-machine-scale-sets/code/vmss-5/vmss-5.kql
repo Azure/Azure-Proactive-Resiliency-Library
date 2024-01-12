@@ -2,7 +2,7 @@
 // Find VMSS instances associated with autoscale settings when predictiveAutoscalePolicy_scaleMode is disabled
 resources
 | where type == "microsoft.compute/virtualmachinescalesets"
-| project name, id
+| project name, id, tags
 | join kind=leftouter  (
     resources
     | where type == "microsoft.insights/autoscalesettings"
@@ -10,5 +10,5 @@ resources
     | project id = tostring(properties.targetResourceUri), autoscalesettings = properties
 ) on id
 | where autoscalesettings.enabled == "true" and autoscalesettings.predictiveAutoscalePolicy.scaleMode == "Disabled"
-| project recommendationId = "vmss-5", name, id, param1 = "predictiveAutoscalePolicy_scaleMode: Disabled"
+| project recommendationId = "vmss-5", name, id, tags, param1 = "predictiveAutoscalePolicy_scaleMode: Disabled"
 | order by id asc
