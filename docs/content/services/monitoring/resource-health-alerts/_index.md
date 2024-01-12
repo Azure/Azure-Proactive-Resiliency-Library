@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for Resources Healt
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category      |  Impact   |   State   | ARG Query Available |
 | :------------------------------------------------ | :------------: | :--------:| :--------:| :------------------:|
-| [MSR-1 - Configure Resource Health Alerts](#msr-1---configure-resource-health-alerts) | Monitoring | Low| Preview  |    Yes      |
+| [MSR-1 - Configure Resource Health Alerts](#msr-1---configure-resource-health-alerts) | Monitoring | Low| Preview  |    No      |
 {{< /table >}}
 
 {{< alert style="info" >}}
