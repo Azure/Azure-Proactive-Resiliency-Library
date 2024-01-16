@@ -63,9 +63,9 @@ To improve high availability, it's recommended to operate both the connections o
 
 **Guidance**
 
-Ensure you provider uses two physically diverse links to connect to Microsoft for enhanced reliability.
+Ensure your provider uses two physically diverse links to connect to Microsoft for enhanced reliability.
 
-In the Expressroute-Direct model (Microsoft) or in the Expressroute-Provider model (ER Partner), there is completely redundant connection with two links implemented on redundant infrastructure, involving two cross connections and two edge devices. To maintain the equivalent level of resiliency, replicate this setup on your end for connections from customer edge to Microsoft.
+In the ExpressRoute-Direct model (Microsoft) or in the ExpressRoute-Provider model (ER Partner), there is completely redundant connectivity with two links implemented on redundant infrastructure, involving two cross connections and two edge devices. To maintain the equivalent level of resiliency, replicate this setup on your end for connections from the customer edge to Microsoft.
 
 Engage in discussions with the chosen Telco-provider to address any reliability concerns."
 
