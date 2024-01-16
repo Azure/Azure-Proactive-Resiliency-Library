@@ -14,9 +14,9 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [AVS-1 Monitor Service Health](#avs-1---monitor-service-health)    | Medium | Resiliency/Monitoring |  Preview  |        Yes         |
-| [AVS-2 Configure syslog in Diagnostic Settings](#avs-2---configure-syslog-in-diagnostic-settings)    | Medium | Resiliency/Monitoring |  Preview  |        Yes         |
-| [AVS-3 Azure Monitor Alert for vSAN datastore consumption](#avs-3---azure-monitor-alert-for-vsan-datastore-consumption)    | High | Infrastructure |  Preview  |        Yes         |
+| [AVS-1 Monitor Service Health](#avs-1---monitor-service-health)    | Medium | Resiliency/Monitoring |  Preview  |        No         |
+| [AVS-2 Configure syslog in Diagnostic Settings](#avs-2---configure-syslog-in-diagnostic-settings)    | Medium | Resiliency/Monitoring |  Preview  |        No         |
+| [AVS-3 Azure Monitor Alert for vSAN datastore consumption](#avs-3---azure-monitor-alert-for-vsan-datastore-consumption)    | High | Infrastructure |  Preview  |        No         |
 
 {{< /table >}}
 
