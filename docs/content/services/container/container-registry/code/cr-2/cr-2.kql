@@ -3,5 +3,5 @@
 resources
 | where type =~ "microsoft.containerregistry/registries"
 | where properties.zoneRedundancy != "Enabled"
-| project recommendationId = "cr-2", name, id, param1=strcat("zoneRedundancy: ", tostring(properties.zoneRedundancy))
+| project recommendationId = "cr-2", name, id, tags, param1=strcat("zoneRedundancy: ", tostring(properties.zoneRedundancy))
 | order by id asc
