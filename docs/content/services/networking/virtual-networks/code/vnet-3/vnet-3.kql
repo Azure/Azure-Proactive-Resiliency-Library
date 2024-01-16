@@ -1,1 +1,10 @@
-// under-development
+// Azure Resource Graph Query
+// Find Subnets with Service Endpoint enabled
+resources
+| where type =~ 'Microsoft.Network/virtualnetworks'
+| mv-expand subnets = properties.subnets
+| extend se = array_length(subnets.properties.serviceEndpoints)
+| where se >= 1
+| project name, id, subnets, serviceEndpoints=todynamic(subnets.properties.serviceEndpoints)
+| mv-expand serviceEndpoints
+| project recommendationId = "vnet-3", name, id, param1 = strcat("subnet=", subnets.name), param2=strcat("serviceName=",serviceEndpoints.service), param3="ServiceEndpoints=true"
