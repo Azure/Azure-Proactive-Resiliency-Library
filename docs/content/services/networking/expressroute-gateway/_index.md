@@ -17,7 +17,7 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 | [ERGW-1 - Use Zone-redundant gateway SKUs](#ergw-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
 | [ERGW-2 - Monitor gateway health](#ergw-2---monitor-gateway-health) | High | Preview | No |
 | [ERGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#ergw-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | No |
-| [ERGW-4 - Configure diagnostic logs and alerts for ExpressRoute virtual network gateway] (#ergw-4---configure-diagnostic-logs-and-alerts-for-expressroute-virtual-network-gateway) | High | Preview | No |
+| [ERGW-4 - Configure diagnostic logs and alerts for ExpressRoute virtual network gateway](#ergw-4---configure-diagnostic-logs-and-alerts-for-expressroute-virtual-network-gateway) | High | Preview | No |
 
 {{< /table >}}
 
