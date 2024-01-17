@@ -63,7 +63,11 @@ To improve high availability, it's recommended to operate both the connections o
 
 **Guidance**
 
-For better resiliency, plan to have multiple paths between the on-premises edge and the peering locations (provider/Microsoft edge locations). This configuration can be achieved by going through different service provider or through a different location from the on-premises network.
+Ensure your provider uses two physically diverse links to connect to Microsoft for enhanced reliability.
+
+In the ExpressRoute-Direct model (Microsoft) or in the ExpressRoute-Provider model (ER Partner), there is completely redundant connectivity with two links implemented on redundant infrastructure, involving two cross connections and two edge devices. To maintain the equivalent level of resiliency, replicate this setup on your end for connections from the customer edge to Microsoft.
+
+Engage in discussions with the chosen Telco-provider to address any reliability concerns."
 
 **Resources**
 
