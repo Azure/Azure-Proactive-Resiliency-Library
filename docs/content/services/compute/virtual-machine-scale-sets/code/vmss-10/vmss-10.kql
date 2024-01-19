@@ -1,5 +1,6 @@
 // Azure Resource Graph Query
 // This query will display all images that are not using the latest version.
+resources
 | where type == "microsoft.compute/virtualmachinescalesets"
 | extend VMSSName = name
 | extend ImageReference = tostring(properties.virtualMachineProfile.storageProfile.imageReference.version)
