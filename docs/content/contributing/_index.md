@@ -203,7 +203,7 @@ If you need support with validating a query, please reach out to the APRL team v
 
 1. All PowerShell scripts should have two comments at the top of the script, one comment stating `Azure PowerShell script` and another comment providing a description of the script results returned. For example:
 
-    ```
+    ```powershell
     // Azure PowerShell script
     // Provides a list of Azure Container Registry resources that do not have soft delete enabled
     ```
