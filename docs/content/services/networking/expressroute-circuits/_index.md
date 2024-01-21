@@ -1,30 +1,28 @@
 +++
 title = "ExpressRoute Circuits"
-description = "Best practices and resiliency recommendations for ExpressRoute Circuits and associated resources."
-date = "01/17/2024"
+description = "Best practices and resiliency recommendations for ExpressRoute circuits and associated resources."
+date = "01/21/2024"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include ExpressRoute Circuits and associated ExpressRoute Circuits settings.
+The presented resiliency recommendations in this guidance include ExpressRoute circuits and associated ExpressRoute circuit settings.
 
 ## Summary of Recommendations
 
-The below table shows the list of resiliency recommendations for ExpressRoute Circuits and associated resources.
+The below table shows the list of resiliency recommendations for ExpressRoute circuits and associated resources.
 
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active](#erc-1---ensure-both-connections-of-an-expressroute-circuit-are-configured-and-active) | High | Preview | Yes |
-| [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | High | Preview | No |
-| [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | High | Preview | No |
-| [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | High | Preview | No |
+| [ERC-1 - For each ExpressRoute Gateway implement two or more ExpressRoute circuits to two or more diverse peering locations](#erc-1---for-each-expressroute-gateway-implement-two-or-more-expressroute-circuits-to-two-or-more-diverse-peering-locations) | High | Preview | No |
+| [ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network](#erc-2---ensure-the-two-physical-links-of-your-expressroute-circuit-are-connected-to-two-distinct-edge-devices-in-your-network) | High | Preview | No |
+| [ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode](#erc-3---ensure-both-connections-of-an-expressroute-circuit-are-configured-in-active-active-mode) | High | Preview | Yes |
+| [ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices](#erc-4---ensure-bidirectional-forwarding-detection-is-enabled-and-configured-on-customer-or-provider-edge-routing-devices) | High | Preview | No |
 | [ERC-5 - Configure monitoring and alerting for ExpressRoute circuits](#erc-5---configure-monitoring-and-alerting-for-expressroute-circuits) | Medium | Preview | No |
 | [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Medium | Preview | No |
-| [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | High | Preview | No |
-| [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Medium | Preview | No |
-| [ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering](#erc-9---configure-site-to-site-vpn-as-a-backup-to-expressroute-private-peering) | Medium | Preview | No |
+| [ERC-7 - Use a site-to-site VPN as an interim backup solution for a single ExpressRoute circuit](#erc-7---use-a-site-to-site-vpn-as-an-interim-backup-solution-for-a-single-expressroute-circuit) | Medium | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -35,7 +33,52 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### ERC-1 - Ensure both connections of an ExpressRoute circuit are configured and active
+### ERC-1 - For each ExpressRoute Gateway implement two or more ExpressRoute circuits to two or more diverse peering locations
+
+**Impact: High**
+
+**Guidance**
+
+Each ExpressRoute Gateway should have a minimum of two ExpressRoute circuits. Each circuit should connect to a peering location that is diverse from the other circuit's peering location.
+
+**Resources**
+
+- [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/erc-1/erc-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network
+
+**Impact: High**
+
+**Guidance**
+
+Microsoft (in the direct model) or the ExpressRoute provider (in the provider-based model) always offer a physically redundant service. Make sure that the same level of physical redundancy (two physical devices, two physical links) is used across the entire path from the ExpressRoute peering location to your network.
+
+**Resources**
+
+- [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute)
+- [Azure Well-Architected Framework review - Azure ExpressRoute - Design Checklist](https://learn.microsoft.com/azure/well-architected/services/networking/azure-expressroute#recommendations)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/erc-2/erc-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode
 
 **Impact: High**
 
@@ -51,71 +94,23 @@ To improve high availability, it's recommended to operate both the connections o
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/erc-1/erc-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### ERC-2 - Physical layer diversity
-
-**Impact: High**
-
-**Guidance**
-
-Ensure your provider uses two physically diverse links to connect to Microsoft for enhanced reliability.
-
-In the ExpressRoute-Direct model (Microsoft) or in the ExpressRoute-Provider model (ER Partner), there is completely redundant connectivity with two links implemented on redundant infrastructure, involving two cross connections and two edge devices. To maintain the equivalent level of resiliency, replicate this setup on your end for connections from the customer edge to Microsoft.
-
-Engage in discussions with the chosen Telco-provider to address any reliability concerns."
-
-**Resources**
-
-- [Azure Well-Architected Framework review - Azure ExpressRoute - Design Checklist](https://learn.microsoft.com/azure/well-architected/services/networking/azure-expressroute#recommendations)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/erc-2/erc-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### ERC-3 - Diversify primary and secondary connections to customer end routers
-
-**Impact: High**
-
-**Guidance**
-
-Never terminate primary and secondary connections on the same customer end router. This creates a single point of failure.
-
-**Resources**
-
-- [Designing for high availability with ExpressRoute - First mile physical layer design considerations](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#first-mile-physical-layer-design-considerations)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
 {{< code lang="sql" file="code/erc-3/erc-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### ERC-4 - Diversify primary and secondary connections to customer end ports
+### ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices
 
 **Impact: High**
 
 **Guidance**
 
-Don’t configure both Primary and secondary connections via same port. This creates a single point of failure.
+When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). You can configure ExpressRoute over your edge routing devices or your Partner Edge routing devices (if you went with managed Layer 3 connection service).
 
 **Resources**
 
-- [Designing for high availability with ExpressRoute - First mile physical layer design considerations](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#first-mile-physical-layer-design-considerations)
+- [Configure BFD over ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-bfd)
 
 **Resource Graph Query/Scripts**
 
@@ -137,7 +132,7 @@ Configure monitoring using Network Insights for ExpressRoute circuit availabilit
 
 Configure alerts using Connection Monitor for ExpressRoute with a Log Analytics workspace, and Network Watcher. Configure alerts for when ChecksFailedPercent exceeds 5%, and when RoundTripTimeMs exceeds a pre-tested average appropriate to the environment.
 
-For ExpressRoute Direct, configure Traffic Collection for ExpressRoute Direct to send flow logs to a Log Analytics workspace
+For ExpressRoute Direct, configure Traffic Collection for ExpressRoute Direct to send flow logs to a Log Analytics workspace.
 
 **Resources**
 
@@ -177,57 +172,13 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 
 <br><br>
 
-### ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured
-
-**Impact: High**
-
-**Guidance**
-
-When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). You can configure ExpressRoute over your edge routing devices or your Partner Edge routing devices (if you went with managed Layer 3 connection service).
-
-**Resources**
-
-- [https://learn.microsoft.com/azure/expressroute/expressroute-bfd](https://learn.microsoft.com/azure/expressroute/expressroute-bfd)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/erc-7/erc-7.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### ERC-8 - Implement multiple geo-redundant ExpressRoute circuits
+### ERC-7 - Use a site-to-site VPN as an interim backup solution for a single ExpressRoute circuit
 
 **Impact: Medium**
 
 **Guidance**
 
-Implement multiple geo-redundant ExpressRoute circuits in your Virtual Network for cross premises resiliency
-
-**Resources**
-
-- [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/erc-8/erc-8.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### ERC-9 - Configure site-to-site VPN as a backup to ExpressRoute private peering
-
-**Impact: Medium**
-
-**Guidance**
-
-Consider using site-to-site VPN as a failover when an ExpressRoute circuit becomes unavailable.
+If you have not yet added a second ExpressRoute circuit for an ExpressRoute Gateway, use a site-to-site VPN as an interim solution until the second ExpressRoute circuit is available.
 
 **Resources**
 
@@ -237,7 +188,7 @@ Consider using site-to-site VPN as a failover when an ExpressRoute circuit becom
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/erc-9/erc-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/erc-7/erc-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
