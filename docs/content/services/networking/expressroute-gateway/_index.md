@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Gateway"
 description = "Best practices and resiliency recommendations for ExpressRoute Gateway and associated resources."
-date = "01/11/24"
+date = "01/16/24"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -17,6 +17,7 @@ The presented resiliency recommendations in this guidance include ExpressRoute G
 | [ERGW-1 - Use Zone-redundant gateway SKUs](#ergw-1---use-zone-redundant-gateway-skus) | High | Preview | Yes |
 | [ERGW-2 - Monitor gateway health](#ergw-2---monitor-gateway-health) | High | Preview | No |
 | [ERGW-3 - Use Vnet peering for Vnet to Vnet connectivity instead of ExpressRoute circuits](#ergw-3---use-vnet-peering-for-vnet-to-vnet-connectivity-instead-of-expressroute-circuits) | Medium | Preview | No |
+| [ERGW-4 - Configure diagnostic logs and alerts for ExpressRoute virtual network gateway](#ergw-4---configure-diagnostic-logs-and-alerts-for-expressroute-virtual-network-gateway) | High | Preview | No |
 
 {{< /table >}}
 
@@ -98,6 +99,31 @@ By default, connectivity between virtual networks are enabled when you link mult
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/ergw-3/ergw-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ERGW-4 - Configure diagnostic logs and alerts for ExpressRoute virtual network gateway
+
+**Category: Networking**
+
+**Impact: High**
+
+**Guidance**
+
+Enabling diagnostic logs allows you to capture and view diagnostic information so that you can troubleshoot any failures for ExpressRoute virtual network gateway. Creating alert rules based on a log query can alert you based on the criteria specific to the customer.
+
+**Resources**
+
+- [Troubleshooting Azure VPN Gateway using diagnostic logs | Microsoft Learn](https://learn.microsoft.com/en-us/azure/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics)
+- [Configure alerts on diagnostic resource log events - Azure VPN Gateway | Microsoft Learn](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/ergw-4/ergw-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

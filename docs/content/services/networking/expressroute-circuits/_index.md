@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Circuits"
 description = "Best practices and resiliency recommendations for ExpressRoute Circuits and associated resources."
-date = "10/31/23"
+date = "01/17/2024"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -20,7 +20,7 @@ The below table shows the list of resiliency recommendations for ExpressRoute Ci
 | [ERC-2 - Physical layer diversity](#erc-2---physical-layer-diversity) | High | Preview | No |
 | [ERC-3 - Diversify primary and secondary connections to customer end routers](#erc-3---diversify-primary-and-secondary-connections-to-customer-end-routers) | High | Preview | No |
 | [ERC-4 - Diversify primary and secondary connections to customer end ports](#erc-4---diversify-primary-and-secondary-connections-to-customer-end-ports) | High | Preview | No |
-| [ERC-5 - Monitor ExpressRoute using Azure Monitor](#erc-5---monitor-expressroute-using-azure-monitor) | Medium | Preview | No |
+| [ERC-5 - Configure monitoring and alerting for ExpressRoute circuits](#erc-5---configure-monitoring-and-alerting-for-expressroute-circuits) | Medium | Preview | No |
 | [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Medium | Preview | No |
 | [ERC-7 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer equipment](#erc-7---ensure-bidirectional-forwarding-detection-is-enabled-and-configured) | High | Preview | No |
 | [ERC-8 - Implement multiple geo-redundant ExpressRoute circuits](#erc-8---implement-multiple-geo-redundant-expressroute-circuits) | Medium | Preview | No |
@@ -63,7 +63,11 @@ To improve high availability, it's recommended to operate both the connections o
 
 **Guidance**
 
-For better resiliency, plan to have multiple paths between the on-premises edge and the peering locations (provider/Microsoft edge locations). This configuration can be achieved by going through different service provider or through a different location from the on-premises network.
+Ensure your provider uses two physically diverse links to connect to Microsoft for enhanced reliability.
+
+In the ExpressRoute-Direct model (Microsoft) or in the ExpressRoute-Provider model (ER Partner), there is completely redundant connectivity with two links implemented on redundant infrastructure, involving two cross connections and two edge devices. To maintain the equivalent level of resiliency, replicate this setup on your end for connections from the customer edge to Microsoft.
+
+Engage in discussions with the chosen Telco-provider to address any reliability concerns."
 
 **Resources**
 
@@ -123,17 +127,23 @@ Don’t configure both Primary and secondary connections via same port. This cre
 
 <br><br>
 
-### ERC-5 - Monitor ExpressRoute using Azure Monitor
+### ERC-5 - Configure monitoring and alerting for ExpressRoute circuits
 
 **Impact: Medium**
 
 **Guidance**
 
-ExpressRoute monitor provides end-to-end monitoring capabilities including: Loss, latency, and performance from on-premises to Azure and Azure to on-premises
+Configure monitoring using Network Insights for ExpressRoute circuit availability, circuit QoS, and throughput. Configure alerts for availability metrics when they fall below 99%, circuit QoS metrics when dropped counts exceed 0 bits/sec, and throughput metrics when bits/sec exceed a threshold appropriate for the ExpressRoute circuit SKU and customer usage.
+
+Configure alerts using Connection Monitor for ExpressRoute with a Log Analytics workspace, and Network Watcher. Configure alerts for when ChecksFailedPercent exceeds 5%, and when RoundTripTimeMs exceeds a pre-tested average appropriate to the environment.
+
+For ExpressRoute Direct, configure Traffic Collection for ExpressRoute Direct to send flow logs to a Log Analytics workspace
 
 **Resources**
 
+- [Azure ExpressRoute Insights using Network Insights | Microsoft Learn](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-network-insights)
 - [Monitoring Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/monitor-expressroute)
+- [Configure Traffic Collector for ExpressRoute Direct - Azure ExpressRoute | Microsoft Learn](https://learn.microsoft.com/en-us/azure/expressroute/how-to-configure-traffic-collector#deploy-expressroute-traffic-collector)
 
 **Resource Graph Query/Scripts**
 
