@@ -3,5 +3,5 @@
 resources
 | where type =~ "microsoft.containerregistry/registries"
 | where properties.policies.softDeletePolicy.status == "disabled"
-| project recommendationId = "cr-12", name, id
+| project recommendationId = "cr-12", name, id, tags
 | order by id asc

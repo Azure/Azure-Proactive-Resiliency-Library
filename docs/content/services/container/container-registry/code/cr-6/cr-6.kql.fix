@@ -1,8 +1,8 @@
 // Azure Resource Graph Query
 // Lists resource groups that contain resources with type microsoft.containerregistry/registries, and provides a list of all other types of resources within the same resource group.
 resources
-| project resourceGroup, resourceType = type
-| summarize resourceTypes = make_set(resourceType) by resourceGroup
+| project resourceGroup, resourceType = type, tags
+| summarize resourceTypes = make_set(resourceType) by resourceGroup, tostring(tags)
 | where array_index_of(resourceTypes, "microsoft.containerregistry/registries") != -1
-| project recommendationId = "cr-6", name=strcat("resourceGroup: ",resourceGroup), id="", resourceTypes
+| project recommendationId = "cr-6", name=strcat("resourceGroup: ",resourceGroup), id="", resourceTypes, tags
 | order by name asc
