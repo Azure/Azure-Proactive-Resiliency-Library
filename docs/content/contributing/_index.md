@@ -210,7 +210,7 @@ If you need support with validating a query, please reach out to the APRL team v
 
 1. Scripts should only return resources that do not adhere to the APRL recommendation. For example, if the recommendation is to enable soft delete for Azure Container Registries, the associated scripts should only return Azure Container Registry resources that do not have soft delete enabled.
 
-1. Scripts should exclusively contain code to retrieve resources that do not comply with the APRL recommendation. They should not include supporting code, such as Azure sign-in ([Connect-AzAccount](https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount), Login-AzAccount) or subscription selection ([Set-AzContext](https://learn.microsoft.com/en-us/powershell/module/az.accounts/set-azcontext), Select-AzSubscription). Execute these codes separately from the APRL recommendation PowerShell script.
+1. Scripts should exclusively contain code to retrieve resources that do not comply with the APRL recommendation. They should not include supporting code, such as Azure sign-in ([Connect-AzAccount](https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount), Login-AzAccount) or subscription selection ([Set-AzContext](https://learn.microsoft.com/en-us/powershell/module/az.accounts/set-azcontext), Select-AzSubscription). Execute these cmdlets separately from the APRL recommendation PowerShell script.
 
 1. The script should return the result as an array of the `PSCustomObject` data type, with each result object containing only the following properties:
 
