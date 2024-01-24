@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for ExpressRoute ci
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [ERC-1 - For each ExpressRoute Gateway implement two or more ExpressRoute circuits to two or more diverse peering locations](#erc-1---for-each-expressroute-gateway-implement-two-or-more-expressroute-circuits-to-two-or-more-diverse-peering-locations) | High | Preview | No |
+| [ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway, connecting through diverse peering locations](#erc-1---implement-two-or-more-expressroute-circuits-for-each-expressroute-gateway,-connecting-through-diverse-peering-locations) | High | Preview | No |
 | [ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network](#erc-2---ensure-the-two-physical-links-of-your-expressroute-circuit-are-connected-to-two-distinct-edge-devices-in-your-network) | High | Preview | No |
 | [ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode](#erc-3---ensure-both-connections-of-an-expressroute-circuit-are-configured-in-active-active-mode) | High | Preview | Yes |
 | [ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices](#erc-4---ensure-bidirectional-forwarding-detection-is-enabled-and-configured-on-customer-or-provider-edge-routing-devices) | High | Preview | No |
@@ -33,13 +33,13 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### ERC-1 - For each ExpressRoute Gateway implement two or more ExpressRoute circuits to two or more diverse peering locations
+### ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway, connecting through diverse peering locations
 
 **Impact: High**
 
 **Guidance**
 
-Each ExpressRoute Gateway should have a minimum of two ExpressRoute circuits. Each circuit should connect to a peering location that is diverse from the other circuit's peering location.
+Connect each ExpressRoute Gateway to a minimum of two circuits, with each circuit connecting from a diverse peering location compared to the other.
 
 **Resources**
 
