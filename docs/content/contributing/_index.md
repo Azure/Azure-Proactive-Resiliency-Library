@@ -199,6 +199,57 @@ NOTE: The column names should be in the order they are listed and match exactly.
 If you need support with validating a query, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
 {{< /alert >}}
 
+### Azure PowerShell Scripts
+
+1. All PowerShell scripts should have two comments at the top of the script, one comment stating `Azure PowerShell script` and another comment providing a description of the script results returned. For example:
+
+    ```powershell
+    // Azure PowerShell script
+    // Provides a list of Azure Container Registry resources that do not have soft delete enabled
+    ```
+
+1. Scripts should only return resources that do not adhere to the APRL recommendation. For example, if the recommendation is to enable soft delete for Azure Container Registries, the associated scripts should only return Azure Container Registry resources that do not have soft delete enabled.
+
+1. Scripts should exclusively contain code to retrieve resources that do not comply with the APRL recommendation. They should not include supporting code, such as Azure sign-in ([Connect-AzAccount](https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount), Login-AzAccount) or subscription selection ([Set-AzContext](https://learn.microsoft.com/en-us/powershell/module/az.accounts/set-azcontext), Select-AzSubscription). Execute these cmdlets separately from the APRL recommendation PowerShell script.
+
+1. The script should return the result as an array of the `PSCustomObject` data type, with each result object containing only the following properties:
+
+    {{< alert style="info" >}}
+NOTE: The property names should be in the order they are listed and match exactly.
+{{< /alert >}}
+
+    | Property Name | Data Type | Required | Information Returned (Example) | Description |
+    |:---:|:---:|:---:|:---:|---|
+    | recommendationId | string | Yes | aks-1 | The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number. |
+    | name | string | Yes | test-aks | The resource name of the Azure resource that does not adher to the APRL recommendation. |
+    | id | string | Yes | /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-resource-group/providers/Microsoft.ContainerService/managedClusters/test-aks | The resource ID of the Azure resource that does not adhere to the APRL recommendation. |
+    | tags | PSCustomObject | No | {"Environment":"Test","Department":"IT"} | Any relevant tags associated to the resource that does not adhere to the APRL recommendation. The data type should match the data type of `tags` in the result of ARG queries by [Search-AzGraph](https://learn.microsoft.com/en-us/powershell/module/az.resourcegraph/search-azgraph). If not set tags, set `$null`. |
+    | param1 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param2 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param3 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param4 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param5 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+
+    Below is a sample code to return a result that aligned to the above standards.
+
+    ```powershell
+    [PSCustomObject] @{
+        recommendationId = 'aks-1'
+        name             = $resource.Name
+        id               = $resource.Id
+        tags             = if ($resource.Tags) { [PSCustomObject] ([Hashtable] $resource.Tags) } else { $null }
+        param1           = 'networkProfile:kubenet'
+        param2           = 'networkProfile:kubenet'
+        param3           = 'networkProfile:kubenet'
+        param4           = 'networkProfile:kubenet'
+        param5           = 'networkProfile:kubenet'
+    }
+    ```
+
+{{< alert style="info" >}}
+If you need support with validating a script, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
+{{< /alert >}}
+
 ## Updating a Service's Recommendation Page
 
 {{< panel title="Important" style="danger" >}}
