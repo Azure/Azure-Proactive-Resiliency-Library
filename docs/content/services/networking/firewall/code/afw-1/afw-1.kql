@@ -1,1 +1,5 @@
-// under-development
+// Azure Resource Graph Query
+// List all Azure Firewalls that are not configured with multiple availability zones or deployed without a zone
+resources
+| where type == 'microsoft.network/azurefirewalls' and (isnull(zones) or zones !contains(','))
+| project recommendationId = "afw-1", name, id, param1="multipleZones:false"
