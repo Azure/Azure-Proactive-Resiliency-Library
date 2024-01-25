@@ -16,7 +16,7 @@ The presented resiliency recommendations in this guidance include Firewall and a
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :------: | :-----------------: |
 | [AFW-1 - Deploy Azure Firewall across multiple availability zones](#afw-1---deploy-azure-firewall-across-multiple-availability-zones)                               |  High    | Preview  |         Yes         |
 | [AFW-2 - Test Azure Firewall performance](#afw-2---test-azure-firewall-performance)                                                                                 |  High    | Preview  |         No          |
-| [AFW-3 - Monitor Azure Firewall metrics](#afw-3---monitor-azure-firewall-metrics)                                                                                   |  High    | Preview  |         No         |
+| [AFW-3 - Monitor Azure Firewall metrics](#afw-3---monitor-azure-firewall-metrics)                                                                                   |  High    | Preview  |         Yes         |
 | [AFW-4 - Deploy an instance of Azure Firewall per region](#afw-4---deploy-an-instance-of-azure-firewall-per-region)                                                 |  High    | Preview  |         No          |
 | [AFW-5 - Configure DDoS Protection on the Azure Firewall VNet](#afw-5---configure-ddos-protection-on-the-azure-firewall-vnet)                                       |  High    | Preview  |         No         |
 | [AFW-6 - Leverage Azure Policy inheritance model](#afw-6---leverage-azure-policy-inheritance-model)                                                                 |  Medium  | Preview  |         No          |
