@@ -4,5 +4,5 @@ Resources
 | extend monitoringSettings = parse_json(properties).monitoringSettings
 | extend isUsingClassicAlerts = case(isnull(monitoringSettings), 'Enabled',monitoringSettings.classicAlertSettings.alertsForCriticalOperations)
 | extend isUsingJobsAlerts = case(isnull(monitoringSettings), 'Enabled', monitoringSettings.azureMonitorAlertSettings.alertsForAllJobFailures)
-| where isUsingClassicAlerts == 'Enabled'
+| where isUsingClassicAlerts !~ 'Disbled'
 | project recommendationId = "bk-1",name,id,tags,param1=strcat("isUsingClassicAlerts: ", isUsingClassicAlerts),param2=strcat("isUsingJobsAlerts: ", isUsingJobsAlerts)
