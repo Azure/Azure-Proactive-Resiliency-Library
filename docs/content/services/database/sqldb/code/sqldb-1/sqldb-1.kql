@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Provides a list of SQL databases that are not configured for Geo-redundant storage.
+resources
+| where type == "microsoft.sql/servers/databases"
+| where  (properties['currentBackupStorageRedundancy'] ) <> 'Geo'
+| project recommendationId = "sqldb-1", name, id, param1=strcat("CurrentGeoRedudancy=", properties['currentBackupStorageRedundancy'] )
