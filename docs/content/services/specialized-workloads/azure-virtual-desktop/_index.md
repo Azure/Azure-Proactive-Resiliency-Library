@@ -257,9 +257,9 @@ To handle a large number of users, consider scaling horizontally by creating mul
 
 It is important to ensure the redundancy of our user profiles when using FSLogix. When using FSLogix with AVD, it is deployed on a file share in a storage account. Data in an Azure Storage account is always replicated three times in the primary region. Below are the options for how your data is replicated in the primary or paired region:
 LRS for least expensive replication (not recommended for apps with high availability and durability).
-- LRS provides eleven 9 durability and replicates 3 time in a single physical location.
-- ZRS is recommended for apps requiring high availability across zones. ZRS provides twelve 9s durability. Replicated across 3 availability zones
-- GRS replicate additional 3 copies to secondary region and provides sixteen 9s availability.
+- LRS provides eleven 9s durability and replicates three time in a single physical location.
+- ZRS is recommended for apps requiring high availability across zones. ZRS provides twelve 9s durability. Replicated across three availability zones
+- GRS replicates an additional three copies to secondary region and provides sixteen 9s durability.
 - GZRS provides both high availability and redundancy across geo replication. It provides sixteen 9s durability over a given year.
 
 Generally, it is recommended to store your data as secure and redundant as possible.
