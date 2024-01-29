@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include ExpressRoute C
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :-----------------: |
-| [ERCON-1 - For Connections using ExpressRoute Direct circuits and UltraPerformance or ErGw3AZ ExpressRoute Gateways, enable FastPath to improve data path performance between your on-premises network and your virtual network](#ercon-1---for-connections-using-expressroute-direct-circuits-and-ultraperformance-or-ergw3az-expressroute-gateways,-enable-fastpath-to-improve-data-path-performance-between-your-on-premises-network-and-your-virtual-network) | System Efficiency | Medium | Preview | No |
+| [ERCON-1 - For Connections using ExpressRoute Direct circuits and UltraPerformance or ErGw3AZ ExpressRoute Gateways, enable FastPath to improve data path performance between your on-premises network and your virtual network](#ercon-1---for-connections-using-expressroute-direct-circuits-and-ultraperformance-or-ergw3az-expressroute-gateways-enable-fastpath-to-improve-data-path-performance-between-your-on-premises-network-and-your-virtual-network) | System Efficiency | Medium | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
