@@ -233,32 +233,6 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 
 <br><br>
 
-### AKS-8 - Remediate AKS non-compliant Azure Policies
-
-**Category: Compliance**
-
-**Impact: Low**
-
-**Guidance**
-
-Azure Policy helps manage the compliance state of your Kubernetes clusters, enforces organizational standards, has built-in security policies and assesses compliance at-scale. To prevent outages due to deprecations of cluster or API versions or non-compliance issues that could lead to disabling of resources, you need to ensure that your AKS clusters are in compliance with all applicable Azure policies.
-
-**Resources**
-
-- [Policy for Kubernetes](https://learn.microsoft.com/azure/governance/policy/concepts/policy-for-kubernetes)
-- [Governance with Azure Policy](https://learn.microsoft.com/azure/aks/use-azure-policy?toc=%2Fazure%2Fgovernance%2Fpolicy%2Ftoc.json&bc=%2Fazure%2Fgovernance%2Fpolicy%2Fbreadcrumb%2Ftoc.json)
-
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-8/aks-8.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
 ### AKS-8 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications
 
 
@@ -352,6 +326,9 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 
 To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, pods provision much faster than through the Kubernetes cluster auto-scaler.
 
+If the cluster has availability zones enabled, the following configuration changes need to be verified or established:
+- Persistent Volumes - If the cluster is using persistent volumes backed by Azure Storage, ensure you have one nodepool per availability zone. Persistent volumes do not work across AZs and the auto-scaler could fail to create new pods if the nodepool cannot access the persistent volume.
+
 **Resources**
 
 - [Virtual Nodes](https://learn.microsoft.com/azure/aks/virtual-nodes)
@@ -440,7 +417,7 @@ Ephemeral OS disks provide lower read/write latency on the OS disk of AKS agent 
 
 <br><br>
 
-### AKS-15 - Enable Azure Policies configured for AKS
+### AKS-15 - Enable and remediate Azure Policies configured for AKS
 
 **Category: Governance**
 
@@ -448,7 +425,6 @@ Ephemeral OS disks provide lower read/write latency on the OS disk of AKS agent 
 
 **Guidance**
 Azure Policies allow companies to enforce governance best practices in the AKS cluster around security, authentication, provisioning, networking and others.
-
 
 **Resources**
 
