@@ -1,6 +1,8 @@
 // Azure Resource Graph Query
-// Returns all AKS clusters not running on the Standard tier
+// Returns AKS clusters where either Azure Monitor is not enabled and/or Container Insights is not enabled
 resources
-| where type == "microsoft.containerservice/managedclusters"
-| where sku.tier != "Standard"
-| project recommendationId="aks-13", id, name, param1=strcat("skuName: ", sku.name), param2=strcat("skuTier: ", sku.tier)
+|  where type == "microsoft.containerservice/managedclusters"
+|  extend azureMonitor = tostring(parse_json(properties.azureMonitorProfile.metrics.enabled))
+|  extend insights = tostring(parse_json(properties.addonProfiles.omsagent.enabled))
+|  where isempty(azureMonitor) or isempty(insights)
+|  project recommendationId="aks-14",id, name, param1=strcat("azureMonitorProfileEnabled: ", iff(isempty(azureMonitor), "false", azureMonitor)), param2=strcat("containerInsightsEnabled: ", iff(isempty(insights), "false", insights))

@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | Recommendation                                                                                                                                |Category| Impact |  State  | ARG Query Available |
 | :-------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :----: | :-----: | :-----------------: |
 | [AKS-1 - Deploy AKS cluster across availability zones](#aks-1---deploy-aks-cluster-across-availability-zones)                                | Availability |  High  | Preview |         Yes         |
-| [AKS-2 - Isolate system pods](#aks-2---isolate-system-pods)                                                                                  | Governance |  High  | Preview |         Yes         |
+| [AKS-2 - Isolate system and application pods](#aks-2---isolate-system-and-application-pods)                                                                                  | Governance |  High  | Preview |         Yes         |
 | [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                          | Access & Security|  High  | Preview |         Yes         |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips)| Networking| Medium | Preview |         Yes         |
 | [AKS-5 - Enable the cluster auto-scaler on an existing cluster](#aks-5---enable-the-cluster-auto-scaler-on-an-existing-cluster)               | System Efficiency|  High  | Preview |         Yes         |
@@ -25,15 +25,14 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-9 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers](#aks-9---upgrade-persistent-volumes-with-deprecated-version-to-azure-csi-drivers)                                                           | Storage |  High   | Preview |         No          |
 | [AKS-10 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits.](#aks-10---implement-resource-quota-to-ensure-that-kubernetes-resources-do-not-exceed-hard-resource-limits)                                    |System Efficiency |  Low    | Preview |         No          |
 | [AKS-11 - Attach Virtual Nodes (ACI) to the AKS cluster](#aks-11---attach-virtual-nodes-aci-to-the-aks-cluster)                              |Scalability |  Low    | Preview |         No          |
-| [AKS-12 - Isolate application (User) pods](#aks-12---isolate-application-user-pods)                                                          |Governance|  Medium | Preview |         Yes          |
-| [AKS-13 - Update AKS tier to Standard](#aks-13---update-aks-tier-to-standard)                                                                |Resiliency |  High   | Preview |         Yes          |
-| [AKS-14 - Enable AKS Monitoring](#aks-14---enable-aks-monitoring)                                                                            |Monitoring |  High   | Preview |         Yes          |
-| [AKS-15 - Use Ephemeral Disks on AKS clusters](#aks-15---use-ephemeral-disks-on-aks-clusters)                                                |Performance |  Medium | Preview |         No          |
-| [AKS-16 - Enable Azure Policies configured for AKS](#aks-16---enable-azure-policies-configured-for-aks)                                      | Governance|  Low    | Preview |         No          |
-| [AKS-17 - Enable GitOps when using DevOps frameworks](#aks-17---enable-gitops-when-using-devops-frameworks)                                  | Automation|  Low    | Preview |         Yes          |
-| [AKS-18 - Configure affinity or anti-affinity rules based on application requirements](#aks-18---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                                        |Availability |  High   | Preview |         No          |
-| [AKS-19 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-19---configures-pods-liveness-readiness-and-startup-probes)          |Availability |  High   | Preview |         No          |
-| [AKS-20 - Configure Pod replication in production applications to guarantee availability](#aks-20---configure-pod-replication-in-production-applications-to-guarantee-availability)                                                     |Availability |  High   | Preview |         No          |
+| [AKS-12 - Update AKS tier to Standard](#aks-12---update-aks-tier-to-standard)                                                                |Resiliency |  High   | Preview |         Yes          |
+| [AKS-13 - Enable AKS Monitoring](#aks-13---enable-aks-monitoring)                                                                            |Monitoring |  High   | Preview |         Yes          |
+| [AKS-14 - Use Ephemeral Disks on AKS clusters](#aks-14---use-ephemeral-disks-on-aks-clusters)                                                |Performance |  Medium | Preview |         No          |
+| [AKS-15 - Enable Azure Policies configured for AKS](#aks-15---enable-azure-policies-configured-for-aks)                                      | Governance|  Low    | Preview |         No          |
+| [AKS-16 - Enable GitOps when using DevOps frameworks](#aks-16---enable-gitops-when-using-devops-frameworks)                                  | Automation|  Low    | Preview |         Yes          |
+| [AKS-17 - Configure affinity or anti-affinity rules based on application requirements](#aks-17---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                                        |Availability |  High   | Preview |         No          |
+| [AKS-18 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-18---configures-pods-liveness-readiness-and-startup-probes)          |Availability |  High   | Preview |         No          |
+| [AKS-19 - Configure Pod replication in production applications to guarantee availability](#aks-19---configure-pod-replication-in-production-applications-to-guarantee-availability)                                                     |Availability |  High   | Preview |         No          |
 
 {{< /table >}}
 
@@ -72,7 +71,7 @@ By deploying resources such as aks clusters, virtual machines, storage, and data
 
 <br><br>
 
-### AKS-2 - Isolate system pods
+### AKS-2 - Isolate system and application pods
 
 **Category: Governance**
 
@@ -263,7 +262,7 @@ Azure Policy helps manage the compliance state of your Kubernetes clusters, enfo
 ### AKS-8 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications
 
 
-**Category: High Availability**
+**Category: Availability**
 
 **Impact: Low**
 
@@ -368,34 +367,7 @@ To rapidly scale application workloads in an AKS cluster, you can use virtual no
 
 <br><br>
 
-### AKS-12 - Isolate application (User) pods
-
-
-**Category: Governance**
-
-**Impact: Medium**
-
-**Guidance**
-
-Isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
-
-
-**Resources**
-
-- [System and User nodepools](https://learn.microsoft.com/azure/aks/virtual-nodes)
-- [Using System nodepools](https://learn.microsoft.com/azure/aks/use-system-pools?tabs=azure-cli)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/aks-12/aks-12.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AKS-13 - Update AKS tier to Standard
+### AKS-12 - Update AKS tier to Standard
 
 **Category: Resiliency**
 
@@ -414,13 +386,13 @@ Production AKS clusters should be configured with the Standard tier. The AKS fre
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-13/aks-13.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-12/aks-12.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-14 - Enable AKS Monitoring
+### AKS-13 - Enable AKS Monitoring
 
 **Category: Monitoring**
 
@@ -438,13 +410,13 @@ Azure Monitor collects events, captures container logs, collects CPU/Memory info
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-14/aks-14.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-13/aks-13.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-15 - Use Ephemeral Disks on AKS clusters
+### AKS-14 - Use Ephemeral Disks on AKS clusters
 
 **Category: Performance**
 
@@ -462,13 +434,13 @@ Ephemeral OS disks provide lower read/write latency on the OS disk of AKS agent 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-15/aks-15.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-14/aks-14.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-16 - Enable Azure Policies configured for AKS
+### AKS-15 - Enable Azure Policies configured for AKS
 
 **Category: Governance**
 
@@ -487,13 +459,13 @@ Azure Policies allow companies to enforce governance best practices in the AKS c
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-16/aks-16.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-15/aks-15.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-17 - Enable GitOps when using DevOps frameworks
+### AKS-16 - Enable GitOps when using DevOps frameworks
 
 **Category: Automation**
 
@@ -512,15 +484,15 @@ GitOps is an operating model for cloud-native applications that stores applicati
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-17/aks-17.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-16/aks-16.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-18 - Configure affinity or anti-affinity rules based on application requirements
+### AKS-17 - Configure affinity or anti-affinity rules based on application requirements
 
-**Category: High Availability**
+**Category: Availability**
 
 **Impact: High**
 
@@ -537,15 +509,15 @@ Configure Topology Spread Constraints to control how Pods are spread across your
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-18/aks-18.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-17/aks-17.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-19 - Configures Pods Liveness, Readiness, and Startup Probes
+### AKS-18 - Configures Pods Liveness, Readiness, and Startup Probes
 
-**Category: High Availability**
+**Category: Availability**
 
 **Impact: High**
 
@@ -562,15 +534,15 @@ AKS kubelet controller uses liveness probes to validate containers and applicati
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-19/aks-19.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-18/aks-18.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AKS-20 - Configure pod replication in production applications to guarantee availability
+### AKS-19 - Configure pod replication in production applications to guarantee availability
 
-**Category: High Availability**
+**Category: Availability**
 
 **Impact: High**
 
@@ -586,7 +558,7 @@ Configure ReplicaSets in the Pod or Deployment manifests to maintain a stable se
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/aks-20/aks-20.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/aks-19/aks-19.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
