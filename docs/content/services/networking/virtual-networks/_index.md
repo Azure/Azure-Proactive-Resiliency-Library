@@ -85,6 +85,7 @@ Use virtual network service endpoints only when Private Link isn't available and
 
 - [Azure Virtual Network FAQ | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Reliability and Network connectivity - Microsoft Azure Well-Architected Framework | Microsoft LearnNetworking Reliability](https://learn.microsoft.com/azure/architecture/framework/services/networking/network-connectivity/reliability)
+- [Azure Private Link availability](https://learn.microsoft.com/en-us/azure/private-link/availability)
 
 **Resource Graph Query/Scripts**
 
