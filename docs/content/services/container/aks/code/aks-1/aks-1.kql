@@ -1,7 +1,8 @@
 // Azure Resource Graph Query
-// Query AKS clusters not using zones
+// Returns AKS clusters that do not have any availability zones enabled
 resources
-| where type == "microsoft.containerservice/managedclusters"
-| extend zones = tostring(parse_json(properties.agentPoolProfiles[0].availabilityZones))
-| where isempty(zones)
-| project recommendationid="aks-1", name, id, tags, param1=strcat("zones: ", zones)
+| where type == 'microsoft.containerservice/managedclusters'
+| project id, name, location, properties.agentPoolProfiles
+| mv-expand properties_agentPoolProfiles
+| where isempty(array_length(properties_agentPoolProfiles.availabilityZones))
+| project recommendationId="aks-1", id, name, param1=strcat("nodePoolName: ", properties_agentPoolProfiles.name), param2=strcat("orchestratorVersion: ", properties_agentPoolProfiles.orchestratorVersion), param3=strcat("currentOrchestratorVersion: ", properties_agentPoolProfiles.currentOrchestratorVersion), param4=strcat("numberOfZones: ", iff(isempty(array_length(properties_agentPoolProfiles.availabilityZones)), 0, array_length(properties_agentPoolProfiles.availabilityZones)))

@@ -1,9 +1,7 @@
 // Azure Resource Graph Query
-// Returns each AKS cluster with nodepools that do not have taints set
+// Returns AKS clusters where GitOps is not enabled
 resources
-| where type == "microsoft.containerservice/managedclusters"
-| mv-expand agentPoolProfile = properties.agentPoolProfiles
-| extend taint = tostring(parse_json(agentPoolProfile.nodeTaints))
-| extend nodePool = tostring(parse_json(agentPoolProfile.name))
-| where isempty(taint)
-| project recommendationid="aks-17", id, name, param1=strcat("nodepoolName: ", nodePool), param2=strcat("taint: ", iff(isempty(taint), "None", taint))
+|  where type == "microsoft.containerservice/managedclusters"
+|  extend gitops = tostring (parse_json(properties.addOnProfiles.gitops.enabled))
+|  where isempty(gitops)
+|  project recommendationId="aks-17", id, name, param1=strcat("gitopsEnabled: ", "false")
