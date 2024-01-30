@@ -2,8 +2,8 @@
 title = "Azure High Performance Computing"
 description = "Best practices and resiliency recommendations for Azure Virtual Desktop and associated resources and settings."
 date = "1/12/24"
-author = "lpatel"
-msAuthor = "lpatel"
+author = "lapate"
+msAuthor = "lapate"
 draft = false
 +++
 
