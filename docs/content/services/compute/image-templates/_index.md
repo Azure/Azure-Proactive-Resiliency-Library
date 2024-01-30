@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Image Template
 | Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
 | [IT-1 - Use Generation 2 virtual machine source image](#it-1---use-generation-2-virtual-machine-source-image)                                                                                                                          |  Low  | Preview |         No         |
-| [IT-2 - Replicate your Image Templates to a secondary region](#it-2---replicate-your-image-templates-to-a-secondary-region)                                                                                                                          |  Low  | Preview |         No         |
+| [IT-2 - Replicate your Image Templates to a secondary region](#it-2---replicate-your-image-templates-to-a-secondary-region)                                                                                                                          |  Low  | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
