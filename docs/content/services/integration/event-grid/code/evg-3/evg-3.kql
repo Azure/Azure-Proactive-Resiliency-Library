@@ -3,5 +3,5 @@
 Resources
 | where type contains "eventgrid"
 | where properties['publicNetworkAccess'] == "Enabled"
-| project recommendationId = "evg-3", name, id
+| project recommendationId = "evg-3", name, id, tags
 | order by id asc
