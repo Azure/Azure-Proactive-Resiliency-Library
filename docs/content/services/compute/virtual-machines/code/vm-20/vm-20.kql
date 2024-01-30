@@ -15,4 +15,5 @@ resources
 ) on $left.JoinID == $right.VMId
 | summarize param2 = strcat ("Extensions: ", make_list(ExtensionName)) by recommendationId="vm-20", name=vmName, id, tags=strcat(tags), param1=OSType
 | where (param1 == "Windows" and param2 !contains "MicrosoftMonitoringAgent" and param2 !contains "Microsoft.Azure.Monitoring.DependencyAgent") or (param1 == "Linux" and param2 !contains "OMSAgentForLinux" and param2 !contains "DependencyAgentLinux")
+| project recommendationId, name, id, tags, param1=strcat("OSType:",param1), param2
 | order by tolower(name) asc
