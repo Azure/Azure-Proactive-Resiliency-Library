@@ -17,11 +17,11 @@ The presented resiliency recommendations in this guidance include Azure High Per
 | [HPC-1 Ensure that Storage Account is redundant](#hpc-1---ensure-that-storage-account-is-redundant)    | High | Resiliency/Monitoring |  Preview  |        Yes         |
 | [HPC-2 Monitor Azure Batch Pool quota for cross-region disaster recovery and business continuity](#hpc-2---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
 | [HPC-3 Ensure Azure File shares Are active](#hpc-3---ensure-azure-file-shares-are-active)  | High |  Resiliency/Monitoring | Preview |       Yes        |
-| [HPC-4 ](#hpc-4---under-development)  | Medium |  Identity | Preview |       No        |
-| [HPC-5 ](#hpc-5---under-development)  | Medium |  Networking | Preview |       No        |
-| [HPC-6 ](#hpc-6---under-development)  | Medium |  Backup | Preview |       No        |
-| [HPC-7 ](#hpc-7---under-development)  | Low |  Backup | Preview |       No        |
-| [HPC-8 ](#hpc-8---under-development)  | Low |  Compute | Preview |       No        |
+| [HPC-4 Use Availability Zone for batch pool](#hpc-4---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
+| [HPC-5 Automatically grow and shrink HPC Pack cluster resources](#hpc-5---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  Availability | Preview |       No        |
+| [HPC-6 HPC Pack - Dealing with database failure](#hpc-6---hpc-pack---dealing-with-database-failure)  | Medium |  Resiliency | Preview |       No        |
+| [HPC-7 HPC Pack - Dealing with Head node failure](#hpc-7---hpc-pack---dealing-with-head-node-failure)  | Medium |  Resiliency | Preview |       No        |
+| [HPC-8 HPC Pack - Dealing with AD failure](#hpc-8---hpc-pack---dealing-with-ad-failure)  | High |  Resiliency | Preview |       No        |
 
 {{< /table >}}
 
@@ -66,13 +66,13 @@ GZRS provides both high availability and redundancy across geo replication. It p
 
 **Category: Resiliency/Monitoring**
 
-**Impact: High**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
 For Cross-region disaster recovery and business continuity, Make sure ahead of time that the appropriate quotas are set for all user subscription Batch accounts, to allocate the required number of cores using the Batch account.
 
-Precreate all required services in each region, such as the Batch account and the storage account. There's often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
+Pre-create all required services in each region, such as the Batch account and the storage account. There's often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
 
 
 **Resources**
@@ -90,7 +90,7 @@ Precreate all required services in each region, such as the Batch account and th
 
 <br><br>
 
-### HPC-3 -  Ensure Azure File shares are active
+### HPC-3 - Ensure Azure File shares are active
 
 **Category: Application Resilience/Availability**
 
@@ -109,6 +109,7 @@ With Azure Files, these file shares can be moved to Azure Files shares with SMB 
 \\<HN3>\Diagnostics <br>
 \\<HN3>\CcpSpoolDir
 
+
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#hpc-pack-cluster-shares)
@@ -123,7 +124,7 @@ With Azure Files, these file shares can be moved to Azure Files shares with SMB 
 
 <br><br>
 
-### HPC-4 - Under Development
+### HPC-4 - Create an Azure Batch pool across Availability Zones
 
 **Category: Availability/Identity**
 
@@ -131,11 +132,12 @@ With Azure Files, these file shares can be moved to Azure Files shares with SMB 
 
 **Recommendation/Guidance**
 
-Under Development
+When you create an Azure Batch pool using Virtual Machine Configuration, you can choose to provision your Batch pool across Availability Zones. Creating your pool with this zonal policy helps protect your Batch compute nodes from Azure datacenter-level failures.
+For example, you could create your pool with zonal policy in an Azure region which supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool will still have healthy nodes in the other two Availability Zones, so the pool will remain available for task scheduling.
 
 **Resources**
 
-- [Learn More](TBD)
+- [Learn More](https://learn.microsoft.com/en-us/azure/batch/create-pool-availability-zones)
 
 **Resource Graph Query/Scripts**
 
@@ -147,19 +149,19 @@ Under Development
 
 <br><br>
 
-### HPC-5 - Under Development
+### HPC-5 - Automatically grow and shrink HPC Pack cluster resources
 
-**Category: Networking**
+**Category: Availability**
 
 **Impact: Medium**
 
 **Recommendation/Guidance**
 
-Under Development
+By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack cluster or creating your HPC Pack cluster in Azure, you can automatically grow or shrink the cluster's resources such as nodes or cores according to the workload on the cluster. Scaling the cluster resources in this way allows you to use your Azure resources more efficiently.
 
 **Resources**
 
-- [Learn More](TBD)
+- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-auto-grow-shrink?view=hpc19-ps)
 
 **Resource Graph Query/Scripts**
 
@@ -171,83 +173,60 @@ Under Development
 
 <br><br>
 
-### HPC-6 - Under Development
+### HPC-6 - HPC Pack - Dealing with database failure
 
-**Category: Backup**
+**Category: Resiliency**
 
 **Impact: Medium**
 
 **Recommendation/Guidance**
 
-Under Development
+Using Azure SQL Database
+
+Using ARM template to deploy a SQL AlwaysOn Cluster
 
 **Resources**
 
-- [Multi-region BCDR](TBD)
-- [Learn More](TBD)
-
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/hpc-6/hpc-6.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
+- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-database-failure)
 
 <br><br>
 
 
 
-### HPC-7 - Under Development
+### HPC-7 - HPC Pack - Dealing with Head node failure
 
-**Category: Backup**
+**Category: Resiliency**
 
-**Impact: Low**
+**Impact: Medium**
 
 **Recommendation/Guidance**
 
-Under Development
+Set up at least 2 head nodes in a cluster. With this configuration, any head node failure will result in moving the active HPC Service from this head node to another.
 
 **Resources**
 
-- [Golden Image](TBD)
-- [Learn More](TBD)
-
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/hpc-7/hpc-7.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
+- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-head-node-failure)
 
 <br><br>
 
-### HPC-8 - Under Development
+### HPC-8 - HPC Pack - Dealing with AD failure
 
-**Category: Backup**
+**Category: Resiliency**
 
-**Impact: Low**
+**Impact: High**
 
 **Recommendation/Guidance**
 
-Under Development
+When HPC failed to connect to the Domain controller, admin and user will not be able to connect to the HPC Service thus not able to manage and submit jobs to the cluster. And new jobs will not be able started on the domain joined computer nodes as the NodeManager service failed to validate the job's credential. Thus you need consider below options:
 
+Having a high available domain controller deployed with your HPC Pack Cluster in Azure
+
+Using Azure AD Domain service. During cluster deployment, you could just join all your cluster nodes into this domain and you get the high available domain service from Azure.
+
+Using HPC Pack Azure AD integration solution without having the cluster nodes joining any domain. Thus as long as the HPC Service has connectivity to the Azure AD service.
 
 **Resources**
 
-- [Capacity Planning](TBD)
-- [Learn More](TBD)
-
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/hpc-8/hpc-8.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
+- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-ad-failure)
 
 <br><br>

@@ -1,8 +1,6 @@
 // Azure Resource Graph Query
 // Monitor failed operations due to PoolQuotaReached
 	AzureActivity
-	| where OperationName == "Microsoft.Batch/batchAccounts/write" and ActivityStatus == "Failed"
-	| where ResourceProvider == "Microsoft.Batch" and ResourceUri contains "batchAccounts"
+	| where OperationNameValue contains "Microsoft.Batch/batchAccounts/write"
+	| where ResourceProviderValue == "MICROSOFT.BATCH" and _ResourceId contains "<BatchAccountName>"
 	| where Properties contains "PoolQuotaReached"
-	| project Caller, ActivityStatus, ActivityDateTime
-  | order by ActivityDateTime desc

@@ -1,7 +1,9 @@
 // Azure Resource Graph Query
 	AzureMetrics
-	| where ResourceProvider == "MICROSOFT.STORAGE" and ResourceUri contains "fileshares"
-	| where MetricName == "FileCapacity"
-	| where ResourceId contains "<file_share_name>"
+	| where ResourceProvider == "MICROSOFT.STORAGE" and _ResourceId contains "<fileshareName>"
+	| where MetricName contains "FileCapacity"
 	| summarize AggregatedValue = sum(Total) by bin(TimeGenerated, 1h), ResourceId
   | render timechart
+
+
+Replace <file_share_name> with the name of the file share you want to monitor. This query retrieves the FileCapacity metric for your file share and displays it in a time chart. If the chart shows data points, it means that the file share is active 1.
