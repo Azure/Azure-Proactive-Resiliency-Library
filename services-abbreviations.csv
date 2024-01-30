@@ -5,6 +5,7 @@ microsoft.web/serverfarms,App Service Plan,asp
 microsoft.virtualmachineimages/imagetemplates,Image template,it
 microsoft.compute/virtualmachines,Virtual machine,vm
 microsoft.compute/virtualmachinescalesets,Virtual machine scale set,vmss
+microsoft.containerservice/managedclusters,Kubernetes Service,aks
 microsoft.containerregistry/registries,Container registry,cr
 microsoft.documentdb/databaseaccounts/sqldatabases,Azure Cosmos DB database,cosmos
 microsoft.sql/servers/databases,Azure SQL database,sqldb

@@ -6,4 +6,4 @@ resources
 | where tolower(skuName) == tolower('premium')
 | where isnull(zones) or array_length(zones) < 2
 | extend zoneValue = iff((isnull(zones)), "null", zones)
-| project recommendationId = "apim-2", name, id, param1="Zones: No Zone or Zonal", param2=strcat("Zones value: ", zoneValue )
+| project recommendationId = "apim-2", name, id, tags, param1="Zones: No Zone or Zonal", param2=strcat("Zones value: ", zoneValue )
