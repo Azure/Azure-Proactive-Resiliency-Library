@@ -154,7 +154,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="/code/st-5/st-5.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/st-5/st-5.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -179,7 +179,7 @@ Having a large number of versions per blob can increase the latency for blob lis
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="/code/st-6/st-6.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/st-6/st-6.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -204,7 +204,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="/code/st-7/st-7.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/st-7/st-7.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -228,7 +228,7 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="/code/st-8/st-8.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/st-8/st-8.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
