@@ -201,7 +201,7 @@ Using ARM template to deploy a SQL AlwaysOn Cluster
 
 **Recommendation/Guidance**
 
-Set up at least 2 head nodes in a cluster. With this configuration, any head node failure will result in moving the active HPC Service from this head node to another.
+Establish a cluster with a minimum of two head nodes. In the event of a head node failure, the active HPC Service will be automatically transferred from the affected head node to another functioning one.
 
 **Resources**
 
