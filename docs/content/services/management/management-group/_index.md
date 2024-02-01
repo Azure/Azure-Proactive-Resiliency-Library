@@ -39,7 +39,6 @@ Create management groups under your root-level management group to represent the
 
 These groups are based on the security, compliance, connectivity, and feature needs of the workloads. With this grouping structure, you can have a set of Azure policies applied at the management group level. This grouping structure is for all workloads that require the same security, compliance, connectivity, and feature settings.
 
-
 **Resources**
 
 - [Management group recommendations](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups#management-group-recommendations)

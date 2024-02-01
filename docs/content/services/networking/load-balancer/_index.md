@@ -32,6 +32,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### LB-1 - Use Standard Load Balancer SKU
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -55,6 +57,8 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 ### LB-2 - Ensure the Backend Pool contains at least two instances
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -77,6 +81,8 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 ### LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads
 
+**Category: Availability**
+
 **Impact: Medium**
 
 **Guidance**
@@ -98,6 +104,8 @@ Outbound rules ensure that you are not faced with connection failures as a resul
 <br><br>
 
 ### LB-4 - Ensure Standard Load Balancer is zone-redundant
+
+**Category: Availability**
 
 **Impact: High**
 

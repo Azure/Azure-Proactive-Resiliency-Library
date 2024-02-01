@@ -31,6 +31,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### VNET-1 - All Subnets should have a Network Security Group associated
 
+**Category: Access & Security**
+
 **Impact: High**
 
 **Guidance**
@@ -53,7 +55,9 @@ Network security groups: Network security groups and application security groups
 
 ### VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
 
-**Impact: Medium**
+**Category: Access & Security**
+
+**Impact: High**
 
 **Guidance**
 
@@ -74,6 +78,8 @@ Azure DDoS Protection, combined with application design best practices, provides
 <br><br>
 
 ### VNET-3 - When available, use Private Endpoints instead of Service Endpoints for PaaS Services
+
+**Category: Access & Security**
 
 **Impact: Medium**
 

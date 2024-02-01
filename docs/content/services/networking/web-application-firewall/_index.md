@@ -14,11 +14,9 @@ The presented resiliency recommendations in this guidance include Web Applicatio
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [WAF-1 - Review best practice for Web Application Firewall on Azure Application Gateway](#waf-1---review-best-practice-for-web-application-firewall-on-azure-application-gateway) | Medium | Preview | No |
-| [WAF-2 - Review best practice for Web Application Firewall on Azure Front Door](#waf-2---review-best-practice-for-web-application-firewall-on-azure-front-door) | Medium | Preview | No |
-| [WAF-3 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked](#waf-3---review-logs-for-web-application-firewall-on-azure-front-door-for-legitimate-requests-that-are-blocked) | High | Preview | No |
-| [WAF-4 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked](#waf-4---review-logs-for-web-application-firewall-on-azure-application-gateway-for-legitimate-requests-that-are-blocked) | High | Preview | No |
-| [WAF-5 - Monitor Web Application Firewall](#waf-5---monitor-web-application-firewall) | Medium | Preview | No |
+| [WAF-1 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked](#waf-1---review-logs-for-web-application-firewall-on-azure-front-door-for-legitimate-requests-that-are-blocked) | Medium | Preview | No |
+| [WAF-2 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked](#waf-2---review-logs-for-web-application-firewall-on-azure-application-gateway-for-legitimate-requests-that-are-blocked) | Medium | Preview | No |
+| [WAF-3 - Monitor Web Application Firewall](#waf-3---monitor-web-application-firewall) | Medium | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -29,53 +27,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### WAF-1 - Review best practice for Web Application Firewall on Azure Application Gateway
+### WAF-1 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked
+
+**Category: Monitoring**
 
 **Impact: Medium**
-
-**Guidance**
-
-Review and apply best practices for Web Application Firewall (WAF) on Azure Application Gateway.
-
-**Resources**
-
-- [Best practices for Web Application Firewall on Application Gateway](https://learn.microsoft.com/azure/web-application-firewall/ag/best-practices)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/waf-1/waf-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### WAF-2 - Review best practice for Web Application Firewall on Azure Front Door
-
-**Impact: Medium**
-
-**Guidance**
-
-Review and apply best practices for Web Application Firewall (WAF) on Azure Front Door.
-
-**Resources**
-
-- [Best practices for Web Application Firewall (WAF) on Azure Front Door](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-best-practices)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/waf-2/waf-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### WAF-3 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked
-
-**Impact: High**
 
 **Guidance**
 
@@ -98,9 +54,11 @@ WAF could block a legitimate request that it shouldn't (a false positive). You c
 
 <br><br>
 
-### WAF-4 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked
+### WAF-2 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked
 
-**Impact: High**
+**Category: Monitoring**
+
+**Impact: Medium**
 
 **Guidance**
 
@@ -121,7 +79,9 @@ WAF could block a legitimate request that it shouldn't (a false positive). You c
 
 <br><br>
 
-### WAF-5 - Monitor Web Application Firewall
+### WAF-3 - Monitor Web Application Firewall
+
+**Category: Monitoring**
 
 **Impact: Medium**
 

@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                        |  Impact  |  State   | ARG/Script Available|
 | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :-----:  | :-----:  | :-----------------: |
-|[ST-1 - Ensure that storage account is redundant](#st-1---ensure-that-storage-account-is-redundant)                                                    |   High   | Preview  |         No         |
+|[ST-1 - Ensure that Storage Account configuration is at least Zone redundant](#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant)                                                    |   High   | Preview  |         No         |
 |[ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                |   High   | Preview  |         Yes         |
 |[ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                        |  Medium  | Preview  |         Yes         |
 |[ST-4 - Choose right storage account kind for workload](#st-4---choose-right-storage-account-kind-for-workload)                                        |  Medium  | Preview  |         No          |
@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### ST-1 - Ensure that Storage Account is redundant
+### ST-1 - Ensure that Storage Account configuration is at least Zone redundant
 
 **Category: Availability**
 

@@ -30,11 +30,11 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### AVS-1 - Monitor Service Health
 
-**Category: Application Resilience/Availability**
+**Category: Monitoring**
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Configure the VMware vSphere Health Status to get a high-level view of the Azure VMware Solution private cloud health status. This tool helps ensure that proactive issue detection and remediation are continually performed in your Azure VMware Solution environment. In particular, this tool finds misconfigurations in the VMware vSphere infrastructure and detects performance bottlenecks. It also provides insight into resource utilization and overall environmental health performance.
 
@@ -54,11 +54,11 @@ Configure the VMware vSphere Health Status to get a high-level view of the Azu
 
 ### AVS-2 - Configure syslog in Diagnostic Settings
 
-**Category: Application Resilience/Availability**
+**Category: Monitoring**
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Collect logs from the VMware syslog service to get health data from VMware solution components such as VMware ESXi, VMware vSAN, VMware NSX-T Data Center, and VMware vCenter Server. Configure the syslogs in the Diagnostic Settings.
 
@@ -78,11 +78,11 @@ Collect logs from the VMware syslog service to get health data from VMware sol
 
 ### AVS-3 - Azure Monitor Alert for vSAN datastore consumption
 
-**Category: Application Resilience/Availability**
+**Category: Monitoring**
 
 **Impact: Medium**
 
-**Recommendation/Guidance**
+**Guidance**
 
 Ensure that alerts are configured so that VMware vSAN datastore slack space is maintained at the levels that your service-level agreement (SLA) mandates.
 

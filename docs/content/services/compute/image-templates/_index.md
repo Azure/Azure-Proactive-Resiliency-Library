@@ -28,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### IT-1 - Use Generation 2 virtual machine source image
 
-**Impact: Availability**
+**Category: Availability**
 
 **Impact: Low**
 
@@ -43,6 +43,8 @@ When building your Image Templates, utilize source images that support generatio
 <br><br>
 
 ### IT-2 - Replicate your Image Templates to a secondary region
+
+**Category: Disaster Recovery**
 
 **Impact: Low**
 

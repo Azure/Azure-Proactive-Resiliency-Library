@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Web App and as
 {{< table style="table-striped" >}}
 | Recommendation | Impact | State | ARG Query Available |
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [APP-1 - Enable diagnostics logging](#app-1---enable-diagnostics-logging) | High | Preview | Yes |
+| [APP-1 - Enable diagnostics logging](#app-1---enable-diagnostics-logging) | Low | Preview | Yes |
 | [APP-2 - Monitor performance](#app-2---monitor-performance) | Medium | Preview | Yes |
 | [APP-3 - Separate web apps from web APIs](#app-3---separate-web-apps-from-web-apis) | Low | Preview | No |
 | [APP-4 - Create a separate storage account for logs](#app-4---create-a-separate-storage-account-for-logs) | Medium | Preview | No |
@@ -33,7 +33,9 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### App-1 - Enable diagnostics logging
 
-**Impact: High**
+**Category: Monitoring**
+
+**Impact: Low**
 
 **Guidance**
 
@@ -52,6 +54,8 @@ Enabling diagnostics logging for your Azure App Service is important for monitor
 <br><br>
 
 ### App-2 - Monitor Performance
+
+**Category: Monitoring**
 
 **Impact: Medium**
 
@@ -78,6 +82,8 @@ Enable monitoring on your web applications based on ASP.NET, ASP.NET Core, Java,
 
 ### App-3 - Separate web apps from web APIs
 
+**Category: System Efficiency**
+
 **Impact: Low**
 
 **Guidance**
@@ -98,6 +104,8 @@ If your solution has both a web front end and a web API, consider decomposing th
 
 ### App-4 - Create a separate storage account for logs
 
+**Category: System Efficiency**
+
 **Impact: Medium**
 
 **Guidance**
@@ -117,6 +125,8 @@ Create a separate storage account for logs. Don't use the same storage account f
 <br><br>
 
 ### App-5 - Deploy to a staging slot
+
+**Category: Governance**
 
 **Impact: Medium**
 
@@ -140,6 +150,8 @@ Consider creating a deployment slot to hold the last-known-good (LKG) deployment
 <br><br>
 
 ### App-6 - Store configuration as app settings
+
+**Category: Application Resilience**
 
 **Impact: Medium**
 

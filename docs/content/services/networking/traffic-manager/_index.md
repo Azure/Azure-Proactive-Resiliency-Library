@@ -32,6 +32,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### TRAF-1 - Traffic Manager Monitor Status Should be Online
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -52,6 +54,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 <br><br>
 
 ### TRAF-2 - Traffic manager profiles should have more than one endpoint
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -74,6 +78,8 @@ When configuring the Azure traffic manager, you should provision minimum of two 
 <br><br>
 
 ### TRAF-3 - Configure at least one endpoint within a another region
+
+**Category: Disaster Recovery**
 
 **Impact: Medium**
 
@@ -98,6 +104,8 @@ Profiles should have more than one endpoint to ensure availability if one of the
 
 ### TRAF-4 - TTL value of user profiles should be in 60 Seconds
 
+**Category: System Efficiency**
+
 **Impact: Medium**
 
 **Guidance**
@@ -120,6 +128,8 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 <br><br>
 
 ### TRAF-5 - Ensure endpoint configured to "(All World)" for geographic profiles
+
+**Category: Disaster Recovery**
 
 **Impact: Medium**
 

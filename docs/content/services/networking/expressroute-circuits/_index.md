@@ -35,6 +35,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway connecting through diverse peering locations
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -56,6 +58,8 @@ Connect each ExpressRoute Gateway to a minimum of two circuits, with each circui
 <br><br>
 
 ### ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -80,6 +84,8 @@ Microsoft (in the direct model) or the ExpressRoute provider (in the provider-ba
 
 ### ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -102,6 +108,8 @@ To improve high availability, it's recommended to operate both the connections o
 
 ### ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -123,6 +131,8 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 <br><br>
 
 ### ERC-5 - Configure monitoring and alerting for ExpressRoute circuits
+
+**Category: Monitoring**
 
 **Impact: Medium**
 
@@ -152,6 +162,8 @@ For ExpressRoute Direct, configure Traffic Collection for ExpressRoute Direct to
 
 ### ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
 **Guidance**
@@ -173,6 +185,8 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 <br><br>
 
 ### ERC-7 - Use a site-to-site VPN as an interim backup solution for a single ExpressRoute circuit
+
+**Category: Disaster Recovery**
 
 **Impact: Medium**
 

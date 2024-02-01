@@ -29,7 +29,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ASR-1 - Ensure static IP addresses configured in VM failover settings are available in the failover subnet
 
-**Category: Availability**
+**Category: Disaster Recovery**
 
 **Impact: High**
 
@@ -53,7 +53,7 @@ Ensure static IP addresses configured in VM failover settings are available in t
 
 ### ASR-2 - Perform a test failover to validate the functionality and performance of the VMs in the target location
 
-**Category: Availability**
+**Category: Disaster Recovery**
 
 **Impact: High**
 

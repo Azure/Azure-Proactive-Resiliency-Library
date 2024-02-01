@@ -12,27 +12,27 @@ The presented resiliency recommendations in this guidance include Aks and associ
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                |Category| Impact |  State  | ARG Query Available |
-| :-------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :----: | :-----: | :-----------------: |
-| [AKS-1 - Deploy AKS cluster across availability zones](#aks-1---deploy-aks-cluster-across-availability-zones)                                | Availability |  High  | Preview |         Yes         |
-| [AKS-2 - Isolate system and application pods](#aks-2---isolate-system-and-application-pods)                                                                                  | Governance |  High  | Preview |         Yes         |
-| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                          | Access & Security|  High  | Preview |         Yes         |
-| [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips)| Networking| Medium | Preview |         Yes         |
-| [AKS-5 - Enable the cluster auto-scaler on an existing cluster](#aks-5---enable-the-cluster-auto-scaler-on-an-existing-cluster)               | System Efficiency|  High  | Preview |         Yes         |
-| [AKS-6 - Back up Azure Kubernetes Service](#aks-6---back-up-azure-kubernetes-service)                                                        | Disaster Recovery|  Low   | Preview |         No          |
-| [AKS-7 - Plan an AKS version upgrade](#aks-7---plan-an-aks-version-upgrade)                                                                  | Compliance|  High  | Preview |         No          |
-| [AKS-8 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications](#aks-8---ensure-that-persistent-volumes-in-storage-account-are-redundant-for-pods-with-stateful-applications)                                | Availability|  Low   | Preview |         No          |
-| [AKS-9 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers](#aks-9---upgrade-persistent-volumes-with-deprecated-version-to-azure-csi-drivers)                                                           | Storage |  High   | Preview |         No          |
-| [AKS-10 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits.](#aks-10---implement-resource-quota-to-ensure-that-kubernetes-resources-do-not-exceed-hard-resource-limits)                                    |System Efficiency |  Low    | Preview |         No          |
-| [AKS-11 - Attach Virtual Nodes (ACI) to the AKS cluster](#aks-11---attach-virtual-nodes-aci-to-the-aks-cluster)                              |Scalability |  Low    | Preview |         No          |
-| [AKS-12 - Update AKS tier to Standard](#aks-12---update-aks-tier-to-standard)                                                                |Resiliency |  High   | Preview |         Yes          |
-| [AKS-13 - Enable AKS Monitoring](#aks-13---enable-aks-monitoring)                                                                            |Monitoring |  High   | Preview |         Yes          |
-| [AKS-14 - Use Ephemeral Disks on AKS clusters](#aks-14---use-ephemeral-disks-on-aks-clusters)                                                |Performance |  Medium | Preview |         No          |
-| [AKS-15 - Enable and remediate Azure Policies configured for AKS](#aks-15---enable-and-remediate-azure-policies-configured-for-aks)                                      | Governance|  Low    | Preview |         No          |
-| [AKS-16 - Enable GitOps when using DevOps frameworks](#aks-16---enable-gitops-when-using-devops-frameworks)                                  | Automation|  Low    | Preview |         Yes          |
-| [AKS-17 - Configure affinity or anti-affinity rules based on application requirements](#aks-17---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                                        |Availability |  High   | Preview |         No          |
-| [AKS-18 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-18---configures-pods-liveness-readiness-and-startup-probes)          |Availability |  High   | Preview |         No          |
-| [AKS-19 - Configure Pod replication in production applications to guarantee availability](#aks-19---configure-pod-replication-in-production-applications-to-guarantee-availability)                                                     |Availability |  High   | Preview |         No          |
+| Recommendation                                                                                                                                | Impact |  State  | ARG Query Available |
+| :-------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
+| [AKS-1 - Deploy AKS cluster across availability zones](#aks-1---deploy-aks-cluster-across-availability-zones)                                | High  | Preview |         Yes         |
+| [AKS-2 - Isolate system and application pods](#aks-2---isolate-system-and-application-pods)                                                                                  | High  | Preview |         Yes         |
+| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                          | High  | Preview |         Yes         |
+| [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips)| Medium | Preview |         Yes         |
+| [AKS-5 - Enable the cluster auto-scaler on an existing cluster](#aks-5---enable-the-cluster-auto-scaler-on-an-existing-cluster)               | High  | Preview |         Yes         |
+| [AKS-6 - Back up Azure Kubernetes Service](#aks-6---back-up-azure-kubernetes-service)                                                        | Low   | Preview |         No          |
+| [AKS-7 - Plan an AKS version upgrade](#aks-7---plan-an-aks-version-upgrade)                                                                  | High  | Preview |         No          |
+| [AKS-8 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications](#aks-8---ensure-that-persistent-volumes-in-storage-account-are-redundant-for-pods-with-stateful-applications)                                | Low   | Preview |         No          |
+| [AKS-9 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers](#aks-9---upgrade-persistent-volumes-with-deprecated-version-to-azure-csi-drivers)                                                           | High   | Preview |         No          |
+| [AKS-10 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits.](#aks-10---implement-resource-quota-to-ensure-that-kubernetes-resources-do-not-exceed-hard-resource-limits)                                    | Low    | Preview |         No          |
+| [AKS-11 - Attach Virtual Nodes (ACI) to the AKS cluster](#aks-11---attach-virtual-nodes-aci-to-the-aks-cluster)                              |  Low    | Preview |         No          |
+| [AKS-12 - Update AKS tier to Standard](#aks-12---update-aks-tier-to-standard)                                                                | High   | Preview |         Yes          |
+| [AKS-13 - Enable AKS Monitoring](#aks-13---enable-aks-monitoring)                                                                            | High   | Preview |         Yes          |
+| [AKS-14 - Use Ephemeral Disks on AKS clusters](#aks-14---use-ephemeral-disks-on-aks-clusters)                                                |  Medium | Preview |         No          |
+| [AKS-15 - Enable and remediate Azure Policies configured for AKS](#aks-15---enable-and-remediate-azure-policies-configured-for-aks)                                      |  Low    | Preview |         No          |
+| [AKS-16 - Enable GitOps when using DevOps frameworks](#aks-16---enable-gitops-when-using-devops-frameworks)                                  |   Low    | Preview |         Yes          |
+| [AKS-17 - Configure affinity or anti-affinity rules based on application requirements](#aks-17---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                                        |  High   | Preview |         No          |
+| [AKS-18 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-18---configures-pods-liveness-readiness-and-startup-probes)          | High   | Preview |         No          |
+| [AKS-19 - Configure Pod replication in production applications to guarantee availability](#aks-19---configure-pod-replication-in-production-applications-to-guarantee-availability)                                                     | High   | Preview |         No          |
 
 {{< /table >}}
 
@@ -159,6 +159,7 @@ The Azure CNI networking solution provides several benefits for managing IP addr
 The cluster auto-scaler automatically scales the number of nodes in a node pool based on pod resource requests and the available capacity in the cluster. It helps ensure that the cluster can scale according to demand and prevent outages.
 
 If the cluster has availability zones enabled, the following configuration changes need to be verified or established:
+
 - Persistent Volumes - If the cluster is using persistent volumes backed by Azure Storage, ensure you have one nodepool per availability zone. Persistent volumes do not work across AZs and the auto-scaler could fail to create new pods if the nodepool cannot access the persistent volume.
 - Multiple Nodepools per Zone - If the cluster has multiple nodepools per AZ, enable the `--balance-similar-node-groups` property through the auto-scaler profile. This feature detects similar nodepools and balances the number of nodes across them.
 
@@ -222,7 +223,6 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 - [Upgrade cluster](https://learn.microsoft.com/azure/aks/upgrade-cluster?tabs=azure-cli)
 - [Auto-upgrading cluster](https://learn.microsoft.com/azure/aks/auto-upgrade-cluster)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
@@ -235,7 +235,6 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 
 ### AKS-8 - Ensure that Persistent Volumes in storage account are redundant for Pods with stateful applications
 
-
 **Category: Availability**
 
 **Impact: Low**
@@ -243,6 +242,7 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 **Guidance**
 
 Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage for Persistent Volumes offers other options for how your data is replicated in the primary or paired region:
+
 - LRS synchronously replicates data 3 times in single physical location. It is least expensive replication but not recommended for apps with high availability and durability. LRS provides eleven 9 durability.
 - ZRS copies data synchronously across 3 availability zone in primary region. ZRS is recommended for apps requiring high availability across zones. ZRS provides twelve 9s durability.
 
@@ -252,7 +252,6 @@ In AKS Premium_ZRS and StandardSSD_ZRS disk types are supported. ZRS disk could 
 
 - [Azure Disk CSI Driver](https://learn.microsoft.com/azure/aks/azure-disk-csi#azure-disk-csi-driver-features)
 - [Virtual Machine Disk Redundancy](https://learn.microsoft.com/azure/virtual-machines/disks-redundancy)
-
 
 **Resource Graph Query/Scripts**
 
@@ -265,7 +264,6 @@ In AKS Premium_ZRS and StandardSSD_ZRS disk types are supported. ZRS disk could 
 <br><br>
 
 ### AKS-9 - Upgrade Persistent Volumes with deprecated version to Azure CSI drivers
-
 
 **Category: Storage**
 
@@ -292,7 +290,6 @@ Starting with Kubernetes version 1.26, in-tree persistent volume types kubernete
 
 ### AKS-10 - Implement Resource Quota to ensure that Kubernetes resources do not exceed hard resource limits
 
-
 **Category: System Efficiency**
 
 **Impact: Low**
@@ -317,8 +314,7 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 
 ### AKS-11 - Attach Virtual Nodes (ACI) to the AKS cluster
 
-
-**Category: Scalability**
+**Category: System Efficiency**
 
 **Impact: Low**
 
@@ -327,6 +323,7 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 To rapidly scale application workloads in an AKS cluster, you can use virtual nodes. With virtual nodes, pods provision much faster than through the Kubernetes cluster auto-scaler.
 
 If the cluster has availability zones enabled, the following configuration changes need to be verified or established:
+
 - Persistent Volumes - If the cluster is using persistent volumes backed by Azure Storage, ensure you have one nodepool per availability zone. Persistent volumes do not work across AZs and the auto-scaler could fail to create new pods if the nodepool cannot access the persistent volume.
 
 **Resources**
@@ -346,7 +343,7 @@ If the cluster has availability zones enabled, the following configuration chang
 
 ### AKS-12 - Update AKS tier to Standard
 
-**Category: Resiliency**
+**Category: Availability**
 
 **Impact: High**
 
@@ -395,7 +392,7 @@ Azure Monitor collects events, captures container logs, collects CPU/Memory info
 
 ### AKS-14 - Use Ephemeral Disks on AKS clusters
 
-**Category: Performance**
+**Category: System Efficiency**
 
 **Impact: Medium**
 

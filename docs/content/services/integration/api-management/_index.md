@@ -28,6 +28,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### APIM-1 - Migrate API Management services to Premium SKU to support Availability Zones
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -50,6 +52,8 @@ Upgrade the API Management instance to the Premium SKU to add support for Availa
 <br><br>
 
 ### APIM-2 - Enable Availability Zones on Premium API Management instances
+
+**Category: Availability**
 
 **Impact: High**
 

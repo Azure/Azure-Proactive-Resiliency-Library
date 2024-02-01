@@ -30,12 +30,13 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### ASP-1 - Migrate App Service to availability Zone Support
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
 
 Deploying your App Service plans and App Service Environments across availability zones (AZ) is a feature provided by Azure to enhance the resiliency and reliability of your business-critical workloads. By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. This approach offers excellent redundancy without the need for deploying your applications in different Azure regions. Availability zones provide a higher level of fault tolerance, helping to safeguard your applications and minimize downtime. This enables your business to maintain continuity and deliver uninterrupted services to your customers.
-
 
 **Resources**
 
@@ -53,6 +54,8 @@ Deploying your App Service plans and App Service Environments across availabilit
 <br><br>
 
 ### ASP-2 - Use Standard or Premium tier
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -76,6 +79,8 @@ The use of the Standard or Premium tier for Azure App Service Plan is crucial fo
 
 ### ASP-3 - Avoid scaling up or down
 
+**Category: System Efficiency**
+
 **Impact: Medium**
 
 **Guidance**
@@ -98,6 +103,7 @@ It is recommended to avoid scaling up or down your Azure App Service instances f
 
 ### ASP-4 - Create separate App Service plans for production and test
 
+**Category: Governance**
 
 **Impact: High**
 
@@ -120,6 +126,8 @@ It is strongly recommended to create separate App Service plans for production a
 <br><br>
 
 ### ASP-5 - Enable Autoscale/Automatic scaling to ensure adequate resources are available to service requests
+
+**Category: System Efficiency**
 
 **Impact: Medium**
 

@@ -34,6 +34,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### VPNG-1 - Choose a Zone-redundant gateway
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -57,6 +59,8 @@ To automatically deploy your virtual network gateways across availability zones,
 <br><br>
 
 ### VPNG-2 - Plan for Active-Active mode
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -82,6 +86,8 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 ### VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
 
+**Category: Disaster Recovery**
+
 **Impact: High**
 
 **Guidance**
@@ -106,6 +112,8 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 
 ### VPNG-4 - Plan for geo-redundant VPN connections
 
+**Category: Disaster Recovery**
+
 **Impact: High**
 
 **Guidance**
@@ -129,6 +137,8 @@ To plan for disaster recovery, set up Site-to-Site VPN in more than one location
 
 ### VPNG-5 - Monitor connections and gateway health
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
 **Guidance**
@@ -150,6 +160,8 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 <br><br>
 
 ### VPNG-6 - Enable service health
+
+**Category: Monitoring**
 
 **Impact: Medium**
 

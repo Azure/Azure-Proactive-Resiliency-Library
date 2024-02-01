@@ -27,10 +27,9 @@ The presented resiliency recommendations in this guidance include Container Regi
 | [CR-11 - Monitor Azure Container Registry with Azure Monitor](#cr-11---monitor-azure-container-registry-with-azure-monitor)                                                                                                        | Medium | Preview |         No          |
 | [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy)                                                                                                                                                            | Medium | Preview |         Yes
 {{< /table >}}
+
 {{< alert style="info" >}}
-
 Definitions of states can be found [here]({{< ref "../../../_index.md#definitions-of-terms-used-in-aprl">}})
-
 {{< /alert >}}
 
 ## Recommendations Details

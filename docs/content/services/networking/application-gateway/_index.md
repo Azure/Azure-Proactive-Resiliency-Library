@@ -237,6 +237,8 @@ Plan for backend maintenance by using connection draining. Connection draining h
 
 ### AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask
 
+**Category: Networking**
+
 **Impact: High**
 
 **Recommendation/Guidance**
