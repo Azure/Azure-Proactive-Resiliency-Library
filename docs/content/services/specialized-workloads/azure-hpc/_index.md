@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Azure High Per
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
 | [HPC-1 Ensure that Storage Account is redundant](#hpc-1---ensure-that-storage-account-is-redundant)    | High | Resiliency/Monitoring |  Preview  |        Yes         |
-| [HPC-2 Monitor Azure Batch Pool quota for cross-region disaster recovery and business continuity](#hpc-2---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
+| [HPC-2 Monitor Batch account quota](#hpc-2---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
 | [HPC-3 Ensure Azure File shares are active](#hpc-3---ensure-azure-file-shares-are-active)  | High |  Resiliency/Monitoring | Preview |       Yes        |
 | [HPC-4 Create an Azure Batch pool across Availability Zones](#hpc-4---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
 | [HPC-5 Automatically grow and shrink HPC Pack cluster resources](#hpc-5---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  Availability | Preview |       No        |
