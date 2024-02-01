@@ -219,11 +219,11 @@ Establish a cluster with a minimum of two head nodes. In the event of a head nod
 
 When HPC failed to connect to the Domain controller, admin and user will not be able to connect to the HPC Service thus not able to manage and submit jobs to the cluster. And new jobs will not be able started on the domain joined computer nodes as the NodeManager service failed to validate the job's credential. Thus you need consider below options:
 
-Having a high available domain controller deployed with your HPC Pack Cluster in Azure
+- Having a high available domain controller deployed with your HPC Pack Cluster in Azure
 
-Using Azure AD Domain service. During cluster deployment, you could just join all your cluster nodes into this domain and you get the high available domain service from Azure.
+- Using Azure AD Domain service. During cluster deployment, you could just join all your cluster nodes into this domain and you get the high available domain service from Azure.
 
-Using HPC Pack Azure AD integration solution without having the cluster nodes joining any domain. Thus as long as the HPC Service has connectivity to the Azure AD service.
+- Using HPC Pack Azure AD integration solution without having the cluster nodes joining any domain. Thus as long as the HPC Service has connectivity to the Azure AD service.
 
 **Resources**
 
