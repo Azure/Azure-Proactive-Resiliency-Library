@@ -109,7 +109,6 @@ With Azure Files, these file shares can be moved to Azure Files shares with SMB 
 \\<HN3>\Diagnostics <br>
 \\<HN3>\CcpSpoolDir
 
-
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#hpc-pack-cluster-shares)
