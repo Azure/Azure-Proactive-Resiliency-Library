@@ -123,7 +123,7 @@ With Azure Files, the following file shares can be moved to Azure Files shares w
 
 ### HPC-4 - Create an Azure Batch pool across Availability Zones
 
-**Category: Availability/Identity**
+**Category: Availability**
 
 **Impact: Medium**
 
