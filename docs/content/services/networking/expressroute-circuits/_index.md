@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Circuits"
 description = "Best practices and resiliency recommendations for ExpressRoute circuits and associated resources."
-date = "01/24/2024"
+date = "01/31/2024"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -65,7 +65,7 @@ Connect each ExpressRoute Gateway to a minimum of two circuits, with each circui
 
 **Guidance**
 
-Microsoft (in the direct model) or the ExpressRoute provider (in the provider-based model) always offer a physically redundant service. Make sure that the same level of physical redundancy (two physical devices, two physical links) is used across the entire path from the ExpressRoute peering location to your network.
+Microsoft (in the ExpressRoute direct model) or the ExpressRoute provider (in the ExpressRoute provider-based model) always offer a physically redundant service. Make sure that the same level of physical redundancy (two physical devices, two physical links) is used across the entire path from the ExpressRoute peering location to your network.
 
 **Resources**
 
@@ -90,7 +90,7 @@ Microsoft (in the direct model) or the ExpressRoute provider (in the provider-ba
 
 **Guidance**
 
-To improve high availability, it's recommended to operate both the connections of an ExpressRoute circuit in active-active mode. If you let the connections operate in active-active mode, Microsoft network will load balance the traffic across the connections on per-flow basis.
+To improve high availability, it's recommended that you operate both the connections of an ExpressRoute circuit in active-active mode. If you configure the connections to operate in active-active mode, the Microsoft network will load balance the traffic across the connections on a per-flow basis.
 
 **Resources**
 
@@ -138,7 +138,7 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 **Guidance**
 
-Configure monitoring using Network Insights for ExpressRoute circuit availability, circuit QoS, and throughput. Configure alerts for availability metrics when they fall below 99%, circuit QoS metrics when dropped counts exceed 0 bits/sec, and throughput metrics when bits/sec exceed a threshold appropriate for the ExpressRoute circuit SKU and customer usage.
+Configure monitoring using Network Insights for ExpressRoute circuit availability, circuit QoS, and throughput. Configure alerts for availability metrics and circuit QoS metrics according to [ExpressRoute Circuits | Azure Monitor Baseline Alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Network/expressRouteCircuits/), and throughput metrics when bits/sec exceed a threshold appropriate for the ExpressRoute circuit SKU and customer usage.
 
 Configure alerts using Connection Monitor for ExpressRoute with a Log Analytics workspace, and Network Watcher. Configure alerts for when ChecksFailedPercent exceeds 5%, and when RoundTripTimeMs exceeds a pre-tested average appropriate to the environment.
 
