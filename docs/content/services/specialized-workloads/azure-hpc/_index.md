@@ -193,7 +193,7 @@ Using ARM template to deploy a SQL AlwaysOn Cluster
 
 
 
-### HPC-7 - HPC Pack - Dealing with Head node failure
+### HPC-7 - HPC Pack - Dealing with head node failure
 
 **Category: Resiliency**
 
