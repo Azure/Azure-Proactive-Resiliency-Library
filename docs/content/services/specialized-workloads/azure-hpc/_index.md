@@ -78,7 +78,6 @@ Pre-create all required services in each region, such as the Batch account and t
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/reliability/reliability-batch#cross-region-disaster-recovery-and-business-continuity)
 
-
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
