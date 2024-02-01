@@ -12,11 +12,11 @@ The presented resiliency recommendations in this guidance include Compute Galler
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [CG-1 - A minimum of three replicas should be kept for production image versions](#cg-1---a-minimum-of-three-replicas-should-be-kept-for-production-image-versions)                                                                                                                          |  Medium  | Preview |         Yes         |
-| [CG-2 - Zone redundant storage should be used for image versions](#cg-2---zone-redundant-storage-should-be-used-for-image-versions)                                                                                                                          |  Medium  | Preview |         Yes         |
-| [CG-3 - Consider using hyper-V generation version 2 images where possible](#cg-3---consider-using-hyper-v-generation-version-2-images-where-possible)                                                                                                                          |  Low  | Preview |         Yes         |
+| Recommendation                                                                                                                                                      |   Category   | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:-------:|:-------------------:|
+| [CG-1 - A minimum of three replicas should be kept for production image versions](#cg-1---a-minimum-of-three-replicas-should-be-kept-for-production-image-versions) | Availability | Medium | Preview |         Yes         |
+| [CG-2 - Zone redundant storage should be used for image versions](#cg-2---zone-redundant-storage-should-be-used-for-image-versions)                                 | Availability | Medium | Preview |         Yes         |
+| [CG-3 - Consider using hyper-V generation version 2 images where possible](#cg-3---consider-using-hyper-v-generation-version-2-images-where-possible)               | Availability |  Low   | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
