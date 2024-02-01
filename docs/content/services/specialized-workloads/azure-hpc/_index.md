@@ -18,7 +18,7 @@ The presented resiliency recommendations in this guidance include Azure High Per
 | [HPC-2 Monitor Batch account quota](#hpc-2---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
 | [HPC-3 Ensure Azure File shares are active](#hpc-3---ensure-azure-file-shares-are-active)  | High |  Resiliency/Monitoring | Preview |       Yes        |
 | [HPC-4 Create an Azure Batch pool across Availability Zones](#hpc-4---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
-| [HPC-5 Automatically grow and shrink HPC Pack cluster resources](#hpc-5---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  Availability | Preview |       No        |
+| [HPC-5 Automatically grow and shrink HPC Pack cluster resources](#hpc-5---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
 | [HPC-6 HPC Pack - Dealing with database failure](#hpc-6---hpc-pack---dealing-with-database-failure)  | Medium |  Resiliency | Preview |       No        |
 | [HPC-7 HPC Pack - Dealing with head node failure](#hpc-7---hpc-pack---dealing-with-head-node-failure)  | Medium |  Resiliency | Preview |       No        |
 | [HPC-8 HPC Pack - Dealing with AD failure](#hpc-8---hpc-pack---dealing-with-ad-failure)  | High |  Resiliency | Preview |       No        |
