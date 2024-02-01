@@ -12,10 +12,10 @@ The presented resiliency recommendations in this guidance include Image Template
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [IT-1 - Use Generation 2 virtual machine source image](#it-1---use-generation-2-virtual-machine-source-image)                                                                                                                          |  Low  | Preview |         No         |
-| [IT-2 - Replicate your Image Templates to a secondary region](#it-2---replicate-your-image-templates-to-a-secondary-region)                                                                                                                          |  Low  | Preview |         Yes         |
+| Recommendation                                                                                                              |     Category      | Impact |  State  | ARG Query Available |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [IT-1 - Use Generation 2 virtual machine source image](#it-1---use-generation-2-virtual-machine-source-image)               |   Availability    |  Low   | Preview |         No          |
+| [IT-2 - Replicate your Image Templates to a secondary region](#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery |  Low   | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
