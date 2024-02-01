@@ -15,7 +15,7 @@ The below list of services is automatically populated based on the child folders
 
 {{< /alert >}}
 
-{{< childpages >}}
+{{< childpages >}}s
 
 Well Architected Reliability Assessment for SAP is a combination of [WARA v3](https://eng.ms/docs/microsoft-customer-partner-solutions-mcaps-core/customer-experience-and-support/customer-success/azure-core/resource-center/waf/reliability/wara_v3/0_engagement_overview) checks, [SAP ACSS](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview) checks & [SAP Checklist](https://microsoft.sharepoint.com/:x:/r/teams/ASDIPRelease/IP%20Release/Secure%20Infrastructure/VBD/Migration%20and%20modernizing%20to%20S4HANA%20via%20RISE%20with%20SAP%20or%20Azure%20native/GoLive/SAPonAzure-GoLive-VBD-Checklist-v2.xlsx?d=we4bd89c89d0e44c79cb925d998b0d6c2&csf=1&web=1&e=2Y37Oc)
 
@@ -23,10 +23,8 @@ Well Architected Reliability Assessment for SAP is a combination of [WARA v3](ht
 
   - Encourage the customer team to implement ACSS (Azure Center for SAP Solutions) before the workshop.
    If ACSS (Azure Center for SAP Solutions) is available in the given Azure region and implemented, use the integrated [ACSS Quality Insights](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights).
-
   - Otherwise, use the standalone [SAP QualityCheck](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck) tool from GitHub directly. This is the original and open-source version of SAP Quality Insights,
    and can be used if the customer hasn't implemented ACSS.s
-
   - Work with the customer/partner to complete the [SAP Checklist](https://microsoft.sharepoint.com/:x:/r/teams/ASDIPRelease/IP%20Release/Secure%20Infrastructure/VBD/Migration%20and%20modernizing%20to%20S4HANA%20via%20RISE%20with%20SAP%20or%20Azure%20native/GoLive/SAPonAzure-GoLive-VBD-Checklist-v2.xlsx?d=we4bd89c89d0e44c79cb925d998b0d6c2&csf=1&web=1&e=2Y37Oc). Anything that's either non implemented or only partially implemented should be flagged with commentary.
 
 For more detailed Steps – please refer to [Well Architected Review and Remediate for SAP VBD](https://eng.ms/docs/microsoft-customer-partner-solutions-mcaps-core/customer-experience-and-support/customer-success/azure-core/resource-center/vbd/sap/warr_sap/overview)
