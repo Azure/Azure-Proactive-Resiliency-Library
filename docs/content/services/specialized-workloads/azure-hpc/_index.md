@@ -74,7 +74,6 @@ For Cross-region disaster recovery and business continuity, Make sure ahead of t
 
 Pre-create all required services in each region, such as the Batch account and the storage account. There's often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
 
-
 **Resources**
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/reliability/reliability-batch#cross-region-disaster-recovery-and-business-continuity)
