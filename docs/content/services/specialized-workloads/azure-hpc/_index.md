@@ -62,7 +62,7 @@ GZRS provides both high availability and redundancy across geo replication. It p
 
 <br><br>
 
-### HPC-2 - Monitor batch account quota
+### HPC-2 - Monitor Batch account quota
 
 **Category: Resiliency/Monitoring**
 
