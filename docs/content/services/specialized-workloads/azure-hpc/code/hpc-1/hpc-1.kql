@@ -1,9 +1,1 @@
-// Azure Resource Graph Query
-// Ensure geo geoRedundantBackup property is set for the storage account
-AzureActivity
-| where OperationNameValue contains "Microsoft.Storage/storageAccounts/write"
-| where ResourceProviderValue contains "Microsoft.Storage"
-| where ResourceGroup contains "<ResourceGroupName>"
-| where _ResourceId contains "<StorageAccountName>"
-| where Properties contains "Standard_RAGRS" or Properties contains "Standard_GRS"
-
+// cannot-be-validated-with-arg

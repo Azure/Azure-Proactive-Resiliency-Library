@@ -14,14 +14,12 @@ The presented resiliency recommendations in this guidance include Azure High Per
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [HPC-1 Ensure that Storage Account is redundant](#hpc-1---ensure-that-storage-account-is-redundant)    | High | Resiliency/Monitoring |  Preview  |        Yes         |
-| [HPC-2 Monitor Batch account quota](#hpc-2---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
-| [HPC-3 Ensure Azure File shares are active](#hpc-3---ensure-azure-file-shares-are-active)  | High |  Resiliency/Monitoring | Preview |       Yes        |
-| [HPC-4 Create an Azure Batch pool across Availability Zones](#hpc-4---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
-| [HPC-5 Automatically grow and shrink HPC Pack cluster resources](#hpc-5---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
-| [HPC-6 HPC Pack - Dealing with database failure](#hpc-6---hpc-pack---dealing-with-database-failure)  | Medium |  Resiliency | Preview |       No        |
-| [HPC-7 HPC Pack - Dealing with head node failure](#hpc-7---hpc-pack---dealing-with-head-node-failure)  | Medium |  Resiliency | Preview |       No        |
-| [HPC-8 HPC Pack - Dealing with AD failure](#hpc-8---hpc-pack---dealing-with-ad-failure)  | High |  Resiliency | Preview |       No        |
+| [HPC-1 Monitor Batch account quota](#hpc-1---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
+| [HPC-2 Ensure File shares that stores jobs metadata are accessible from all head nodes](#hpc-2---ensure-file-shares-that-stores-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Resiliency/Monitoring | Preview |       Yes        |
+| [HPC-3 Create an Azure Batch pool across Availability Zones](#hpc-3---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
+| [HPC-4 Automatically grow and shrink HPC Pack cluster resources](#hpc-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
+| [HPC-5 HPC Pack - Use multiple head nodes](#hpc-5---hpc-pack---use-multiple-head-nodes)  | Medium |  Resiliency | Preview |       No        |
+| [HPC-6 Use HPC Pack Azure AD Integration or other highly available AD configuration](#hpc-6---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration)  | High |  Resiliency | Preview |       No        |
 
 {{< /table >}}
 
@@ -33,36 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### HPC-1 - Ensure that Storage Account is redundant
-
-**Category: Availability**
-
-**Impact: High**
-
-**Recommendation/Guidance**
-
-Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers other options for how your data is replicated in the primary or paired region:
-
-LRS synchronously replicates data 3 times in single physical location. It is least expensive replication but not recommended for apps with high availability and durability. LRS provides eleven 9 durability.
-ZRS copies data synchronously across 3 availability zone in primary region. ZRS is recommended for apps requiring high availability across zones. ZRS provides twelve 9s durability.
-GRS replicate additional 3 copies to secondary region and provides sixteen 9s availability.
-GZRS provides both high availability and redundancy across geo replication. It provides sixteen 9s durability over a given year.
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/hpc-1/hpc-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### HPC-2 - Monitor Batch account quota
+### HPC-1 - Monitor Batch account quota
 
 **Category: Resiliency/Monitoring**
 
@@ -70,7 +39,7 @@ GZRS provides both high availability and redundancy across geo replication. It p
 
 **Recommendation/Guidance**
 
-For Cross-region disaster recovery and business continuity, Make sure ahead of time that the appropriate quotas are set for all user subscription Batch accounts, to allocate the required number of cores using the Batch account.
+To enable Cross-region disaster recovery and business continuity, ensure that the appropriate quotas are set for all user subscription Batch accounts. This will allocate the required number of cores made available up front. Without enough allocated cores capacity a job execution will be interrupted with operational errors indicating "Quota Reached".
 
 Pre-create all required services in each region, such as the Batch account and the storage account. There's often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
 
@@ -82,13 +51,13 @@ Pre-create all required services in each region, such as the Batch account and t
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-2/hpc-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/hpc-1/hpc-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### HPC-3 - Ensure Azure File shares are active
+### HPC-2 - Ensure File shares that stores jobs metadata are accessible from all head nodes
 
 **Category: Application Resilience/Availability**
 
@@ -96,7 +65,7 @@ Pre-create all required services in each region, such as the Batch account and t
 
 **Recommendation/Guidance**
 
-Currently in all HPC Pack ARM templates we create the cluster share on one of the head node which is not high available as if that head node is down, the share will not be accessible to the HPC Service running on other head node. Basically it will not impact running jobs and managing the nodes.
+Currently in all HPC Pack ARM templates we create the cluster share on one of the head node which is not highly available. If that head node is down, the share will not be accessible to the HPC Service running on other head node.
 
 With Azure Files, the following file shares can be moved to Azure Files shares with SMB permissions to make them highly available:
 
@@ -106,6 +75,8 @@ With Azure Files, the following file shares can be moved to Azure Files shares w
 \\<HN3>\TraceRepository <br>
 \\<HN3>\Diagnostics <br>
 \\<HN3>\CcpSpoolDir
+
+With above setup all nodes can access the file shares independent of the the head nodes
 
 **Resources**
 
@@ -121,7 +92,7 @@ With Azure Files, the following file shares can be moved to Azure Files shares w
 
 <br><br>
 
-### HPC-4 - Create an Azure Batch pool across Availability Zones
+### HPC-3 - Create an Azure Batch pool across Availability Zones
 
 **Category: Availability**
 
@@ -146,7 +117,7 @@ For example, you could create your pool with zonal policy in an Azure region whi
 
 <br><br>
 
-### HPC-5 - Automatically grow and shrink HPC Pack cluster resources
+### HPC-4 - Automatically grow and shrink HPC Pack cluster resources
 
 **Category: System Efficiency**
 
@@ -154,7 +125,7 @@ For example, you could create your pool with zonal policy in an Azure region whi
 
 **Recommendation/Guidance**
 
-By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack cluster or creating your HPC Pack cluster in Azure, you can automatically grow or shrink the cluster's resources such as nodes or cores according to the workload on the cluster. Scaling the cluster resources in this way allows you to use your Azure resources more efficiently.
+By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack cluster or creating your HPC Pack cluster in Azure, you can automatically grow or shrink the cluster's resources such as nodes or cores according to the workload on the cluster. Scaling the cluster resources in this way allows you to execute jobs without any interruptions. In addition it helps using the resources efficiently.
 
 **Resources**
 
@@ -170,27 +141,7 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 <br><br>
 
-### HPC-6 - HPC Pack - Dealing with database failure
-
-**Category: Resiliency**
-
-**Impact: Medium**
-
-**Recommendation/Guidance**
-
-Using Azure SQL Database
-
-Using ARM template to deploy a SQL AlwaysOn Cluster
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-database-failure)
-
-<br><br>
-
-
-
-### HPC-7 - HPC Pack - Dealing with head node failure
+### HPC-5 - HPC Pack - Use multiple head nodes
 
 **Category: Resiliency**
 
@@ -206,7 +157,7 @@ Establish a cluster with a minimum of two head nodes. In the event of a head nod
 
 <br><br>
 
-### HPC-8 - HPC Pack - Dealing with AD failure
+### HPC-6 - Use HPC Pack Azure AD Integration or other highly available AD configuration
 
 **Category: Resiliency**
 
