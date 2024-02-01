@@ -148,7 +148,7 @@ For example, you could create your pool with zonal policy in an Azure region whi
 
 ### HPC-5 - Automatically grow and shrink HPC Pack cluster resources
 
-**Category: Availability**
+**Category: System Efficiency**
 
 **Impact: Medium**
 
