@@ -98,7 +98,7 @@ Pre-create all required services in each region, such as the Batch account and t
 
 Currently in all HPC Pack ARM templates we create the cluster share on one of the head node which is not high available as if that head node is down, the share will not be accessible to the HPC Service running on other head node. Basically it will not impact running jobs and managing the nodes.
 
-With Azure Files, these file shares can be moved to Azure Files shares with SMB permissions to make them high available.
+With Azure Files, the following file shares can be moved to Azure Files shares with SMB permissions to make them highly available:
 
 \\<HN3>\REMINST <br>
 \\<HN3>\HpcServiceRegistration <br>
