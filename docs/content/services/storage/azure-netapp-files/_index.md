@@ -20,8 +20,8 @@ The presented resiliency recommendations in this guidance include Azure Netapp F
 | [ANF-4 - Use snapshot and backup for in-region data protection in Azure NetApp Files](#anf-4---use-snapshot-and-backup-for-in-region-data-protection-in-azure-netapp-files) | High Availability | High | Preview  |         No         |
 | [ANF-5 - Enable Cross-region replication of Azure NetApp Files volumes](#anf-5---enable-cross-region-replication-of-azure-netapp-files-volumes) | Disaster Recovery/High Availability | High | Preview  |         Yes         |
 | [ANF-6 - Enable Cross-zone replication of Azure NetApp Files volumes](#anf-6---enable-cross-zone-replication-of-azure-netapp-files-volumes) | Disaster Recovery/High Availability | High | Preview  |         Yes         |
-| [ANF-7 - Monitor Azure Netapp Files metrics to better understand usage pattern and performance](#anf-7---monitor-azure-netapp-files-metrics-to-better-understand-usage-pattern-and-performance) | Monitoring | High | Preview  |         No         |
-| [ANF-8 - Use Azure policy to enforce organizational standards and to assess compliance at-scale in Azure NetApp Files](#anf-8---use-azure-policy-to-enforce-organizational-standards-and-to-assess-compliance-at-scale-in-azure-netapp-files) | Governance | High | Preview  |         No         |
+| [ANF-7 - Monitor Azure Netapp Files metrics to better understand usage pattern and performance](#anf-7---monitor-azure-netapp-files-metrics-to-better-understand-usage-pattern-and-performance) | Monitoring | Medium | Preview  |         No         |
+| [ANF-8 - Use Azure policy to enforce organizational standards and to assess compliance at-scale in Azure NetApp Files](#anf-8---use-azure-policy-to-enforce-organizational-standards-and-to-assess-compliance-at-scale-in-azure-netapp-files) | Governance | Medium | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -87,7 +87,7 @@ Please check the supported regions for standard network feature [here](https://d
 
 ### ANF-3 - Use availability zones for high availability in Azure NetApp Files
 
-**Category: High Availability**
+**Category: Availability**
 
 **Impact: High**
 
@@ -111,7 +111,7 @@ Azure availability zones are physically separate locations within each suppo
 
 ### ANF-4 - Use snapshot and backup for in-region data protection in Azure NetApp Files
 
-**Category: High Availability**
+**Category: Availability**
 
 **Impact: High**
 
@@ -137,7 +137,7 @@ Azure NetApp Files supports a fully managed backup solution for long-term recove
 
 ### ANF-5 - Enable Cross-region replication of Azure NetApp Files volumes
 
-**Category: Disaster Recovery/High Availability**
+**Category: Disaster Recovery**
 
 **Impact: High**
 
@@ -161,7 +161,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 ### ANF-6 - Enable Cross-zone replication of Azure NetApp Files volumes
 
-**Category: Disaster Recovery/High Availability**
+**Category: Disaster Recovery**
 
 **Impact: High**
 
@@ -187,7 +187,7 @@ The cross-zone replication (CZR) capability provides data protection between vol
 
 **Category: Monitoring**
 
-**Impact: High**
+**Impact: Medium**
 
 **Guidance**
 
@@ -211,7 +211,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 **Category: Governance**
 
-**Impact: High**
+**Impact: Medium**
 
 **Guidance**
 
