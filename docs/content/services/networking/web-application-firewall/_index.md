@@ -12,11 +12,11 @@ The presented resiliency recommendations in this guidance include Web Applicatio
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation | Impact | State | ARG Query Available |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [WAF-1 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked](#waf-1---review-logs-for-web-application-firewall-on-azure-front-door-for-legitimate-requests-that-are-blocked) | Medium | Preview | No |
-| [WAF-2 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked](#waf-2---review-logs-for-web-application-firewall-on-azure-application-gateway-for-legitimate-requests-that-are-blocked) | Medium | Preview | No |
-| [WAF-3 - Monitor Web Application Firewall](#waf-3---monitor-web-application-firewall) | Medium | Preview | No |
+| Recommendation                                                                                                                                                                                                                                    |  Category  | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|:------:|:-------:|:-------------------:|
+| [WAF-1 - Review logs for Web Application Firewall on Azure Front Door for legitimate requests that are blocked](#waf-1---review-logs-for-web-application-firewall-on-azure-front-door-for-legitimate-requests-that-are-blocked)                   | Monitoring | Medium | Preview |         No          |
+| [WAF-2 - Review logs for Web Application Firewall on Azure Application Gateway for legitimate requests that are blocked](#waf-2---review-logs-for-web-application-firewall-on-azure-application-gateway-for-legitimate-requests-that-are-blocked) | Monitoring | Medium | Preview |         No          |
+| [WAF-3 - Monitor Web Application Firewall](#waf-3---monitor-web-application-firewall)                                                                                                                                                             | Monitoring | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
