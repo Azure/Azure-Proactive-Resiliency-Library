@@ -14,12 +14,12 @@ The presented resiliency recommendations in this guidance include Load Balancer 
 The below table shows the list of resiliency recommendations for Load Balancer and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact  |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [LB-1 - Use Standard Load Balancer SKU](#lb-1---use-standard-load-balancer-sku) | High | Preview  |  Yes         |
-| [LB-2 - Ensure the Backend Pool contains at least two instances](#lb-2---ensure-the-backend-pool-contains-at-least-two-instances) | High | Preview |   Yes          |
-| [LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads](#lb-3---use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | Medium | Preview |    Yes          |
-| [LB-4 - Ensure Standard Load Balancer is zone-redundant](#lb-4---ensure-standard-load-balancer-is-zone-redundant) | High | Preview | Yes |
+| Recommendation                                                                                                                                          |   Category   | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:-------:|:-------------------:|
+| [LB-1 - Use Standard Load Balancer SKU](#lb-1---use-standard-load-balancer-sku)                                                                         | Availability |  High  | Preview |         Yes         |
+| [LB-2 - Ensure the Backend Pool contains at least two instances](#lb-2---ensure-the-backend-pool-contains-at-least-two-instances)                       | Availability |  High  | Preview |         Yes         |
+| [LB-3 - Use NAT Gateway instead of Outbound Rules for Production Workloads](#lb-3---use-nat-gateway-instead-of-outbound-rules-for-production-workloads) | Availability | Medium | Preview |         Yes         |
+| [LB-4 - Ensure Standard Load Balancer is zone-redundant](#lb-4---ensure-standard-load-balancer-is-zone-redundant)                                       | Availability |  High  | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
