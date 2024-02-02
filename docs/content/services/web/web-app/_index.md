@@ -12,14 +12,14 @@ The presented resiliency recommendations in this guidance include Web App and as
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation | Impact | State | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [APP-1 - Enable diagnostics logging](#app-1---enable-diagnostics-logging) | Low | Preview | Yes |
-| [APP-2 - Monitor performance](#app-2---monitor-performance) | Medium | Preview | Yes |
-| [APP-3 - Separate web apps from web APIs](#app-3---separate-web-apps-from-web-apis) | Low | Preview | No |
-| [APP-4 - Create a separate storage account for logs](#app-4---create-a-separate-storage-account-for-logs) | Medium | Preview | No |
-| [APP-5 - Deploy to a staging slot](#app-5---deploy-to-a-staging-slot) | Medium | Preview | Yes |
-| [APP-6 - Store configuration as app settings](#app-6---store-configuration-as-app-settings) | Medium | Preview | Yes |
+| Recommendation                                                                                            |Category| Impact |  State  | ARG Query Available |
+|:----------------------------------------------------------------------------------------------------------|:-:|:------:|:-------:|:-------------------:|
+| [APP-1 - Enable diagnostics logging](#app-1---enable-diagnostics-logging)                                 |Monitoring|  Low   | Preview |         Yes         |
+| [APP-2 - Monitor performance](#app-2---monitor-performance)                                               |Monitoring| Medium | Preview |         Yes         |
+| [APP-3 - Separate web apps from web APIs](#app-3---separate-web-apps-from-web-apis)                       |System Efficiency|  Low   | Preview |         No          |
+| [APP-4 - Create a separate storage account for logs](#app-4---create-a-separate-storage-account-for-logs) |System Efficiency| Medium | Preview |         No          |
+| [APP-5 - Deploy to a staging slot](#app-5---deploy-to-a-staging-slot)                                     |Governance| Medium | Preview |         Yes         |
+| [APP-6 - Store configuration as app settings](#app-6---store-configuration-as-app-settings)               |Application Resilience| Medium | Preview |         Yes         |
 
 {{< /table >}}
 
