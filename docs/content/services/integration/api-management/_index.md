@@ -12,10 +12,10 @@ The presented resiliency recommendations in this guidance include Api Management
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact         |  State            | ARG Query Available |
-| :------------------------------------------------ | :------:        | :------:          | :-----------------: |
-| [APIM-1 - Migrate API Management services to Premium SKU to support Availability Zones](#apim-1---migrate-api-management-services-to-premium-sku-to-support-availability-zones) |  High | Preview  |         Yes         |
-| [APIM-2 - Enable Availability Zones on Premium API Management instances](#apim-2---enable-availability-zones-on-premium-api-management-instances) | High | Preview  |         Yes          |
+| Recommendation                                                                                                                                                                  |   Category   | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:-------:|:-------------------:|
+| [APIM-1 - Migrate API Management services to Premium SKU to support Availability Zones](#apim-1---migrate-api-management-services-to-premium-sku-to-support-availability-zones) | Availability |  High  | Preview |         Yes         |
+| [APIM-2 - Enable Availability Zones on Premium API Management instances](#apim-2---enable-availability-zones-on-premium-api-management-instances)                               | Availability |  High  | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
