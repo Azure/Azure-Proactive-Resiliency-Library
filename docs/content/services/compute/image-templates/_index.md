@@ -12,10 +12,10 @@ The presented resiliency recommendations in this guidance include Image Template
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                                                     | Impact |  State  | ARG Query Available |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----: | :-----------------: |
-| [IT-1 - Use Generation 2 virtual machine source image](#it-1---use-generation-2-virtual-machine-source-image)                                                                                                                          |  Low  | Preview |         No         |
-| [IT-2 - Replicate your Image Templates to a secondary region](#it-2---replicate-your-image-templates-to-a-secondary-region)                                                                                                                          |  Low  | Preview |         Yes         |
+| Recommendation                                                                                                              |     Category      | Impact |  State  | ARG Query Available |
+|:----------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [IT-1 - Use Generation 2 virtual machine source image](#it-1---use-generation-2-virtual-machine-source-image)               |   Availability    |  Low   | Preview |         No          |
+| [IT-2 - Replicate your Image Templates to a secondary region](#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery |  Low   | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -28,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### IT-1 - Use Generation 2 virtual machine source image
 
-**Impact: Availability**
+**Category: Availability**
 
 **Impact: Low**
 
@@ -43,6 +43,8 @@ When building your Image Templates, utilize source images that support generatio
 <br><br>
 
 ### IT-2 - Replicate your Image Templates to a secondary region
+
+**Category: Disaster Recovery**
 
 **Impact: Low**
 
