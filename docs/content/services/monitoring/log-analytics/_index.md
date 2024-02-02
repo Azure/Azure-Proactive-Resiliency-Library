@@ -14,13 +14,13 @@ The presented resiliency recommendations in this guidance include Log Analytics 
 The below table shows the list of resiliency recommendations for Log Analytics and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact   |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [LOG-1 - Enable Log Analytics data export to GRS or GZRS](#log-1---enable-log-analytics-data-export-to-grs-or-gzrs) | Medium  | Preview  |         No         |
-| [LOG-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#log-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster) | Medium  | Preview |         No          |
-| [LOG-3 - Configure data collection to send critical data to multiple workspaces in different regions](#log-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Medium  | Preview  |         No         |
-| [LOG-4 - Create a health status alert rule for your Log Analytics workspace](#log-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace) | Low  | Preview  |         No         |
-| [LOG-5 - Configure minimal logging and retention of logs](#log-5---configure-minimal-logging-and-retention-of-logs) | Low  | Preview  |         No         |
+| Recommendation                                                                                                                                                                                              |     Category      | Impact |  State  | ARG Query Available |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [LOG-1 - Enable Log Analytics data export to GRS or GZRS](#log-1---enable-log-analytics-data-export-to-grs-or-gzrs)                                                                                         | Disaster Recovery | Medium | Preview |         No          |
+| [LOG-2 - Link Log Analytics Workspace to an Availability Zone enabled dedicated cluster](#log-2---link-log-analytics-workspace-to-an-availability-zone-enabled-dedicated-cluster)                           |   Availability    | Medium | Preview |         No          |
+| [LOG-3 - Configure data collection to send critical data to multiple workspaces in different regions](#log-3---configure-data-collection-to-send-critical-data-to-multiple-workspaces-in-different-regions) | Disaster Recovery | Medium | Preview |         No          |
+| [LOG-4 - Create a health status alert rule for your Log Analytics workspace](#log-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace)                                                   |    Monitoring     |  Low   | Preview |         No          |
+| [LOG-5 - Configure minimal logging and retention of logs](#log-5---configure-minimal-logging-and-retention-of-logs)                                                                                         |    Monitoring     |  Low   | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}

@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include VPN Gateway an
 The below table shows the list of resiliency recommendations for VPN Gateway and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                  |  State   | ARG Query Available |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: | :-----------------: |
-| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway)                                                         | Preview  |         Yes          |
-| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                               | Preview  |         Yes          |
-| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection)                                                         | Preview  |         No          |
-| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections)                                                       | Preview  |         No          |
-| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                               | Preview  |         No          |
-| [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                           | Preview  |         No          |
+| Recommendation                                                                                                                                                      |     Category      | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway)                                                                               |   Availability    |  High  | Preview |         Yes         |
+| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                                                       |   Availability    |  High  | Preview |         Yes         |
+| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery |  High  | Preview |         No          |
+| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections)                                                                 | Disaster Recovery |  High  | Preview |         No          |
+| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                                                 |    Monitoring     | Medium | Preview |         No          |
+| [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                                                   |    Monitoring     | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -33,6 +33,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 ## Recommendations Details
 
 ### VPNG-1 - Choose a Zone-redundant gateway
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -58,6 +60,8 @@ To automatically deploy your virtual network gateways across availability zones,
 
 ### VPNG-2 - Plan for Active-Active mode
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
@@ -81,6 +85,8 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 <br><br>
 
 ### VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
+
+**Category: Disaster Recovery**
 
 **Impact: High**
 
@@ -106,6 +112,8 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 
 ### VPNG-4 - Plan for geo-redundant VPN connections
 
+**Category: Disaster Recovery**
+
 **Impact: High**
 
 **Guidance**
@@ -129,6 +137,8 @@ To plan for disaster recovery, set up Site-to-Site VPN in more than one location
 
 ### VPNG-5 - Monitor connections and gateway health
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
 **Guidance**
@@ -150,6 +160,8 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 <br><br>
 
 ### VPNG-6 - Enable service health
+
+**Category: Monitoring**
 
 **Impact: Medium**
 
