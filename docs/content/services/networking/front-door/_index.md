@@ -14,23 +14,23 @@ The presented resiliency recommendations in this guidance include Front Door and
 The below table shows the list of resiliency recommendations for Front Door and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    | Impact  | State   | ARG Query Available |
-| :------------------------------------------------ | :------: |:------: | :-----------------: |
-| [AFD-1 - Avoid combining Traffic Manager and Front Door](#afd-1---avoid-combining-traffic-manager-and-front-door) | High |Preview  |         No        |
-| [AFD-2 - Restrict traffic to your origins](#afd-2---restrict-traffic-to-your-origins) | High | Preview |         No          |
-| [AFD-3 - Use the latest API version and SDK version](#afd-3---use-the-latest-api-version-and-sdk-version) | Medium | Preview |         No          |
-| [AFD-4 - Configure logs](#afd-4---configure-logs) | Medium | Preview |         No          |
-| [AFD-5 - Use end-to-end TLS](#afd-5---use-end-to-end-tls) | High | Preview |         No          |
-| [AFD-6 - Use HTTP to HTTPS redirection](#afd-6---use-http-to-https-redirection) | High | Preview |         No          |
-| [AFD-7 - Use managed TLS certificates](#afd-7---use-managed-tls-certificates) | Medium | Preview |         No          |
-| [AFD-8 - Use latest version for customer-managed certificates](#afd-8---use-latest-version-for-customer-managed-certificates) | Medium | Preview |         No          |
-| [AFD-9 - Use the same domain name on Front Door and your origin](#afd-9---use-the-same-domain-name-on-front-door-and-your-origin) | Medium | Preview |         No          |
-| [AFD-10 - Enable the WAF](#afd-10---enable-the-waf) | Medium | Preview |         No          |
-| [AFD-11 - Disable health probes when there is only one origin in an origin group](#afd-11---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group) | Low | Preview |         No          |
-| [AFD-12 - Select good health probe endpoints](#afd-12---select-good-health-probe-endpoints) | Medium | Preview |         No          |
-| [AFD-13 - Use HEAD health probes](#afd-13---use-head-health-probes) | Medium | Preview |         No          |
-| [AFD-14 - Use geo-filtering in Azure Front Door](#afd-14---use-geo-filtering-in-azure-front-door) | Medium | Preview |         No          |
-| [AFD-15 - Secure your Origin with Private Link in Azure Front Door](#afd-15---secure-your-origin-with-private-link-in-azure-front-door) | Medium | Preview |         No          |
+| Recommendation                                                                                                                                                      |     Category      | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [AFD-1 - Avoid combining Traffic Manager and Front Door](#afd-1---avoid-combining-traffic-manager-and-front-door)                                                   |    Networking     |  High  | Preview |         No          |
+| [AFD-2 - Restrict traffic to your origins](#afd-2---restrict-traffic-to-your-origins)                                                                               | Access & Security |  High  | Preview |         No          |
+| [AFD-3 - Use the latest API version and SDK version](#afd-3---use-the-latest-api-version-and-sdk-version)                                                           |    Networking     | Medium | Preview |         No          |
+| [AFD-4 - Configure logs](#afd-4---configure-logs)                                                                                                                   |    Monitoring     | Medium | Preview |         No          |
+| [AFD-5 - Use end-to-end TLS](#afd-5---use-end-to-end-tls)                                                                                                           |     Security      |  High  | Preview |         No          |
+| [AFD-6 - Use HTTP to HTTPS redirection](#afd-6---use-http-to-https-redirection)                                                                                     | Access & Security |  High  | Preview |         No          |
+| [AFD-7 - Use managed TLS certificates](#afd-7---use-managed-tls-certificates)                                                                                       | Access & Security | Medium | Preview |         No          |
+| [AFD-8 - Use latest version for customer-managed certificates](#afd-8---use-latest-version-for-customer-managed-certificates)                                       | Access & Security | Medium | Preview |         No          |
+| [AFD-9 - Use the same domain name on Front Door and your origin](#afd-9---use-the-same-domain-name-on-front-door-and-your-origin)                                   |    Networking     | Medium | Preview |         No          |
+| [AFD-10 - Enable the WAF](#afd-10---enable-the-waf)                                                                                                                 | Access & Security | Medium | Preview |         No          |
+| [AFD-11 - Disable health probes when there is only one origin in an origin group](#afd-11---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group) |   Availability    |  Low   | Preview |         No          |
+| [AFD-12 - Select good health probe endpoints](#afd-12---select-good-health-probe-endpoints)                                                                         |   Availability    | Medium | Preview |         No          |
+| [AFD-13 - Use HEAD health probes](#afd-13---use-head-health-probes)                                                                                                 | System Efficiency | Medium | Preview |         No          |
+| [AFD-14 - Use geo-filtering in Azure Front Door](#afd-14---use-geo-filtering-in-azure-front-door)                                                                   | Access & Security | Medium | Preview |         No          |
+| [AFD-15 - Secure your Origin with Private Link in Azure Front Door](#afd-15---secure-your-origin-with-private-link-in-azure-front-door)                             | Access & Security | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
