@@ -1,3 +1,4 @@
+// under-development
 // Find Azure Firewalls that have been deployed as non-zonal/noo-zone-redundant resources
 resources
 | where type == 'microsoft.network/azurefirewalls' and zones != ""

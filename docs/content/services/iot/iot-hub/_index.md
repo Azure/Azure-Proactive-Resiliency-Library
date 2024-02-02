@@ -108,9 +108,9 @@ In a region that supports Availability Zones for IoT Hub, these Zones should be 
 
 ### IOTH-4 - Use Device Provisioning Service
 
-**Category: Scalability**
+**Category: System Efficiency**
 
-**Impact: Critical**
+**Impact: High**
 
 **Recommendation**
 
