@@ -1,7 +1,6 @@
 // Azure Resource Graph Query
-// Returns AKS clusters where local accounts are not disabled
+// Returns all AKS clusters not running on the Standard tier
 resources
-|  where type == "microsoft.containerservice/managedclusters"
-|  extend disableLocalAccounts = tostring (parse_json(properties.disableLocalAccounts))
-|  where disableLocalAccounts == "false"
-|  project recommendationId="aks-12", id, name, param1=strcat("localAccountsDisabled: ", disableLocalAccounts)
+| where type == "microsoft.containerservice/managedclusters"
+| where sku.tier != "Standard"
+| project recommendationId="aks-12", id, name, param1=strcat("skuName: ", sku.name), param2=strcat("skuTier: ", sku.tier)

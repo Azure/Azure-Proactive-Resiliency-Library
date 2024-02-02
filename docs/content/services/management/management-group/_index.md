@@ -12,10 +12,9 @@ The presented resiliency recommendations in this guidance include Management Gro
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact  |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [MG-1 - Subscriptions should not be placed under the Tenant Root Management Group](#mg-1---subscriptions-should-not-be-placed-under-the-tenant-root-management-group) | Medium | Preview  |         Yes         |
-
+| Recommendation                                                                                                                                                        |  Category  | Impact |  State  | ARG Query Available |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|:------:|:-------:|:-------------------:|
+| [MG-1 - Subscriptions should not be placed under the Tenant Root Management Group](#mg-1---subscriptions-should-not-be-placed-under-the-tenant-root-management-group) | Governance | Medium | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -38,7 +37,6 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 Create management groups under your root-level management group to represent the types of workloads that you'll host.
 
 These groups are based on the security, compliance, connectivity, and feature needs of the workloads. With this grouping structure, you can have a set of Azure policies applied at the management group level. This grouping structure is for all workloads that require the same security, compliance, connectivity, and feature settings.
-
 
 **Resources**
 

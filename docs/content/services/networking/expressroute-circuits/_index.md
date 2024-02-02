@@ -1,7 +1,7 @@
 +++
 title = "ExpressRoute Circuits"
 description = "Best practices and resiliency recommendations for ExpressRoute circuits and associated resources."
-date = "01/24/2024"
+date = "01/31/2024"
 author = "ehaslett"
 msAuthor = "ethaslet"
 draft = false
@@ -14,15 +14,15 @@ The presented resiliency recommendations in this guidance include ExpressRoute c
 The below table shows the list of resiliency recommendations for ExpressRoute circuits and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation | Impact | State | ARG Query Available |
-| :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :------: | :-----------------: |
-| [ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway connecting through diverse peering locations](#erc-1---implement-two-or-more-expressroute-circuits-for-each-expressroute-gateway-connecting-through-diverse-peering-locations) | High | Preview | No |
-| [ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network](#erc-2---ensure-the-two-physical-links-of-your-expressroute-circuit-are-connected-to-two-distinct-edge-devices-in-your-network) | High | Preview | No |
-| [ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode](#erc-3---ensure-both-connections-of-an-expressroute-circuit-are-configured-in-active-active-mode) | High | Preview | Yes |
-| [ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices](#erc-4---ensure-bidirectional-forwarding-detection-is-enabled-and-configured-on-customer-or-provider-edge-routing-devices) | High | Preview | No |
-| [ERC-5 - Configure monitoring and alerting for ExpressRoute circuits](#erc-5---configure-monitoring-and-alerting-for-expressroute-circuits) | Medium | Preview | No |
-| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification) | Medium | Preview | No |
-| [ERC-7 - Use a site-to-site VPN as an interim backup solution for a single ExpressRoute circuit](#erc-7---use-a-site-to-site-vpn-as-an-interim-backup-solution-for-a-single-expressroute-circuit) | Medium | Preview | No |
+| Recommendation                                                                                                                                                                                                                                                    |     Category      | Impact |  State  | ARG Query Available |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway connecting through diverse peering locations](#erc-1---implement-two-or-more-expressroute-circuits-for-each-expressroute-gateway-connecting-through-diverse-peering-locations) |   Availability    |  High  | Preview |         No          |
+| [ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network](#erc-2---ensure-the-two-physical-links-of-your-expressroute-circuit-are-connected-to-two-distinct-edge-devices-in-your-network)   |   Availability    |  High  | Preview |         No          |
+| [ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode](#erc-3---ensure-both-connections-of-an-expressroute-circuit-are-configured-in-active-active-mode)                                                               |   Availability    |  High  | Preview |         Yes         |
+| [ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices](#erc-4---ensure-bidirectional-forwarding-detection-is-enabled-and-configured-on-customer-or-provider-edge-routing-devices)             |   Availability    |  High  | Preview |         No          |
+| [ERC-5 - Configure monitoring and alerting for ExpressRoute circuits](#erc-5---configure-monitoring-and-alerting-for-expressroute-circuits)                                                                                                                       |    Monitoring     | Medium | Preview |         No          |
+| [ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification](#erc-6---configure-service-health-to-receive-expressroute-circuit-maintenance-notification)                                                                           |    Monitoring     | Medium | Preview |         No          |
+| [ERC-7 - Use a site-to-site VPN as an interim backup solution for a single ExpressRoute circuit](#erc-7---use-a-site-to-site-vpn-as-an-interim-backup-solution-for-a-single-expressroute-circuit)                                                                 | Disaster Recovery | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -34,6 +34,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 ## Recommendations Details
 
 ### ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway connecting through diverse peering locations
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -57,11 +59,13 @@ Connect each ExpressRoute Gateway to a minimum of two circuits, with each circui
 
 ### ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
 
-Microsoft (in the direct model) or the ExpressRoute provider (in the provider-based model) always offer a physically redundant service. Make sure that the same level of physical redundancy (two physical devices, two physical links) is used across the entire path from the ExpressRoute peering location to your network.
+Microsoft (in the ExpressRoute direct model) or the ExpressRoute provider (in the ExpressRoute provider-based model) always offer a physically redundant service. Make sure that the same level of physical redundancy (two physical devices, two physical links) is used across the entire path from the ExpressRoute peering location to your network.
 
 **Resources**
 
@@ -80,11 +84,13 @@ Microsoft (in the direct model) or the ExpressRoute provider (in the provider-ba
 
 ### ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode
 
+**Category: Availability**
+
 **Impact: High**
 
 **Guidance**
 
-To improve high availability, it's recommended to operate both the connections of an ExpressRoute circuit in active-active mode. If you let the connections operate in active-active mode, Microsoft network will load balance the traffic across the connections on per-flow basis.
+To improve high availability, it's recommended that you operate both the connections of an ExpressRoute circuit in active-active mode. If you configure the connections to operate in active-active mode, the Microsoft network will load balance the traffic across the connections on a per-flow basis.
 
 **Resources**
 
@@ -101,6 +107,8 @@ To improve high availability, it's recommended to operate both the connections o
 <br><br>
 
 ### ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices
+
+**Category: Availability**
 
 **Impact: High**
 
@@ -124,11 +132,13 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 ### ERC-5 - Configure monitoring and alerting for ExpressRoute circuits
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
 **Guidance**
 
-Configure monitoring using Network Insights for ExpressRoute circuit availability, circuit QoS, and throughput. Configure alerts for availability metrics when they fall below 99%, circuit QoS metrics when dropped counts exceed 0 bits/sec, and throughput metrics when bits/sec exceed a threshold appropriate for the ExpressRoute circuit SKU and customer usage.
+Configure monitoring using Network Insights for ExpressRoute circuit availability, circuit QoS, and throughput. Configure alerts for availability metrics and circuit QoS metrics according to [ExpressRoute Circuits | Azure Monitor Baseline Alerts](https://azure.github.io/azure-monitor-baseline-alerts/services/Network/expressRouteCircuits/), and throughput metrics when bits/sec exceed a threshold appropriate for the ExpressRoute circuit SKU and customer usage.
 
 Configure alerts using Connection Monitor for ExpressRoute with a Log Analytics workspace, and Network Watcher. Configure alerts for when ChecksFailedPercent exceeds 5%, and when RoundTripTimeMs exceeds a pre-tested average appropriate to the environment.
 
@@ -152,6 +162,8 @@ For ExpressRoute Direct, configure Traffic Collection for ExpressRoute Direct to
 
 ### ERC-6 - Configure service health to receive ExpressRoute circuit maintenance notification
 
+**Category: Monitoring**
+
 **Impact: Medium**
 
 **Guidance**
@@ -173,6 +185,8 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 <br><br>
 
 ### ERC-7 - Use a site-to-site VPN as an interim backup solution for a single ExpressRoute circuit
+
+**Category: Disaster Recovery**
 
 **Impact: Medium**
 
