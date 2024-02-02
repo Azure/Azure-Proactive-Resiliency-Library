@@ -12,17 +12,17 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-|  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
-| :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)    | Medium | Networking and Connectivity |  Preview  |        Yes         |
-| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd)  | Medium |  Resiliency/Monitoring | Preview |       No        |
-| [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)  | High |  Application Delivery | Preview |       No        |
-| [AVD-4 Deploy Domain Controllers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-in-azure-virtual-network-across-availability-zones)  | Medium |  Identity | Preview |       No        |
-| [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)  | Medium |  Networking | Preview |       No        |
-| [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan)  | Medium |  Backup | Preview |       No        |
-| [AVD-7 Store Golden Image Redundantly for Disaster Recovery](#avd-7---store-golden-image-redundantly-for-disaster-recovery)  | Low |  Backup | Preview |       No        |
-| [AVD-8 Capacity Planning for AVD Resources](#avd-8---capacity-planning-for-avd-resources)  | Low |  Compute | Preview |       No        |
-| [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant)  | High |  Reliability/Storage | Preview |       No        |
+| Recommendation                                                                                                                                                              |     Category      |  Impact  |  State  | ARG Query Available |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:--------:|:-------:|:-------------------:|
+| [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)                                   | Access & Security | Medium y | Preview |         Yes         |
+| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd)                                                       |    Monitoring     |  Medium  | Preview |         No          |
+| [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)                                                                 |   Availability    |   High   | Preview |         No          |
+| [AVD-4 Deploy Domain Controllers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-in-azure-virtual-network-across-availability-zones) |   Availability    |  Medium  | Preview |         No          |
+| [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)                                             |    Networking     |  Medium  | Preview |         No          |
+| [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan)                                                                                     | Disaster Recovery |  Medium  | Preview |         No          |
+| [AVD-7 Store Golden Image Redundantly for Disaster Recovery](#avd-7---store-golden-image-redundantly-for-disaster-recovery)                                                 | Disaster Recovery |   Low    | Preview |         No          |
+| [AVD-8 Capacity Planning for AVD Resources](#avd-8---capacity-planning-for-avd-resources)                                                                                   | Disaster Recovery |   Low    | Preview |         No          |
+| [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant)                                                         |   Availability    |   High   | Preview |         No          |
 
 {{< /table >}}
 
