@@ -12,10 +12,9 @@ The presented resiliency recommendations in this guidance include Management Gro
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact  |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [MG-1 - Subscriptions should not be placed under the Tenant Root Management Group](#mg-1---subscriptions-should-not-be-placed-under-the-tenant-root-management-group) | Medium | Preview  |         Yes         |
-
+| Recommendation                                                                                                                                                        |  Category  | Impact |  State  | ARG Query Available |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|:------:|:-------:|:-------------------:|
+| [MG-1 - Subscriptions should not be placed under the Tenant Root Management Group](#mg-1---subscriptions-should-not-be-placed-under-the-tenant-root-management-group) | Governance | Medium | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
