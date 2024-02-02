@@ -14,9 +14,9 @@ The presented resiliency recommendations in this guidance include Resources Heal
 The below table shows the list of resiliency recommendations for Resources Health Alerts and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Category      |  Impact   |   State   | ARG Query Available |
-| :------------------------------------------------ | :------------: | :--------:| :--------:| :------------------:|
-| [MSR-1 - Configure Resource Health Alerts](#msr-1---configure-resource-health-alerts) | Monitoring | Low | Preview  |    No      |
+| Recommendation | Category | Impact | State | ARG Query Available |
+|:--------------------------------------------------------------------------------------|:----------:|:------:|:-------:|:-------------------:|
+| [MSR-1 - Configure Resource Health Alerts](#msr-1---configure-resource-health-alerts) | Monitoring | Low | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -40,7 +40,7 @@ Configure Resource Health Alerts for all applicable resources. Azure Resource He
 **Resources**
 
 - [Resource Health](https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview)
-- [Configure Resource Health alerts in the Azure portal](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide#create-a-resource-health-alert-rule-in-the-azure-portal )
+- [Configure Resource Health alerts in the Azure portal](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide#create-a-resource-health-alert-rule-in-the-azure-portal)
 - [Alerts Health](https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal)
 
 **Resource Graph Query/Scripts**
