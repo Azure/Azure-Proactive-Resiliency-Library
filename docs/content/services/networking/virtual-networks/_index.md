@@ -14,11 +14,11 @@ The presented resiliency recommendations in this guidance include Virtual Networ
 The below table shows the list of resiliency recommendations for Virtual Networks and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [VNET-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
-| [VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
-| [VNET-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services) | Preview  |         No         |
+| Recommendation                                                                                                                                                                                                                                          |     Category      | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [VNET-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated)                                                                                                           | Access & Security |  High  | Preview |         Yes         |
+| [VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Access & Security |  High  | Preview |         Yes         |
+| [VNET-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services)                                                                              | Access & Security | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
