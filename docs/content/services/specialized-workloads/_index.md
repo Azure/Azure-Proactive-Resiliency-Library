@@ -17,7 +17,7 @@ The below list of services is automatically populated based on the child folders
 
 {{< childpages >}}s
 
-Well Architected Reliability Assessment for SAP, is a combination of [WARA v3](https://eng.ms/docs/microsoft-customer-partner-solutions-mcaps-core/customer-experience-and-support/customer-success/azure-core/resource-center/waf/reliability/wara_v3/0_engagement_overview) checks and [SAP ACSS](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview) checks.
+For Well Architected Reliability Assessment for SAP, Please leverage [SAP ACSS](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview) checks.
 
 [SAP ACSS](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview) runs quality checks for all Virtual Instances for SAP solutions (VIS). The Quality Insights Azure workbook in Azure Center for SAP solutions offers insights on SAP system resources through over 100 quality checks on VIS, ensuring adherence to Azure and SAP best practices for reliability and performance monitoring. If a VIS is not configured as per the different best practices, you will see a corresponding recommendation in Azure Advisor.
 
