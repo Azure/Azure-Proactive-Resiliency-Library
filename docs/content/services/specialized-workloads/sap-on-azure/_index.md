@@ -1,21 +1,13 @@
 +++
-title = "Specialized Workloads"
-description = "Specialized Workloads Services"
-date = 2023-03-21T10:12:16Z
+title = "Sap on Azure"
+description = "Best practices and resiliency recommendations for Sap on Azure and associated resources and settings."
+date = "2/5/24"
+author = "PMeshramPM"
+msAuthor = "pameshra"
 draft = false
 +++
 
-This page lists all of the Azure Services under the Specialized Workloads category for which the APRL has guidance, recommendations and queries for.
-
-## Services List
-
-{{< alert style="info" >}}
-
-The below list of services is automatically populated based on the child folders and files in this directory within the source code in the repo.
-
-{{< /alert >}}
-
-{{< childpages >}}s
+The presented resiliency recommendations in this guidance include Sap on Azure and associated resources and settings.
 
 For Well Architected Reliability Assessment for SAP, Please leverage [SAP ACSS](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview) checks.
 
@@ -25,3 +17,5 @@ For Well Architected Reliability Assessment for SAP, Please leverage [SAP ACSS](
    If ACSS (Azure Center for SAP Solutions) is available in the given Azure region and implemented, use the integrated [ACSS Quality Insights](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights).
 
 - Otherwise, use the standalone [SAP QualityCheck](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck) tool from GitHub directly. This is the original and open-source version of SAP Quality Insights,and can be used if the customer hasn't implemented ACSS
+
+
