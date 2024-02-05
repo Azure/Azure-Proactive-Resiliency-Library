@@ -15,6 +15,7 @@ The presented resiliency recommendations in this guidance include Event Hub and 
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
 | [EVHNS-1 - Enable zone redundancy for Event Hub namespace](#evhns-1---enable-zone-redundancy-for-event-hub-namespace) | High Availability | High | Preview  |         Yes         |
+| [EVHNS-2 - Enable auto-inflate on Event Hub Standard tier](#evhns-2---enable-auto-inflate-on-event-hub-standard-tier) | System Efficiency | High | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -44,6 +45,30 @@ Event Hubs supports Availability Zones, providing fault-isolated locations withi
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/evhns-1/evhns-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### EVHNS-2 - Enable auto-inflate on Event Hub Standard tier
+
+**Category: System Efficiency**
+
+**Impact: High**
+
+**Recommendation**
+
+Enable auto-inflate on Event Hub Standard tier namespaces. The auto-inflate feature of Event Hubs automatically scales up by increasing the number of TUs, to meet usage needs. Increasing TUs prevents throttling scenarios where data ingress or data egress rates exceed the rates allowed by the TUs assigned to the namespace.
+
+**Resources**
+
+- [Azure Event Hubs - Automatically scale throughput units](https://learn.microsoft.com/azure/event-hubs/event-hubs-auto-inflate)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/evhns-2/evhns-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
