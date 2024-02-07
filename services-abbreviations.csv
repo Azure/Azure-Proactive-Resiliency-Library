@@ -7,7 +7,7 @@ microsoft.compute/virtualmachines,Virtual machine,vm
 microsoft.compute/virtualmachinescalesets,Virtual machine scale set,vmss
 microsoft.containerservice/managedclusters,Kubernetes Service,aks
 microsoft.containerregistry/registries,Container registry,cr
-microsoft.documentdb/databaseaccounts/sqldatabases,Azure Cosmos DB database,cosmos
+microsoft.documentdb/databaseaccounts,Azure Cosmos DB database,cosmos
 microsoft.sql/servers/databases,Azure SQL database,sqldb
 microsoft.operationalinsights/workspaces,Log Analytics workspace,log
 microsoft.network/applicationgateways,Application gateway,agw
@@ -15,8 +15,10 @@ microsoft.network/connections,Ddos Protection Plan,ddos
 microsoft.network/privatednszones,Private DNS Zone,pvdnsz
 microsoft.network/azurefirewalls,Azure Firewall,afw
 microsoft.network/expressroutecircuits,ExpressRoute Circuit,erc
+microsoft.network/virtualNetworkGateways,ExpressRoute Gateway,ergw
 microsoft.network/expressroutegateway,ExpressRoute Gateway,ergw
 microsoft.cdn/profiles,Azure Front Door,afd
+microsoft.cdn/frontdoors,Azure Front Door,afd
 microsoft.network/loadbalancers,Load balancer,lb
 microsoft.network/networksecuritygroups,Network security group,nsg
 microsoft.network/networkwatchers,Network Watcher,nw
@@ -27,6 +29,7 @@ microsoft.network/trafficmanagerprofiles,Traffic Manager profiles,traf
 microsoft.network/virtualnetworks,Virtual network,vnet
 microsoft.keyvault/vaults,Key vault,kv
 microsoft.network/vpngateways,VPN Gateway,vpng
+microsoft.network/virtualNetworkGateways,VPN Gateway,vpng
 microsoft.network/firewallpolicies,Web Application Firewall,waf
 microsoft.netapp/netappaccounts,Azure Netapp Files,anf
 microsoft.storage/storageaccounts,Storage account,st
