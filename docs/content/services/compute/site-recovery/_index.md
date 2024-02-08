@@ -118,6 +118,6 @@ If the target location has a capacity constraint, disable replication to that lo
 
 **Resources**
 
-- [Azure resource quota issues ](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-troubleshoot-errors#azure-resource-quota-issues-error-code-150097)
+- [Azure resource quota issues](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-troubleshoot-errors#azure-resource-quota-issues-error-code-150097)
 
 <br><br>
