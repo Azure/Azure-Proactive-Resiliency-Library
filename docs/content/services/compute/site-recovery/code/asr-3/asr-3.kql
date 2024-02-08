@@ -1,0 +1,11 @@
+// Azure Resource Graph Query
+// Query data change rate (churn) and upload rate for an Azure VM
+AzureDiagnostics  
+| where Category in ("AzureSiteRecoveryProtectedDiskDataChurn", "AzureSiteRecoveryReplicationDataUploadRate")  
+| extend CategoryS = case(Category contains "Churn", "DataChurn",  
+Category contains "Upload", "UploadRate", "none") 
+| extend InstanceWithType=strcat(CategoryS, "_", InstanceName_s)  
+| where TimeGenerated > ago(24h)  
+| where InstanceName_s startswith "ContosoVM123"  
+| project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576  
+| render timechart 

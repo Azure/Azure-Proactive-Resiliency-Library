@@ -75,3 +75,49 @@ Test your Disaster Recovery plan periodically without any data loss or downtime,
 {{< /collapse >}}
 
 <br><br>
+
+### ASR-3 - Monitor Source VMs for high data change rates
+
+**Category: Disaster Recovery**
+
+**Impact: High**
+
+**Guidance**
+
+Azure Site Recovery has limits on data change rates, depending on the type of disk. To see if this problem is recurring or temporary, find the data change rate of the affected virtual machine. Go to the source virtual machine and monitor the **OS Disk Write Bytes/Sec** and **Data Disk Write Bytes/Sec** metrics for OS and Data disks.
+
+For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 54 MB/s of total churn per VM. Alternatively enable High Churn Support to support churn up to 100 MB/s per VM.
+
+**Resources**
+
+- [High data change rate on the source virtual machine](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-troubleshoot-replication#high-data-change-rate-on-the-source-virtual-machine)
+
+- [Azure VM Disaster Recovery - High Churn Support](https://learn.microsoft.com/en-us/azure/site-recovery/concepts-azure-to-azure-high-churn-support)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/asr-3/asr-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ASR-4 - Ensure sufficient resource quotas in the target region
+
+**Category: Disaster Recovery**
+
+**Impact: High**
+
+**Guidance**
+
+Make sure your subscription is enabled to create Azure VMs in the target region that you plan to use as your disaster recovery (DR) region. Your subscription needs sufficient quota to create VMs of the necessary sizes. By default, Site Recovery chooses a target VM size that's the same as the source VM size.
+
+If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
+
+**Resources**
+
+- [Azure resource quota issues ](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-troubleshoot-errors#azure-resource-quota-issues-error-code-150097)
+
+<br><br>
