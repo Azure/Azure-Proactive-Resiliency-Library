@@ -37,11 +37,14 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-Network security groups: Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. NSG's provide a security layer on Subnet level.
+Network security groups: Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. NSG's provide a security layer on Subnet level. Note that the following subnets are excluded(ignored) because applying NSG on these subnets is not supported: GatewaySubnet, AzureFirewallSubnet, AzureFirewallManagementSubnet, RouteServerSubnet.
 
 **Resources**
 
 - [Azure Virtual Network - Concepts and best practices | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/concepts-and-best-practices)
+- [GatewaySUbnet](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub)
+- [Can I associate a network security group (NSG) to the RouteServerSubnet?](https://learn.microsoft.com/en-us/azure/route-server/route-server-faq#can-i-associate-a-network-security-group-nsg-to-the-routeserversubnet)
+- [Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?](https://learn.microsoft.com/en-us/azure/firewall/firewall-faq#are-network-security-groups--nsgs--supported-on-the-azurefirewallsubnet)
 
 **Resource Graph Query/Scripts**
 
