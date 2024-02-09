@@ -69,12 +69,12 @@ Currently in all HPC Pack ARM templates we create the cluster share on one of th
 
 With Azure Files, the following file shares can be moved to Azure Files shares with SMB permissions to make them highly available:
 
-\\<HN3>\REMINST <br>
-\\<HN3>\HpcServiceRegistration <br>
-\\<HN3>\Runtime$ <br>
-\\<HN3>\TraceRepository <br>
-\\<HN3>\Diagnostics <br>
-\\<HN3>\CcpSpoolDir
+- `\\<HN3>\REMINST`
+- `\\<HN3>\HpcServiceRegistration`
+- `\\<HN3>\Runtime$`
+- `\\<HN3>\TraceRepository`
+- `\\<HN3>\Diagnostics`
+- `\\<HN3>\CcpSpoolDir`
 
 With above setup all nodes can access the file shares independent of the the head nodes
 
