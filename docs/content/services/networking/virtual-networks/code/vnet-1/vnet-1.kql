@@ -4,5 +4,5 @@ resources
 | where type =~ 'Microsoft.Network/virtualnetworks'
 | mv-expand subnets = properties.subnets
 | extend sn = string_size(subnets.properties.networkSecurityGroup)
-| where sn == 0
+| where sn == 0 and subnets.name !in ("GatewaySubnet", "AzureFirewallSubnet", "AzureFirewallManagementSubnet", "RouteServerSubnet")
 | project recommendationId = "vnet-1", name, id, tags, param1 = strcat("SubnetName: ", subnets.name), param2 = "NSG: False"
