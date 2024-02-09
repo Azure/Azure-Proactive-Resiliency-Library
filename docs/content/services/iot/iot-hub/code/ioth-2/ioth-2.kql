@@ -4,4 +4,3 @@ resources
 | where type =~ "microsoft.devices/iothubs" and
     tostring(sku.tier) =~ 'Free'
 | project recommendationId="ioth-2", name, id, tags, param1=strcat("tier:", tostring(sku.tier))
-| order by name
