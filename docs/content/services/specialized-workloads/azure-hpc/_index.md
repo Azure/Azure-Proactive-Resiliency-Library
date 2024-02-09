@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Azure High Per
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [HPC-1 Monitor Batch account quota](#hpc-1---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       Yes        |
+| [HPC-1 Monitor Batch account quota](#hpc-1---monitor-batch-account-quota)  | Medium |  Resiliency/Monitoring | Preview |       No        |
 | [HPC-2 Ensure File shares that stores jobs metadata are accessible from all head nodes](#hpc-2---ensure-file-shares-that-stores-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Resiliency/Monitoring | Preview |       Yes        |
 | [HPC-3 Create an Azure Batch pool across Availability Zones](#hpc-3---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
 | [HPC-4 Automatically grow and shrink HPC Pack cluster resources](#hpc-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
