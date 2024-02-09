@@ -56,4 +56,29 @@ Using Azure Monitor Alerts you can:
 
 {{< /collapse >}}
 
+### BK-2 - Opt-in to Cross Region Restore for all Geo-Redundant Storage (GRS) Azure Recovery Services vaults
+
+**Category: Disaster Recovery**
+
+**Impact: Medium**
+
+**Guidance**
+
+Cross Region Restore allows you to restore Azure VMs in a secondary region, which is an Azure paired region. This option allows you to conduct drills to meet audit or compliance requirements, and to restore the VM or its disk if there's a disaster in the primary region. CRR is an opt-in feature for any GRS vault only.
+
+**Resources**
+
+- [Set Cross Region Restore](https://learn.microsoft.com/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore)
+- [Azure Backup Best Practices](https://learn.microsoft.com/azure/backup/guidance-best-practices)
+- [Minimum Role Requirements for Cross Region Restore](https://learn.microsoft.com/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-azure-vm-backup)
+- [Recovery Services Vault](https://azure.microsoft.com/documentation/articles/backup-azure-arm-vms-prepare/)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/bk-2/bk-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
 <br><br>
