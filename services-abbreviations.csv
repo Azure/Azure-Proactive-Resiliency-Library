@@ -51,3 +51,4 @@ microsoft.desktopvirtualization/hostpools,Azure Virtual Desktop,avd
 microsoft.avs/privateclouds,Azure VMware Solution,avs
 microsoft.signalrservice/signalr,SignalR,sigr
 microsoft.web/sites,Web App,app
+microsoft.batch/batchaccounts,Batch Accounts,bat

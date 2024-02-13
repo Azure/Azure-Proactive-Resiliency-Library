@@ -1,25 +1,25 @@
 +++
-title = "Azure High Performance Computing"
-description = "Best practices and resiliency recommendations for Azure High Performance Computing and associated resources and settings."
+title = "Batch Accounts"
+description = "Best practices and resiliency recommendations for Batch Accounts and associated resources and settings."
 date = "1/12/24"
 author = "lapate"
 msAuthor = "lapate"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Azure High Performance Computing and associated resources and settings.
+The presented resiliency recommendations in this guidance include Batch Accounts (Azure High Performance Computing) and associated resources and settings.
 
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [HPC-1 Monitor Batch account quota](#hpc-1---monitor-batch-account-quota)  | Medium |  Monitoring | Preview |       No        |
-| [HPC-2 Ensure File shares that store jobs metadata are accessible from all head nodes](#hpc-2---ensure-file-shares-that-store-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Availability | Preview |       No        |
-| [HPC-3 Create an Azure Batch pool across Availability Zones](#hpc-3---create-an-azure-batch-pool-across-availability-zones)  | Medium |  Availability | Preview |       No        |
-| [HPC-4 Automatically grow and shrink HPC Pack cluster resources](#hpc-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
-| [HPC-5 HPC Pack - Use multiple head nodes](#hpc-5---hpc-pack---use-multiple-head-nodes)  | Medium |  Availability | Preview |       No        |
-| [HPC-6 Use HPC Pack Azure AD Integration or other highly available AD configuration](#hpc-6---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration)  | High |  Availability | Preview |       No        |
+| [HPC-1 Monitor Batch account quota](#bat-1---monitor-batch-account-quota)  | Medium |  Monitoring | Preview |       No        |
+| [HPC-2 Ensure File shares that store jobs metadata are accessible from all head nodes](#bat-2---ensure-file-shares-that-store-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Availability | Preview |       No        |
+| [HPC-3 Create an Azure Batch pool across Availability Zones](#bat-3---create-an-azure-batch-pool-across-availability-zones)  | High |  Availability | Preview |       No        |
+| [HPC-4 Automatically grow and shrink HPC Pack cluster resources](#bat-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
+| [HPC-5 HPC Pack - Use multiple head nodes](#bat-5---hpc-pack---use-multiple-head-nodes)  | High |  Availability | Preview |       No        |
+| [HPC-6 Use HPC Pack Azure AD Integration or other highly available AD configuration](#bat-6---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration)  | High |  Availability | Preview |       No        |
 
 {{< /table >}}
 
@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### HPC-1 - Monitor Batch account quota
+### BAT-1 - Monitor Batch account quota
 
 **Category: Monitoring**
 
@@ -51,13 +51,13 @@ Pre-create all required services in each region, such as the Batch account and t
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-1/hpc-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/bat-1/bat-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### HPC-2 - Ensure file shares that store jobs metadata are accessible from all head nodes
+### BAT-2 - Ensure file shares that store jobs metadata are accessible from all head nodes
 
 **Category: Availability**
 
@@ -86,17 +86,17 @@ With the above setup, all nodes can access the file shares independently of the 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-2/hpc-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/bat-2/bat-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### HPC-3 - Create an Azure Batch pool across Availability Zones
+### BAT-3 - Create an Azure Batch pool across Availability Zones
 
 **Category: Availability**
 
-**Impact: Medium**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -111,13 +111,13 @@ For example, you could create your pool with zonal policy in an Azure region tha
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-3/hpc-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/bat-3/bat-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### HPC-4 - Automatically grow and shrink HPC Pack cluster resources
+### BAT-4 - Automatically grow and shrink HPC Pack cluster resources
 
 **Category: System Efficiency**
 
@@ -135,17 +135,17 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-4/hpc-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/bat-4/bat-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### HPC-5 - HPC Pack - Use multiple head nodes
+### BAT-5 - HPC Pack - Use multiple head nodes
 
 **Category: Availability**
 
-**Impact: Medium**
+**Impact: High**
 
 **Recommendation/Guidance**
 
@@ -159,13 +159,13 @@ Establish a cluster with a minimum of two head nodes. In the event of a head nod
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-5/hpc-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/bat-5/bat-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### HPC-6 - Use HPC Pack Azure AD Integration or other highly available AD configuration
+### BAT-6 - Use HPC Pack Azure AD Integration or other highly available AD configuration
 
 **Category: Availability**
 
@@ -189,7 +189,7 @@ When HPC fails to connect to the Domain Controller, admins and users will not be
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/hpc-6/hpc-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/bat-6/bat-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
