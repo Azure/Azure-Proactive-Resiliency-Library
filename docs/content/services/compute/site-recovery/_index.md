@@ -84,7 +84,7 @@ Test your Disaster Recovery plan periodically without any data loss or downtime,
 
 **Guidance**
 
-Azure Site Recovery has limits on data change rates, depending on the type of disk. To see if this problem is recurring or temporary, find the data change rate of the affected virtual machine. Go to the source virtual machine and monitor the **OS Disk Write Bytes/Sec** and **Data Disk Write Bytes/Sec** metrics for OS and Data disks.
+Azure Site Recovery has limits on data change rates, depending on the type of disk. To determine if this is a recurring or temporary problem, find the data change rate of the affected virtual machine. Go to the source virtual machine and monitor the **OS Disk Write Bytes/Sec** and **Data Disk Write Bytes/Sec** metrics for OS and Data disks.
 
 For a single VM, Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks. Site Recovery has a limit of 54 MB/s of total churn per VM. Alternatively enable High Churn Support to support churn up to 100 MB/s per VM.
 
