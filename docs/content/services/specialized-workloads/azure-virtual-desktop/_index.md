@@ -14,15 +14,16 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                              |     Category      |  Impact  |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:--------:|:-------:|:-------------------:|
-| [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)                                   | Access & Security | Medium y | Preview |         Yes         |
+| [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault)                                   | Access & Security | Medium | Preview |         Yes         |
 | [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd)                                                       |    Monitoring     |  Medium  | Preview |         No          |
 | [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone)                                                                 |   Availability    |   High   | Preview |         No          |
-| [AVD-4 Deploy Domain Controllers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-in-azure-virtual-network-across-availability-zones) |   Availability    |  Medium  | Preview |         No          |
+| [AVD-4 Deploy Domain Controllers and DNS Servers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-and-dns-servers-in-azure-virtual-network-across-availability-zones) |   Availability    |  Medium  | Preview |         No          |
 | [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks)                                             |    Networking     |  Medium  | Preview |         No          |
 | [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan)                                                                                     | Disaster Recovery |  Medium  | Preview |         No          |
 | [AVD-7 Store Golden Image Redundantly for Disaster Recovery](#avd-7---store-golden-image-redundantly-for-disaster-recovery)                                                 | Disaster Recovery |   Low    | Preview |         No          |
 | [AVD-8 Capacity Planning for AVD Resources](#avd-8---capacity-planning-for-avd-resources)                                                                                   | Disaster Recovery |   Low    | Preview |         No          |
 | [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant)                                                         |   Availability    |   High   | Preview |         No          |
+| [AVD-10 Enable Azure Backup for FSLogix Storage Account](#avd-10---enable-azure-backup-for-fslogix-storage-account)                                                         |   Backup/Storage    |   Medium   | Preview |         No          |
 
 {{< /table >}}
 
@@ -112,7 +113,7 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 
 <br><br>
 
-### AVD-4 - Deploy Domain Controllers in Azure Virtual Network Across Availability Zones
+### AVD-4 - Deploy Domain Controllers and DNS Servers in Azure Virtual Network Across Availability Zones
 
 **Category: Availability**
 
@@ -120,7 +121,7 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 
 **Guidance**
 
-When using an AD DS identity solution with AVD, it is recommended to deploy domain controllers on azure virtual machines across availability zones. This improves the reliability of the environment by being independent of an on premises connection as well as creates a shorter path for user’s authentication improving performance.
+When using an AD DS identity solution with AVD, it is recommended to deploy domain controllers and DNS servers on Azure virtual machines across availability zones. This improves the environment’s reliability by being independent of an on-premises and creating a shorter path for user authentication improving performance.
 
 This recommendation is not relevant when you are utilizing Microsoft Entra as the identity provider.
 
@@ -266,6 +267,31 @@ Generally, it is recommended to store your data as secure and redundant as possi
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/avd-9/avd-9.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AVD-10 - Enable Azure Backup for FSLogix Storage Account
+
+**Category: Backup/Storage**
+
+**Impact: Medium**
+
+**Guidance**
+
+It is recommended to enable backup on the FSLogix Storage Account. Ensuring the user profiles are resilient will allow user data and experience to be consistent through outages.
+
+**Resources**
+
+- [FSLogix](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix)
+- [Backup Storage Account](https://learn.microsoft.com/en-us/azure/backup/blob-backup-configure-manage?tabs=operational-backup)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avd-10/avd-10.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
