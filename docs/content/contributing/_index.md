@@ -162,7 +162,7 @@ When creating recommendations for a service, please follow the below standards:
 
 ### Recommendation categories
 
-Each recommendation should only have an associated category from this list.
+Each recommendation should have _**one and only one**_ associated category from this list below.
 
   | Recommendation Category | Category Description |
   |:---:|:---:|
