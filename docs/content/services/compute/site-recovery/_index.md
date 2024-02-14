@@ -76,7 +76,7 @@ Test your Disaster Recovery plan periodically without any data loss or downtime,
 
 <br><br>
 
-### ASR-3 - Monitor Source VMs for high data change rates
+### ASR-3 - Monitor source VMs for high data change rates
 
 **Category: Disaster Recovery**
 
