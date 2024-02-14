@@ -16,6 +16,8 @@ The presented resiliency recommendations in this guidance include Azure Site Rec
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
 | [ASR-1 - Ensure static IP addresses configured in VM failover settings are available in the failover subnet](#asr-1---ensure-static-ip-addresses-configured-in-vm-failover-settings-are-available-in-the-failover-subnet)           | Disaster Recovery |  High  | Preview |         No          |
 | [ASR-2 - Perform a test failover to validate the functionality and performance of the VMs in the target location](#asr-2---perform-a-test-failover-to-validate-the-functionality-and-performance-of-the-vms-in-the-target-location) | Disaster Recovery |  High  | Preview |         Yes         |
+| [ASR-3 - Monitor Source VMs for high data change rates](#asr-3---monitor-source-vms-for-high-data-change-rates) | Disaster Recovery |  High  | Preview |         Yes         |
+| [ASR-4 - Ensure sufficient resource quotas in the target region](#asr-4---ensure-sufficient-resource-quotas-in-the-target-region) | Disaster Recovery |  High  | Preview |         Yes         |
 
 {{< /table >}}
 
@@ -121,3 +123,6 @@ If the target location has a capacity constraint, disable replication to that lo
 - [Azure resource quota issues](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-troubleshoot-errors#azure-resource-quota-issues-error-code-150097)
 
 <br><br>
+
+
+
