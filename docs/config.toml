@@ -1,4 +1,4 @@
-theme = "hugo-geekdoc"
+theme = "ace-documentation"
 
 baseURL = 'https://azure.github.io/Azure-Proactive-Resiliency-Library'
 
