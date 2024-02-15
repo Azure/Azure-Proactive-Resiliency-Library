@@ -14,7 +14,9 @@ The presented resiliency recommendations in this guidance include Backup and ass
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Impact  |  State   | ARG Query Available |
 | :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Recovery services vaults](#bk-1---migrate-from-classic-alerts-to-built-in-azure-monitor-alerts-for-recovery-services-vaults) | Medium | Preview  |         Yes         |
+| [BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Azure Recovery Services Vaults](#bk-1---migrate-from-classic-alerts-to-built-in-azure-monitor-alerts-for-recovery-services-vaults) | Medium | Preview  |         Yes         |
+
+| [BK-2 - Opt-in to Cross Region Restore for all Geo-Redundant Storage (GRS) Azure Recovery Services vaults](#bk-2---optin-to-cross-region-restore-for-all-geo-redundant-storage-recovery-services-vaults) | Medium | Verified  |         Yes         |
 
 {{< /table >}}
 
@@ -26,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Recovery services vaults
+### BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Azure Recovery Services Vaults
 
 **Category: Monitoring**
 
