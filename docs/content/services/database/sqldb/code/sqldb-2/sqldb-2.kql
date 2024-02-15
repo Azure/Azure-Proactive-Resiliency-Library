@@ -3,4 +3,4 @@
 resources
 | where type =~'microsoft.sql/servers/databases'
 | where isnull(properties['failoverGroupId'])
-| project recommendationId = "sqldb-2", name, id, param1= strcat("databaseId=", properties['databaseId'])
+| project recommendationId = "sqldb-2", name, id, tags, param1= strcat("databaseId=", properties['databaseId'])
