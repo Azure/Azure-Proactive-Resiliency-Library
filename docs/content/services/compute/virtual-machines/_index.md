@@ -28,7 +28,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-12 - VMs should not have a Public IP directly associated](#vm-12---vms-should-not-have-a-public-ip-directly-associated)                                                                                         | Access & Security | Medium | Verified |         Yes         |
 | [VM-13 - VM network interfaces and associated subnets both have a Network Security Group (NSG) associated](#vm-13---vm-network-interfaces-and-associated-subnets-both-have-a-network-security-group-nsg-associated) | Access & Security |  Low   | Verified |         No          |
 | [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                         | Access & Security | Medium | Verified |         Yes         |
-| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---dns-servers-should-be-configured-in-the-virtual-network-level)                                                            |   Networking      |  Low   | Verified |         Yes         |
+| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                            |   Networking      |  Low   | Verified |         Yes         |
 | [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                               |      Storage      | Medium | Verified |         Yes         |
 | [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access)             | Access & Security |  Low   | Verified |         Yes         |
 | [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies)                                                                                     |    Governance     |  Low   | Verified |         Yes         |
@@ -414,7 +414,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 <br><br>
 
-### VM-15 - DNS Servers should be configured in the Virtual Network level
+### VM-15 - Customer DNS Servers should be configured in the Virtual Network level
 
 **Category: Storage**
 
