@@ -105,7 +105,7 @@ For example, you could create your pool with zonal policy in an Azure region tha
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/azure/bach/create-pool-availability-zones)
+- [Learn More](https://learn.microsoft.com/azure/batch/create-pool-availability-zones)
 
 **Resource Graph Query/Scripts**
 
