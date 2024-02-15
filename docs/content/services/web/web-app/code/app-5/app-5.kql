@@ -9,6 +9,6 @@ resources
 | where tolower(Sku) contains "standard" or tolower(Sku) contains "premium" or tolower(Sku) contains "isolatedv2"
 | project id, name, AspName, isSlot, Sku
 | summarize Slots = countif(isSlot == 1) by id, name, AspName, Sku
-| extend recommendationid = "asp-5"
+| extend recommendationid = "app-5"
 | extend DeploymentSlotEnabled = iff(Slots > 1, true, false)
 | project recommendationid, name, id, Sku, Slots, DeploymentSlotEnabled
