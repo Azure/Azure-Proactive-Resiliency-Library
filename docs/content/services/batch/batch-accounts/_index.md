@@ -14,12 +14,12 @@ The presented resiliency recommendations in this guidance include Batch Accounts
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Impact         |  Design Area         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-| [HPC-1 Monitor Batch account quota](#bat-1---monitor-batch-account-quota)  | Medium |  Monitoring | Preview |       No        |
-| [HPC-2 Ensure File shares that store jobs metadata are accessible from all head nodes](#bat-2---ensure-file-shares-that-store-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Availability | Preview |       No        |
-| [HPC-3 Create an Azure Batch pool across Availability Zones](#bat-3---create-an-azure-batch-pool-across-availability-zones)  | High |  Availability | Preview |       No        |
-| [HPC-4 Automatically grow and shrink HPC Pack cluster resources](#bat-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
-| [HPC-5 HPC Pack - Use multiple head nodes](#bat-5---hpc-pack---use-multiple-head-nodes)  | High |  Availability | Preview |       No        |
-| [HPC-6 Use HPC Pack Azure AD Integration or other highly available AD configuration](#bat-6---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration)  | High |  Availability | Preview |       No        |
+| [BA-1 Monitor Batch account quota](#ba-1---monitor-batch-account-quota)  | Medium |  Monitoring | Preview |       No        |
+| [BA-2 Ensure File shares that store jobs metadata are accessible from all head nodes](#ba-2---ensure-file-shares-that-store-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Availability | Preview |       No        |
+| [BA-3 Create an Azure Batch pool across Availability Zones](#ba-3---create-an-azure-batch-pool-across-availability-zones)  | High |  Availability | Preview |       No        |
+| [BA-4 Automatically grow and shrink HPC Pack cluster resources](#ba-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
+| [BA-5 HPC Pack - Use multiple head nodes](#ba-5---hpc-pack---use-multiple-head-nodes)  | High |  Availability | Preview |       No        |
+| [BA-6 Use HPC Pack Azure AD Integration or other highly available AD configuration](#ba-6---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration)  | High |  Availability | Preview |       No        |
 
 {{< /table >}}
 
@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### BAT-1 - Monitor Batch account quota
+### BA-1 - Monitor Batch account quota
 
 **Category: Monitoring**
 
@@ -45,19 +45,19 @@ Pre-create all required services in each region, such as the Batch account and t
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/azure/reliability/reliability-batch#cross-region-disaster-recovery-and-business-continuity)
+- [Learn More](https://learn.microsoft.com/azure/reliability/reliability-batch#cross-region-disaster-recovery-and-business-continuity)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/bat-1/bat-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ba-1/ba-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### BAT-2 - Ensure file shares that store jobs metadata are accessible from all head nodes
+### BA-2 - Ensure file shares that store jobs metadata are accessible from all head nodes
 
 **Category: Availability**
 
@@ -80,19 +80,19 @@ With the above setup, all nodes can access the file shares independently of the 
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#hpc-pack-cluster-shares)
+- [Learn More](https://learn.microsoft.com/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#hpc-pack-cluster-shares)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/bat-2/bat-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ba-2/ba-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### BAT-3 - Create an Azure Batch pool across Availability Zones
+### BA-3 - Create an Azure Batch pool across Availability Zones
 
 **Category: Availability**
 
@@ -105,19 +105,19 @@ For example, you could create your pool with zonal policy in an Azure region tha
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/azure/batch/create-pool-availability-zones)
+- [Learn More](https://learn.microsoft.com/azure/bach/create-pool-availability-zones)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/bat-3/bat-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ba-3/ba-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### BAT-4 - Automatically grow and shrink HPC Pack cluster resources
+### BA-4 - Automatically grow and shrink HPC Pack cluster resources
 
 **Category: System Efficiency**
 
@@ -129,19 +129,19 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-auto-grow-shrink?view=hpc19-ps)
+- [Learn More](https://learn.microsoft.com/powershell/high-performance-computing/hpcpack-auto-grow-shrink?view=hpc19-ps)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/bat-4/bat-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ba-4/ba-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### BAT-5 - HPC Pack - Use multiple head nodes
+### BA-5 - HPC Pack - Use multiple head nodes
 
 **Category: Availability**
 
@@ -153,19 +153,19 @@ Establish a cluster with a minimum of two head nodes. In the event of a head nod
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-head-node-failure)
+- [Learn More](https://learn.microsoft.com/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-head-node-failure)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/bat-5/bat-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ba-5/ba-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### BAT-6 - Use HPC Pack Azure AD Integration or other highly available AD configuration
+### BA-6 - Use HPC Pack Azure AD Integration or other highly available AD configuration
 
 **Category: Availability**
 
@@ -183,13 +183,13 @@ When HPC fails to connect to the Domain Controller, admins and users will not be
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-ad-failure)
+- [Learn More](https://learn.microsoft.com/powershell/high-performance-computing/hpcpack-ha-cloud?view=hpc19-ps#dealing-with-ad-failure)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/bat-6/bat-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/ba-6/ba-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
