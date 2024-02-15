@@ -45,7 +45,7 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/evg-1/evg-1.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/evg-1/evg-1.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -69,7 +69,7 @@ When Event Grid can't deliver an event within a certain time period or after try
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/evg-2/evg-2.ps1" >}} {{< /code >}}
+{{< code lang="powershell" file="code/evg-2/evg-2.ps1" >}} {{< /code >}}
 
 {{< /collapse >}}
 
