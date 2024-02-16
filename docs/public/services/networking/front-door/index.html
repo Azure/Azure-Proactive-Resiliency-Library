@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Best practices and resiliency recommendations for Front Door and associated resources.">
+    
+    <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/front-door/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/front-door/">
+
+    <title>
+        
+        Front Door | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="https://azure.github.io/Azure-Proactive-Resiliency-Librarycss/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxpusfirv0");
+  </script>
+
+  
+</head>
+<body>
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/"><h6>Azure Databricks</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/"><h6>Azure Site Recovery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/"><h6>Compute Gallery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/"><h6>Image Templates</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/"><h6>Virtual Machine Scale Sets</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/aks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/aks/"><h6>AKS</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/container-registry/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/container-registry/"><h6>Container Registry</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/sqldb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/sqldb/"><h6>SQL DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/"><h6>Cosmos DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/"><h6>DB for PostgreSQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/"><h6>Redis Cache</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/api-management/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/api-management/"><h6>Api Management</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/"><h6>Event Grid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/"><h6>Event Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>Internet of Things</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/"><h6>IoT Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/"><h6>Management</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/automation-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/automation-account/"><h6>Automation Account</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/management-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/management-group/"><h6>Management Groups</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/"><h6>Migration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/"><h6>Azure Backup</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/"><h6>Monitoring</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/"><h6>Application Insights</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/"><h6>Log Analytics</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/"><h6>Resource Health Alerts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/"><h6>Application Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/"><h6>ExpressRoute Circuits</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/"><h6>ExpressRoute Connection</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/"><h6>ExpressRoute Direct</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/"><h6>ExpressRoute Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/"><h6>ExpressRoute Traffic Collector</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/firewall/"><h6>Firewall</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/front-door/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/front-door/"><h6>Front Door</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/"><h6>Load Balancer</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/"><h6>Network Security Group</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/"><h6>Network Watcher</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/"><h6>Private Endpoints</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/"><h6>Public Ip</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/route-table/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/route-table/"><h6>Route Table</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/"><h6>Traffic Manager</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/"><h6>Virtual Networks</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/"><h6>VPN Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/"><h6>Web Application Firewall</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/key-vault/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/key-vault/"><h6>Key Vault</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/"><h6>Azure High Performance Computing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/"><h6>Azure Virtual Desktop</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/"><h6>Azure VMware Solution</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/"><h6>SAP on Azure</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/"><h6>Azure Netapp Files</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/"><h6>Storage Account</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/"><h6>App Service Plan</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/signalr/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/signalr/"><h6>SignalR</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/web-app/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/web-app/"><h6>Web App</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/"><h6>Well Architected Framework</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/1-define/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/1-define/"><h6>1 - Define</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/2-design/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/2-design/"><h6>2 - Design</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/3-test/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/3-test/"><h6>3 - Test</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/"><h6>4 - Deploy</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/"><h6>5 - Monitor</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/"><h6>6 - Respond</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/privacy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/privacy/"><h6>Privacy</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Front Door</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p>The presented resiliency recommendations in this guidance include Front Door and associated Front Door settings.</p>
+<h2 id="summary-of-recommendations">Summary of Recommendations
+  <a href="#summary-of-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>The below table shows the list of resiliency recommendations for Front Door and associated resources.</p>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Recommendation</th>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Impact</th>
+<th style="text-align:center">State</th>
+<th style="text-align:center">ARG Query Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#afd-1---avoid-combining-traffic-manager-and-front-door">AFD-1 - Avoid combining Traffic Manager and Front Door</a></td>
+<td style="text-align:center">Networking</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-2---restrict-traffic-to-your-origins">AFD-2 - Restrict traffic to your origins</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-3---use-the-latest-api-version-and-sdk-version">AFD-3 - Use the latest API version and SDK version</a></td>
+<td style="text-align:center">Networking</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-4---configure-logs">AFD-4 - Configure logs</a></td>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-5---use-end-to-end-tls">AFD-5 - Use end-to-end TLS</a></td>
+<td style="text-align:center">Security</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-6---use-http-to-https-redirection">AFD-6 - Use HTTP to HTTPS redirection</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-7---use-managed-tls-certificates">AFD-7 - Use managed TLS certificates</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-8---use-latest-version-for-customer-managed-certificates">AFD-8 - Use latest version for customer-managed certificates</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-9---use-the-same-domain-name-on-front-door-and-your-origin">AFD-9 - Use the same domain name on Front Door and your origin</a></td>
+<td style="text-align:center">Networking</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-10---enable-the-waf">AFD-10 - Enable the WAF</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-11---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group">AFD-11 - Disable health probes when there is only one origin in an origin group</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-12---select-good-health-probe-endpoints">AFD-12 - Select good health probe endpoints</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-13---use-head-health-probes">AFD-13 - Use HEAD health probes</a></td>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-14---use-geo-filtering-in-azure-front-door">AFD-14 - Use geo-filtering in Azure Front Door</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#afd-15---secure-your-origin-with-private-link-in-azure-front-door">AFD-15 - Secure your Origin with Private Link in Azure Front Door</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div class="alert alert-info" role="alert">
+    Definitions of states can be found <a href="https://azure.github.io/Azure-Proactive-Resiliency-Library/#definitions-of-terms-used-in-aprl">here</a>
+</div>
+
+<h2 id="recommendations-details">Recommendations Details
+  <a href="#recommendations-details">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<h3 id="afd-1---avoid-combining-traffic-manager-and-front-door">AFD-1 - Avoid combining Traffic Manager and Front Door
+  <a href="#afd-1---avoid-combining-traffic-manager-and-front-door">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Networking</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>For most solutions, you should use either Front Door or Azure Traffic Manager, but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin&rsquo;s endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.</p>
+<p>If you need content caching and delivery (CDN), TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager.</p>
+<p>However, as part of a complex architecture, you might choose to use Traffic Manager in front of Front Door. In the unlikely event that Front Door is unavailable, Traffic Manager can route traffic to an alternative destination, such as Azure Application Gateway or a partner content delivery network (CDN). These architectures are difficult to implement and most customers don&rsquo;t need them.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview">Azure Load Balancing Options</a></li>
+<li><a href="https://learn.microsoft.com/azure/traffic-manager/traffic-manager-overview">Azure Traffic Manager</a></li>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/front-door-overview">Azure Front Door</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-2---restrict-traffic-to-your-origins">AFD-2 - Restrict traffic to your origins
+  <a href="#afd-2---restrict-traffic-to-your-origins">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Front Door&rsquo;s features work best when traffic only flows through Front Door. You should configure your origin to block traffic that hasn&rsquo;t been sent through Front Door.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/origin-security?tabs=app-service-functions&amp;pivots=front-door-standard-premium">Secure traffic to Azure Front Door origins</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-3---use-the-latest-api-version-and-sdk-version">AFD-3 - Use the latest API version and SDK version
+  <a href="#afd-3---use-the-latest-api-version-and-sdk-version">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Networking</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs, it&rsquo;s important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and also contain important security patches and bug fixes.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/rest/api/frontdoor/">REST API Reference</a></li>
+<li><a href="https://learn.microsoft.com/java/api/overview/azure/resourcemanager-frontdoor-readme?view=azure-java-preview">Client library for Java</a></li>
+<li><a href="https://learn.microsoft.com/python/api/overview/azure/front-door?view=azure-python">SDK for Python</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-4---configure-logs">AFD-4 - Configure logs
+  <a href="#afd-4---configure-logs">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Monitoring</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Front Door tracks extensive telemetry about every request. When you enable caching, your origin servers might not receive every request, so it&rsquo;s important that you use the Front Door logs to understand how your solution is running and responding to your clients.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/front-door-diagnostics?pivots=front-door-standard-premium">Monitor metrics and logs in Azure Front Door</a></li>
+<li><a href="https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor?pivots=front-door-standard-premium#waf-logs">WAF logs</a></li>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-logs">Configure Azure Front Door logs</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-5---use-end-to-end-tls">AFD-5 - Use end-to-end TLS
+  <a href="#afd-5---use-end-to-end-tls">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Security</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each point of presence (PoP) to the origin. It&rsquo;s a good practice to secure each of these connections with TLS, even for origins that are hosted in Azure. This approach ensures that your data is always encrypted during transit.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium">End-to-end TLS with Azure Front Door</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-6---use-http-to-https-redirection">AFD-6 - Use HTTP to HTTPS redirection
+  <a href="#afd-6---use-http-to-https-redirection">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>It&rsquo;s a good practice for clients to use HTTPS to connect to your service. However, sometimes you need to accept HTTP requests to allow for older clients or clients who might not understand the best practice.</p>
+<p>You can configure Front Door to automatically redirect HTTP requests to use the HTTPS protocol. You should enable the Redirect all traffic to use HTTPS setting on your route.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/front-door-how-to-redirect-https#create-http-to-https-redirect-rule">Create HTTP to HTTPS redirect rule</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-7---use-managed-tls-certificates">AFD-7 - Use managed TLS certificates
+  <a href="#afd-7---use-managed-tls-certificates">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates the managed TLS certificates.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell">Configure HTTPS on an Azure Front Door custom domain using the Azure portal</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-8---use-latest-version-for-customer-managed-certificates">AFD-8 - Use latest version for customer-managed certificates
+  <a href="#afd-8---use-latest-version-for-customer-managed-certificates">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>If you decide to use your own TLS certificates, then consider setting the Key Vault certificate version to &lsquo;Latest&rsquo;. By using &lsquo;Latest&rsquo;, you avoid having to reconfigure Front Door to use new versions of your certificate and waiting for the certificate to be deployed throughout Front Door&rsquo;s environments.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell#select-the-certificate-for-azure-front-door-to-deploy">Select the certificate for Azure Front Door to deploy</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-9---use-the-same-domain-name-on-front-door-and-your-origin">AFD-9 - Use the same domain name on Front Door and your origin
+  <a href="#afd-9---use-the-same-domain-name-on-front-door-and-your-origin">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Networking</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Front Door can rewrite the Host header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. This feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the Host header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like session affinity and authentication and authorization might not work correctly.</p>
+<p>Before you rewrite the Host header of your requests, carefully consider whether your application is going to work correctly.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/architecture/best-practices/host-name-preservation">Preserve the original HTTP host name between a reverse proxy and its back-end web application</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-10---enable-the-waf">AFD-10 - Enable the WAF
+  <a href="#afd-10---enable-the-waf">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>For internet-facing applications, we recommend you enable the Front Door web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a wide range of attacks.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/web-application-firewall">https://learn.microsoft.com/azure/frontdoor/web-application-firewall</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-11---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group">AFD-11 - Disable health probes when there is only one origin in an origin group
+  <a href="#afd-11---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: Low</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Front Door&rsquo;s health probes are designed to detect situations where an origin is unavailable or unhealthy. When a health probe detects a problem with an origin, Front Door can be configured to send traffic to another origin in the origin group.</p>
+<p>If you only have a single origin, Front Door always routes traffic to that origin even if its health probe reports an unhealthy status. The status of the health probe doesn&rsquo;t do anything to change Front Door&rsquo;s behavior. In this scenario, health probes don&rsquo;t provide a benefit and you should disable them to reduce the traffic on your origin.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/health-probes">Health probes</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-12---select-good-health-probe-endpoints">AFD-12 - Select good health probe endpoints
+  <a href="#afd-12---select-good-health-probe-endpoints">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Consider the location where you tell Front Door&rsquo;s health probe to monitor. It&rsquo;s usually a good idea to monitor a webpage or location that you specifically design for health monitoring. Your application logic can consider the status of all of the critical components required to serve production traffic including application servers, databases, and caches. That way, if any component fails, Front Door can route your traffic to another instance of your service</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring">Health Endpoint Monitoring pattern</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-13---use-head-health-probes">AFD-13 - Use HEAD health probes
+  <a href="#afd-13---use-head-health-probes">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: System Efficiency</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Health probes can use either the GET or HEAD HTTP method. It&rsquo;s a good practice to use the HEAD method for health probes, which reduces the amount of traffic load on your origins.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/health-probes#supported-http-methods-for-health-probes">Supported HTTP methods for health probes</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-14---use-geo-filtering-in-azure-front-door">AFD-14 - Use geo-filtering in Azure Front Door
+  <a href="#afd-14---use-geo-filtering-in-azure-front-door">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>By default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions.</p>
+<p>A WAF policy contains a set of custom rules. The rule consists of match conditions, an action, and a priority. In a match condition, you define a match variable, operator, and match value.
+For a geo filtering rule, a match variable is either RemoteAddr or SocketAddr. RemoteAddr is the original client IP that is usually sent via X-Forwarded-For request header. SocketAddr is the source IP address WAF sees. If your user is behind a proxy, SocketAddr is often the proxy server address. The operator in the case of this geo filtering rule is GeoMatch, and the value is a two letter country/region code of interest. &ldquo;ZZ&rdquo; country code or &ldquo;Unknown&rdquo; country captures IP addresses that are not yet mapped to a country in our dataset. You may add ZZ to your match condition to avoid false positives. You can combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-geo-filtering">Geo filter WAF policy - GeoMatch</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="afd-15---secure-your-origin-with-private-link-in-azure-front-door">AFD-15 - Secure your Origin with Private Link in Azure Front Door
+  <a href="#afd-15---secure-your-origin-with-private-link-in-azure-front-door">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Azure Private Link enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet.</p>
+<p>Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure App Service or Azure Storage. Private Link removes the need for your origin to be accessed publicly.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/frontdoor/private-link">Private link for Azure Front Door</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+
+
+    
+
+
+
+          <div class="row"></div> 
+
+        </div>
+
+      </div> 
+
+    </div> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/jquery.min.js"></script> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/popper.min.js"></script> 
+
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Libraryjs/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "https:\/\/azure.github.io\/Azure-Proactive-Resiliency-Library";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+
+</html>

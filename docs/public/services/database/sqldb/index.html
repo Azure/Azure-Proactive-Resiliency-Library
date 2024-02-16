@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Best Practices and Resiliency Recommendations for Azure SQL Database">
+    
+    <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/database/sqldb/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/database/sqldb/">
+
+    <title>
+        
+        SQL DB | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="https://azure.github.io/Azure-Proactive-Resiliency-Librarycss/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxpusfirv0");
+  </script>
+
+  
+</head>
+<body>
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/"><h6>Azure Databricks</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/"><h6>Azure Site Recovery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/"><h6>Compute Gallery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/"><h6>Image Templates</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/"><h6>Virtual Machine Scale Sets</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/aks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/aks/"><h6>AKS</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/container-registry/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/container-registry/"><h6>Container Registry</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/sqldb/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/sqldb/"><h6>SQL DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/"><h6>Cosmos DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/"><h6>DB for PostgreSQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/"><h6>Redis Cache</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/api-management/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/api-management/"><h6>Api Management</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/"><h6>Event Grid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/"><h6>Event Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>Internet of Things</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/"><h6>IoT Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/"><h6>Management</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/automation-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/automation-account/"><h6>Automation Account</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/management-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/management-group/"><h6>Management Groups</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/"><h6>Migration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/"><h6>Azure Backup</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/"><h6>Monitoring</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/"><h6>Application Insights</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/"><h6>Log Analytics</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/"><h6>Resource Health Alerts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/"><h6>Application Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/"><h6>ExpressRoute Circuits</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/"><h6>ExpressRoute Connection</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/"><h6>ExpressRoute Direct</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/"><h6>ExpressRoute Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/"><h6>ExpressRoute Traffic Collector</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/firewall/"><h6>Firewall</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/front-door/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/front-door/"><h6>Front Door</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/"><h6>Load Balancer</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/"><h6>Network Security Group</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/"><h6>Network Watcher</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/"><h6>Private Endpoints</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/"><h6>Public Ip</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/route-table/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/route-table/"><h6>Route Table</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/"><h6>Traffic Manager</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/"><h6>Virtual Networks</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/"><h6>VPN Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/"><h6>Web Application Firewall</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/key-vault/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/key-vault/"><h6>Key Vault</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/"><h6>Azure High Performance Computing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/"><h6>Azure Virtual Desktop</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/"><h6>Azure VMware Solution</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/"><h6>SAP on Azure</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/"><h6>Azure Netapp Files</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/"><h6>Storage Account</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/"><h6>App Service Plan</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/signalr/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/signalr/"><h6>SignalR</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/web-app/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/web-app/"><h6>Web App</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/"><h6>Well Architected Framework</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/1-define/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/1-define/"><h6>1 - Define</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/2-design/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/2-design/"><h6>2 - Design</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/3-test/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/3-test/"><h6>3 - Test</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/"><h6>4 - Deploy</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/"><h6>5 - Monitor</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/"><h6>6 - Respond</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/privacy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/privacy/"><h6>Privacy</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">SQL DB</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p>The presented resiliency recommendations in this guidance include Azure Database Services</p>
+<h2 id="summary-of-recommendations">Summary of Recommendations
+  <a href="#summary-of-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Recommendation</th>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Impact</th>
+<th style="text-align:center">State</th>
+<th style="text-align:center">ARG Query Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#sqldb-1---use-active-geo-replication-to-create-a-readable-secondary-in-another-region">SQLDB-1 - Use Active Geo Replication to Create a Readable Secondary in Another Region</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#sqldb-2---use-auto-failover-groups-that-can-include-one-or-multiple-databases-typically-used-by-the-same-application">SQLDB-2 - Use Auto Failover Groups that can include one or multiple databases, typically used by the same application</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#sqldb-3---use-a-zone-redundant-database">SQLDB-3 - Use a Zone-Redundant database</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#sqldb-4---implement-retry-logic">SQLDB-4 - Implement Retry Logic</a></td>
+<td style="text-align:center">Application Resilience</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#sqldb-5---monitor-your-azure-sql-database-in-near-real-time-to-detect-reliability-incidents">SQLDB-5 - Monitor your Azure SQL Database in near-real time to detect reliability incidents</a></td>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#sqldb-6---back-up-your-keys">SQLDB-6 - Back up your keys</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div class="alert alert-info" role="alert">
+    Definitions of states can be found <a href="https://azure.github.io/Azure-Proactive-Resiliency-Library/#definitions-of-terms-used-in-aprl">here</a>
+</div>
+
+<h2 id="recommendations-details">Recommendations Details
+  <a href="#recommendations-details">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<h3 id="sqldb-1---use-active-geo-replication-to-create-a-readable-secondary-in-another-region">SQLDB-1 - Use Active Geo Replication to Create a Readable Secondary in Another Region
+  <a href="#sqldb-1---use-active-geo-replication-to-create-a-readable-secondary-in-another-region">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>If your primary database fails, perform a manual failover to the secondary database. Until you fail over, the secondary database remains read-only. Active geo-replication enables you to create readable replicas and manually failover to any replica if there is a datacenter outage or application upgrade. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview">Active Geo Replication</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_ad8d6f8b17" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_ad8d6f8b17">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_8bd52e3d63">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_8bd52e3d63">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Provides a list <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">SQL</span> databases that <span style="color:#66d9ef">are</span> <span style="color:#66d9ef">not</span> configured <span style="color:#66d9ef">for</span> Geo<span style="color:#f92672">-</span>redundant <span style="color:#66d9ef">storage</span>.
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;microsoft.sql/servers/databases&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span>  (properties[<span style="color:#e6db74">&#39;currentBackupStorageRedundancy&#39;</span>] ) <span style="color:#f92672">&lt;&gt;</span> <span style="color:#e6db74">&#39;Geo&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sqldb-1&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#34;CurrentGeoRedudancy=&#34;</span>, properties[<span style="color:#e6db74">&#39;currentBackupStorageRedundancy&#39;</span>] )
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="sqldb-2---use-auto-failover-groups-that-can-include-one-or-multiple-databases-typically-used-by-the-same-application">SQLDB-2 - Use Auto Failover Groups that can include one or multiple databases, typically used by the same application
+  <a href="#sqldb-2---use-auto-failover-groups-that-can-include-one-or-multiple-databases-typically-used-by-the-same-application">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>You can use the readable secondary databases to offload read-only query workloads. Because autofailover groups involve multiple databases, these databases must be configured on the primary server. Autofailover groups support replication of all databases in the group to only one secondary server or instance in a different region.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell">AutoFailover Groups</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/designing-cloud-solutions-for-disaster-recovery">DR Design</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_5a3357e32f" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_5a3357e32f">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_0b25f16673">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_0b25f16673">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Provides a list <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">SQL</span> databases that <span style="color:#66d9ef">are</span> <span style="color:#66d9ef">not</span> configured <span style="color:#66d9ef">to</span> use a failover<span style="color:#f92672">-</span><span style="color:#66d9ef">group</span>.
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span><span style="color:#e6db74">&#39;microsoft.sql/servers/databases&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">isnull</span>(properties[<span style="color:#e6db74">&#39;failoverGroupId&#39;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sqldb-2&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span> strcat(<span style="color:#e6db74">&#34;databaseId=&#34;</span>, properties[<span style="color:#e6db74">&#39;databaseId&#39;</span>])
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="sqldb-3---use-a-zone-redundant-database">SQLDB-3 - Use a Zone-Redundant Database
+  <a href="#sqldb-3---use-a-zone-redundant-database">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of Azure Availability Zones, SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by Azure Traffic Manager (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers doesn&rsquo;t create extra database redundancy, you can enable it at no extra cost.</p>
+<p><strong>Resources</strong></p>
+<p>-<a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla">Zone Redundant Databases</a></p>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_7f0f441679" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_7f0f441679">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_44a7f849f2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_44a7f849f2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>Resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.sql/servers/databases&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> tolower(tostring(properties.zoneRedundant))<span style="color:#f92672">=~</span><span style="color:#e6db74">&#39;false&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span>project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sqldb-3&#34;</span>, name, id, tags
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="sqldb-4---implement-retry-logic">SQLDB-4 - Implement Retry Logic
+  <a href="#sqldb-4---implement-retry-logic">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Application Resilience</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Although Azure SQL Database is resilient when it concerns transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while working with SQL Database, make sure your code can retry the call.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/troubleshoot-common-connectivity-issues">How to Implement Retry Logic</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="sqldb-5---monitor-your-azure-sql-database-in-near-real-time-to-detect-reliability-incidents">SQLDB-5 - Monitor your Azure SQL Database in Near Real-Time to Detect Reliability Incidents
+  <a href="#sqldb-5---monitor-your-azure-sql-database-in-near-real-time-to-detect-reliability-incidents">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Monitoring</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Use one of the available solutions to monitor SQL DB to detect potential reliability incidents early and make your databases more reliable. Choose a near real-time monitoring solution to quickly react to incidents.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/insights/azure-sql#analyze-data-and-create-alerts">Azure Monitor</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/monitoring-sql-database-azure-monitor">Azure SQL Database Monitoring</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/monitoring-sql-database-azure-monitor-reference">Monitoring SQL Database Reference</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_2d318aee5a" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_2d318aee5a">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_a10693c279">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_a10693c279">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Provides a list <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">SQL</span> databases that <span style="color:#66d9ef">are</span> <span style="color:#66d9ef">not</span> configured <span style="color:#66d9ef">for</span> monitoring.
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;microsoft.insights/metricalerts&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mv<span style="color:#f92672">-</span>expand properties.scopes
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> mv<span style="color:#f92672">-</span>expand properties.criteria.allOf
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project databaseid <span style="color:#f92672">=</span> properties_scopes, monitoredMetric <span style="color:#f92672">=</span> properties_criteria_allOf.metricName
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> databaseid <span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#39;databases&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> summarize monitoredMetrics<span style="color:#f92672">=</span>make_list(monitoredMetric) <span style="color:#66d9ef">by</span> tostring(databaseid)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>fullouter  (
+</span></span><span style="display:flex;"><span>   resources
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.sql/servers/databases&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> project databaseid <span style="color:#f92672">=</span> tolower(id), name, tags
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">on</span> databaseid
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span><span style="color:#66d9ef">where</span> <span style="color:#66d9ef">isnull</span>(monitoredMetrics)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span>project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sqldb-5&#34;</span>, name, id<span style="color:#f92672">=</span>databaseid1, param1<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#34;MonitoringMetrics=false&#34;</span> ), tags
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="sqldb-6---back-up-your-keys">SQLDB-6 - Back Up Your Keys
+  <a href="#sqldb-6---back-up-your-keys">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>It is highly recommended to use Azure Key Vault (AKV) to store encryption keys related to Always Encrypted configurations, however it is not required. If you are not using AKV, then ensure that your keys are properly backed up.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/key-vault/general/overview">Azure Key Vault</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-landing?view=azuresql">Getting Started with Always Encrypted</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+
+
+    
+
+
+
+          <div class="row"></div> 
+
+        </div>
+
+      </div> 
+
+    </div> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/jquery.min.js"></script> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/popper.min.js"></script> 
+
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Libraryjs/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "https:\/\/azure.github.io\/Azure-Proactive-Resiliency-Library";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+
+</html>

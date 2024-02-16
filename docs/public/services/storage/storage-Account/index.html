@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Best practices and resiliency recommendations for Storage Account and associated resources.">
+    
+    <link rel="alternate" type="application/rss+xml" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/storage/storage-account/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/services/storage/storage-account/">
+
+    <title>
+        
+        Storage Account | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="https://azure.github.io/Azure-Proactive-Resiliency-Librarycss/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://azure.github.io/Azure-Proactive-Resiliency-Library/css/ace.min.css">
+
+    
+
+    
+    
+        
+    
+
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxpusfirv0");
+  </script>
+
+  
+</head>
+<body>
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/"><h6>Azure Databricks</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/"><h6>Azure Site Recovery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/"><h6>Compute Gallery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/"><h6>Image Templates</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/"><h6>Virtual Machine Scale Sets</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/aks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/aks/"><h6>AKS</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/container-registry/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/container-registry/"><h6>Container Registry</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/sqldb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/sqldb/"><h6>SQL DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/"><h6>Cosmos DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/"><h6>DB for PostgreSQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/"><h6>Redis Cache</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/api-management/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/api-management/"><h6>Api Management</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/"><h6>Event Grid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/"><h6>Event Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>Internet of Things</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/"><h6>IoT Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/"><h6>Management</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/automation-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/automation-account/"><h6>Automation Account</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/management-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/management-group/"><h6>Management Groups</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/"><h6>Migration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/"><h6>Azure Backup</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/"><h6>Monitoring</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/"><h6>Application Insights</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/"><h6>Log Analytics</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/"><h6>Resource Health Alerts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/"><h6>Application Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/"><h6>ExpressRoute Circuits</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/"><h6>ExpressRoute Connection</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/"><h6>ExpressRoute Direct</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/"><h6>ExpressRoute Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/"><h6>ExpressRoute Traffic Collector</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/firewall/"><h6>Firewall</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/front-door/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/front-door/"><h6>Front Door</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/"><h6>Load Balancer</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/"><h6>Network Security Group</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/"><h6>Network Watcher</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/"><h6>Private Endpoints</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/"><h6>Public Ip</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/route-table/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/route-table/"><h6>Route Table</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/"><h6>Traffic Manager</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/"><h6>Virtual Networks</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/"><h6>VPN Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/"><h6>Web Application Firewall</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/key-vault/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/key-vault/"><h6>Key Vault</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/"><h6>Azure High Performance Computing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/"><h6>Azure Virtual Desktop</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/"><h6>Azure VMware Solution</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/"><h6>SAP on Azure</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/"><h6>Azure Netapp Files</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/"><h6>Storage Account</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/"><h6>App Service Plan</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/signalr/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/signalr/"><h6>SignalR</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/web-app/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/web-app/"><h6>Web App</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/"><h6>Well Architected Framework</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/1-define/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/1-define/"><h6>1 - Define</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/2-design/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/2-design/"><h6>2 - Design</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/3-test/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/3-test/"><h6>3 - Test</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/"><h6>4 - Deploy</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/"><h6>5 - Monitor</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/"><h6>6 - Respond</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/privacy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/privacy/"><h6>Privacy</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Storage Account</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p>The presented resiliency recommendations in this guidance include Storage Account and associated settings.</p>
+<h2 id="summary-of-recommendations">Summary of Recommendations
+  <a href="#summary-of-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>The below table shows the list of resiliency recommendations for Storage Account and associated resources.</p>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Recommendation</th>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Impact</th>
+<th style="text-align:center">State</th>
+<th style="text-align:center">ARG/Script Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant">ST-1 - Ensure that Storage Account configuration is at least Zone redundant</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-2---do-not-use-classic-storage-account">ST-2 - Do not use classic storage account</a></td>
+<td style="text-align:center">Governance</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-3---ensure-performance-tier-is-set-as-per-workload">ST-3 - Ensure Performance tier is set as per workload</a></td>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-4---choose-right-storage-account-kind-for-workload">ST-4 - Choose right storage account kind for workload</a></td>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-5---enable-soft-delete-for-recovery-of-data">ST-5 - Enable soft delete for recovery of data</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000">ST-6 - Enable version for accidental modification and keep the number of versions below 1000</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-7---enable-point-and-time-restore-for-containers-for-recovery">ST-7 - Enable point and time restore for containers for recovery</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#st-8---configure-diagnostic-settings-for-all-storage-accounts">ST-8 - Configure Diagnostic Settings for all storage accounts</a></td>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div class="alert alert-info" role="alert">
+    Definitions of states can be found <a href="https://azure.github.io/Azure-Proactive-Resiliency-Library/#definitions-of-terms-used-in-aprl">here</a>
+</div>
+
+<h2 id="recommendations-details">Recommendations Details
+  <a href="#recommendations-details">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<h3 id="st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant">ST-1 - Ensure that Storage Account configuration is at least Zone redundant
+  <a href="#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers other options for how your data is replicated in the primary or paired region:</p>
+<ul>
+<li>LRS synchronously replicates data 3 times in single physical location. It is least expensive replication but not recommended for apps with high availability and durability. LRS provides eleven 9 durability.</li>
+<li>ZRS copies data synchronously across 3 availability zone in primary region. ZRS is recommended for apps requiring high availability across zones. ZRS provides twelve 9s durability.</li>
+<li>GRS replicate additional 3 copies to secondary region and provides sixteen 9s availability.</li>
+<li>GZRS provides both high availability and redundancy across geo replication. It provides sixteen 9s durability over a given year.</li>
+</ul>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage redundancy</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8b33cca8ba" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_8b33cca8ba">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_d9c40d6c17">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_d9c40d6c17">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> This query will <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">storage</span> accounts that <span style="color:#66d9ef">are</span> <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">at</span> least <span style="color:#66d9ef">Zone</span> replication
+</span></span><span style="display:flex;"><span>Resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span><span style="color:#e6db74">&#39;microsoft.storage/storageaccounts&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> sku.name <span style="color:#f92672">=~</span><span style="color:#e6db74">&#39;Standard_LRS&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;st-1&#39;</span>, name, id, param1<span style="color:#f92672">=</span>sku.name
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-2---do-not-use-classic-storage-account">ST-2 - Do not use classic Storage Account
+  <a href="#st-2---do-not-use-classic-storage-account">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Governance</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Azure classic Storage Account will retire 31 august 2024. So migrate all workload from classic storage to v2.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/">storage account retirement announcement</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_c34a2bf5c9" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_c34a2bf5c9">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_f3c3d4f2f6">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_f3c3d4f2f6">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Azure classic <span style="color:#66d9ef">Storage</span> Account
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#39;microsoft.classicstorage/storageaccounts&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;st-2&#39;</span>, name, id, param1<span style="color:#f92672">=</span><span style="color:#66d9ef">type</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-3---ensure-performance-tier-is-set-as-per-workload">ST-3 - Ensure Performance tier is set as per workload
+  <a href="#st-3---ensure-performance-tier-is-set-as-per-workload">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: System Efficiency</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Consider using appropriate storage performance tier for standard storage / block blob / append blob / file-share and page blob. Each workload scenario requires appropriate Performance tier and its important that based on the type of transaction and blob type/file type appropriate performance tier is selected. Failing to do so will create performance bottleneck.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/storage/common/storage-account-overview#performance-tiers">Performance Tier</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_805e1af323" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_805e1af323">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_9ac04a3fa2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_9ac04a3fa2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Azure <span style="color:#66d9ef">Storage</span> Accounts, that <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">not</span> have an <span style="color:#66d9ef">access</span> tier <span style="color:#66d9ef">set</span>
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span><span style="color:#e6db74">&#39;microsoft.storage/storageaccounts&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">isnull</span>(properties.accessTier)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;st-3&#39;</span>, name, id, param1<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;not defined - GeneralPurpose V1&#34;</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-4---choose-right-storage-account-kind-for-workload">ST-4 - Choose right storage account kind for workload
+  <a href="#st-4---choose-right-storage-account-kind-for-workload">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: System Efficiency</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are composed of blocks, each of which is identified by a block ID. A block blob can include up to 50,000 blocks</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs">Storage Account Kind docs</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-5---enable-soft-delete-for-recovery-of-data">ST-5 - Enable soft delete for recovery of data
+  <a href="#st-5---enable-soft-delete-for-recovery-of-data">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Soft delete option allow for recovering data if its deleted by mistaken. Moreover Lock will prevent accidentally deleting storage account.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com//azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal">Soft delete detail docs</a></li>
+</ul>
+<p><strong>Script</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_ccf8aed525" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_ccf8aed525">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_78e3a112de">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_78e3a112de">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Powershell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verifies the current ShareDeleteRetentionPolicy setting for a storage account</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set variable values to approroriate storage account and resource group</span>
+</span></span><span style="display:flex;"><span>$storageAccount = <span style="color:#e6db74">&#34;StorageAccountName&#34;</span>
+</span></span><span style="display:flex;"><span>$resourceGroupName = <span style="color:#e6db74">&#34;ResourceGroupName&#34;</span>
+</span></span><span style="display:flex;"><span>Get-AzStorageFileServiceProperty -ResourceGroupName $resourceGroupName -AccountName $storageAccount  | Select-Object ShareDeleteRetentionPolicy | Format-Custom
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000">ST-6 - Enable version for accidental modification and keep the number of versions below 1000
+  <a href="#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>To recover data from accidental modification or deletion enable versioning.
+Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/storage/blobs/versioning-overview">Blob versioning</a></li>
+</ul>
+<p><strong>Script</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_54d561675e" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_54d561675e">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_677e839575">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_677e839575">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Powershell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verifies if versioning is enabled on a storage account</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the Subscription ID for the variable $subid</span>
+</span></span><span style="display:flex;"><span>login-azaccount
+</span></span><span style="display:flex;"><span>$subid = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>select-AzSubscription -Subscription $subid
+</span></span><span style="display:flex;"><span>$stgs = Get-AzStorageAccount
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($st <span style="color:#66d9ef">in</span> $stgs){
+</span></span><span style="display:flex;"><span>    $ResourceGroupName = $st.ResourceGroupName
+</span></span><span style="display:flex;"><span>    $StorageAccountNameName = $st.StorageAccountName
+</span></span><span style="display:flex;"><span>    $IsVersioningEnabled = (Get-AzStorageBlobServiceProperty -ResourceGroupName $st.ResourceGroupName -AccountName $st.StorageAccountName).IsVersioningEnabled
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($IsVersioningEnabled <span style="color:#f92672">-eq</span> $null){
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;---------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Output (<span style="color:#e6db74">&#34;st-6;&#34;</span> + $StorageAccountNameName + <span style="color:#e6db74">&#34;;&#34;</span> +  $st.id + <span style="color:#e6db74">&#34;;IsVersioningEnabled: Null&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-7---enable-point-and-time-restore-for-containers-for-recovery">ST-7 - Enable point and time restore for containers for recovery
+  <a href="#st-7---enable-point-and-time-restore-for-containers-for-recovery">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: Low</strong></p>
+<p><strong>Guidance</strong></p>
+<p>You can use point-in-time restore to restore one or more sets of block blobs to a previous state
+Point and time restore support general purpose v2 account in standard performance tier. Its a mechanism to protect data</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/storage/blobs/point-in-time-restore-manage?tabs=portal">Restore overview</a></li>
+</ul>
+<p><strong>Script</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_9d77dc6bf6" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_9d77dc6bf6">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_ce43c77689">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_ce43c77689">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Powershell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verifies if DeleteRetentionPolicy is enabled on a storage account</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the Subscription ID for the variable $subid</span>
+</span></span><span style="display:flex;"><span>login-azaccount
+</span></span><span style="display:flex;"><span>$subid = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>select-AzSubscription -Subscription $subid
+</span></span><span style="display:flex;"><span>$stgs = Get-AzStorageAccount
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($st <span style="color:#66d9ef">in</span> $stgs){
+</span></span><span style="display:flex;"><span>    $ResourceGroupName = $st.ResourceGroupName
+</span></span><span style="display:flex;"><span>    $StorageAccountNameName = $st.StorageAccountName
+</span></span><span style="display:flex;"><span>    $DeleteRetentionPolicy = (Get-AzStorageBlobServiceProperty -ResourceGroupName $st.ResourceGroupName -StorageAccountName $st.StorageAccountName).DeleteRetentionPolicy.Enabled
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($DeleteRetentionPolicy <span style="color:#f92672">-eq</span> $false <span style="color:#f92672">-or</span> $DeleteRetentionPolicy <span style="color:#f92672">-eq</span> $null){
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;---------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Output (<span style="color:#e6db74">&#34;st-7;&#34;</span> + $StorageAccountNameName + <span style="color:#e6db74">&#34;;&#34;</span> +  $st.id + <span style="color:#e6db74">&#34;;DeleteRetentionPolicy: False&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="st-8---configure-diagnostic-settings-for-all-storage-accounts">ST-8 - Configure Diagnostic Settings for all storage accounts
+  <a href="#st-8---configure-diagnostic-settings-for-all-storage-accounts">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Monitoring</strong></p>
+<p><strong>Impact: Low</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Enabling diagnostic settings allow you to capture and view diagnostic information so that you can troubleshoot any failures.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/monitor-blob-storage">Diagnostic Setting for Storage Account</a></li>
+</ul>
+<p><strong>Script</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e8d7b6f39" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_8e8d7b6f39">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b1a65a2861">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b1a65a2861">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Powershell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verifies if DiagnosticSettings is enabled on a storage account</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the Subscription ID for the variable $subid</span>
+</span></span><span style="display:flex;"><span>login-azaccount
+</span></span><span style="display:flex;"><span>$subid = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>select-AzSubscription -Subscription $subid
+</span></span><span style="display:flex;"><span>$stgs = Get-AzStorageAccount
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">foreach</span> ($st <span style="color:#66d9ef">in</span> $stgs){
+</span></span><span style="display:flex;"><span>    $ResourceGroupName = $st.ResourceGroupName
+</span></span><span style="display:flex;"><span>    $StorageAccountNameName = $st.StorageAccountName
+</span></span><span style="display:flex;"><span>    $diag = (Get-AzDiagnosticSetting -ResourceId  <span style="color:#e6db74">&#34;/subscriptions/</span>$subid<span style="color:#e6db74">/resourceGroups/</span>$ResourceGroupName<span style="color:#e6db74">/providers/Microsoft.Storage/storageAccounts/</span>$StorageAccountNameName<span style="color:#e6db74">&#34;</span>).Id
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($diag <span style="color:#f92672">-eq</span> $null){
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;---------------------------------------------------------&#34;</span>
+</span></span><span style="display:flex;"><span>        Write-Output (<span style="color:#e6db74">&#34;st-9;&#34;</span> + $StorageAccountNameName + <span style="color:#e6db74">&#34;;&#34;</span> +  $st.id + <span style="color:#e6db74">&#34;;DiagnosticSettings: Null&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+
+
+    
+
+
+
+          <div class="row"></div> 
+
+        </div>
+
+      </div> 
+
+    </div> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/jquery.min.js"></script> 
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Librarylib/popper.min.js"></script> 
+
+<script src="https://azure.github.io/Azure-Proactive-Resiliency-Libraryjs/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "https:\/\/azure.github.io\/Azure-Proactive-Resiliency-Library";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+
+</html>

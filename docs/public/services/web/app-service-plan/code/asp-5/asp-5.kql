@@ -1,0 +1,16 @@
+// Azure Resource Graph Query
+//// Provides a list of Azure App Service Plans that are in the “PremiumV2”, “PremiumV3”, “Premium0V3”, “PremiumMV3”, or “Standard” tier, and checks if they have Elastic Scale or Autoscale enabled.
+
+  resources
+  | where type =~ 'microsoft.web/serverfarms'
+  | extend tier = sku.tier, elasticScaleEnabled = coalesce(properties.elasticScaleEnabled, false)
+  | where tier in ('PremiumV2', 'PremiumV3', 'Premium0V3', 'PremiumMV3', 'Standard')
+  | extend id = tostring(id)
+  | project id, name,  tier, ['Elastic Scale'] = iff(elasticScaleEnabled, 'Enabled', 'Disabled')
+  | join kind=leftouter (
+    resources
+    | where type =~ 'microsoft.insights/autoscalesettings'
+    | extend autoscaleEnabled = coalesce(properties.enabled, false), metricResourceUri = tostring(properties.profiles[0].rules[0].metricTrigger.metricResourceUri)
+    | project autoscaleEnabled, metricResourceUri
+  ) on $left.id == $right.metricResourceUri
+  | project recommendationid="asp-5",name, id, ['Tier'] = tier, ['Elastic Scale'] = ['Elastic Scale'], ['Autoscale'] = iff(isnull(autoscaleEnabled), 'Disabled', iff(autoscaleEnabled, 'Enabled', 'Disabled'))

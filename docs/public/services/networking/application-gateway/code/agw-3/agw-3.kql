@@ -1,0 +1,8 @@
+// Azure Resource Graph Query
+// This query will return all Application Gateways that do not have WAF enabled
+Resources
+| where type =~ "microsoft.network/applicationGateways"
+| where properties.firewallpolicy != ""
+| project recommendationId = "agw-3", name, id, param1 = "webApplicationFirewallConfiguration: isNull"
+| order by id asc
+
