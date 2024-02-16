@@ -31,7 +31,7 @@ microsoft.keyvault/vaults,Key vault,kv
 microsoft.network/vpngateways,VPN Gateway,vpng
 microsoft.network/virtualNetworkGateways,VPN Gateway,vpng
 microsoft.network/firewallpolicies,Web Application Firewall,waf
-microsoft.netapp/netappaccounts,Azure Netapp Files,anf
+microsoft.netapp/netappaccounts,Azure NetApp Files,anf
 microsoft.storage/storageaccounts,Storage account,st
 microsoft.recoveryservices/vaults,Azure Site Recovery,asr
 microsoft.compute/galleries,Compute Gallery,cg
