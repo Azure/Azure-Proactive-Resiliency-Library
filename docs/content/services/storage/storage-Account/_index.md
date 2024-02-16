@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Storage Accoun
 The below table shows the list of resiliency recommendations for Storage Account and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                |     Category      | Impact |  State  | ARG/Script Available |
+| Recommendation                                                                                                                                                                                |     Category      | Impact |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:--------------------:|
 | [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant)                                   |   Availability    |  High  | Preview |          Yes         |
 | [ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                                                       |    Governance     |  High  | Preview |         Yes          |
