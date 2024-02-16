@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Azure NetApp F
 | Recommendation                                    |  Category                                                               |  Impact         |  State   | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------: | :-----------------: |
 | [ANF-1 - Use the correct service level and volume quota size for the expected performance level](#anf-1---use-the-correct-service-level-and-volume-quota-size-for-the-expected-performance-level) | System Efficiency | High | Preview  |         No         |
-| [ANF-2 - Use standard network features for Production in Azure NetApp Files](#anf-2---use-standard-network-feature-for-production-in-azure-netapp-files) | Networking | High | Preview  |         Yes         |
+| [ANF-2 - Use standard network features for Production in Azure NetApp Files](#anf-2---use-standard-network-features-for-production-in-azure-netapp-files) | Networking | High | Preview  |         Yes         |
 | [ANF-3 - Use availability zones for high availability in Azure NetApp Files](#anf-3---use-availability-zones-for-high-availability-in-azure-netapp-files) | Availability | High | Preview  |         Yes         |
 | [ANF-4 - Use snapshot and backup for in-region data protection in Azure NetApp Files](#anf-4---use-snapshot-and-backup-for-in-region-data-protection-in-azure-netapp-files) | Availability | High | Preview  |         No         |
 | [ANF-5 - Enable Cross-region replication of Azure NetApp Files volumes](#anf-5---enable-cross-region-replication-of-azure-netapp-files-volumes) | Disaster Recovery | High | Preview  |         Yes         |
@@ -60,7 +60,7 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 <br><br>
 
-### ANF-2 - Use standard network feature for Production in Azure NetApp Files
+### ANF-2 - Use standard network features for Production in Azure NetApp Files
 
 **Category: Networking**
 
