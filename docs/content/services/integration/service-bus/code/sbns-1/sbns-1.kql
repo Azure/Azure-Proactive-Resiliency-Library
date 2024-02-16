@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// Returns Service Bus namespaces that do not have any availability zones enabled
+resources
+| where type =~ 'Microsoft.ServiceBus/namespaces'
+| where properties.zoneRedundant == 'false'
+| project recommendationId = "sbns-1", name, id, tags, param1=strcat("zoneRedundant: ", properties.zoneRedundant), param2=strcat("SKU: ", sku.name), param3=iff(tolower(sku.name) == 'premium', 'Move Service Bus namespace to a region that supports Availability Zones', 'Migrate to Premium SKU in a region that supports Availability Zones')
