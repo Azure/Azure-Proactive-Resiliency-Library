@@ -73,18 +73,6 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 Ensure SAP production systems are designed for high availability using availability zones.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -98,18 +86,6 @@ Ensure SAP production systems are designed for high availability using availabil
 
 In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with flexible orchestration to distribute the virtual machines across specified zones and within each zone to also distribute VMs across different fault domains within the zone on a best effort basis.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -123,18 +99,6 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 When using Virtual Machines Scale Set (VMSS), it is configured following our recommendations for SAP workload using the right mode and correct settings.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-2/cm-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -148,18 +112,6 @@ When using Virtual Machines Scale Set (VMSS), it is configured following our rec
 
 In a zonal high availability setup if we can't use VMSS, then application server VMs of each zone are placed in an availability set using a proximity placement group so VMs are distributed across multiple fault domains and update domains within each zone.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -173,18 +125,6 @@ In a zonal high availability setup if we can't use VMSS, then application server
 
 Avoid placing application server and database VMs in one Proximity Placement Group.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -198,18 +138,6 @@ Avoid placing application server and database VMs in one Proximity Placement Gro
 
 Avoid placing VMs from multiple SAP systems in a single Proximity Placement Group.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -223,18 +151,6 @@ Avoid placing VMs from multiple SAP systems in a single Proximity Placement Grou
 
 If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultra Disk to avail the single-instance SLA of 99.9% availability.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -248,18 +164,6 @@ If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultr
 
 If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultra Disk to avail the single-instance SLA of 99.9% availability.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -273,18 +177,6 @@ If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultr
 
 In case of database, the data is replicated synchronously (SYNC mode) between our database hosting VM nodes.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -298,18 +190,6 @@ In case of database, the data is replicated synchronously (SYNC mode) between ou
 
 Ensure that the SAP shared files systems such as /sapmnt, /usr/trans, interfaces have been made highly available, and in a zonal deployment, they are replicated to another zone.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -323,18 +203,6 @@ Ensure that the SAP shared files systems such as /sapmnt, /usr/trans, interfaces
 
 Test all our HA solutions thoroughly (including kernel panic in Linux VMs and also fail-back), fail overs are smooth and meet the expected fail over times. The failback can be either automatic or manual.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -348,18 +216,6 @@ Test all our HA solutions thoroughly (including kernel panic in Linux VMs and al
 
 Where we have a zonal SAP deployment, all components and Azure services are deployed with zone redundency (for example ER GW, Azure LB, AppGW, Reverse proxy, IP addresses, firewalls, ANF, VMSS running any shared services like firewalls, backup infrastructure, and so on).
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -373,18 +229,6 @@ Where we have a zonal SAP deployment, all components and Azure services are depl
 
 SAP production workloads are protected by a cross-region DR solution.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -398,18 +242,6 @@ SAP production workloads are protected by a cross-region DR solution.
 
 SAP production workloads are protected by a cross-zone DR solution.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -423,18 +255,6 @@ SAP production workloads are protected by a cross-zone DR solution.
 
 Implementing an offsite backup strategy by utilizing the second Azure region for our backups.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -448,18 +268,6 @@ Implementing an offsite backup strategy by utilizing the second Azure region for
 
 We considered On-demand Capacity Reservation to reserve our DR compute capacity.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -473,18 +281,6 @@ We considered On-demand Capacity Reservation to reserve our DR compute capacity.
 
 The  production databases are replicated (ASYNC) to DR location using the database vendor's replication technology.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -498,18 +294,6 @@ The  production databases are replicated (ASYNC) to DR location using the databa
 
 SAP components such as (A)SCS, applicatoin servers, WebDispatchers, etc are backed up to DR location using an appropriate backup tool or ASR.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -523,18 +307,6 @@ SAP components such as (A)SCS, applicatoin servers, WebDispatchers, etc are back
 
 SAP shared files systems such as /sapmnt, /usr/trans, interfaces and any other critical to DR are replicated or backed up to DR location.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -548,18 +320,6 @@ SAP shared files systems such as /sapmnt, /usr/trans, interfaces and any other c
 
 Cross Region Restore for our Geo-redundant Recovery Services Vaults has been enabled so we can restore backed up data in the secondary region when the primary region is still available.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -573,18 +333,6 @@ Cross Region Restore for our Geo-redundant Recovery Services Vaults has been ena
 
 Our backup testing confirmed that we can back up all production systems simultaneously (or as needed) and when needed restore them, both within an expected time frame.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -598,18 +346,6 @@ Our backup testing confirmed that we can back up all production systems simultan
 
 Automat DR infrastructure build (or have pre-deployed DR resources) and SAP service recovery as much as possible.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -623,18 +359,6 @@ Automat DR infrastructure build (or have pre-deployed DR resources) and SAP serv
 
 Documented and tested our DR procedure,  ensure to meet our RPO and RTO targets.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -648,18 +372,6 @@ Documented and tested our DR procedure,  ensure to meet our RPO and RTO targets.
 
 Configure scheduled events so you are notified of upcoming maintenance events (for example, reboot). Resource agent azure-events can also integrate with Pacemaker clusters.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -673,18 +385,6 @@ Configure scheduled events so you are notified of upcoming maintenance events (f
 
 Defined a procedure on how to react to Scheduled events.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -698,18 +398,6 @@ Defined a procedure on how to react to Scheduled events.
 
 Setup Service Health alerts for all critical subscriptions so that you are notified of issues impacting availability of our Azure services and resources.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -723,18 +411,6 @@ Setup Service Health alerts for all critical subscriptions so that you are notif
 
 Defined a procedure on how to react to Service Heath Alerts and the  SAP applications can automatically start in correct sequence.
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -748,19 +424,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 [ASCS-Pacemaker - Central Server Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 <br><br>
 
 ### SAP-43 - ASCS-Pacemaker SLES Central server instance ensure the pacemaker cluster configuration parameters have been setup for sap ascs high availability when running on sles
@@ -772,19 +435,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 **Recommendation/Guidance**
 
 [ASCS-Pacemaker-SLESCentral Server Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
-
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -798,18 +448,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 [ASCS-Pacemaker-RH Central Server Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -823,19 +461,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 [ASCS-LB - Central Server Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 <br><br>
 
 ### SAP-46 - DBHANA Pacemaker Database Instance ensure the pacemaker cluster configuration parameters have been setup for sap hana db high availability
@@ -847,19 +472,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 **Recommendation/Guidance**
 
 [DBHANA-Pacemaker- Database Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
-
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
 
@@ -873,19 +485,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 [DBHANA-Pacemaker-SLES- Database Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 <br><br>
 
 ### SAP-48 - DBHANA-Pacemaker-RH- Database Instance - Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat
@@ -898,19 +497,6 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 [DBHANA-Pacemaker-RH- Database Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
 
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 <br><br>
 
 ### SAP-49 - DBHANA-LB Database Instance ensure the load balancer is configured correctly for sap hana db high availability
@@ -922,18 +508,5 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 **Recommendation/Guidance**
 
 [DBHANA-LB- Database Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
-
-**Resources**
-
-- [CHANGE ME LINK](https://aka.ms)
-- [CHANGE ME LINK](https://aka.ms)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cm-1/cm-1.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
 
 <br><br>
