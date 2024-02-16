@@ -1,6 +1,0 @@
-Resources
-| where type == 'microsoft.network/trafficmanagerprofiles'
-| extend endpoints = properties.endpoints
-| mv-expand endpoint = endpoints
-| extend endpointName = endpoint.name
-| project recommendationId="traf-2", name, id, endpointName, properties.trafficRoutingMethod

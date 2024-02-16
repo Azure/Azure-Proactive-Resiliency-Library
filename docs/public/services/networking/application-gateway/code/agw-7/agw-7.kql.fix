@@ -1,8 +1,0 @@
-// Azure Resource Graph Query
-// You can use the following Azure Resource Graph Query to see if the Application Gateway is zone redundant
-Resources
-| where type =~ "microsoft.network/applicationGateways"
-| extend appGatewayResourceId = tostring(id)
-| extend zoneRedundant = tostring(properties.enableZoneRedundancy)
-| project appGatewayResourceId, zoneRedundant
-

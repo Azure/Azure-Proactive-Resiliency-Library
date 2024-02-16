@@ -1,9 +1,0 @@
-// Azure Resource Graph Query
-// This query will return all locations that do not have a Network Watcher deployed
-resources
-| where location != "global"
-| union (Resources
-    | where type =~ "microsoft.network/networkwatchers")
-| summarize NetworkWatcherCount = countif(type =~ 'Microsoft.Network/networkWatchers') by location
-| where NetworkWatcherCount == 0
-| project recommendationId = "nw-1", name=location, id="n/a", param1 = strcat("LocationMisingNetworkWatcher:", location)

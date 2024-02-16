@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Find Event Hub namespace instances that are not zone redundant
-resources
-| where type == "microsoft.eventhub/namespaces"
-| where properties.zoneRedundant == false
-| project recommendationId = "evhns-1", name, id, param1 = "ZoneRedundant: False", tags
-| order by id asc

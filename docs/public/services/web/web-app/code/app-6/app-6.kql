@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-//Provides a list of Azure App Service resources and checks if they is any App Setting configured under this App
-
-appserviceresources
-| where ['type'] == "microsoft.web/sites/config"
-| project  recommendationId="app-5", id, name, AppSettings = iif(isempty(properties.AppSettings), 0, 1) , properties
-

@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Returns AKS clusters where GitOps is not enabled
-resources
-|  where type == "microsoft.containerservice/managedclusters"
-|  extend gitops = tostring (parse_json(properties.addOnProfiles.gitops.enabled))
-|  where isempty(gitops)
-|  project recommendationId="aks-16", id, name, param1=strcat("gitopsEnabled: ", "false")

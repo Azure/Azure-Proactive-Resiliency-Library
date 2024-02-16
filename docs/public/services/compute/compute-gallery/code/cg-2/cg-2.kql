@@ -1,8 +1,0 @@
-// Azure Resource Graph Query
-// Query to list all image versions and its associated image and gallery name whose Storage account type is not using ZRS
-resources
-| where type =~ "microsoft.compute/galleries/images/versions"
-| extend GalleryName = tostring(split(tostring(id), "/")[8]), ImageName = tostring(split(tostring(id), "/")[10])
-| extend StorageAccountType = tostring(properties.publishingProfile.storageAccountType)
-| where StorageAccountType !has "ZRS"
-| project RecommendationId="cg-2",name,id,tags,param1=strcat("GalleryName: ",GalleryName),param2=strcat("ImageName: ",ImageName),param3=strcat("StorageAccountType: ",StorageAccountType)

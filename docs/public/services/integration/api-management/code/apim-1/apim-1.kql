@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Find all API Management instances that aren't Premium
-resources
-| where type =~ 'Microsoft.ApiManagement/service'
-| extend skuName = sku.name
-| where tolower(skuName) != tolower('premium')
-| project recommendationId = "apim-1", name, id, tags, param1=strcat("SKU: ", skuName)
