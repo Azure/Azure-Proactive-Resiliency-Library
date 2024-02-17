@@ -63,7 +63,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### SAP-1 - Ensure SAP production systems are designed for high availability using availability zones.
+### SAP-1 - Ensure SAP production systems are designed for high availability using availability zones
 
 **Category: Compute**
 
@@ -76,7 +76,7 @@ Ensure SAP production systems are designed for high availability using availabil
 
 <br><br>
 
-### SAP-2 - Run SAP application servers on two or more VMS using VMSS Flex.
+### SAP-2 - Run SAP application servers on two or more VMS using VMSS Flex
 
 **Category: Compute**
 
@@ -89,7 +89,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 <br><br>
 
-### SAP-3 - When using Virtual Machines Scale Set (VMSS), it is configured following our recommendations for SAP workload using the right mode and correct settings.
+### SAP-3 - When using Virtual Machines Scale Set (VMSS), it is configured following our recommendations for SAP workload using the right mode and correct settings
 
 **Category: Compute**
 
@@ -102,7 +102,7 @@ When using Virtual Machines Scale Set (VMSS), it is configured following our rec
 
 <br><br>
 
-### SAP-5 - In a zonal high availability setup if we can't use VMSS, then ensure the SAP application server VMs of each zone are placed in an availability set using a proximity placement group so VMs are distributed across multiple fault domains and update domains within each zone.
+### SAP-5 - In a zonal high availability setup if we can't use VMSS, then ensure the SAP application server VMs of each zone are placed in an availability set using a proximity placement group so VMs are distributed across multiple fault domains and update domains within each zone
 
 **Category: Compute**
 
@@ -115,7 +115,7 @@ In a zonal high availability setup if we can't use VMSS, then application server
 
 <br><br>
 
-### SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group.
+### SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group
 
 **Category: Compute**
 
@@ -128,7 +128,7 @@ Avoid placing application server and database VMs in one Proximity Placement Gro
 
 <br><br>
 
-### SAP-7 - Avoid placing VMs from multiple SAP systems in a single Proximity Placement Group.
+### SAP-7 - Avoid placing VMs from multiple SAP systems in a single Proximity Placement Group
 
 **Category: Compute**
 
@@ -141,7 +141,7 @@ Avoid placing VMs from multiple SAP systems in a single Proximity Placement Grou
 
 <br><br>
 
-### SAP-8 - When creating availability sets, Ensure to use the maximum number of fault domains available and a high enough number of update domains, we also audit our VMs to avoid unexpected deviation.
+### SAP-8 - When creating availability sets, Ensure to use the maximum number of fault domains available and a high enough number of update domains, we also audit our VMs to avoid unexpected deviation
 
 **Category: Compute**
 
@@ -154,7 +154,7 @@ If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultr
 
 <br><br>
 
-### SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk to avail the single-instance SLA of 99-9 availability.
+### SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk to avail the single-instance SLA of 99-9 availability
 
 **Category: Compute**
 
@@ -167,7 +167,7 @@ If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultr
 
 <br><br>
 
-### SAP-14 - In case of database, Ensure that the data is replicated synchronously SYNC mode between the primary and secondary database hosting VM nodes.
+### SAP-14 - In case of database, Ensure that the data is replicated synchronously SYNC mode between the primary and secondary database hosting VM nodes
 
 **Category: High Availability**
 
@@ -180,7 +180,7 @@ In case of database, the data is replicated synchronously (SYNC mode) between ou
 
 <br><br>
 
-### SAP-15 - Ensure that the SAP shared files systems such as sapmnt interfaces have been made highly available and in a zonal deployment they are replicated to another zone.
+### SAP-15 - Ensure that the SAP shared files systems such as sapmnt interfaces have been made highly available and in a zonal deployment they are replicated to another zone
 
 **Category:  High Availability**
 
@@ -193,7 +193,7 @@ Ensure that the SAP shared files systems such as /sapmnt, /usr/trans, interfaces
 
 <br><br>
 
-### SAP-16 - Test all our HA solutions thoroughly (including kernel panic in Linux VMs and also fail-back), fail overs are smooth and meet the expected fail over times. The failback can be either automatic or manual.
+### SAP-16 - Test all our HA solutions thoroughly (including kernel panic in Linux VMs and also fail-back), fail overs are smooth and meet the expected fail over times. The failback can be either automatic or manual
 
 **Category:  High Availability**
 
@@ -206,7 +206,7 @@ Test all our HA solutions thoroughly (including kernel panic in Linux VMs and al
 
 <br><br>
 
-### SAP-20 - Where we have a zonal SAP deployment, all components and Azure services are deployed with zone redundancy for example ER GW, Azure LB, AppGW, Reverse proxy, IP addresses, firewalls, ANF, VMSS running any shared services like firewalls, backup infrastructure, and so on.
+### SAP-20 - Where we have a zonal SAP deployment, all components and Azure services are deployed with zone redundancy for example ER GW, Azure LB, AppGW, Reverse proxy, IP addresses, firewalls, ANF, VMSS running any shared services like firewalls, backup infrastructure, and so on
 
 **Category:  High Availability**
 
@@ -219,7 +219,7 @@ Where we have a zonal SAP deployment, all components and Azure services are depl
 
 <br><br>
 
-### SAP-22 - Ensure that the SAP production workloads are protected by a cross-region DR solution.
+### SAP-22 - Ensure that the SAP production workloads are protected by a cross-region DR solution
 
 **Category: Disaster Recovery**
 
@@ -232,7 +232,7 @@ SAP production workloads are protected by a cross-region DR solution.
 
 <br><br>
 
-### SAP-23 - For Customers leveraging Zonal DR, ensure that SAP production workloads are protected by a cross-zone DR solution.
+### SAP-23 - For Customers leveraging Zonal DR, ensure that SAP production workloads are protected by a cross-zone DR solution
 
 **Category: Disaster Recovery**
 
@@ -245,7 +245,7 @@ SAP production workloads are protected by a cross-zone DR solution.
 
 <br><br>
 
-### SAP-24 - Implementing an offsite backup strategy by utilizing the second Azure region for our backups.
+### SAP-24 - Implementing an offsite backup strategy by utilizing the second Azure region for our backups
 
 **Category: Disaster Recovery**
 
@@ -258,7 +258,7 @@ Implementing an offsite backup strategy by utilizing the second Azure region for
 
 <br><br>
 
-### SAP-26 - Consider On-demand Capacity Reservation to reserve our DR compute capacity.
+### SAP-26 - Consider On-demand Capacity Reservation to reserve our DR compute capacity
 
 **Category: Disaster Recovery**
 
@@ -271,7 +271,7 @@ We considered On-demand Capacity Reservation to reserve our DR compute capacity.
 
 <br><br>
 
-### SAP-27 - Ensure that the production databases are replicated ASYNC to DR location using the database vendors replication technology.
+### SAP-27 - Ensure that the production databases are replicated ASYNC to DR location using the database vendors replication technology
 
 **Category: Disaster Recovery**
 
@@ -284,7 +284,7 @@ The  production databases are replicated (ASYNC) to DR location using the databa
 
 <br><br>
 
-### SAP-28 - SAP components such as (A)SCS, application servers, WebDispatchers, etc are backed up to DR location using an appropriate backup tool or ASR.
+### SAP-28 - SAP components such as (A)SCS, application servers, WebDispatchers, etc are backed up to DR location using an appropriate backup tool or ASR
 
 **Category: Disaster Recovery**
 
@@ -297,7 +297,7 @@ SAP components such as (A)SCS, applicatoin servers, WebDispatchers, etc are back
 
 <br><br>
 
-### SAP-29 - SAP shared files systems such as sapmnt, usr trans, interfaces and any other critical to DR are replicated or backed up to DR location.
+### SAP-29 - SAP shared files systems such as sapmnt, usr trans, interfaces and any other critical to DR are replicated or backed up to DR location
 
 **Category: Disaster Recovery**
 
@@ -310,7 +310,7 @@ SAP shared files systems such as /sapmnt, /usr/trans, interfaces and any other c
 
 <br><br>
 
-### SAP-30 - Cross Region Restore for our Geo-redundant Recovery Services Vaults has been enabled so we can restore backed up data in the secondary region when the primary region is still available.
+### SAP-30 - Cross Region Restore for our Geo-redundant Recovery Services Vaults has been enabled so we can restore backed up data in the secondary region when the primary region is still available
 
 **Category: Disaster Recovery**
 
@@ -323,7 +323,7 @@ Cross Region Restore for our Geo-redundant Recovery Services Vaults has been ena
 
 <br><br>
 
-### SAP-31 - Conduct backup testing to confirm that all the production systems can be backed up simultaneously or as needed and the restore is working within an expected time frame.
+### SAP-31 - Conduct backup testing to confirm that all the production systems can be backed up simultaneously or as needed and the restore is working within an expected time frame
 
 **Category: Disaster Recovery**
 
@@ -336,7 +336,7 @@ Our backup testing confirmed that we can back up all production systems simultan
 
 <br><br>
 
-### SAP-32 - Automate DR infrastructure build or have pre-deployed DR resources and SAP service recovery as much as possible.
+### SAP-32 - Automate DR infrastructure build or have pre-deployed DR resources and SAP service recovery as much as possible
 
 **Category: Disaster Recovery**
 
@@ -349,7 +349,7 @@ Automat DR infrastructure build (or have pre-deployed DR resources) and SAP serv
 
 <br><br>
 
-### SAP-33 - Documented and tested our DR procedure, ensure to meet our RPO and RTO targets.
+### SAP-33 - Documented and tested our DR procedure, ensure to meet our RPO and RTO targets
 
 **Category: Disaster Recovery**
 
@@ -362,7 +362,7 @@ Documented and tested our DR procedure,  ensure to meet our RPO and RTO targets.
 
 <br><br>
 
-### SAP-36 - Configure scheduled events so you are notified of upcoming maintenance events for example reboot.
+### SAP-36 - Configure scheduled events so you are notified of upcoming maintenance events for example reboot
 
 **Category: Azure Health**
 
@@ -375,7 +375,7 @@ Configure scheduled events so you are notified of upcoming maintenance events (f
 
 <br><br>
 
-### SAP-37 - Defined a procedure on how to react to Scheduled events.
+### SAP-37 - Defined a procedure on how to react to Scheduled events
 
 **Category: Azure Health**
 
@@ -388,7 +388,7 @@ Defined a procedure on how to react to Scheduled events.
 
 <br><br>
 
-### SAP-39 - Setup Service Health alerts for all critical subscriptions so that you are notified of issues impacting availability of our Azure services and resources.
+### SAP-39 - Setup Service Health alerts for all critical subscriptions so that you are notified of issues impacting availability of our Azure services and resources
 
 **Category: Azure Health**
 
@@ -401,7 +401,7 @@ Setup Service Health alerts for all critical subscriptions so that you are notif
 
 <br><br>
 
-### SAP-40 - Defined a procedure on how to react to Service Heath Alerts and the  SAP applications can automatically start in correct sequence.
+### SAP-40 - Defined a procedure on how to react to Service Heath Alerts and the  SAP applications can automatically start in correct sequence
 
 **Category: Azure Health**
 
@@ -414,7 +414,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-42 - ASCS-Pacemaker Central Server Instance Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability.
+### SAP-42 - ASCS-Pacemaker Central Server Instance Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability
 
 **Category: High Availability**
 
@@ -426,7 +426,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-43 - ASCS-Pacemaker SLES Central server instance ensure the pacemaker cluster configuration parameters have been setup for sap ascs high availability when running on SLES.
+### SAP-43 - ASCS-Pacemaker SLES Central server instance ensure the pacemaker cluster configuration parameters have been setup for sap ascs high availability when running on SLES
 
 **Category: High Availability**
 
@@ -438,7 +438,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-44 - ASCS Pacemaker RH Central Server Instance Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat.
+### SAP-44 - ASCS Pacemaker RH Central Server Instance Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat
 
 **Category: High Availability**
 
@@ -451,7 +451,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-45 - ASCS-LB - Central Server Instance - Ensure the load balancer is configured correctly for SAP ASCS High availability.
+### SAP-45 - ASCS-LB - Central Server Instance - Ensure the load balancer is configured correctly for SAP ASCS High availability
 
 **Category: High Availability**
 
@@ -463,7 +463,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-46 - DBHANA Pacemaker Database Instance ensure the pacemaker cluster configuration parameters have been setup for SAP HANA Db high availability.
+### SAP-46 - DBHANA Pacemaker Database Instance ensure the pacemaker cluster configuration parameters have been setup for SAP HANA Db high availability
 
 **Category: High Availability**
 
@@ -475,7 +475,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-47 - DBHANA-Pacemaker SLES database instance ensure the pacemaker cluster configuration parameters have been setup for SAP HANA Db high availability when running on SLES.
+### SAP-47 - DBHANA-Pacemaker SLES database instance ensure the pacemaker cluster configuration parameters have been setup for SAP HANA Db high availability when running on SLES
 
 **Category: High Availability**
 
@@ -487,7 +487,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-48 - DBHANA-Pacemaker-RH- Database Instance - Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat.
+### SAP-48 - DBHANA-Pacemaker-RH- Database Instance - Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat
 
 **Category: High Availability**
 
@@ -499,7 +499,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-49 - DBHANA-LB Database Instance ensure the load balancer is configured correctly for SAP HANA Db high availability.
+### SAP-49 - DBHANA-LB Database Instance ensure the load balancer is configured correctly for SAP HANA Db high availability
 
 **Category: High Availability**
 
