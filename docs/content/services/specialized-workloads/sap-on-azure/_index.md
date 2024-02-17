@@ -63,7 +63,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### SAP-1 - Ensure SAP production systems are designed for high availability using availability zones
+### SAP-1 - Ensure SAP production systems are designed for high availability using availability zones.
 
 **Category: Compute**
 
@@ -102,7 +102,7 @@ When using Virtual Machines Scale Set (VMSS), it is configured following our rec
 
 <br><br>
 
-### SAP-5 - In a zonal high availability setup if we can't use VMSS, then ensure the SAP application server VMs of each zone are placed in an availability set using a proximity placement group so VMs are distributed across multiple fault domains and update domains within each zone
+### SAP-5 - In a zonal high availability setup if we can't use VMSS, then ensure the SAP application server VMs of each zone are placed in an availability set using a proximity placement group so VMs are distributed across multiple fault domains and update domains within each zone.
 
 **Category: Compute**
 
@@ -115,7 +115,7 @@ In a zonal high availability setup if we can't use VMSS, then application server
 
 <br><br>
 
-### SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group
+### SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group.
 
 **Category: Compute**
 
@@ -154,7 +154,7 @@ If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultr
 
 <br><br>
 
-### SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk to avail the single-instance SLA of 99-9 availability
+### SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk to avail the single-instance SLA of 99-9 availability.
 
 **Category: Compute**
 
@@ -167,7 +167,7 @@ If using single-instance VMs,  all OS and data disks must be Premium SSD or Ultr
 
 <br><br>
 
-### SAP-14 - In case of database, Ensure that the data is replicated synchronously SYNC mode between the primary and secondary database hosting VM nodes
+### SAP-14 - In case of database, Ensure that the data is replicated synchronously SYNC mode between the primary and secondary database hosting VM nodes.
 
 **Category: High Availability**
 
@@ -426,7 +426,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-43 - ASCS-Pacemaker SLES Central server instance ensure the pacemaker cluster configuration parameters have been setup for sap ascs high availability when running on sles
+### SAP-43 - ASCS-Pacemaker SLES Central server instance ensure the pacemaker cluster configuration parameters have been setup for sap ascs high availability when running on SLES.
 
 **Category: High Availability**
 
@@ -451,7 +451,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-45 - ASCS-LB - Central Server Instance - Ensure the load balancer is configured correctly for SAP ASCS High availability
+### SAP-45 - ASCS-LB - Central Server Instance - Ensure the load balancer is configured correctly for SAP ASCS High availability.
 
 **Category: High Availability**
 
@@ -463,7 +463,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-46 - DBHANA Pacemaker Database Instance ensure the pacemaker cluster configuration parameters have been setup for sap hana db high availability
+### SAP-46 - DBHANA Pacemaker Database Instance ensure the pacemaker cluster configuration parameters have been setup for SAP HANA Db high availability.
 
 **Category: High Availability**
 
@@ -475,7 +475,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-47 - DBHANA-Pacemaker SLES database instance ensure the pacemaker cluster configuration parameters have been setup for sap hana db high availability when running on sles
+### SAP-47 - DBHANA-Pacemaker SLES database instance ensure the pacemaker cluster configuration parameters have been setup for SAP HANA Db high availability when running on SLES.
 
 **Category: High Availability**
 
@@ -487,7 +487,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-48 - DBHANA-Pacemaker-RH- Database Instance - Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat
+### SAP-48 - DBHANA-Pacemaker-RH- Database Instance - Ensure the pacemaker cluster configuration parameters have been setup for SAP ASCS high availability when running on Red Hat.
 
 **Category: High Availability**
 
@@ -499,7 +499,7 @@ Defined a procedure on how to react to Service Heath Alerts and the  SAP applica
 
 <br><br>
 
-### SAP-49 - DBHANA-LB Database Instance ensure the load balancer is configured correctly for sap hana db high availability
+### SAP-49 - DBHANA-LB Database Instance ensure the load balancer is configured correctly for SAP HANA Db high availability.
 
 **Category: High Availability**
 
