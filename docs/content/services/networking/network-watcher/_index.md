@@ -48,6 +48,20 @@ Azure Network Watcher provides a suite of tools to monitor, diagnose, view metri
 
 {{< /collapse >}}
 
+**Network Watcher considerations**
+
+Following are some considerations to enable Network Watcher, refer to [Frequently Asked Questions](https://learn.microsoft.com/en-us/azure/network-watcher/frequently-asked-questions) for more details.
+
+* Only one instance of Network Watcher per region per subscription can be created
+* Network Watcher is automatically enabled when you create or update a Virtual Network in your subscription for the Virtual Networks region
+* Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt out, you cannot opt in without contacting [Azure Support](https://azure.microsoft.com/support/options/)
+* Network Watcher is zone-resilient by default
+* Features such as Packet capture, Connection troubleshoot and Connection monitor require Network Extension to be present on the virtual machine
+
+**Remediation steps**
+
+*   [Enable Network Watcher for your region](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-create)
+
 <br><br>
 
 ### NW-2 - Fix Flow Log configurations in Failed state or Disabled Status
