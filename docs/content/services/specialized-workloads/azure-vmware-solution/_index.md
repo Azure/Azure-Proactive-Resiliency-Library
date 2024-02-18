@@ -14,9 +14,9 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                          |       Category        | Impact |  State  | ARG Query Available |
 |:------------------------------------------------------------------------------------------------------------------------|:---------------------:|:------:|:-------:|:-------------------:|
-| [AVS-1 Monitor Service Health](#avs-1---monitor-service-health)                                                         | Resiliency/Monitoring | Medium | Preview |         No          |
-| [AVS-2 Configure syslog in Diagnostic Settings](#avs-2---configure-syslog-in-diagnostic-settings)                       | Resiliency/Monitoring | Medium | Preview |         No          |
-| [AVS-3 Azure Monitor Alert for vSAN datastore consumption](#avs-3---azure-monitor-alert-for-vsan-datastore-consumption) |    Infrastructure     |  High  | Preview |         No          |
+| [AVS-1 - Configure VMware vSphere Health Status](#avs-1---configure-vmware-vsphere-health-status)                                             | Monitoring | Medium | Preview |         No          |
+| [AVS-2 - Enable Diagnostic Settings and ensure syslog selected](#avs-2---enable-diagnostic-settings-and-ensure-syslog-selected)               | Monitoring | Medium | Preview |         No          |
+| [AVS-3 - Configure Azure Monitor Alert for vSAN datastore consumption](#avs-3---configure-azure-monitor-alert-for-vsan-datastore-consumption) | Monitoring |  High  | Preview |         No          |
 
 {{< /table >}}
 
@@ -28,7 +28,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AVS-1 - Monitor Service Health
+### AVS-1 - Configure VMware vSphere Health Status
 
 **Category: Monitoring**
 
@@ -52,7 +52,7 @@ Configure the VMware vSphere Health Status to get a high-level view of the Azu
 
 <br><br>
 
-### AVS-2 - Configure syslog in Diagnostic Settings
+### AVS-2 - Enable Diagnostic Settings and ensure syslog selected
 
 **Category: Monitoring**
 
@@ -76,7 +76,7 @@ Collect logs from the VMware syslog service to get health data from VMware sol
 
 <br><br>
 
-### AVS-3 - Azure Monitor Alert for vSAN datastore consumption
+### AVS-3 - Configure Azure Monitor Alert for vSAN datastore consumption
 
 **Category: Monitoring**
 

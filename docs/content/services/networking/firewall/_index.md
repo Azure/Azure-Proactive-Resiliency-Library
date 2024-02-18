@@ -12,12 +12,12 @@ The presented resiliency recommendations in this guidance include Firewall and a
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                        |     Category      | Impact |  State  | ARG Query Available |
+| Recommendation | Category | Impact | State | ARG Query Available |
 |:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [AFW-1 - Deploy Azure Firewall across multiple availability zones](#afw-1---deploy-azure-firewall-across-multiple-availability-zones) |   Availability    |  High  | Preview |         No          |
-| [AFW-2 - Monitor Azure Firewall metrics](#afw-2---monitor-azure-firewall-metrics)                                                     |    Monitoring     | Medium | Preview |         No          |
-| [AFW-3 - Configure DDoS Protection on the Azure Firewall VNet](#afw-3---configure-ddos-protection-on-the-azure-firewall-vnet)         | Access & Security |  High  | Preview |         No          |
-| [AFW-4 - Leverage Azure Policy inheritance model](#afw-4---leverage-azure-policy-inheritance-model)                                   |    Governance     | Medium | Preview |         No          |
+| [AFW-1 - Deploy Azure Firewall across multiple availability zones](#afw-1---deploy-azure-firewall-across-multiple-availability-zones) | Availability | High | Preview | Yes |
+| [AFW-2 - Monitor Azure Firewall metrics](#afw-2---monitor-azure-firewall-metrics) | Monitoring | Medium | Preview | Yes |
+| [AFW-3 - Configure DDoS Protection on the Azure Firewall VNet](#afw-3---configure-ddos-protection-on-the-azure-firewall-vnet) | Access & Security | High | Preview | Yes |
+| [AFW-4 - Leverage Azure Policy inheritance model](#afw-4---leverage-azure-policy-inheritance-model) | Governance | Medium | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -63,9 +63,9 @@ Azure Firewall provides different SLAs when it's deployed in a single availabili
 
 Monitor metrics related to availability and performance issues. More specifically:
 
-- *FirewallHealth*: Indicates the overall health of the firewall.
-- *Throughput*: Throughput processed by the firewall. An alert should be triggered if throughput gets close to the documented limits.
-- *SNATPortUtilization*: Percentage of outbound SNAT ports currently in use. An alert should be triggered if this metric gets close to 100% (at which point Source-NATted connections, such as outbound internet connections will start to fail). If you'll need more than 512,000 SNAT ports, deploying a NAT gateway with Azure Firewall can be considered. However, deploying NAT gateway with a zone redundant firewall is not recommended deployment option, as the NAT gateway does not support zonal deployment at this time. In order to use NAT gateway with Azure Firewall, a zonal Firewall deployment is required. In addition, Azure Virtual Network NAT integration is not currently supported in secured virtual hub network architectures.
+- _FirewallHealth_: Indicates the overall health of the firewall.
+- _Throughput_: Throughput processed by the firewall. An alert should be triggered if throughput gets close to the documented limits.
+- _SNATPortUtilization_: Percentage of outbound SNAT ports currently in use. An alert should be triggered if this metric gets close to 100% (at which point Source-NATted connections, such as outbound internet connections will start to fail). If you'll need more than 512,000 SNAT ports, deploying a NAT gateway with Azure Firewall can be considered. However, deploying NAT gateway with a zone redundant firewall is not recommended deployment option, as the NAT gateway does not support zonal deployment at this time. In order to use NAT gateway with Azure Firewall, a zonal Firewall deployment is required. In addition, Azure Virtual Network NAT integration is not currently supported in secured virtual hub network architectures.
 
 **Resources**
 

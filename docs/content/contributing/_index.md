@@ -160,6 +160,23 @@ Don't forget you can see your changes live by running a local copy of the APRL w
 
 When creating recommendations for a service, please follow the below standards:
 
+### Recommendation categories
+
+Each recommendation should have _**one and only one**_ associated category from this list below.
+
+  | Recommendation Category | Category Description |
+  |:---:|:---:|
+  | Application Resilience | Ensures software applications remain functional under failures or disruptions. Utilizes fault-tolerance, stateless architecture, and microservices to maintain application health and reduce downtime. |
+  | Automation | Uses automated systems or scripts for routine tasks, backups, and recovery. Minimizes human intervention, thereby reducing errors and speeding up recovery processes. |
+  | Availability | Focuses on ensuring services are accessible and operational. Combines basic mechanisms like backups with advanced techniques like clustering and data replication to achieve near-zero downtime. (Includes High Availability) |
+  | Access & Security | Encompasses identity management, authentication, and security measures for safeguarding systems. Centralizes access control and employs robust security mechanisms like encryption and firewalls. (Includes Identity) |
+  | Governance | Involves policies, procedures, and oversight for IT resource utilization. Ensures adherence to legal, regulatory, and compatibility requirements, while guiding overall system management. (Includes Compliance and Compatibility) |
+  | Disaster Recovery | Involves strategies and technologies to restore systems and data after catastrophic failures. Utilizes off-site backups, recovery sites, and detailed procedures for quick recovery after a disaster. |
+  | System Efficiency | Maintains acceptable service levels under varying conditions. Employs techniques like resource allocation, auto-scaling, and caching to handle changes in load and maintain smooth operation. (Includes Performance and Scalability) |
+  | Monitoring | Involves constant surveillance of system health, performance, and security. Utilizes real-time alerts and analytics to identify and resolve issues quickly, aiding in faster response times. |
+  | Networking | Aims to ensure uninterrupted network service through techniques like failover routing, load balancing, and redundancy. Focuses on maintaining the integrity and availability of network connections. |
+  | Storage | Focuses on the integrity and availability of data storage systems. Employs techniques like RAID, data replication, and backups to safeguard against data loss or corruption. |
+
 ### Azure Resource Graph (ARG) Queries
 
 1. All ARG queries should have two comments at the top of the query, one comment stating  `Azure Resource Graph Query` and another comment providing a description of the query results returned. For example:
