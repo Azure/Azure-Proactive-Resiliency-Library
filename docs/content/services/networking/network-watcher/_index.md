@@ -60,7 +60,9 @@ Following are some considerations to enable Network Watcher, refer to [Frequentl
 
 **Remediation steps**
 
-*   [Enable Network Watcher for your region](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-create)
+* Identify all Azure regions in use
+* [List of regions with Network Watcher](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-create?tabs=portal#list-network-watcher-instances)
+* [Enable Network Watcher](https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-create)
 
 <br><br>
 
@@ -85,5 +87,15 @@ Network security group flow logging is a feature of Azure Network Watcher that a
 {{< code lang="sql" file="code/nw-2/nw-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
+
+**Remediation Steps & Decision Map**
+
+1. Is Microsoft.Insights Provider registered for the subscription? [How to check & enable](https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logging#register-insights-provider)
+   1. If No, register Microsoft.Insights Provider [Register Provider](https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logging#register-insights-provider)
+   2. Next Step
+2. Is Flow Log disabled [How to check and enable](https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logging#list-all-flow-logs)
+3. Is the correct storage account configured? [Check Permissions](https://learn.microsoft.com/en-us/azure/network-watcher/required-rbac-permissions#network-watcher)
+   * Note: Network Contributor role does not cover actions required for Flow Logs on Storage Account
+3. Confirm flow log details & validate [Flow Log Details](https://learn.microsoft.com/en-us/azure/network-watcher/nsg-flow-logging#view-details-of-a-flow-log-resource)
 
 <br><br>
