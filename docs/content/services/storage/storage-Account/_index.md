@@ -14,9 +14,9 @@ The presented resiliency recommendations in this guidance include Storage Accoun
 The below table shows the list of resiliency recommendations for Storage Account and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                |     Category      | Impact |  State  | ARG/Script Available |
+| Recommendation                                                                                                                                                                                |     Category      | Impact |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:--------------------:|
-| [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant)                                   |   Availability    |  High  | Preview |          No          |
+| [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant)                                   |   Availability    |  High  | Preview |          Yes         |
 | [ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                                                       |    Governance     |  High  | Preview |         Yes          |
 | [ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                                                               | System Efficiency | Medium | Preview |         Yes          |
 | [ST-4 - Choose right storage account kind for workload](#st-4---choose-right-storage-account-kind-for-workload)                                                                               | System Efficiency | Medium | Preview |          No          |
