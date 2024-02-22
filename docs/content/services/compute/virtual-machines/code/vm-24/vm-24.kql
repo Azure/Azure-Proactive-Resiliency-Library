@@ -1,3 +1,4 @@
+// Azure Resource Graph Query
 // Find all VMs that have an attached disk that is not in the Premium or Ultra sku tier.
 
 Resources
