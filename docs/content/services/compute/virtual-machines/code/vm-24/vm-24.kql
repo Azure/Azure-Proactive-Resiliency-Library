@@ -11,4 +11,4 @@ Resources
     | project lname, name
     | summarize disks = make_list(name) by lname) on lname
 | where isnotnull(disks)
-| project recommendationId = "vm-24", name, id, tags, disks
+| project recommendationId = "vm-24", name, id, tags, param1=strcat("AffectedDisks: ", disks)
