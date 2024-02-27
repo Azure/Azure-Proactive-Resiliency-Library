@@ -14,13 +14,13 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-|[AVS-1 Configure Azure Monitor Alert warning thresholds for vSAN datastore consumption](#avs-1---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-consumption) | Monitoring | High | Preview | Yes |
-|[AVS-2 Enable Stretched Clusters for High Availability of the vSAN Datastore](#avs-2---enable-stretched-clusters-for-high-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
-|[AVS-3 Monitor CPU Utilization to ensure sufficient resources](#avs-3---monitor-cpu-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | Yes |
-|[AVS-4 Monitor Memory Utilization to ensure sufficient resources](#avs-4---monitor-memory-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | Yes |
-|[AVS-5 Monitor when  AVS Cluster Size is approaching the host limit](#avs-5---monitor-when-avs-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Preview | Yes |
-|[AVS-6 Monitor when AVS Private Cloud is reaching capacity](#avs-6---monitor-when-avs-private-cloud-is-reaching-capacity) | Monitoring | Medium | Preview | Yes |
-|[AVS-7 Apply Resource lock on the resource group hosting the private cloud](#avs-7---apply-resource-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Preview | No |
+|[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore consumption](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-consumption) | Monitoring | High | Preview | Yes |
+|[AVS-4 Enable Stretched Clusters for High Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-high-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
+|[AVS-5 Monitor CPU Utilization to ensure sufficient resources](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | Yes |
+|[AVS-6 Monitor Memory Utilization to ensure sufficient resources](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | Yes |
+|[AVS-7 Monitor when  AVS Cluster Size is approaching the host limit](#avs-7---monitor-when-avs-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Preview | Yes |
+|[AVS-8 Monitor when AVS Private Cloud is reaching capacity](#avs-8---monitor-when-avs-private-cloud-is-reaching-capacity) | Monitoring | Medium | Preview | Yes |
+|[AVS-9 Apply Resource lock on the resource group hosting the private cloud](#avs-9---apply-resource-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Preview | No |
 
 {{< /table >}}
 
@@ -32,7 +32,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AVS-1 - Configure Azure Monitor Alert warning thresholds for vSAN datastore consumption
+### AVS-3 - Configure Azure Monitor Alert warning thresholds for vSAN datastore consumption
 
 **Category: Monitoring**
 
@@ -54,13 +54,13 @@ To expand the vSAN datastore additional hosts can be added, up to the maximum su
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-1/avs-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-3/avs-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVS-2 - Enable Stretched Clusters for High Availability of the vSAN Datastore
+### AVS-4 - Enable Stretched Clusters for High Availability of the vSAN Datastore
 
 **Category: Availability**
 
@@ -79,13 +79,13 @@ If you are in a region that has stretched clusters, consider enabling this featu
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-2/avs-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-4/avs-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVS-3 - Monitor CPU Utilization to ensure sufficient resources
+### AVS-5 - Monitor CPU Utilization to ensure sufficient resources
 
 **Category: Monitoring**
 
@@ -103,13 +103,13 @@ Ensure there is enough compute resources to avoid host failure.
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-3/avs-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-5/avs-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVS-4 - Monitor Memory Utilization to ensure sufficient resources
+### AVS-6 - Monitor Memory Utilization to ensure sufficient resources
 
 **Category: Monitoring**
 
@@ -127,13 +127,13 @@ Ensure there is enough memory resources to avoid host failure.
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-4/avs-4.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-6/avs-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVS-5 - Monitor when AVS Cluster Size is approaching the host limit
+### AVS-7 - Monitor when AVS Cluster Size is approaching the host limit
 
 **Category: Monitoring**
 
@@ -151,13 +151,13 @@ Alert  when the cluster size of 10 hosts is reached. Periodically fire up alerts
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-5/avs-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-7/avs-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVS-6 - Monitor when AVS Private Cloud is reaching capacity
+### AVS-8 - Monitor when AVS Private Cloud is reaching capacity
 
 **Category: Monitoring**
 
@@ -175,13 +175,13 @@ Alert  when the total node count is greater than or equal to 90 hosts so that it
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-6/avs-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-8/avs-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVS-7 - Apply Resource lock on the resource group hosting the private cloud
+### AVS-9 - Apply Resource lock on the resource group hosting the private cloud
 
 **Category: Governance**
 
@@ -199,7 +199,7 @@ Anyone with contributor access on the resource group hosting AVS Private Cloud c
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-7/avs-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-9/avs-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
