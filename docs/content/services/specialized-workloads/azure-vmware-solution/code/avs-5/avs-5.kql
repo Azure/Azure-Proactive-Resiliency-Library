@@ -1,0 +1,18 @@
+// Azure Resource Graph Query
+// Provides a list of Private Clouds without monitoring approaching the host limit.
+(resources
+| where ['type'] == "microsoft.avs/privateclouds"
+| extend avsproperties = todynamic(properties)
+| extend clusterSize = avsproperties.managementCluster.clusterSize
+| extend clusterName = "managementCluster"
+| project id, toint(clusterSize), clusterName
+)
+| union
+(resources
+| where ['type'] == "microsoft.avs/privateclouds/clusters"
+| extend avsproperties = todynamic(properties)
+| extend clusterSize = avsproperties.clusterSize
+| extend clusterName = name
+| project id, toint(clusterSize), clusterName
+)
+| where clusterSize >= 10

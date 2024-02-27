@@ -1,0 +1,37 @@
+# Azure CLI script
+# Provides a list of Private Clouds without lock on the resource.
+echo "Fetching the list of AVS instances..."
+
+# Get the list of AVS instances
+avsInstances=$(az vmware private-cloud list --query "[].{id:id, name:name}" -o tsv)
+
+echo "Processing each AVS instance..."
+
+for avsInstance in $avsInstances
+do
+  # Extract the resource group name and SDDC name from the AVS instance ID and name
+  resourceGroup=$(echo $avsInstance | cut -d'/' -f5)
+  sddcName=$(echo $avsInstance | cut -f2)
+
+  echo "Processing AVS SDDC: $sddcName in Resource group: $resourceGroup"
+
+  # Get the locks for the resource group
+  locks=$(az lock list --resource-group $resourceGroup --query "[].{name:name, type:properties.level}" -o tsv)
+  
+  # Check if there are any locks
+  if [ -n "$locks" ]
+  then
+    # Get the count of locks
+    lockCount=$(echo "$locks" | wc -l)
+
+    # Get the count of each type of lock
+    lockTypes=$(echo "$locks" | cut -f2 | sort | uniq -c)
+
+    # Output the resource group, total lock count, and count of each type of lock
+    echo "$lockCount locks in total. Resource group: $resourceGroup, Lock types: $lockTypes"
+  else
+    echo "No locks found for Resource group: $resourceGroup"
+  fi
+done | sort -rn
+
+echo "Script execution completed."
