@@ -49,3 +49,4 @@ microsoft.signalrservice/signalr,SignalR,sigr
 microsoft.web/sites,Web App,app
 microsoft.batch/batchaccounts,Batch Accounts,ba
 microsoft.resources/resourcegroups,Resource Groups,rg
+microsoft.dbformysql/flexibleservers,DB for MySQL,mysql
