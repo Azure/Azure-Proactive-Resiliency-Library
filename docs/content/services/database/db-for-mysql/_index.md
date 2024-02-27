@@ -7,7 +7,7 @@ msAuthor = "erhenry"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Db for Mysql and associated resources and settings.
+The presented resiliency recommendations in this guidance include DB for MySQL and associated resources and settings.
 
 ## Summary of Recommendations
 
