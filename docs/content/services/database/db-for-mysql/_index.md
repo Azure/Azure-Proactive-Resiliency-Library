@@ -1,5 +1,5 @@
 +++
-title = "Db for Mysql"
+title = "DB for MySQL"
 description = "Best practices and resiliency recommendations for Db for Mysql and associated resources and settings."
 date = "2/26/24"
 author = "ejhenry"
