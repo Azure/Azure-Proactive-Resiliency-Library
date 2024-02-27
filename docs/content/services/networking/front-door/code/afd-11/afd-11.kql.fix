@@ -1,6 +1,0 @@
-// Azure Resource Graph Query
-// Goal: Show non-default WAf (Web Application Firewall) policies enabled.
-resources
-| where type == "microsoft.network/frontdoorwebapplicationfirewallpolicies"
-| where properties['managedRules']['managedRuleSets'][0]['ruleSetType'] != "Microsoft_DefaultRuleSet"
-| project recommendationId = "afd-11", name, id
