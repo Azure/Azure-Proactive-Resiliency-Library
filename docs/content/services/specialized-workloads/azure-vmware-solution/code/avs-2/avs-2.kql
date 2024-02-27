@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Provides a list of Private Clouds without Stretched Cluster.
-resources
-| where ['type'] == "microsoft.avs/privateclouds"
-| extend avsproperties = todynamic(properties)
-| where avsproperties.availability.strategy != "DualZone"
+// under-development

@@ -1,17 +1,1 @@
-// Azure Resource Graph Query
-// Provides a list of Private Clouds without monitoring reaching capacity.
-resources
-| where ['type'] == "microsoft.avs/privateclouds"
-| extend avsproperties = todynamic(properties)
-| extend nodes = avsproperties.managementCluster.clusterSize
-| project id, toint(nodes)
-| join kind=leftouter (
-    resources
-    | where ['type'] == "microsoft.avs/privateclouds/clusters"
-    | extend avsproperties = todynamic(properties)
-    | extend clusterSize = avsproperties.clusterSize
-    | project id, toint(clusterSize)
-    | summarize nodes = sum(clusterSize) by id
-) on id
-| summarize totalNodes = sum(nodes) by id
-| where totalNodes >= 2
+// under-development
