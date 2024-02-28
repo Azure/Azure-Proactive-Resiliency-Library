@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
 |[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore consumption](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-consumption) | Monitoring | High | Preview | No |
-|[AVS-4 Enable Stretched Clusters for High Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-high-availability-of-the-vsan-datastore) | Availability | Low | Preview | No |
+|[AVS-4 Enable Stretched Clusters for High Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-high-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
 |[AVS-5 Monitor CPU Utilization to ensure sufficient resources](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | No |
 |[AVS-6 Monitor Memory Utilization to ensure sufficient resources](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | No |
 |[AVS-7 Monitor when AVS Cluster Size is approaching the host limit](#avs-7---monitor-when-avs-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Preview | No |
