@@ -27,12 +27,12 @@ The below table shows the list of resiliency recommendations for Front Door and 
 | [AFD-8 - Use latest version for customer-managed certificates](#afd-8---use-latest-version-for-customer-managed-certificates) | Medium | Preview |         No          |
 | [AFD-9 - Use the same domain name on Front Door and your origin](#afd-9---use-the-same-domain-name-on-front-door-and-your-origin) | Medium | Preview |         No          |
 | [AFD-10 - Enable the WAF](#afd-10---enable-the-waf) | Medium | Preview |         No          |
-| [AFD-11 - Disable health probes when there is only one origin in an origin group](#afd-12---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group) | Low | Preview |         No          |
-| [AFD-12 - Select good health probe endpoints](#afd-13---select-good-health-probe-endpoints) | Medium | Preview |         No          |
-| [AFD-13 - Use HEAD health probes](#afd-14---use-head-health-probes) | Medium | Preview |         No          |
-| [AFD-14 - Lock down Application Gateway to receive traffic only from Azure Front Door](#afd-15---lock-down-application-gateway-to-receive-traffic-only-from-azure-front-door) | Medium | Preview |         No          |
-| [AFD-15 - Use geo-filtering in Azure Front Door](#afd-16---use-geo-filtering-in-azure-front-door) | Medium | Preview |         No          |
-| [AFD-16 - Secure your Origin with Private Link in Azure Front Door](#afd-17---secure-your-origin-with-private-link-in-azure-front-door) | Medium | Preview |         No          |
+| [AFD-12 - Disable health probes when there is only one origin in an origin group](#afd-12---disable-health-probes-when-there-is-only-one-origin-in-an-origin-group) | Low | Preview |         No          |
+| [AFD-13 - Select good health probe endpoints](#afd-13---select-good-health-probe-endpoints) | Medium | Preview |         No          |
+| [AFD-14 - Use HEAD health probes](#afd-14---use-head-health-probes) | Medium | Preview |         No          |
+| [AFD-15 - Lock down Application Gateway to receive traffic only from Azure Front Door](#afd-15---lock-down-application-gateway-to-receive-traffic-only-from-azure-front-door) | Medium | Preview |         No          |
+| [AFD-16 - Use geo-filtering in Azure Front Door](#afd-16---use-geo-filtering-in-azure-front-door) | Medium | Preview |         No          |
+| [AFD-17 - Secure your Origin with Private Link in Azure Front Door](#afd-17---secure-your-origin-with-private-link-in-azure-front-door) | Medium | Preview |         No          |
 
 {{< /table >}}
 
@@ -298,7 +298,7 @@ For internet-facing applications, we recommend you enable the Front Door web app
 
 <br><br>
 
-### AFD-11 - Disable health probes when there is only one origin in an origin group
+### AFD-12 - Disable health probes when there is only one origin in an origin group
 
 **Category: Availability**
 
@@ -325,7 +325,7 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 <br><br>
 
-### AFD-12 - Select good health probe endpoints
+### AFD-13 - Select good health probe endpoints
 
 
 **Category: Availability**
@@ -351,7 +351,7 @@ Consider the location where you tell Front Door's health probe to monitor. It's 
 
 <br><br>
 
-### AFD-13 - Use HEAD health probes
+### AFD-14 - Use HEAD health probes
 
 
 **Category: System Efficiency**
@@ -378,7 +378,7 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 <br><br>
 
 
-### AFD-14 - Lock down Application Gateway to receive traffic only from Azure Front Door
+### AFD-15 - Lock down Application Gateway to receive traffic only from Azure Front Door
 
 **Impact: Medium**
 
@@ -401,7 +401,7 @@ Certain scenarios can force a customer to implement rules specifically on AppGat
 
 <br><br>
 
-### AFD-15 - Use geo-filtering in Azure Front Door
+### AFD-16 - Use geo-filtering in Azure Front Door
 
 **Category: Access & Security**
 
@@ -430,7 +430,7 @@ For a geo filtering rule, a match variable is either RemoteAddr or SocketAddr. R
 <br><br>
 
 
-### AFD-16 - Secure your Origin with Private Link in Azure Front Door
+### AFD-17 - Secure your Origin with Private Link in Azure Front Door
 
 **Category: Access & Security**
 
