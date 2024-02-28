@@ -14,7 +14,8 @@ The presented resiliency recommendations in this guidance include Database for P
 {{< table style="table-striped" >}}
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
-| [PSQL-1 - Enable HA with zone redundancy](#psql-1---enable-ha-with-zone-redundancy) | High Availability | High | Preview  |         Yes         |
+| [PSQL-1 - Enable HA with zone redundancy](#psql-1---enable-ha-with-zone-redundancy) | Availability | High | Preview  |         Yes         |
+| [PSQL-2 - Enable custom maintenance schedule](#psql-1---enable-ha-with-zone-redundancy) | System Efficiency | High | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -44,6 +45,30 @@ Enable HA with zone redundancy on flexible server instances. Zone redundant high
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/psql-1/psql-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### PSQL-2 - Enable custom maintenance schedule
+
+**Category: System Efficiency**
+
+**Impact: High**
+
+**Recommendation**
+
+Use custom maintenance schedule on flexible server instances to select a preferred time for service updates to be applied.
+
+**Resources**
+
+- [Scheduled maintenance in Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-maintenance)
+
+**Resource Graph Query**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/psql-2/psql-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
