@@ -17,7 +17,7 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore consumption](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-consumption) | Monitoring | High | Preview | No |
 |[AVS-4 Enable Stretched Clusters for High Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-high-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
 |[AVS-5 Monitor CPU Utilization to ensure sufficient resources](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | Yes |
-|[AVS-6 Monitor Memory Utilization to ensure sufficient resources](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | No |
+|[AVS-6 Monitor Memory Utilization to ensure sufficient resources](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources) | Monitoring | Medium | Preview | Yes |
 |[AVS-7 Monitor when AVS Cluster Size is approaching the host limit](#avs-7---monitor-when-avs-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Preview | No |
 |[AVS-8 Monitor when AVS Private Cloud is reaching capacity](#avs-8---monitor-when-avs-private-cloud-is-reaching-capacity) | Monitoring | Medium | Preview | No |
 |[AVS-9 Apply Resource lock on the resource group hosting the private cloud](#avs-9---apply-resource-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Preview | No |
