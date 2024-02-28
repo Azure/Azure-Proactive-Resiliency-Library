@@ -1,4 +1,4 @@
 Resources
 | where type =~ 'Microsoft.DocumentDb/databaseAccounts'
 | where array_length(properties.locations) < 2
-| project recommendationId='cosmos-1', name, id
+| project recommendationId='cosmos-1', name, id, tags

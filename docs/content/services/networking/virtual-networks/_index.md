@@ -14,11 +14,11 @@ The presented resiliency recommendations in this guidance include Virtual Networ
 The below table shows the list of resiliency recommendations for Virtual Networks and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :-----------------: |
-| [VNET-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated) | Preview  |         Yes         |
-| [VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Preview |         Yes          |
-| [VNET-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services) | Preview  |         No         |
+| Recommendation                                                                                                                                                                                                                                          |     Category      | Impact |  State  | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [VNET-1 - All Subnets should have a Network Security Group associated](#vnet-1---all-subnets-should-have-a-network-security-group-associated)                                                                                                           | Access & Security |  High  | Preview |         Yes         |
+| [VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks](#vnet-2---use-azure-ddos-standard-protection-plans-to-protect-all-public-endpoints-hosted-within-customer-virtual-networks) | Access & Security |  High  | Preview |         Yes         |
+| [VNET-3 - Use Private Link, when available, for shared Azure PaaS services](#vnet-3---when-available-use-private-endpoints-instead-of-service-endpoints-for-paas-services)                                                                              | Access & Security | Medium | Preview |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -31,15 +31,20 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### VNET-1 - All Subnets should have a Network Security Group associated
 
+**Category: Access & Security**
+
 **Impact: High**
 
 **Guidance**
 
-Network security groups: Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. NSG's provide a security layer on Subnet level.
+Network security groups: Network security groups and application security groups can contain multiple inbound and outbound security rules that enable you to filter traffic to and from resources by source and destination IP address, port, and protocol. NSG's provide a security layer on Subnet level. Note that the following subnets are excluded(ignored) because applying NSG on these subnets is not supported: GatewaySubnet, AzureFirewallSubnet, AzureFirewallManagementSubnet, RouteServerSubnet.
 
 **Resources**
 
 - [Azure Virtual Network - Concepts and best practices | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/concepts-and-best-practices)
+- [GatewaySUbnet](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub)
+- [Can I associate a network security group (NSG) to the RouteServerSubnet?](https://learn.microsoft.com/en-us/azure/route-server/route-server-faq#can-i-associate-a-network-security-group-nsg-to-the-routeserversubnet)
+- [Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?](https://learn.microsoft.com/en-us/azure/firewall/firewall-faq#are-network-security-groups--nsgs--supported-on-the-azurefirewallsubnet)
 
 **Resource Graph Query/Scripts**
 
@@ -53,7 +58,9 @@ Network security groups: Network security groups and application security groups
 
 ### VNET-2 - Use Azure DDoS Standard Protection Plans to protect all public endpoints hosted within customer Virtual Networks
 
-**Impact: Medium**
+**Category: Access & Security**
+
+**Impact: High**
 
 **Guidance**
 
@@ -75,6 +82,8 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 ### VNET-3 - When available, use Private Endpoints instead of Service Endpoints for PaaS Services
 
+**Category: Access & Security**
+
 **Impact: Medium**
 
 **Guidance**
@@ -85,6 +94,7 @@ Use virtual network service endpoints only when Private Link isn't available and
 
 - [Azure Virtual Network FAQ | Microsoft Learn](https://learn.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Reliability and Network connectivity - Microsoft Azure Well-Architected Framework | Microsoft LearnNetworking Reliability](https://learn.microsoft.com/azure/architecture/framework/services/networking/network-connectivity/reliability)
+- [Azure Private Link availability](https://learn.microsoft.com/en-us/azure/private-link/availability)
 
 **Resource Graph Query/Scripts**
 

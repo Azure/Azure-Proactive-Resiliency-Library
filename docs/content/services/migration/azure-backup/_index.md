@@ -12,10 +12,11 @@ The presented resiliency recommendations in this guidance include Backup and ass
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                    |  Impact  |  State   | ARG Query Available |
-| :------------------------------------------------ | :------: | :------: | :-----------------: |
-| [BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Recovery services vaults](#bk-1---migrate-from-classic-alerts-to-built-in-azure-monitor-alerts-for-recovery-services-vaults) | Medium | Preview  |         Yes         |
-
+|
+Recommendation | Category | Impact | State | ARG Query Available |
+:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|--------|:--------:|:-------------------:|
+| [BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Azure Recovery Services Vaults](#bk-1---migrate-from-classic-alerts-to-built-in-azure-monitor-alerts-for-azure-recovery-services-vaults) | Monitoring | Medium | Preview | Yes |
+| [BK-2 - Opt-in to Cross Region Restore for all Geo-Redundant Storage (GRS) Azure Recovery Services vaults](#bk-2---opt-in-to-cross-region-restore-for-all-geo-redundant-storage-grs-azure-recovery-services-vaults) | Disaster Recovery | Medium | Verified | Yes |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -26,7 +27,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Recovery services vaults
+### BK-1 - Migrate from classic alerts to built-in Azure Monitor alerts for Azure Recovery Services Vaults
 
 **Category: Monitoring**
 
@@ -53,6 +54,31 @@ Using Azure Monitor Alerts you can:
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/bk-1/bk-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+### BK-2 - Opt-in to Cross Region Restore for all Geo-Redundant Storage (GRS) Azure Recovery Services vaults
+
+**Category: Disaster Recovery**
+
+**Impact: Medium**
+
+**Guidance**
+
+Cross Region Restore allows you to restore Azure VMs in a secondary region, which is an Azure paired region. This option allows you to conduct drills to meet audit or compliance requirements, and to restore the VM or its disk if there's a disaster in the primary region. CRR is an opt-in feature for any GRS vault only.
+
+**Resources**
+
+- [Set Cross Region Restore](https://learn.microsoft.com/azure/backup/backup-create-recovery-services-vault#set-cross-region-restore)
+- [Azure Backup Best Practices](https://learn.microsoft.com/azure/backup/guidance-best-practices)
+- [Minimum Role Requirements for Cross Region Restore](https://learn.microsoft.com/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-azure-vm-backup)
+- [Recovery Services Vault](https://azure.microsoft.com/documentation/articles/backup-azure-arm-vms-prepare/)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/bk-2/bk-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

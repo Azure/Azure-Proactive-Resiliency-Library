@@ -12,30 +12,34 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                                                     | Impact |  State   | ARG Query Available |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----: | :-----:  | :-----------------: |
-| [VM-1 - Run production workloads on two or more VMs using VMSS Flex](#vm-1---run-production-workloads-on-two-or-more-vms-using-vmss-flex)                                                                                          |  High  | Verified |         No         |
-| [VM-2 - Deploy VMs across Availability Zones](#vm-2---deploy-vms-across-availability-zones)                                                                                                                                        |  High  | Verified |         Yes         |
-| [VM-3 - Migrate VMs using availability sets to VMSS Flex](#vm-3---migrate-vms-using-availability-sets-to-vmss-flex)                                                                                                                |  High  | Verified |         No         |
-| [VM-4 - Replicate VMs using Azure Site Recovery](#vm-4---replicate-vms-using-azure-site-recovery)                                                                                                                                  | Medium | Verified |         Yes         |
-| [VM-5 - Use Managed Disks for Virtual Machine disks](#vm-5---use-managed-disks-for-vm-disks)                                                                                                                                       |  High  | Verified |         Yes         |
-| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                                |  Low   | Verified |         Yes         |
-| [VM-7 - Enable Backups on your VMs](#vm-7---backup-vms-with-azure-backup-service)                                                                                                                                                  | Medium | Verified |         Yes         |
-| [VM-8 - Production VMs should be using SSD disks](#vm-8---production-vms-should-be-using-ssd-disks)                                                                                                                                |  High  | Verified |         Yes         |
-| [VM-9 - There are VMs in Stopped state](#vm-9---review-vms-in-stopped-state)                                                                                                                                                       |  Low   | Verified |         Yes         |
-| [VM-10 - Accelerated Networking is not enabled](#vm-10---enable-accelerated-networking-accelnet)                                                                                                                                   | Medium | Verified |         Yes         |
-| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---when-accelnet-is-enabled-you-must-manually-update-the-guestos-nic-driver)                                         |  Low   | Verified |         Yes         |
-| [VM-12 - VMs should not have a Public IP directly associated](#vm-12---vms-should-not-have-a-public-ip-directly-associated)                                                                                                        | Medium | Verified |         Yes         |
-| [VM-13 - VM network interfaces and associated subnets both have a Network Security Group (NSG) associated](#vm-13---vm-network-interfaces-and-associated-subnets-both-have-a-network-security-group-nsg-associated)                                                                                           |  Low   | Verified |         No         |
-| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                                        | Medium | Verified |         Yes         |
-| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---dns-servers-should-be-configured-in-the-virtual-network-level)                                                                           |  Low   | Verified |         Yes         |
-| [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                                              | Medium | Verified |         Yes         |
-| [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access)                            |  Low   | Verified |         Yes         |
-| [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies)                                                                                                    |  Low   | Verified |         Yes         |
-| [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-and-data-at-rest-encryption-by-default)                                                                                | Medium | Verified |         Yes          |
-| [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights)                                                                                              |  Low   | Verified |         Yes          |
-| [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines)                                                                                         |  Low   | Preview  |         Yes         |
-| [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | High | Preview | Yes |
+| Recommendation                                                                                                                                                                                                      |     Category      | Impact |  State   | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:--------:|:-------------------:|
+| [VM-1 - Run production workloads on two or more VMs using VMSS Flex](#vm-1---run-production-workloads-on-two-or-more-vms-using-vmss-flex)                                                                           |   Availability    |  High  | Verified |         No          |
+| [VM-2 - Deploy VMs across Availability Zones](#vm-2---deploy-vms-across-availability-zones)                                                                                                                         |   Availability    |  High  | Verified |         Yes         |
+| [VM-3 - Migrate VMs using availability sets to VMSS Flex](#vm-3---migrate-vms-using-availability-sets-to-vmss-flex)                                                                                                 |   Availability    |  High  | Verified |         No          |
+| [VM-4 - Replicate VMs using Azure Site Recovery](#vm-4---replicate-vms-using-azure-site-recovery)                                                                                                                   | Disaster Recovery | Medium | Verified |         Yes         |
+| [VM-5 - Use Managed Disks for Virtual Machine disks](#vm-5---use-managed-disks-for-vm-disks)                                                                                                                        |   Availability    |  High  | Verified |         Yes         |
+| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk)                                                                                                 | System Efficiency |  Low   | Verified |         Yes         |
+| [VM-7 - Enable Backups on your VMs](#vm-7---backup-vms-with-azure-backup-service)                                                                                                                                   | Disaster Recovery | Medium | Verified |         Yes         |
+| [VM-8 - Production VMs should be using SSD disks](#vm-8---production-vms-should-be-using-ssd-disks)                                                                                                                 | System Efficiency |  High  | Verified |         Yes         |
+| [VM-9 - There are VMs in Stopped state](#vm-9---review-vms-in-stopped-state)                                                                                                                                        |    Governance     |  Low   | Verified |         Yes         |
+| [VM-10 - Accelerated Networking is not enabled](#vm-10---enable-accelerated-networking-accelnet)                                                                                                                    | System Efficiency | Medium | Verified |         Yes         |
+| [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---when-accelnet-is-enabled-you-must-manually-update-the-guestos-nic-driver)                          |    Governance     |  Low   | Verified |         No          |
+| [VM-12 - VMs should not have a Public IP directly associated](#vm-12---vms-should-not-have-a-public-ip-directly-associated)                                                                                         | Access & Security | Medium | Verified |         Yes         |
+| [VM-13 - VM network interfaces and associated subnets both have a Network Security Group (NSG) associated](#vm-13---vm-network-interfaces-and-associated-subnets-both-have-a-network-security-group-nsg-associated) | Access & Security |  Low   | Verified |         No          |
+| [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                         | Access & Security | Medium | Verified |         Yes         |
+| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                            |   Networking      |  Low   | Verified |         Yes         |
+| [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                               |      Storage      | Medium | Verified |         Yes         |
+| [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access)             | Access & Security |  Low   | Verified |         Yes         |
+| [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies)                                                                                     |    Governance     |  Low   | Verified |         Yes         |
+| [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-and-data-at-rest-encryption-by-default)                                                                 | Access & Security | Medium | Verified |         Yes         |
+| [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights)                                                                               |    Monitoring     |  Low   | Verified |         Yes         |
+| [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines)                                                                       |    Monitoring     |  Low   | Preview  |         Yes         |
+| [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms)                                                                                               |    Governance     |  High  | Preview  |         Yes         |
+| [VM-23 - Avoid using B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously)  |    System Efficiency      |  High  | Preview  |         Yes         |
+| [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks)                                                             |    System Efficiency     |  High  | Preview  |         Yes         |
+| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               |    Application Resiliency     |  High  | Preview  |         Yes         |
+| [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resiliency     |  High  | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -410,7 +414,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 <br><br>
 
-### VM-15 - DNS Servers should be configured in the Virtual Network level
+### VM-15 - Customer DNS Servers should be configured in the Virtual Network level
 
 **Category: Storage**
 
@@ -538,7 +542,7 @@ There are several types of encryption available for your managed disks, includin
 
 ### VM-20 - Enable VM Insights
 
-**Category:  Monitoring**
+**Category: Monitoring**
 
 **Impact: Low**
 
@@ -615,6 +619,111 @@ The maintenance configuration settings allows user to schedule and manage update
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/vm-22/vm-22.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-23 - Avoid using B-Series VM Sku for production VMs that need the full performance of the CPU continuously
+
+**Category: System Efficiency**
+
+**Impact: Medium**
+
+**Guidance**
+
+B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the virtual machine. The B-series provides you with the ability to purchase a VM size with baseline performance that can build up credits when it is using less than its baseline. When the VM has accumulated credits, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance. Upon consuming all the CPU credits, a B-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
+
+**Resources**
+
+- [B-series burstable virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-b-series-burstable)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-23/vm-23.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks
+
+**Category: System Efficiency**
+
+**Impact: High**
+
+**Guidance**
+
+Azure Premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads.
+
+Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. You should use Premium solid-state drives (SSDs) as operating system (OS) disks as the V2 is not supported as OS Disk.
+
+Azure ultra disks are the highest-performing storage option for Azure virtual machines (VMs). You can change the performance parameters of an ultra disk without having to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top-tier databases, and transaction-heavy workloads. Ultra disks must be used as data disks and can only be created as empty disks. You should use Premium solid-state drives (SSDs) as operating system (OS) disks.
+
+**Resources**
+
+- [Disk type comparison and decision tree](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#disk-type-comparison)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-24/vm-24.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-25 - Do not create more than 2000 Citrix VDA servers per subscription
+
+**Category: Application Resilience**
+
+**Impact: High**
+
+**Guidance**
+
+A Citrix Managed Azure subscription supports the number of machines indicated in Limits. (In this context, machines refers to VMs that have a Citrix VDA installed. These machines deliver apps and desktops to users. It does not include other machines in a resource location, such as Cloud Connectors.)
+
+If your Citrix Managed Azure subscription is likely to reach its limit soon, and you have enough Citrix licenses, you can request another Citrix Managed Azure subscription. The dashboard contains a notification when you’re close to the limit.
+
+You can’t create a catalog (or add machines to a catalog) if the total number of machines for all catalogs that use that Citrix Managed Azure subscription would exceed the value indicated in Limits.
+
+**Resources**
+
+- [Citrix Limits](https://docs.citrix.com/en-us/citrix-daas-azure/limits)
+- [Citrix Managed Azure subscriptions](https://docs.citrix.com/en-us/citrix-daas-azure/limits)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-25/vm-25.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations
+
+**Category: Application Resilience**
+
+**Impact: High**
+
+**Guidance**
+
+All VMs that are members or a SQL Always-on cluster must use the same VM Sku, same number of data disks, same disks Skus, same number of Network Interfaces, same VM Extensions, etc.
+
+**Resources**
+
+- [Prerequisites, restrictions, and recommendations for Always On availability groups](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver16)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-26/vm-26.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

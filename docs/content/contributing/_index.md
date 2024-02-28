@@ -160,6 +160,23 @@ Don't forget you can see your changes live by running a local copy of the APRL w
 
 When creating recommendations for a service, please follow the below standards:
 
+### Recommendation categories
+
+Each recommendation should have _**one and only one**_ associated category from this list below.
+
+  | Recommendation Category | Category Description |
+  |:---:|:---:|
+  | Application Resilience | Ensures software applications remain functional under failures or disruptions. Utilizes fault-tolerance, stateless architecture, and microservices to maintain application health and reduce downtime. |
+  | Automation | Uses automated systems or scripts for routine tasks, backups, and recovery. Minimizes human intervention, thereby reducing errors and speeding up recovery processes. |
+  | Availability | Focuses on ensuring services are accessible and operational. Combines basic mechanisms like backups with advanced techniques like clustering and data replication to achieve near-zero downtime. (Includes High Availability) |
+  | Access & Security | Encompasses identity management, authentication, and security measures for safeguarding systems. Centralizes access control and employs robust security mechanisms like encryption and firewalls. (Includes Identity) |
+  | Governance | Involves policies, procedures, and oversight for IT resource utilization. Ensures adherence to legal, regulatory, and compatibility requirements, while guiding overall system management. (Includes Compliance and Compatibility) |
+  | Disaster Recovery | Involves strategies and technologies to restore systems and data after catastrophic failures. Utilizes off-site backups, recovery sites, and detailed procedures for quick recovery after a disaster. |
+  | System Efficiency | Maintains acceptable service levels under varying conditions. Employs techniques like resource allocation, auto-scaling, and caching to handle changes in load and maintain smooth operation. (Includes Performance and Scalability) |
+  | Monitoring | Involves constant surveillance of system health, performance, and security. Utilizes real-time alerts and analytics to identify and resolve issues quickly, aiding in faster response times. |
+  | Networking | Aims to ensure uninterrupted network service through techniques like failover routing, load balancing, and redundancy. Focuses on maintaining the integrity and availability of network connections. |
+  | Storage | Focuses on the integrity and availability of data storage systems. Employs techniques like RAID, data replication, and backups to safeguard against data loss or corruption. |
+
 ### Azure Resource Graph (ARG) Queries
 
 1. All ARG queries should have two comments at the top of the query, one comment stating  `Azure Resource Graph Query` and another comment providing a description of the query results returned. For example:
@@ -197,6 +214,57 @@ NOTE: The column names should be in the order they are listed and match exactly.
 
 {{< alert style="info" >}}
 If you need support with validating a query, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
+{{< /alert >}}
+
+### Azure PowerShell Scripts
+
+1. All PowerShell scripts should have two comments at the top of the script, one comment stating `Azure PowerShell script` and another comment providing a description of the script results returned. For example:
+
+    ```powershell
+    # Azure PowerShell script
+    # Provides a list of Azure Container Registry resources that do not have soft delete enabled
+    ```
+
+1. Scripts should only return resources that do not adhere to the APRL recommendation. For example, if the recommendation is to enable soft delete for Azure Container Registries, the associated scripts should only return Azure Container Registry resources that do not have soft delete enabled.
+
+1. Scripts should exclusively contain code to retrieve resources that do not comply with the APRL recommendation. They should not include supporting code, such as Azure sign-in ([Connect-AzAccount](https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount), Login-AzAccount) or subscription selection ([Set-AzContext](https://learn.microsoft.com/en-us/powershell/module/az.accounts/set-azcontext), Select-AzSubscription). Execute these cmdlets separately from the APRL recommendation PowerShell script.
+
+1. The script should return the result as an array of the `PSCustomObject` data type, with each result object containing only the following properties:
+
+    {{< alert style="info" >}}
+NOTE: The property names should be in the order they are listed and match exactly.
+{{< /alert >}}
+
+    | Property Name | Data Type | Required | Information Returned (Example) | Description |
+    |:---:|:---:|:---:|:---:|---|
+    | recommendationId | string | Yes | aks-1 | The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number. |
+    | name | string | Yes | test-aks | The resource name of the Azure resource that does not adher to the APRL recommendation. |
+    | id | string | Yes | /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-resource-group/providers/Microsoft.ContainerService/managedClusters/test-aks | The resource ID of the Azure resource that does not adhere to the APRL recommendation. |
+    | tags | PSCustomObject | No | {"Environment":"Test","Department":"IT"} | Any relevant tags associated to the resource that does not adhere to the APRL recommendation. The data type should match the data type of `tags` in the result of ARG queries by [Search-AzGraph](https://learn.microsoft.com/en-us/powershell/module/az.resourcegraph/search-azgraph). If not set tags, set `$null`. |
+    | param1 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param2 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param3 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param4 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+    | param5 | string | No | networkProfile:kubenet | Any additional information that is necessary to provide clarification for the APRL recommendation. |
+
+    Below is a sample code to return a result that aligned to the above standards.
+
+    ```powershell
+    [PSCustomObject] @{
+        recommendationId = 'aks-1'
+        name             = $resource.Name
+        id               = $resource.Id
+        tags             = if ($resource.Tags) { [PSCustomObject] ([Hashtable] $resource.Tags) } else { $null }
+        param1           = 'networkProfile:kubenet'
+        param2           = 'networkProfile:kubenet'
+        param3           = 'networkProfile:kubenet'
+        param4           = 'networkProfile:kubenet'
+        param5           = 'networkProfile:kubenet'
+    }
+    ```
+
+{{< alert style="info" >}}
+If you need support with validating a script, please reach out to the APRL team via the [APRL GitHub General Question/Feedback Form](https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&labels=feedback%2C+question&projects=&template=general-question-feedback----.md&title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE)
 {{< /alert >}}
 
 ## Updating a Service's Recommendation Page

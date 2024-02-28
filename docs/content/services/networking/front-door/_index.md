@@ -14,6 +14,7 @@ The presented resiliency recommendations in this guidance include Front Door and
 The below table shows the list of resiliency recommendations for Front Door and associated resources.
 
 {{< table style="table-striped" >}}
+
 | Recommendation                                    | Impact  | State   | ARG Query Available |
 | :------------------------------------------------ | :------: |:------: | :-----------------: |
 | [AFD-1 - Avoid combining Traffic Manager and Front Door](#afd-1---avoid-combining-traffic-manager-and-front-door) | High |Preview  |         No        |
@@ -32,6 +33,7 @@ The below table shows the list of resiliency recommendations for Front Door and 
 | [AFD-14 - Lock down Application Gateway to receive traffic only from Azure Front Door](#afd-15---lock-down-application-gateway-to-receive-traffic-only-from-azure-front-door) | Medium | Preview |         No          |
 | [AFD-15 - Use geo-filtering in Azure Front Door](#afd-16---use-geo-filtering-in-azure-front-door) | Medium | Preview |         No          |
 | [AFD-16 - Secure your Origin with Private Link in Azure Front Door](#afd-17---secure-your-origin-with-private-link-in-azure-front-door) | Medium | Preview |         No          |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -43,6 +45,8 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 ## Recommendations Details
 
 ### AFD-1 - Avoid combining Traffic Manager and Front Door
+
+**Category: Networking**
 
 **Impact: High**
 
@@ -72,6 +76,8 @@ However, as part of a complex architecture, you might choose to use Traffic Mana
 
 ### AFD-2 - Restrict traffic to your origins
 
+**Category: Access & Security**
+
 **Impact: High**
 
 **Guidance**
@@ -94,7 +100,9 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 ### AFD-3 - Use the latest API version and SDK version
 
-**Impact: High**
+**Category: Networking**
+
+**Impact: Medium**
 
 **Guidance**
 
@@ -117,6 +125,8 @@ When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs
 <br><br>
 
 ### AFD-4 - Configure logs
+
+**Category: Monitoring**
 
 **Impact: Medium**
 
@@ -142,6 +152,8 @@ Front Door tracks extensive telemetry about every request. When you enable cachi
 
 ### AFD-5 - Use end-to-end TLS
 
+**Category: Security**
+
 **Impact: High**
 
 **Guidance**
@@ -163,6 +175,8 @@ Front Door terminates TCP and TLS connections from clients. It then establishes 
 <br><br>
 
 ### AFD-6 - Use HTTP to HTTPS redirection
+
+**Category: Access & Security**
 
 **Impact: High**
 
@@ -188,6 +202,8 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 ### AFD-7 - Use managed TLS certificates
 
+**Category: Access & Security**
+
 **Impact: Medium**
 
 **Guidance**
@@ -210,6 +226,8 @@ When Front Door manages your TLS certificates, it reduces your operational costs
 
 ### AFD-8 - Use latest version for customer-managed certificates
 
+**Category: Access & Security**
+
 **Impact: Medium**
 
 **Guidance**
@@ -231,6 +249,8 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 <br><br>
 
 ### AFD-9 - Use the same domain name on Front Door and your origin
+
+**Category: Networking**
 
 **Impact: Medium**
 
@@ -256,6 +276,8 @@ Before you rewrite the Host header of your requests, carefully consider whether 
 
 ### AFD-10 - Enable the WAF
 
+**Category: Access & Security**
+
 **Impact: Medium**
 
 **Guidance**
@@ -276,8 +298,10 @@ For internet-facing applications, we recommend you enable the Front Door web app
 
 <br><br>
 
-
 ### AFD-11 - Disable health probes when there is only one origin in an origin group
+
+**Category: Availability**
+
 
 **Impact: Low**
 
@@ -295,13 +319,17 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afd-12/afd-12.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afd-11/afd-11.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
 ### AFD-12 - Select good health probe endpoints
+
+
+**Category: Availability**
+
 
 **Impact: Medium**
 
@@ -317,13 +345,17 @@ Consider the location where you tell Front Door's health probe to monitor. It's 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afd-13/afd-13.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afd-12/afd-12.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
 ### AFD-13 - Use HEAD health probes
+
+
+**Category: System Efficiency**
+
 
 **Impact: Medium**
 
@@ -339,11 +371,12 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afd-14/afd-14.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afd-13/afd-13.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
+
 
 ### AFD-14 - Lock down Application Gateway to receive traffic only from Azure Front Door
 
@@ -370,6 +403,9 @@ Certain scenarios can force a customer to implement rules specifically on AppGat
 
 ### AFD-15 - Use geo-filtering in Azure Front Door
 
+**Category: Access & Security**
+
+
 **Impact: Medium**
 
 **Guidance**
@@ -387,13 +423,17 @@ For a geo filtering rule, a match variable is either RemoteAddr or SocketAddr. R
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afd-16/afd-16.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afd-14/afd-14.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
+
 ### AFD-16 - Secure your Origin with Private Link in Azure Front Door
+
+**Category: Access & Security**
+
 
 **Impact: Medium**
 
@@ -411,7 +451,7 @@ Azure Front Door Premium can connect to your origin using Private Link. Your ori
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afd-17/afd-17.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afd-15/afd-15.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

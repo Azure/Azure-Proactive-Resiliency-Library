@@ -4,4 +4,4 @@ Resources
     properties.backupPolicy.type == 'Periodic' and
     properties.enableMultipleWriteLocations == false and
     properties.enableAnalyticalStorage == false
-| project recommendationId='cosmos-5', name, id
+| project recommendationId='cosmos-5', name, id, tags
