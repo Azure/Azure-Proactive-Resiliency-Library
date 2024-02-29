@@ -23,7 +23,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-7 Store Golden Image Redundantly for Disaster Recovery](#avd-7---store-golden-image-redundantly-for-disaster-recovery)                                                 | Disaster Recovery |   Low    | Preview |         No          |
 | [AVD-8 Capacity Planning for AVD Resources](#avd-8---capacity-planning-for-avd-resources)                                                                                   | Disaster Recovery |   Low    | Preview |         No          |
 | [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant)                                                         |   Availability    |   High   | Preview |         No          |
-| [AVD-10 Enable Azure Backup for FSLogix Storage Account](#avd-10---enable-azure-backup-for-fslogix-storage-account)                                                         |   Backup/Storage    |   Medium   | Preview |         No          |
+| [AVD-10 Enable Azure Backup for FSLogix Storage Account](#avd-10---enable-azure-backup-for-fslogix-storage-account)                                                         |   Disaster Recovery    |   Medium   | Preview |         No          |
 
 {{< /table >}}
 
