@@ -117,7 +117,7 @@ Ensure there are enough compute resources to avoid host resource exhaustion. Azu
 
 **Recommendation/Guidance**
 
-Ensure there are enough memory resources to avoid host failure. Azure VMware Solution uses vSphere DRS and vSphere HA to manage workload resources dynamically, however sustained host memory utilization of over 95% can contribute to host memory swapping to disk which will impact running workloads.
+Ensure there are enough memory resources to avoid host resource exhaustion. Azure VMware Solution uses vSphere DRS and vSphere HA to manage workload resources dynamically, however sustained host memory utilization of over 95% can contribute to host memory swapping to disk which will impact running workloads.
 
 **Resources**
 
