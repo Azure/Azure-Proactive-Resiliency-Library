@@ -121,7 +121,7 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 
 **Guidance**
 
-When using an AD DS identity solution with AVD, it is recommended to deploy domain controllers and DNS servers on Azure virtual machines across availability zones. This improves the environment’s reliability by being independent of an on-premises and creating a shorter path for user authentication improving performance.
+When using an AD DS identity solution with AVD, it is recommended to deploy domain controllers and DNS servers on Azure virtual machines across availability zones. This improves the environment’s reliability by removing a dependency on an on-premises service and improves performance by creating a shorter path for user authentication.
 
 This recommendation is not relevant when you are utilizing Microsoft Entra as the identity provider.
 
