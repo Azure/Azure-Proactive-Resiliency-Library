@@ -15,7 +15,7 @@ resources
 | extend threshold = alertProperties_criteria_allOf.threshold
 | project scopeId, tostring(metric), toint(['threshold'])
 | where metric == "UsageAverage"
-| where threshold == 80
+| where threshold == 95
 ) on scopeId
 | where isnull(['threshold'])
-| project recommendationId = "avs-6", name, id, tags, param1 = "hostMemoryCriticalAlert: isNull or threshold != 80"
+| project recommendationId = "avs-6", name, id, tags, param1 = "hostMemoryCriticalAlert: isNull or threshold != 95"
