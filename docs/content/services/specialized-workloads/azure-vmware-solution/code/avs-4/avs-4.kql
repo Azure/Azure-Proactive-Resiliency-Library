@@ -1,5 +1,5 @@
 // Azure Resource Graph Query
-// Provides a list of Azure VMware Solution resources that aren't configured as stretch clusters and in supported regions.
+// Provides a list of Azure VMware Solution resources that aren't configured as stretched clusters and in supported regions.
 resources
 | where ['type'] == "microsoft.avs/privateclouds"
 | extend avsproperties = todynamic(properties)

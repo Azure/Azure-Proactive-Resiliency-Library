@@ -1,5 +1,5 @@
 // Azure Resource Graph Query
-// Provides a list of Azure VMware Solution resources that don't have a cluster host memory critical alert with a threshold of 80%.
+// Provides a list of Azure VMware Solution resources that don't have a cluster host memory critical alert with a threshold of 95%.
 resources
 | where ['type'] == "microsoft.avs/privateclouds"
 | extend scopeId = tostring(id)
@@ -15,7 +15,7 @@ resources
 | extend threshold = alertProperties_criteria_allOf.threshold
 | project scopeId, tostring(metric), toint(['threshold'])
 | where metric == "UsageAverage"
-| where threshold == 80
+| where threshold == 95
 ) on scopeId
 | where isnull(['threshold'])
-| project recommendationId = "avs-6", name, id, tags, param1 = "hostMemoryCriticalAlert: isNull or threshold != 80"
+| project recommendationId = "avs-6", name, id, tags, param1 = "hostMemoryCriticalAlert: isNull or threshold != 95"
