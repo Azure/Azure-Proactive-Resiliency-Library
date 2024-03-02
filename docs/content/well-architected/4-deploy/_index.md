@@ -53,7 +53,7 @@ Key Points:
 
 <br><br>
 
-### WADP-2 - Validated all changes in development environments before applying them to Production
+### WADP-2 - Validated all changes in development environments before applying them to production
 
 **Category: Automation**
 
@@ -61,7 +61,7 @@ Key Points:
 
 **Recommendation/Guidance**
 
-FILL ME IN...
+Continuously delivering value has become a mandatory requirement for organizations. To deliver value to your end users, you must release continually and without errors. Continuous delivery (CD) is the process of automating build, test, configuration, and deployment from a build to a production environment. A release pipeline can create multiple testing or staging environments to automate infrastructure creation and deploy new builds. Successive environments support progressively longer-running integration, load, and user acceptance testing activities.
 
 **Resources**
 
