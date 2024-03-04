@@ -87,7 +87,7 @@ Ensure SAP production systems are designed for high availability using availabil
 
 <br><br>
 
-### SAP-2 - Run SAP application servers on two or more VMS.
+### SAP-2 - Run SAP application servers on two or more VMS
 
 **Category: Availability**
 
