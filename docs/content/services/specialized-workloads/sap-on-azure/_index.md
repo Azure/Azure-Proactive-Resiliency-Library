@@ -71,7 +71,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-.
+Ensure SAP production systems are designed for high availability using availability zones.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -95,7 +95,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with flexible orchestration to distribute the virtual machines across specified zones and within each zone to also distribute VMs across different fault domains within the zone on a best effort basis.
+Deploy SAP application servers on two or more virtual machines (VMs) using VMSS Flex.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -119,7 +119,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+If utilizing Virtual Machine Scale Sets (VMSS), adhere to our guidelines for SAP workloads, ensuring you select the appropriate mode and configure the correct settings.
+
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -143,7 +144,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+In a zonal high availability setup if we can't use VMSS, then ensure the SAP application server VMs of each zone are placed in an availability set using a proximity placement group so that VMs are distributed across multiple fault domains and update domains within each zone.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -166,7 +167,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Ensure that you do not colocate application server and database virtual machines (VMs) within the same Proximity Placement Group.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -191,7 +192,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Ensure that VMs from different SAP systems are not colocated within a single Proximity Placement Group
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -215,7 +216,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+When creating availability sets, ensure you utilize the maximum number of fault domains available and a sufficient number of update domains. Additionally, conduct regular audits of VMs to prevent unexpected deviations.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -239,7 +240,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+For single-instance VMs, both OS and data disks must be either Premium SSD or Ultra Disk to achieve the single-instance SLA of 99.9% availability.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -263,7 +264,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+In the case of databases, ensure that data is replicated synchronously (SYNC mode) between the primary and secondary database hosting VM nodes.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -287,7 +288,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Make sure that SAP shared file systems, such as /sapmnt, /usr/trans and /interfaces are highly available. In zonal deployments, replicate them to another zone.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -311,7 +312,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Thoroughly test all high-availability (HA) solutions, including scenarios like kernel panic in Linux VMs and fail-back procedures. Failovers should be smooth and meet the expected failover times. Failback can be either automatic or manual.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -335,7 +336,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+In zonal SAP deployments, deploy all components and Azure services with zone redundancy. Examples include ER GW, Azure LB, AppGW, Reverse proxy, IP addresses, firewalls, ANF and VMSS running shared services like firewalls and backup infrastructure.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -359,7 +360,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Make sure that SAP production workloads have a disaster recovery (DR) solution spanning across multiple regions.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -382,7 +383,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+When implementing Zonal Disaster Recovery (DR), make sure that SAP production workloads are safeguarded by a DR solution spanning across different zones.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -406,7 +407,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Create an offsite backup plan by leveraging the second Azure region for storing backups.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -430,7 +431,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+On-demand Capacity Reservation is recommended for disaster recovery (DR) needs.”
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -454,7 +455,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Replicate production databases (ASYNC) to the DR location using the database vendor’s replication technology.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -478,7 +479,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Back up SAP components such as (A)SCS, application servers, and WebDispatchers to the DR location using an appropriate backup tool or Azure Site Recovery (ASR).
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -502,7 +503,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Ensure that critical SAP shared file systems, such as /sapmnt, /usr/trans and /interfaces are either replicated or backed up for disaster recovery purposes.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -526,7 +527,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Enable Cross Region Restore for Geo-redundant Recovery Services Vaults. This allows restoring backed-up data in the secondary region even when the primary region is still available.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -549,7 +550,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Conduct backup testing to verify that all production systems can be backed up simultaneously (or as needed) and that the restore process works within the expected time frame.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -573,7 +574,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Automate the build of disaster recovery (DR) infrastructure (or pre-deploy DR resources) and streamline SAP service recovery as much as possible.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -597,7 +598,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Document and tes disaster recovery (DR) procedure to ensure it meets your Recovery Point Objective (RPO) and Recovery Time Objective (RTO) targets.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -620,7 +621,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Configure scheduled events to receive notifications about upcoming maintenance events, such as reboots. The resource agent ‘azure-events’ can be integrated with Pacemaker clusters.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -644,7 +645,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Define a procedure for reacting to scheduled events effectively.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -667,7 +668,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Set up Service Health alerts for all critical subscriptions, this will allow quicker response to incidents.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -690,7 +691,7 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 
 **Guidance**
 
-.
+Define a procedure for reacting to Service Health Alerts, ensuring that SAP applications can automatically start in the correct sequence
 
 
 **Resources**
@@ -713,7 +714,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the ASCS-Pacemaker (Central Server Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP ASCS high availability.
 
 **Resources**
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
@@ -736,7 +738,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the ASCS-Pacemaker-SLES (Central Server Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP ASCS high availability when running on SLES.
 
 **Resources**
 
@@ -758,7 +761,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the ASCS-Pacemaker-RH (Central Server Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP ASCS high availability when running on Red Hat.
 
 **Resources**
 
@@ -781,7 +785,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the ASCS-LB (Central Server Instance), ensure that the load balancer is configured correctly for SAP ASCS high availability.
 
 **Resources**
 
@@ -804,7 +809,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the DBHANA-Pacemaker (Database Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP HANA DB high availability.
 
 **Resources**
 
@@ -827,7 +833,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the DBHANA-Pacemaker-SLES (Database Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP HANA DB high availability when running on SLES.
 
 **Resources**
 
@@ -850,7 +857,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the DBHANA-Pacemaker-RH (Database Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP ASCS high availability when running on Red Hat.
 
 **Resources**
 
@@ -873,7 +881,8 @@ In a zonal high availability setup,  use Virtual Machines Scale Set (VMSS) with 
 **Impact: High**
 
 **Guidance**
-.
+
+For the DBHANA-LB (Database Instance), make sure the load balancer is configured correctly for SAP HANA DB high availability.
 
 **Resources**
 
