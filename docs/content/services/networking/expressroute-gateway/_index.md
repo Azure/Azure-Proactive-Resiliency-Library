@@ -85,7 +85,7 @@ Azure ExpressRoute gateway provides different SLAs when it’s deployed in a sin
 
 **Category: Availability**
 
-**Impact: High**
+**Impact: Medium**
 
 **Guidance**
 

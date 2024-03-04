@@ -15,6 +15,7 @@ The presented resiliency recommendations in this guidance include ExpressRoute C
 | Recommendation | Category | Impact | State | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :-----------------: |
 | [ERCON-1 - For Connections using ExpressRoute Direct circuits and UltraPerformance or ErGw3AZ ExpressRoute Gateways, enable FastPath to improve data path performance between your on-premises network and your virtual network](#ercon-1---for-connections-using-expressroute-direct-circuits-and-ultraperformance-or-ergw3az-expressroute-gateways-enable-fastpath-to-improve-data-path-performance-between-your-on-premises-network-and-your-virtual-network) | System Efficiency | Medium | Preview | No |
+| [ERCON-2 - Configure an Azure Resource Lock on connections to prevent accidental deletion]() | Availability | High | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -44,6 +45,30 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/ercon-1/ercon-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ERCON-2 - Configure an Azure Resource Lock on connections to prevent accidental deletion
+
+**Category: Availability**
+
+**Impact: High**
+
+**Recommendation/Guidance**
+
+Configure an Azure Resource lock for Gateway Connection resources to prevent accidental deletion. Accidental deletion of a Gateway Connection resource may result in unexpected loss of connectivity between your on-premises network and Azure workloads. As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permission.
+
+**Resources**
+
+- [Protect your Azure resources with a lock - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?tabs=json)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/ercon-2/ercon-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
