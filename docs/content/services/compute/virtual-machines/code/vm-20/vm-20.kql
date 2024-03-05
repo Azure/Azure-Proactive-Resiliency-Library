@@ -1,1 +1,19 @@
-// under-development
+// Find all VMs that do not have the VM Insights extension installed
+resources
+| where type == 'microsoft.compute/virtualmachines'
+| extend
+    JoinID = toupper(id),
+    vmName = name,
+    OSType = tostring(properties.storageProfile.osDisk.osType)
+| join kind=leftouter(
+    resources
+    | where type == 'microsoft.compute/virtualmachines/extensions'
+    | extend
+        VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+        ExtensionName = name
+    | order by ExtensionName
+) on $left.JoinID == $right.VMId
+| summarize param2 = strcat ("Extensions: ", make_list(ExtensionName)) by recommendationId="vm-20", name=vmName, id, tags=strcat(tags), param1=OSType
+| where (param1 == "Windows" and param2 !contains "MicrosoftMonitoringAgent" and param2 !contains "Microsoft.Azure.Monitoring.DependencyAgent") or (param1 == "Linux" and param2 !contains "OMSAgentForLinux" and param2 !contains "DependencyAgentLinux")
+| project recommendationId, name, id, tags, param1=strcat("OSType:",param1), param2
+| order by tolower(name) asc
