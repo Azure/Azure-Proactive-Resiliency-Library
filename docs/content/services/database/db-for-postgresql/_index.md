@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Database for P
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
 | [PSQL-1 - Enable HA with zone redundancy](#psql-1---enable-ha-with-zone-redundancy) | Availability | High | Preview  |         Yes         |
-| [PSQL-2 - Enable custom maintenance schedule](#psql-1---enable-ha-with-zone-redundancy) | System Efficiency | High | Preview  |         No         |
+| [PSQL-2 - Enable custom maintenance schedule](#psql-1---enable-ha-with-zone-redundancy) | System Efficiency | High | Preview  |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
