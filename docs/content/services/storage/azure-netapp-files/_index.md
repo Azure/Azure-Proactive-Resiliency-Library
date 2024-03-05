@@ -244,8 +244,8 @@ Azure NetApp Files supports Azure Policy. You can integrate Azure NetApp Files w
 
 **Guidance**
 
-Access to the delegated subnet should be granted to specific Azure Virtual Networks only whenever possible. Reference [Configure network features for an Azure NetApp Files volume](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) for more information. 
-Share permissions on SMB-enabled volumes should be restricted from the default 'Everyone – Full control'. See [Manage SMB share ACLs in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-smb-share-access-control-lists) for more information. 
+Access to the delegated subnet should be granted to specific Azure Virtual Networks only whenever possible. Reference [Configure network features for an Azure NetApp Files volume](https://learn.microsoft.com/azure/azure-netapp-files/configure-network-features) for more information.
+Share permissions on SMB-enabled volumes should be restricted from the default 'Everyone – Full control'. See [Manage SMB share ACLs in Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/manage-smb-share-access-control-lists) for more information.
 Access to NFS-enabled volumes should be restricted by using export policies and/or NFSv4.1 ACLs. See [Configure export policy for NFS or dual-protocol volumes](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) and [Configure access control lists on NFSv4.1 volumes for Azure NetApp Files](https://learn.microsoft.com/azure/azure-netapp-files/configure-access-control-lists) for more information.
 Mount path change permissions should be further restricted. See [Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes](https://learn.microsoft.com/azure/azure-netapp-files/configure-unix-permissions-change-ownership-mode) for more information.
 
