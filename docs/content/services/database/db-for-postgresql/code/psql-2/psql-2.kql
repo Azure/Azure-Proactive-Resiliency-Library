@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Find Database for PostgreSQL instances that do not have a custom maintenance window
+resources
+| where type == "microsoft.dbforpostgresql/flexibleservers"
+| where properties.maintenanceWindow.customWindow != "Enabled"
+| project recommendationId = "psql-2", name, id, tags, param1 = strcat("customWindow:", properties['maintenanceWindow']['customWindow'])
