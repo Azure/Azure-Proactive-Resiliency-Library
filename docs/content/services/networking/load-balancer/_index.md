@@ -87,7 +87,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 **Guidance**
 
-Outbound rules ensure that you are not faced with connection failures as a result of SNAT port exhaustion. While outbound rules will help improve the solution for small to mid size deployments, for production workloads, we recommend coupling Standard Load Balancer or any subnet deployment with VNet NAT.
+Outbound rules for Standard Public Load Balancer requires you to manually allocate fixed amounts of ports to each of your backend pool instances. Because the SNAT port allocation is fixed, outbound rules does not provide the most scalable method for outbound connectivity. For production workloads, we recommend using NAT Gateway instead in order to prevent the risk of connection failures due to SNAT port exhaustion. NAT Gateway scales dynamically and provides secure connectivity to the internet.
 
 **Resources**
 
@@ -111,7 +111,7 @@ Outbound rules ensure that you are not faced with connection failures as a resul
 
 **Guidance**
 
- In a region with Availability Zones, a Standard Load Balancer can be zone-redundant with traffic served by a single IP address. A single frontend IP address survives zone failure. The frontend IP may be used to reach all (non-impacted) backend pool members no matter the zone. Up to one availability zone can fail and the data path survives as long as the remaining zones in the region remain healthy.
+In a region with Availability Zones, a Standard Load Balancer can be made zone-redundant by assigning it with a zone-redundant frontend IP address. With a zone-redundant frontend IP, the load balancer will continue to distribute traffic even when one availability zone fails, as long as there are other healthy zones and corresponding healthy backend instances in these zones that can receive traffic.
 
 **Resources**
 

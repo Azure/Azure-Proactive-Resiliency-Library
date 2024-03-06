@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for ExpressRoute ci
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                                                                                                                    |     Category      | Impact |  State  | ARG Query Available |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway connecting through diverse peering locations](#erc-1---implement-two-or-more-expressroute-circuits-for-each-expressroute-gateway-connecting-through-diverse-peering-locations) |   Availability    |  High  | Preview |         No          |
+| [ERC-1 - Connect your on-premises network to critical workloads in Azure through two or more ExpressRoute circuits in different peering locations](#erc-1---connect-your-on-premises-network-to-critical-workloads-in-azure-through-two-or-more-expressroute-circuits-in-different-peering-locations) |   Availability    |  High  | Preview |         No          |
 | [ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network](#erc-2---ensure-the-two-physical-links-of-your-expressroute-circuit-are-connected-to-two-distinct-edge-devices-in-your-network)   |   Availability    |  High  | Preview |         No          |
 | [ERC-3 - Ensure both connections of an ExpressRoute circuit are configured in active-active mode](#erc-3---ensure-both-connections-of-an-expressroute-circuit-are-configured-in-active-active-mode)                                                               |   Availability    |  High  | Preview |         Yes         |
 | [ERC-4 - Ensure Bidirectional Forwarding Detection is enabled and configured on customer or provider edge routing devices](#erc-4---ensure-bidirectional-forwarding-detection-is-enabled-and-configured-on-customer-or-provider-edge-routing-devices)             |   Availability    |  High  | Preview |         No          |
@@ -33,7 +33,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### ERC-1 - Implement two or more ExpressRoute circuits for each ExpressRoute Gateway connecting through diverse peering locations
+### ERC-1 - Connect your on-premises network to critical workloads in Azure through two or more ExpressRoute circuits in different peering locations
 
 **Category: Availability**
 
@@ -41,8 +41,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-Connect each ExpressRoute Gateway to a minimum of two circuits, with each circuit connecting from a diverse peering location compared to the other.
-
+Connect each ExpressRoute Gateway to a minimum of two circuits instantiated in different peering locations.
 **Resources**
 
 - [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
