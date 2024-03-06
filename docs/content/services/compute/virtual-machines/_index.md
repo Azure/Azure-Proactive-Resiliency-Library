@@ -40,7 +40,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks)                                                             |    System Efficiency     |  High  | Preview  |         Yes         |
 | [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               |    Application Resilience     |  High  | Preview  |         Yes         |
 | [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resilience     |  Medium  | Preview  |         No         |
-| [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload)   |    Application Resilience     |  High  | Preview  |         Yes         |
+| [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload)   |    Application Resilience     |  High  | Preview  |         No         |
 | [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms)   |    Application Resilience     |  Medium  | Preview  |         No         |
 {{< /table >}}
 
