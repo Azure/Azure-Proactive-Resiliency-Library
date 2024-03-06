@@ -38,8 +38,10 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms)                                                                                               |    Governance     |  High  | Preview  |         Yes         |
 | [VM-23 - Avoid using B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously)  |    System Efficiency      |  High  | Preview  |         Yes         |
 | [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks)                                                             |    System Efficiency     |  High  | Preview  |         Yes         |
-| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               |    Application Resiliency     |  High  | Preview  |         Yes         |
-| [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resiliency     |  High  | Preview  |         Yes         |
+| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               |    Application Resilience     |  High  | Preview  |         Yes         |
+| [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resilience     |  Medium  | Preview  |         No         |
+| [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload)   |    Application Resilience     |  High  | Preview  |         Yes         |
+| [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms)   |    Application Resilience     |  Medium  | Preview  |         No         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -724,6 +726,57 @@ All VMs that are members or a SQL Always-on cluster must use the same VM Sku, sa
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/vm-26/vm-26.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-27 - Use Azure Boost VMs for Maintenance sensitive workload
+
+**Category: Application Resilience**
+
+**Impact: Medium**
+
+**Guidance**
+
+If the workload is Maintenance sensitive, please consider using Azure Boost compatible VMs. Azure Boost is designed to lessen the impact on customers when Azure maintenance activities occur.
+
+**Resources**
+
+- [Microsoft Azure Boost](https://learn.microsoft.com/en-us/azure/azure-boost/overview)
+- [Announcing the general availability of Azure Boost](https://aka.ms/AzureBoostGABlog)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-27/vm-27.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs
+
+**Category: Application Resilience**
+
+**Impact: Medium**
+
+**Guidance**
+
+If the workload is Maintenance sensitive, please enable Scheduled Events. Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. 
+
+**Resources**
+
+- [Azure Metadata Service: Scheduled Events for Linux VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events)
+- [Azure Metadata Service: Scheduled Events for Windows VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events)
+- [Monitor scheduled events for your Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-event-service)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-28/vm-28.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
