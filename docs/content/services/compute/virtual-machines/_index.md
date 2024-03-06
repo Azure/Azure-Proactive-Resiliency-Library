@@ -744,7 +744,7 @@ If the workload is Maintenance sensitive, please consider using Azure Boost comp
 
 **Resources**
 
-- [Microsoft Azure Boost](https://learn.microsoft.com/en-us/azure/azure-boost/overview)
+- [Microsoft Azure Boost](https://learn.microsoft.com/azure/azure-boost/overview)
 - [Announcing the general availability of Azure Boost](https://aka.ms/AzureBoostGABlog)
 
 **Resource Graph Query/Scripts**
@@ -769,9 +769,9 @@ If the workload is Maintenance sensitive, please enable Scheduled Events. Schedu
 
 **Resources**
 
-- [Azure Metadata Service: Scheduled Events for Linux VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events)
-- [Azure Metadata Service: Scheduled Events for Windows VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events)
-- [Monitor scheduled events for your Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-event-service)
+- [Azure Metadata Service: Scheduled Events for Linux VMs](https://learn.microsoft.com/azure/virtual-machines/linux/scheduled-events)
+- [Azure Metadata Service: Scheduled Events for Windows VMs](https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-events)
+- [Monitor scheduled events for your Azure VMs](https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-event-service)
 
 **Resource Graph Query/Scripts**
 
