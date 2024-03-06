@@ -42,6 +42,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resilience     |  Medium  | Preview  |         No         |
 | [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload)   |    Application Resilience     |  High  | Preview  |         No         |
 | [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms)   |    Application Resilience     |  Medium  | Preview  |         No         |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
