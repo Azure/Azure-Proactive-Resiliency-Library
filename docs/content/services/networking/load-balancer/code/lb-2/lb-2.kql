@@ -5,7 +5,7 @@ resources
 | extend bep = properties.backendAddressPools
 | extend BackEndPools = array_length(bep)
 | where BackEndPools == 0
-| project recommendationId = "lb-2", name, id, Param1=BackEndPools, Param2=0
+| project recommendationId = "lb-2", name, id, Param1=BackEndPools, Param2=0, tags
 | union (resources
         | where type =~ 'Microsoft.Network/loadBalancers'
         | extend bep = properties.backendAddressPools
@@ -13,4 +13,4 @@ resources
         | mv-expand bip = properties.backendAddressPools
         | extend BackendAddresses = array_length(bip.properties.loadBalancerBackendAddresses)
         | where BackendAddresses <= 1
-        | project recommendationId = "lb-2", name, id, Param1=BackEndPools, Param2=BackendAddresses)
+        | project recommendationId = "lb-2", name, id, tags, Param1=BackEndPools, Param2=BackendAddresses)

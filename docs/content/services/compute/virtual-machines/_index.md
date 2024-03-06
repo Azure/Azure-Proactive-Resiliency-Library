@@ -36,7 +36,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights)                                                                               |    Monitoring     |  Low   | Verified |         Yes         |
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines)                                                                       |    Monitoring     |  Low   | Preview  |         Yes         |
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms)                                                                                               |    Governance     |  High  | Preview  |         Yes         |
-| [VM-23 - Avoid using B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously)  |    System Efficiency      |  High  | Preview  |         Yes         |
+| [VM-23 - Avoid using A or B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-a-or-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously)  |    System Efficiency      |  High  | Preview  |         Yes         |
 | [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks)                                                             |    System Efficiency     |  High  | Preview  |         Yes         |
 | [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               |    Application Resiliency     |  High  | Preview  |         Yes         |
 | [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resiliency     |  High  | Preview  |         Yes         |
@@ -624,13 +624,15 @@ The maintenance configuration settings allows user to schedule and manage update
 
 <br><br>
 
-### VM-23 - Avoid using B-Series VM Sku for production VMs that need the full performance of the CPU continuously
+### VM-23 - Avoid using A or B-Series VM Sku for production VMs that need the full performance of the CPU continuously
 
 **Category: System Efficiency**
 
 **Impact: Medium**
 
 **Guidance**
+
+A-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. Some example use cases include development and test servers, low traffic web servers, small to medium databases, proof-of-concepts, and code repositories.
 
 B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the virtual machine. The B-series provides you with the ability to purchase a VM size with baseline performance that can build up credits when it is using less than its baseline. When the VM has accumulated credits, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance. Upon consuming all the CPU credits, a B-series virtual machine is throttled back to its base CPU performance until it accumulates the credits to CPU burst again.
 

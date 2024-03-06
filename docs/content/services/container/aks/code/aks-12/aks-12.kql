@@ -3,4 +3,4 @@
 resources
 | where type == "microsoft.containerservice/managedclusters"
 | where sku.tier != "Standard"
-| project recommendationId="aks-12", id, name, param1=strcat("skuName: ", sku.name), param2=strcat("skuTier: ", sku.tier)
+| project recommendationId="aks-12", id, name, tags, param1=strcat("skuName: ", sku.name), param2=strcat("skuTier: ", sku.tier)

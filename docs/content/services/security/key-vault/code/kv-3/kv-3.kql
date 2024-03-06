@@ -6,5 +6,4 @@ resources
 | where isnull(properties.privateEndpointConnections) or properties.privateEndpointConnections[0].properties.provisioningState != ("Succeeded") or (isnull(properties.networkAcls) and properties.publicNetworkAccess == 'Enabled')
 | extend param1 = strcat('Private Endpoint: ', iif(isnotnull(properties.privateEndpointConnections),split(properties.privateEndpointConnections[0].properties.privateEndpoint.id,'/')[8],'No Private Endpoint'))
 | extend param2 = strcat('Access: ', iif(properties.publicNetworkAccess == 'Disabled', 'Public Access Disabled', iif(isnotnull(properties.networkAcls), 'NetworkACLs in place','Public Access Enabled')))
-| project recommendationID = "kv-3", name, id, param1, param2
-
+| project recommendationID = "kv-3", name, id, tags, param1, param2

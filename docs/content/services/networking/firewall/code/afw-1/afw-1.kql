@@ -3,4 +3,4 @@
 resources
 | where type == 'microsoft.network/azurefirewalls'
 | where array_length(zones) <= 1 or isnull(zones)
-| project recommendationId = "afw-1", name, id, param1="multipleZones:false"
+| project recommendationId = "afw-1", name, id, tags, param1="multipleZones:false"
