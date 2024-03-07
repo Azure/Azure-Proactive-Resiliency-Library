@@ -100,7 +100,8 @@ Consider using appropriate storage performance tier for standard storage / block
 
 **Resources**
 
-- [Performance Tier](https://learn.microsoft.com/azure/storage/common/storage-account-overview#performance-tiers )
+- [Types of storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#types-of-storage-accounts)
+- [Legacy storage account types](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#legacy-storage-account-types)
 
 **Resource Graph Query/Scripts**
 
