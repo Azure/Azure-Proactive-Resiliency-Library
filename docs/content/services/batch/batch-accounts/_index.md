@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### BA-1 - Monitor Batch account quota
+### BA-1 - Monitor Batch Account quota
 
 **Category: Monitoring**
 
@@ -141,7 +141,7 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 <br><br>
 
-### BA-5 - HPC Pack - Use multiple head nodes
+### BA-5 - HPC Pack Use multiple head nodes
 
 **Category: Availability**
 
