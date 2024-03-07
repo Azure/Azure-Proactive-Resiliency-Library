@@ -72,7 +72,7 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 **Guidance**
 
-Azure classic Storage Account will retire 31 august 2024. So migrate all workload from classic storage to v2.
+Azure classic Storage Account will retire 31 august 2024. So migrate all workload from classic storage accounts to Azure Resource Manager storage accounts.
 
 **Resources**
 
