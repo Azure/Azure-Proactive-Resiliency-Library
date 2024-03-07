@@ -77,6 +77,7 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 **Resources**
 
 - [storage account retirement announcement](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/)
+- [Migrate your classic storage accounts to Azure Resource Manager](https://learn.microsoft.com/en-us/azure/storage/common/classic-account-migration-overview)
 
 **Resource Graph Query/Scripts**
 
