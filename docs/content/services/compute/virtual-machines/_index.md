@@ -28,7 +28,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-12 - VMs should not have a Public IP directly associated](#vm-12---vms-should-not-have-a-public-ip-directly-associated)                                                                                         | Access & Security | Medium | Verified |         Yes         |
 | [VM-13 - VM network interfaces and associated subnets both have a Network Security Group (NSG) associated](#vm-13---vm-network-interfaces-and-associated-subnets-both-have-a-network-security-group-nsg-associated) | Access & Security |  Low   | Verified |         No          |
 | [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances)                                                         | Access & Security | Medium | Verified |         Yes         |
-| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                            |   Networking      |  Low   | Verified |         Yes         |
+| [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level)                                                   |   Networking      |  Low   | Verified |         Yes         |
 | [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers)                                                                               |      Storage      | Medium | Verified |         Yes         |
 | [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access)             | Access & Security |  Low   | Verified |         Yes         |
 | [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies)                                                                                     |    Governance     |  Low   | Verified |         Yes         |
@@ -37,9 +37,12 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines)                                                                       |    Monitoring     |  Low   | Preview  |         Yes         |
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms)                                                                                               |    Governance     |  High  | Preview  |         Yes         |
 | [VM-23 - Avoid using B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously)  |    System Efficiency      |  High  | Preview  |         Yes         |
-| [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks)                                                             |    System Efficiency     |  High  | Preview  |         Yes         |
-| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               |    Application Resiliency     |  High  | Preview  |         Yes         |
-| [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   |    Application Resiliency     |  High  | Preview  |         Yes         |
+| [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks)                                                             |    System Efficiency     |  High  | Preview  |         Yes  |
+| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription)                                                               | Application Resilience |  High  | Preview  |         Yes    |
+| [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations)   | Application Resilience |  Medium  | Preview  |        No    |
+| [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload)                                                                                   | Application Resilience |  High  | Preview  |         No     |
+| [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms)                                                                   | Application Resilience |  Medium  | Preview  |      No      |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -724,6 +727,57 @@ All VMs that are members or a SQL Always-on cluster must use the same VM Sku, sa
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/vm-26/vm-26.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-27 - Use Azure Boost VMs for Maintenance sensitive workload
+
+**Category: Application Resilience**
+
+**Impact: Medium**
+
+**Guidance**
+
+If the workload is Maintenance sensitive, please consider using Azure Boost compatible VMs. Azure Boost is designed to lessen the impact on customers when Azure maintenance activities occur.
+
+**Resources**
+
+- [Microsoft Azure Boost](https://learn.microsoft.com/azure/azure-boost/overview)
+- [Announcing the general availability of Azure Boost](https://aka.ms/AzureBoostGABlog)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-27/vm-27.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs
+
+**Category: Application Resilience**
+
+**Impact: Medium**
+
+**Guidance**
+
+If the workload is Maintenance sensitive, please enable Scheduled Events. Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux.
+
+**Resources**
+
+- [Azure Metadata Service: Scheduled Events for Linux VMs](https://learn.microsoft.com/azure/virtual-machines/linux/scheduled-events)
+- [Azure Metadata Service: Scheduled Events for Windows VMs](https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-events)
+- [Monitor scheduled events for your Azure VMs](https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-event-service)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vm-28/vm-28.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
