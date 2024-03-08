@@ -16,7 +16,7 @@ The presented resiliency recommendations in this guidance include Aks and associ
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:-------:|:-------:|:-------------------:|
 | [AKS-1 - Deploy AKS cluster across availability zones](#aks-1---deploy-aks-cluster-across-availability-zones)                                                                                                               |   Availability    |  High   | Preview |         Yes         |
 | [AKS-2 - Isolate system and application pods](#aks-2---isolate-system-and-application-pods)                                                                                                                                 |    Governance     |  High   | Preview |         Yes         |
-| [AKS-3 - Enable AKS-managed Azure AD integration](#aks-3---enable-aks-managed-azure-ad-integration)                                                                                                                         | Access & Security |  High   | Preview |         Yes         |
+| [AKS-3 - Enable AKS-managed Entra integration](#aks-3---enable-aks-managed-entra-integration)                                                                                                                         | Access & Security |  High   | Preview |         Yes         |
 | [AKS-4 - Configure Azure CNI networking for dynamic allocation of IPs](#aks-4---configure-azure-cni-networking-for-dynamic-allocation-of-ips)                                                                               |    Networking    | Medium  | Preview |         Yes         |
 | [AKS-5 - Enable the cluster auto-scaler on an existing cluster](#aks-5---enable-the-cluster-auto-scaler-on-an-existing-cluster)                                                                                             | System Efficiency |  High   | Preview |         Yes         |
 | [AKS-6 - Back up Azure Kubernetes Service](#aks-6---back-up-azure-kubernetes-service)                                                                                                                                       | Disaster Recovery |   Low   | Preview |         No          |
@@ -33,6 +33,11 @@ The presented resiliency recommendations in this guidance include Aks and associ
 | [AKS-17 - Configure affinity or anti-affinity rules based on application requirements](#aks-17---configure-affinity-or-anti-affinity-rules-based-on-application-requirements)                                               |   Availability    |  High   | Preview |         No          |
 | [AKS-18 - Configures Pods Liveness, Readiness, and Startup Probes](#aks-18---configures-pods-liveness-readiness-and-startup-probes)                                                                                         |   Availability    |  High   | Preview |         No          |
 | [AKS-19 - Configure Pod replication in production applications to guarantee availability](#aks-19---configure-pod-replication-in-production-applications-to-guarantee-availability)                                         |   Availability    |  High   | Preview |         No          |
+| [AKS-20 - Configure system nodepool count](#aks-20---configure-system-nodepool-count)                                         |   Availability    |  High   | Preview |         Yes          |
+| [AKS-21 - Configure user nodepool count](#aks-21---configure-user-nodepool-count)                                         |   Availability    |  High   | Preview |         Yes          |
+| [AKS-22 - Configure pod disruption budgets (PDBs)](#aks-22---configure-pod-disruption-budgets-pdbs)                                         |   Availability    |  Medium   | Preview |         No          |
+| [AKS-23 - Nodepool subnet size needs to accommodate maximum auto-scale settings](#aks-23---nodepool-subnet-size-needs-to-accommodate-maximum-auto-scale-settings)                                         |   Availability    |  High   | Preview |         No          |
+| [AKS-24 - Enforce resource quotas at the namespace level](#aks-24---enforce-resource-quotas-at-the-namespace-level)                                         |   Availability    |  High   | Preview |         No          |
 
 {{< /table >}}
 
@@ -97,7 +102,7 @@ To prevent misconfigured or rogue application pods from accidentally killing sys
 
 <br><br>
 
-### AKS-3 - Enable AKS-managed Azure AD integration
+### AKS-3 - Disable local accounts
 
 **Category: Access & Security**
 
@@ -109,7 +114,7 @@ Local Kubernetes accounts provide a legacy non-auditable means of accessing an A
 
 **Resources**
 
-- [Azure AD integration](https://learn.microsoft.com/en-us/azure/aks/concepts-identity#azure-ad-integration)
+- [Ent integration](https://learn.microsoft.com/en-us/azure/aks/concepts-identity#azure-ad-integration)
 - [Use Azure role-based access control for AKS](https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?source=recommendations)
 - [Manage AKS local accounts](https://learn.microsoft.com/en-us/azure/aks/manage-local-accounts-managed-azure-ad?source=recommendations)
 
@@ -513,7 +518,7 @@ AKS kubelet controller uses liveness probes to validate containers and applicati
 
 <br><br>
 
-### AKS-19 - Configure pod replication in production applications to guarantee availability
+### AKS-19 - Configure pod replica sets in production applications to guarantee availability
 
 **Category: Availability**
 
@@ -532,6 +537,127 @@ Configure ReplicaSets in the Pod or Deployment manifests to maintain a stable se
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/aks-19/aks-19.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AKS-20 - Configure system nodepool count
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+The system node pool should be configured with a minimum node count of two to ensure critical system pods are resilient to node outages.
+
+**Resources**
+
+- [System nodepools](https://learn.microsoft.com/azure/aks/use-system-pools?tabs=azure-cli)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/aks-20/aks-20.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AKS-21 - Configure user nodepool count
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+The user node pool should be configured with a minimum node count of two if the application requires high availability.
+
+**Resources**
+
+- [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service#design-checklist)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/aks-21/aks-21.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AKS-22 - Configure pod disruption budgets (PDBs)
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+A Pod Disruption Budget (PDB) is a Kubernetes resource that allows you to configure the minimum number or percentage of pods that should remain available during voluntary disruptions, such as maintenance or scaling events. To maintain the availability of applications, define Pod Disruption Budgets (PDBs) to make sure that a minimum number of pods are available in the cluster.
+
+**Resources**
+
+- [Configure PDBs](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+- [Plan availability using PDBs](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/aks-22/aks-22.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AKS-23 - Nodepool subnet size needs to accommodate maximum auto-scale settings
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+Nodepool subnets should be sized to accommodate maximum auto-scale settings. By properly sizing the subnet, AKS can efficiently scale out nodes to meet increased demand, reducing the risk of resource constraints and potential service disruptions.
+
+**Resources**
+
+- [AKS Networking](https://learn.microsoft.com/azure/aks/concepts-network)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/aks-23/aks-23.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AKS-24 - Enforce resource quotas at the namespace level
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+Enforcing namespace-level resource quotas is crucial for ensuring reliability by preventing resource exhaustion and maintaining cluster stability. This helps prevent individual applications or users from monopolizing resources, which can lead to degraded performance or outages for other applications in the cluster.
+
+**Resources**
+
+- [Resource quotas](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/aks-24/aks-24.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
