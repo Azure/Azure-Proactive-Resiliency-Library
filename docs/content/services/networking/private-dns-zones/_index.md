@@ -12,11 +12,11 @@ The presented resiliency recommendations in this guidance include Private DNS Zo
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                      |  Category       |  Impact     |  State    | ARG Query Available |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :-------------: | :------:    | :------:  | :-----------------: |
-| [PVDNSZ-1 - Protect private DNS zones and records](#pvdnsz-1---protect-private-dns-zones-and-records) | Access & Security      | Medium      | Preview   |         No         |
-| [PVDNSZ-2 - Monitor Private DNS Zones health and set up alerts](#pvdnsz-2---monitor-private-dns-zones-health-and-set-up-alerts) | Monitoring             | Low         | Preview   |         No         |
-| [PVDNSZ-3 - Make sure Production and DR zones have equivalent entries for workloads and resources that will be failed over](#pvdnsz-3---make-sure-production-and-dr-zones-have-equivalent-entries-for-workloads-and-resources-that-will-be-failed-over) | Governance             | Medium      | Preview   |         No         |
+| Recommendation | Category | Impact | State | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [PVDNSZ-1 - Protect private DNS zones and records](#pvdnsz-1---protect-private-dns-zones-and-records) | Access & Security | Medium | Preview | No |
+| [PVDNSZ-2 - Monitor Private DNS Zones health and set up alerts](#pvdnsz-2---monitor-private-dns-zones-health-and-set-up-alerts) | Monitoring | Low | Preview | No |
+| [PVDNSZ-3 - Make sure Production and DR zones have equivalent entries for workloads and resources that will be failed over](#pvdnsz-3---make-sure-production-and-dr-zones-have-equivalent-entries-for-workloads-and-resources-that-will-be-failed-over) | Governance | Medium | Preview | No |
 
 {{< /table >}}
 
@@ -64,7 +64,7 @@ The records contained in a private DNS zone aren't resolvable from the Internet.
 
 **Resources**
 
-- [Scenarios for Azure Private DNS zones ](https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios)
+- [Scenarios for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios)
 
 **Resource Graph Query/Scripts**
 
