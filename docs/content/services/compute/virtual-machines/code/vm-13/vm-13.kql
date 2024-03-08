@@ -19,7 +19,7 @@ Resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where isnotnull(properties.networkProfile.networkInterfaces)
     | mv-expand nic=properties.networkProfile.networkInterfaces
-    | project vmName = name, vmId = id, nicId = nic.id, nicName=split(nic.id, '/')[8]
+    | project vmName = name, vmId = id, tags, nicId = nic.id, nicName=split(nic.id, '/')[8]
     | extend nicId = tostring(nicId)
 ) on nicId
-| project recommendationId = "vm-13", name=vmName, id = vmId, param1 = strcat("nic-name=", nicName)
+| project recommendationId = "vm-13", name=vmName, id = vmId, tags, param1 = strcat("nic-name=", nicName)

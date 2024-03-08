@@ -3,5 +3,5 @@
 resources
 | where type == "microsoft.signalrservice/signalr"
 | where sku.tier != "Premium"
-| project recommendationId = "sigr-1", name, id, param1 = "AvailabilityZones: Single Zone"
+| project recommendationId = "sigr-1", name, id, tags, param1 = "AvailabilityZones: Single Zone"
 | order by id asc

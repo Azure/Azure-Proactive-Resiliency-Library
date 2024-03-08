@@ -6,4 +6,4 @@ resources
     | where type =~ "microsoft.network/networkwatchers")
 | summarize NetworkWatcherCount = countif(type =~ 'Microsoft.Network/networkWatchers') by location
 | where NetworkWatcherCount == 0
-| project recommendationId = "nw-1", name=location, id="n/a", param1 = strcat("LocationMisingNetworkWatcher:", location)
+| project recommendationId = "nw-1", name=location, id="n/a", tags, param1 = strcat("LocationMisingNetworkWatcher:", location)

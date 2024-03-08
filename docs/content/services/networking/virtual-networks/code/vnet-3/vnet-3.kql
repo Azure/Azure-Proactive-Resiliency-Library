@@ -5,8 +5,8 @@ resources
 | mv-expand subnets = properties.subnets
 | extend se = array_length(subnets.properties.serviceEndpoints)
 | where se >= 1
-| project name, id, subnets, serviceEndpoints=todynamic(subnets.properties.serviceEndpoints)
+| project name, id, tags, subnets, serviceEndpoints=todynamic(subnets.properties.serviceEndpoints)
 | mv-expand serviceEndpoints
-| project name, id, subnetName=subnets.name, serviceName=tostring(serviceEndpoints.service)
+| project name, id, tags, subnetName=subnets.name, serviceName=tostring(serviceEndpoints.service)
 | where serviceName in (parse_json('["Microsoft.CognitiveServices","Microsoft.AzureCosmosDB","Microsoft.DBforMariaDB","Microsoft.DBforMySQL","Microsoft.DBforPostgreSQL","Microsoft.EventHub","Microsoft.KeyVault","Microsoft.ServiceBus","Microsoft.Sql", "Microsoft.Storage","Microsoft.StorageSync","Microsoft.Synapse","Microsoft.Web"]'))
-| project recommendationId = "vnet-3", name, id, param1 = strcat("subnet=", subnetName), param2=strcat("serviceName=",serviceName), param3="ServiceEndpoints=true"
+| project recommendationId = "vnet-3", name, id, tags, param1 = strcat("subnet=", subnetName), param2=strcat("serviceName=",serviceName), param3="ServiceEndpoints=true"
