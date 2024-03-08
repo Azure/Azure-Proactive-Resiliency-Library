@@ -1,6 +1,1 @@
-// Azure Resource Graph Query
-// Brief description of the intent of the query (focus on returning resources NOT following your recommendation, and usually name and ResourceId are enough for the report)
-Resources
-| where type =~ "Microsoft.Example/changeMe2"
-| project recommendationId = "cm-2", name, id
-| order by id asc
+// cannot-be-validated-with-arg

@@ -3,4 +3,4 @@
 resources
 | where type =~ 'Microsoft.Network/publicIPAddresses'
 | where tostring(properties.ipConfiguration.id) contains "microsoft.network/networkinterfaces"
-| project recommendationid="pip-2", name, id, param1=strcat("Migrate from instance IP to NAT Gateway")
+| project recommendationid="pip-2", name, id, tags, param1=strcat("Migrate from instance IP to NAT Gateway")

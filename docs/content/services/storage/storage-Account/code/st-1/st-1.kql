@@ -3,4 +3,4 @@
 Resources
 | where type =~'microsoft.storage/storageaccounts'
 | where sku.name =~'Standard_LRS'
-| project recommendationId = 'st-1', name, id, param1=sku.name
+| project recommendationId = 'st-1', name, id, tags, param1=sku.name

@@ -13,4 +13,4 @@ resources
   | project databaseid = tolower(id), name, tags
 ) on databaseid
 |where isnull(monitoredMetrics)
-|project recommendationId = "sqldb-5", name, id=databaseid1, param1=strcat("MonitoringMetrics=false" ), tags
+|project recommendationId = "sqldb-5", name, id=databaseid1, tags, param1=strcat("MonitoringMetrics=false" )

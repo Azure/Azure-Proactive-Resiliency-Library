@@ -2,14 +2,14 @@
 // List all Azure Firewalls resources in-scope, along with any metrics associated to Azure Monitor alert rules, that are not fully configured.
 resources
 | where type == "microsoft.network/azurefirewalls"
-| project firewallId = tolower(id), name
+| project firewallId = tolower(id), name, tags
 | join kind = leftouter (
     resources
     | where type == "microsoft.insights/metricalerts"
     | mv-expand properties.scopes
     | mv-expand properties.criteria.allOf
     | where properties_scopes contains "azureFirewalls"
-    | project metricId = tolower(properties_scopes), monitoredMetric = properties_criteria_allOf.metricName
+    | project metricId = tolower(properties_scopes), monitoredMetric = properties_criteria_allOf.metricName, tags
     | summarize monitoredMetrics = make_list(monitoredMetric) by tostring(metricId)
     | project
         metricId,
@@ -18,4 +18,4 @@ resources
 ) on $left.firewallId == $right.metricId
 | extend alertsNotFullyConfigured = isnull(allAlertsConfigured) or not(allAlertsConfigured)
 | where alertsNotFullyConfigured
-| project recommendationId = "afw-3", name, id = firewallId, param1 = strcat("MetricsAlerts:", monitoredMetrics)
+| project recommendationId = "afw-3", name, id = firewallId, tags, param1 = strcat("MetricsAlerts:", monitoredMetrics)
