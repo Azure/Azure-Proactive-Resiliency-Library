@@ -110,7 +110,7 @@ To prevent misconfigured or rogue application pods from accidentally killing sys
 
 **Guidance**
 
-Local Kubernetes accounts provide a legacy non-auditable means of accessing an AKS cluster and are not recommended for use. Enabling Azure AD integration on an AKS cluster provides several benefits for managing access to the cluster. By using Azure AD, you can centralize user and group management, enforce multi-factor authentication, and enable role-based access control (RBAC) for fine-grained access control to cluster resources. Additionally, Azure AD provides a secure and scalable authentication mechanism that can be integrated with other Azure services and third-party identity providers.
+Local Kubernetes accounts provide a legacy non-auditable means of accessing an AKS cluster and are not recommended for use. Enabling Microsoft Entra integration on an AKS cluster provides several benefits for managing access to the cluster. By using Microsoft Entra, you can centralize user and group management, enforce multi-factor authentication, and enable role-based access control (RBAC) for fine-grained access control to cluster resources. Additionally, Microsoft Entra provides a secure and scalable authentication mechanism that can be integrated with other Azure services and third-party identity providers.
 
 **Resources**
 
