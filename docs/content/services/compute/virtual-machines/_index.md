@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------:|:------:|:--------:|:-------------------:|
-| [VM-1 - Run production workloads on two or more VMs using VMSS Flex](#vm-1---run-production-workloads-on-two-or-more-vms-using-vmss-flex) | Availability | High | Verified | No |
+| [VM-1 - Run production workloads on two or more VMs using VMSS Flex](#vm-1---run-production-workloads-on-two-or-more-vms-using-vmss-flex) | Availability | High | Verified | Yes |
 | [VM-2 - Deploy VMs across Availability Zones](#vm-2---deploy-vms-across-availability-zones) | Availability | High | Verified | Yes |
 | [VM-3 - Migrate VMs using availability sets to VMSS Flex](#vm-3---migrate-vms-using-availability-sets-to-vmss-flex) | Availability | High | Verified | Yes |
 | [VM-4 - Replicate VMs using Azure Site Recovery](#vm-4---replicate-vms-using-azure-site-recovery) | Disaster Recovery | Medium | Verified | Yes |
@@ -61,14 +61,12 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, it's recommended that you run production workloads on two or more VMs using VMSS Flex. To achieve this you can use:
-
-- Azure Virtual Machine Scale Sets to create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule.
-- Availability zones.
+Production VM workloads should be deployed on multiple VMs and grouped together in a VMSS Flex instance. VMSS Flex intelligently distributes VMs across the platform to minimize the impact of platform faults and platform updates on a workload. A workload running on single instance VMs, even when those instances are spread across availability zones, cannot receive the same protection because the platform has no way of knowing the VMs are related to each other.
 
 **Resources**
 
-- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
+- [What has changed with Flexible orchestration mode](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#what-has-changed-with-flexible-orchestration-mode)
+- [Attach or detach a Virtual Machine to or from a Virtual Machine Scale Set](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?branch=main&tabs=portal-1%2Cportal-2%2Cportal-3)
 
 **Resource Graph Query/Scripts**
 
