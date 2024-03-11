@@ -13,16 +13,14 @@ The presented resiliency recommendations in this guidance include Batch Accounts
 
 {{< table style="table-striped" >}}
 | Recommendation | Impact | Design Area | State | ARG Query Available |
-| :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :------: |
+|:--------------------------------------------------------------------------------------------------------------------------|:------:|:------------:|:-------:|:-------------------:|
 | [BA-1 Monitor Batch account quota](#ba-1---monitor-batch-account-quota) | Medium | Monitoring | Preview | No |
 | [BA-3 Create an Azure Batch pool across Availability Zones](#ba-3---create-an-azure-batch-pool-across-availability-zones) | High | Availability | Preview | No |
 
 {{< /table >}}
 
 {{< alert style="info" >}}
-
 Definitions of states can be found [here]({{< ref "../../../_index.md#definitions-of-terms-used-in-aprl">}})
-
 {{< /alert >}}
 
 ## Recommendations Details
@@ -77,8 +75,6 @@ For example, you could create your pool with zonal policy in an Azure region tha
 {{< /collapse >}}
 
 <br><br>
-<<<<<<< HEAD
-=======
 
 ### BA-4 - Automatically grow and shrink HPC Pack cluster resources
 
@@ -157,5 +153,3 @@ When HPC fails to connect to the Domain Controller, admins and users will not be
 {{< /collapse >}}
 
 <br><br>
-
-> > > > > > > b0eff5e2a8f62631ec546dbc028731de5de13eb4
