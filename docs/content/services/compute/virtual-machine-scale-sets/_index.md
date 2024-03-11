@@ -12,17 +12,19 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                                                          |     Category      | Impact |  State  | ARG Query Available |
+| Recommendation | Category | Impact | State | ARG Query Available |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [VMSS-1 - Deploy VMSS with Flex orchestration mode instead of Uniform](#vmss-1---deploy-vmss-with-flex-orchestration-mode-instead-of-uniform)                                                           | System Efficiency | Medium | Preview |         Yes         |
-| [VMSS-2 - Enable VMSS application health monitoring](#vmss-2---enable-vmss-application-health-monitoring)                                                                                               |    Monitoring     | Medium | Preview |         No          |
-| [VMSS-3 - Enable Automatic Repair policy](#vmss-3---enable-automatic-repair-policy)                                                                                                                     |    Automation     |  High  | Preview |         No          |
-| [VMSS-4 - Configure VMSS autoscale to custom and configure the scaling metrics](#vmss-4---configure-vmss-autoscale-to-custom-and-configure-the-scaling-metrics)                                         | System Efficiency |  High  | Preview |         Yes         |
-| [VMSS-5 - Enable Predictive Autoscale and configure at least for Forecast Only](#vmss-5---enable-predictive-autoscale-and-configure-at-least-for-forecast-only)                                         | System Efficiency |  Low   | Preview |         Yes         |
-| [VMSS-6 - Disable Force strictly even balance across zones to avoid scale in and out fail attempts](#vmss-6---disable-force-strictly-even-balance-across-zones-to-avoid-scale-in-and-out-fail-attempts) |   Availability    |  High  | Preview |         Yes         |
-| [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading)                                                 | System Efficiency | Medium | Preview |         Yes         |
-| [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex)                                                                         |   Availability    |  High  | Preview |         Yes         |
-| [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated)                                                                       |    Automation     |  Low   | Preview |         No          |
+| [VMSS-1 - Deploy VMSS with Flex orchestration mode instead of Uniform](#vmss-1---deploy-vmss-with-flex-orchestration-mode-instead-of-uniform) | System Efficiency | Medium | Preview | Yes |
+| [VMSS-2 - Enable VMSS application health monitoring](#vmss-2---enable-vmss-application-health-monitoring) | Monitoring | Medium | Preview | Yes |
+| [VMSS-3 - Enable Automatic Repair policy](#vmss-3---enable-automatic-repair-policy) | Automation | High | Preview | Yes |
+| [VMSS-4 - Configure VMSS autoscale to custom and configure the scaling metrics](#vmss-4---configure-vmss-autoscale-to-custom-and-configure-the-scaling-metrics) | System Efficiency | High | Preview | Yes |
+| [VMSS-5 - Enable Predictive Autoscale and configure at least for Forecast Only](#vmss-5---enable-predictive-autoscale-and-configure-at-least-for-forecast-only) | System Efficiency | Low | Preview | Yes |
+| [VMSS-6 - Disable Force strictly even balance across zones to avoid scale in and out fail attempts](#vmss-6---disable-force-strictly-even-balance-across-zones-to-avoid-scale-in-and-out-fail-attempts) | Availability | High | Preview | Yes |
+| [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading) | System Efficiency | Medium | Preview | Yes |
+| [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex) | Availability | High | Preview | Yes |
+| [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated) | Automation | Low | Preview | Yes |
+| [VMSS-10 - Upgrade VMSS Image versions scheduled to be deprecated or already retired](#vmss-10---upgrade-vmss-image-versions-scheduled-to-be-deprecated-or-already-retired) | Governance | High | Preview | Yes |
+| [VMSS-11 - Production VMSS instances should be using SSD disks](#vmss-11---production-vmss-instances-should-be-using-ssd-disks) | System Efficiency | High | Preview | Yes |
 
 {{< /table >}}
 
@@ -263,3 +265,50 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 
 <br><br>
 
+### VMSS-10 - Upgrade VMSS Image versions scheduled to be deprecated or already retired
+
+**Category: Governance**
+
+**Impact: High**
+
+**Guidance**
+
+Ensure current versions of images are in use to avoid disruption after image deprecation. This ensures that if these images are deprecated that you will not be impacted as you will no longer be able to deploy any additional VMs or VMSS once the image has been deprecated.
+
+**Resources**
+
+- [Deprecated Azure Marketplace images](https://learn.microsoft.com/en-us/azure/virtual-machines/deprecated-images)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vmss-10/vmss-10.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### VMSS-11 - Production VMSS instances should be using SSD disks
+
+**Category: System Efficiency**
+
+**Impact: High**
+
+**Guidance**
+
+It is advised that you use SSD disks for Production workloads. Using HDD could impact your resources as it should only be used for non-critical resources and for resources that require infrequent access.
+
+**Resources**
+
+- [Disk Comparison](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#disk-type-comparison)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/vmss-11/vmss-11.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>

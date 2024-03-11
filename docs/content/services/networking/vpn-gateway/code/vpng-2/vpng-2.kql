@@ -3,5 +3,5 @@ resources
 | where properties.gatewayType =~ "vpn"
 | extend gatewayType = properties.gatewayType, vpnType = properties.vpnType, connections = properties.connections, activeactive=properties.activeActive
 | where activeactive == false
-| project recommendationId = "vpng-2", name, id
+| project recommendationId = "vpng-2", name, id, tags
 

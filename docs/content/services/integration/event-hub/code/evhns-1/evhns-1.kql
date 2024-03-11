@@ -3,5 +3,5 @@
 resources
 | where type == "microsoft.eventhub/namespaces"
 | where properties.zoneRedundant == false
-| project recommendationId = "evhns-1", name, id, param1 = "ZoneRedundant: False", tags
+| project recommendationId = "evhns-1", name, id, tags, param1 = "ZoneRedundant: False"
 | order by id asc
