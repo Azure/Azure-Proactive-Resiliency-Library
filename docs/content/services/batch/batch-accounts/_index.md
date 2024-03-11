@@ -18,7 +18,7 @@ The presented resiliency recommendations in this guidance include Batch Accounts
 | [BA-2 Ensure File shares that store jobs metadata are accessible from all head nodes](#ba-2---ensure-file-shares-that-store-jobs-metadata-are-accessible-from-all-head-nodes)  | High |  Availability | Preview |       No        |
 | [BA-3 Create an Azure Batch pool across Availability Zones](#ba-3---create-an-azure-batch-pool-across-availability-zones)  | High |  Availability | Preview |       No        |
 | [BA-4 Automatically grow and shrink HPC Pack cluster resources](#ba-4---automatically-grow-and-shrink-hpc-pack-cluster-resources)  | Medium |  System Efficiency | Preview |       No        |
-| [BA-5 HPC Pack - Use multiple head nodes](#ba-5---hpc-pack---use-multiple-head-nodes)  | High |  Availability | Preview |       No        |
+| [BA-5 HPC Pack Use multiple head nodes](#ba-5---hpc-pack-use-multiple-head-nodes)  | High |  Availability | Preview |       No        |
 | [BA-6 Use HPC Pack Azure AD Integration or other highly available AD configuration](#ba-6---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration)  | High |  Availability | Preview |       No        |
 
 {{< /table >}}
@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### BA-1 - Monitor Batch account quota
+### BA-1 - Monitor Batch Account quota
 
 **Category: Monitoring**
 
@@ -141,7 +141,7 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 <br><br>
 
-### BA-5 - HPC Pack - Use multiple head nodes
+### BA-5 - HPC Pack Use multiple head nodes
 
 **Category: Availability**
 

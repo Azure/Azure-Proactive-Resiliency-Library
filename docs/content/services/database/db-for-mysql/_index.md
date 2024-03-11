@@ -14,8 +14,8 @@ The presented resiliency recommendations in this guidance include DB for MySQL a
 {{< table style="table-striped" >}}
 | Recommendation                                    |                                Category                                 |     Impact      |      State       | ARG Query Available |
 |:--------------------------------------------------|:-----------------------------------------------------------------------:|:---------------:|:----------------:|:-------------------:|
-| [MYSQL-1 - Enable HA with zone redundancy](#mysql-1---enable-ha-with-zone-redundancy) | Availability | High | Preview |         No         |
-| [MYSQL-2 - Enable custom maintenance schedule](#mysql-2---enable-custom-maintenance-schedule) |     System Efficiency      | High | Preview |         No          |
+| [MYSQL-1 - Enable HA with zone redundancy](#mysql-1---enable-ha-with-zone-redundancy) | Availability | High | Preview |         Yes         |
+| [MYSQL-2 - Enable custom maintenance schedule](#mysql-2---enable-custom-maintenance-schedule) |     System Efficiency      | High | Preview |         Yes          |
 {{< /table >}}
 
 {{< alert style="info" >}}

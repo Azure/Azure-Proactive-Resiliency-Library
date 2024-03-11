@@ -5,4 +5,4 @@ resources
 |  extend azureMonitor = tostring(parse_json(properties.azureMonitorProfile.metrics.enabled))
 |  extend insights = tostring(parse_json(properties.addonProfiles.omsagent.enabled))
 |  where isempty(azureMonitor) or isempty(insights)
-|  project recommendationId="aks-13",id, name, param1=strcat("azureMonitorProfileEnabled: ", iff(isempty(azureMonitor), "false", azureMonitor)), param2=strcat("containerInsightsEnabled: ", iff(isempty(insights), "false", insights))
+|  project recommendationId="aks-13",id, name, tags, param1=strcat("azureMonitorProfileEnabled: ", iff(isempty(azureMonitor), "false", azureMonitor)), param2=strcat("containerInsightsEnabled: ", iff(isempty(insights), "false", insights))

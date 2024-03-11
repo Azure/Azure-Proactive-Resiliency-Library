@@ -6,4 +6,4 @@ resources
 | extend taint = tostring(parse_json(agentPoolProfile.nodeTaints))
 | extend nodePool = tostring(parse_json(agentPoolProfile.name))
 | where isempty(taint)
-| project recommendationid="aks-2", id, name, param1=strcat("nodepoolName: ", nodePool), param2=strcat("taint: ", iff(isempty(taint), "None", taint))
+| project recommendationid="aks-2", id, name, tags, param1=strcat("nodepoolName: ", nodePool), param2=strcat("taint: ", iff(isempty(taint), "None", taint))
