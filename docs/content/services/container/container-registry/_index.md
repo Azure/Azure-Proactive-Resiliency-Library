@@ -12,20 +12,19 @@ The presented resiliency recommendations in this guidance include Container Regi
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                              |     Category      | Impact |  State  | ARG Query Available |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [CR-1 - Use Premium tier for critical production workloads](#cr-1---use-premium-tier-for-critical-production-workloads)                                                     | System Efficiency |  High  | Preview |         Yes         |
-| [CR-2 - Enable zone redundancy](#cr-2---enable-zone-redundancy)                                                                                                             |   Availability    |  High  | Preview |         Yes         |
-| [CR-3 - Enable geo-replication](#cr-3---enable-geo-replication)                                                                                                             | Disaster Recovery |  High  | Preview |         Yes         |
-| [CR-4 - Maximize pull performance](#cr-4---maximize-pull-performance)                                                                                                       | System Efficiency |  High  | Preview |         No          |
-| [CR-5 - Use Repository namespaces](#cr-5---use-repository-namespaces)                                                                                                       | Access & Security |  Low   | Preview |         No          |
-| [CR-6 - Move Container Registry to a dedicated resource group](#cr-6---move-container-registry-to-a-dedicated-resource-group)                                               |    Governance     |  Low   | Preview |         Yes          |
-| [CR-7 - Manage registry size](#cr-7---manage-registry-size)                                                                                                                 | System Efficiency | Medium | Preview |         No          |
-| [CR-8 - Disable anonymous pull access](#cr-8---disable-anonymous-pull-access)                                                                                               | Access & Security | Medium | Preview |         Yes         |
-| [CR-9 - Use an Azure managed identity to authenticate to an Azure container registry](#cr-9---use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry) | Access & Security | Medium | Preview |         Yes          |
-| [CR-10 - Configure Diagnostic Settings for all Azure Container Registries](#cr-10---configure-diagnostic-settings-for-all-azure-container-registries)                       |    Monitoring     | Medium | Preview |         No          |
-| [CR-11 - Monitor Azure Container Registry with Azure Monitor](#cr-11---monitor-azure-container-registry-with-azure-monitor)                                                 |    Monitoring     | Medium | Preview |         No          |
-| [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy)                                                                                                     | Disaster Recovery | Medium | Preview |         Yes         |
+| Recommendation | Category | Impact | State | ARG Query Available |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
+| [CR-1 - Use Premium tier for critical production workloads](#cr-1---use-premium-tier-for-critical-production-workloads) | System Efficiency | High | Preview | Yes |
+| [CR-2 - Enable zone redundancy](#cr-2---enable-zone-redundancy) | Availability | High | Preview | Yes |
+| [CR-3 - Enable geo-replication](#cr-3---enable-geo-replication) | Disaster Recovery | High | Preview | Yes |
+| [CR-4 - Maximize pull performance](#cr-4---maximize-pull-performance) | System Efficiency | High | Preview | No |
+| [CR-5 - Use Repository namespaces](#cr-5---use-repository-namespaces) | Access & Security | Low | Preview | No |
+| [CR-6 - Move Container Registry to a dedicated resource group](#cr-6---move-container-registry-to-a-dedicated-resource-group) | Governance | Low | Preview | Yes |
+| [CR-7 - Manage registry size](#cr-7---manage-registry-size) | System Efficiency | Medium | Preview | No |
+| [CR-8 - Disable anonymous pull access](#cr-8---disable-anonymous-pull-access) | Access & Security | Medium | Preview | Yes |
+| [CR-10 - Configure Diagnostic Settings for all Azure Container Registries](#cr-10---configure-diagnostic-settings-for-all-azure-container-registries) | Monitoring | Medium | Preview | No |
+| [CR-11 - Monitor Azure Container Registry with Azure Monitor](#cr-11---monitor-azure-container-registry-with-azure-monitor) | Monitoring | Medium | Preview | No |
+| [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy) | Disaster Recovery | Medium | Preview | Yes |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -230,33 +229,6 @@ By default, access to pull or push content from an Azure container registry is o
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/cr-8/cr-8.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### CR-9 - Use an Azure managed identity to authenticate to an Azure container registry
-
-**Category: Access & Security**
-
-**Impact: Medium**
-
-**Guidance**
-
-Each container registry includes an admin user account, which is disabled by default. The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials.
-
-Use a managed identity for Azure resources to authenticate to an Azure container registry from another Azure resource, without needing to provide or manage registry credentials.
-
-**Resources**
-
-- [Registry authentication options - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
-- [Authenticate with managed identity - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication-managed-identity?tabs=azure-cli)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cr-9/cr-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
