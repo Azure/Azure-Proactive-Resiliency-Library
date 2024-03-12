@@ -114,7 +114,7 @@ Local Kubernetes accounts provide a legacy non-auditable means of accessing an A
 
 **Resources**
 
-- [Ent integration](https://learn.microsoft.com/en-us/azure/aks/concepts-identity#azure-ad-integration)
+- [Entra integration](https://learn.microsoft.com/en-us/azure/aks/concepts-identity#azure-ad-integration)
 - [Use Azure role-based access control for AKS](https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?source=recommendations)
 - [Manage AKS local accounts](https://learn.microsoft.com/en-us/azure/aks/manage-local-accounts-managed-azure-ad?source=recommendations)
 
