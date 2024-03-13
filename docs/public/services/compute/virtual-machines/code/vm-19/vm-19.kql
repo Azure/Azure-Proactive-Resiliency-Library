@@ -1,0 +1,8 @@
+// Azure Resource Graph Query
+// Find all disks that are not encrypted
+resources
+| where type == "microsoft.compute/disks"
+| extend encryptionType = properties.encryption.type
+| extend diskState = properties.diskState
+| where encryptionType !in ("EncryptionAtRestWithCustomerKey", "EncryptionAtRestWithPlatformAndCustomerKeys", "EncryptionAtRestWithPlatformKey")
+| project recommendationId="vm-19", name, id, tags, param1=strcat("encryptionType: " , properties.encryption.type), param2= strcat ("diskstate: ", properties.diskState)

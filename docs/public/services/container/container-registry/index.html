@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html><head><script src="/Azure-Proactive-Resiliency-Library/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Azure-Proactive-Resiliency-Library/livereload" data-no-instant defer></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Best practices and resiliency recommendations for Container Registries and associated resources.">
+    
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/services/container/container-registry/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/services/container/container-registry/">
+
+    <title>
+        
+        Container Registry | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="http://localhost:1313/Azure-Proactive-Resiliency-Library/css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/css/ace.min.css">
+
+    
+
+    
+    
+
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxpusfirv0");
+  </script>
+
+  
+</head>
+<body>
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/"><h6>Azure Databricks</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/batch/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/batch/"><h6>Batch</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/batch/batch-accounts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/batch/batch-accounts/"><h6>Batch Accounts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/"><h6>Azure Site Recovery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/"><h6>Compute Gallery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/"><h6>Image Templates</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/"><h6>Virtual Machine Scale Sets</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/aks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/aks/"><h6>AKS</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/container-registry/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/container-registry/"><h6>Container Registry</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/sqldb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/sqldb/"><h6>SQL DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/"><h6>Cosmos DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-mysql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-mysql/"><h6>DB for MySQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/"><h6>DB for PostgreSQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/"><h6>Redis Cache</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/api-management/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/api-management/"><h6>Api Management</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/"><h6>Event Grid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/"><h6>Event Hub</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/service-bus/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/service-bus/"><h6>Service Bus</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>Internet of Things</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/"><h6>IoT Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/"><h6>Management</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/automation-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/automation-account/"><h6>Automation Account</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/management-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/management-group/"><h6>Management Groups</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/resource-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/resource-group/"><h6>Resource Groups</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/"><h6>Migration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/"><h6>Azure Backup</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/"><h6>Monitoring</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/"><h6>Application Insights</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/"><h6>Log Analytics</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/"><h6>Resource Health Alerts</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/service-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/service-health-alerts/"><h6>Service Health Alerts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/"><h6>Application Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/ddos-protection-plans/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/ddos-protection-plans/"><h6>DDoS Protection Plans</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/"><h6>ExpressRoute Circuits</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/"><h6>ExpressRoute Connection</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/"><h6>ExpressRoute Direct</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/"><h6>ExpressRoute Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/"><h6>ExpressRoute Traffic Collector</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/firewall/"><h6>Firewall</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/front-door/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/front-door/"><h6>Front Door</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/"><h6>Load Balancer</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/"><h6>Network Security Group</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/"><h6>Network Watcher</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-dns-zones/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-dns-zones/"><h6>Private DNS Zones</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/"><h6>Private Endpoints</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/"><h6>Public Ip</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/route-table/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/route-table/"><h6>Route Table</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/"><h6>Traffic Manager</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/"><h6>Virtual Networks</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/"><h6>VPN Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/"><h6>Web Application Firewall</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/key-vault/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/key-vault/"><h6>Key Vault</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/"><h6>Azure Virtual Desktop</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/"><h6>Azure VMware Solution</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/"><h6>SAP on Azure</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/"><h6>Azure NetApp Files</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/"><h6>Storage Account</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/"><h6>App Service Plan</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/signalr/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/signalr/"><h6>SignalR</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/web-app/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/web-app/"><h6>Web App</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/"><h6>Well Architected Framework</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/1-define/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/1-define/"><h6>1 - Define</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/2-design/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/2-design/"><h6>2 - Design</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/3-test/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/3-test/"><h6>3 - Test</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/"><h6>4 - Deploy</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/"><h6>5 - Monitor</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/"><h6>6 - Respond</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/privacy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/privacy/"><h6>Privacy</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Container Registry</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p>The presented resiliency recommendations in this guidance include Container Registries and dependent resources and settings.</p>
+<h2 id="summary-of-recommendations">Summary of Recommendations
+  <a href="#summary-of-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Recommendation</th>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Impact</th>
+<th style="text-align:center">State</th>
+<th style="text-align:center">ARG Query Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#cr-1---use-premium-tier-for-critical-production-workloads">CR-1 - Use Premium tier for critical production workloads</a></td>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-2---enable-zone-redundancy">CR-2 - Enable zone redundancy</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-3---enable-geo-replication">CR-3 - Enable geo-replication</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-4---maximize-pull-performance">CR-4 - Maximize pull performance</a></td>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-5---use-repository-namespaces">CR-5 - Use Repository namespaces</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-6---move-container-registry-to-a-dedicated-resource-group">CR-6 - Move Container Registry to a dedicated resource group</a></td>
+<td style="text-align:center">Governance</td>
+<td style="text-align:center">Low</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-7---manage-registry-size">CR-7 - Manage registry size</a></td>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-8---disable-anonymous-pull-access">CR-8 - Disable anonymous pull access</a></td>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-10---configure-diagnostic-settings-for-all-azure-container-registries">CR-10 - Configure Diagnostic Settings for all Azure Container Registries</a></td>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-11---monitor-azure-container-registry-with-azure-monitor">CR-11 - Monitor Azure Container Registry with Azure Monitor</a></td>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#cr-12---enable-soft-delete-policy">CR-12 - Enable soft delete policy</a></td>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Preview</td>
+<td style="text-align:center">Yes</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div class="alert alert-info" role="alert">
+    Definitions of states can be found <a href="http://localhost:1313/Azure-Proactive-Resiliency-Library/#definitions-of-terms-used-in-aprl">here</a>
+</div>
+
+<h2 id="recommendations-details">Recommendations Details
+  <a href="#recommendations-details">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<h3 id="cr-1---use-premium-tier-for-critical-production-workloads">CR-1 - Use Premium tier for critical production workloads
+  <a href="#cr-1---use-premium-tier-for-critical-production-workloads">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: System Efficiency</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Choose a service tier of Azure Container Registry that meets your performance needs. The Premium tier provides the greatest bandwidth and highest rate of concurrent read and write operations when you have high-volume deployments. Use Basic for getting started, Standard for most production applications, and Premium for hyper-scale performance and geo-replication.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices">Container Registry Best Practices</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_bbe5918d68" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_bbe5918d68">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_6e867ec7e4">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_6e867ec7e4">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Container Registries that <span style="color:#66d9ef">are</span> <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">using</span> the Premium tier
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> sku.name <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Premium&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-1&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#34;SkuName: &#34;</span>, tostring(sku.name))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-2---enable-zone-redundancy">CR-2 - Enable zone redundancy
+  <a href="#cr-2---enable-zone-redundancy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Azure Container Registry supports optional zone redundancy. Zone redundancy provides resiliency and high availability to a registry or replication resource (replica) in a specific region.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://review.learn.microsoft.com/en-us/azure/container-registry/zone-redundancy?toc=%2Fazure%2Freliability%2Ftoc.json&amp;bc=%2Fazure%2Freliability%2Fbreadcrumb%2Ftoc.json&amp;branch=main">Registry best practices - Enable zone redundancy</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8464aca340" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_8464aca340">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_16a9c13779">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_16a9c13779">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Container Registries that <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">not</span> have <span style="color:#66d9ef">zone</span> redundancy enabled
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.zoneRedundancy <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;Enabled&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-2&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#34;zoneRedundancy: &#34;</span>, tostring(properties.zoneRedundancy))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-3---enable-geo-replication">CR-3 - Enable geo-replication
+  <a href="#cr-3---enable-geo-replication">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Use Azure Container Registry&rsquo;s geo-replication feature if you&rsquo;re deploying containers to multiple regions. Whether you&rsquo;re serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. You can also configure regional webhooks to notify you of events in specific replicas such as when images are pushed.</p>
+<p>Geo-replication is available with Premium registries.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#geo-replicate-multi-region-deployments">Registry best practices - Enable geo-replication</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication">Geo-Replicate Container Registry</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8278c8d75c" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_8278c8d75c">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_966aecba53">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_966aecba53">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Container Registries that <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">not</span> have geo<span style="color:#f92672">-</span>replication enabled
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project registryName <span style="color:#f92672">=</span> name, registryId <span style="color:#f92672">=</span> id, tags, primaryRegion <span style="color:#f92672">=</span> <span style="color:#66d9ef">location</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>leftouter (
+</span></span><span style="display:flex;"><span>    Resources
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries/replications&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project replicationRegion<span style="color:#f92672">=</span>name, replicationId <span style="color:#f92672">=</span> id
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend registryId<span style="color:#f92672">=</span>strcat_array(array_slice(split(replicationId, <span style="color:#e6db74">&#39;/&#39;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;/&#39;</span>)
+</span></span><span style="display:flex;"><span>    ) <span style="color:#66d9ef">on</span> registryId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project<span style="color:#f92672">-</span>away registryId1, replicationId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> isempty(replicationRegion)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-3&#34;</span>, name<span style="color:#f92672">=</span>registryName, id<span style="color:#f92672">=</span>registryId, tags
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-4---maximize-pull-performance">CR-4 - Maximize pull performance
+  <a href="#cr-4---maximize-pull-performance">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: System Efficiency</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Some characteristics of your images themselves can impact pull performance:</p>
+<ul>
+<li>
+<p>Image size - Minimize the sizes of your images by removing unnecessary layers or reducing the size of layers. One way to reduce image size is to use the multi-stage Docker build approach to include only the necessary runtime components. Also check whether your image can include a lighter base OS image. And if you use a deployment environment such as Azure Container Instances that caches certain base images, check whether you can swap an image layer for one of the cached images.</p>
+</li>
+<li>
+<p>Number of layers - Balance the number of layers used. If you have too few, you don’t benefit from layer reuse and caching on the host. Too many, and your deployment environment spends more time pulling and decompressing. Five to 10 layers is optimal.</p>
+</li>
+</ul>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account">Registry authentication options - Azure Container Registry</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_b00d883234" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_b00d883234">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5c47993fa2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5c47993fa2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> cannot<span style="color:#f92672">-</span>be<span style="color:#f92672">-</span>validated<span style="color:#f92672">-</span><span style="color:#66d9ef">with</span><span style="color:#f92672">-</span>arg
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-5---use-repository-namespaces">CR-5 - Use Repository namespaces
+  <a href="#cr-5---use-repository-namespaces">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Low</strong></p>
+<p><strong>Guidance</strong></p>
+<p>By using repository namespaces, you can allow sharing a single registry across multiple groups within your organization. Registries can be shared across deployments and teams. Azure Container Registry supports nested namespaces, enabling group isolation. However, the registry manages all repositories independently, not as a hierarchy.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces">Registry best practices - use repository namespaces</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+<p>
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_b00d883234" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_b00d883234">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5c47993fa2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5c47993fa2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> cannot<span style="color:#f92672">-</span>be<span style="color:#f92672">-</span>validated<span style="color:#f92672">-</span><span style="color:#66d9ef">with</span><span style="color:#f92672">-</span>arg
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<br><br></p>
+<h3 id="cr-6---move-container-registry-to-a-dedicated-resource-group">CR-6 - Move Container Registry to a dedicated resource group
+  <a href="#cr-6---move-container-registry-to-a-dedicated-resource-group">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Governance</strong></p>
+<p><strong>Impact: Low</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.</p>
+<p>Although you might experiment with a specific host type, such as Azure Container Instances, you&rsquo;ll likely want to delete the container instance when you&rsquo;re done. However, you might also want to keep the collection of images you pushed to Azure Container Registry. By placing your registry in its own resource group, you minimize the risk of accidentally deleting the collection of images in the registry when you delete the container instance resource group.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#dedicated-resource-group">Registry best practices - Use dedicated resource group</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_f3c10067d6" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_f3c10067d6">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_c317a3ac21">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_c317a3ac21">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> List container registries that contain additional resources within the same resource <span style="color:#66d9ef">group</span>.
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project registryName<span style="color:#f92672">=</span>name, registryId<span style="color:#f92672">=</span>id, registryTags<span style="color:#f92672">=</span>tags, resourceGroupId<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#39;/subscriptions/&#39;</span>, subscriptionId, <span style="color:#e6db74">&#39;/resourceGroups/&#39;</span>, resourceGroup), resourceGroup, subscriptionId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span> (
+</span></span><span style="display:flex;"><span>    resources
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">not</span>(<span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> summarize recourceCount<span style="color:#f92672">=</span><span style="color:#66d9ef">count</span>() <span style="color:#66d9ef">by</span> subscriptionId, resourceGroup
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> recourceCount <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">on</span> resourceGroup, subscriptionId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-6&#34;</span>, name<span style="color:#f92672">=</span>registryName, id<span style="color:#f92672">=</span>registryId, tags<span style="color:#f92672">=</span>registryTags, param1<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#39;resourceGroupName:&#39;</span>,resourceGroup), param2<span style="color:#f92672">=</span>strcat(<span style="color:#e6db74">&#39;resourceGroupId:&#39;</span>,resourceGroupId)
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-7---manage-registry-size">CR-7 - Manage registry size
+  <a href="#cr-7---manage-registry-size">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: System Efficiency</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>The storage constraints of each container registry service tier are intended to align with a typical scenario: Basic for getting started, Standard for most production applications, and Premium for hyper-scale performance and geo-replication. Throughout the life of your registry, you should manage its size by periodically deleting unused content. Consider also enabling a retention policy to automatically delete untagged image manifests to free up storage space.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#manage-registry-size">Registry best practices - Manage registry size</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-retention-policy#about-the-retention-policy">Retention Policy</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_74e163f015" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_74e163f015">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_ccc85d91eb">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_ccc85d91eb">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Container Registries that have their retention policy disabled
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.policies.retentionPolicy.status <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;disabled&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-7&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;retentionPolicy:disabled&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-8---disable-anonymous-pull-access">CR-8 - Disable anonymous pull access
+  <a href="#cr-8---disable-anonymous-pull-access">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Access &amp; Security</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>By default, access to pull or push content from an Azure container registry is only available to authenticated users. Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. Warning: Anonymous pull access currently applies to all repositories in the registry. If you manage repository access using repository-scoped tokens, all users may pull from those repositories in a registry enabled for anonymous pull. We recommend deleting tokens when anonymous pull access is enabled.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/anonymous-pull-access#about-anonymous-pull-access">Enable anonymous pull access</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_044d6dacb8" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_044d6dacb8">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_fc65cfccdb">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_fc65cfccdb">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Container Registries that have anonymous pull <span style="color:#66d9ef">access</span> enabled
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.anonymousPullEnabled <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-8&#34;</span>, name, id, tags
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-10---configure-diagnostic-settings-for-all-azure-container-registries">CR-10 - Configure Diagnostic Settings for all Azure Container Registries
+  <a href="#cr-10---configure-diagnostic-settings-for-all-azure-container-registries">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Monitoring</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#resource-logs">Monitoring Azure Container Registry data reference - Resource Logs</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/monitor-service#collection-and-routing">Monitor Azure Container Registry - Enable diagnostic logs</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+<p>
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_b00d883234" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_b00d883234">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5c47993fa2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5c47993fa2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> cannot<span style="color:#f92672">-</span>be<span style="color:#f92672">-</span>validated<span style="color:#f92672">-</span><span style="color:#66d9ef">with</span><span style="color:#f92672">-</span>arg
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<br><br></p>
+<h3 id="cr-11---monitor-azure-container-registry-with-azure-monitor">CR-11 - Monitor Azure Container Registry with Azure Monitor
+  <a href="#cr-11---monitor-azure-container-registry-with-azure-monitor">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Monitoring</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. Azure Container Registry creates monitoring data using Azure Monitor, which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#metrics">Monitoring Azure Container Registry data reference</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/monitor-service">Monitor Azure Container Registry</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_b00d883234" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_b00d883234">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_5c47993fa2">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_5c47993fa2">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> cannot<span style="color:#f92672">-</span>be<span style="color:#f92672">-</span>validated<span style="color:#f92672">-</span><span style="color:#66d9ef">with</span><span style="color:#f92672">-</span>arg
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="cr-12---enable-soft-delete-policy">CR-12 - Enable soft delete policy
+  <a href="#cr-12---enable-soft-delete-policy">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Disaster Recovery</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Once you enable the soft delete policy, ACR manages the deleted artifacts as the soft deleted artifacts with a set retention period. Thereby you have ability to list, filter, and restore the soft deleted artifacts. Once the retention period is complete, all the soft deleted artifacts are auto-purged.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-soft-delete-policy">Enable soft delete policy</a></li>
+</ul>
+<p><strong>Resource Graph Query/Scripts</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_92f25775f6" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_92f25775f6">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_18225716fc">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_18225716fc">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Provides a list <span style="color:#66d9ef">of</span> Azure Container Registry resources that <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">not</span> have soft <span style="color:#66d9ef">delete</span> enabled
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;microsoft.containerregistry/registries&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.policies.softDeletePolicy.status <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;disabled&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cr-12&#34;</span>, name, id, tags
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+
+
+    
+
+
+
+          <div class="row"></div> 
+
+        </div>
+
+      </div> 
+
+    </div> 
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/lib/jquery.min.js"></script> 
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313\/Azure-Proactive-Resiliency-Library\/";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+
+</html>

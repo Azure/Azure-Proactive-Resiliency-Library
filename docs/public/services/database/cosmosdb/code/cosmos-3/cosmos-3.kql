@@ -1,0 +1,6 @@
+Resources
+| where type =~ 'Microsoft.DocumentDb/databaseAccounts'
+| where
+    array_length(properties.locations) > 1 and
+    properties.enableMultipleWriteLocations == false
+| project recommendationId='cosmos-3', name, id, tags

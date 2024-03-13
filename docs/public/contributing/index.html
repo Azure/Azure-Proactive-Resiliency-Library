@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html><head><script src="/Azure-Proactive-Resiliency-Library/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Azure-Proactive-Resiliency-Library/livereload" data-no-instant defer></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Contribution Guide for the Azure Proactive Resiliency Library (APRL)">
+    
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/contributing/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/contributing/">
+
+    <title>
+        
+        Contributing | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="http://localhost:1313/Azure-Proactive-Resiliency-Library/css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/css/ace.min.css">
+
+    
+
+    
+    
+
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxpusfirv0");
+  </script>
+
+  
+</head>
+<body>
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/"><h6>Azure Databricks</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/batch/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/batch/"><h6>Batch</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/batch/batch-accounts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/batch/batch-accounts/"><h6>Batch Accounts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/"><h6>Azure Site Recovery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/"><h6>Compute Gallery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/"><h6>Image Templates</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/"><h6>Virtual Machine Scale Sets</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/aks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/aks/"><h6>AKS</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/container-registry/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/container-registry/"><h6>Container Registry</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/sqldb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/sqldb/"><h6>SQL DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/"><h6>Cosmos DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-mysql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-mysql/"><h6>DB for MySQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/"><h6>DB for PostgreSQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/"><h6>Redis Cache</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/api-management/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/api-management/"><h6>Api Management</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/"><h6>Event Grid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/"><h6>Event Hub</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/service-bus/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/service-bus/"><h6>Service Bus</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>Internet of Things</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/"><h6>IoT Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/"><h6>Management</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/automation-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/automation-account/"><h6>Automation Account</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/management-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/management-group/"><h6>Management Groups</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/resource-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/resource-group/"><h6>Resource Groups</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/"><h6>Migration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/"><h6>Azure Backup</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/"><h6>Monitoring</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/"><h6>Application Insights</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/"><h6>Log Analytics</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/"><h6>Resource Health Alerts</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/service-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/service-health-alerts/"><h6>Service Health Alerts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/"><h6>Application Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/ddos-protection-plans/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/ddos-protection-plans/"><h6>DDoS Protection Plans</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/"><h6>ExpressRoute Circuits</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/"><h6>ExpressRoute Connection</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/"><h6>ExpressRoute Direct</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/"><h6>ExpressRoute Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/"><h6>ExpressRoute Traffic Collector</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/firewall/"><h6>Firewall</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/front-door/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/front-door/"><h6>Front Door</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/"><h6>Load Balancer</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/"><h6>Network Security Group</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/"><h6>Network Watcher</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-dns-zones/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-dns-zones/"><h6>Private DNS Zones</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/"><h6>Private Endpoints</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/"><h6>Public Ip</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/route-table/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/route-table/"><h6>Route Table</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/"><h6>Traffic Manager</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/"><h6>Virtual Networks</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/"><h6>VPN Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/"><h6>Web Application Firewall</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/key-vault/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/key-vault/"><h6>Key Vault</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/"><h6>Azure Virtual Desktop</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/"><h6>Azure VMware Solution</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/"><h6>SAP on Azure</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/"><h6>Azure NetApp Files</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/"><h6>Storage Account</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/"><h6>App Service Plan</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/signalr/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/signalr/"><h6>SignalR</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/web-app/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/web-app/"><h6>Web App</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/"><h6>Well Architected Framework</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/1-define/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/1-define/"><h6>1 - Define</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/2-design/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/2-design/"><h6>2 - Design</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/3-test/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/3-test/"><h6>3 - Test</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/"><h6>4 - Deploy</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/"><h6>5 - Monitor</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/"><h6>6 - Respond</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/privacy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/privacy/"><h6>Privacy</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">Contributing</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-warning rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-warning">
+            <h3>Contributions Notice</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Currently we can only accept contributions from Microsoft FTEs. In the future we will look to change this.
+        </div>
+    </div>
+</div>
+
+<p>Looking to contribute to the Azure Proactive Resiliency Library (APRL), well you have made it to the right place/page 👍</p>
+<p>Follow the below instructions, especially the pre-requisites, to get started contributing to the library.</p>
+<h2 id="writing-a-recommendation">Writing a recommendation
+  <a href="#writing-a-recommendation">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>APRL recommendations are intended to enable and accelerate the delivery of Well Architected Reliability Assessments. The purpose of APRL is not to replace existing Azure public documentation and guidance on best practices.</p>
+<p>Each recommendation should be actionable for the customer. The customer should be able to place the recommendation in their backlog and the engineer that picks it up should have complete clarity on the change that needs to be made and the specific resources that the change should be made to.</p>
+<p>Each recommendation should include a descriptive title, a short guidance section that contains additional detail on the recommendation, links to public documentation that provide additional information related to the recommendation, and a query to identify resources that are not compliant with the recommendation. The title and guidance sections alone should provide sufficient information for a CSA to evaluate a resource.</p>
+<p>Recommendations should not require the CSA to spend a lot of time on background reading, they should not be open to interpretation, and they should not be vague. Remember that the CSA delivering the WARA is reviewing a large number of Azure resources in a limited amount of time and is not an expert in every Azure service.</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Good recommendation: Use a /24 subnet for the service</li>
+<li>Bad recommendation: Size your subnet appropriately</li>
+</ul>
+<p>Not all best practices make good APRL recommendations. If the best practice relates to a particular service configuration and can be checked with an ARG query, it probably makes for a good APRL recommendation. If the best practice is more aligned to general architectural concepts that are true for many service or workload types, we very likely already have a recommendation in the APRL WAF section that addresses the topic. If not, consider adding a WAF recommendation to APRL. If neither is the case, APRL may not be the best location for this content.</p>
+<h2 id="contextbackground">Context/Background
+  <a href="#contextbackground">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Before jumping into the pre-requisites and specific section contribution guidance, please familiarize yourself with this context/background on how this library is built to help you contribute going forward.</p>
+<p>This <a href="https://aka.ms/aprl">site</a> is built using <a href="https://gohugo.io/">Hugo</a>, a static site generator, that&rsquo;s source code is stored in the <a href="https://aka.ms/aprl/repo">APRL GitHub repo</a> (link in header of this site too) and is hosted on <a href="https://pages.github.com">GitHub Pages</a>, via the repo.</p>
+<p>The reason for the combination of Hugo &amp; GitHub pages is to allow us to present an easy to navigate and consume library, rather than using a native GitHub repo, which is not easy to consume when there are lots of pages and folders. Also Hugo generates the site in such a way that it is also friendly for mobile consumers.</p>
+<h3 id="but-i-dont-have-any-skills-in-hugo">But I don&rsquo;t have any skills in Hugo?
+  <a href="#but-i-dont-have-any-skills-in-hugo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>That&rsquo;s okay and you really don&rsquo;t need them. Hugo just needs you to be able to author markdown (<code>.md</code>) files and it does the rest when it generates the site 👍</p>
+<h2 id="pre-requisites">Pre-Requisites
+  <a href="#pre-requisites">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Read and follow the below sections to leave you in a &ldquo;ready state&rdquo; to contribute to APRL.</p>
+<p>A &ldquo;ready state&rdquo; means you have a forked copy of the <a href="https://aka.ms/aprl/repo"><code>Azure/Azure-Proactive-Resiliency-Library</code> repo</a> cloned to your local machine and open in VS Code.</p>
+<h2 id="run-and-access-a-local-copy-of-aprl-during-development">Run and Access a Local Copy of APRL During Development
+  <a href="#run-and-access-a-local-copy-of-aprl-during-development">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>When in VS Code you should be able to open a terminal and run the below commands to access a copy of the APRL website from a local web server, provided by Hugo, using the following address <a href="http://localhost:1313/Azure-Proactive-Resiliency-Library/"><code>http://localhost:1313/Azure-Proactive-Resiliency-Library/</code></a>:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_47766092e6">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_47766092e6">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd docs
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<h3 id="softwareapplications">Software/Applications
+  <a href="#softwareapplications">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>To contribute to this project/repo/library you will need the following installed:</p>
+
+<div class="alert alert-success" role="alert">
+    You can use <code>winget</code> to install all the pre-requisites easily for you. See the <a href="#winget-install-commands">below section</a>
+</div>
+
+<ul>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
+<li><a href="https://code.visualstudio.com/Download">Visual Studio Code (VS Code)</a>
+<ul>
+<li>Extensions:
+<ul>
+<li><code>editorconfig.editorconfig</code>, <code>streetsidesoftware.code-spell-checker</code>, <code>ms-vsliveshare.vsliveshare</code>, <code>medo64.render-crlf</code>, <code>vscode-icons-team.vscode-icons</code></li>
+<li>VS Code will recommend automatically to install these when you open this repo, or a fork of it, in VS Code.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://gohugo.io/installation/">Hugo Extended</a></li>
+</ul>
+<h3 id="winget-install-commands">winget Install Commands
+  <a href="#winget-install-commands">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>To install <code>winget</code> follow the <a href="https://learn.microsoft.com/windows/package-manager/winget/#install-winget">install instructions here.</a></p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_baae28903e">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_baae28903e">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>winget install --id &#39;Git.Git&#39;
+</span></span><span style="display:flex;"><span>winget install --id &#39;Microsoft.VisualStudioCode&#39;
+</span></span><span style="display:flex;"><span>winget install --id &#39;Hugo.Hugo.Extended&#39;
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<h3 id="other-requirements">Other requirements
+  <a href="#other-requirements">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<ul>
+<li><a href="https://github.com/join">A GitHub profile/account</a></li>
+<li>A fork of the <a href="https://aka.ms/aprl/repo"><code>Azure/Azure-Proactive-Resiliency-Library</code> repo</a> into your GitHub org/account and cloned locally to your machine
+<ul>
+<li>Instructions on forking a repo and then cloning it can be found <a href="https://docs.github.com/get-started/quickstart/fork-a-repo">here</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="useful-resources">Useful Resources
+  <a href="#useful-resources">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Below are links to a number of useful resources to have when contributing to APRL:</p>
+<ul>
+<li><a href="https://docs.vantage-design.com/ace/">Ace Documentation Theme (that we use) - Docs</a>
+<ul>
+<li><a href="https://docs.vantage-design.com/ace/shortcodes/">Shortcodes - e.g. Code</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/vantagedesign/ace-documentation">Ace Documentation Theme (that we use) - Repo</a>
+<ul>
+<li><a href="https://github.com/vantagedesign/ace-documentation/tree/master/exampleSite">The Example Site, which is the first link above, source code</a></li>
+</ul>
+</li>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start</a></li>
+<li><a href="https://gohugo.io/documentation/">Hugo Docs</a></li>
+<li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheat Sheet</a></li>
+</ul>
+<h2 id="steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)
+  <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>Run the following commands in your terminal of choice from the directory where you fork of the repo is located:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_3e87098086">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_3e87098086">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git pull
+</span></span><span style="display:flex;"><span>git fetch -p
+</span></span><span style="display:flex;"><span>git fetch -p upstream
+</span></span><span style="display:flex;"><span>git pull upstream main
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<p>Doing this will ensure you have the latest changes from the upstream repo and you are ready to now create a new branch from <code>main</code> by running the below commands:</p>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_547a74c11f">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_547a74c11f">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>git checkout main
+</span></span><span style="display:flex;"><span>git checkout -b &lt;YOUR-DESIRED-BRANCH-NAME-HERE&gt;
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+<h2 id="creating-a-services-recommendation-page">Creating a Service&rsquo;s Recommendation Page
+  <a href="#creating-a-services-recommendation-page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Important</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Make sure you have followed the the <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a> before following this section.
+        </div>
+    </div>
+</div>
+
+<p>The is a common task that is likely to be done is adding a new service to which you want to provide recommendations and supporting queries etc. for example Virtual Machines.</p>
+<p>For this task we use <a href="https://gohugo.io/content-management/archetypes/">Hugo&rsquo;s archetype</a> features which enables you to create a whole directory for a new service with a lot of templated content ready for you to change and use. This can be called by using the following command <code>hugo new --kind service-bundle services/&lt;category&gt;/&lt;service-name</code></p>
+<p>You can see source code of the directory archetype called <code>service-bundle</code> <a href="https://github.com/Azure/Azure-Proactive-Resiliency-Library/tree/main/docs/archetypes/service-bundle">here in the repo.</a></p>
+
+<div class="alert alert-info" role="alert">
+    For the steps below we will use the Virtual Machine service as an example. Please change this to the service you are wanting to create.
+</div>
+
+<p>Steps to follow:</p>
+<ol>
+<li>In your terminal of choice run the following:
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_67ebf70a29">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_67ebf70a29">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd docs/
+</span></span><span style="display:flex;"><span>hugo new --kind service-bundle services/compute/virtual-machines
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>You will now see a new folder in <code>content/services/compute</code> called <code>virtual-machines</code>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_92b1b3c613">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_92b1b3c613">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>├───content
+</span></span><span style="display:flex;"><span>│   ├───contributing
+</span></span><span style="display:flex;"><span>│   └───services
+</span></span><span style="display:flex;"><span>│       ├───ai-ml
+</span></span><span style="display:flex;"><span>│       ├───compute
+</span></span><span style="display:flex;"><span>│       │   └───virtual-machines
+</span></span><span style="display:flex;"><span>│       │       └───code
+</span></span><span style="display:flex;"><span>│       │           ├───cm-1
+</span></span><span style="display:flex;"><span>│       │           └───cm-2
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Inside the <code>virtual-machines</code> folder you will see the following files pre-staged
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_96d41a1499">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_96d41a1499">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>│       │   └───virtual-machines
+</span></span><span style="display:flex;"><span>│       │       │   _index.md
+</span></span><span style="display:flex;"><span>│       │       │
+</span></span><span style="display:flex;"><span>│       │       └───code
+</span></span><span style="display:flex;"><span>│       │           ├───cm-1
+</span></span><span style="display:flex;"><span>│       │           │       cm-1.azcli
+</span></span><span style="display:flex;"><span>│       │           │       cm-1.kql
+</span></span><span style="display:flex;"><span>│       │           │       cm-1.ps1
+</span></span><span style="display:flex;"><span>│       │           │
+</span></span><span style="display:flex;"><span>│       │           └───cm-2
+</span></span><span style="display:flex;"><span>│       │                   cm-2.azcli
+</span></span><span style="display:flex;"><span>│       │                   cm-2.kql
+</span></span><span style="display:flex;"><span>│       │                   cm-2.ps1
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Open <code>_index.md</code> in VS Code and make relevant changes
+<ul>
+<li>You can copy the recommendations labelled <code>CM-1</code> or <code>CM-2</code> multiple times to create more recommendations</li>
+</ul>
+</li>
+<li>Update Azure Resource Graph queries, PowerShell, AZCLI scripts in the <code>code</code> folder within <code>virtual-machines</code>
+<ul>
+<li>You will see there is a folder, e.g. <code>cm-1</code>, <code>cm-2</code>, per recommendation to help with file structure organization</li>
+</ul>
+</li>
+<li>Ensure you use the correct Azure resource abbreviations provided within our Cloud Adoption Framework (CAF) documentation <a href="https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations">here</a>. For example, use <code>vm</code> for Virtual Machines.</li>
+<li>Save, commit and push your changes to your branch and repo</li>
+<li>Create a <a href="https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">create a Pull Request</a> into the <code>main</code> branch of the upstream repo</li>
+<li>Get it merged</li>
+</ol>
+
+<div class="alert alert-success" role="alert">
+    Don&rsquo;t forget you can see your changes live by running a local copy of the APRL website by following the guidance <a href="#run-and-access-a-local-copy-of-aprl-during-development">here.</a>
+</div>
+
+<h2 id="automation-standards-for-recommendations">Automation Standards for Recommendations
+  <a href="#automation-standards-for-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<p>When creating recommendations for a service, please follow the below standards:</p>
+<h3 id="recommendation-categories">Recommendation categories
+  <a href="#recommendation-categories">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p>Each recommendation should have <em><strong>one and only one</strong></em> associated category from this list below.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Recommendation Category</th>
+<th style="text-align:center">Category Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Application Resilience</td>
+<td style="text-align:center">Ensures software applications remain functional under failures or disruptions. Utilizes fault-tolerance, stateless architecture, and microservices to maintain application health and reduce downtime.</td>
+</tr>
+<tr>
+<td style="text-align:center">Automation</td>
+<td style="text-align:center">Uses automated systems or scripts for routine tasks, backups, and recovery. Minimizes human intervention, thereby reducing errors and speeding up recovery processes.</td>
+</tr>
+<tr>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">Focuses on ensuring services are accessible and operational. Combines basic mechanisms like backups with advanced techniques like clustering and data replication to achieve near-zero downtime. (Includes High Availability)</td>
+</tr>
+<tr>
+<td style="text-align:center">Access &amp; Security</td>
+<td style="text-align:center">Encompasses identity management, authentication, and security measures for safeguarding systems. Centralizes access control and employs robust security mechanisms like encryption and firewalls. (Includes Identity)</td>
+</tr>
+<tr>
+<td style="text-align:center">Governance</td>
+<td style="text-align:center">Involves policies, procedures, and oversight for IT resource utilization. Ensures adherence to legal, regulatory, and compatibility requirements, while guiding overall system management. (Includes Compliance and Compatibility)</td>
+</tr>
+<tr>
+<td style="text-align:center">Disaster Recovery</td>
+<td style="text-align:center">Involves strategies and technologies to restore systems and data after catastrophic failures. Utilizes off-site backups, recovery sites, and detailed procedures for quick recovery after a disaster.</td>
+</tr>
+<tr>
+<td style="text-align:center">System Efficiency</td>
+<td style="text-align:center">Maintains acceptable service levels under varying conditions. Employs techniques like resource allocation, auto-scaling, and caching to handle changes in load and maintain smooth operation. (Includes Performance and Scalability)</td>
+</tr>
+<tr>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">Involves constant surveillance of system health, performance, and security. Utilizes real-time alerts and analytics to identify and resolve issues quickly, aiding in faster response times.</td>
+</tr>
+<tr>
+<td style="text-align:center">Networking</td>
+<td style="text-align:center">Aims to ensure uninterrupted network service through techniques like failover routing, load balancing, and redundancy. Focuses on maintaining the integrity and availability of network connections.</td>
+</tr>
+<tr>
+<td style="text-align:center">Storage</td>
+<td style="text-align:center">Focuses on the integrity and availability of data storage systems. Employs techniques like RAID, data replication, and backups to safeguard against data loss or corruption.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="azure-resource-graph-arg-queries">Azure Resource Graph (ARG) Queries
+  <a href="#azure-resource-graph-arg-queries">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<ol>
+<li>
+<p>All ARG queries should have two comments at the top of the query, one comment stating  <code>Azure Resource Graph Query</code> and another comment providing a description of the query results returned. For example:</p>
+<pre tabindex="0"><code class="language-kql" data-lang="kql">// Azure Resource Graph Query
+// Provides a list of Azure Container Registry resources that do not have soft delete enabled
+</code></pre></li>
+<li>
+<p>If the ARG query is under development, the query should have a single line stating: <code>// under-development</code></p>
+</li>
+<li>
+<p>If a recommendation query cannot be returned due to limitations with the data provided within ARG, the query should have a single line stating: <code>// cannot-be-validated-with-arg</code></p>
+</li>
+<li>
+<p>Queries should only return resources that do not adhere to the APRL recommendation. For example, if the recommendation is to enable soft delete for Azure Container Registries, the associated query should only return Azure Container Registry resources that do not have soft delete enabled.</p>
+</li>
+<li>
+<p>If a ARG query folder has a file with a file type suffixed with <code>.fix</code>, this means that the current query does not work as anticipated and to consider using this as a starting point for fixing the query. Once you have validated that the query is working as anticipated, please remove the file with the <code>.fix</code> suffix.</p>
+</li>
+<li>
+<p>ARG query columns name returned should only include the following:</p>
+</li>
+</ol>
+
+<div class="alert alert-info" role="alert">
+    NOTE: The column names should be in the order they are listed and match exactly.
+</div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Column Name</th>
+<th style="text-align:center">Required</th>
+<th style="text-align:center">Information Returned (Example)</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">recommendationId</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">aks-1</td>
+<td style="text-align:center">The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number.</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">test-aks</td>
+<td style="text-align:center">The resource name of the Azure resource that does not adher to the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-resource-group/providers/Microsoft.ContainerService/managedClusters/test-aks</td>
+<td style="text-align:center">The resource ID of the Azure resource that does not adhere to the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{&ldquo;Environment&rdquo;:&ldquo;Test&rdquo;,&ldquo;Department&rdquo;:&ldquo;IT&rdquo;}</td>
+<td style="text-align:center">Any relevant tags associated to the resource that does not adhere to the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param1</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td style="text-align:center">Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param2</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td style="text-align:center">Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param3</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td style="text-align:center">Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param4</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td style="text-align:center">Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param5</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td style="text-align:center">Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="alert alert-info" role="alert">
+    If you need support with validating a query, please reach out to the APRL team via the <a href="https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&amp;labels=feedback%2C+question&amp;projects=&amp;template=general-question-feedback----.md&amp;title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE">APRL GitHub General Question/Feedback Form</a>
+</div>
+
+<h3 id="azure-powershell-scripts">Azure PowerShell Scripts
+  <a href="#azure-powershell-scripts">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<ol>
+<li>
+<p>All PowerShell scripts should have two comments at the top of the script, one comment stating <code>Azure PowerShell script</code> and another comment providing a description of the script results returned. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Azure PowerShell script</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Provides a list of Azure Container Registry resources that do not have soft delete enabled</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Scripts should only return resources that do not adhere to the APRL recommendation. For example, if the recommendation is to enable soft delete for Azure Container Registries, the associated scripts should only return Azure Container Registry resources that do not have soft delete enabled.</p>
+</li>
+<li>
+<p>Scripts should exclusively contain code to retrieve resources that do not comply with the APRL recommendation. They should not include supporting code, such as Azure sign-in (<a href="https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount">Connect-AzAccount</a>, Login-AzAccount) or subscription selection (<a href="https://learn.microsoft.com/en-us/powershell/module/az.accounts/set-azcontext">Set-AzContext</a>, Select-AzSubscription). Execute these cmdlets separately from the APRL recommendation PowerShell script.</p>
+</li>
+<li>
+<p>The script should return the result as an array of the <code>PSCustomObject</code> data type, with each result object containing only the following properties:</p>
+
+<div class="alert alert-info" role="alert">
+    NOTE: The property names should be in the order they are listed and match exactly.
+</div>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Property Name</th>
+<th style="text-align:center">Data Type</th>
+<th style="text-align:center">Required</th>
+<th style="text-align:center">Information Returned (Example)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">recommendationId</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">aks-1</td>
+<td>The acronym of the Azure service that the query is returning results for, followed by the APRL recommendation number.</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">test-aks</td>
+<td>The resource name of the Azure resource that does not adher to the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-resource-group/providers/Microsoft.ContainerService/managedClusters/test-aks</td>
+<td>The resource ID of the Azure resource that does not adhere to the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">tags</td>
+<td style="text-align:center">PSCustomObject</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">{&ldquo;Environment&rdquo;:&ldquo;Test&rdquo;,&ldquo;Department&rdquo;:&ldquo;IT&rdquo;}</td>
+<td>Any relevant tags associated to the resource that does not adhere to the APRL recommendation. The data type should match the data type of <code>tags</code> in the result of ARG queries by <a href="https://learn.microsoft.com/en-us/powershell/module/az.resourcegraph/search-azgraph">Search-AzGraph</a>. If not set tags, set <code>$null</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center">param1</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td>Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param2</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td>Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param3</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td>Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param4</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td>Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+<tr>
+<td style="text-align:center">param5</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">networkProfile:kubenet</td>
+<td>Any additional information that is necessary to provide clarification for the APRL recommendation.</td>
+</tr>
+</tbody>
+</table>
+<p>Below is a sample code to return a result that aligned to the above standards.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">PSCustomObject</span>] @{
+</span></span><span style="display:flex;"><span>    recommendationId = <span style="color:#e6db74">&#39;aks-1&#39;</span>
+</span></span><span style="display:flex;"><span>    name             = $resource.Name
+</span></span><span style="display:flex;"><span>    id               = $resource.Id
+</span></span><span style="display:flex;"><span>    tags             = <span style="color:#66d9ef">if</span> ($resource.Tags) { [<span style="color:#66d9ef">PSCustomObject</span>] ([<span style="color:#66d9ef">Hashtable</span>] $resource.Tags) } <span style="color:#66d9ef">else</span> { $null }
+</span></span><span style="display:flex;"><span>    param1           = <span style="color:#e6db74">&#39;networkProfile:kubenet&#39;</span>
+</span></span><span style="display:flex;"><span>    param2           = <span style="color:#e6db74">&#39;networkProfile:kubenet&#39;</span>
+</span></span><span style="display:flex;"><span>    param3           = <span style="color:#e6db74">&#39;networkProfile:kubenet&#39;</span>
+</span></span><span style="display:flex;"><span>    param4           = <span style="color:#e6db74">&#39;networkProfile:kubenet&#39;</span>
+</span></span><span style="display:flex;"><span>    param5           = <span style="color:#e6db74">&#39;networkProfile:kubenet&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+
+<div class="alert alert-info" role="alert">
+    If you need support with validating a script, please reach out to the APRL team via the <a href="https://github.com/Azure/Azure-Proactive-Resiliency-Library/issues/new?assignees=&amp;labels=feedback%2C+question&amp;projects=&amp;template=general-question-feedback----.md&amp;title=%E2%9D%93%F0%9F%91%82+Question%2FFeedback+-+PLEASE+CHANGE+ME+TO+SOMETHING+DESCRIPTIVE">APRL GitHub General Question/Feedback Form</a>
+</div>
+
+<h2 id="updating-a-services-recommendation-page">Updating a Service&rsquo;s Recommendation Page
+  <a href="#updating-a-services-recommendation-page">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Important</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Make sure you have followed the the <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a> before following this section.
+        </div>
+    </div>
+</div>
+
+<p>This is likely the most common task that will be performed.</p>
+<p>All you need to do is just make edits directly to the existing markdown (<code>.md</code>) files, save your changes, commit, stage and push them to your branch and repo. Then <a href="https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">create a Pull Request</a> into the <code>main</code> branch of the upstream repo and you are done 👍</p>
+
+<div class="alert alert-success" role="alert">
+    Don&rsquo;t forget you can see your changes live by running a local copy of the APRL website by following the guidance <a href="#run-and-access-a-local-copy-of-aprl-during-development">here.</a>
+</div>
+
+<h2 id="creating-a-service-category">Creating a Service Category
+  <a href="#creating-a-service-category">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+
+<div class="card my-3 border-top-0 border-right-0 border-bottom-0 border-left border-danger rounded" style="border-width:4px !important;">
+    <div class="wrap border border-left-0 rounded">
+        
+        <div class="card-header border-0 bg-white pl-3 text-danger">
+            <h3>Important</h3>
+        </div>
+        
+        <div class="card-body pt-1">
+            Make sure you have followed the the <a href="#steps-to-do-before-contributing-anything-after-pre-requisites">Steps to do before contributing anything (after pre-requisites)</a> before following this section.
+        </div>
+    </div>
+</div>
+
+<p>For this task we use <a href="https://gohugo.io/content-management/archetypes/">Hugo&rsquo;s archetype</a> features which enables you to create a whole directory for a new service with a lot of templated content ready for you to change and use. This can be called by using the following command <code>hugo new --kind category-bundle services/&lt;category&gt;</code></p>
+<p>You can see source code of the directory archetype called <code>category-bundle</code> <a href="https://github.com/Azure/Azure-Proactive-Resiliency-Library/tree/main/docs/archetypes/category-bundle">here in the repo.</a></p>
+
+<div class="alert alert-info" role="alert">
+    For the steps below we will use the AAA category as an example. Please change this to the category you are wanting to create.
+</div>
+
+<p>Steps to follow:</p>
+<ol>
+<li>In your terminal of choice run the following:
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_f79653bac1">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_f79653bac1">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd docs/
+</span></span><span style="display:flex;"><span>hugo new --kind category-bundle services/aaa
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>You will now see a new folder in <code>content/services</code> called <code>aaa</code>
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_8473fd0669">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_8473fd0669">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>├───content
+</span></span><span style="display:flex;"><span>│   │   _index.md
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   ├───contributing
+</span></span><span style="display:flex;"><span>│   │       _index.md
+</span></span><span style="display:flex;"><span>│   │
+</span></span><span style="display:flex;"><span>│   └───services
+</span></span><span style="display:flex;"><span>│       │   _index.md
+</span></span><span style="display:flex;"><span>│       │
+</span></span><span style="display:flex;"><span>│       ├───aaa
+</span></span><span style="display:flex;"><span>│       │       _index.md
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Inside the <code>aaa</code> folder you will see the following file <code>_index.md</code> pre-staged
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b0c8d1a4f4">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b0c8d1a4f4">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>├───aaa
+</span></span><span style="display:flex;"><span>│       │       _index.md
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+</li>
+<li>Open <code>_index.md</code> in VS Code and make relevant changes</li>
+<li>Save, commit and push your changes to your branch and repo</li>
+<li>Create a <a href="https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">create a Pull Request</a> into the <code>main</code> branch of the upstream repo</li>
+<li>Get it merged</li>
+</ol>
+
+<div class="alert alert-success" role="alert">
+    Don&rsquo;t forget you can see your changes live by running a local copy of the APRL website by following the guidance <a href="#run-and-access-a-local-copy-of-aprl-during-development">here.</a>
+</div>
+
+<h2 id="top-tips">Top Tips
+  <a href="#top-tips">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<ol>
+<li>Sometimes the local version of the website may show some inconsistencies that don&rsquo;t reflect the content you have created.
+<ul>
+<li>If this happens, simply kill the Hugo local web server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> and then restart the Hugo web server by running <code>hugo server -D</code> from the <code>docs/</code> directory</li>
+</ul>
+</li>
+</ol>
+
+
+    
+
+
+
+          <div class="row"></div> 
+
+        </div>
+
+      </div> 
+
+    </div> 
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/lib/jquery.min.js"></script> 
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313\/Azure-Proactive-Resiliency-Library\/";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+
+</html>
