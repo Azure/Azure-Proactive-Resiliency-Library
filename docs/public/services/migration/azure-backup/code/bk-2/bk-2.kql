@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Displays all recovery services vaults that do not have cross region restore enabled
-
-resources
-| where type == "microsoft.recoveryservices/vaults"
-| where properties.properties.enableCrossRegionRestore != true
-| project recommendationId = "bk-2", name, id, tags

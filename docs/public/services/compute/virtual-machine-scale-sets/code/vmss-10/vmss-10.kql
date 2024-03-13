@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// This query will check if the VMSS are currently using the latest image.  If not the Image reference will be empty
-resources
-| where type == "microsoft.compute/virtualmachinescalesets"
-| extend VMSSName = name
-| extend ImageReference = tostring(properties.virtualMachineProfile.storageProfile.imageReference.version)
-| project recommendationId="vmss-10",name,id, tags, param1="ImageReference"

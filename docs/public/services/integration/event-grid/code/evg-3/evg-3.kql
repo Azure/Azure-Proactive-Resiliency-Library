@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Find all eventgrid services not protected by private endpoints.
-Resources
-| where type contains "eventgrid"
-| where properties['publicNetworkAccess'] == "Enabled"
-| project recommendationId = "evg-3", name, id, tags
-| order by id asc
