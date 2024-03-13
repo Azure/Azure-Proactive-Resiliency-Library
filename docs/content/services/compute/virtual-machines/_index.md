@@ -30,7 +30,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances) | Access & Security | Medium | Verified | Yes |
 | [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level) | Networking | Low | Verified | Yes |
 | [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers) | Storage | Medium | Verified | Yes |
-| [VM-17 - The Network access to the VM disk is set to "Enable Public access from all networks"](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access) | Access & Security | Low | Verified | Yes |
+| [VM-17 - The Network access to the VM disk is set to Enable Public access from all networks](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access) | Access & Security | Low | Verified | Yes |
 | [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies) | Governance | Low | Verified | Yes |
 | [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-and-data-at-rest-encryption-by-default) | Access & Security | Medium | Verified | Yes |
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights) | Monitoring | Low | Verified | Yes |
@@ -38,7 +38,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | Governance | High | Preview | Yes |
 | [VM-23 - Avoid using A or B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-a-or-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously) | System Efficiency | High | Preview | Yes |
 | [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks) | System Efficiency | High | Preview | Yes |
-| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Preview | Yes |
+| [VM-25 - Do not create more than 2500 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2500-citrix-vda-servers-per-subscription) | Application Resiliency | High | Preview | Yes |
 | [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations) | Application Resiliency | High | Preview | No |
 | [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload) | Availability | Medium | Preview | No |
 | [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms) | Availability | Medium | Preview | No |
@@ -463,7 +463,7 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 <br><br>
 
-### VM-17 - Network access to the VM disk should be set to "Disable public access and enable private access"
+### VM-17 - Network access to the VM disk should be set to Disable public access and enable private access
 
 **Category: Access & Security**
 
@@ -679,7 +679,7 @@ Azure ultra disks are the highest-performing storage option for Azure virtual ma
 
 <br><br>
 
-### VM-25 - Do not create more than 2000 Citrix VDA servers per subscription
+### VM-25 - Do not create more than 2500 Citrix VDA servers per subscription
 
 **Category: Application Resilience**
 
