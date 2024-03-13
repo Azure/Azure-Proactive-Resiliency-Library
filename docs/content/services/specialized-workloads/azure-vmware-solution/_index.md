@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-|[AVS-1 Configure Azure Service Health notification and alerts for AVS](#avs-1---configure-azure-service-health-notification-and-alerts-for-avs) | Monitoring | Medium | Preview | Yes |
+|[AVS-1 Configure Azure Service Health notifications and alerts for AVS](#avs-1---configure-azure-service-health-notifications-and-alerts-for-avs) | Monitoring | High | Preview | Yes |
 |[AVS-2 Configure Syslog in Diagnostic Settings for AVS](#avs-2---configure-syslog-in-diagnostic-settings-for-avs) | Monitoring | Medium | Preview | Yes |
 |[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Preview | No |
 |[AVS-4 Enable Stretched Clusters for Multi-AZ Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-multi-az-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
@@ -23,6 +23,11 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |[AVS-7 Monitor when Azure VMware Solution Cluster Size is approaching the host limit](#avs-7---monitor-when-azure-vmware-solution-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Preview | No |
 |[AVS-8 Monitor when Azure VMware Solution Private Cloud is reaching capacity limit](#avs-8---monitor-when-azure-vmware-solution-private-cloud-is-reaching-capacity-limit) | Monitoring | Medium | Preview | No |
 |[AVS-9 Apply Resource delete lock on the resource group hosting the private cloud](#avs-9---apply-resource-delete-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Preview | No |
+|[AVS-10 Align ExpressRoute configuration with best practices for circuit resilience](#avs-10---align-expressroute-configuration-with-best-practices-for-circuit-resilience) | Networking | High | Preview | No |
+|[AVS-11 Deploy two or more circuits in different peering locations when using stretched clusters](#avs-11---deploy-two-or-more-circuits-in-different-peering-locations-when-using-stretched-clusters) | Networking | High | Preview | No |
+|[AVS-12 Use key autorotation for vSAN datastore customer-managed keys](#avs-12---use-key-autorotation-for-vsan-datastore-customer-managed-keys) | Storage | High | Preview | No |
+
+
 
 {{< /table >}}
 
@@ -34,7 +39,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AVS-1 - Configure Azure Service Health notification and alerts for AVS
+### AVS-1 - Configure Azure Service Health notifications and alerts for AVS
 
 **Category: Monitoring**
 
@@ -254,6 +259,82 @@ Anyone with contributor access on the resource group hosting Azure VMware Soluti
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/avs-9/avs-9.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><be>
+
+### AVS-10 - Align ExpressRoute configuration with best practices for circuit resilience
+
+**Category: Networking**
+
+**Impact: High**
+
+**Recommendation/Guidance**
+
+Review the APRL recommendations for ExpressRoute circuits (see Resources).
+For critical workloads, Microsoft recommends deploying two (or more) ExpressRoute circuits in different ExpressRoute peering locations. Review the official documentation to learn more about the resilience options supported by ExpressRoute (see Resources). 
+If you have multiple ExpressRoute circuits and leverage Global Reach to connect them to your Azure VMware Solutions private clouds, implement a Global Reach connection between each ExpressRoute circuit and your private cloud.
+
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager?pivots=expressroute-preview#create-a-new-expressroute-circuit-preview)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avs-10/avs-10.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><be>
+### AVS-11 - Deploy two or more circuits in different peering locations when using stretched clusters
+
+**Category: Networking**
+
+**Impact: High**
+
+**Recommendation/Guidance**
+
+Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) in the region where they are deployed (plus a third AZ for the witness node). When using ExpressRoute to connect to the vSAN stretched clusters from  on-premises, align the ExpressRoute implementation's resilience to the clusters’ resilience by deploying two circuits in different peering locations (i.e., different sites/DC facilities). 
+When using Global Reach, implement a full mesh topology by connecting the on-premises circuits to the managed circuits provided by the Azure VMware Solution private cloud. 
+
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager?pivots=expressroute-preview#create-a-new-expressroute-circuit-preview)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avs-11/avs-11.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><be>
+### AVS-12 - Use key autorotation for vSAN datastore customer-managed keys 
+
+**Category: Storage**
+
+**Impact: High**
+
+**Recommendation/Guidance**
+
+When using customer-managed keys to encrypt the vSAN datastore(s), use Azure Key Vault for centralized management and access them using a managed identity mapped to the private cloud. Key expiration can result in the vSAN datastore and its workloads becoming unavailable. Configure key autorotation to avoid unplanned outages due to key rotation not occurring before expiration.
+
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-customer-managed-keys)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avs-12/avs-12.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
