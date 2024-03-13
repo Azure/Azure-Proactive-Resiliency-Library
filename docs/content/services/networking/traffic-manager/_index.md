@@ -18,7 +18,7 @@ The presented resiliency recommendations in this guidance include Azure Traffic 
 | [TRAF-2 - Traffic manager profiles should have more than one endpoint](#traf-2---traffic-manager-profiles-should-have-more-than-one-endpoint)             |   Availability    |  High  | Preview |         No          |
 | [TRAF-3 - Configure at least one endpoint within a another region](#traf-3---configure-at-least-one-endpoint-within-a-another-region)                     | Disaster Recovery | Medium | Preview |         No          |
 | [TRAF-4 - TTL value of user profiles should be in 60 Seconds](#traf-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                               | System Efficiency | Medium | Preview |         No          |
-| [TRAF-5 - Ensure endpoint configured to "(All World)" for geographic profiles](#traf-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles) | Disaster Recovery | Medium | Preview |         Yes         |
+| [TRAF-5 - Ensure endpoint configured to (All World) for geographic profiles](#traf-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles) | Disaster Recovery | Medium | Preview |         Yes         |
 
 {{< /table >}}
 
@@ -127,7 +127,7 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 
 <br><br>
 
-### TRAF-5 - Ensure endpoint configured to "(All World)" for geographic profiles
+### TRAF-5 - Ensure endpoint configured to (All World) for geographic profiles
 
 **Category: Disaster Recovery**
 
