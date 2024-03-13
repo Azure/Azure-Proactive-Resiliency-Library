@@ -25,7 +25,8 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |[AVS-9 Apply Resource delete lock on the resource group hosting the private cloud](#avs-9---apply-resource-delete-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Preview | No |
 |[AVS-10 Align ExpressRoute configuration with best practices for circuit resilience](#avs-10---align-expressroute-configuration-with-best-practices-for-circuit-resilience) | Networking | High | Preview | No |
 |[AVS-11 Deploy two or more circuits in different peering locations when using stretched clusters](#avs-11---deploy-two-or-more-circuits-in-different-peering-locations-when-using-stretched-clusters) | Networking | High | Preview | No |
-|[AVS-12 Use key autorotation for vSAN datastore customer-managed keys](#avs-12---use-key-autorotation-for-vsan-datastore-customer-managed-keys) | Storage | High | Preview | No |
+|[AVS-12 Deploy two Azure VMware Solution private clouds in different regions for geographical disaster recovery](#avs-12---deploy-two-azure-vmware-solution-private-clouds-in-different-regions-for-geographical-disaster-recovery) | Disaster Recovery | High | Preview | No |
+|[AVS-13 Use key autorotation for vSAN datastore customer-managed keys](#avs-13---use-key-autorotation-for-vsan-datastore-customer-managed-keys) | Storage | High | Preview | No |
 
 
 
@@ -315,7 +316,31 @@ When using Global Reach, implement a full mesh topology by connecting the on-pre
 {{< /collapse >}}
 
 <br><be>
-### AVS-12 - Use key autorotation for vSAN datastore customer-managed keys 
+### AVS-12 - Deploy two Azure VMware Solution private clouds in different regions for geographical disaster recovery
+
+**Category: Disaster Recovery**
+
+**Impact: High**
+
+**Recommendation/Guidance**
+
+Two Azure VMware Solution private clouds can be deployed in different regions for business continuity. Implement a full mesh network topology based on ExpressRoute Gateway Connections and Global Reach Connections. 
+
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-customer-managed-keys)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avs-13/avs-13.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+### AVS-13 - Use key autorotation for vSAN datastore customer-managed keys 
 
 **Category: Storage**
 
@@ -328,13 +353,14 @@ When using customer-managed keys to encrypt the vSAN datastore(s), use Azure Key
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-customer-managed-keys)
+- [Private Clouds in two regions](https://learn.microsoft.com/en-us/azure/azure-vmware/move-azure-vmware-solution-across-regions)
+- [Dual Region Network Topology](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-dual-region-network-topology)
 
 **Resource Graph Query/Scripts**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avs-12/avs-12.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-13/avs-13.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
