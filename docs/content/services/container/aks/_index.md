@@ -594,7 +594,7 @@ The user node pool should be configured with a minimum node count of two if the 
 
 **Category: Availability**
 
-**Impact: High**
+**Impact: Medium**
 
 **Guidance**
 
