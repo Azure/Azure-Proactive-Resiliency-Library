@@ -14,10 +14,10 @@ The presented resiliency recommendations in this guidance include Azure High Per
 {{< table style="table-striped" >}}
 | Recommendation | Impact | Design Area | State | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :------: |
-| [HPC-1 - Ensure File shares that stores jobs metadata are accessible from all head nodes](#hpc-1---ensure-file-shares-that-stores-jobs-metadata-are-accessible-from-all-head-nodes) | High | Resiliency/Monitoring | Preview | No |
+| [HPC-1 - Ensure File shares that stores jobs metadata are accessible from all head nodes](#hpc-1---ensure-file-shares-that-stores-jobs-metadata-are-accessible-from-all-head-nodes) | High | Application Resilience | Preview | No |
 | [HPC-2 - Automatically grow and shrink HPC Pack cluster resources](#hpc-2---automatically-grow-and-shrink-hpc-pack-cluster-resources) | Medium | System Efficiency | Preview | No |
-| [HPC-3 - Use multiple head nodes for HPC Pack](#hpc-3---use-multiple-head-nodes-for-hpc-pack) | Medium | Resiliency | Preview | No |
-| [HPC-4 - Use HPC Pack Azure AD Integration or other highly available AD configuration](#hpc-4---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration) | High | Resiliency | Preview | No |
+| [HPC-3 - Use multiple head nodes for HPC Pack](#hpc-3---use-multiple-head-nodes-for-hpc-pack) | Medium | Application Resilience | Preview | No |
+| [HPC-4 - Use HPC Pack Azure AD Integration or other highly available AD configuration](#hpc-4---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration) | High | Application Resilience | Preview | No |
 
 {{< /table >}}
 
@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### HPC-1 - Ensure File shares that stores jobs metadata are accessible from all head nodes
 
-**Category: Application Resilience/Availability**
+**Category: Application Resilience**
 
 **Impact: High**
 
@@ -90,7 +90,7 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 ### HPC-3 - Use multiple head nodes for HPC Pack
 
-**Category: Resiliency**
+**Category: Application Resilience**
 
 **Impact: Medium**
 
@@ -112,7 +112,7 @@ Establish a cluster with a minimum of two head nodes. In the event of a head nod
 
 ### HPC-4 - Use HPC Pack Azure AD Integration or other highly available AD configuration
 
-**Category: Resiliency**
+**Category: Application Resilience**
 
 **Impact: High**
 
