@@ -24,6 +24,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 | [ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) | Disaster Recovery | Medium | Preview |          No          |
 | [ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                                                         | Disaster Recovery |  Low   | Preview |          No          |
 | [ST-8 - Configure Diagnostic Settings for all storage accounts](#st-8---configure-diagnostic-settings-for-all-storage-accounts)                                                               |    Monitoring     |  Low   | Preview |          No          |
+| [ST-9 - Upgrade legacy storage accounts to v2 storage accounts](#st-9---upgrade-legacy-storage-accounts-to-v2-storage-accounts)                                                               | System Efficiency | Medium | Preview |         Yes          |
 
 {{< /table >}}
 
@@ -230,6 +231,33 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="powershell" file="code/st-8/st-8.ps1" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### ST-9 - Upgrade legacy storage accounts to v2 storage accounts
+
+**Category: System Efficiency**
+
+**Impact: Medium**
+
+**Guidance**
+
+General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, or archive.
+
+Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is straightforward. There's no downtime or risk of data loss associated with upgrading to a general-purpose v2 storage account. Upgrading a general-purpose v1 or Blob storage account to general-purpose v2 is permanent and cannot be undone.
+
+**Resources**
+
+- [Legacy storage account types](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#legacy-storage-account-types)
+- [Upgrade to a general-purpose v2 storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-upgrade)
+
+**Script**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/st-9/st-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
