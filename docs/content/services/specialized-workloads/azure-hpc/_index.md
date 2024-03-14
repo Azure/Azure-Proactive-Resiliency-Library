@@ -16,7 +16,7 @@ The presented resiliency recommendations in this guidance include Azure High Per
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :------: |
 | [HPC-1 - Ensure File shares that stores jobs metadata are accessible from all head nodes](#hpc-1---ensure-file-shares-that-stores-jobs-metadata-are-accessible-from-all-head-nodes) | High | Application Resilience | Preview | No |
 | [HPC-2 - Automatically grow and shrink HPC Pack cluster resources](#hpc-2---automatically-grow-and-shrink-hpc-pack-cluster-resources) | Medium | System Efficiency | Preview | No |
-| [HPC-3 - Use multiple head nodes for HPC Pack](#hpc-3---use-multiple-head-nodes-for-hpc-pack) | Medium | Resiliency | Preview | No |
+| [HPC-3 - Use multiple head nodes for HPC Pack](#hpc-3---use-multiple-head-nodes-for-hpc-pack) | Medium | Application Resilience | Preview | No |
 | [HPC-4 - Use HPC Pack Azure AD Integration or other highly available AD configuration](#hpc-4---use-hpc-pack-azure-ad-integration-or-other-highly-available-ad-configuration) | High | Resiliency | Preview | No |
 
 {{< /table >}}
