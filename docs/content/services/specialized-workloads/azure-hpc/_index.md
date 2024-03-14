@@ -31,7 +31,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ### HPC-1 - Ensure File shares that stores jobs metadata are accessible from all head nodes
 
-**Category: Application Resilience/Availability**
+**Category: Application Resilience**
 
 **Impact: High**
 
