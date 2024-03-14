@@ -19,7 +19,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 | [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant)                                   |   Availability    |  High  | Preview |          Yes         |
 | [ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                                                       |    Governance     |  High  | Preview |         Yes          |
 | [ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                                                               | System Efficiency | Medium | Preview |         Yes          |
-| [ST-4 - Choose right storage account kind for workload](#st-4---choose-right-storage-account-kind-for-workload)                                                                               | System Efficiency | Medium | Preview |          No          |
+| [ST-4 - Choose right blob type for workload](#st-4---choose-right-blob-type-for-workload)                                                                                                     | System Efficiency | Medium | Preview |          No          |
 | [ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                                                             | Disaster Recovery | Medium | Preview |          No          |
 | [ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) | Disaster Recovery | Medium | Preview |          No          |
 | [ST-7 - Enable point and time restore for containers for recovery](#st-7---enable-point-and-time-restore-for-containers-for-recovery)                                                         | Disaster Recovery |  Low   | Preview |          No          |
@@ -113,7 +113,7 @@ Consider using appropriate storage performance tier for standard storage / block
 
 <br><br>
 
-### ST-4 - Choose right storage account kind for workload
+### ST-4 - Choose right blob type for workload
 
 **Category: System Efficiency**
 
@@ -121,11 +121,18 @@ Consider using appropriate storage performance tier for standard storage / block
 
 **Guidance**
 
-Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are composed of blocks, each of which is identified by a block ID. A block blob can include up to 50,000 blocks
+The storage service offers three types of blobs, block blobs, append blobs, and page blobs. You specify the blob type when you create the blob.
+
+Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are composed of blocks, each of which is identified by a block ID. A block blob can include up to 50,000 blocks.
+
+An append blob is composed of blocks and is optimized for append operations. When you modify an append blob, blocks are added to the end of the blob only. Updating or deleting of existing blocks is not supported. Unlike a block blob, an append blob does not expose its block IDs.
+
+Page blobs are a collection of 512-byte pages optimized for random read and write operations. To create a page blob, you initialize the page blob and specify the maximum size the page blob will grow. To add or update the contents of a page blob, you write a page or pages by specifying an offset and a range that both align to 512-byte page boundaries.
 
 **Resources**
 
-- [Storage Account Kind docs](https://learn.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs )
+- [Understanding block blobs, append blobs, and page blobs](https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Scalability and performance targets for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets)
 
 **Resource Graph Query/Scripts**
 
