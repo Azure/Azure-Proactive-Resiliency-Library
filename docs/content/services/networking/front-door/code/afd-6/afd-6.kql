@@ -1,1 +1,8 @@
-// under-development
+// Azure Resource Graph Query
+// Use HTTP to HTTPS redirection
+cdnresources
+| where type == "microsoft.cdn/profiles/afdendpoints/routes"
+| extend httpsRedirect=tostring(properties.httpsRedirect)
+| project id,name,httpsRedirect,tags
+| where httpsRedirect !~ "enabled"
+| project recommendationId= "afd-6", name,id,tags,param1=strcat("httpsRedirect:",httpsRedirect)
