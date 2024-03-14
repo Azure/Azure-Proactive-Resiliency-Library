@@ -17,14 +17,13 @@ The presented resiliency recommendations in this guidance include Container Regi
 | [CR-1 - Use Premium tier for critical production workloads](#cr-1---use-premium-tier-for-critical-production-workloads) | System Efficiency | High | Preview | Yes |
 | [CR-2 - Enable zone redundancy](#cr-2---enable-zone-redundancy) | Availability | High | Preview | Yes |
 | [CR-3 - Enable geo-replication](#cr-3---enable-geo-replication) | Disaster Recovery | High | Preview | Yes |
-| [CR-4 - Maximize pull performance](#cr-4---maximize-pull-performance) | System Efficiency | High | Preview | No |
-| [CR-5 - Use Repository namespaces](#cr-5---use-repository-namespaces) | Access & Security | Low | Preview | No |
-| [CR-6 - Move Container Registry to a dedicated resource group](#cr-6---move-container-registry-to-a-dedicated-resource-group) | Governance | Low | Preview | Yes |
-| [CR-7 - Manage registry size](#cr-7---manage-registry-size) | System Efficiency | Medium | Preview | No |
-| [CR-8 - Disable anonymous pull access](#cr-8---disable-anonymous-pull-access) | Access & Security | Medium | Preview | Yes |
-| [CR-10 - Configure Diagnostic Settings for all Azure Container Registries](#cr-10---configure-diagnostic-settings-for-all-azure-container-registries) | Monitoring | Medium | Preview | No |
-| [CR-11 - Monitor Azure Container Registry with Azure Monitor](#cr-11---monitor-azure-container-registry-with-azure-monitor) | Monitoring | Medium | Preview | No |
-| [CR-12 - Enable soft delete policy](#cr-12---enable-soft-delete-policy) | Disaster Recovery | Medium | Preview | Yes |
+| [CR-4 - Use Repository namespaces](#cr-4---use-repository-namespaces) | Access & Security | Low | Preview | No |
+| [CR-5 - Move Container Registry to a dedicated resource group](#cr-5---move-container-registry-to-a-dedicated-resource-group) | Governance | Low | Preview | Yes |
+| [CR-6 - Manage registry size](#cr-6---manage-registry-size) | System Efficiency | Medium | Preview | No |
+| [CR-7 - Disable anonymous pull access](#cr-7---disable-anonymous-pull-access) | Access & Security | Medium | Preview | Yes |
+| [CR-8 - Configure Diagnostic Settings for all Azure Container Registries](#cr-8---configure-diagnostic-settings-for-all-azure-container-registries) | Monitoring | Medium | Preview | No |
+| [CR-9 - Monitor Azure Container Registry with Azure Monitor](#cr-9---monitor-azure-container-registry-with-azure-monitor) | Monitoring | Medium | Preview | No |
+| [CR-10 - Enable soft delete policy](#cr-10---enable-soft-delete-policy) | Disaster Recovery | Medium | Preview | Yes |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -108,35 +107,7 @@ Geo-replication is available with Premium registries.
 
 <br><br>
 
-### CR-4 - Maximize pull performance
-
-**Category: System Efficiency**
-
-**Impact: High**
-
-**Guidance**
-
-Some characteristics of your images themselves can impact pull performance:
-
-- Image size - Minimize the sizes of your images by removing unnecessary layers or reducing the size of layers. One way to reduce image size is to use the multi-stage Docker build approach to include only the necessary runtime components. Also check whether your image can include a lighter base OS image. And if you use a deployment environment such as Azure Container Instances that caches certain base images, check whether you can swap an image layer for one of the cached images.
-
-- Number of layers - Balance the number of layers used. If you have too few, you don’t benefit from layer reuse and caching on the host. Too many, and your deployment environment spends more time pulling and decompressing. Five to 10 layers is optimal.
-
-**Resources**
-
-- [Registry authentication options - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cr-4/cr-4.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### CR-5 - Use Repository namespaces
+### CR-4 - Use Repository namespaces
 
 **Category: Access & Security**
 
@@ -154,12 +125,12 @@ By using repository namespaces, you can allow sharing a single registry across m
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-5/cr-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-4/cr-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 <br><br>
 
-### CR-6 - Move Container Registry to a dedicated resource group
+### CR-5 - Move Container Registry to a dedicated resource group
 
 **Category: Governance**
 
@@ -179,13 +150,13 @@ Although you might experiment with a specific host type, such as Azure Container
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-6/cr-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-5/cr-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### CR-7 - Manage registry size
+### CR-6 - Manage registry size
 
 **Category: System Efficiency**
 
@@ -204,13 +175,13 @@ The storage constraints of each container registry service tier are intended to 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-7/cr-7.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-6/cr-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### CR-8 - Disable anonymous pull access
+### CR-7 - Disable anonymous pull access
 
 **Category: Access & Security**
 
@@ -228,13 +199,13 @@ By default, access to pull or push content from an Azure container registry is o
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-8/cr-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-7/cr-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### CR-10 - Configure Diagnostic Settings for all Azure Container Registries
+### CR-8 - Configure Diagnostic Settings for all Azure Container Registries
 
 **Category: Monitoring**
 
@@ -253,12 +224,12 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-10/cr-10.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-8/cr-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 <br><br>
 
-### CR-11 - Monitor Azure Container Registry with Azure Monitor
+### CR-9 - Monitor Azure Container Registry with Azure Monitor
 
 **Category: Monitoring**
 
@@ -277,13 +248,13 @@ When you have critical applications and business processes relying on Azure reso
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-11/cr-11.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-9/cr-9.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### CR-12 - Enable soft delete policy
+### CR-10 - Enable soft delete policy
 
 **Category: Disaster Recovery**
 
@@ -301,7 +272,7 @@ Once you enable the soft delete policy, ACR manages the deleted artifacts as the
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/cr-12/cr-12.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/cr-10/cr-10.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
