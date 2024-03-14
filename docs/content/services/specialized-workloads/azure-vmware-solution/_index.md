@@ -300,8 +300,7 @@ For critical workloads, Microsoft recommends deploying two (or more) ExpressRout
 
 **Recommendation/Guidance**
 
-Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) in the region where they are deployed (plus a third AZ for the witness node). When using ExpressRoute to connect to the vSAN stretched clusters from  on-premises, align the ExpressRoute implementation's resilience to the clusters’ resilience by deploying two circuits in different peering locations (i.e., different sites/DC facilities). When using Global Reach, implement a  mesh topology by connecting the on-premises circuits to the managed circuits provided by the Azure VMware Solution private cloud. 
-
+Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) in the region where they are deployed (plus a third AZ for the witness node). When using ExpressRoute to connect to the vSAN stretched clusters from  on-premises, align the ExpressRoute implementation's resilience to the clusters’ resilience by deploying two circuits in different peering locations (i.e., different sites/DC facilities). When using Global Reach, implement a  mesh topology by connecting the on-premises circuits to the managed circuits provided by the Azure VMware Solution private cloud.
 
 **Resources**
 
@@ -349,7 +348,7 @@ Two Azure VMware Solution private clouds can be deployed in different regions fo
 
 **Recommendation/Guidance**
 
-Use the Interconnect feature for direct communication between private clouds in different availability zones, enabling connectivity between the private clouds management and workload networks. The IP address for each private cloud should be unique to avoid overlap, as the Interconnect does not check for this. 
+Use the Interconnect feature for direct communication between private clouds in different availability zones, enabling connectivity between the private clouds management and workload networks. The IP address for each private cloud should be unique to avoid overlap, as the Interconnect does not check for this.
 
 
 **Resources**
@@ -367,7 +366,7 @@ Use the Interconnect feature for direct communication between private clouds in 
 
 <br><br>
 
-### AVS-14 - Use key autorotation for vSAN datastore customer-managed keys 
+### AVS-14 - Use key autorotation for vSAN datastore customer-managed keys
 
 **Category: Storage**
 
@@ -400,7 +399,7 @@ When using customer-managed keys to encrypt the vSAN datastore(s), use Azure Key
 
 **Recommendation/Guidance**
 
-Ensure that two external identity sources are configured for NSX-T and vCenter. The VMware vCenter and NSX-T Manager use identity sources to enable authentication using external identities. These sources can be temporarily unavailable during maintenance times. Having two sources ensures that administrators can continue to log in to the control surfaces when one source becomes unavailable. 
+Ensure that two external identity sources are configured for NSX-T and vCenter. The VMware vCenter and NSX-T Manager use identity sources to enable authentication using external identities. These sources can be temporarily unavailable during maintenance times. Having two sources ensures that administrators can continue to log in to the control surfaces when one source becomes unavailable.
 
 
 **Resources**
