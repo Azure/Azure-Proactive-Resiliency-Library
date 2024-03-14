@@ -90,7 +90,7 @@ By deploying Azure "burst" nodes (both Windows and Linux) in your HPC Pack clust
 
 ### HPC-3 - Use multiple head nodes for HPC Pack
 
-**Category: Resiliency**
+**Category: Application Resilience**
 
 **Impact: Medium**
 
