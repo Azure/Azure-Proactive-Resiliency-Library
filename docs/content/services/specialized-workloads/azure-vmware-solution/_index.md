@@ -276,9 +276,7 @@ Anyone with contributor access to the resource group hosting Azure VMware Soluti
 **Recommendation/Guidance**
 
 
-For critical workloads, Microsoft recommends deploying two (or more) ExpressRoute circuits in different ExpressRoute peering locations. 
-Use Global Reach to connect multiple ExpressRoute circuits and your Azure VMware Solutions private clouds. 
-Please review the APRL recommendations for ExpressRoute circuits in the Resources section below.
+For critical workloads, Microsoft recommends deploying two (or more) ExpressRoute circuits in different ExpressRoute peering locations. Use Global Reach to connect multiple ExpressRoute circuits and your Azure VMware Solutions private clouds. Please review the APRL recommendations for ExpressRoute circuits in the Resources section below.
 
 **Resources**
 
@@ -302,8 +300,7 @@ Please review the APRL recommendations for ExpressRoute circuits in the Resource
 
 **Recommendation/Guidance**
 
-Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) in the region where they are deployed (plus a third AZ for the witness node). When using ExpressRoute to connect to the vSAN stretched clusters from  on-premises, align the ExpressRoute implementation's resilience to the clusters’ resilience by deploying two circuits in different peering locations (i.e., different sites/DC facilities). 
-When using Global Reach, implement a  mesh topology by connecting the on-premises circuits to the managed circuits provided by the Azure VMware Solution private cloud. 
+Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) in the region where they are deployed (plus a third AZ for the witness node). When using ExpressRoute to connect to the vSAN stretched clusters from  on-premises, align the ExpressRoute implementation's resilience to the clusters’ resilience by deploying two circuits in different peering locations (i.e., different sites/DC facilities). When using Global Reach, implement a  mesh topology by connecting the on-premises circuits to the managed circuits provided by the Azure VMware Solution private cloud. 
 
 
 **Resources**
@@ -327,7 +324,7 @@ When using Global Reach, implement a  mesh topology by connecting the on-premise
 
 **Recommendation/Guidance**
 
-Two Azure VMware Solution private clouds can be deployed in different regions for business continuity. Implement a  mesh network topology based on ExpressRoute Gateway Connections and Global Reach Connections. 
+Two Azure VMware Solution private clouds can be deployed in different regions for business continuity. Implement a  mesh network topology based on ExpressRoute Gateway Connections and Global Reach Connections.
 
 
 **Resources**
