@@ -28,5 +28,5 @@ resources
     | project name, targetLocation, ipaddress) on ipaddress
 | extend endpointLocation = iif(isnotempty(targetLocation), targetLocation, iif(isnotempty(targetLocation1), targetLocation1, iif(isnotempty(targetLocation2), targetLocation2, iif(isnotempty(targetLocation3), targetLocation3, iff(isnotempty(targetLocation4), targetLocation4, "")))))
 | summarize endpointLocations = make_set(endpointLocation) by id, name, location, tostring(tags)
-| where array_length(endpointLocations) < 2 
+| where array_length(endpointLocations) < 2
 | project recommendationId = "traf-3", name, id, location, tags, param1 = strcat('endpointLocations: ', endpointLocations)
