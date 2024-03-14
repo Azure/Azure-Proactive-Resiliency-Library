@@ -65,7 +65,7 @@ Azure Application Gateways v2 are always deployed in a highly available fashion,
 
 **Guidance**
 
-Ensure that all incoming connections are using HTTP/s for production services. Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
+Ensure that all incoming connections are using HTTPs for production services. Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
 
 **Resources**
 
