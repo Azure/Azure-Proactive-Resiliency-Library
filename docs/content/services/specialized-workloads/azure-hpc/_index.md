@@ -112,7 +112,7 @@ Establish a cluster with a minimum of two head nodes. In the event of a head nod
 
 ### HPC-4 - Use HPC Pack Azure AD Integration or other highly available AD configuration
 
-**Category: Resiliency**
+**Category: Application Resilience**
 
 **Impact: High**
 
