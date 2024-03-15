@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Azure Sap Solu
 | Recommendation                                    |                                Category                                 |     Impact      |      State       | ARG Query Available |
 |:--------------------------------------------------|:-----------------------------------------------------------------------:|:---------------:|:----------------:|:-------------------:|
 | [SAP-1 - Ensure that each SAP production system is designed for high availability using availability zones.](#sap-1---ensure-that-each-sap-production-systems-are-designed-for-high-availability) | Availability | High | Published | No |
-| [SAP-2 - Run SAP application servers on two or more VMs using VMSS Flex.](#sap-2---run-sap-application-servers-on-two-or-more-vms) | Availability | High | Published | No  |
+| [SAP-2 - Run SAP application servers on two or more VMs using VMSS Flex.](#sap-2---run-sap-application-servers-on-two-or-more-vms-using-vmss-flex) | Availability | High | Published | No  |
 | [SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group.](#sap-6---avoid-placing-application-server-and-database-in-one-proximity-placement-group) | Availability | High | Published |  No  |
 | [SAP-7 - Avoid placing VMs from multiple SAP systems in a single Proximity Placement Group.](#sap-7---avoid-placing-vms-from-multiple-sap-systems-in-a-single-proximity-placement-group) | Availability | High | Published | No |
 | [SAP-8 - When using availability sets, ensure that you have maximum number of fault domains and a sufficient number of update domains.](#sap-8---when-using-availability-sets-ensure-that-you-have-maximum-number-of-fault-domains-and-a-sufficient-number-of-update-domains) | Availability | High | Published | No |
@@ -78,7 +78,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 <br><br>
 
-### SAP-2 - Run SAP application servers on two or more VMS
+### SAP-2 - Run SAP application servers on two or more VMs using VMSS Flex
 
 **Category: Availability**
 
@@ -313,7 +313,7 @@ This approach allows for controlled resource movement within the cluster, facili
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/sap-16/sap-16.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/sap-18/sap-18.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -377,6 +377,7 @@ SAP Shared File Systems
 {{< /collapse >}}
 
 <br><br>
+
 ### SAP-26 - Secure compute resource capacity for critical VM roles in DR region
 
 **Category: Disaster Recovery**
@@ -399,7 +400,7 @@ Warm standby involves keeping VMs in the DR region running. On-demand Capacity R
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/sap-27/sap-27.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/sap-26/sap-26.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -551,7 +552,7 @@ For an SAP solution hosted on Azure it is imperative to implement a robust monit
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/sap-33/sap-33.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/sap-34/sap-34.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
