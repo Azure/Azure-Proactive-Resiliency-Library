@@ -75,3 +75,28 @@ Enable zone redundancy for APIM instances. With zone redundancy, the gateway and
 {{< /collapse >}}
 
 <br><br>
+
+### APIM-3 - Upgrade to platform version stv2
+
+**Category: Compliance**
+
+**Impact: High**
+
+**Guidance**
+
+Upgrade to platform version stv2. The infrastructure associated with the API Management stv1 compute platform version will be retired effective 31 August 2024. A more current compute platform version (stv2) is already available and provides enhanced service capabilities.
+
+**Resources**
+
+- [Azure API Management - stv1 platform retirement (August 2024)](https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024)
+- [Azure API Management compute platform](https://learn.microsoft.com/en-us/azure/api-management/compute-infrastructure)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/apim-3/apim-3.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
