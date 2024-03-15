@@ -4,5 +4,5 @@ resources
 | where type =~ 'Microsoft.Network/publicIPAddresses'
 | where isempty(zones)
 | extend sku = tostring(sku.name)
-| where sku != 'Standard'
+| where sku == 'Standard'
 | project recommendationid="pip-1", name, id, param1=strcat("sku=",sku)
