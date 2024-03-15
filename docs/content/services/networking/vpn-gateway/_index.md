@@ -66,7 +66,7 @@ To automatically deploy your virtual network gateways across availability zones,
 
 **Guidance**
 
-The active-active mode is available for all SKUs except Basic or Standard.
+The active-active mode is available for all SKUs except Basic.
 Active-active gateways have two Gateway IP configurations and two public IP addresses.
 
 **Resources**
