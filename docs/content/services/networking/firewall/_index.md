@@ -175,6 +175,6 @@ Create the metric to monitor latency probes 20ms over a long period of time ( > 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afw-4/afw-6.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afw-6/afw-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
