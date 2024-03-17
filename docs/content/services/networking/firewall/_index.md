@@ -150,7 +150,7 @@ Configure a minimum of two to four public IP addresses per Azure Firewall to avo
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/afw-4/afw-5.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/afw-5/afw-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
