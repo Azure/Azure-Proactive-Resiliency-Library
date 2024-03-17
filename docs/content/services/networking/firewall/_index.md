@@ -140,7 +140,7 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 
 **Guidance**
 
-Configure a minium of two to four public IP addresses per Azure Firewall to avoid SNAT exhaustion. Azure Firewall provides SNAT capability for all outbound traffic traffic to public IP addresses. Azure Firewall provides 2,496 SNAT ports per each additional PIP.
+Configure a minimum of two to four public IP addresses per Azure Firewall to avoid SNAT exhaustion. Azure Firewall provides SNAT capability for all outbound traffic traffic to public IP addresses. Azure Firewall provides 2,496 SNAT ports per each additional PIP.
 
 **Resources**
 
