@@ -134,7 +134,7 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 
 ### AFW-5 - Configure 2-4 PIPs for SNAT Port utilization
 
-**Category: Resliability**
+**Category: Availability**
 
 **Impact: Medium**
 
