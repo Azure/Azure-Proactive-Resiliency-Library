@@ -158,7 +158,7 @@ Configure a minimum of two to four public IP addresses per Azure Firewall to avo
 
 ### AFW-6 - Monitor AZFW Latency Probes metric
 
-**Category: Resliability**
+**Category: Monitoring**
 
 **Impact: Medium**
 
