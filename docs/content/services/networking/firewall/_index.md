@@ -19,7 +19,7 @@ The presented resiliency recommendations in this guidance include Firewall and a
 | [AFW-3 - Configure DDoS Protection on the Azure Firewall VNet](#afw-3---configure-ddos-protection-on-the-azure-firewall-vnet) | Access & Security | High | Preview | Yes |
 | [AFW-4 - Leverage Azure Policy inheritance model](#afw-4---leverage-azure-policy-inheritance-model) | Governance | Medium | Preview | No |
 | [AFW-5 - Configure 2-4 PIPs for SNAT port utilization](#afw-5---configure-2-4-pips-for-snat-port-utilization) | Availability | Medium | Preview | No |
-| [AFW-6 - Monitor AZFW Latency Probes Metric](#afw-6---monitor-azfw-latency-probes-metric) | Reliability | Medium | Preview | No |
+| [AFW-6 - Monitor AZFW Latency Probes Metric](#afw-6---monitor-azfw-latency-probes-metric) | Monitoring | Medium | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
