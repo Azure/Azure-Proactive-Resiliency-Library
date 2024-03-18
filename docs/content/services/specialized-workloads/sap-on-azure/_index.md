@@ -25,11 +25,11 @@ The presented resiliency recommendations in this guidance include Azure Sap Solu
 | [SAP-16 - Test high availability solutions thoroughly to ensure fail overs work as expected.](#sap-16---test-high-availability-solutions-thoroughly-to-ensure-fail-overs-work-as-expected) | Availability | High | Published | No |
 | [SAP-18 - Remove unwanted location constraints from your Linux Pacemaker clusters.](#sap-18---remove-unwanted-location-constraints-from-your-linux-pacemaker-clusters) | Availability | High | Published | No |
 | [SAP-22 - Protect SAP production workloads with a cross-region disaster recovery solution.](#sap-22---protect-sap-production-workloads-with-a-cross-region-disaster-recovery-solution) | Disaster Recovery | High | Published |  No  |
-| [SAP-24 - Implement an offsite backup strategy for production workloads by utilizing the second Azure region for backups.](#sap-24---implementing-an-offsite-backup-strategy-for-production-workloads-by-utilizing-the-second-azure-region-for-backups) | Disaster Recovery | High | Published | No  |
+| [SAP-24 - Implement an offsite backup strategy for production workloads by utilizing the second Azure region for backups.](#sap-24---implement-an-offsite-backup-strategy-for-production-workloads-by-utilizing-the-second-azure-region-for-backups) | Disaster Recovery | High | Published | No  |
 | [SAP-26 - Secure compute resource capacity for critical VM roles in DR region.](#sap-26---secure-compute-resource-capacity-for-critical-vm-roles-in-dr-region) | Disaster Recovery | Medium | Published | No |
 | [SAP-27 - Ensure that the production databases are replicated (ASYNC) to DR location, use database vendor's replication.](#sap-27---ensure-that-the-production-databases-are-replicated-async-to-dr-location-use-database-vendors-replication) | Disaster Recovery | High | Published | No |
 | [SAP-28 - SAP components are backed up to DR location using an appropriate backup tool or ASR.](#sap-28---sap-components-are-backed-up-to-dr-location-using-an-appropriate-backup-tool-or-asr) | Disaster Recovery | High | Published | No |
-| [SAP-29 - SAP shared files systems are replicated or backed up to DR location.](#sap-29---sap-shared-files-systems-are-replicated-or-backed-up-to-dr-location) | Disaster Recovery | High | Published | No |
+| [SAP-29 - SAP shared files systems are replicated or backed up to DR location.](#sap-29---sap-shared-files-systems-and-any-other-critical-to-dr-are-replicated-or-backed-up-to-dr-location) | Disaster Recovery | High | Published | No |
 | [SAP-32 - Automate DR infrastructure build or pre-deploy DR resources.](#sap-32---automate-dr-infrastructure-build-or-pre-deploy-dr-resources) | Disaster Recovery | Medium | Published |  No  |
 | [SAP-33 - Document and test DR procedure, ensure it meets RPO and RTO targets.](#sap-33---document-and-test-dr-procedure-ensure-it-meets-rpo-and-rto-targets) | Disaster Recovery | Medium | Published | No |
 | [SAP-34 - Ensure there is a robust monitoring and alerting solution in place for the entire DR solution.](#sap-34---ensure-there-is-a-robust-monitoring-and-alerting-solution-in-place-for-the-entire-dr-solution) | Disaster Recovery | Medium | Published | No |
@@ -86,7 +86,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 **Guidance**
 
-Use Virtual Machines Scale Set (VMSS) with flexible orchestration to distribute the virtual machines across specified zones and within each zone to also distribute VMs across different fault domains within the zone on a best effort basis.Configure VMSS Flex following Microsoft recommendation for SAP workload using the right mode and correct settings.If you aren't currently using VMSS Flex for SAP application servers and also not using Availability Sets with Fault domain & Update domain distribution, then you should consider moving to VMSS Flex architecture to improve the resiliency posture of your SAP deployment. The following blog post in links below outlines the details on the process of migrating existing SAP workloads that are deployed in an availability set or availability zone to a flexible scale set with FD=1 deployment option.
+Use Virtual Machines Scale Set (VMSS) with flexible orchestration to distribute the virtual machines across specified zones and within each zone to also distribute VMs across different fault domains within the zone on a best effort basis. Configure VMSS Flex following Microsoft recommendation for SAP workload using the right mode and correct settings. If you aren't currently using VMSS Flex for SAP application servers and also not using Availability Sets with Fault domain & Update domain distribution, then you should consider moving to VMSS Flex architecture to improve the resiliency posture of your SAP deployment. The following blog post in links below outlines the details on the process of migrating existing SAP workloads that are deployed in an availability set or availability zone to a flexible scale set with FD=1 deployment option.
 
 
 **Resources**
@@ -167,12 +167,12 @@ Ensure that VMs from different SAP systems are not colocated within a single Pro
 **Guidance**
 
 The default number of fault domains is 2 and changing it later is not possible online.
-Important! If you are currently using Availability Sets or Regional VMs for SAP application servers, then you should consider moving to Availability Zones and VMSS Flex architecture to improve the resiliency posture of your SAP deployment. The following blog post outlines the details on the process of migrating existing SAP workloads that are deployed in an availability set or availability zone to a flexible scale set with FD=1 deployment option.
+Important! If you are currently using Availability Sets or Regional VMs for SAP application servers, then you should consider moving to Availability Zones and VMSS Flex architecture to improve the resiliency posture of your SAP deployment. For the details on the process of migrating existing SAP workloads that are deployed in an availability set or availability zone to a flexible scale set with FD=1 deployment option, refer to our public documentation.
 
 **Resources**
 
 - [How availability sets work](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work)
-- [Migrate existing SAP system to VMS Flex](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548)
+- [Migrate existing SAP system to VMSS Flex](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548)
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
 - [OpenSource Quality checks](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck)
 
@@ -344,7 +344,7 @@ To safeguard SAP production workloads against catastrophic events it is imperati
 
 <br><br>
 
-### SAP-24 - Implementing an offsite backup strategy for production workloads by utilizing the second Azure region for backups
+### SAP-24 - Implement an offsite backup strategy for production workloads by utilizing the second Azure region for backups
 
 **Category: Disaster Recovery**
 
