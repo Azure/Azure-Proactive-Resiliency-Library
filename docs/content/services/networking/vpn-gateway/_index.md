@@ -21,7 +21,7 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 | [VPNG-4 - Deploy active-active VPN concentrators on your premises for maximum resiliency](#vpng-4---deploy-active-active-vpn-concentrators-on-your-premises-for-maximum-resiliency)                                                                 | Availability |  Medium  | Preview |         No          |
 | [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                                                 |    Monitoring     | Medium | Preview |         No          |
 | [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                                                   |    Monitoring     | Medium | Preview |         No          |
-| [VPNG-7 - Deploy zone-redundant VPN Gateways with zone-redundant Public IP(s)](#vpng-7---deploy-zone-redundant-vpn-gateways-with-zone-redundant-public-ips)                                                                                                   |    Availability     | High | Preview |         No          |
+| [VPNG-7 - Deploy zone-redundant VPN Gateways with zone-redundant Public IP(s)](#vpng-7---deploy-zone-redundant-vpn-gateways-with-zone-redundant-public-ips)                                                                                                   |    Availability     | High | Preview |         Yes          |
 
 {{< /table >}}
 
@@ -93,7 +93,7 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 **Guidance**
 
-By deploying active-active VPN concentrators on your premises, along with active-active Azure VPN Gateways, you can maximize resilience ad availability by using a fully-meshed topology based on four IPSec tunnels.
+By deploying active-active VPN concentrators on your premises, along with active-active Azure VPN Gateways, you can maximize resilience and availability by using a fully-meshed topology based on four IPSec tunnels.
 
 **Resources**
 
@@ -167,7 +167,7 @@ VPN Gateway uses service health to notify about planned and unplanned maintenanc
 
 **Guidance**
 
-When using zone-redundant SKUs for VPN Gateways (VpnGw*AZ), make sure that you associate your gateway with zone-redundant Standard SKU public IP addresses. If a VPN gateway is associated with zonal Standard public IP addresses, all the gateway instances are deployed in the same zone as the IP address(es). This recommendation applies to both active-passive gateways (which use a single public IP address) and active-active VPN gateways (which use two public IP addresses).
+When using zone-redundant SKUs for VPN Gateways (VpnGw*AZ), make sure that you associate your gateway with zone-redundant Standard SKU public IP addresses. If a VPN gateway is associated with zonal Standard SKU public IP addresses, all the gateway instances are deployed in the same zone as the IP address(es). This recommendation applies to both active-passive gateways (which use a single public IP address) and active-active VPN gateways (which use two public IP addresses).
 
 **Resources**
 
