@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 | Recommendation                                                                                                                               |     Category      | Impact |  State  | ARG Query Available |
 |:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
 | [AGW-1 - Set a minimum instance count of 2](#agw-1---set-a-minimum-instance-count-of-2)                                                      | System Efficiency |  High  | Preview |         Yes         |
-| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                        | Access & Security |  High  | Preview |         No          |
+| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                        | Access & Security |  High  | Preview |         Yes          |
 | [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                             | Access & Security |  High  | Preview |         Yes         |
 | [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                                  | System Efficiency |  High  | Preview |         No          |
 | [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                            |    Monitoring     | Medium | Preview |         No          |
@@ -65,7 +65,7 @@ Azure Application Gateways v2 are always deployed in a highly available fashion,
 
 **Guidance**
 
-Ensure that all incoming connections are using HTTP/s for production services. Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
+Ensure that all incoming connections are using HTTPs for production services. Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
 
 **Resources**
 
