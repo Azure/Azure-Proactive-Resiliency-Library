@@ -49,17 +49,20 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-For most solutions, you should use either Front Door or Azure Traffic Manager, but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
+For most solutions, we recommend to use *either* Front Door *or* Traffic Manager, but not both. Azure Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Azure Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
 If you need content caching and delivery (CDN), TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager.
 
-However, as part of a complex architecture, you might choose to use Traffic Manager in front of Front Door. In the unlikely event that Front Door is unavailable, Traffic Manager can route traffic to an alternative destination, such as Azure Application Gateway or a partner content delivery network (CDN). These architectures are difficult to implement and most customers don't need them.
+However, as part of a complex architecture that requires high availability, you can put an Azure Traffic Manager in front of an Azure Front Door. In the unlikely event that Azure Front Door is unavailable, Azure Traffic Manager can then route traffic to an alternative destination, such as Azure Application Gateway or a partner content delivery network (CDN).
+
+Don't put Azure Traffic Manager behind Azure Front Door. Azure Traffic Managers should always be in front of Azure Front Door.
 
 **Resources**
 
 - [Azure Load Balancing Options](https://learn.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)
 - [Azure Traffic Manager](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-overview)
 - [Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-overview)
+- [Mission-critical global content delivery](https://learn.microsoft.com/en-us/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery)
 
 **Resource Graph Query/Scripts**
 
