@@ -3,5 +3,6 @@
 resources
 | where type =~ 'Microsoft.Network/publicIPAddresses'
 | extend sku = tostring(sku.name)
-| where (sku == 'Basic') or (sku == 'Standard' and isempty(zones)) or (sku == 'Standard' and array_length(zones) == 1)
-| project recommendationid="pip-1", name, id, param1=strcat("sku=", sku), zones
+| extend avzones = tostring(zones)
+| where (sku == 'Basic') or (sku == 'Standard' and isempty(avzones)) or (sku == 'Standard' and array_length(zones) == 1)
+| project recommendationid="pip-1", name, id, param1=strcat("sku=", sku), param2=strcat("zones=",avzones)
