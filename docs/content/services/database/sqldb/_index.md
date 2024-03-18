@@ -132,7 +132,7 @@ Although Azure SQL Database is resilient when it concerns transitive infrastruct
 
 **Category: Monitoring**
 
-**Impact: Medium**
+**Impact: High**
 
 **Guidance**
 
