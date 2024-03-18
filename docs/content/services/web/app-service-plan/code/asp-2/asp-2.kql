@@ -1,5 +1,5 @@
 // Azure Resource Graph Query
-// Provides a list of Azure App Service Plans that are not in the “Standard”, “Premium”, or “IsolatedV2” SKU tiers.
+// Provides a list of Azure App Service Plans that are not in the "Standard", "Premium", or "IsolatedV2" SKU tiers.
 
 resources
 | where type =~ 'microsoft.web/serverfarms'
@@ -7,5 +7,4 @@ resources
 | where tolower(sku_tier) !contains "standard" and
         tolower(sku_tier) !contains "premium" and
         tolower(sku_tier) !contains "isolatedv2"
-| project recommendationid="asp-2", name, id, sku_tier
-
+| project recommendationid="asp-2", name, id, tags, param1= strcat("SKU=",sku_tier)

@@ -10,4 +10,4 @@ resources
     | project id
 ) on id
 | where id1 == ""
-| project recommendationId = "vmss-2", name, id, param1 = "extension: null"
+| project recommendationId = "vmss-2", name, id, tags, param1 = "extension: null"

@@ -3,4 +3,4 @@
 resources
 | where type =~ "microsoft.network/privateendpoints"
 | where properties.provisioningState != "Succeeded" or properties.privateLinkServiceConnections[0].properties.provisioningState != "Succeeded"
-| project recommendationId = "pep-1", name, id, param1 = strcat("provisioningState: ", tostring(properties.provisioningState)), param2 = strcat("provisioningState: ", tostring(properties.privateLinkServiceConnections[0].properties.provisioningState))
+| project recommendationId = "pep-1", name, id, tags, param1 = strcat("provisioningState: ", tostring(properties.provisioningState)), param2 = strcat("provisioningState: ", tostring(properties.privateLinkServiceConnections[0].properties.provisioningState))

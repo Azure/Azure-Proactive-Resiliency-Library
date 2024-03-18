@@ -30,4 +30,4 @@ resources
             LBid = toupper(substring(properties.ipConfiguration.id, 0, indexof(properties.ipConfiguration.id, '/frontendIPConfigurations'))),
             InnerID = toupper(id)
     ) on $left.PIPid == $right.InnerID)
-| project recommendationId = "lb-4", name, id, param1="Zones: No Zone or Zonal", param2=strcat("Frontend IP Configuration:", " ", feConfigName)
+| project recommendationId = "lb-4", name, id, tags, param1="Zones: No Zone or Zonal", param2=strcat("Frontend IP Configuration:", " ", feConfigName)

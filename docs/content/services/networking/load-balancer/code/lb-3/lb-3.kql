@@ -4,4 +4,4 @@ resources
 | where type =~ 'Microsoft.Network/loadBalancers'
 | extend outboundRules = array_length(properties.outboundRules)
 | where outboundRules > 0
-| project recommendationId = "lb-3", name, id, Param1 = "outboundRules: >=1"
+| project recommendationId = "lb-3", name, id, tags, Param1 = "outboundRules: >=1"

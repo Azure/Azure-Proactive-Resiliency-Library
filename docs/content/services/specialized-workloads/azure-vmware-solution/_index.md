@@ -14,7 +14,9 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-|[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Preview | Yes |
+|[AVS-1 Configure Azure Service Health notification and alerts for AVS](#avs-1---configure-azure-service-health-notification-and-alerts-for-avs) | Monitoring | Medium | Preview | Yes |
+|[AVS-2 Configure Syslog in Diagnostic Settings for AVS](#avs-2---configure-syslog-in-diagnostic-settings-for-avs) | Monitoring | Medium | Preview | Yes |
+|[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Preview | No |
 |[AVS-4 Enable Stretched Clusters for Multi-AZ Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-multi-az-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
 |[AVS-5 Monitor CPU Utilization to ensure sufficient resources for workloads](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Preview | Yes |
 |[AVS-6 Monitor Memory Utilization to ensure sufficient resources for workloads](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Preview | Yes |
@@ -31,6 +33,58 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 {{< /alert >}}
 
 ## Recommendations Details
+
+### AVS-1 - Configure Azure Service Health notification and alerts for AVS
+
+**Category: Monitoring**
+
+**Impact: Medium**
+
+**Recommendation/Guidance**
+
+Ensure Azure Service Health notifications and alerts are configured for the Azure VMware Solution(AVS) service in the subscriptions and regions where AVS is deployed.
+
+Azure Service Health is the mechanism used to inform customers of any service or security issues affecting their private cloud deployment.  Additionally, Azure Service Health is used to inform customers of maintenance activities in their AVS environments including host replacements, upgrades, and any service updates which could potentially impact customer operations. Proper configuration of Azure Service Health notifications and alerts ensures that customers receive relevant notifications and can reduce service request submissions due to AVS maintenance.
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring#design-recommendations)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/avs-1/avs-1.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AVS-2 - Configure Syslog in Diagnostic Settings for AVS
+
+**Category: Monitoring**
+
+**Impact: Medium**
+
+**Recommendation/Guidance**
+
+Ensure Diagnostic Settings are configured for each private cloud to send the syslogs to one or more external sources for analysis and/or archiving.
+
+Azure VMware Solution Syslogs have useful data for troubleshooting and performance that can help with quicker issue resolution and can also enable early detection of some kinds of issues. Configure Diagnostic Settings on the private cloud to send the Syslogs to one or more external sources for querying and/or archiving in case of an audit.
+
+**Resources**
+
+- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/monitoring#manage-logs-and-archives)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="powershell" file="code/avs-2/avs-2.ps1" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
 
 ### AVS-3 - Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization
 

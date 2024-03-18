@@ -7,4 +7,4 @@ resources
 | extend zoneRedundant = tobool(properties.zoneRedundant)
 | extend sku_tier = tostring(sku.tier)
 | where (tolower(sku_tier) contains "isolated" or tolower(sku_tier) contains "premium") and zoneRedundant == false
-| project recommendationid="asp-1", name, id, sku_tier, zoneRedundant
+| project recommendationid="asp-1", name, id, tags, param1=sku_tier, param2="Not Zone Redundant"

@@ -3,6 +3,6 @@
 resources
 | where type =~ "microsoft.network/applicationGateways"
 | where isnull(properties.autoscaleConfiguration) or properties.autoscaleConfiguration.minCapacity <= 1
-| project recommendationId = "agw-1", name, id, param1 = "autoScaleConfiguration: isNull or MinCapacity <= 1"
+| project recommendationId = "agw-1", name, id, tags, param1 = "autoScaleConfiguration: isNull or MinCapacity <= 1"
 | order by id asc
 

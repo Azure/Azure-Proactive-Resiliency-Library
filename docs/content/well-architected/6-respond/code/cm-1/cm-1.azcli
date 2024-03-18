@@ -1,1 +1,0 @@
-az resource list --resource-type "Micosoft.Example/changeMe" | jq .

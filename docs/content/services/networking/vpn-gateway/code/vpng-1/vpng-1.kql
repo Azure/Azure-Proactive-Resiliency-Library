@@ -4,5 +4,5 @@ resources
 | where type =~ "Microsoft.Network/virtualNetworkGateways"
 | where properties.gatewayType == "Vpn"
 | where properties.sku.tier !contains 'AZ'
-| project recommendationId = "vpng-1", name, id, param1= strcat("sku-tier: " , properties.sku.tier), param2=location
+| project recommendationId = "vpng-1", name, id, tags, param1= strcat("sku-tier: " , properties.sku.tier), param2=location
 | order by id asc

@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Find all Container Registries that have the admin user enabled
-resources
-| where type =~ "microsoft.containerregistry/registries"
-| where properties.adminUserEnabled == "true"
-| project recommendationId = "cr-9", name, id, tags
-| order by id asc
