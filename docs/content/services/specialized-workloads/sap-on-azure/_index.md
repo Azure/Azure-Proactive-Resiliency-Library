@@ -18,18 +18,18 @@ The presented resiliency recommendations in this guidance include Azure Sap Solu
 | [SAP-2 - Run SAP application servers on two or more VMs using VMSS Flex.](#sap-2---run-sap-application-servers-on-two-or-more-vms-using-vmss-flex) | Availability | High | Published | No  |
 | [SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group.](#sap-6---avoid-placing-application-server-and-database-in-one-proximity-placement-group) | Availability | High | Published |  No  |
 | [SAP-7 - Avoid placing VMs from multiple SAP systems in a single Proximity Placement Group.](#sap-7---avoid-placing-vms-from-multiple-sap-systems-in-a-single-proximity-placement-group) | Availability | High | Published | No |
-| [SAP-8 - When using availability sets, ensure that you have maximum number of fault domains and a sufficient number of update domains.](#sap-8---when-using-availability-sets-ensure-that-you-have-maximum-number-of-fault-domains-and-a-sufficient-number-of-update-domains) | Availability | High | Published | No |
+| [SAP-8 - When creating availability sets, ensure that you have maximum number of fault domains and a sufficient number of update domains.](#sap-8---when-creating-availability-sets-ensure-that-you-have-maximum-number-of-fault-domains-and-a-sufficient-number-of-update-domains) | Availability | High | Published | No |
 | [SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk.](#sap-9---if-using-single-instance-vms-all-os-and-data-disks-must-be-premium-ssd-or-ultra-disk) | Availability | High | Published |  No  |
 | [SAP-14 - Ensure that each database replicates changes synchronously (SYNC mode) to a stand-by node.](#sap-14---ensure-that-the-data-is-replicated-synchronously-sync-mode-between-the-primary-and-secondary-database-hosting-vm-nodes) | Availability | High | Published |  No  |
 | [SAP-15 - Ensure that SAP shared file systems are designed for high availability, and when possible using availability zones.](#sap-15---ensure-that-the-sap-shared-files-systems-are-made-highly-available) | Availability | High | Published |  No  |
 | [SAP-16 - Test high availability solutions thoroughly to ensure fail overs work as expected.](#sap-16---test-high-availability-solutions-thoroughly-to-ensure-fail-overs-work-as-expected) | Availability | High | Published | No |
 | [SAP-18 - Remove unwanted location constraints from your Linux Pacemaker clusters.](#sap-18---remove-unwanted-location-constraints-from-your-linux-pacemaker-clusters) | Availability | High | Published | No |
 | [SAP-22 - Protect SAP production workloads with a cross-region disaster recovery solution.](#sap-22---protect-sap-production-workloads-with-a-cross-region-disaster-recovery-solution) | Disaster Recovery | High | Published |  No  |
-| [SAP-24 - Implementing an offsite backup strategy by utilizing the second Azure region for backups.](#sap-24---implementing-an-offsite-backup-strategy-by-utilizing-the-second-azure-region-for-backups) | Disaster Recovery | High | Published | No  |
+| [SAP-24 - Implement an offsite backup strategy for production workloads by utilizing the second Azure region for backups.](#sap-24---implementing-an-offsite-backup-strategy-for-production-workloads-by-utilizing-the-second-azure-region-for-backups) | Disaster Recovery | High | Published | No  |
 | [SAP-26 - Secure compute resource capacity for critical VM roles in DR region.](#sap-26---secure-compute-resource-capacity-for-critical-vm-roles-in-dr-region) | Disaster Recovery | Medium | Published | No |
 | [SAP-27 - Ensure that the production databases are replicated (ASYNC) to DR location, use database vendor's replication.](#sap-27---ensure-that-the-production-databases-are-replicated-async-to-dr-location-use-database-vendors-replication) | Disaster Recovery | High | Published | No |
 | [SAP-28 - SAP components are backed up to DR location using an appropriate backup tool or ASR.](#sap-28---sap-components-are-backed-up-to-dr-location-using-an-appropriate-backup-tool-or-asr) | Disaster Recovery | High | Published | No |
-| [SAP-29 - SAP shared files systems and any other critical to DR are replicated or backed up to DR location.](#sap-29---sap-shared-files-systems-and-any-other-critical-to-dr-are-replicated-or-backed-up-to-dr-location) | Disaster Recovery | High | Published | No |
+| [SAP-29 - SAP shared files systems are replicated or backed up to DR location.](#sap-29---sap-shared-files-systems-are-replicated-or-backed-up-to-dr-location) | Disaster Recovery | High | Published | No |
 | [SAP-32 - Automate DR infrastructure build or pre-deploy DR resources.](#sap-32---automate-dr-infrastructure-build-or-pre-deploy-dr-resources) | Disaster Recovery | Medium | Published |  No  |
 | [SAP-33 - Document and test DR procedure, ensure it meets RPO and RTO targets.](#sap-33---document-and-test-dr-procedure-ensure-it-meets-rpo-and-rto-targets) | Disaster Recovery | Medium | Published | No |
 | [SAP-34 - Ensure there is a robust monitoring and alerting solution in place for the entire DR solution.](#sap-34---ensure-there-is-a-robust-monitoring-and-alerting-solution-in-place-for-the-entire-dr-solution) | Disaster Recovery | Medium | Published | No |
@@ -39,8 +39,6 @@ The presented resiliency recommendations in this guidance include Azure Sap Solu
 | [SAP-44 - ASCS-Pacemaker-RH (Central Server Instance) Ensure the Pacemaker cluster has been setup for SAP ASCS high availability.](#sap-44---ascs-pacemaker-rh-central-server-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-ascs-high-availability) | Availability | High | Published | No  |
 | [SAP-45 - ASCS-LB (Central Server Instance) Ensure the load balancer is configured correctly for SAP ASCS High availability.](#sap-45---ascs-lb-central-server-instance-ensure-the-load-balancer-is-configured-correctly-for-sap-ascs-high-availability) | Availability | High | Published | No |
 | [SAP-46 - DBHANA-Pacemaker (Database Instance) Ensure the Pacemaker cluster has been setup for SAP HANA DB high availability.](#sap-46---dbhana-pacemaker-database-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-hana-db-high-availability) | Availability | High | Published | No |
-| [SAP-47 - DBHANA-Pacemaker-SLES (Database Instance) Ensure the Pacemaker cluster has been setup for SAP HANA DB high availability.](#sap-46---dbhana-pacemaker-database-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-hana-db-high-availability) | Availability | High | Published | No |
-| [SAP-48 - DBHANA-Pacemaker-RH (Database Instance) Ensure the Pacemaker cluster has been setup for SAP ASCS high availability.](#sap-48---dbhana-pacemaker-rh-database-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-ascs-high-availability) | Availability | High | Published | No |
 | [SAP-49 - DBHANA-LB (Database Instance) Ensure the load balancer is configured correctly for SAP HANA DB High availability.](#sap-49---dbhana-lb-database-instance-ensure-the-load-balancer-is-configured-correctly-for-sap-hana-db-high-availability) | Availability | High | Published | No |
 
 {{< /table >}}
@@ -61,10 +59,12 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-Azure Availability Zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures. Ensure each single point of failure of each SAP production system is protected with high availability using multiple availability zones.
+Azure Availability Zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely data center failures. Ensure each single point of failure of each SAP production system is protected with high availability using multiple availability zones. If you cannot deploy across different zones in a region, then  refer to Microsoft guidance for High availability deployment options for SAP workload.
 
 **Resources**
 
+- [Move Regional SAP HA to Zonal](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper)
+- [High Availability Deployment Options for SAP](https://learn.microsoft.com/en-us/azure/sap/workloads/sap-high-availability-architecture-scenarios#high-availability-deployment-options-for-sap-workload)
 - [SAP ACSS checks](https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/get-quality-checks-insights)
 - [OpenSource Quality checks](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/QualityCheck)
 
@@ -158,7 +158,7 @@ Ensure that VMs from different SAP systems are not colocated within a single Pro
 
 <br><br>
 
-### SAP-8 - When using availability sets ensure that you have maximum number of fault domains and a sufficient number of update domains
+### SAP-8 - When creating availability sets ensure that you have maximum number of fault domains and a sufficient number of update domains
 
 **Category: Availability**
 
@@ -344,7 +344,7 @@ To safeguard SAP production workloads against catastrophic events it is imperati
 
 <br><br>
 
-### SAP-24 - Implementing an offsite backup strategy by utilizing the second Azure region for backups
+### SAP-24 - Implementing an offsite backup strategy for production workloads by utilizing the second Azure region for backups
 
 **Category: Disaster Recovery**
 
@@ -352,7 +352,7 @@ To safeguard SAP production workloads against catastrophic events it is imperati
 
 **Guidance**
 
-To bolster your data protection strategy and ensure business continuity, it is important to implement an offsite backup strategy leveraging a second Azure region. This approach enhances data security and business continuity by providing geographical redundancy and improved disaster recovery capabilities. This approach also often supports compliance with regulatory requirements ensuring your organization's resilience against data loss and operational disruptions.
+To bolster your data protection strategy and ensure business continuity, it is important to implement an offsite backup strategy for production workloads leveraging a second Azure region. This approach enhances data security and business continuity by providing geographical redundancy and improved disaster recovery capabilities. This approach also often supports compliance with regulatory requirements ensuring your organization's resilience against data loss and operational disruptions.
 
 Ensure that any Azure Recovery Services vaults used for backing up production VMs are GRS.
 
@@ -711,54 +711,6 @@ For the DBHANA-Pacemaker (Database Instance), ensure that the Pacemaker cluster 
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/sap-46/sap-46.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### SAP-47 - DBHANA-Pacemaker-SLES (Database Instance) Ensure the Pacemaker cluster has been setup for SAP HANA DB high availability
-
-**Category: Availability**
-
-**Impact: High**
-
-**Guidance**
-
-For the DBHANA-Pacemaker-SLES (Database Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP HANA DB high availability when running on SLES.
-
-**Resources**
-
-- [DBHANA-Pacemaker-SLES- Database Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/sap-47/sap-47.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### SAP-48 - DBHANA-Pacemaker-RH (Database Instance) Ensure the Pacemaker cluster has been setup for SAP ASCS high availability
-
-**Category: Availability**
-
-**Impact: High**
-
-**Guidance**
-
-For the DBHANA-Pacemaker-RH (Database Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP ASCS high availability when running on Red Hat.
-
-**Resources**
-
-- [DBHANA-Pacemaker-RH- Database Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/sap-48/sap-48.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
