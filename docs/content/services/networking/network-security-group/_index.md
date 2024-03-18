@@ -87,7 +87,7 @@ Create Alerts for administrative operations such as Create or Update Network Sec
 
 **Category: Governance**
 
-**Impact: Medium**
+**Impact: Low**
 
 **Guidance**
 
