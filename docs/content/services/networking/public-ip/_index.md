@@ -16,7 +16,7 @@ The below table shows the list of resiliency recommendations for Public Ip and a
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                            |   Category   | Impact |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:-------:|:-------------------:|
-| [PIP-1 - Use Standard SKU and Zone-Redundant IPs when applicable](#pip-1---use-standard-sku-and-zone-redundant-ips-when-applicable)                                                                                                     | Availability |  High  | Preview |         No          |
+| [PIP-1 - Use Standard SKU and Zone-Redundant IPs when applicable](#pip-1---use-standard-sku-and-zone-redundant-ips-when-applicable)                                                                                                     | Availability |  High  | Preview |         Yes          |
 | [PIP-2 - Use NAT gateway for outbound connectivity to avoid SNAT Exhaustion](#pip-2---use-nat-gateway-for-outbound-connectivity-to-avoid-snat-exhaustion) | Availability | Medium | Preview |         Yes         |
 {{< /table >}}
 
