@@ -17,8 +17,8 @@ The below table shows the list of resiliency recommendations for Log Analytics a
 | Recommendation                                                                                                                                                                                              |     Category      | Impact |  State  | ARG Query Available |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
 | [LOG-1 - Enable Log Analytics data export to GRS or GZRS](#log-1---enable-log-analytics-data-export-to-grs-or-gzrs)                                                                                         | Governance | Medium | Verified |         No          |
-| [LOG-2 - Create a health status alert rule for your Log Analytics workspace](#log-2---create-a-health-status-alert-rule-for-your-log-analytics-workspace)                                                   |    Monitoring     |  Low   | Verified |         No          |
-| [LOG-3 - Configure minimal logging and retention of logs](#log-3---configure-minimal-logging-and-retention-of-logs)                                                                                         |    Governance     |  Low   | Verified |         No          |
+| [LOG-4 - Create a health status alert rule for your Log Analytics workspace](#log-4---create-a-health-status-alert-rule-for-your-log-analytics-workspace)                                                   |    Monitoring     |  Low   | Verified |         No          |
+| [LOG-5 - Configure minimal logging and retention of logs](#log-5---configure-minimal-logging-and-retention-of-logs)                                                                                         |    Governance     |  Low   | Verified |         No          |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -54,7 +54,7 @@ Data export in a Log Analytics workspace lets you continuously export data to an
 
 <br><br>
 
-### LOG-2 - Create a health status alert rule for your Log Analytics workspace
+### LOG-4 - Create a health status alert rule for your Log Analytics workspace
 
 **Category: Monitoring**
 
@@ -73,13 +73,13 @@ A health status alert will proactively notify you if a workspace becomes unavail
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/log-2/log-2.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/log-4/log-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### LOG-3 - Configure minimal logging and retention of logs
+### LOG-5 - Configure minimal logging and retention of logs
 
 **Category: Governance**
 
@@ -101,7 +101,7 @@ A health status alert will proactively notify you if a workspace becomes unavail
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/log-3/log-3.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/log-5/log-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
