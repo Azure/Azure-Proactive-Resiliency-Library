@@ -17,7 +17,6 @@ The presented resiliency recommendations in this guidance include Container Regi
 | [CR-1 - Use Premium tier for critical production workloads](#cr-1---use-premium-tier-for-critical-production-workloads) | System Efficiency | High | Preview | Yes |
 | [CR-2 - Enable zone redundancy](#cr-2---enable-zone-redundancy) | Availability | High | Preview | Yes |
 | [CR-3 - Enable geo-replication](#cr-3---enable-geo-replication) | Disaster Recovery | High | Preview | Yes |
-| [CR-4 - Maximize pull performance](#cr-4---maximize-pull-performance) | System Efficiency | High | Preview | No |
 | [CR-5 - Use Repository namespaces](#cr-5---use-repository-namespaces) | Access & Security | Low | Preview | No |
 | [CR-6 - Move Container Registry to a dedicated resource group](#cr-6---move-container-registry-to-a-dedicated-resource-group) | Governance | Low | Preview | Yes |
 | [CR-7 - Manage registry size](#cr-7---manage-registry-size) | System Efficiency | Medium | Preview | No |
@@ -103,34 +102,6 @@ Geo-replication is available with Premium registries.
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/cr-3/cr-3.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### CR-4 - Maximize pull performance
-
-**Category: System Efficiency**
-
-**Impact: High**
-
-**Guidance**
-
-Some characteristics of your images themselves can impact pull performance:
-
-- Image size - Minimize the sizes of your images by removing unnecessary layers or reducing the size of layers. One way to reduce image size is to use the multi-stage Docker build approach to include only the necessary runtime components. Also check whether your image can include a lighter base OS image. And if you use a deployment environment such as Azure Container Instances that caches certain base images, check whether you can swap an image layer for one of the cached images.
-
-- Number of layers - Balance the number of layers used. If you have too few, you don’t benefit from layer reuse and caching on the host. Too many, and your deployment environment spends more time pulling and decompressing. Five to 10 layers is optimal.
-
-**Resources**
-
-- [Registry authentication options - Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/cr-4/cr-4.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
