@@ -1,4 +1,4 @@
-// Azure Resource Graph Query
+
 // Find all Subscriptions that do not have fully configured Service Health Alerts
 resourcecontainers
 | where type =~ "microsoft.resources/subscriptions"
