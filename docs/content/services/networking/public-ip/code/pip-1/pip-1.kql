@@ -1,8 +1,7 @@
 // Azure Resource Graph query
-// Lists VMs with PIPs that are either Basic SKU or Standard SKU and non zonal or Standard SKU in one zone
-resources
-| where type =~ 'Microsoft.Network/publicIPAddresses'
-| extend sku = tostring(sku.name)
-| extend avzones = tostring(zones)
-| where (sku == 'Basic') or (sku == 'Standard' and isempty(avzones)) or (sku == 'Standard' and array_length(zones) == 1)
-| project recommendationid="pip-1", name, id, param1=strcat("sku=", sku), param2=strcat("zones=",avzones)
+// List public IP addresses that are not Zone-Redundant
+Resources
+| where type =~ "Microsoft.Network/publicIPAddresses" and sku.tier =~ "Regional"
+| where isempty(zones) or array_length(zones) <= 1
+| extend az = case(isempty(zones), "Non-zonal", array_length(zones) <= 1, strcat("Zonal (", strcat_array(zones, ","), ")"), zones)
+| project recommendationId = "pip-1", name, id, tags, param1 = strcat("sku: ", sku.name), param2 = strcat("availabilityZone: ", az)
