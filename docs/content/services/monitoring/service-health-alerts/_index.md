@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Service Health
 {{< table style="table-striped" >}}
 | Recommendation                                    |                                Category                                 |     Impact      |      State       | ARG Query Available |
 |:--------------------------------------------------|:-----------------------------------------------------------------------:|:---------------:|:----------------:|:-------------------:|
-| [ALA-1 - Configure Service Health Alerts](#ala-1---configure-service-health-alerts) | Monitoring | High | Preview |         No         |
+| [ALA-1 - Configure Service Health Alerts](#ala-1---configure-service-health-alerts) | Monitoring | High | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}

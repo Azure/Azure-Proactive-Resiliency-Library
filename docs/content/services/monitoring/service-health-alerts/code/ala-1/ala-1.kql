@@ -1,1 +1,36 @@
-// under-development
+// Azure Resource Graph Query
+// Find all Subscriptions that do not have fully configured Service Health Alerts
+resourcecontainers
+| where type =~ "microsoft.resources/subscriptions"
+| project resourceId=id, resourceName=name, subscriptionId, tags
+| join kind=leftouter (
+    // fully configured
+    resources
+    | where type =~ "microsoft.insights/activitylogalerts"
+    | project id, name, subscriptionId, conditions=properties.condition.allOf, enabled=properties.enabled
+    | where
+        // service health alerts
+        (conditions has "category" and conditions has "ServiceHealth")
+        // without focus on individual services, but do not take disabled alerts
+        and (enabled =~ 'true' and (conditions !has "anyOf" and conditions !contains "properties.impactedServices[*]."))
+    | project resourceId=id, resourceName=name, subscriptionId, alertType="Full", priority=1
+    | union (
+        // partially configured or disabled
+        resources
+        | where type =~ "microsoft.insights/activitylogalerts"
+        | project id, name, subscriptionId, conditions=properties.condition.allOf, enabled=properties.enabled
+        | where
+            // service health alerts
+            (conditions has "category" and conditions has "ServiceHealth")
+            // without focus on individual services
+            and (enabled =~ 'true' or (conditions has "anyOf" or conditions has "properties.impactedServices[*]."))
+        | project resourceId=id, resourceName=name, subscriptionId, alertType="Partial", priority=0
+    )
+) on subscriptionId
+| extend id=iif(isempty(resourceId), resourceId1, resourceId)
+| extend name=iif(isempty(resourceName), resourceName1, resourceName)
+| summarize arg_max(priority, *) by subscriptionId, id, name
+// filter out the fully configured Service Health Alerts
+| where priority != 1
+| project id, name, tags, subscriptionId
+| order by name
