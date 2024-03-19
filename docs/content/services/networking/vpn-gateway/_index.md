@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include VPN Gateway an
 The below table shows the list of resiliency recommendations for VPN Gateway and associated resources.
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                      |     Category      | Impact |  State  | ARG Query Available |
+| Recommendation | Category | Impact | State | ARG Query Available |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway)                                                                               |   Availability    |  High  | Preview |         Yes         |
-| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                                                       |   Availability    |  High  | Preview |         Yes         |
-| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery |  High  | Preview |         No          |
-| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections)                                                                 | Disaster Recovery |  High  | Preview |         No          |
-| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                                                 |    Monitoring     | Medium | Preview |         No          |
-| [VPNG-6 - Enable service health alerts](#vpng-6---enable-service-health-alerts)                                                                                     |    Monitoring     | Medium | Preview |         No          |
+| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway) | Availability | High | Preview | Yes |
+| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode) | Availability | High | Preview | Yes |
+| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Preview | No |
+| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections) | Disaster Recovery | High | Preview | No |
+| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health) | Monitoring | Medium | Preview | No |
+| [VPNG-6 - Enable service health alerts](#vpng-6---enable-service-health-alerts) | Monitoring | Medium | Preview | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -69,9 +69,9 @@ To automatically deploy your virtual network gateways across availability zones,
 The active-active mode is available for all SKUs except Basic. You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, the switch over will happen automatically from the affected instance to the active instance.
 
 **Resources**
+
 - [About Active-Active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-vpn-gateways)
 - [Configure Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
-
 
 **Resource Graph Query/Scripts**
 
@@ -83,7 +83,7 @@ The active-active mode is available for all SKUs except Basic. You can create an
 
 <br><br>
 
-### VPNG-3 - Configure a Site-to-Site VPN as a failover path for Express Route
+### VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
 
 **Category: Disaster Recovery**
 
