@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// You can use the following Azure Resource Graph query to check if an HTTP rule is using an SSL certificate or is using Azure Key Vault to store the certificates
-resources
-| where type =~ "microsoft.network/applicationGateways"
-| extend ssl_enabled = tobool(isnotnull(properties.sslCertificates[0].keyVaultSecretId) or isnotnull(properties.sslCertificates[0].keyVaultSecretUrl))
-| where properties.frontendPorts[0].port == 443 and ssl_enabled == "true"
-| project recommendationId="agw-2",name,id, param1=strcat("ssl_enabled: ", ssl_enabled)

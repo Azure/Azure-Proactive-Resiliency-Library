@@ -1,7 +1,0 @@
-// Azure Resource Graph query
-// Lists PIPs that are not Standard SKU
-resources
-| where type =~ 'Microsoft.Network/publicIPAddresses'
-| extend sku = tostring(sku.name)
-| where sku != 'Standard'
-| project recommendationid="pip-1", name, id, param1=strcat("sku=",sku)
