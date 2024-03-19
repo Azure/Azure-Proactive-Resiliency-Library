@@ -1,3 +1,5 @@
+// Azure Resource Graph Query
+// Provides a list of zone-redundant Azure VPN gateways associated with non-zone-redundant Public IPs
 resources
 | where type =~ "Microsoft.Network/virtualNetworkGateways"
 | where properties.gatewayType == "Vpn"
@@ -9,4 +11,4 @@ resources
     | where type == "microsoft.network/publicipaddresses"
     | where isnull(zones) or array_length(zones) < 3   )
     on $left.pipId == $right.id
-| project recommendationId = "vpng-7", VpnGateway= name, VpnGatewayId = id, VpnGatewayTags = tags, PublicIpAddress = name1, PublicIpAddressId = id1, PublicIpAddressTags = tags1
+| project recommendationId = "vpng-7", name, id, tags, param1 = name1, param2 = id1, param3 = tags1
