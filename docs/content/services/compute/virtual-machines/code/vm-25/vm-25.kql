@@ -6,4 +6,5 @@ resources
 | where tags contains 'Citrix VDA'
 | summarize VMs=count() by subscriptionId
 | where VMs > 2000
-| project recommendationId='VM-25', subscriptionId, VMs, param1='Too many instances.'
+| join (resourcecontainers| where type =='microsoft.resources/subscriptions' | project subname=name, subscriptionId) on subscriptionId
+| project recommendationId='VM-25', name= subname, id = subscriptionId, param1='Too many instances.', param2= VMs
