@@ -1,1 +1,37 @@
-// under-development
+// Azure Resource Graph Query
+// Provides a list of ExpressRoute Gateways that are not connected to two or more ExpressRoute Circuits. Baremetal circuits are excluded from consideration
+//Start with a full list of gateways
+resources
+| where type == "microsoft.network/virtualnetworkgateways"
+| where properties.gatewayType == "ExpressRoute"
+| extend exrGatewayId = tostring(id)
+| join kind=inner(
+resources
+| where type == "microsoft.network/virtualnetworkgateways"
+| where properties.gatewayType == "ExpressRoute"
+| extend exrGatewayId = tostring(id)
+| join kind=leftouter(
+//connections joined with peer info
+resources
+| where type == "microsoft.network/connections"
+| extend connectionType = properties.connectionType
+| extend exrGatewayId = tostring(properties.virtualNetworkGateway1.id)
+| extend peerId = tostring(properties.peer.id)
+| extend connectionId = tostring(id)
+| where properties.connectionType == "ExpressRoute"
+| join kind=leftouter(
+  resources
+  | where type == "microsoft.network/expressroutecircuits"
+    //should this be location instead of peeringLocation
+  | extend circuitId = tostring(id)
+  | extend peeringLocation = tostring(properties.serviceProviderProperties.peeringLocation)
+  | extend peerId = id
+) on peerId ) on exrGatewayId
+//remove bare metal services connections/circuits
+| where not(isnotnull(connectionId) and isnull(sku1))
+//group by gateway ID's and peering locations
+| summarize by exrGatewayId, peeringLocation
+//summarize to connections with fewer than two unique connections
+| summarize connCount = count() by exrGatewayId
+| where connCount < 2) on exrGatewayId
+| project recommendationId = "ergw-1", name, id, tags, param1 = "twoOrMoreCircuitsConnectedFromDifferentPeeringLocations: false"
