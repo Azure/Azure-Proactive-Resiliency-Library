@@ -157,7 +157,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 <br><br>
 
-### VPNG-6 - Enable service health
+### VPNG-6 - Enable Service Health alerts
 
 **Category: Monitoring**
 
