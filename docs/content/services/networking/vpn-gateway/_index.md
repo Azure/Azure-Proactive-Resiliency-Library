@@ -66,7 +66,7 @@ To automatically deploy your virtual network gateways across availability zones,
 
 **Guidance**
 
-The active-active mode is available for all SKUs except Basic.You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, the switch over will happen automatically from the affected instance to the active instance.
+The active-active mode is available for all SKUs except Basic. You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, the switch over will happen automatically from the affected instance to the active instance.
 
 **Resources**
 - [About Active-Active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-vpn-gateways)
