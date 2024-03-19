@@ -1,12 +1,12 @@
 // Azure Resource Graph Query
-// Provides a list of ExpressRoute Gateways that are not currently monitoring the Average Packets per Second to ensure it stays below a critical threshold per AMBA standard.
-//To remediate this finding, create an alert with the following configuration on each failing gateway: Operator: GreaterThan, metric: ExpressRouteGatewayPacketsPerSecond, timeAggregation: Average, Threshold: <sku dependent maximum>, Severity: 0
+// Provides a list of ExpressRoute Gateways that are not currently monitoring the Maximum number of flow limit on the gateway based on the gateway sku.
+//To remediate this finding, create an alert with the following configuration on each failing gateway: metric: ExpressRouteGatewayActiveFlows, timeAggregation: Maximum, Operator: GreaterThanOrEqual, Threshold 100000 for Standard, ERGW1AZ, 200000 for High Performance and ERGW2aZ, and 1000000 for Ultra and ERGW3AZ.
 resources
 | where type == "microsoft.network/virtualnetworkgateways"
 | where properties.gatewayType == "ExpressRoute"
 | extend gatewayId = tostring(id)
 | extend skuName = properties.sku.name
-| extend packetsPerSecondSku = case(skuName == 'Standard', 100000,
+| extend flowsPerSku = case(skuName == 'Standard', 100000,
                                     skuName == 'ErGw1AZ', 100000,
                                     skuName == 'HighPerformance', 200000,
                                     skuName == 'ErGw2AZ', 200000,
@@ -14,7 +14,7 @@ resources
                                     skuName == 'ErGw3AZ', 1000000,
                                     skuName == 'ErGwScale', 100000,
                                     100000)
-| project gatewayId, name, id, tags, skuName, packetsPerSecondSku
+| project gatewayId, name, id, tags, skuName, flowsPerSku
 | join kind=leftouter(
 resources
 | where type == 'microsoft.insights/metricalerts'
@@ -29,16 +29,11 @@ resources
 | extend operator = alertProperties_criteria_allOf.operator
 | extend threshold = alertProperties_criteria_allOf.threshold
 | extend timeAggregation = alertProperties_criteria_allOf.timeAggregation
-| extend severity = alertProperties.severity
-// temporarily commenting out more prescriptive configuration until we update AMBA recommendations
-//| where alertProperties.evaluationFrequency == 'PT1M'
-//| where alertProperties.windowSize == 'PT5M'
 | where metricNamespace == 'Microsoft.Network/virtualNetworkGateways'
-//| where timeAggregation == 'Average'
-| where metric == 'ExpressRouteGatewayPacketsPerSecond'
-//| where operator == 'GreaterThan'
-//| where severity == 0
+| where timeAggregation == 'Maximum'
+| where metric == 'ExpressRouteGatewayActiveFlows'
+| where operator == 'GreaterThanOrEqual'
 ) on gatewayId
-//| where threshold != packetsPerSecondSku
+| where threshold != flowsPerSku
 | where isnull(threshold)
-| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Performance', param3 = 'ExpressRouteGatewayPacketsPerSecond greater than sku maximum'
+| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Scalability', param3 = 'ExpressRouteGatewayActiveFlows at or exceeding sku limit'
