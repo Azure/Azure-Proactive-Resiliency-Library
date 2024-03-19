@@ -4,4 +4,4 @@ Resources
 | where type =~ "Microsoft.Network/publicIPAddresses" and sku.tier =~ "Regional"
 | where isempty(zones) or array_length(zones) <= 1
 | extend az = case(isempty(zones), "Non-zonal", array_length(zones) <= 1, strcat("Zonal (", strcat_array(zones, ","), ")"), zones)
-| project recommendationid = "pip-1", name, id, tags, param1 = strcat("sku: ", sku.name), param2 = strcat("availabilityZone: ", az)
+| project recommendationId = "pip-1", name, id, tags, param1 = strcat("sku: ", sku.name), param2 = strcat("availabilityZone: ", az)
