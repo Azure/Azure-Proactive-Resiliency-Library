@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// This query will return all Application Gateways not on V2
+resources
+| where type =~ 'microsoft.network/applicationgateways'
+| where properties.sku.name !contains 'v2'
+| project recommendationId = "agw-4", name, id, tags, param1="Application Gateway v2 should be used unless there is a compelling reason for using v1."
