@@ -11,4 +11,4 @@ resources
     | where type == "microsoft.network/publicipaddresses"
     | where isnull(zones) or array_length(zones) < 3   )
     on $left.pipId == $right.id
-| project recommendationId = "vpng-7", name, id, tags, param1 = strcat("Public IP name: ", name1), param2 = strcat ("Public IP id: ",id1), param3 = strcat ("Public IP tags: ",tags1)
+| project recommendationId = "vpng-7", name, id, tags, param1 = strcat("PublicIpAddressName: ", name1), param2 = strcat ("PublicIpAddressId: ",id1), param3 = strcat ("PublicIpAddressTags: ",tags1)
