@@ -165,7 +165,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 **Guidance**
 
-VPN Gateway uses service health to notify about planned and unplanned maintenance.
+VPN Gateway uses service health alerts to notify about planned and unplanned maintenance.
 
 **Resources**
 
