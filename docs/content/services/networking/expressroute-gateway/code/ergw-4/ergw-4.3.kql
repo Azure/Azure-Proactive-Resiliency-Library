@@ -1,0 +1,36 @@
+// Azure Resource Graph Query
+// Provides a list of ExpressRoute Gateways that are not currently monitoring the Average CPU usage to ensure it stays below a critical threshold per AMBA standard.
+//To remediate this finding, create an alert with the following configuration on each failing gateway: Operator: GreaterThan, metric: ExpressRouteGatewayCpuUtilization, timeAggregation: Average, Threshold: 80, Severity: 1
+resources
+| where type == "microsoft.network/virtualnetworkgateways"
+| where properties.gatewayType == "ExpressRoute"
+| extend gatewayId = tostring(id)
+| extend skuName = properties.sku.name
+| project gatewayId, name, id, tags, skuName
+| join kind=leftouter(
+resources
+| where type == 'microsoft.insights/metricalerts'
+| extend alertProperties = todynamic(properties)
+| mv-expand alertProperties.scopes
+| mv-expand alertProperties.criteria.allOf
+| where alertProperties.enabled == true
+| extend gatewayId = tostring(alertProperties_scopes)
+| extend criterionType = alertProperties_criteria_allOf.criterionType
+| extend metric = alertProperties_criteria_allOf.metricName
+| extend metricNamespace = alertProperties_criteria_allOf.metricNamespace
+| extend operator = alertProperties_criteria_allOf.operator
+| extend threshold = alertProperties_criteria_allOf.threshold
+| extend timeAggregation = alertProperties_criteria_allOf.timeAggregation
+| extend severity = alertProperties.severity
+| where alertProperties.evaluationFrequency == 'PT1M'
+| where alertProperties.windowSize == 'PT5M'
+| where metricNamespace == 'Microsoft.Network/virtualNetworkGateways'
+| where timeAggregation == 'Average'
+| where metric == 'ExpressRouteGatewayCpuUtilization'
+| where operator == 'GreaterThan'
+| where threshold == 80
+| where severity == 1
+//| project scopeId, tostring(metric), toint(['threshold'])
+) on gatewayId
+| where isnull(threshold)
+| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Performance', param3 = 'ExpressRouteGatewayCpuUtilization exceeding 80% average CPU'
