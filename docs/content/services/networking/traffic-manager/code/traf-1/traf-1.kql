@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph query
+// TRAF-1 - Traffic Manager Monitor Status Should be Online
+resources
+| where type == "microsoft.network/trafficmanagerprofiles"
+| project name, id, tags, profileMonitorStatus = properties.monitorConfig.profileMonitorStatus
+| where profileMonitorStatus !has 'Online'
