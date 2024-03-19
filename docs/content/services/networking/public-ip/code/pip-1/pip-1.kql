@@ -1,1 +1,8 @@
-// under-development
+// Azure Resource Graph query
+// Lists VMs with PIPs that are either Basic SKU or Standard SKU and non zonal or Standard SKU in one zone
+resources
+| where type =~ 'Microsoft.Network/publicIPAddresses'
+| extend sku = tostring(sku.name)
+| extend avzones = tostring(zones)
+| where (sku == 'Basic') or (sku == 'Standard' and isempty(avzones)) or (sku == 'Standard' and array_length(zones) == 1)
+| project recommendationid="pip-1", name, id, param1=strcat("sku=", sku), param2=strcat("zones=",avzones)
