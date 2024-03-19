@@ -1,14 +1,20 @@
-//under development.
-
 // Azure Resource Graph Query
 // Provides a list of ExpressRoute Gateways that are not currently monitoring the Maximum number of routes learned from peer limit on the gateway based on the gateway sku.
-//To remediate this finding, create an alert with the following configuration on each failing gateway: Operator: GreaterThanOrEqual, metric: ExpressRouteGatewayCountOfRoutesAdvertisedToPeer, timeAggregation: Maximum, Threshold 500
+//To remediate this finding, create an alert with the following configuration on each failing gateway: metric: ExpressRouteGatewayCountOfRoutesLearnedFromPeer, timeAggregation: Maximum, Operator: GreaterThanOrEqual, Threshold 4000 for Standard, ERGW1AZ, and ERGWScale sku's, 9500 for all others
 resources
 | where type == "microsoft.network/virtualnetworkgateways"
 | where properties.gatewayType == "ExpressRoute"
 | extend gatewayId = tostring(id)
 | extend skuName = properties.sku.name
-| project gatewayId, name, id, tags, skuName
+| extend routesLearnedPerSku = case(skuName == 'Standard', 4000,
+                                    skuName == 'ErGw1AZ', 4000,
+                                    skuName == 'HighPerformance', 9500,
+                                    skuName == 'ErGw2AZ', 9500,
+                                    skuName == 'UltraPerformance', 9500,
+                                    skuName == 'ErGw3AZ', 9500,
+                                    skuName == 'ErGwScale', 4000,
+                                    4000)
+| project gatewayId, name, id, tags, skuName, routesLearnedPerSku
 | join kind=leftouter(
 resources
 | where type == 'microsoft.insights/metricalerts'
@@ -25,10 +31,9 @@ resources
 | extend timeAggregation = alertProperties_criteria_allOf.timeAggregation
 | where metricNamespace == 'Microsoft.Network/virtualNetworkGateways'
 | where timeAggregation == 'Maximum'
-| where metric == 'ExpressRouteGatewayCountOfRoutesAdvertisedToPeer'
+| where metric == 'ExpressRouteGatewayCountOfRoutesLearnedFromPeer'
 | where operator == 'GreaterThanOrEqual'
-| where threshold == 500
-//| project scopeId, tostring(metric), toint(['threshold'])
 ) on gatewayId
+| where threshold != routesLearnedPerSku
 | where isnull(threshold)
-| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Availability', param3 = 'ExpressRouteGatewayCountOfRoutesAdvertisedToPeer at or exceeding sku limit'
+| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Availability', param3 = 'ExpressRouteGatewayCountOfRoutesLearnedFromPeer at or exceeding sku limit'

@@ -30,7 +30,6 @@ resources
 | where operator == 'GreaterThan'
 | where threshold == 80
 | where severity == 1
-//| project scopeId, tostring(metric), toint(['threshold'])
 ) on gatewayId
 | where isnull(threshold)
 | project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Performance', param3 = 'ExpressRouteGatewayCpuUtilization exceeding 80% average CPU'

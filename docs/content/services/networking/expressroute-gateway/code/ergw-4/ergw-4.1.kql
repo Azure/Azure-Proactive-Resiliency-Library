@@ -26,7 +26,6 @@ resources
 | where metric == 'ExpressRouteGatewayCountOfRoutesAdvertisedToPeer'
 | where operator == 'GreaterThanOrEqual'
 | where threshold == 500
-//| project scopeId, tostring(metric), toint(['threshold'])
 ) on gatewayId
 | where isnull(threshold)
 | project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Availability', param3 = 'ExpressRouteGatewayCountOfRoutesAdvertisedToPeer at or exceeding sku limit'

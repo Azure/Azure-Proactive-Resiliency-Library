@@ -1,6 +1,6 @@
 // Azure Resource Graph Query
-// Provides a list of ExpressRoute Gateways that are not currently monitoring the Average CPU usage to ensure it stays below a critical threshold per AMBA standard.
-//To remediate this finding, create an alert with the following configuration on each failing gateway: Operator: LessThan, metric: ExpressRouteGatewayBitsPerSecond, timeAggregation: Average, Threshold: 1, Severity: 0
+// Provides a list of ExpressRoute Gateways that are not currently monitoring the Average Gateway Bits received per second metric to ensure that traffic is still being received by the gateway.
+//To remediate this finding, create an alert with the following configuration on each failing gateway: Metric: ExpressRouteGatewayBitsPerSecond, timeAggregation: Average, Operator: LessThan,  Threshold: 1, Severity: 0
 resources
 | where type == "microsoft.network/virtualnetworkgateways"
 | where properties.gatewayType == "ExpressRoute"
@@ -30,7 +30,6 @@ resources
 | where operator == 'LessThan'
 | where threshold == 1
 | where severity == 0
-//| project scopeId, tostring(metric), toint(['threshold'])
 ) on gatewayId
 | where isnull(threshold)
 | project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Performance', param3 = 'ExpressRouteGatewayBitsPerSecond less than 1 bit per second'
