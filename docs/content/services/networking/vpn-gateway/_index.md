@@ -41,7 +41,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Guidance**
 
 Azure VPN gateway provides different SLAs when it's deployed in a single availability zone and when it's deployed in two or more availability zones. For information about all Azure SLAs, see [SLA summary for Azure services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
-To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure.
+To automatically deploy your virtual network gateways across availability zones, use zone-redundant virtual network gateways. The zone-redundant gateways benefits from zone-resiliency to access mission-critical, scalable services on Azure.
 
 **Resources**
 
@@ -66,13 +66,12 @@ To automatically deploy your virtual network gateways across availability zones,
 
 **Guidance**
 
-The active-active mode is available for all SKUs except Basic.
-Active-active gateways have two Gateway IP configurations and two public IP addresses.
+The active-active mode is available for all SKUs except Basic.You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, the switch over will happen automatically from the affected instance to the active instance.
 
 **Resources**
+- [About Active-Active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-vpn-gateways)
+- [Configure Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
 
-- [Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
-- [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
 
 **Resource Graph Query/Scripts**
 
@@ -84,7 +83,7 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 <br><br>
 
-### VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection
+### VPNG-3 - Configure a Site-to-Site VPN as a failover path for Express Route
 
 **Category: Disaster Recovery**
 
@@ -92,8 +91,7 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 
 **Guidance**
 
-During the initial planning phase, you want to decide whether you want to configure an ExpressRoute connection.
-An Azure ExpressRoute circuit provide a private dedicated connection into Azure.You also need to identify the bandwidth and the SKU type requirement for your business needs. Configure a Site-to-Site VPN as a failover path for ExpressRoute
+Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that aren't connected through ExpressRoute
 
 **Resources**
 
@@ -118,7 +116,7 @@ An Azure ExpressRoute circuit provide a private dedicated connection into Azure.
 
 **Guidance**
 
-To plan for disaster recovery, set up Site-to-Site VPN in more than one location. You can create IP Sec connectivity in the same metro or different metro and choose to work with different service providers for diverse paths
+If your gateway is not zone redundant, to plan for disaster recovery, set up Site-to-Site VPN in more than one location. You can create IP Sec connectivity in the same metro or different metro and choose to work with different service providers for diverse paths
 
 **Resources**
 
@@ -167,7 +165,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 **Guidance**
 
-VPN Gateway uses service health to notify about planned and unplanned maintenance. Configuring service health will notify you about changes made to your VPN connectivity.
+VPN Gateway uses service health to notify about planned and unplanned maintenance.
 
 **Resources**
 
