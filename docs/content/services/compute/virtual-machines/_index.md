@@ -26,7 +26,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-10 - Accelerated Networking is not enabled](#vm-10---enable-accelerated-networking-accelnet) | System Efficiency | Medium | Verified | Yes |
 | [VM-11 - Accelerated Networking is enabled, make sure you update the GuestOS NIC driver every 6 months](#vm-11---when-accelnet-is-enabled-you-must-manually-update-the-guestos-nic-driver) | Governance | Low | Verified | No |
 | [VM-12 - VMs should not have a Public IP directly associated](#vm-12---vms-should-not-have-a-public-ip-directly-associated) | Access & Security | Medium | Verified | Yes |
-| [VM-13 - VM network interfaces and associated subnets both have a Network Security Group (NSG) associated](#vm-13---vm-network-interfaces-and-associated-subnets-both-have-a-network-security-group-nsg-associated) | Access & Security | Low | Verified | No |
+| [VM-13 - VM network interfaces and associated subnets both have a Network Security Group (NSG) associated](#vm-13---vm-network-interfaces-and-associated-subnets-both-have-a-network-security-group-nsg-associated) | Access & Security | Low | Verified | Yes |
 | [VM-14 - IP Forwarding should only be enabled for Network Virtual Appliances](#vm-14---ip-forwarding-should-only-be-enabled-for-network-virtual-appliances) | Access & Security | Medium | Verified | Yes |
 | [VM-15 - Customer DNS Servers should be configured in the Virtual Network level](#vm-15---customer-dns-servers-should-be-configured-in-the-virtual-network-level) | Networking | Low | Verified | Yes |
 | [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers) | Storage | Medium | Verified | Yes |
