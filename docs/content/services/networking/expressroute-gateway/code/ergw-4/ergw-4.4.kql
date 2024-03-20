@@ -1,0 +1,35 @@
+// Azure Resource Graph Query
+// Provides a list of ExpressRoute Gateways that are not currently monitoring the Average Gateway Bits received per second metric to ensure that traffic is still being received by the gateway.
+//To remediate this finding, create an alert with the following configuration on each failing gateway: Metric: ExpressRouteGatewayBitsPerSecond, timeAggregation: Average, Operator: LessThan,  Threshold: 1, Severity: 0
+resources
+| where type == "microsoft.network/virtualnetworkgateways"
+| where properties.gatewayType == "ExpressRoute"
+| extend gatewayId = tostring(id)
+| extend skuName = properties.sku.name
+| project gatewayId, name, id, tags, skuName
+| join kind=leftouter(
+resources
+| where type == 'microsoft.insights/metricalerts'
+| extend alertProperties = todynamic(properties)
+| mv-expand alertProperties.scopes
+| mv-expand alertProperties.criteria.allOf
+| where alertProperties.enabled == true
+| extend gatewayId = tostring(alertProperties_scopes)
+| extend criterionType = alertProperties_criteria_allOf.criterionType
+| extend metric = alertProperties_criteria_allOf.metricName
+| extend metricNamespace = alertProperties_criteria_allOf.metricNamespace
+| extend operator = alertProperties_criteria_allOf.operator
+| extend threshold = alertProperties_criteria_allOf.threshold
+| extend timeAggregation = alertProperties_criteria_allOf.timeAggregation
+| extend severity = alertProperties.severity
+| where alertProperties.evaluationFrequency == 'PT1M'
+| where alertProperties.windowSize == 'PT5M'
+| where metricNamespace == 'Microsoft.Network/virtualNetworkGateways'
+| where timeAggregation == 'Average'
+| where metric == 'ExpressRouteGatewayBitsPerSecond'
+| where operator == 'LessThan'
+| where threshold == 1
+| where severity == 0
+) on gatewayId
+| where isnull(threshold)
+| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Performance', param3 = 'ExpressRouteGatewayBitsPerSecond less than 1 bit per second'
