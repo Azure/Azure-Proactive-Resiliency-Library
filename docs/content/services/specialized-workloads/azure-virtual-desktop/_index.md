@@ -51,7 +51,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-35 Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested](#avd-35---ensure-all-appsdatadc-accessed-from-session-hosts-have-dr-strategyfailover-mechanisms-and-have-been-tested) | Non-AVD LOB Dependencies | High | Verified | No |
 | [AVD-36 Configure AVD insights Workbook](#avd-36---configure-avd-insights-workbook) | Observability | High | Verified | No |
 | [AVD-37 Ensure separate log analytics workspaces for Prod and DR](#avd-37---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Observability | Low | Verified | No |
-| [AVD-38 AVD Service health alerts are enabled.](#avd-38---avd-service-health-alerts-are-enabled) | Subscriptions | High | Verified | No |
+| [AVD-38 AVD Service health alerts are enabled.](#avd-38---avd-service-health-alerts-are-enabled) | Subscriptions | High | Verified | Yes |
 | [AVD-39 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology.](#avd-39---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Subscriptions | Low | Verified | No |
 | [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Verified | Yes |
 | [CG-2 - Zone redundant storage should be used for image versions](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/#cg-2---zone-redundant-storage-should-be-used-for-image-versions) | Availability | Medium | Verified | Yes |
