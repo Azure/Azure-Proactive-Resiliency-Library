@@ -32,7 +32,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers) | Storage | Medium | Verified | Yes |
 | [VM-17 - The Network access to the VM disk is set to Enable Public access from all networks](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access) | Access & Security | Low | Verified | Yes |
 | [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies) | Governance | Low | Verified | Yes |
-| [VM-19 - Enable encryption at host or Azure disk encryption](#vm-19---enable-encryption-at-host-or-Azure-disk-encryption) | Access & Security | Medium | Verified | Yes |
+| [VM-19 - Enable encryption at host or Azure disk encryption](#vm-19---enable-encryption-at-host-or-azure-disk-encryption) | Access & Security | Medium | Verified | Yes |
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights) | Monitoring | Low | Verified | Yes |
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Preview | Yes |
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | Governance | High | Preview | Yes |
