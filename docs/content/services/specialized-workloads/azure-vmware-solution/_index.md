@@ -30,9 +30,9 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |[AVS-14 Use key autorotation for vSAN datastore customer-managed keys](#avs-14---use-key-autorotation-for-vsan-datastore-customer-managed-keys) | Storage | High | Preview | No |
 |[AVS-15 Configure LDAPS Identity integration with two sources for NSX-T and vCenter management consoles](#avs-15---configure-ldaps-identity-integration-with-two-sources-for-nsx-t-and-vcenter-management-consoles) | Storage | High | Preview | No |
 |[AVS-16 Use Network Extension High Availability](#avs-16---use-network-extension-high-availability) | Availability | High | Preview | No |
-|[AVS-17 HCX Network Extension](#avs-17---hcx-network-extension) | Configuration | High | Preview | No |
-|[AVS-18 Use multiple DNS servers per private FQDN zone](#avs-18---use-multiple-dns-servers-per-private-fqdn-zone) | Configuration | High | Preview | No |
-|[AVS-19 Verify vSAN FTT configuration aligns with the cluster size](#avs-19---verify-vsan-ftt-configuration-aligns-with-the-cluster-size) | Applications | High | Preview | No |
+|[AVS-17 HCX Network Extension](#avs-17---hcx-network-extension) | Networking | High | Preview | No |
+|[AVS-18 Use multiple DNS servers per private FQDN zone](#avs-18---use-multiple-dns-servers-per-private-fqdn-zone) | Networking | High | Preview | No |
+|[AVS-19 Verify vSAN FTT configuration aligns with the cluster size](#avs-19---verify-vsan-ftt-configuration-aligns-with-the-cluster-size) | Application Resilience | High | Preview | No |
 
 
 {{< /table >}}
