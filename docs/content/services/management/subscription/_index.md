@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include Subscription a
 {{< table style="table-striped" >}}
 | Recommendation                                    |                                Category                                 |     Impact      |      State       | ARG Query Available |
 |:--------------------------------------------------|:-----------------------------------------------------------------------:|:---------------:|:----------------:|:-------------------:|
-| [MS-1 - Do not create more than 2000 Citrix VDA servers per subscription](#MS-1---Do-not-create-more-than-2000-Citrix-VDA-servers-per-subscription) | Application Resiliency | High | Preview |         Yes         |
+| [MS-1 - Do not create more than 2000 Citrix VDA servers per subscription](#ms-1---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Preview |         Yes         |
 
 {{< /table >}}
 
