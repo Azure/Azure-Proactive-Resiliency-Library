@@ -18,4 +18,3 @@ resources
 ) on resourceId
 | where isempty(maintenanceConfigurationId)
 | project recommendationId = "ergw-7", name, id, tags, param1= strcat("sku-tier: " , properties.sku.tier), param2=location
-| order by id asc
