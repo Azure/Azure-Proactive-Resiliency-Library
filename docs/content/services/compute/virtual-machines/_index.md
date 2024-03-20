@@ -628,7 +628,7 @@ The maintenance configuration settings allows user to schedule and manage update
 
 **Category: System Efficiency**
 
-**Impact: Medium**
+**Impact: High**
 
 **Guidance**
 

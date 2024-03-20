@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Application Gateways are not using health probes to monitor the availability of the backend systems
+resources
+| where type =~ "microsoft.network/applicationGateways"
+| where array_length(properties.probes) == 0
+| project recommendationId="agw-6", name, id, tags, param1="customHealthProbeUsed: false"
