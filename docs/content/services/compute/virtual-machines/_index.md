@@ -523,7 +523,7 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 There are several types of encryption available for your managed disks, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.
 
 - **Azure Disk Storage Server-Side Encryption** (also referred to as encryption-at-rest or Azure Storage encryption) is always enabled and automatically encrypts data stored on Azure managed disks (OS and data disks) when persisting on the Storage Clusters.
-- **Encryption at host** is a VM option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters. It supports any OS types and images for your VMs. 
+- **Encryption at host** is a VM option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters. It supports any OS types and images for your VMs.
 - **Azure Disk Encryption** encrypts the OS and data disks of your VMs by using the DM-Crypt feature of Linux or the BitLocker feature of Windows. It does not work for custom Linux images.
 - **Confidential disk encryption** binds disk encryption keys to the VM's TPM and makes the protected disk content accessible only to the VM.
 
