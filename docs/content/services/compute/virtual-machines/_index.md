@@ -164,12 +164,13 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 **Guidance**
 
-Managed disks provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren't subject to the IOPS limits of VHDs created in a storage account.
+Azure unmanaged disks will be fully retired on September 30, 2025. If you use unmanaged disks, start planning the migration now.
 
 **Resources**
 
-- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
-- [Availability options for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set)
+- [Migrate your Azure unmanaged disks by Sep 30, 2025](https://learn.microsoft.com/azure/virtual-machines/unmanaged-disks-deprecation)
+- [Migrate Windows VM from unmanaged disks to managed disks](https://learn.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
+- [Migrate Linux VM from unmanaged disks to managed disks](https://learn.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
 
 **Resource Graph Query/Scripts**
 
