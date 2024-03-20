@@ -32,7 +32,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-16 - Shared disks should only be enabled in Clustered servers](#vm-16---shared-disks-should-only-be-enabled-in-clustered-servers) | Storage | Medium | Verified | Yes |
 | [VM-17 - The Network access to the VM disk is set to Enable Public access from all networks](#vm-17---network-access-to-the-vm-disk-should-be-set-to-disable-public-access-and-enable-private-access) | Access & Security | Low | Verified | Yes |
 | [VM-18 - Virtual Machine is not compliant with Azure Policies](#vm-18---ensure-that-your-vms-are-compliant-with-azure-policies) | Governance | Low | Verified | Yes |
-| [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-and-data-at-rest-encryption-by-default) | Access & Security | Medium | Verified | Yes |
+| [VM-19 - Enable encryption at host or Azure disk encryption](#vm-19---enable-encryption-at-host-or-Azure-disk-encryption) | Access & Security | Medium | Verified | Yes |
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights) | Monitoring | Low | Verified | Yes |
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Preview | Yes |
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | Governance | High | Preview | Yes |
@@ -512,7 +512,7 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 <br><br>
 
-### VM-19 - Enable disk encryption and data at rest encryption by default
+### VM-19 - Enable encryption at host or Azure disk encryption
 
 **Category: Access & Security**
 
@@ -522,10 +522,10 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 
 There are several types of encryption available for your managed disks, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.
 
-- Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments.
-- Azure Disk Storage Server-Side Encryption (also referred to as encryption-at-rest or Azure Storage encryption) automatically encrypts data stored on Azure managed disks (OS and data disks) when persisting on the Storage Clusters.
-- Encryption at host ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters.
-- Confidential disk encryption binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM.
+- **Azure Disk Storage Server-Side Encryption** (also referred to as encryption-at-rest or Azure Storage encryption) is always enabled and automatically encrypts data stored on Azure managed disks (OS and data disks) when persisting on the Storage Clusters.
+- **Encryption at host** is a VM option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters. It supports any OS types and images for your VMs. 
+- **Azure Disk Encryption** encrypts the OS and data disks of your VMs by using the DM-Crypt feature of Linux or the BitLocker feature of Windows. It does not work for custom Linux images.
+- **Confidential disk encryption** binds disk encryption keys to the VM's TPM and makes the protected disk content accessible only to the VM.
 
 **Resources**
 
