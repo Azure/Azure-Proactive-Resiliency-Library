@@ -1,0 +1,39 @@
+// Azure Resource Graph Query
+// Provides a list of ExpressRoute Gateways that are not currently monitoring the Maximum number of virtual machines in the vnet and spokes where the gateway resides based on the gateway sku.
+//To remediate this finding, create an alert with the following configuration on each failing gateway: metric: ExpressRouteGatewayNumberOfVmInVnet, timeAggregation: Maximum, Operator: GreaterThanOrEqual, Threshold 2000 for Standard, ERGW1AZ, and ERGWScale sku's, 4500 for High Performance and ERGW2AZ sku's, and 11000 for all others
+resources
+| where type == "microsoft.network/virtualnetworkgateways"
+| where properties.gatewayType == "ExpressRoute"
+| extend gatewayId = tostring(id)
+| extend skuName = properties.sku.name
+| extend maxVMsPerSku = case(skuName == 'Standard', 2000,
+                                    skuName == 'ErGw1AZ', 2000,
+                                    skuName == 'HighPerformance', 4500,
+                                    skuName == 'ErGw2AZ', 4500,
+                                    skuName == 'UltraPerformance', 11000,
+                                    skuName == 'ErGw3AZ', 11000,
+                                    skuName == 'ErGwScale', 2000,
+                                    2000)
+| project gatewayId, name, id, tags, skuName, maxVMsPerSku
+| join kind=leftouter(
+resources
+| where type == 'microsoft.insights/metricalerts'
+| extend alertProperties = todynamic(properties)
+| mv-expand alertProperties.scopes
+| mv-expand alertProperties.criteria.allOf
+| where alertProperties.enabled == true
+| extend gatewayId = tostring(alertProperties_scopes)
+| extend criterionType = alertProperties_criteria_allOf.criterionType
+| extend metric = alertProperties_criteria_allOf.metricName
+| extend metricNamespace = alertProperties_criteria_allOf.metricNamespace
+| extend operator = alertProperties_criteria_allOf.operator
+| extend threshold = alertProperties_criteria_allOf.threshold
+| extend timeAggregation = alertProperties_criteria_allOf.timeAggregation
+| where metricNamespace == 'Microsoft.Network/virtualNetworkGateways'
+| where timeAggregation == 'Maximum'
+| where metric == 'ExpressRouteGatewayNumberOfVmInVnet'
+| where operator == 'GreaterThanOrEqual'
+) on gatewayId
+| where threshold != maxVMsPerSku
+| where isnull(threshold)
+| project recommendationId = 'ergw-4', name, id, tags, param1 = 'monitorExpressRouteGatewayHealth', param2 = 'ExpressRouteGatewayHealthCategory:Availability', param3 = 'ExpressRouteGatewayNumberOfVmInVnet at or exceeding sku limit'
