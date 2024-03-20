@@ -1,3 +1,0 @@
-#Get LAW linked dedicated cluster ID and then determine if it is AZ enabled
-clusterResourceId=$(az monitor log-analytics workspace show --resource-group "resource group name" --workspace-name "log anaalytics workspace name" --query "features.clusterResourceId" --output tsv)
-az monitor log-analytics cluster show --ids $clusterResourceId --query 'isAvailabilityZonesEnabled'
