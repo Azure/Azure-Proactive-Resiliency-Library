@@ -441,7 +441,7 @@ Enable Network Extension High Availability to provide appliance failure toleranc
 
 ### AVS-17 - HCX Network Extension
 
-**Category: Configuration**
+**Category: Networking**
 
 **Impact: High**
 
@@ -465,7 +465,7 @@ Do not extend the network on which the HCX Management devices are deployed.
 
 ### AVS-18 - Use multiple DNS servers per private FQDN zone
 
-**Category: Configuration**
+**Category: Networking**
 
 **Impact: High**
 
@@ -489,7 +489,7 @@ AVS SDDC can support upto 3 DNS servers for a single FQDN. Using a single DNS se
 
 ### AVS-19 - Verify vSAN FTT configuration aligns with the cluster size
 
-**Category: Applications**
+**Category: Application Resilience**
 
 **Impact: High**
 
