@@ -495,7 +495,7 @@ AVS SDDC can support upto 3 DNS servers for a single FQDN. Using a single DNS se
 
 **Recommendation/Guidance**
 
-AVS service SLA also depends on the vSAN storage policies configured, which vary depending on the cluster size. In clusters with more than 6 hosts, the vSAN storage policy should be configured with a FTT-2 policy (RAID-1, or RAID-6). FTT atands for failures to tolerate, which in this case refers to how many hosts in a cluster can fail, beofre there is potential data or VM impact. 
+AVS service SLA also depends on the vSAN storage policies configured, which vary depending on the cluster size. In clusters with more than 6 hosts, the vSAN storage policy should be configured with a FTT-2 policy (RAID-1, or RAID-6). FTT atands for failures to tolerate, which in this case refers to how many hosts in a cluster can fail, beofre there is potential data or VM impact.
 
 The default storage policy is set to RAID-1 FTT-1, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. Please note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.
 
