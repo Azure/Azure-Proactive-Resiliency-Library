@@ -3,3 +3,7 @@
 
 # The aprl-networking team is partially responsible for all networking-related PRs.
 /docs/content/services/networking/ @Azure/aprl-admins @Azure/aprl-networking
+
+# The aprl-hpc team is partially responsible for all HPC-related PRs.
+/docs/content/services/specialized-workloads/azure-hpc/ @Azure/aprl-admins @Azure/aprl-hpc
+/docs/content/services/batch/ @Azure/aprl-admins @Azure/aprl-hpc

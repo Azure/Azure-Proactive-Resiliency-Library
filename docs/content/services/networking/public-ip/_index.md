@@ -16,8 +16,9 @@ The below table shows the list of resiliency recommendations for Public Ip and a
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                            |   Category   | Impact |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:-------:|:-------------------:|
-| [PIP-1 - Use Standard SKU and Zone-Redundant IPs when applicable](#pip-1---use-standard-sku-and-zone-redundant-ips-when-applicable)                                                                                                     | Availability |  High  | Preview |         No          |
+| [PIP-1 - Use Standard SKU and Zone-Redundant IPs when applicable](#pip-1---use-standard-sku-and-zone-redundant-ips-when-applicable)                       | Availability |  High  | Preview |         Yes          |
 | [PIP-2 - Use NAT gateway for outbound connectivity to avoid SNAT Exhaustion](#pip-2---use-nat-gateway-for-outbound-connectivity-to-avoid-snat-exhaustion) | Availability | Medium | Preview |         Yes         |
+| [PIP-3 - Upgrade Basic SKU public IP addresses to Standard SKU](#pip-3---upgrade-basic-sku-public-ip-addresses-to-standard-sku)                           | Availability | Medium | Preview |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -74,6 +75,31 @@ Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT g
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/pip-2/pip-2.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### PIP-3 - Upgrade Basic SKU public IP addresses to Standard SKU
+
+**Category: Availability**
+
+**Impact: Medium**
+
+**Guidance**
+
+On September 30, 2025, Basic SKU public IP addresses will be retired. If you are currently using Basic SKU public IP addresses, make sure to upgrade to Standard SKU public IP addresses prior to the retirement date.
+
+**Resources**
+
+- [Upgrading a basic public IP address to Standard SKU - Guidance](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance)
+- [Upgrade to Standard SKU public IP addresses in Azure by 30 September 2025—Basic SKU will be retired](https://azure.microsoft.com/en-us/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/)
+
+**Resource Graph Query/Scripts**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/pip-3/pip-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

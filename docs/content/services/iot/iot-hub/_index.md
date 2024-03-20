@@ -17,7 +17,7 @@ The presented resiliency recommendations in this guidance include IoT Hub and as
 | [IOTH-1 - Device Identities are exported to a secondary region](#ioth-1---device-identities-are-exported-to-a-secondary-region) | Disaster Recovery | High | Preview  |         No         |
 | [IOTH-2 - Do not use free tier](#ioth-2---do-not-use-free-tier) | Availability | High | Preview  |         Yes          |
 | [IOTH-3 - Use Availability Zones](#ioth-3---use-availability-zones) | Availability | High | Preview  |         No          |
-| [IOTH-4 - Use Device Provisioning Service](#ioth-4---use-device-provisioning-service) | Scalability | Critical | Preview  |         Yes          |
+| [IOTH-4 - Use Device Provisioning Service](#ioth-4---use-device-provisioning-service) | System Efficiency | High | Preview  |         Yes          |
 | [IOTH-5 - Define Failover Guidelines](#ioth-5---define-failover-guidelines) | Availability | High | Preview  |         No          |
 | [IOTH-6 - Disabled Fallback Route](#ioth-6---disabled-fallback-route) | Monitoring | Low | Preview  |         Yes          |
 

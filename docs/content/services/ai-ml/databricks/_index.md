@@ -108,7 +108,7 @@ Databricks pools are a standard feature of the service, pre-provisions VM’s in
 
 **Category: System Efficiency**
 
-**Impact: Low**
+**Impact: Medium**
 
 **Guidance**
 

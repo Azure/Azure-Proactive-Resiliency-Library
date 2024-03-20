@@ -172,9 +172,9 @@ If the cluster has availability zones enabled, the following configuration chang
 **Resources**
 
 - [Use the Cluster Autoscaler on AKS](https://learn.microsoft.com/azure/aks/cluster-autoscaler?tabs=azure-cli)
-- [Best practices for advanced scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler)
-- [Node pool scaling considerations and best practices](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-run-at-scale#node-pool-scaling-considerations-and-best-practices)
-- [Best practices for basic scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler)
+- [Best practices for advanced scheduler features](https://learn.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler)
+- [Node pool scaling considerations and best practices](https://learn.microsoft.com/azure/aks/best-practices-performance-scale-large#node-pool-scaling)
+- [Best practices for basic scheduler features](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler)
 
 **Resource Graph Query**
 
