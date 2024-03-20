@@ -70,7 +70,7 @@ Enable monitoring on your web applications based on ASP.NET, ASP.NET Core, Java,
 - [Application Insights](https://learn.microsoft.com/azure/application-insights/app-insights-overview)
 - [Application monitoring for Azure App Service](https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -139,7 +139,7 @@ Consider creating a deployment slot to hold the last-known-good (LKG) deployment
 
 - [Set up staging environments in Azure App Service](https://learn.microsoft.com/azure/app-service-web/web-sites-staged-publishing)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

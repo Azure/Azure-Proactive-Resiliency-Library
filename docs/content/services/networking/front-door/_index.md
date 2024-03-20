@@ -61,7 +61,7 @@ However, as part of a complex architecture, you might choose to use Traffic Mana
 - [Azure Traffic Manager](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-overview)
 - [Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -85,7 +85,7 @@ Front Door's features work best when traffic only flows through Front Door. You 
 
 - [Secure traffic to Azure Front Door origins](https://learn.microsoft.com/azure/frontdoor/origin-security?tabs=app-service-functions&pivots=front-door-standard-premium)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -111,7 +111,7 @@ When you work with Front Door by using APIs, ARM templates, Bicep, or Azure SDKs
 - [Client library for Java](https://learn.microsoft.com/java/api/overview/azure/resourcemanager-frontdoor-readme?view=azure-java-preview)
 - [SDK for Python](https://learn.microsoft.com/python/api/overview/azure/front-door?view=azure-python)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -137,7 +137,7 @@ Front Door tracks extensive telemetry about every request. When you enable cachi
 - [WAF logs](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor?pivots=front-door-standard-premium#waf-logs)
 - [Configure Azure Front Door logs](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-logs)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -161,7 +161,7 @@ Front Door terminates TCP and TLS connections from clients. It then establishes 
 
 - [End-to-end TLS with Azure Front Door](https://learn.microsoft.com/azure/frontdoor/end-to-end-tls?pivots=front-door-standard-premium)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -187,7 +187,7 @@ You can configure Front Door to automatically redirect HTTP requests to use the 
 
 - [Create HTTP to HTTPS redirect rule](https://learn.microsoft.com/azure/frontdoor/front-door-how-to-redirect-https#create-http-to-https-redirect-rule)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -211,7 +211,7 @@ When Front Door manages your TLS certificates, it reduces your operational costs
 
 - [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -235,7 +235,7 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 
 - [Select the certificate for Azure Front Door to deploy](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain?tabs=powershell#select-the-certificate-for-azure-front-door-to-deploy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -261,7 +261,7 @@ Before you rewrite the Host header of your requests, carefully consider whether 
 
 - [Preserve the original HTTP host name between a reverse proxy and its back-end web application](https://learn.microsoft.com/azure/architecture/best-practices/host-name-preservation)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -285,7 +285,7 @@ For internet-facing applications, we recommend you enable the Front Door web app
 
 - [https://learn.microsoft.com/azure/frontdoor/web-application-firewall](https://learn.microsoft.com/azure/frontdoor/web-application-firewall)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -311,7 +311,7 @@ If you only have a single origin, Front Door always routes traffic to that origi
 
 - [Health probes](https://learn.microsoft.com/azure/frontdoor/health-probes)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -335,7 +335,7 @@ Consider the location where you tell Front Door's health probe to monitor. It's 
 
 - [Health Endpoint Monitoring pattern](https://learn.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -359,7 +359,7 @@ Health probes can use either the GET or HEAD HTTP method. It's a good practice t
 
 - [Supported HTTP methods for health probes](https://learn.microsoft.com/azure/frontdoor/health-probes#supported-http-methods-for-health-probes)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -386,7 +386,7 @@ For a geo filtering rule, a match variable is either RemoteAddr or SocketAddr. R
 
 - [Geo filter WAF policy - GeoMatch](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-geo-filtering)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -412,7 +412,7 @@ Azure Front Door Premium can connect to your origin using Private Link. Your ori
 
 - [Private link for Azure Front Door](https://learn.microsoft.com/azure/frontdoor/private-link)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

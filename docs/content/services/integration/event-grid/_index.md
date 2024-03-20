@@ -41,11 +41,11 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 - [Azure Event Grid - Enable diagnostic logs for Event Grid resources](https://learn.microsoft.com/en-us/azure/event-grid/enable-diagnostic-logs-topic)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/evg-1/evg-1.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/evg-1/evg-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -65,11 +65,11 @@ When Event Grid can't deliver an event within a certain time period or after try
 
 - [Azure Event Grid delivery and retry](https://learn.microsoft.com/en-us/azure/event-grid/delivery-and-retry#dead-letter-events)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/evg-2/evg-2.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/evg-2/evg-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -89,7 +89,7 @@ You can use private endpoints to allow ingress of events directly from your virt
 
 - [Configure private endpoints for Azure Event Grid topics or domains](https://learn.microsoft.com/en-us/azure/event-grid/configure-private-endpoints)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
