@@ -17,7 +17,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [AGW-1 - Set a minimum instance count of 2](#agw-1---set-a-minimum-instance-count-of-2)                                                      | System Efficiency |  High  | Preview |         Yes         |
 | [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                        | Access & Security |  High  | Preview |         Yes          |
 | [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                             | Access & Security |  High  | Preview |         Yes         |
-| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                                  | System Efficiency |  High  | Preview |         No          |
+| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                                  | System Efficiency |  High  | Preview |         Yes         |
 | [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                            |    Monitoring     | Medium | Preview |         No          |
 | [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                        |    Monitoring     | Medium | Preview |         Yes         |
 | [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                      |   Availability    |  High  | Preview |         No          |
