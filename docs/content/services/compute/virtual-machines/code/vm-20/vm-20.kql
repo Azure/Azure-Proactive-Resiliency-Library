@@ -8,8 +8,8 @@ Resources
     | where type == 'microsoft.compute/virtualmachines/extensions' and (name contains 'AzureMonitorWindowsAgent' or name contains 'AzureMonitorLinuxAgent')
     | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name
 ) on $left.JoinID == $right.VMId
-| summarize Extensions = make_list (ExtensionName), Tags = make_list(tags) by recommendationId = "vm-20", name, id
-| mv-expand Extensions, Tags
+| summarize Extensions = make_list (ExtensionName), tags = make_list(tags) by recommendationId = "vm-20", name, id
+| mv-expand Extensions, tags
 | where Extensions == ""
-| summarize Extensions = make_list (Extensions), Tags = make_list(Tags) by recommendationId, name, id
-| project recommendationId, name, id, Tags
+| summarize Extensions = make_list (Extensions), tags = make_list(tags) by recommendationId, name, id
+| project recommendationId, name, id, tags
