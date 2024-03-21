@@ -386,8 +386,9 @@ Validate that session hosts have proper connectivity AVD Control Plane, ensuring
 **Impact: Low**
 
 **Guidance:**
-Hybrid - Entra ID Connect best to run in Azure but can be hosted on-prem. Secondary or more VMs should be setup in staging mode in event of failover.
-Set up secondary server in staging mode for Entra Connect for syncing to Entra in case of primary server outage.
+For optimal performance and reliability, Entra ID Connect is best operated within Azure's environment, although it can be hosted on-premises if necessary. As part of a hybrid setup, it's advisable to establish secondary VMs in staging mode to prepare for failover scenarios.
+
+To ensure continuity, set up a secondary server for Entra Connect in staging mode. This secondary server will serve as a backup, ready to sync with Entra in the event of a primary server outage.
 
 **Resources:**
 
