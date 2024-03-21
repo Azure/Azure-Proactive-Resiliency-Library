@@ -557,8 +557,7 @@ To ensure your apps work with the latest updates, the validation host pool shoul
 **Impact: Medium**
 
 **Guidance:**
-Check if schedules have been created to provide maintenance windows.
-Scheduled AVD agent updates on the host pool.
+Ensure schedules have been created to provide maintenance windows for AVD agent updates.
 The Scheduled Agent Updates feature lets you create up to two maintenance windows for the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent to get updated so that updates don't happen during peak business hours.
 
 **Resources:**
