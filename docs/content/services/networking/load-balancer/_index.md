@@ -45,7 +45,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 - [Reliability and Azure Load Balancer](https://learn.microsoft.com/azure/architecture/framework/services/networking/azure-load-balancer/reliability)
 - [Resiliency checklist for specific Azure services- Azure Load Balancer](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#azure-load-balancer)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -69,7 +69,7 @@ Select Standard SKU Standard Load Balancer provides a dimension of reliability t
 
 - [Resiliency checklist for specific Azure services- Azure Load Balancer](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#azure-load-balancer)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -93,7 +93,7 @@ Outbound rules for Standard Public Load Balancer requires you to manually alloca
 
 - [Resiliency checklist for specific Azure services- Azure Load Balancer](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#azure-load-balancer)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -117,7 +117,7 @@ In a region with Availability Zones, a Standard Load Balancer can be made zone-r
 
 - [Load Balancer and Availability Zones](https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-availability-zones#zone-redundant)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

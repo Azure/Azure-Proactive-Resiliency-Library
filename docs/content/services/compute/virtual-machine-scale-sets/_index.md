@@ -51,7 +51,7 @@ Even single instance VMs should be deployed into a scale set using the Flexible 
 - [When to use VMSS instead of VMs](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#when-to-use-scale-sets-instead-of-virtual-machines)
 - [Azure Well-Architected Framework review - Virtual Machines and Scale Sets](https://learn.microsoft.com/azure/well-architected/services/compute/virtual-machines/virtual-machines-review)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -75,7 +75,7 @@ Monitoring your application health is an important signal for managing and upgra
 
 - [Using Application Health extension with Virtual Machine Scale Sets](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension?tabs=rest-api)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -101,7 +101,7 @@ Grace period is specified in minutes in ISO 8601 format and can be set using the
 
 - [Automatic instance repairs for Azure Virtual Machine Scale Sets](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs#requirements-for-using-automatic-instance-repairs)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -128,7 +128,7 @@ Autoscale is a built-in feature that helps applications perform their best when 
 - [Get started with autoscale in Azure](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-get-started?WT.mc_id=Portal-Microsoft_Azure_Monitoring)
 - [Overview of autoscale in Azure](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -152,7 +152,7 @@ Predictive autoscale uses machine learning to help manage and scale Azure Virtua
 
 - [Use predictive autoscale to scale out before load demands in virtual machine scale sets](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-predictive)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -182,7 +182,7 @@ While Azure VMSS provides the option to enforce even distribution of VM instance
 
 - [Use scale-in policies with Azure Virtual Machine Scale Sets](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -206,7 +206,7 @@ With max spreading, the scale set spreads your VMs across as many fault domains 
 
 - [Availability Considerations](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#availability-considerations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -231,7 +231,7 @@ When you create your VMSS, use availability zones to protect your applications a
 - [Create a Virtual Machine Scale Set that uses Availability Zones](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones)
 - [Update scale set to add availability zones](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones?tabs=cli-1%2Cportal-2#update-scale-set-to-add-availability-zones)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -255,7 +255,7 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 
 - [Automatic VM Guest Patching for Azure VMs](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -279,7 +279,7 @@ Ensure current versions of images are in use to avoid disruption after image dep
 
 - [Deprecated Azure Marketplace images](https://learn.microsoft.com/en-us/azure/virtual-machines/deprecated-images)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -303,7 +303,7 @@ It is advised that you use SSD disks for Production workloads. Using HDD could i
 
 - [Disk Comparison](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#disk-type-comparison)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

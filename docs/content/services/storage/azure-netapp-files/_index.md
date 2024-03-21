@@ -50,7 +50,7 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 - [Service levels for Azure NetApp Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -75,7 +75,7 @@ Please check the supported regions for standard network feature [here](https://d
 
 - [Guidelines for Azure NetApp Files network planning | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-network-topologies)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -99,7 +99,7 @@ Azure availability zones are physically separate locations within each suppo
 
 - [Use availability zones for high availability in Azure NetApp Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/use-availability-zones)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -125,7 +125,7 @@ Azure NetApp Files supports a fully managed backup solution for long-term recove
 - [Snapshots](https://learn.microsoft.com/en-us/azure/azure-netapp-files/data-protection-disaster-recovery-options#snapshots)
 - [Backup](https://learn.microsoft.com/en-us/azure/azure-netapp-files/data-protection-disaster-recovery-options#backups)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -149,7 +149,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 - [Cross-zone replication of Azure NetApp Files volumes | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-introduction)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -173,7 +173,7 @@ The cross-zone replication (CZR) capability provides data protection between vol
 
 - [Cross-zone replication of Azure NetApp Files volumes | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/cross-zone-replication-introduction)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -197,7 +197,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 - [Ways to monitor Azure NetApp Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/monitor-azure-netapp-files)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -221,7 +221,7 @@ Azure NetApp Files supports Azure Policy. You can integrate Azure NetApp Files w
 
 - [Azure Policy definitions for Azure NetApp Files | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-policy-definitions)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

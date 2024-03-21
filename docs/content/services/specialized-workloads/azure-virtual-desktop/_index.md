@@ -62,7 +62,7 @@ Private Link is available for other Azure services that work in conjunction with
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
 - [Private link](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/networking#private-endpoints-private-link)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -88,7 +88,7 @@ Use Resource Health to monitor your VMs and storage solutions.
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/monitoring#resource-health)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -115,7 +115,7 @@ Enhances reliability by minimizing latency and impacts reliability helping keep 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
 - [Availability Zones](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -141,7 +141,7 @@ This recommendation is not relevant when you are utilizing Microsoft Entra as th
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/identity/adds-extend-domain#reliability)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -165,7 +165,7 @@ It is recommended to enable RDP Shortpath for AVD. RDP Shortpath is a feature of
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-shortpath?tabs=managed-networks)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -190,7 +190,7 @@ It is recommended to adopt a multi-region deployment (active-active) for AVD. Ea
 - [Multi-region BCDR](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/azure-virtual-desktop-multi-region-bcdr)
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/business-continuity#active-active-scenarios)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -215,7 +215,7 @@ If a full BCDR strategy is not in place, consider using zone-redundant storage t
 - [Golden Image](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/business-continuity#golden-images)
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#fault-tolerance)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -242,7 +242,7 @@ To handle a large number of users, consider scaling horizontally by creating mul
 - [Capacity Planning](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/business-continuity#capacity-planning)
 - [Learn More](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop#azure-virtual-desktop-limitations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -274,7 +274,7 @@ Generally, it is recommended to store your data as secure and redundant as possi
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/storage#user-profiles)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -299,7 +299,7 @@ It is recommended to enable backup on the FSLogix Storage Account. Ensuring the 
 - [FSLogix](https://learn.microsoft.com/en-us/fslogix/overview-what-is-fslogix)
 - [Backup Storage Account](https://learn.microsoft.com/en-us/azure/backup/blob-backup-configure-manage?tabs=operational-backup)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

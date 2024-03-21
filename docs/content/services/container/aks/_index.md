@@ -66,7 +66,7 @@ By deploying resources such as aks clusters, virtual machines, storage, and data
 - [AKS Availability Zones](https://learn.microsoft.com/en-us/azure/aks/availability-zones)
 - [Zone Balancing](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -92,7 +92,7 @@ To prevent misconfigured or rogue application pods from accidentally killing sys
 
 - [System and user node pools](https://learn.microsoft.com/en-us/azure/aks/use-system-pools?tabs=azure-cli#system-and-user-node-pools)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -118,7 +118,7 @@ Local Kubernetes accounts provide a legacy non-auditable means of accessing an A
 - [Use Azure role-based access control for AKS](https://learn.microsoft.com/en-us/azure/aks/manage-azure-rbac?source=recommendations)
 - [Manage AKS local accounts](https://learn.microsoft.com/en-us/azure/aks/manage-local-accounts-managed-azure-ad?source=recommendations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -143,7 +143,7 @@ The Azure CNI networking solution provides several benefits for managing IP addr
 - [Configure Azure CNI networking](https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni-dynamic-ip-allocation)
 - [Configure Azure CNI Overlay networking](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -172,11 +172,11 @@ If the cluster has availability zones enabled, the following configuration chang
 **Resources**
 
 - [Use the Cluster Autoscaler on AKS](https://learn.microsoft.com/azure/aks/cluster-autoscaler?tabs=azure-cli)
-- [Best practices for advanced scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-advanced-scheduler)
-- [Node pool scaling considerations and best practices](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-run-at-scale#node-pool-scaling-considerations-and-best-practices)
-- [Best practices for basic scheduler features](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-scheduler)
+- [Best practices for advanced scheduler features](https://learn.microsoft.com/azure/aks/operator-best-practices-advanced-scheduler)
+- [Node pool scaling considerations and best practices](https://learn.microsoft.com/azure/aks/best-practices-performance-scale-large#node-pool-scaling)
+- [Best practices for basic scheduler features](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -201,7 +201,7 @@ AKS is increasingly being used for stateful applications that require a backup s
 - [AKS Backups](https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-cluster-backup)
 - [Best Practices for AKS Backups](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-storage)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -228,7 +228,7 @@ If you're running an unsupported Kubernetes version, you'll be asked to upgrade 
 - [Upgrade cluster](https://learn.microsoft.com/azure/aks/upgrade-cluster?tabs=azure-cli)
 - [Auto-upgrading cluster](https://learn.microsoft.com/azure/aks/auto-upgrade-cluster)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -258,7 +258,7 @@ In AKS Premium_ZRS and StandardSSD_ZRS disk types are supported. ZRS disk could 
 - [Azure Disk CSI Driver](https://learn.microsoft.com/azure/aks/azure-disk-csi#azure-disk-csi-driver-features)
 - [Virtual Machine Disk Redundancy](https://learn.microsoft.com/azure/virtual-machines/disks-redundancy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -283,7 +283,7 @@ Starting with Kubernetes version 1.26, in-tree persistent volume types kubernete
 - [CSI Storage Drivers](https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers)
 - [CSI Migrate in Tree Volumes](https://learn.microsoft.com/azure/aks/csi-migrate-in-tree-volumes)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -307,7 +307,7 @@ A resource quota, defined by a ResourceQuota object, provides constraints that l
 
 - [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -336,7 +336,7 @@ If the cluster has availability zones enabled, the following configuration chang
 - [Virtual Nodes](https://learn.microsoft.com/azure/aks/virtual-nodes)
 - [Azure Container Instances](https://learn.microsoft.com/azure/container-instances/container-instances-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -361,7 +361,7 @@ Production AKS clusters should be configured with the Standard tier. The AKS fre
 - [Pricing Tiers](https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers)
 - [AKS Baseline Architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Faks%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json#kubernetes-api-server-sla)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -385,7 +385,7 @@ Azure Monitor collects events, captures container logs, collects CPU/Memory info
 
 - [Monitor AKS](https://learn.microsoft.com/azure/aks/monitor-aks)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -409,7 +409,7 @@ Ephemeral OS disks provide lower read/write latency on the OS disk of AKS agent 
 
 - [AKS Ephemeral OS Disk](https://learn.microsoft.com/samples/azure-samples/aks-ephemeral-os-disk/aks-ephemeral-os-disk/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -433,7 +433,7 @@ Azure Policies allow companies to enforce governance best practices in the AKS c
 - [AKS Baseline - Policy Management](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/containers/aks/baseline-aks?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Faks%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json#policy-management)
 - [Built-in Policy Definitions for AKS](https://learn.microsoft.com/en-us/azure/aks/policy-reference)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -458,7 +458,7 @@ GitOps is an operating model for cloud-native applications that stores applicati
 - [GitOps with AKS](https://learn.microsoft.com/en-us/azure/architecture/guide/aks/aks-cicd-github-actions-and-gitops)
 - [GitOps for AKS - Reference Architecture](https://learn.microsoft.com/en-us/azure/architecture/example-scenario/gitops-aks/gitops-blueprint-aks)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -483,7 +483,7 @@ Configure Topology Spread Constraints to control how Pods are spread across your
 - [Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)
 - [Assign Pod Node](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -508,7 +508,7 @@ AKS kubelet controller uses liveness probes to validate containers and applicati
 - [Configure probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 - [Assign Pod Node](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -532,7 +532,7 @@ Configure ReplicaSets in the Pod or Deployment manifests to maintain a stable se
 
 - [Replica Sets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -556,7 +556,7 @@ The system node pool should be configured with a minimum node count of two to en
 
 - [System nodepools](https://learn.microsoft.com/azure/aks/use-system-pools?tabs=azure-cli)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -580,7 +580,7 @@ The user node pool should be configured with a minimum node count of two if the 
 
 - [Azure Well-Architected Framework review for Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/well-architected/service-guides/azure-kubernetes-service#design-checklist)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -605,7 +605,7 @@ A Pod Disruption Budget (PDB) is a Kubernetes resource that allows you to config
 - [Configure PDBs](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
 - [Plan availability using PDBs](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -629,7 +629,7 @@ Nodepool subnets should be sized to accommodate maximum auto-scale settings. By 
 
 - [AKS Networking](https://learn.microsoft.com/azure/aks/concepts-network)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -653,7 +653,7 @@ Enforcing namespace-level resource quotas is crucial for ensuring reliability by
 
 - [Resource quotas](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

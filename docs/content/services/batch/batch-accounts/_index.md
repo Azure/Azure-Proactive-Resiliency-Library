@@ -41,7 +41,7 @@ Pre-create all required services in each region, such as the Batch account and t
 
 - [Learn More](https://learn.microsoft.com/azure/reliability/reliability-batch#cross-region-disaster-recovery-and-business-continuity)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -66,7 +66,7 @@ For example, you could create your pool with zonal policy in an Azure region tha
 
 - [Learn More](https://learn.microsoft.com/azure/batch/create-pool-availability-zones)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
