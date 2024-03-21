@@ -940,7 +940,7 @@ It is critical that AVD workload teams, centralized teams, and any other App dep
 
 <br><br>
 
-### AVD-36 - Configure AVD insights Workbook
+### AVD-36 - Configure AVD Insights Workbook
 
 **Category: Observability**
 
