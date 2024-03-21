@@ -845,7 +845,7 @@ It's important your organization plans for IP addressing in Azure. Planning ensu
 
 <br><br>
 
-### AVD-32 – Ensure the network is resilient
+### AVD-32 - Ensure the network is resilient
 
 **Category: Networking/Connectivity**
 
