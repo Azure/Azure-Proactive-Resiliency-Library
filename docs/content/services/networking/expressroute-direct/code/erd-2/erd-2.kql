@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Find all Express Route Directs that are over subscribed
+resources
+| where type == "microsoft.network/expressrouteports"
+| where toint(properties['provisionedBandwidthInGbps']) > toint(properties['bandwidthInGbps'])
+| project recommendationId = "erd-2", name, id, tags, param1 = strcat("provisionedBandwidthInGbps: ", properties['provisionedBandwidthInGbps']), param2 = strcat("bandwidthInGbps: ", properties['bandwidthInGbps'])

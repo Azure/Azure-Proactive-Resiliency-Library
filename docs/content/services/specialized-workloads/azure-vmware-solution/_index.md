@@ -14,6 +14,7 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
+
 |[AVS-1 Configure Azure Service Health notifications and alerts for AVS](#avs-1---configure-azure-service-health-notifications-and-alerts-for-avs) | Monitoring | High | Preview | Yes |
 |[AVS-2 Configure Syslog in Diagnostic Settings for AVS](#avs-2---configure-syslog-in-diagnostic-settings-for-avs) | Monitoring | Medium | Preview | Yes |
 |[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Preview | No |
@@ -29,7 +30,6 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |[AVS-13 Use the Interconnect feature to connect private clouds in different availability zones](#avs-13---use-the-interconnect-feature-to-connect-private-clouds-in-different-availability-zones) | Storage | High | Preview | No |
 |[AVS-14 Use key autorotation for vSAN datastore customer-managed keys](#avs-14---use-key-autorotation-for-vsan-datastore-customer-managed-keys) | Storage | High | Preview | No |
 |[AVS-15 Configure LDAPS Identity integration with two sources for NSX-T and vCenter management consoles](#avs-15---configure-ldaps-identity-integration-with-two-sources-for-nsx-t-and-vcenter-management-consoles) | Storage | High | Preview | No |
-
 
 
 {{< /table >}}
