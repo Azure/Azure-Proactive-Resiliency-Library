@@ -379,7 +379,7 @@ Validate that session hosts have proper connectivity AVD Control Plane, ensuring
 
 <br><br>
 
-### AVD-14 - Ensure Secondary Entra ID connect synchronization server
+### AVD-14 - Incorporate Secondary Entra ID connect synchronization server
 
 **Category: Access & Security**
 
