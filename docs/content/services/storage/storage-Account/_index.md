@@ -55,7 +55,7 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 - [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -80,7 +80,7 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 - [Azure classic storage accounts retirement announcement](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/)
 - [Migrate your classic storage accounts to Azure Resource Manager](https://learn.microsoft.com/en-us/azure/storage/common/classic-account-migration-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -111,7 +111,7 @@ Consider using appropriate storage performance tier for workload scenarios. Each
 - [Scalability and performance targets for premium page blob storage accounts](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets-premium-page-blobs)
 - [Azure Files scalability and performance targets](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -142,7 +142,7 @@ Page blobs are a collection of 512-byte pages optimized for random read and writ
 - [Understanding block blobs, append blobs, and page blobs](https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 - [Scalability and performance targets for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -170,7 +170,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-5/st-5.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-5/st-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -195,7 +195,7 @@ Having a large number of versions per blob can increase the latency for blob lis
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-6/st-6.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-6/st-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -220,7 +220,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-7/st-7.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-7/st-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -244,7 +244,7 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-8/st-8.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-8/st-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

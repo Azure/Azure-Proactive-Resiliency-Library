@@ -42,7 +42,7 @@ Private DNS zones and records are critical resources. Deleting a DNS zone or a s
 
 - [Protecting private DNS Zones and Records - Azure DNS](https://learn.microsoft.com/en-us/azure/dns/dns-protect-private-zones-recordsets)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -66,7 +66,7 @@ The records contained in a private DNS zone aren't resolvable from the Internet.
 
 - [Scenarios for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -90,7 +90,7 @@ Azure Private DNS provides a reliable, secure DNS service to manage and resolve 
 
 - [Scenarios for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-scenarios)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

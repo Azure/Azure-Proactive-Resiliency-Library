@@ -67,7 +67,7 @@ Production VM workloads should be deployed on multiple VMs and grouped together 
 - [What has changed with Flexible orchestration mode](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#what-has-changed-with-flexible-orchestration-mode)
 - [Attach or detach a Virtual Machine to or from a Virtual Machine Scale Set](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?branch=main&tabs=portal-1%2Cportal-2%2Cportal-3)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -91,7 +91,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 - [Create virtual machines in an availability zone using the Azure portal](https://learn.microsoft.com/azure/virtual-machines/create-portal-availability-zone?tabs=standard)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -120,7 +120,7 @@ In an N-tier application, it's recommended that you place each application tier 
 
 - [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -145,7 +145,7 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 - [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
 - [Run a test failover (disaster recovery drill) to Azure](https://learn.microsoft.com/azure/site-recovery/site-recovery-test-failover-to-azure)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -171,7 +171,7 @@ Azure unmanaged disks will be fully retired on September 30, 2025. If you use un
 - [Migrate Windows VM from unmanaged disks to managed disks](https://learn.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
 - [Migrate Linux VM from unmanaged disks to managed disks](https://learn.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -195,7 +195,7 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 - [Introduction to Azure managed disks - Data disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview#data-disk)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -219,7 +219,7 @@ Enable backups for your virtual machines to secure and quickly recover your data
 
 - [What is the Azure Backup service?](https://learn.microsoft.com/azure/backup/backup-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -253,7 +253,7 @@ If you want to upgrade from Standard HDD to Premium SSD disks, consider the foll
 
 - [Azure managed disk types](https://learn.microsoft.com/azure/virtual-machines/disks-types#premium-ssd)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -277,7 +277,7 @@ Azure Virtual Machines (VM) instances go through different states. There are pro
 
 - [States and billing status of Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/states-billing?context=%2Ftroubleshoot%2Fazure%2Fvirtual-machines%2Fcontext%2Fcontext#power-states-and-billing)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -303,7 +303,7 @@ This configuration is not always required, evaluate this option according to the
 
 - [Accelerated Networking (AccelNet) overview](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -327,7 +327,7 @@ When Accelerated Networking is enabled the default Azure Virtual Network interfa
 
 - [Accelerated Networking (AccelNet) overview](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -351,7 +351,7 @@ If a Virtual Machine requires outbound internet connectivity we recommend the us
 
 - [Use Source Network Address Translation (SNAT) for outbound connections](https://learn.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -375,7 +375,7 @@ Unless you have a specific reason to, we recommend that you associate a network 
 
 - [How network security groups filter network traffic](https://learn.microsoft.com/azure/virtual-network/network-security-group-how-it-works#intra-subnet-traffic)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -405,7 +405,7 @@ The setting must be enabled for every network interface that is attached to the 
 
 - [Enable or disable IP forwarding](https://learn.microsoft.com/azure/virtual-network/virtual-network-network-interface?tabs=network-interface-portal#enable-or-disable-ip-forwarding)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -429,7 +429,7 @@ Configure the DNS Server in the Virtual Network to avoid inconsistency across th
 
 - [Name resolution for resources in Azure virtual networks](https://learn.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -453,7 +453,7 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 - [Azure Shared Disks](https://learn.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-portal)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -477,7 +477,7 @@ Recommended changing to "Disable public access and enable private access" and cr
 
 - [Restrict import/export access for managed disks using Azure Private Link](https://learn.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -502,7 +502,7 @@ It's important to keep your virtual machine (VM) secure for the applications tha
 - [Policy-driven governance](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/design-principles#policy-driven-governance)
 - [Azure Policy Regulatory Compliance controls for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/security-policy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -531,7 +531,7 @@ There are several types of encryption available for your managed disks, includin
 
 - [Overview of managed disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -556,7 +556,7 @@ VM insights monitors the performance and health of your virtual machines and vir
 - [Overview of VM insights](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)
 - [Did the extension install properly?](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-troubleshoot#did-the-extension-install-properly)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -591,7 +591,7 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 - [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -615,7 +615,7 @@ The maintenance configuration settings allows user to schedule and manage update
 
 - [Use maintenance configurations to control and manage the VM updates](https://learn.microsoft.com/azure/virtual-machines/maintenance-configurations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -641,7 +641,7 @@ B-series VMs are ideal for workloads that do not need the full performance of th
 
 - [B-series burstable virtual machine sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes-b-series-burstable)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -669,7 +669,7 @@ Azure ultra disks are the highest-performing storage option for Azure virtual ma
 
 - [Disk type comparison and decision tree](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types#disk-type-comparison)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -693,7 +693,7 @@ All VMs that are members or a SQL Always-on cluster must use the same VM Sku, sa
 
 - [Prerequisites, restrictions, and recommendations for Always On availability groups](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver16)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -718,7 +718,7 @@ If the workload is Maintenance sensitive, please consider using Azure Boost comp
 - [Microsoft Azure Boost](https://learn.microsoft.com/azure/azure-boost/overview)
 - [Announcing the general availability of Azure Boost](https://aka.ms/AzureBoostGABlog)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -744,7 +744,7 @@ If the workload is Maintenance sensitive, please enable Scheduled Events. Schedu
 - [Azure Metadata Service: Scheduled Events for Linux VMs](https://learn.microsoft.com/azure/virtual-machines/linux/scheduled-events)
 - [Azure Metadata Service: Scheduled Events for Windows VMs](https://learn.microsoft.com/azure/virtual-machines/windows/scheduled-events)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

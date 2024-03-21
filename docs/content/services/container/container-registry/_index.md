@@ -46,7 +46,7 @@ Choose a service tier of Azure Container Registry that meets your performance ne
 
 - [Container Registry Best Practices](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -70,7 +70,7 @@ Azure Container Registry supports optional zone redundancy. Zone redundancy prov
 
 - [Registry best practices - Enable zone redundancy](https://review.learn.microsoft.com/en-us/azure/container-registry/zone-redundancy?toc=%2Fazure%2Freliability%2Ftoc.json&bc=%2Fazure%2Freliability%2Fbreadcrumb%2Ftoc.json&branch=main)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -97,7 +97,7 @@ Geo-replication is available with Premium registries.
 - [Registry best practices - Enable geo-replication](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#geo-replicate-multi-region-deployments)
 - [Geo-Replicate Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -121,7 +121,7 @@ By using repository namespaces, you can allow sharing a single registry across m
 
 - [Registry best practices - use repository namespaces](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#repository-namespaces)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -146,7 +146,7 @@ Although you might experiment with a specific host type, such as Azure Container
 
 - [Registry best practices - Use dedicated resource group](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#dedicated-resource-group)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -171,7 +171,7 @@ The storage constraints of each container registry service tier are intended to 
 - [Registry best practices - Manage registry size](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-best-practices#manage-registry-size)
 - [Retention Policy](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-retention-policy#about-the-retention-policy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -195,7 +195,7 @@ By default, access to pull or push content from an Azure container registry is o
 
 - [Enable anonymous pull access](https://learn.microsoft.com/en-us/azure/container-registry/anonymous-pull-access#about-anonymous-pull-access)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -220,7 +220,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 - [Monitoring Azure Container Registry data reference - Resource Logs](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#resource-logs)
 - [Monitor Azure Container Registry - Enable diagnostic logs](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service#collection-and-routing)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -244,7 +244,7 @@ When you have critical applications and business processes relying on Azure reso
 - [Monitoring Azure Container Registry data reference](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service-reference#metrics)
 - [Monitor Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/monitor-service)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -268,7 +268,7 @@ Once you enable the soft delete policy, ACR manages the deleted artifacts as the
 
 - [Enable soft delete policy](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-soft-delete-policy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

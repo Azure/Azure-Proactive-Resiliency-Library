@@ -61,7 +61,7 @@ Azure Service Health is the mechanism used to inform customers of any service or
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring#design-recommendations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -87,11 +87,11 @@ Azure VMware Solution Syslogs have useful data for troubleshooting and performan
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/monitoring#manage-logs-and-archives)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/avs-2/avs-2.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/avs-2/avs-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -115,7 +115,7 @@ To expand the vSAN datastore, additional hosts can be added, up to the maximum s
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-alerts-for-azure-vmware-solution#supported-metrics-and-activities)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -140,7 +140,7 @@ If a Multi-AZ deployment of Azure VMware Solution is required, needs a financial
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/infrastructure#implement-high-availability)
 - [Stretched Clusters](https://learn.microsoft.com/en-us/azure/azure-vmware/deploy-vsan-stretched-clusters)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -164,7 +164,7 @@ Ensure there are enough compute resources to avoid host resource exhaustion. Azu
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/monitoring#configure-and-streamline-alerts)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -188,7 +188,7 @@ Ensure there are enough memory resources to avoid host resource exhaustion. Azur
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/monitoring#configure-and-streamline-alerts)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -212,7 +212,7 @@ Alert when the cluster size of 14 hosts is reached. Additionally, periodic alert
 
 - [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/monitoring#configure-and-streamline-alerts)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -236,7 +236,7 @@ Alert when the total node count is greater than or equal to 90 hosts so that it'
 
 - [Configure and streamline alerts](https://learn.microsoft.com/en-us/azure/well-architected/azure-vmware/monitoring#configure-and-streamline-alerts)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -260,7 +260,7 @@ Anyone with contributor access to the resource group hosting Azure VMware Soluti
 
 - [Lock your resources to protect your infrastructure](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

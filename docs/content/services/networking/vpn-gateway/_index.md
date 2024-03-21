@@ -48,7 +48,7 @@ To automatically deploy your virtual network gateways across availability zones,
 - [Zone redundant Virtual network gateway in availability zone](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
 - [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways#gwskus)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -73,7 +73,7 @@ The active-active mode is available for all SKUs except Basic. You can create an
 - [About Active-Active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-vpn-gateways)
 - [Configure Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -98,7 +98,7 @@ Having the ability to configure Site-to-Site VPN and ExpressRoute has several ad
 - [Configure a Site-to-Site VPN as a failover path for ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#configuration-designs)
 - [Limit and limitations](https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -123,7 +123,7 @@ If your gateway is not zone redundant, to plan for disaster recovery, set up Sit
 - [Highly available cross-premises](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable)
 - [About VPN gateway redundancy](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-vpn-gateway-redundancy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -147,7 +147,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 - [VPN gateway data reference](https://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -172,7 +172,7 @@ VPN Gateway uses service health alerts to notify about planned and unplanned mai
 - [Getting started with Azure Metrics Explorer](hhttps://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)
 - [Monitor VPN gateway](hhttps://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference#metrics)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
