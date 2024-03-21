@@ -45,7 +45,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage.](#avd-29---app-attach-should-be-placed-in-separate-file-share-and-disaster-recovery-plan-should-include-app-attach-storage)
 | [AVD-30 Ensure virtual networks have route tables/route server configured for all regions](#avd-30---ensure-virtual-networks-have-route-tablesroute-server-configured-for-all-regions) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking/Connectivity | Medium | Verified | No |
-| [AVD-32 Ensure the network is resilient](#avd-32-–-ensure-the-network-is-resilient) | Networking/Connectivity | Medium | Verified | No |
+| [AVD-32 Ensure the network is resilient](#avd-32---ensure-the-network-is-resilient) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-33 Ensure route tables accommodate failover](#avd-33---ensure-route-tables-accommodate-failover) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---ensure-resilient-deployment-of-keyvault-for-avd-host-pools) | Keyvault | High | Verified | No |
 | [AVD-35 Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested](#avd-35---ensure-all-appsdatadc-accessed-from-session-hosts-have-dr-strategyfailover-mechanisms-and-have-been-tested) | Non-AVD LOB Dependencies | High | Verified | No |
