@@ -42,7 +42,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-26 Configure Diagnostic Settings for FSLogix logs and enable review for accounts](#avd-26---configure-diagnostic-settings-for-fslogix-logs-and-enable-review-for-accounts) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-27 Manually update new FSLogix image when available](#avd-27---manually-update-new-fslogix-image-when-available) | FSLogix Profiles | Low | Verified | No |
 | [AVD-28 Turn on Continuous Availability for ANF if using App Attach](#avd-28---turn-on-continuous-availability-for-anf-if-using-app-attach) | App Attach Storage | Medium | Verified | No |
-| [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage.](#avd-29---app-attach-should-be-placed-in-separate-file-share-disaster-recovery-plan-should-include-app-attach-storage)
+| [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage.](#avd-29---app-attach-should-be-placed-in-separate-file-share-and-disaster-recovery-plan-should-include-app-attach-storage)
 | [AVD-30 Ensure virtual networks have route tables/route server configured for all regions](#avd-30---ensure-virtual-networks-have-route-tablesroute-server-configured-for-all-regions) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-32 Ensure the network is resilient](#avd-32-–-ensure-the-network-is-resilient) | Networking/Connectivity | Medium | Verified | No |
@@ -51,7 +51,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-35 Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested](#avd-35---ensure-all-appsdatadc-accessed-from-session-hosts-have-dr-strategyfailover-mechanisms-and-have-been-tested) | Non-AVD LOB Dependencies | High | Verified | No |
 | [AVD-36 Configure AVD insights Workbook](#avd-36---configure-avd-insights-workbook) | Observability | High | Verified | No |
 | [AVD-37 Ensure separate log analytics workspaces for Prod and DR](#avd-37---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Observability | Low | Verified | No |
-| [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology.](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Subscriptions | Low | Verified | No |
+| [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Subscriptions | Low | Verified | No |
 | [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Verified | Yes |
 | [CG-2 - Zone redundant storage should be used for image versions](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/#cg-2---zone-redundant-storage-should-be-used-for-image-versions) | Availability | Medium | Verified | Yes |
 | [VM-2 - Deploy VMs across Availability Zones](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-2---deploy-vms-across-availability-zones) | Availability | High | Verified | Yes |
@@ -767,7 +767,7 @@ Verify the number of users connecting to each file share to make sure the SMB pa
 
 <br><br>
 
-### AVD-29 - App attach should be placed in separate file share; Disaster recovery plan should include App attach storage.
+### AVD-29 - App attach should be placed in separate file share and Disaster recovery plan should include App attach storage
 
 **Category: App Attach**
 
@@ -988,31 +988,7 @@ Having separate Log Analytics ensures that your DR environment is fully operatio
 
 <br><br>
 
-### AVD-38 - AVD Service health alerts are enabled.
-
-**Category: Subscriptions**
-
-**Impact: High**
-
-**Guidance**
-
-AVD service health alerts will provide insights into planned, unplanned, and other information regarding the Microsoft managed components for AVD. It's also suggested to enable these alerts for all other shared services that AVD depends on like Identity, Networking, Storage, and other PaaS services.
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-US/azure/virtual-desktop/set-up-service-alerts)
-
-**Resource Graph Query/Scripts:**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-38/avd-38.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AVD-39 - Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology.
+### AVD-38 - Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology
 
 **Category: Subscriptions**
 
@@ -1030,7 +1006,7 @@ Follow AVD Landing Zone best practices using multiple resource groups based on r
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-39/avd-39.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-38/avd-38.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
