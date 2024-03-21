@@ -35,7 +35,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-19 Pooled Create a validation pool for testing of planned updates](#avd-19---pooled-create-a-validation-pool-for-testing-of-planned-updates) | Pooled Session Host VMs | Medium | Verified | No |
 | [AVD-20 Pooled Configure scheduled agent updates](#avd-20---pooled-configure-scheduled-agent-updates) | Pooled Session Host VMs | Medium | Verified | No |
 | [AVD-21 Personal Create a validation pool for testing of planned updates](#avd-21---personal-create-a-validation-pool-for-testing-of-planned-updates) | Personal Session Host VMs | Low | Verified | No |
-| [AVD-22 Use Azure Site Recovery or Backups on VMs supporting personal desktops](#avd-22--use-azure-site-recovery-or-backups-on-vms-supporting-personal-desktops) | Personal Session Host VMs | Medium | Verified | No |
+| [AVD-22 Use Azure Site Recovery or Backups on VMs supporting personal desktops](#avd-22---use-azure-site-recovery-or-backups-on-vms-supporting-personal-desktops) | Personal Session Host VMs | Medium | Verified | No |
 | [AVD-23 Ensure a unique OU when deploying VMs to Domain](#avd-23---ensure-a-unique-ou-when-deploying-vms-to-domain) | GPO | Medium | Verified | No |
 | [AVD-24 Ensure the standard FSLogix configuration is deployed](#avd-24---ensure-the-standard-fslogix-configuration-is-deployed) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-25 Ensure user permissions are set correctly on SMB shares](#avd-25---ensure-user-permissions-are-set-correctly-on-smb-shares) | FSLogix Profiles | Medium | Verified | No |
