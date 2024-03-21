@@ -291,7 +291,7 @@ For critical workloads, Microsoft recommends deploying two (or more) ExpressRout
 
 {{< /collapse >}}
 
-<br><be>
+<br><br>
 ### AVS-11 - Deploy two or more circuits in different peering locations when using stretched clusters
 
 **Category: Networking**
