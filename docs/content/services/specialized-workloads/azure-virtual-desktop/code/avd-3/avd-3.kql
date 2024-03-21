@@ -1,1 +1,11 @@
-// under-development
+// Azure Resource Graph Query
+// Find all session host VMs that are not assigned to a Zone
+resources
+| where type =~ 'Microsoft.Compute/virtualMachines' 
+| join kind = inner (
+    desktopvirtualizationresources
+    | where type == "microsoft.desktopvirtualization/hostpools/sessionhosts"
+    | project id = tostring(properties['resourceId']))
+on id
+| where isnull(zones)
+| project recommendationId = "avd-3", name, id, tags, param1="No Zone"
