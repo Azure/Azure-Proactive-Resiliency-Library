@@ -38,7 +38,6 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | Governance | High | Preview | Yes |
 | [VM-23 - Avoid using A or B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-a-or-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously) | System Efficiency | High | Preview | Yes |
 | [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks) | System Efficiency | High | Preview | Yes |
-| [VM-25 - Do not create more than 2500 Citrix VDA servers per subscription](#vm-25---do-not-create-more-than-2500-citrix-vda-servers-per-subscription) | Application Resiliency | High | Preview | No |
 | [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations) | Application Resiliency | High | Preview | No |
 | [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload) | Availability | Medium | Preview | No |
 | [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms) | Availability | Medium | Preview | No |
@@ -164,12 +163,13 @@ When you replicate Azure VMs using Site Recovery, all the VM disks are continuou
 
 **Guidance**
 
-Managed disks provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, managed disks aren't subject to the IOPS limits of VHDs created in a storage account.
+Azure unmanaged disks will be fully retired on September 30, 2025. If you use unmanaged disks, start planning the migration now.
 
 **Resources**
 
-- [Resiliency checklist for Virtual Machines](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#virtual-machines)
-- [Availability options for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set)
+- [Migrate your Azure unmanaged disks by Sep 30, 2025](https://learn.microsoft.com/azure/virtual-machines/unmanaged-disks-deprecation)
+- [Migrate Windows VM from unmanaged disks to managed disks](https://learn.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
+- [Migrate Linux VM from unmanaged disks to managed disks](https://learn.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
 
 **Resource Graph Query**
 
@@ -674,35 +674,6 @@ Azure ultra disks are the highest-performing storage option for Azure virtual ma
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/vm-24/vm-24.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### VM-25 - Do not create more than 2500 Citrix VDA servers per subscription
-
-**Category: Application Resilience**
-
-**Impact: High**
-
-**Guidance**
-
-A Citrix Managed Azure subscription supports the number of machines indicated in Limits. (In this context, machines refers to VMs that have a Citrix VDA installed. These machines deliver apps and desktops to users. It does not include other machines in a resource location, such as Cloud Connectors.)
-
-If your Citrix Managed Azure subscription is likely to reach its limit soon, and you have enough Citrix licenses, you can request another Citrix Managed Azure subscription. The dashboard contains a notification when you’re close to the limit.
-
-You can’t create a catalog (or add machines to a catalog) if the total number of machines for all catalogs that use that Citrix Managed Azure subscription would exceed the value indicated in Limits.
-
-**Resources**
-
-- [Citrix Limits](https://docs.citrix.com/en-us/citrix-daas-azure/limits)
-- [Citrix Managed Azure subscriptions](https://docs.citrix.com/en-us/citrix-daas-azure/limits)
-
-**Resource Graph Query**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/vm-25/vm-25.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
