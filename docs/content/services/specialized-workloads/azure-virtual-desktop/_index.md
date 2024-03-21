@@ -344,7 +344,7 @@ It is recommended to enable backup on the FSLogix Storage Account. Ensuring the 
 **Impact: Medium**
 
 **Guidance:**
-Scaling plans exist per region assigned to host pools within the region and can become inaccessible in case of regional failure. A secondary scaling plan should be created with a secondary region to protect from this.
+Each region has its own scaling plans assigned to host pools within that region. However, these plans can become inaccessible if there's a regional failure. To mitigate this risk, it's advisable to create a secondary scaling plan in another region
 
 **Resources:**
 
