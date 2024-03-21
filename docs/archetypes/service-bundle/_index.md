@@ -41,7 +41,7 @@ FILL ME IN...
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -66,7 +66,7 @@ FILL ME IN...
 - [CHANGE ME LINK](https://aka.ms)
 - [CHANGE ME LINK](https://aka.ms)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

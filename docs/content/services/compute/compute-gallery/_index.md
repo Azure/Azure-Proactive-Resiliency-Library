@@ -41,7 +41,7 @@ Keep a minimum of 3 replicas for production images.  In multi-VM deployment scen
 
 - [Compute Gallery best practices](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery#best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -67,7 +67,7 @@ You can also choose the account type for each of the target regions. The default
 - [Compute Gallery best practices](https://learn.microsoft.com/en-us/azure/virtual-machines/azure-compute-gallery#best-practices)
 - [Zone-redundant storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#zone-redundant-storage)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -93,7 +93,7 @@ We recommend that you create a generation 2 virtual machine to take advantage of
 - [Generation 1 vs Generation 2 in Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 - [Images in Compute gallery](https://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

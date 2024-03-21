@@ -45,7 +45,7 @@ A zone-redundant IP is created in all zones for a region and can survive any sin
 - [Public IP addresses - Availability Zones](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#availability-zone)
 - [Upgrading a basic public IP address to Standard SKU](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance#steps-to-complete-the-upgrade)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -70,7 +70,7 @@ Prevent risk of connectivity failures due to SNAT port exhaustion by using NAT g
 - [Use NAT GW for outbound connectivity](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#use-nat-gateway-for-outbound-connectivity)
 - [TCP and SNAT Ports](https://learn.microsoft.com/azure/architecture/framework/services/compute/azure-app-service/reliability#tcp-and-snat-ports)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
