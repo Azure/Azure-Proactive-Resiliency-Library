@@ -168,8 +168,8 @@ Create the metric to monitor latency probes 20ms over a long period of time ( > 
 
 **Resources**
 
-- [Azure Well-Architected Framework review - Azure Firewall](https://learn.microsoft.com/en-us/azure/well-architected/service-guides/azure-firewall#recommendations)
-- [Azure Firewall logs and metrics overview](https://learn.microsoft.com/en-us/azure/firewall/logs-and-metrics)
+- [Azure Well-Architected Framework review - Azure Firewall](https://learn.microsoft.com/azure/well-architected/service-guides/azure-firewall#recommendations)
+- [Azure Firewall metrics overview](https://learn.microsoft.com/azure/firewall/metrics)
 
 **Resource Graphy Query/Scripts**
 
