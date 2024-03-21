@@ -1,1 +1,5 @@
-// under-development
+resources
+| where type =~ "microsoft.network/trafficmanagerprofiles"
+| where array_length(properties.endpoints) ==1 //Make sure this value is set to 1
+| project recommendationId = "TRAF-2", name, id, tags, parm1 = "Only 1 endpoint"
+
