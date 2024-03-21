@@ -412,7 +412,7 @@ To ensure continuity, set up a secondary server for Entra Connect in staging mod
 
 **Guidance:**
 Ensure each Region with session host has multiple domain controllers in the same region to support adjustments based on your business requirements. To handle a large number of users, consider scaling horizontally by creating multiple host pools.
-Hybrid - Each Azure region with AVD hosts should have ADDS DCs (IaaS VMs) in Azure and use Availability Sets or Zones for resiliency across single Datacenter or Region. Mitigates dependency on ER/VPN/Inter-Azure dependencies.
+Hybrid - Each Azure region with AVD hosts should have ADDS DCs (IaaS VMs) in Azure and use Availability Sets or Zones for resiliency across single Datacenter or Region. This mitigates dependency on ER/VPN/Inter-Azure dependencies.
 
 **Resources:**
 
