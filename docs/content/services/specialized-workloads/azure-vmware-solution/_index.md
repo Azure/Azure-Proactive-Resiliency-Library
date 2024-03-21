@@ -339,7 +339,7 @@ Two Azure VMware Solution private clouds can be deployed in different regions fo
 
 {{< /collapse >}}
 
-<br><be>
+<br><br>
 ### AVS-13 - Use the Interconnect feature to connect private clouds in different availability zones
 
 **Category: Availability**
