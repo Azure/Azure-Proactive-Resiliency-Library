@@ -1,7 +1,7 @@
 // Azure Resource Graph query
-// TRAF-1 - Traffic Manager Monitor Status Should be Online
+// TRAF-1 - Traffic Manager Monitor Status Should be Online 
 resources
 | where type == "microsoft.network/trafficmanagerprofiles"
-| project name, id, tags, profileMonitorStatus = properties.monitorConfig.profileMonitorStatus
-| where profileMonitorStatus !has 'Online'
-| project recommendationId="traf-1", name, id, tags, param1, param2, param3, param4, param5
+| where properties.monitorConfig.profileMonitorStatus !has 'Online'
+| project recommendationId="traf-1", name, id, tags, param1 = strcat ("Protocol: ", properties.monitorConfig.protocol), param2 = strcat ("Tolerated number of failures: ", properties.monitorConfig.toleratedNumberOfFailures), param3 = strcat ("Probe timeout(seconds) : " , properties.monitorConfig.timeoutInSeconds)
+
