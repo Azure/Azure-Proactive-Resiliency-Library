@@ -63,7 +63,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Verified | No |
 | [NSG-4 - Configure NSG Flow Logs](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/#nsg-4---configure-nsg-flow-logs) | Monitoring | Medium | Verified | Yes |
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Verified | Yes |
-| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Verified | Yes |
+| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/management/subscription/#ms-1---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Verified | Yes |
 
 {{< /table >}}
 
