@@ -203,7 +203,7 @@ Ensure there are enough memory resources to avoid host resource exhaustion. Azur
 
 **Recommendation/Guidance**
 
-Alert when the cluster size of 14 hosts is reached. Periodically fire up alerts to plan for a new cluster or additional datastore if growth is driven solely by storage. Beyond 14 hosts, every time a new host is added, surface an alert.
+Alert when the cluster size of 14 hosts is reached. Additionally, periodic alerts should be set up to indicate when growth, especially driven by storage requirements, necessitates planning for a new cluster or the addition of extra datastores. Furthermore, beyond the threshold of 14 hosts, alerts should be triggered each time a new host is added to the cluster, allowing proactive monitoring and management of resource utilization.
 
 **Resources**
 
