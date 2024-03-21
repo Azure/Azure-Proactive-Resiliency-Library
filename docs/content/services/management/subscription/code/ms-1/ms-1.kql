@@ -1,0 +1,11 @@
+// Azure Resource Graph Query
+// Count VM instances with a tag that contains "Citrix VDA" and create output if that count is >2000 for each subscription.
+// The Citrix published limit is 2500. This query runs an 80% check.
+
+resources
+| where type == 'microsoft.compute/virtualmachines'
+| where tags contains 'Citrix VDA'
+| summarize VMs=count() by subscriptionId
+| where VMs > 2000
+| join (resourcecontainers| where type =='microsoft.resources/subscriptions' | project subname=name, subscriptionId) on subscriptionId
+| project recommendationId='MS-1', name= subname, id = subscriptionId, param1='Too many instances.', param2= VMs
