@@ -1,7 +1,7 @@
 // Azure Resource Graph Query
 // Find all session host VMs that are not assigned to a Zone
-resources
-| where type =~ 'Microsoft.Compute/virtualMachines' 
+Resources
+| where type =~ 'Microsoft.Compute/virtualMachines'
 | join kind = inner (
     desktopvirtualizationresources
     | where type == "microsoft.desktopvirtualization/hostpools/sessionhosts"
