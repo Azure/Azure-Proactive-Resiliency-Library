@@ -23,4 +23,4 @@ on $left.idDcr == $right.idDcr
         | extend idVmExtension = tolower(substring(id, 0, indexof(id, '/extensions'))), extensionName = name)
 on $left.idVm == $right.idVmExtension
 | where isPerformanceEnabled != 1 or (extensionName != 'AzureMonitorWindowsAgent' and extensionName != 'AzureMonitorLinuxAgent')
-| project recommendationId = "vm-20", name, id = idVm, tags, monitoringExtension = extensionName, isPerformanceEnabled, dataCollectionRuleId = idDcr
+| project recommendationId = "vm-20", name, id = idVm, tags, param1 = strcat('MonitoringExtension:', extensionName), param2 = strcat('DataCollectionRuleId:', idDcr), param3 = strcat('isPerformanceEnabled:', isPerformanceEnabled)
