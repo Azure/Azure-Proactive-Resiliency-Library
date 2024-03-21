@@ -14,15 +14,15 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-|[AVS-1 Configure Azure Service Health notification and alerts for AVS](#avs-1---configure-azure-service-health-notification-and-alerts-for-avs) | Monitoring | Medium | Preview | Yes |
-|[AVS-2 Configure Syslog in Diagnostic Settings for AVS](#avs-2---configure-syslog-in-diagnostic-settings-for-avs) | Monitoring | Medium | Preview | Yes |
-|[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Preview | No |
-|[AVS-4 Enable Stretched Clusters for Multi-AZ Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-multi-az-availability-of-the-vsan-datastore) | Availability | Low | Preview | Yes |
-|[AVS-5 Monitor CPU Utilization to ensure sufficient resources for workloads](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Preview | Yes |
-|[AVS-6 Monitor Memory Utilization to ensure sufficient resources for workloads](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Preview | Yes |
-|[AVS-7 Monitor when Azure VMware Solution Cluster Size is approaching the host limit](#avs-7---monitor-when-azure-vmware-solution-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Preview | No |
-|[AVS-8 Monitor when Azure VMware Solution Private Cloud is reaching capacity limit](#avs-8---monitor-when-azure-vmware-solution-private-cloud-is-reaching-capacity-limit) | Monitoring | Medium | Preview | No |
-|[AVS-9 Apply Resource delete lock on the resource group hosting the private cloud](#avs-9---apply-resource-delete-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Preview | No |
+|[AVS-1 Configure Azure Service Health notification and alerts for AVS](#avs-1---configure-azure-service-health-notification-and-alerts-for-avs) | Monitoring | Medium | Verified | Yes |
+|[AVS-2 Configure Syslog in Diagnostic Settings for AVS](#avs-2---configure-syslog-in-diagnostic-settings-for-avs) | Monitoring | Medium | Verified | Yes |
+|[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Verified | No |
+|[AVS-4 Enable Stretched Clusters for Multi-AZ Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-multi-az-availability-of-the-vsan-datastore) | Availability | Low | Verified | Yes |
+|[AVS-5 Monitor CPU Utilization to ensure sufficient resources for workloads](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Verified | Yes |
+|[AVS-6 Monitor Memory Utilization to ensure sufficient resources for workloads](#avs-6---monitor-memory-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Verified | Yes |
+|[AVS-7 Monitor when Azure VMware Solution Cluster Size is approaching the host limit](#avs-7---monitor-when-azure-vmware-solution-cluster-size-is-approaching-the-host-limit) | Monitoring | Medium | Verified | No |
+|[AVS-8 Monitor when Azure VMware Solution Private Cloud is reaching capacity limit](#avs-8---monitor-when-azure-vmware-solution-private-cloud-is-reaching-capacity-limit) | Monitoring | Medium | Verified | No |
+|[AVS-9 Apply Resource delete lock on the resource group hosting the private cloud](#avs-9---apply-resource-delete-lock-on-the-resource-group-hosting-the-private-cloud) | Governance | High | Verified | No |
 
 {{< /table >}}
 
