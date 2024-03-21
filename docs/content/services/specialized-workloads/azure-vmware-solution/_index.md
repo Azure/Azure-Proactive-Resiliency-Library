@@ -389,7 +389,7 @@ When using customer-managed keys to encrypt the vSAN datastore(s), use Azure Key
 
 {{< /collapse >}}
 
-<br><be>
+<br><br>
 
 ### AVS-15 - Configure LDAPS Identity integration with two sources for NSX-T and vCenter management consoles
 
