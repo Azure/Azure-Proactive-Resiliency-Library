@@ -63,7 +63,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Verified | No |
 | [NSG-4 - Configure NSG Flow Logs](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/#nsg-4---configure-nsg-flow-logs) | Monitoring | Medium | Verified | Yes |
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Verified | Yes |
-| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-25---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Verified | Yes |
+| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/management/subscription/#ms-1---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Verified | Yes |
 
 {{< /table >}}
 
@@ -344,7 +344,7 @@ It is recommended to enable backup on the FSLogix Storage Account. Ensuring the 
 **Impact: Medium**
 
 **Guidance:**
-Scaling plans exist per region assigned to host pools within the region and can become inaccessible in case of regional failure. A secondary scaling plan should be created with a secondary region to protect from this.
+Each region has its own scaling plans assigned to host pools within that region. However, these plans can become inaccessible if there's a regional failure. To mitigate this risk, it's advisable to create a secondary scaling plan in another region
 
 **Resources:**
 
