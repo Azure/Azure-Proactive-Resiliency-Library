@@ -130,7 +130,7 @@ To expand the vSAN datastore, additional hosts can be added, up to the maximum s
 
 **Recommendation/Guidance**
 
-If a Multi-AZ deployment of Azure VMware Solution is required, needs an infrastructure SLA of 99.99%, or needs synchronous storage replication between AZs (RPO=0), then Azure VMware Solution Stretched Clusters should be considered. If you are in a region that supports stretched clusters, consider enabling this feature to spread the VMware vSAN datastore across two availability zones. Note: Configuring an Azure VMware Solution private cloud as a stretched cluster can only be done during initial implementation and requires twice the quota. This is due to a stretched cluster extending the cluster to the second availability zone.
+If a Multi-AZ deployment of Azure VMware Solution is required, needs a financially backed SLA of 99.99%, or needs synchronous storage replication between AZs (RPO=0), then Azure VMware Solution Stretched Clusters should be considered. If you are in a region that supports stretched clusters, consider enabling this feature to spread the VMware vSAN datastore across two availability zones. Note: Configuring an Azure VMware Solution private cloud as a stretched cluster can only be done during initial implementation and requires twice the quota. This is due to a stretched cluster extending the cluster to the second availability zone.
 
 **Resources**
 
