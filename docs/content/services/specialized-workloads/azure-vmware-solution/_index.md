@@ -314,7 +314,7 @@ Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) 
 
 {{< /collapse >}}
 
-<br><be>
+<br><br>
 ### AVS-12 - Deploy two Azure VMware Solution private clouds in different regions for geographical disaster recovery
 
 **Category: Disaster Recovery**
