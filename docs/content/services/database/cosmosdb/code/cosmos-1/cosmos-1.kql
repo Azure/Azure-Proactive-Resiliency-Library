@@ -1,4 +1,6 @@
 Resources
 | where type =~ 'Microsoft.DocumentDb/databaseAccounts'
-| where array_length(properties.locations) < 2
+| where
+     array_length(properties.locations) < 2 or
+    (array_length(properties.locations) < 3 and properties.consistencyPolicy.defaultConsistencyLevel == 'Strong')
 | project recommendationId='cosmos-1', name, id, tags
