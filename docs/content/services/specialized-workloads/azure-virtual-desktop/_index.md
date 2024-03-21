@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | Recommendation | Category | Impact | State | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:--------:|:-------:|:-------------------:|
 | [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault) | Access & Security | Medium | Verified | Yes |
-| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd) | Monitoring | Medium | Verified | No |
+| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd) | Monitoring | High | Verified | No |
 | [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone) | Availability | High | Verified | No |
 | [AVD-4 Deploy Domain Controllers and DNS Servers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-and-dns-servers-in-azure-virtual-network-across-availability-zones) | Availability | Medium | Verified | No |
 | [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks) | Networking | Medium | Verified | No |
@@ -32,11 +32,11 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-16 Ensure DNS regions are replicated to avoid single point of failure](#avd-16---ensure-dns-regions-are-replicated-to-avoid-single-point-of-failure) | DNS | Medium | Verified | No |
 | [AVD-17 Capacity Planning for AVD Resources](#avd-17---capacity-planning-for-avd-resources) | Disaster Recovery | Low | Verified | No |
 | [AVD-18 Create new version of updated image and replace session hosts rather than update host directly](#avd-18---create-new-version-of-updated-image-and-replace-session-hosts-rather-than-update-host-directly) | Pooled Session Host VMs | Low | Verified | No |
-| [AVD-19 Pooled Create a validation pool for testing of planned updates](#avd-19-pooled-create-a-validation-pool-for-testing-of-planned-updates) | Pooled Session Host VMs | Medium | Verified | No |
-| [AVD-20 Pooled Configure scheduled agent updates](#avd-20-pooled-configure-scheduled-agent-updates) | Pooled Session Host VMs | Medium | Verified | No |
-| [AVD-21 Personal Create a validation pool for testing of planned updates](#avd-21-personal-create-a-validation-pool-for-testing-of-planned-updates) | Personal Session Host VMs | Low | Verified | No |
-| [AVD-22 Use Azure Site Recovery or Backups on VMs supporting personal desktops](#avd-22-use-azure-site-recovery-or-backups-on-vms-supporting-personal-desktops) | Personal Session Host VMs | Medium | Verified | No |
-| [AVD-23 Ensure a unique OU when deploying VMs to Domain](#avd-23-ensure-a-unique-ou-when-deploying-vms-to-domain) | GPO | Medium | Verified | No |
+| [AVD-19 Pooled Create a validation pool for testing of planned updates](#avd-19---pooled-create-a-validation-pool-for-testing-of-planned-updates) | Pooled Session Host VMs | Medium | Verified | No |
+| [AVD-20 Pooled Configure scheduled agent updates](#avd-20---pooled-configure-scheduled-agent-updates) | Pooled Session Host VMs | Medium | Verified | No |
+| [AVD-21 Personal Create a validation pool for testing of planned updates](#avd-21---personal-create-a-validation-pool-for-testing-of-planned-updates) | Personal Session Host VMs | Low | Verified | No |
+| [AVD-22 Use Azure Site Recovery or Backups on VMs supporting personal desktops](#avd-22--use-azure-site-recovery-or-backups-on-vms-supporting-personal-desktops) | Personal Session Host VMs | Medium | Verified | No |
+| [AVD-23 Ensure a unique OU when deploying VMs to Domain](#avd-23---ensure-a-unique-ou-when-deploying-vms-to-domain) | GPO | Medium | Verified | No |
 | [AVD-24 Ensure the standard FSLogix configuration is deployed](#avd-24---ensure-the-standard-fslogix-configuration-is-deployed) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-25 Ensure user permissions are set correctly on SMB shares](#avd-25---ensure-user-permissions-are-set-correctly-on-smb-shares) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-26 Configure Diagnostic Settings for FSLogix logs and enable review for accounts](#avd-26---configure-diagnostic-settings-for-fslogix-logs-and-enable-review-for-accounts) | FSLogix Profiles | Medium | Verified | No |
@@ -45,14 +45,13 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage.](#avd-29---app-attach-should-be-placed-in-separate-file-share-disaster-recovery-plan-should-include-app-attach-storage)
 | [AVD-30 Ensure virtual networks have route tables/route server configured for all regions](#avd-30---ensure-virtual-networks-have-route-tablesroute-server-configured-for-all-regions) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking/Connectivity | Medium | Verified | No |
-| [AVD-32 Ensure the network is resilient](#avd-32---ensure-the-network-is-resilient) | Networking/Connectivity | Medium | Verified | No |
+| [AVD-32 Ensure the network is resilient](#avd-32-–-ensure-the-network-is-resilient) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-33 Ensure route tables accommodate failover](#avd-33---ensure-route-tables-accommodate-failover) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---ensure-resilient-deployment-of-keyvault-for-avd-host-pools) | Keyvault | High | Verified | No |
 | [AVD-35 Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested](#avd-35---ensure-all-appsdatadc-accessed-from-session-hosts-have-dr-strategyfailover-mechanisms-and-have-been-tested) | Non-AVD LOB Dependencies | High | Verified | No |
 | [AVD-36 Configure AVD insights Workbook](#avd-36---configure-avd-insights-workbook) | Observability | High | Verified | No |
 | [AVD-37 Ensure separate log analytics workspaces for Prod and DR](#avd-37---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Observability | Low | Verified | No |
-| [AVD-38 AVD Service health alerts are enabled.](#avd-38---avd-service-health-alerts-are-enabled) | Subscriptions | High | Verified | Yes |
-| [AVD-39 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology.](#avd-39---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Subscriptions | Low | Verified | No |
+| [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology.](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Subscriptions | Low | Verified | No |
 | [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Verified | Yes |
 | [CG-2 - Zone redundant storage should be used for image versions](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/#cg-2---zone-redundant-storage-should-be-used-for-image-versions) | Availability | Medium | Verified | Yes |
 | [VM-2 - Deploy VMs across Availability Zones](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-2---deploy-vms-across-availability-zones) | Availability | High | Verified | Yes |
@@ -916,7 +915,6 @@ AVD host pools or any unit of scale operation utilizing Keyvault should be deplo
 {{< code lang="sql" file="code/avd-34/avd-34.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
 
 ### AVD-35 - Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested
 
