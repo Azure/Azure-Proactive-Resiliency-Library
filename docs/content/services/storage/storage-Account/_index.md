@@ -234,7 +234,7 @@ Enable point-in-time restore for standard general purpose v2 accounts. Point-in-
 **Guidance**
 
 When you have critical applications and business processes that rely on Azure resources, you need to monitor and get alerts for your system.
-Resource logs aren't collected and stored until you create a diagnostic setting and route the logs to one or more locations. When you create a diagnostic setting, you specify which categories of logs to collect. 
+Resource logs aren't collected and stored until you create a diagnostic setting and route the logs to one or more locations. When you create a diagnostic setting, you specify which categories of logs to collect.
 
 **Resources**
 
