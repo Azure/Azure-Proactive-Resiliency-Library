@@ -16,7 +16,6 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:--------:|:-------:|:-------------------:|
 | [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault) | Access & Security | Medium | Verified | Yes |
 | [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd) | Monitoring | High | Verified | No |
-| [AVD-3 Deploy Session Hosts in an Availability Zone](#avd-3---deploy-session-hosts-in-an-availability-zone) | Availability | High | Verified | No |
 | [AVD-4 Deploy Domain Controllers and DNS Servers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-and-dns-servers-in-azure-virtual-network-across-availability-zones) | Availability | Medium | Verified | No |
 | [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks) | Networking | Medium | Verified | No |
 | [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan) | Disaster Recovery | Medium | Verified | No |
@@ -121,33 +120,6 @@ Use Resource Health to monitor your VMs and storage solutions.
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/avd-2/avd-2.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### AVD-3 - Deploy Session Hosts in an Availability Zone
-
-**Category: Availability**
-
-**Impact: High**
-
-**Guidance**
-
-Deploy session hosts in an availability zone or an availability set helps protect the environment from outages.
-
-Enhances reliability by minimizing latency and impacts reliability helping keep the data synchronized and protecting from outages. If one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones.
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
-- [Availability Zones](https://learn.microsoft.com/en-us/azure/well-architected/azure-virtual-desktop/application-delivery#session-host-settings)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-3/avd-3.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
