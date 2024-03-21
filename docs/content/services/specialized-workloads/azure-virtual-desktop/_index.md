@@ -637,7 +637,7 @@ When using AD-joined session hosts will benefit from using a unique OU to target
 
 **Resources:**
 
-- [Learn More](https://www.bing.com/search?q=Setting+up+Active+Directory+for+a+Disaster+Recovery+Environment+%7C+Microsoft+Azure+Blog&cvid=b947ffd445d04941b4beea0c399b0ee9&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQRRj8VdIBBzY0NWowajSoAgCwAgA&FORM=ANAB01&PC=U531)
+- [Learn More](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm#configure-the-vms-and-install-active-directory-domain-services)
 
 **Resource Graph Query/Scripts:**
 
