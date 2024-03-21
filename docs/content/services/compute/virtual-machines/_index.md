@@ -249,6 +249,7 @@ If you want to upgrade from Standard HDD to Premium SSD disks, consider the foll
 - Upgrading requires a VM reboot and this process takes 3-5 minutes to complete.
 - If VMs are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
+This does not apply to ephemeral disks
 **Resources**
 
 - [Azure managed disk types](https://learn.microsoft.com/azure/virtual-machines/disks-types#premium-ssd)
