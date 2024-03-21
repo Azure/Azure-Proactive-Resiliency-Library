@@ -42,7 +42,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-26 Configure Diagnostic Settings for FSLogix logs and enable review for accounts](#avd-26---configure-diagnostic-settings-for-fslogix-logs-and-enable-review-for-accounts) | FSLogix Profiles | Medium | Verified | No |
 | [AVD-27 Manually update new FSLogix image when available](#avd-27---manually-update-new-fslogix-image-when-available) | FSLogix Profiles | Low | Verified | No |
 | [AVD-28 Turn on Continuous Availability for ANF if using App Attach](#avd-28---turn-on-continuous-availability-for-anf-if-using-app-attach) | App Attach Storage | Medium | Verified | No |
-| [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage.](#avd-29---app-attach-should-be-placed-in-separate-file-share-and-disaster-recovery-plan-should-include-app-attach-storage)
+| [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage](#avd-29---app-attach-should-be-placed-in-separate-file-share-and-disaster-recovery-plan-should-include-app-attach-storage)
 | [AVD-30 Ensure virtual networks have route tables/route server configured for all regions](#avd-30---ensure-virtual-networks-have-route-tablesroute-server-configured-for-all-regions) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking/Connectivity | Medium | Verified | No |
 | [AVD-32 Ensure the network is resilient](#avd-32---ensure-the-network-is-resilient) | Networking/Connectivity | Medium | Verified | No |
@@ -390,8 +390,7 @@ It's essential for all stakeholders to have access to the latest documented busi
 **Impact: Medium**
 
 **Guidance:**
-Connectivity for validating the VMs connectivity to AVD Control Plane and UDP TURN ports open.
-Global URLs confirmed whitelisted. UDP/TURN ports open and accessible.
+Validate that session hosts have proper connectivity AVD Control Plane, ensuring whitelisting of the global URLs required to communicate with the AVD service. Validate UDP TURN ports open if in use.
 
 **Resources:**
 
