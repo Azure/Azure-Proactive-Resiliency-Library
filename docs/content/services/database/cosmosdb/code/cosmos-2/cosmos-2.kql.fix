@@ -1,6 +1,0 @@
-resources
-| where type =~ 'Microsoft.DocumentDb/databaseAccounts'
-| where
-    array_length(properties.locations) > 1 and
-    properties.enableAutomaticFailover == false
-| project recommendationId='cosmos-2', name, id
