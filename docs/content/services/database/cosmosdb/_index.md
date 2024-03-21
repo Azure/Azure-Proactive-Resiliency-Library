@@ -1,7 +1,7 @@
 +++
 title = "Cosmos DB"
 description = "Best practices and resiliency recommendations for Cosmos DB and associated resources and settings."
-date = "6/30/23"
+date = "3/5/2024"
 author = "kovarikthomas"
 msAuthor = "tokovari"
 draft = false
@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Cosmos DB and 
 | Recommendation                                                                                                                                                                                  |        Category        | Impact |  State  | ARG Query Available |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------:|:------:|:-------:|:-------------------:|
 | [COSMOS-1 – Configure at least two regions for high availability](#cosmos-1---configure-at-least-two-regions-for-high-availability)                                                             |      Availability      |  High  | Preview |         Yes         |
-| [COSMOS-2 – Enable service-managed failover for multi-region accounts with single write region](#cosmos-2---enable-service-managed-failover-for-multi-region-accounts-with-single-write-region) |   Disaster Recovery    |  High  | Preview |         No          |
+| [COSMOS-2 – Enable service-managed failover for multi-region accounts with single write region](#cosmos-2---enable-service-managed-failover-for-multi-region-accounts-with-single-write-region) |   Disaster Recovery    |  High  | Preview |         Yes          |
 | [COSMOS-3 – Evaluate multi-region write capability](#cosmos-3---evaluate-multi-region-write-capability)                                                                                         |   Disaster Recovery    |  High  | Preview |         Yes         |
 | [COSMOS-4 – Choose appropriate consistency mode reflecting data durability requirements](#cosmos-4---choose-appropriate-consistency-mode-reflecting-data-durability-requirements)               |   Disaster Recovery    |  High  | Preview |         No          |
 | [COSMOS-5 – Configure continuous backup mode](#cosmos-5---configure-continuous-backup-mode)                                                                                                     |   Disaster Recovery    |  High  | Preview |         Yes         |
@@ -41,11 +41,12 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it is still susceptible to failures or issues with entire regions or availability zones. As such, it is crucial to enable at least a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime at all and it is as easy as selecting a pin on map.
+Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it is still susceptible to failures or issues with entire regions or availability zones. As such, it is crucial to enable at least a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime at all and it is as easy as selecting a pin on map. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain write availability in case of one region failure.
 
 **Resources**
 
 - [Distribute data globally with Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/distribute-data-globally)
+- [Tips for building highly available applications | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/high-availability#tips-for-building-highly-available-applications)
 
 **Resource Graph Query**
 
