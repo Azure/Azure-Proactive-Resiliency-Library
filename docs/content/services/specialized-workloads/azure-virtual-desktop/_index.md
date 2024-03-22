@@ -316,7 +316,7 @@ It is recommended to enable backup on the FSLogix Storage Account. Ensuring the 
 **Impact: Medium**
 
 **Guidance:**
-Each region has its own scaling plans assigned to host pools within that region. However, these plans can become inaccessible if there's a regional failure. To mitigate this risk, it's advisable to create a secondary scaling plan in another region
+Each region has its own scaling plans assigned to host pools within that region. However, these plans can become inaccessible if there's a regional failure. To mitigate this risk, it's advisable to create a secondary scaling plan in another region.
 
 **Resources:**
 
@@ -410,7 +410,7 @@ Hybrid - Each Azure region with AVD hosts should have ADDS DCs (IaaS VMs) in Azu
 **Impact: Medium**
 
 **Guidance:**
-ADDS Integrated DNS/other should target Secondary/Tertiary customer DNS across multi-region zones. If using custom DNS, ensure there are redundant DNS servers to avoid a single point of failure.
+Active Directory Domain Services (AD DS) integrated DNS/other should target Secondary/Tertiary customer DNS across multi-region zones. If using custom DNS, ensure there are redundant DNS servers to avoid a single point of failure.
 
 **Resources:**
 
