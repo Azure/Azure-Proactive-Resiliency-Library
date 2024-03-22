@@ -194,11 +194,12 @@ To handle more concurrent users for a given warehouse, increase the cluster coun
 
 **Guidance**
 
-A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting you data on a data disk also helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements.
+Databricks enhanced autoscaling optimizes cluster utilization by automatically allocating cluster resources based on workload volume, with minimal impact on the data processing latency of your pipelines.
 
 **Resources**
 
-- [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
+- [Best practices for reliability](https://learn.microsoft.com/azure/databricks/lakehouse-architecture/reliability/best-practices)
+- [Databricks enhanced autoscaling](https://learn.microsoft.com/azure/databricks/delta-live-tables/settings#use-autoscaling-to-increase-efficiency-and-reduce-resource-usage)
 
 **Resource Graph Query**
 
