@@ -20,4 +20,4 @@ resources
 ) on $left.subnetId == $right.id
 | project-away id, subnetmask
 | where possibleMaxNodeCount <= maxNodes
-| project recommendationId="aks-23", param1=strcat("Max. Node Specified: ", maxNodes), param2=strcat("Max. Available Nodes: ", possibleMaxNodeCount)
+| project recommendationId="aks-23", name=clusterName, param1=strcat("Max. Node Specified: ", maxNodes), param2=strcat("Max. Available Nodes: ", possibleMaxNodeCount)
