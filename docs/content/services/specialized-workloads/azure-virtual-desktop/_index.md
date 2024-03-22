@@ -15,16 +15,15 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | Recommendation | Category | Impact | State | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:--------:|:-------:|:-------------------:|
 | [AVD-1 Use Private link when connecting to File Share or Key Vault](#avd-1---use-private-link-when-connecting-to-file-share-or-key-vault) | Access & Security | Medium | Verified | Yes |
-| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd) | Monitoring | High | Verified | No |
+| [AVD-2 Monitor Service Health and Resource Health of AVD](#avd-2---monitor-service-health-and-resource-health-of-avd) | Monitoring | High | Verified | Yes |
 | [AVD-4 Deploy Domain Controllers and DNS Servers in Azure Virtual Network Across Availability Zones](#avd-4---deploy-domain-controllers-and-dns-servers-in-azure-virtual-network-across-availability-zones) | Availability | Medium | Verified | No |
 | [AVD-5 Implement RDP Shortpath for Public or Managed Networks](#avd-5---implement-rdp-shortpath-for-public-or-managed-networks) | Networking | Medium | Verified | No |
 | [AVD-6 Implement a Multi-Region BCDR Plan](#avd-6---implement-a-multi-region-bcdr-plan) | Disaster Recovery | Medium | Verified | No |
 | [AVD-7 Store Golden Image Redundantly for Disaster Recovery](#avd-7---store-golden-image-redundantly-for-disaster-recovery) | Disaster Recovery | Low | Verified | No |
 | [AVD-8 Capacity Planning for AVD Resources](#avd-8---capacity-planning-for-avd-resources) | Disaster Recovery | Low | Verified | No |
-| [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant) | Availability | High | Verified | No |
+| [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant) | Availability | High | Verified | Yes |
 | [AVD-10 Enable Azure Backup for FSLogix Storage Account](#avd-10---enable-azure-backup-for-fslogix-storage-account) | Storage | Medium | Verified | No |
 | [AVD-11 Scaling plans should be created per region and not scaled across regions](#avd-11---scaling-plans-should-be-created-per-region-and-not-scaled-across-regions) | Disaster Recovery | Medium | Verified | No |
-| [AVD-12 Keep detailed documentation of all AVD and shared services based on BCDR strategy detailing failover scenarios covered based on agreements](#avd-12---keep-detailed-documentation-of-all-avd-and-shared-services-based-on-bcdr-strategy-detailing-failover-scenarios-covered-based-on-agreements) | Disaster Recovery | Low | Verified | No |
 | [AVD-13 Validate that the AVD session hosts can communicate with the AVD control plane and UDP ports are open if UDP is in use](#avd-13---validate-that-the-avd-session-hosts-can-communicate-with-the-avd-control-plane-and-udp-ports-are-open-if-udp-is-in-use) | Networking | Medium | Verified | No |
 | [AVD-14 Ensure Secondary Entra ID connect synchronization server](#avd-14---ensure-secondary-entra-id-connect-synchronization-server) | Access & Security | Low | Verified | No |
 | [AVD-15 Deploy paired Domain Controllers in the same region as AVD session hosts](#avd-15---deploy-paired-domain-controllers-in-the-same-region-as-avd-session-hosts) | Disaster Recovery | High | Verified | No |
@@ -51,19 +50,19 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-36 Configure AVD insights Workbook](#avd-36---configure-avd-insights-workbook) | Monitoring | High | Verified | No |
 | [AVD-37 Ensure separate log analytics workspaces for Prod and DR](#avd-37---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Disaster Recovery | Low | Verified | No |
 | [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Governance | Low | Verified | No |
-| [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Verified | Yes |
+| [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Preview | Yes |
 | [CG-2 - Zone redundant storage should be used for image versions](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/#cg-2---zone-redundant-storage-should-be-used-for-image-versions) | Availability | Medium | Verified | Yes |
 | [VM-2 - Deploy VMs across Availability Zones](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-2---deploy-vms-across-availability-zones) | Availability | High | Verified | Yes |
 | [VM-7 - Enable Backups on your VMs](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-7---backup-vms-with-azure-backup-service) | Disaster Recovery | Medium | Verified | Yes |
 | [VM-8 - Production VMs should be using SSD disks](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-8---production-vms-should-be-using-ssd-disks) | System Efficiency | High | Verified | Yes |
+| [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Preview | Yes |
 | [ERC-1 - Connect your on-premises network to critical workloads in Azure through two or more ExpressRoute circuits in different peering locations](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/#erc-1---connect-your-on-premises-network-to-critical-workloads-in-azure-through-two-or-more-expressroute-circuits-in-different-peering-locations) | Availability | High | Verified | No |
 | [ERC-2 - Ensure the two physical links of your ExpressRoute circuit are connected to two distinct edge devices in your network](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/#erc-2---ensure-the-two-physical-links-of-your-expressroute-circuit-are-connected-to-two-distinct-edge-devices-in-your-network) | Availability | High | Verified | No |
 | [VPNG-1 - Choose a Zone-redundant gateway](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/#vpng-1---choose-a-zone-redundant-gateway) | Availability | High | Verified | Yes |
 | [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Verified | No |
-| [NSG-4 - Configure NSG Flow Logs](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/#nsg-4---configure-nsg-flow-logs) | Monitoring | Medium | Verified | Yes |
-| [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Verified | Yes |
-| [VM-25 - Do not create more than 2000 Citrix VDA servers per subscription](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/management/subscription/#ms-1---do-not-create-more-than-2000-citrix-vda-servers-per-subscription) | Application Resiliency | High | Verified | Yes |
+| [NSG-4 - Configure NSG Flow Logs](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/#nsg-4---configure-nsg-flow-logs) | Monitoring | Medium | Preview | Yes |
 | [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/storage/storage-account/#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant) | Storage | High | Verified | Yes |
+| [WADS-7 - Design a BCDR strategy that will help to meet the business requirements](https://azure.github.io/Azure-Proactive-Resiliency-Library/well-architected/2-design/#wads-7---design-a-bcdr-strategy-that-will-help-to-meet-the-business-requirements) | Disaster Recovery | High | Verified | No |
 
 {{< /table >}}
 
@@ -333,29 +332,6 @@ Each region has its own scaling plans assigned to host pools within that region.
 
 <br><br>
 
-### AVD-12 - Keep detailed documentation of all AVD and shared services based on BCDR strategy detailing failover scenarios covered based on agreements
-
-**Category: Disaster Recovery**
-
-**Impact: Low**
-
-**Guidance:**
-It's essential for all stakeholders to have access to the latest documented business continuity and disaster recovery considerations aligned to the AVD workloads you deploy.
-
-**Resources:**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/virtual-desktop/network-connectivity)
-
-**Resource Graph Query/Scripts**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-12/avd-12.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
 ### AVD-13 - Validate that the AVD session hosts can communicate with the AVD control plane and UDP ports are open if UDP is in use
 
 **Category: Networking**
@@ -379,16 +355,15 @@ Validate that session hosts have proper connectivity AVD Control Plane, ensuring
 
 <br><br>
 
-### AVD-14 - Incorporate Secondary Entra ID connect synchronization server
+### AVD-14 - Ensure Secondary Entra ID connect synchronization server
 
 **Category: Access & Security**
 
 **Impact: Low**
 
 **Guidance:**
-For optimal performance and reliability, Entra ID Connect is best operated within Azure's environment, although it can be hosted on-premises if necessary. As part of a hybrid setup, it's advisable to establish secondary VMs in staging mode to prepare for failover scenarios.
-
-To ensure continuity, set up a secondary server for Entra Connect in staging mode. This secondary server will serve as a backup, ready to sync with Entra in the event of a primary server outage.
+Hybrid - Entra ID Connect best to run in Azure but can be hosted on-prem. Secondary or more VMs should be setup in staging mode in event of failover.
+Set up secondary server in staging mode for Entra Connect for syncing to Entra in case of primary server outage.
 
 **Resources:**
 
@@ -411,8 +386,8 @@ To ensure continuity, set up a secondary server for Entra Connect in staging mod
 **Impact: High**
 
 **Guidance:**
-Ensure each Region with session host has multiple domain controllers in the same region to support adjustments based on your business requirements. To handle a large number of users, consider scaling horizontally by creating multiple host pools.
-Hybrid - Each Azure region with AVD hosts should have ADDS DCs (IaaS VMs) in Azure and use Availability Sets or Zones for resiliency across single Datacenter or Region. This mitigates dependency on ER/VPN/Inter-Azure dependencies.
+Ensure each region with session hosts has multiple domain controllers in the same region to support adjustments based on your business requirements. To handle a large number of users, consider scaling horizontally by creating multiple host pools.
+Hybrid - Each Azure region with AVD hosts should have ADDS DCs (IaaS VMs) in Azure and use Availability Sets or Zones for resiliency across single Datacenter or Region. Mitigates dependency on ER/VPN/Inter-Azure dependencies.
 
 **Resources:**
 
@@ -948,7 +923,7 @@ Having separate Log Analytics ensures that your DR environment is fully operatio
 
 **Resources**
 
-- [Learn More](https://learn.microsoft.com/en-US/azure/virtual-desktop/set-up-service-alerts)
+- [Learn More](https://learn.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics)
 
 **Resource Graph Query/Scripts:**
 
