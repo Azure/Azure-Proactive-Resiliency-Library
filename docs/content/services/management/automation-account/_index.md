@@ -43,7 +43,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 - [Disaster recovery for Automation accounts](https://learn.microsoft.com/en-us/azure/automation/automation-disaster-recovery?tabs=win-hrw%2Cps-script%2Coption-one)
 - [Disaster recovery scenarios for cloud and hybrid jobs](https://learn.microsoft.com/en-us/azure/automation/automation-disaster-recovery?tabs=win-hrw%2Cps-script%2Coption-one#scenarios-for-cloud-and-hybrid-jobs)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

@@ -40,7 +40,7 @@ Service health provides a personalized view of the health of the Azure services 
 - [What is Azure Service Health?](https://learn.microsoft.com/azure/service-health/overview)
 - [Configure alerts for service health events](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

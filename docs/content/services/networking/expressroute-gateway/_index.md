@@ -44,7 +44,7 @@ Connect each ExpressRoute Gateway to a minimum of two circuits, with each circui
 
 - [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -70,7 +70,7 @@ Azure ExpressRoute gateway provides different SLAs when it’s deployed in a sin
 - [About zone-redundant virtual network gateway in Azure availability zones](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
 - [Create a zone-redundant virtual network gateway in Azure Availability Zones](https://learn.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -94,7 +94,7 @@ Configure an Azure Resource lock for ExpressRoute Gateway to prevent accidental 
 
 - [Protect your Azure resources with a lock - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?tabs=json)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -125,7 +125,7 @@ Configure alerts for scalability metrics for active flows based on the supported
 - [ExpressRoute monitoring, metrics, and alerts | ExpressRoute gateways](https://learn.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts#expressroute-gateways)
 - [Azure ExpressRoute Insights using Network Insights](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-network-insights)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -151,7 +151,7 @@ For more information about why VNet-to-VNet connectivity isn’t recommended ove
 
 - [About ExpressRoute virtual network gateways - VNet-to-VNet connectivity](https://learn.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways#vnet-to-vnet-connectivity)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -175,7 +175,7 @@ ExpressRoute virtual network gateways undergo regular updates to enhance functio
 
 - [Configure customer-controlled maintenance for your virtual network gateway - ExpressRoute | Microsoft Learn](https://learn.microsoft.com/en-us/azure/expressroute/customer-controlled-gateway-maintenance#azure-portal-steps)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
