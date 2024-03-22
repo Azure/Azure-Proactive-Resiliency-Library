@@ -3,5 +3,5 @@
 resources
 | where type =~ 'microsoft.network/applicationgateways'
 | extend tier = properties.sku.tier
-| where tier != 'Standard' and tier != 'WAF'
+| where tier == 'Standard' or tier == 'WAF'
 | project recommendationId = "agw-4", name, id, tags
