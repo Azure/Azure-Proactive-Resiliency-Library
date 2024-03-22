@@ -1,1 +1,8 @@
-// under-development
+// Azure Resource Graph Query
+// Find availabilitysets where Fault and Update Domains < 3
+Resources
+| where type == "microsoft.compute/availabilitysets"
+| extend faultDomainsCount = properties.platformFaultDomainCount, updateDomainsCount = properties.platformUpdateDomainCount
+| where updateDomainsCount < 3
+| where faultDomainsCount < 3
+| project ['id'], AvailabilitySetName = name, updateDomainsCount, faultDomainsCount, recommendationid='SAP-8'

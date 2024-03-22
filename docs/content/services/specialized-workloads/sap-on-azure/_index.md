@@ -14,14 +14,14 @@ The presented resiliency recommendations in this guidance include Azure Sap Solu
 {{< table style="table-striped" >}}
 | Recommendation                                    |                                Category                                 |     Impact      |      State       | ARG Query Available |
 |:--------------------------------------------------|:-----------------------------------------------------------------------:|:---------------:|:----------------:|:-------------------:|
-| [SAP-1 - Ensure that each SAP production system is designed for high availability using availability zones.](#sap-1---ensure-that-each-sap-production-systems-are-designed-for-high-availability) | Availability | High | Verified | No |
+| [SAP-1 - Ensure that each SAP production system is designed for high availability using availability zones.](#sap-1---ensure-that-each-sap-production-systems-are-designed-for-high-availability) | Availability | High | Verified | Yes |
 | [SAP-2 - Run SAP application servers on two or more VMs using VMSS Flex.](#sap-2---run-sap-application-servers-on-two-or-more-vms-using-vmss-flex) | Availability | High | Verified | No  |
 | [SAP-6 - Avoid placing application server and database VMs in one Proximity Placement Group.](#sap-6---avoid-placing-application-server-and-database-in-one-proximity-placement-group) | Availability | High | Verified |  No  |
 | [SAP-7 - Avoid placing VMs from multiple SAP systems in a single Proximity Placement Group.](#sap-7---avoid-placing-vms-from-multiple-sap-systems-in-a-single-proximity-placement-group) | Availability | High | Verified | No |
 | [SAP-8 - When creating availability sets, ensure that you have maximum number of fault domains and a sufficient number of update domains.](#sap-8---when-creating-availability-sets-ensure-that-you-have-maximum-number-of-fault-domains-and-a-sufficient-number-of-update-domains) | Availability | High | Verified | No |
-| [SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk.](#sap-9---if-using-single-instance-vms-all-os-and-data-disks-must-be-premium-ssd-or-ultra-disk) | Availability | High | Verified |  No  |
+| [SAP-9 - If using single-instance VMs, all OS and data disks must be Premium SSD or Ultra Disk.](#sap-9---if-using-single-instance-vms-all-os-and-data-disks-must-be-premium-ssd-or-ultra-disk) | Availability | High | Verified |  Yes  |
 | [SAP-14 - Ensure that each database replicates changes synchronously (SYNC mode) to a stand-by node.](#sap-14---ensure-that-the-data-is-replicated-synchronously-sync-mode-between-the-primary-and-secondary-database-hosting-vm-nodes) | Availability | High | Verified |  No  |
-| [SAP-15 - Ensure that SAP shared file systems are designed for high availability, and when possible using availability zones.](#sap-15---ensure-that-the-sap-shared-files-systems-are-made-highly-available) | Availability | High | Verified |  No  |
+| [SAP-15 - Ensure that SAP shared file systems are designed for high availability, and when possible using availability zones.](#sap-15---ensure-that-the-sap-shared-files-systems-are-made-highly-available) | Availability | High | Verified |  Yes  |
 | [SAP-16 - Test high availability solutions thoroughly to ensure fail overs work as expected.](#sap-16---test-high-availability-solutions-thoroughly-to-ensure-fail-overs-work-as-expected) | Availability | High | Verified | No |
 | [SAP-18 - Remove unwanted location constraints from your Linux Pacemaker clusters.](#sap-18---remove-unwanted-location-constraints-from-your-linux-pacemaker-clusters) | Availability | High | Verified | No |
 | [SAP-22 - Protect SAP production workloads with a cross-region disaster recovery solution.](#sap-22---protect-sap-production-workloads-with-a-cross-region-disaster-recovery-solution) | Disaster Recovery | High | Verified |  No  |
@@ -35,7 +35,6 @@ The presented resiliency recommendations in this guidance include Azure Sap Solu
 | [SAP-34 - Ensure there is a robust monitoring and alerting solution in place for the entire DR solution.](#sap-34---ensure-there-is-a-robust-monitoring-and-alerting-solution-in-place-for-the-entire-dr-solution) | Disaster Recovery | Medium | Verified | No |
 | [SAP-36 - Configure scheduled events so you are notified of upcoming maintenance events.](#sap-36---configure-scheduled-events-notification) | Monitoring | High | Verified | No |
 | [SAP-42 - ASCS-Pacemaker (Central Server Instance) Ensure Pacemaker cluster has been setup for SAP ASCS high availability.](#sap-42---ascs-pacemaker-central-server-instance-ensure-pacemaker-cluster-has-been-setup-for-sap-ascs-high-availability) | Automation | High | Verified | No |
-| [SAP-43 - ASCS-Pacemaker-SLES (Central Server Instance) Ensure the Pacemaker cluster has been setup for SAP ASCS high availability.](#sap-43---ascs-pacemaker-sles-central-server-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-ascs-high-availability) | Availability | High | Verified | No  |
 | [SAP-44 - ASCS-Pacemaker-RH (Central Server Instance) Ensure the Pacemaker cluster has been setup for SAP ASCS high availability.](#sap-44---ascs-pacemaker-rh-central-server-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-ascs-high-availability) | Availability | High | Verified | No  |
 | [SAP-45 - ASCS-LB (Central Server Instance) Ensure the load balancer is configured correctly for SAP ASCS High availability.](#sap-45---ascs-lb-central-server-instance-ensure-the-load-balancer-is-configured-correctly-for-sap-ascs-high-availability) | Availability | High | Verified | No |
 | [SAP-46 - DBHANA-Pacemaker (Database Instance) Ensure the Pacemaker cluster has been setup for SAP HANA DB high availability.](#sap-46---dbhana-pacemaker-database-instance-ensure-the-pacemaker-cluster-has-been-setup-for-sap-hana-db-high-availability) | Availability | High | Verified | No |
@@ -72,7 +71,7 @@ Azure Availability Zones are physically separate locations within each Azure reg
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/sap-1/sap-1.kql" >}} {{< /code >}}
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-2/vm-2.kql">}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -206,7 +205,7 @@ For single-instance VMs, both OS and data disks must be either Premium SSD or Ul
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/sap-9/sap-9.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/vm-8/vm-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -257,7 +256,7 @@ In case of Azure File Shares, we recommend that you use ZRS (Zone-redundant stor
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/sap-15/sap-15.kql" >}} {{< /code >}}
+{{< code lang="sql" file="../../storage/storage-account/code/st-1/st-1.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -615,30 +614,6 @@ For the ASCS-Pacemaker (Central Server Instance), ensure that the Pacemaker clus
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/sap-42/sap-42.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### SAP-43 - ASCS-Pacemaker-SLES (Central Server Instance) Ensure the Pacemaker cluster has been setup for SAP ASCS high availability
-
-**Category: Availability**
-
-**Impact: High**
-
-**Guidance**
-
-For the ASCS-Pacemaker-SLES (Central Server Instance), ensure that the Pacemaker cluster configuration parameters are correctly set up for SAP ASCS high availability when running on SLES.
-
-**Resources**
-
-- [ASCS-Pacemaker-SLESCentral Server Instance](https://docs.microsoft.com/en-us/azure/advisor/advisor-reference-reliability-recommendations)
-
-**Resource Graph Query**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/sap-43/sap-43.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
