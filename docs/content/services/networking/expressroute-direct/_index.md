@@ -14,9 +14,9 @@ The presented resiliency recommendations in this guidance include ExpressRoute D
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :-----------------: |
-| [ERD-1 - The Admin State of both Links of an ExpressRoute Direct should be in Enabled state](#erd-1---the-admin-state-of-both-links-of-an-expressroute-direct-should-be-in-enabled-state) | Availability | High | Preview | No |
-| [ERD-2 - Ensure you do not over-subscribe an ExpressRoute Direct](#erd-2---ensure-you-do-not-over-subscribe-an-expressroute-direct) | System Efficiency | High | Preview | No |
-| [ERD-3 - Enable rate-limiting to help optimize network performance by controlling the traffic volume across all your ExpressRoute Direct based circuits - In Preview](#erd-3---enable-rate-limiting-to-help-optimize-network-performance-by-controlling-the-traffic-volume-across-all-your-expressroute-direct-based-circuits---in-preview) | System Efficiency | Medium | Preview| No |
+| [ERD-1 - The Admin State of both Links of an ExpressRoute Direct should be in Enabled state](#erd-1---the-admin-state-of-both-links-of-an-expressroute-direct-should-be-in-enabled-state) | Availability | High | Verified | No |
+| [ERD-2 - Ensure you do not over-subscribe an ExpressRoute Direct](#erd-2---ensure-you-do-not-over-subscribe-an-expressroute-direct) | System Efficiency | High | Verified | No |
+| [ERD-3 - Enable rate-limiting to help optimize network performance by controlling the traffic volume across all your ExpressRoute Direct based circuits - In Preview](#erd-3---enable-rate-limiting-to-help-optimize-network-performance-by-controlling-the-traffic-volume-across-all-your-expressroute-direct-based-circuits---in-preview) | System Efficiency | Medium | Verified| No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -41,7 +41,7 @@ In Azure ExpressRoute Direct, the "Admin State" refers to the administrative sta
 
 - [How to configure ExpressRoute Direct: Change Admin State of links](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-erdirect#state)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -65,7 +65,7 @@ You can provision logical ExpressRoute circuits on top of your selected ExpressR
 
 - [About ExpressRoute Direct: Circuit Sizes](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-erdirect-about?source=recommendations#circuit-sizes)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -89,7 +89,7 @@ Rate limiting is a feature that enables you to control the traffic volume betwee
 
 - [Rate limiting for ExpressRoute Direct circuits (Preview)](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
