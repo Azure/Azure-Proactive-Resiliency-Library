@@ -14,8 +14,8 @@ The presented resiliency recommendations in this guidance include ExpressRoute C
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :-----------------: |
-| [ERCON-1 - For Connections using ExpressRoute Direct circuits and UltraPerformance or ErGw3AZ ExpressRoute Gateways, enable FastPath to improve data path performance between your on-premises network and your virtual network](#ercon-1---for-connections-using-expressroute-direct-circuits-and-ultraperformance-or-ergw3az-expressroute-gateways-enable-fastpath-to-improve-data-path-performance-between-your-on-premises-network-and-your-virtual-network) | System Efficiency | Medium | Preview | No |
-| [ERCON-2 - Configure an Azure Resource Lock on connections to prevent accidental deletion](#ercon-2---configure-an-azure-resource-lock-on-connections-to-prevent-accidental-deletion) | Availability | High | Preview | No |
+| [ERCON-1 - For Connections using ExpressRoute Direct circuits and UltraPerformance or ErGw3AZ ExpressRoute Gateways, enable FastPath to improve data path performance between your on-premises network and your virtual network](#ercon-1---for-connections-using-expressroute-direct-circuits-and-ultraperformance-or-ergw3az-expressroute-gateways-enable-fastpath-to-improve-data-path-performance-between-your-on-premises-network-and-your-virtual-network) | System Efficiency | Medium | Verified | No |
+| [ERCON-2 - Configure an Azure Resource Lock on connections to prevent accidental deletion](#ercon-2---configure-an-azure-resource-lock-on-connections-to-prevent-accidental-deletion) | Availability | High | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
