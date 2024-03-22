@@ -205,7 +205,7 @@ For single-instance VMs, both OS and data disks must be either Premium SSD or Ul
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/vm-8/vm-8.kql" >}} {{< /code >}}
+{{< code lang="sql" file="../../compute/virtual-machines/code/vm-8/vm-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
