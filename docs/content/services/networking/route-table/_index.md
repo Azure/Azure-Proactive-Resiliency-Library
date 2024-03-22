@@ -40,7 +40,7 @@ Create Alerts for administrative operations such as Create or Update Route Table
 
 - [Azure activity log - Azure Monitor | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/activity-log?tabs=powershell)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -65,11 +65,11 @@ You can set locks that prevent either deletions or modifications. In the portal,
 
 - [Protect your Azure resources with a lock - Azure Resource Manager | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=json)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/rt-2/rt-2.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/rt-2/rt-2.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 

@@ -43,7 +43,7 @@ Configure Resource Health Alerts for all applicable resources. Azure Resource He
 - [Configure Resource Health alerts in the Azure portal](https://learn.microsoft.com/en-us/azure/service-health/resource-health-alert-monitor-guide#create-a-resource-health-alert-rule-in-the-azure-portal)
 - [Alerts Health](https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
