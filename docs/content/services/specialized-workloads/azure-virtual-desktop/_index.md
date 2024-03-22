@@ -435,7 +435,7 @@ Hybrid - Each Azure region with AVD hosts should have ADDS DCs (IaaS VMs) in Azu
 **Impact: Medium**
 
 **Guidance:**
-ADDS Integrated DNS/other should target Secondary/Tertiary customer DNS across multi-region zones. If using custom DNS, ensure there are redundant DNS servers to avoid a single point of failure.
+Active Directory Domain Services (AD DS) integrated DNS/other should target Secondary/Tertiary customer DNS across multi-region zones. If using custom DNS, ensure there are redundant DNS servers to avoid a single point of failure.
 
 **Resources:**
 
