@@ -40,7 +40,7 @@ Event Hubs supports Availability Zones, providing fault-isolated locations withi
 
 - [Azure Event Hubs - Geo-disaster recovery](https://learn.microsoft.com/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -64,7 +64,7 @@ Enable auto-inflate on Event Hub Standard tier namespaces. The auto-inflate feat
 
 - [Azure Event Hubs - Automatically scale throughput units](https://learn.microsoft.com/azure/event-hubs/event-hubs-auto-inflate)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

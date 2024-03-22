@@ -1,7 +1,7 @@
 +++
 title = "Cosmos DB"
 description = "Best practices and resiliency recommendations for Cosmos DB and associated resources and settings."
-date = "6/30/23"
+date = "3/5/2024"
 author = "kovarikthomas"
 msAuthor = "tokovari"
 draft = false
@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Cosmos DB and 
 | Recommendation                                                                                                                                                                                  |        Category        | Impact |  State  | ARG Query Available |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------:|:------:|:-------:|:-------------------:|
 | [COSMOS-1 – Configure at least two regions for high availability](#cosmos-1---configure-at-least-two-regions-for-high-availability)                                                             |      Availability      |  High  | Preview |         Yes         |
-| [COSMOS-2 – Enable service-managed failover for multi-region accounts with single write region](#cosmos-2---enable-service-managed-failover-for-multi-region-accounts-with-single-write-region) |   Disaster Recovery    |  High  | Preview |         No          |
+| [COSMOS-2 – Enable service-managed failover for multi-region accounts with single write region](#cosmos-2---enable-service-managed-failover-for-multi-region-accounts-with-single-write-region) |   Disaster Recovery    |  High  | Preview |         Yes          |
 | [COSMOS-3 – Evaluate multi-region write capability](#cosmos-3---evaluate-multi-region-write-capability)                                                                                         |   Disaster Recovery    |  High  | Preview |         Yes         |
 | [COSMOS-4 – Choose appropriate consistency mode reflecting data durability requirements](#cosmos-4---choose-appropriate-consistency-mode-reflecting-data-durability-requirements)               |   Disaster Recovery    |  High  | Preview |         No          |
 | [COSMOS-5 – Configure continuous backup mode](#cosmos-5---configure-continuous-backup-mode)                                                                                                     |   Disaster Recovery    |  High  | Preview |         Yes         |
@@ -41,13 +41,14 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Guidance**
 
-Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it is still susceptible to failures or issues with entire regions or availability zones. As such, it is crucial to enable at least a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime at all and it is as easy as selecting a pin on map.
+Azure implements multi-tier isolation approach with rack, DC, zone, and region isolation levels. Cosmos DB is by default highly resilient by running four replicas, but it is still susceptible to failures or issues with entire regions or availability zones. As such, it is crucial to enable at least a secondary region on your Cosmos DB to achieve higher SLA. Doing so does not incur any downtime at all and it is as easy as selecting a pin on map. Cosmos DB instances utilizing Strong consistency need to configure at least three regions to retain write availability in case of one region failure.
 
 **Resources**
 
 - [Distribute data globally with Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/distribute-data-globally)
+- [Tips for building highly available applications | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/high-availability#tips-for-building-highly-available-applications)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -71,7 +72,7 @@ Cosmos DB is a battle-tested service with extremely high uptime and resiliency, 
 
 - [Manage an Azure Cosmos DB account by using the Azure portal | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-manage-database-account#automatic-failover)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -96,7 +97,7 @@ Multi-region write capability enables you to design multi-region application tha
 - [Distribute data globally with Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/distribute-data-globally)
 - [Conflict resolution types and resolution policies in Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -120,7 +121,7 @@ Within a globally distributed database environment, there is a direct relationsh
 
 - [Consistency level choices - Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -144,7 +145,7 @@ Cosmos DB automatically backs up your data and there is no way to turn back ups 
 
 - [Continuous backup with point in time restore feature in Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-introduction)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -168,7 +169,7 @@ Cosmos DB limits single response to 4 MB. If your query requests a large amount 
 
 - [Pagination in Azure Cosmos DB | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query/pagination#handling-multiple-pages-of-results)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -191,7 +192,7 @@ Not only is establishing a new database connection expensive, so is maintaining 
 **Resources**
 
 - [Designing resilient applications with Azure Cosmos DB SDKs | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications)
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -215,7 +216,7 @@ Cosmos DB SDKs by default handle large number of transient errors and automatica
 
 - [Designing resilient applications with Azure Cosmos DB SDKs | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/conceptual-resilient-sdk-applications)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -239,7 +240,7 @@ It is good practice to monitor the availability and responsiveness of your Azure
 
 - [Create alerts for Azure Cosmos DB using Azure Monitor | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cosmos-db/create-alerts)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

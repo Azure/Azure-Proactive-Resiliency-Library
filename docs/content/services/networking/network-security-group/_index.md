@@ -43,7 +43,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 - [Diagnostic settings in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -53,7 +53,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/nsg-1/nsg-1.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/nsg-1/nsg-1.sql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -73,7 +73,7 @@ Create Alerts for administrative operations such as Create or Update Network Sec
 
 - [Azure Monitor activity log](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -87,7 +87,7 @@ Create Alerts for administrative operations such as Create or Update Network Sec
 
 **Category: Governance**
 
-**Impact: Medium**
+**Impact: Low**
 
 **Guidance**
 
@@ -98,7 +98,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 
 - [Lock your resources to protect your infrastructure](https://learn.microsoft.com/azure/azure-resource-manager/management/lock-resources?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=json)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -108,7 +108,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/nsg-3/nsg-3.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/nsg-3/nsg-3.sql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -130,7 +130,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 
 - [Flow logging for network security groups](https://learn.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -154,7 +154,7 @@ You can use an Azure network security group to filter network traffic between Az
 
 - [Security rules](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview#security-rules)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

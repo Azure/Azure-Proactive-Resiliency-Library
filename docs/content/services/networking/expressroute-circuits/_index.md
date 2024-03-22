@@ -46,7 +46,7 @@ Connect each ExpressRoute Gateway to a minimum of two circuits instantiated in d
 
 - [Designing for disaster recovery with ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -71,7 +71,7 @@ Microsoft (in the ExpressRoute direct model) or the ExpressRoute provider (in th
 - [Designing for high availability with ExpressRoute](https://learn.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute)
 - [Azure Well-Architected Framework review - Azure ExpressRoute - Design Checklist](https://learn.microsoft.com/azure/well-architected/services/networking/azure-expressroute#recommendations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -95,7 +95,7 @@ To improve high availability, it's recommended that you operate both the connect
 
 - [Designing for high availability with ExpressRoute - Active-active connections](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -119,7 +119,7 @@ When you enable Bidirectional Forwarding Detection (BFD) over ExpressRoute, you 
 
 - [Configure BFD over ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-bfd)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -149,7 +149,7 @@ For ExpressRoute Direct, configure Traffic Collection for ExpressRoute Direct to
 - [Monitoring Azure ExpressRoute](https://learn.microsoft.com/azure/expressroute/monitor-expressroute)
 - [Configure Traffic Collector for ExpressRoute Direct - Azure ExpressRoute | Microsoft Learn](https://learn.microsoft.com/en-us/azure/expressroute/how-to-configure-traffic-collector#deploy-expressroute-traffic-collector)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -173,7 +173,7 @@ ExpressRoute uses service health to notify about planned and unplanned maintenan
 
 - [How to view and configure alerts for Azure ExpressRoute circuit maintenance](https://learn.microsoft.com/azure/expressroute/maintenance-alerts)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -197,7 +197,7 @@ If you have not yet added a second ExpressRoute circuit for an ExpressRoute Gate
 
 - [Using S2S VPN as a backup for ExpressRoute private peering](https://learn.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

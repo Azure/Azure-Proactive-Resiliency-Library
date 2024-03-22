@@ -41,7 +41,7 @@ You can associate a single ExpressRoute Direct circuit with multiple ExpressRout
 
 - [Azure ExpressRoute Traffic Collector](https://learn.microsoft.com/en-us/azure/expressroute/traffic-collector)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

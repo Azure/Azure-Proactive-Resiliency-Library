@@ -18,7 +18,7 @@ The below table shows the list of resiliency recommendations for Storage Account
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:--------------------:|
 | [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant)                                   |   Availability    |  High  | Preview |          Yes         |
 | [ST-2 - Do not use classic storage account](#st-2---do-not-use-classic-storage-account)                                                                                                       |    Governance     |  High  | Preview |         Yes          |
-| [ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                                                               | System Efficiency | Medium | Preview |         Yes          |
+| [ST-3 - Ensure Performance tier is set as per workload](#st-3---ensure-performance-tier-is-set-as-per-workload)                                                                               | System Efficiency | Medium | Preview |          No          |
 | [ST-4 - Choose right blob type for workload](#st-4---choose-right-blob-type-for-workload)                                                                                                     | System Efficiency | Medium | Preview |          No          |
 | [ST-5 - Enable soft delete for recovery of data](#st-5---enable-soft-delete-for-recovery-of-data)                                                                                             | Disaster Recovery | Medium | Preview |          No          |
 | [ST-6 - Enable version for accidental modification and keep the number of versions below 1000](#st-6---enable-version-for-accidental-modification-and-keep-the-number-of-versions-below-1000) | Disaster Recovery | Medium | Preview |          No          |
@@ -55,7 +55,7 @@ Data in an Azure Storage account is always replicated three times in the primary
 
 - [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -80,7 +80,7 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 - [Azure classic storage accounts retirement announcement](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/)
 - [Migrate your classic storage accounts to Azure Resource Manager](https://learn.microsoft.com/en-us/azure/storage/common/classic-account-migration-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -98,13 +98,20 @@ Azure classic Storage Account will retire 31 august 2024. So migrate all workloa
 
 **Guidance**
 
-Consider using appropriate storage performance tier for standard storage / block blob / append blob / file-share and page blob. Each workload scenario requires appropriate Performance tier and its important that based on the type of transaction and blob type/file type appropriate performance tier is selected. Failing to do so will create performance bottleneck.
+Consider using appropriate storage performance tier for workload scenarios. Each workload scenario requires appropriate performance tiers and it's important that appropriate performance tiers are selected based on the storage usage.
 
 **Resources**
 
-- [Performance Tier](https://learn.microsoft.com/azure/storage/common/storage-account-overview#performance-tiers )
+- [Types of storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#types-of-storage-accounts)
+- [Scalability and performance targets for standard storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account)
+- [Performance and scalability checklist for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-performance-checklist)
+- [Scalability and performance targets for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets)
+- [Premium block blob storage accounts](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-block-blob-premium)
+- [Scalability targets for premium block blob storage accounts](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets-premium-block-blobs)
+- [Scalability and performance targets for premium page blob storage accounts](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets-premium-page-blobs)
+- [Azure Files scalability and performance targets](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -135,7 +142,7 @@ Page blobs are a collection of 512-byte pages optimized for random read and writ
 - [Understanding block blobs, append blobs, and page blobs](https://learn.microsoft.com/en-us/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 - [Scalability and performance targets for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -163,7 +170,7 @@ Soft delete option allow for recovering data if its deleted by mistaken. Moreove
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-5/st-5.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-5/st-5.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -188,7 +195,7 @@ Having a large number of versions per blob can increase the latency for blob lis
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-6/st-6.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-6/st-6.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -213,7 +220,7 @@ Point and time restore support general purpose v2 account in standard performanc
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-7/st-7.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-7/st-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
@@ -237,7 +244,7 @@ Enabling diagnostic settings allow you to capture and view diagnostic informatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="powershell" file="code/st-8/st-8.ps1" >}} {{< /code >}}
+{{< code lang="sql" file="code/st-8/st-8.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
