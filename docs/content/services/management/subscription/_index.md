@@ -45,7 +45,6 @@ This recommendation checks for 80% of the Citrix limit so that attention can be 
 **Resources**
 
 - [Citrix Limits](https://docs.citrix.com/en-us/citrix-daas-azure/limits)
-- [Citrix Managed Azure subscriptions](https://docs.citrix.com/en-us/citrix-daas-azure/limits)
 
 **Resource Graph Query/Scripts**
 
