@@ -46,7 +46,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 - [Enable or disable health checks](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#enable-or-disable-health-checks-preview)
 - [Troubleshooting degraded state on Azure Traffic Manager](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-troubleshooting-degraded)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 {{< code lang="sql" file="code/traf-1/traf-1.kql" >}} {{< /code >}}
@@ -67,7 +67,7 @@ When configuring the Azure traffic manager, you should provision minimum of two 
 
 - [Traffic Manager Endpoint Types](https://learn.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -92,7 +92,7 @@ Profiles should have more than one endpoint to ensure availability if one of the
 - [Reliability recommendations
 ](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#add-at-least-one-more-endpoint-to-the-profile-preferably-in-another-azure-region)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -117,7 +117,7 @@ Time to Live (TTL) affects how recent of a response a client will get when it ma
 - [Configure DNS Time to Live to 60 seconds).](https://learn.microsoft.com/azure/advisor/advisor-reference-performance-recommendations#configure-dns-time-to-live-to-60-seconds)
 - [Traffic Manager profile - ProfileTTL (Configure DNS Time to Live to 60 seconds).](https://aka.ms/Um3xr5)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -142,7 +142,7 @@ For geographic routing, traffic is routed to endpoints based on defined regions.
 - [Add an endpoint configured to "All (World)"](https://learn.microsoft.com/azure/advisor/advisor-reference-reliability-recommendations#add-an-endpoint-configured-to-all-world)
 - [Traffic Manager profile - GeographicProfile (Add an endpoint configured to ""All (World)"").](https://aka.ms/Rf7vc5)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

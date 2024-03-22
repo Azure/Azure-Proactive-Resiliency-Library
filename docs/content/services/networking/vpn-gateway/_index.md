@@ -16,12 +16,12 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway) | Availability | High | Preview | Yes |
-| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode) | Availability | High | Preview | Yes |
-| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Preview | No |
-| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections) | Disaster Recovery | High | Preview | No |
-| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health) | Monitoring | Medium | Preview | No |
-| [VPNG-6 - Enable service health alerts](#vpng-6---enable-service-health-alerts) | Monitoring | Medium | Preview | No |
+| [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway) | Availability | High | Verified | Yes |
+| [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode) | Availability | High | Verified | Yes |
+| [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Verified | No |
+| [VPNG-4 - Plan for geo-redundant VPN Connections](#vpng-4---plan-for-geo-redundant-vpn-connections) | Disaster Recovery | High | Verified | No |
+| [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health) | Monitoring | Medium | Verified | No |
+| [VPNG-6 - Enable service health alerts](#vpng-6---enable-service-health-alerts) | Monitoring | Medium | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -48,7 +48,7 @@ To automatically deploy your virtual network gateways across availability zones,
 - [Zone redundant Virtual network gateway in availability zone](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
 - [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways#gwskus)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -73,7 +73,7 @@ The active-active mode is available for all SKUs except Basic. You can create an
 - [About Active-Active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#active-active-vpn-gateways)
 - [Configure Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -98,7 +98,7 @@ Having the ability to configure Site-to-Site VPN and ExpressRoute has several ad
 - [Configure a Site-to-Site VPN as a failover path for ExpressRoute](https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#configuration-designs)
 - [Limit and limitations](https://learn.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager#limits-and-limitations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -123,7 +123,7 @@ If your gateway is not zone redundant, to plan for disaster recovery, set up Sit
 - [Highly available cross-premises](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable)
 - [About VPN gateway redundancy](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-vpn-gateway-redundancy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -147,7 +147,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 - [VPN gateway data reference](https://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -172,7 +172,7 @@ VPN Gateway uses service health alerts to notify about planned and unplanned mai
 - [Getting started with Azure Metrics Explorer](hhttps://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)
 - [Monitor VPN gateway](hhttps://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference#metrics)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

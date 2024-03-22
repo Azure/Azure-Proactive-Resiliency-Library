@@ -14,10 +14,10 @@ The presented resiliency recommendations in this guidance include Firewall and a
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 |:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [AFW-1 - Deploy Azure Firewall across multiple availability zones](#afw-1---deploy-azure-firewall-across-multiple-availability-zones) | Availability | High | Preview | Yes |
-| [AFW-2 - Monitor Azure Firewall metrics](#afw-2---monitor-azure-firewall-metrics) | Monitoring | Medium | Preview | Yes |
-| [AFW-3 - Configure DDoS Protection on the Azure Firewall VNet](#afw-3---configure-ddos-protection-on-the-azure-firewall-vnet) | Access & Security | High | Preview | Yes |
-| [AFW-4 - Leverage Azure Policy inheritance model](#afw-4---leverage-azure-policy-inheritance-model) | Governance | Medium | Preview | No |
+| [AFW-1 - Deploy Azure Firewall across multiple availability zones](#afw-1---deploy-azure-firewall-across-multiple-availability-zones) | Availability | High | Verified | Yes |
+| [AFW-2 - Monitor Azure Firewall metrics](#afw-2---monitor-azure-firewall-metrics) | Monitoring | Medium | Verified | Yes |
+| [AFW-3 - Configure DDoS Protection on the Azure Firewall VNet](#afw-3---configure-ddos-protection-on-the-azure-firewall-vnet) | Access & Security | High | Verified | Yes |
+| [AFW-4 - Leverage Azure Policy inheritance model](#afw-4---leverage-azure-policy-inheritance-model) | Governance | Medium | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -43,7 +43,7 @@ Azure Firewall provides different SLAs when it's deployed in a single availabili
 - [Azure Well Architected Framework - Azure Firewall](https://learn.microsoft.com/azure/architecture/framework/services/networking/azure-firewall)
 - [Deploy Azure Firewall across multiple availability zones](https://learn.microsoft.com/azure/firewall/deploy-availability-zone-powershell)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -72,7 +72,7 @@ Monitor metrics related to availability and performance issues. More specificall
 - [Azure Firewall metrics supported in Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkazurefirewalls)
 - [Azure Firewall performance](https://learn.microsoft.com/azure/firewall/firewall-performance)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -96,7 +96,7 @@ Associate a DDoS protection plan with the virtual network hosting Azure Firewall
 
 - [Azure DDoS Protection overview](https://learn.microsoft.com/azure/ddos-protection/ddos-protection-overview)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -120,7 +120,7 @@ Azure Firewall policy allows you to define a rule hierarchy and enforce complian
 
 - [Azure Firewall Policy hierarchy](https://learn.microsoft.com/azure/firewall-manager/rule-hierarchy)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
