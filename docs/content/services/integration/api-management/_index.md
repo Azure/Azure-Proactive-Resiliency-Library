@@ -78,7 +78,7 @@ Enable zone redundancy for APIM instances. With zone redundancy, the gateway and
 
 ### APIM-3 - Upgrade to platform version stv2
 
-**Category: Compliance**
+**Category: Availability**
 
 **Impact: High**
 
