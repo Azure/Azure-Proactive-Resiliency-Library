@@ -750,7 +750,7 @@ Your file share should be in the same Azure region as your session hosts.
 
 **Guidance**
 
-Consider backup paths across regions where high availability connections back to on-premises are required. While ExpressRoute is designed for high availability to provide carrier-grade private network connectivity to Microsoft resources, it is reasonable to consider backup paths in case of regional failure.
+For high availability connections back to on-premises datacenters should consider backup paths across the regions that have been utilized. Ensure redundancy in routing by having a secondary route table in the secondary region.
 
 **Resources**
 
