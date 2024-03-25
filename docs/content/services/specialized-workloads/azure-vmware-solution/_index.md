@@ -414,7 +414,7 @@ Ensure that two external identity sources are configured for NSX and vCenter Ser
 
 <br><br>
 
-### AVS-16 - Use Network Extension High Availability
+### AVS-16 - Use HCX Network Extension High Availability
 
 **Category: Availability**
 
