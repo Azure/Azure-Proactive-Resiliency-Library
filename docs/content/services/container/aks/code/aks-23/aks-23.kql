@@ -20,6 +20,6 @@ resources
 ) on $left.subnetId == $right.id
 | project-away id, subnetmask
 | where possibleMaxNodeCount <= maxNodes
-| extend param1 = strcat(nodePoolName, strcat(" Autoscaler upper limit: ", maxNodes))
+| extend param1 = strcat(nodePoolName, " Autoscaler upper limit: ", maxNodes)
 | extend param2 = strcat("Subnet size: ", possibleMaxNodeCount)
 | project recommendationId="aks-23", id=clusterId, name=clusterName, param1, param2
