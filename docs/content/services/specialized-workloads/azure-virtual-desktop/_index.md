@@ -43,10 +43,8 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-29 App attach should be placed in separate file share; Disaster recovery plan should include App attach storage](#avd-29---app-attach-should-be-placed-in-separate-file-share-and-disaster-recovery-plan-should-include-app-attach-storage) | Storage | Medium | Verified | No |
 | [AVD-30 Ensure virtual networks have route tables/route server configured for all regions](#avd-30---ensure-virtual-networks-have-route-tablesroute-server-configured-for-all-regions) | Networking | Medium | Verified | No |
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking | Medium | Verified | No |
-| [AVD-32 Ensure the network is resilient](#avd-32---ensure-the-network-is-resilient) | Networking | Medium | Verified | No |
 | [AVD-33 Ensure route tables accommodate failover](#avd-33---ensure-route-tables-accommodate-failover) | Disaster Recovery | Medium | Verified | No |
 | [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---ensure-resilient-deployment-of-keyvault-for-avd-host-pools) | Disaster Recovery | High | Verified | No |
-| [AVD-35 Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested](#avd-35---ensure-all-appsdatadc-accessed-from-session-hosts-have-dr-strategyfailover-mechanisms-and-have-been-tested) | Access & Security | High | Verified | No |
 | [AVD-36 Configure AVD insights Workbook](#avd-36---configure-avd-insights-workbook) | Monitoring | High | Verified | No |
 | [AVD-37 Ensure separate log analytics workspaces for Prod and DR](#avd-37---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Disaster Recovery | Low | Verified | No |
 | [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Governance | Low | Verified | No |
@@ -62,6 +60,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [VPNG-3 - Plan for Site-to-Site VPN and Azure ExpressRoute coexisting connection](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/#vpng-3---plan-for-site-to-site-vpn-and-azure-expressroute-coexisting-connection) | Disaster Recovery | High | Verified | No |
 | [NSG-4 - Configure NSG Flow Logs](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/#nsg-4---configure-nsg-flow-logs) | Monitoring | Medium | Preview | Yes |
 | [ST-1 - Ensure that Storage Account configuration is at least Zone redundant](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/storage/storage-account/#st-1---ensure-that-storage-account-configuration-is-at-least-zone-redundant) | Storage | High | Verified | Yes |
+| [WADS-3 - Ensure that all fault-points and fault-modes are understood and operationalized](https://azure.github.io/Azure-Proactive-Resiliency-Library/well-architected/2-design/#wads-3---ensure-that-all-fault-points-and-fault-modes-are-understood-and-operationalized) | Availability | High | Verified | No |
 | [WADS-7 - Design a BCDR strategy that will help to meet the business requirements](https://azure.github.io/Azure-Proactive-Resiliency-Library/well-architected/2-design/#wads-7---design-a-bcdr-strategy-that-will-help-to-meet-the-business-requirements) | Disaster Recovery | High | Verified | No |
 
 {{< /table >}}
@@ -332,14 +331,14 @@ Each region has its own scaling plans assigned to host pools within that region.
 
 <br><br>
 
-### AVD-13 - Validate that the AVD session hosts can communicate with the AVD control plane and UDP ports are open if UDP is in use
+### AVD-13 - Validate AVD Session Host Connectivity to the AVD Control Plane and UDP Ports open if in use
 
 **Category: Networking**
 
 **Impact: Medium**
 
 **Guidance:**
-Validate that session hosts have proper connectivity AVD Control Plane, ensuring whitelisting of the global URLs required to communicate with the AVD service. Validate UDP TURN ports open if in use.
+Ensure that AVD session hosts can effectively communicate with the AVD control plane and that UDP ports are open if UDP is utilized. Validate the connectivity of VMs to the AVD Control Plane and confirm the accessibility of UDP TURN ports. Whitelist global URLs and ensure that UDP/TURN ports are open and accessible to facilitate smooth user connections. Proper connectivity validation guarantees optimal performance and user experience within the AVD environment.
 
 **Resources:**
 
@@ -456,8 +455,8 @@ Monitor and plan for subscription limits and API throttling limits. Closely moni
 **Impact: Low**
 
 **Guidance:**
-Automated patching and updating requiring minimal maintenance windows and ability to quickly roll back to prior image immediately.
-Updating session hosts should be done through the update of a golden image and creation of new session hosts and destruction of old session hosts. This process guarantees that all hosts are identical and not affected by configuration drift. This also provides flexibility in rolling back of images if issues arise with an updated image.
+Establish a systematic process for handling image updates within your Azure Virtual Desktop environment. Instead of directly updating individual session hosts, create a new version of the updated image. This process involves creating and configuring a golden image with the necessary updates and configurations. Once the new image is prepared, replace existing session hosts with instances using the updated image. This approach ensures consistency across all session hosts and minimizes the risk of configuration drift. Additionally, it enables quick rollback to a previous image version in case of any issues with the update. Implementing this process helps streamline maintenance activities and ensures that all session hosts are up-to-date with the latest configurations and updates.
+has context menu
 
 **Resources:**
 
@@ -555,8 +554,7 @@ To ensure your apps work with the latest updates, the validation host pool shoul
 **Impact: Medium**
 
 **Guidance:**
-Ensuring the resiliency and backup/recovery of session hosts.
-Assess and determine the impacted personal desktop to either failover using ASR or deploy a new machine will ensure your business can reach the resiliency targets.
+Leverage Azure Site Recovery (ASR) or implement Azure Backup for personal host pools for seamless failover and failback capabilities, enabling the replication of VMs supporting personal desktops to a secondary Azure region. In the event of a disaster or unexpected outage, this ensures the recovery of these VMs from a known-state.
 
 **Resources:**
 
@@ -626,7 +624,7 @@ After installing FSLogix, the installer will create a base set of registry keys 
 **Impact: Medium**
 
 **Guidance:**
-Verify RBAC permissions are set using Security Group and that appropriate security permissions are set so that no user has access to another user's profile. Set permissions at the root volume to allow administrators to have access to the full volume. Also consider secondary storage path permissions in case of a DR event.
+Verify user permissions are correctly set on SMB shares so that users have appropriate access to only their own profile and not other user profiles, while administrators have full access at the root volume. Also ensure secondary storage path permissions are set in case of a DR event.
 
 **Resources:**
 
@@ -672,7 +670,7 @@ Regularly review FSLogix logs for errors and issues related to login and mountin
 **Impact: Low**
 
 **Guidance:**
-Maintain FSLogix up to date by having a process to regularly check for FSLogix Agent upgrades. We recommend customers upgrade to the latest version of FSLogix as quickly as their deployment process can allow. FSLogix will provide hotfix releases which address current and potential bugs that impact customer deployments. Additionally, it is the first requirement when opening any support case.
+Ensure a process is in place to regularly check for FSLogix agent upgrades and maintain FSLogix up to date. We recommend customers upgrade to the latest version of FSLogix as quickly as their deployment process can allow. FSLogix will provide hotfix releases which address current and potential bugs that impact customer deployments. Additionally, it is the first requirement when opening any support case.
 
 **Resources:**
 
@@ -792,30 +790,6 @@ It's important your organization plans for IP addressing in Azure. Planning ensu
 
 <br><br>
 
-### AVD-32 - Ensure the network is resilient
-
-**Category: Networking**
-
-**Impact: Medium**
-
-**Guidance**
-
-The use of separate routing in Production and DR is highly encouraged, especially for backup ExR or VPN path for on-premises connections. Be sure to separate routing and security appliances, as well as on-premises physical hardware.
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/firewall/features#availability-zones)
-
-**Resource Graph Query/Scripts:**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-32/avd-32.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
 ### AVD-33 - Ensure route tables accommodate failover
 
 **Category: Disaster Recovery**
@@ -842,14 +816,14 @@ AVD workload teams should collaborate with centralized teams that manage the sha
 
 <br><br>
 
-### AVD-34 - Ensure Resilient Deployment of Keyvault for AVD Host Pools
+### AVD-34 - Provision Secondary Key Vault for Disaster Recovery
 
 **Category: Disaster Recovery**
 
 **Impact: High**
 
 **Guidance:**
-AVD host pools or any unit of scale operation utilizing Keyvault should be deployed resiliently to ensure availability and disaster recovery preparedness. Depending on your region and requirements, consider deploying your Keyvault using Geo-Redundant Storage (GRS) or deploy two Keyvaults using Zone-redundant Storage (ZRS) and write to both production and disaster recovery Keyvaults simultaneously. This ensures that critical secrets and cryptographic keys are protected and accessible even in the event of a regional outage.
+To ensure continuous availability and disaster recovery readiness, it is recommended to provision a secondary Key Vault in a secondary region. In the event of a primary region failure, this secondary Key Vault will ensure that critical secrets are accessible for use in deployments in the secondary region.
 
 **Resources:**
 
@@ -862,30 +836,6 @@ AVD host pools or any unit of scale operation utilizing Keyvault should be deplo
 {{< code lang="sql" file="code/avd-34/avd-34.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
-
-### AVD-35 - Ensure all apps/data/(DC) accessed from session hosts have DR strategy/failover mechanisms and have been tested
-
-**Category: Access & Security**
-
-**Impact: High**
-
-**Guidance**
-
-It is critical that AVD workload teams, centralized teams, and any other App dependency team collaborates to ensure that DR environments and apps mirror Production environments configuration to ensure the DR workloads will function and meet performance targets.
-
-**Resources**
-
-- [Learn More](https://learn.microsoft.com/en-us/azure/virtual-desktop/disaster-recovery#disaster-recovery-testing)
-
-**Resource Graph Query/Scripts:**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/avd-35/avd-35.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
 
 ### AVD-36 - Configure AVD Insights Workbook
 
