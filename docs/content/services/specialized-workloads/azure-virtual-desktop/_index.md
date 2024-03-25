@@ -449,7 +449,7 @@ Monitor and plan for subscription limits and API throttling limits. Closely moni
 
 <br><br>
 
-### AVD-18 - Create new version of updated image and replace session hosts rather than update host directly
+### AVD-18 - Create updated image version and replace session hosts rather than updating host directly
 
 **Category: Governance**
 
