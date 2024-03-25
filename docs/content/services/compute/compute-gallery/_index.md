@@ -12,11 +12,11 @@ The presented resiliency recommendations in this guidance include Compute Galler
 ## Summary of Recommendations
 
 {{< table style="table-striped" >}}
-| Recommendation                                                                                                                                                      |   Category   | Impact |  State  | ARG Query Available |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:-------:|:-------------------:|
-| [CG-1 - A minimum of three replicas should be kept for production image versions](#cg-1---a-minimum-of-three-replicas-should-be-kept-for-production-image-versions) | Availability | Medium | Preview |         Yes         |
-| [CG-2 - Zone redundant storage should be used for image versions](#cg-2---zone-redundant-storage-should-be-used-for-image-versions)                                 | Availability | Medium | Preview |         Yes         |
-| [CG-3 - Consider using hyper-V generation version 2 images where possible](#cg-3---consider-using-hyper-v-generation-version-2-images-where-possible)               | Availability |  Low   | Preview |         Yes         |
+| Recommendation                                                                                                                                                      |   Category   | Impact |  State   | ARG Query Available |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------:|:------:|:--------:|:-------------------:|
+| [CG-1 - A minimum of three replicas should be kept for production image versions](#cg-1---a-minimum-of-three-replicas-should-be-kept-for-production-image-versions) | Availability | Medium | Verified |         Yes         |
+| [CG-2 - Zone redundant storage should be used for image versions](#cg-2---zone-redundant-storage-should-be-used-for-image-versions)                                 | Availability | Medium | Verified |         Yes         |
+| [CG-3 - Consider creating TrustedLaunchSupported images where possible](#cg-3---consider-creating-trustedlaunchsupported-images-where-possible)        | Availability |  Low   | Verified |         Yes         |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -77,15 +77,15 @@ You can also choose the account type for each of the target regions. The default
 
 <br><br>
 
-### CG-3 - Consider using hyper-V generation version 2 images where possible
+### CG-3 - Consider creating TrustedLaunchSupported images where possible
 
-**Category: Availability**
+**Category: Access & Security**
 
 **Impact: Low**
 
 **Guidance**
 
-We recommend that you create a generation 2 virtual machine to take advantage of features like Secure Boot, vTPM, trusted launch VMs, large boot volume. Your choice to create a generation 1 or generation 2 virtual machine depends on which guest operating system you want to install and the boot method you want to use to deploy the virtual machine. You can't change a virtual machine's generation after you've created it. So it is recommended to review the [considerations](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v#which-guest-operating-systems-are-supported) first.
+We recommend that you create a Trusted Launch Supported Images to take advantage of features like Secure Boot, vTPM, trusted launch VMs, large boot volume. Trusted Launch Supported Images are Gen 2 Images by default. You can’t change a virtual machine’s generation after you’ve created it. So it is recommended to review the [considerations](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v#which-guest-operating-systems-are-supported) first.
 
 **Resources**
 
