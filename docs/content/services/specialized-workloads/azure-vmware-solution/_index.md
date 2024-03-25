@@ -1,7 +1,7 @@
 +++
 title = "Azure VMware Solution"
 description = "Best practices and resiliency recommendations for Azure VMware Solution and associated resources and settings."
-date = "03/30/2024"
+date = "3/24/2024"
 author = "michielvanschaik"
 msAuthor = "mivansch"
 draft = false
@@ -14,8 +14,8 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 {{< table style="table-striped" >}}
 |  Recommendation                                   |      Category         |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :------:          |
-|[AVS-1 Configure Azure Service Health notifications and alerts for AVS](#avs-1---configure-azure-service-health-notifications-and-alerts-for-avs) | Monitoring | High | Verified | Yes |
-|[AVS-2 Configure Syslog in Diagnostic Settings for AVS](#avs-2---configure-syslog-in-diagnostic-settings-for-avs) | Monitoring | Medium | Verified | Yes |
+|[AVS-1 Configure Azure Service Health notifications and alerts for Azure VMware Solution](#avs-1---configure-azure-service-health-notifications-and-alerts-for-azure-vmware-solution) | Monitoring | High | Verified | Yes |
+|[AVS-2 Configure Syslog in Diagnostic Settings for Azure VMware Solution](#avs-2---configure-syslog-in-diagnostic-settings-for-azure-vmware-solution) | Monitoring | Medium | Verified | Yes |
 |[AVS-3 Configure Azure Monitor Alert warning thresholds for vSAN datastore utilization](#avs-3---configure-azure-monitor-alert-warning-thresholds-for-vsan-datastore-utilization) | Monitoring | High | Verified | No |
 |[AVS-4 Enable Stretched Clusters for Multi-AZ Availability of the vSAN Datastore](#avs-4---enable-stretched-clusters-for-multi-az-availability-of-the-vsan-datastore) | Availability | Low | Verified | Yes |
 |[AVS-5 Monitor CPU Utilization to ensure sufficient resources for workloads](#avs-5---monitor-cpu-utilization-to-ensure-sufficient-resources-for-workloads) | Monitoring | Medium | Verified | Yes |
@@ -26,10 +26,10 @@ The presented resiliency recommendations in this guidance include Azure VMware S
 |[AVS-10 Align ExpressRoute configuration with best practices for circuit resilience](#avs-10---align-expressroute-configuration-with-best-practices-for-circuit-resilience) | Networking | High | Preview | No |
 |[AVS-11 Deploy two or more circuits in different peering locations when using stretched clusters](#avs-11---deploy-two-or-more-circuits-in-different-peering-locations-when-using-stretched-clusters) | Networking | High | Preview | No |
 |[AVS-12 Deploy two Azure VMware Solution private clouds in different regions for geographical disaster recovery](#avs-12---deploy-two-azure-vmware-solution-private-clouds-in-different-regions-for-geographical-disaster-recovery) | Disaster Recovery | High | Preview | No |
-|[AVS-13 Use the Interconnect feature to connect private clouds in different availability zones](#avs-13---use-the-interconnect-feature-to-connect-private-clouds-in-different-availability-zones) | Storage | High | Preview | No |
+|[AVS-13 Use the AVS Interconnect feature to connect private clouds in different availability zones](#avs-13---use-the-avs-interconnect-feature-to-connect-private-clouds-in-different-availability-zones) | Storage | High | Preview | No |
 |[AVS-14 Use key autorotation for vSAN datastore customer-managed keys](#avs-14---use-key-autorotation-for-vsan-datastore-customer-managed-keys) | Storage | High | Preview | No |
-|[AVS-15 Configure LDAPS Identity integration with two sources for NSX-T and vCenter management consoles](#avs-15---configure-ldaps-identity-integration-with-two-sources-for-nsx-t-and-vcenter-management-consoles) | Storage | High | Preview | No |
-|[AVS-16 Use Network Extension High Availability](#avs-16---use-network-extension-high-availability) | Availability | High | Preview | No |
+|[AVS-15 Configure LDAPS Identity integration with two sources for NSX and vCenter Server management consoles](#avs-15---configure-ldaps-identity-integration-with-two-sources-for-nsx-and-vcenter-server-management-consoles) | Storage | High | Preview | No |
+|[AVS-16 Use HCX Network Extension High Availability](#avs-16---use-hcx-network-extension-high-availability) | Availability | High | Preview | No |
 |[AVS-17 HCX Network Extension](#avs-17---hcx-network-extension) | Networking | High | Preview | No |
 |[AVS-18 Use multiple DNS servers per private FQDN zone](#avs-18---use-multiple-dns-servers-per-private-fqdn-zone) | Networking | High | Preview | No |
 |[AVS-19 Verify vSAN FTT configuration aligns with the cluster size](#avs-19---verify-vsan-ftt-configuration-aligns-with-the-cluster-size) | Application Resilience | High | Preview | No |
@@ -45,7 +45,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### AVS-1 - Configure Azure Service Health notifications and alerts for AVS
+### AVS-1 - Configure Azure Service Health notifications and alerts for Azure VMware Solution
 
 **Category: Monitoring**
 
@@ -53,9 +53,9 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 **Recommendation/Guidance**
 
-Ensure Azure Service Health notifications and alerts are configured for the Azure VMware Solution(AVS) service in the subscriptions and regions where AVS is deployed.
+Ensure Azure Service Health notifications and alerts are configured for the Azure VMware Solution service in the subscriptions and regions where Azure VMware Solution is deployed.
 
-Azure Service Health is the mechanism used to inform customers of any service or security issues affecting their private cloud deployment.  Additionally, Azure Service Health is used to inform customers of maintenance activities in their AVS environments including host replacements, upgrades, and any service updates which could potentially impact customer operations. Proper configuration of Azure Service Health notifications and alerts ensures that customers receive relevant notifications and can reduce service request submissions due to AVS maintenance.
+Azure Service Health is the mechanism used to inform customers of any service or security issues affecting their private cloud deployment. Additionally, Azure Service Health is used to inform customers of maintenance activities in their Azure VMware Solution environments including host replacements, upgrades, and any service updates which could potentially impact customer operations. Proper configuration of Azure Service Health notifications and alerts ensures that customers receive relevant notifications and can reduce service request submissions due to Azure VMware Solution maintenance.
 
 **Resources**
 
@@ -71,7 +71,7 @@ Azure Service Health is the mechanism used to inform customers of any service or
 
 <br><br>
 
-### AVS-2 - Configure Syslog in Diagnostic Settings for AVS
+### AVS-2 - Configure Syslog in Diagnostic Settings for Azure VMware Solution
 
 **Category: Monitoring**
 
@@ -325,7 +325,7 @@ Azure VMware Solution vSAN stretched clusters span two Availability Zones (AZs) 
 
 **Recommendation/Guidance**
 
-Two Azure VMware Solution private clouds can be deployed in different regions for business continuity. Implement a  mesh network topology based on ExpressRoute Gateway Connections and Global Reach Connections.
+Two Azure VMware Solution private clouds can be deployed in different regions for business continuity. Implement a mesh network topology based on ExpressRoute Gateway Connections and Global Reach Connections.
 
 **Resources**
 
@@ -341,7 +341,7 @@ Two Azure VMware Solution private clouds can be deployed in different regions fo
 {{< /collapse >}}
 
 <br><br>
-### AVS-13 - Use the Interconnect feature to connect private clouds in different availability zones
+### AVS-13 - Use the AVS Interconnect feature to connect private clouds in different availability zones
 
 **Category: Availability**
 
@@ -349,7 +349,7 @@ Two Azure VMware Solution private clouds can be deployed in different regions fo
 
 **Recommendation/Guidance**
 
-Use the Interconnect feature for direct communication between private clouds in different availability zones, enabling connectivity between the private clouds management and workload networks. The IP address for each private cloud should be unique to avoid overlap, as the Interconnect does not check for this.
+Use the Interconnect feature for direct communication between private clouds in different availability zones, enabling connectivity between the private clouds management and workload networks. The IP address for each private cloud should be unique to avoid overlap, as the AVS Interconnect does not check for this.
 
 **Resources**
 
@@ -389,7 +389,7 @@ When using customer-managed keys to encrypt the vSAN datastore(s), use Azure Key
 
 <br><br>
 
-### AVS-15 - Configure LDAPS Identity integration with two sources for NSX-T and vCenter management consoles
+### AVS-15 - Configure LDAPS Identity integration with two sources for NSX and vCenter Server management consoles
 
 **Category: Access and Security**
 
@@ -397,7 +397,7 @@ When using customer-managed keys to encrypt the vSAN datastore(s), use Azure Key
 
 **Recommendation/Guidance**
 
-Ensure that two external identity sources are configured for NSX-T and vCenter. The VMware vCenter and NSX-T Manager use identity sources to enable authentication using external identities. These sources can be temporarily unavailable during maintenance times. Having two sources ensures that administrators can continue to log in to the control surfaces when one source becomes unavailable.
+Ensure that two external identity sources are configured for NSX and vCenter Server. The VMware vCenter Server and NSX Manager use identity sources to enable authentication using external identities. These sources can be temporarily unavailable during maintenance times. Having two sources ensures that administrators can continue to log in to the control surfaces when one source becomes unavailable.
 
 **Resources**
 
@@ -471,7 +471,7 @@ Do not extend the network on which the HCX Management devices are deployed.
 
 **Recommendation/Guidance**
 
-AVS SDDC can support upto 3 DNS servers for a single FQDN. Using a single DNS server for DNS resolution becomes single point of failure. Ensure that multiple DNS servers are used for any on-premises FQDN resolution from AVS SDDC.
+Azure VMware Solution private clouds can support upto three DNS servers for a single FQDN. Using a single DNS server for DNS resolution becomes single point of failure. Ensure that multiple DNS servers are used for any on-premises FQDN resolution from each Azure VMware Solution private cloud.
 
 **Resources**
 
@@ -495,7 +495,7 @@ AVS SDDC can support upto 3 DNS servers for a single FQDN. Using a single DNS se
 
 **Recommendation/Guidance**
 
-AVS service SLA also depends on the vSAN storage policies configured, which vary depending on the cluster size. In clusters with more than 6 hosts, the vSAN storage policy should be configured with a FTT-2 policy (RAID-1, or RAID-6). FTT atands for failures to tolerate, which in this case refers to how many hosts in a cluster can fail, beofre there is potential data or VM impact.
+The Azure VMware Solution service SLA also depends upon the vSAN storage policies configured, which vary depending upon the cluster size. In clusters with more than 6 hosts, the vSAN storage policy should be configured with an FTT-2 policy (RAID-1, or RAID-6). FTT stands for **failures to tolerate**, which in this case refers to how many hosts in a cluster can fail, beofre there is potential data or VM impact.
 
 The default storage policy is set to RAID-1 FTT-1, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. Please note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.
 
