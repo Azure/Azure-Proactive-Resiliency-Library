@@ -35,7 +35,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### ST-1 - Ensure that Storage Accounts are Zone or Region redundant
+### ST-1 - Ensure that storage accounts are zone or region redundant
 
 **Category: Availability**
 
@@ -44,7 +44,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 **Guidance**
 
 Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures. When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability.
-Locally redundant storage (LRS) is the lowest-cost redundancy option and offers the least durability compared to other options. Microsoft recommends using zone-redundant storage (ZRS), geo-redundant storage (GRS), or geo-zone-redundant storage (GZRS) to ensure your storage accounts are available if an availability zone or region becomes unavailable. 
+Locally redundant storage (LRS) is the lowest-cost redundancy option and offers the least durability compared to other options. Microsoft recommends using zone-redundant storage (ZRS), geo-redundant storage (GRS), or geo-zone-redundant storage (GZRS) to ensure your storage accounts are available if an availability zone or region becomes unavailable.
 
 
 **Resources**
@@ -62,7 +62,7 @@ Locally redundant storage (LRS) is the lowest-cost redundancy option and offers 
 
 <br><br>
 
-### ST-2 - Do not use classic Storage Accounts
+### ST-2 - Do not use classic storage accounts
 
 **Category: Governance**
 
@@ -191,7 +191,7 @@ Consider enabling point-in-time restore for standard general purpose v2 accounts
 
 <br><br>
 
-### ST-8 - Monitor all Blob Storage Accounts
+### ST-8 - Monitor all blob storage accounts
 
 **Category: Monitoring**
 
@@ -225,7 +225,7 @@ Resource logs aren't collected and stored until you create a diagnostic setting 
 
 **Guidance**
 
-General-purpose v2 accounts are recommended for most storage scenarios with the latest features or the lowest per-gigabyte pricing. Legacy account types (Standard general-purpose v1 and Blob Storage) aren’t recommended by Microsoft, but may be used in certain scenarios. 
+General-purpose v2 accounts are recommended for most storage scenarios with the latest features or the lowest per-gigabyte pricing. Legacy account types (Standard general-purpose v1 and Blob Storage) aren’t recommended by Microsoft, but may be used in certain scenarios.
 Please consider the scenarios (classic compatibility, transaction-intensive, etc.) listed in the documentation and upgrade legacy storage accounts to v2 storage accounts when applicable.
 
 Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is straightforward. There's no downtime or risk of data loss associated with upgrading to a general-purpose v2 storage account. Upgrading a general-purpose v1 or Blob storage account to general-purpose v2 is permanent and cannot be undone.
