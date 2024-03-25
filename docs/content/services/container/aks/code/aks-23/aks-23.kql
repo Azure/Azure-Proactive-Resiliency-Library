@@ -7,8 +7,8 @@ resources
 | extend nodePools = properties['agentPoolProfiles']
 | mv-expand nodePools = properties.agentPoolProfiles
 | where nodePools.enableAutoScaling == true
-| extend maxNodes = nodePools.maxCount, subnetId = tostring(nodePools.vnetSubnetID)
-| project clusterName=name, nodePoolName=nodePools.name, toint(maxNodes), subnetId
+| extend nodePoolName=nodePools.name, maxNodes = nodePools.maxCount, subnetId = tostring(nodePools.vnetSubnetID)
+| project clusterId = id, clusterName=name, nodePoolName=nodePools.name, toint(maxNodes), subnetId
 | join kind = leftouter (
     resources
     | where type == 'microsoft.network/virtualnetworks'
@@ -20,4 +20,6 @@ resources
 ) on $left.subnetId == $right.id
 | project-away id, subnetmask
 | where possibleMaxNodeCount <= maxNodes
-| project recommendationId="aks-23", name=clusterName, param1=strcat("Max. Node Specified: ", maxNodes), param2=strcat("Max. Available Nodes: ", possibleMaxNodeCount)
+| extend param1 = strcat(nodePoolName, strcat(" Autoscaler upper limit: ", maxNodes))
+| extend param2 = strcat("Subnet size: ", possibleMaxNodeCount)
+| project recommendationId="aks-23", id=clusterId, name=clusterName, param1, param2
