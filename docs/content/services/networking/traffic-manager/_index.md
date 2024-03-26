@@ -14,11 +14,11 @@ The presented resiliency recommendations in this guidance include Azure Traffic 
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                            |     Category      | Impact |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
-| [TRAF-1 - Traffic Manager Monitor Status Should be Online](#traf-1---traffic-manager-monitor-status-should-be-online)                                     |   Availability    |  High  | Preview |         No          |
-| [TRAF-2 - Traffic manager profiles should have more than one endpoint](#traf-2---traffic-manager-profiles-should-have-more-than-one-endpoint)             |   Availability    |  High  | Preview |         No          |
-| [TRAF-3 - Configure at least one endpoint within a another region](#traf-3---configure-at-least-one-endpoint-within-a-another-region)                     | Disaster Recovery | Medium | Preview |         No          |
-| [TRAF-4 - TTL value of user profiles should be in 60 Seconds](#traf-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                               | System Efficiency | Medium | Preview |         No          |
-| [TRAF-5 - Ensure endpoint configured to (All World) for geographic profiles](#traf-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles) | Disaster Recovery | Medium | Preview |         Yes         |
+| [TRAF-1 - Traffic Manager Monitor Status Should be Online](#traf-1---traffic-manager-monitor-status-should-be-online)                                     |   Availability    |  High  | Preview |         Yes          |
+| [TRAF-2 - Traffic manager profiles should have more than one endpoint](#traf-2---traffic-manager-profiles-should-have-more-than-one-endpoint)             |   Availability    |  High  | Preview |         Yes          |
+| [TRAF-3 - Configure at least one endpoint within a another region](#traf-3---configure-at-least-one-endpoint-within-a-another-region)                     | Disaster Recovery | Medium | Preview |         No        |
+| [TRAF-4 - TTL value of user profiles should be in 60 Seconds](#traf-4---ttl-value-of-user-profiles-should-be-in-60-seconds)                               | System Efficiency | Medium | Preview |         Yes          |
+| [TRAF-5 - Ensure endpoint configured to (All World) for geographic profiles](#traf-5---ensure-endpoint-configured-to-all-world-for-geographic-profiles) | Disaster Recovery | Medium | Preview |         No        |
 
 {{< /table >}}
 
