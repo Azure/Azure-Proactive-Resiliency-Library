@@ -102,7 +102,7 @@ Private Link is available for other Azure services that work in conjunction with
 
 **Category: Monitoring**
 
-**Impact: Medium**
+**Impact: High**
 
 **Guidance**
 
