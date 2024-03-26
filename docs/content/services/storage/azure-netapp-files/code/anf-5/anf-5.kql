@@ -1,10 +1,5 @@
-// This Resource Graph query will return all NetApp Volumes without Cross-Region Replication.
+// This Resource Graph query will return all Azure NetApp Files volumes without a backup policy defined.
 resources
-| where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
-| extend NetAC0 = tostring(split(name,'/')[0])
-| join kind=leftouter (resources
-    | where type =~ "microsoft.netapp/netappaccounts/capacitypools/volumes"
-    | extend NetAC1 = tostring(split(name,'/')[0])
-    | project id,NetAC1,remid=tostring(properties.dataProtection.replication.remoteVolumeResourceId)) on $left.id == $right.remid
-| where properties.volumeType != 'DataProtection' and NetAC0 == NetAC1
+| where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+| where properties.dataProtection.backup.backupPolicyId == ""
 | project recommendationId = "ANF-5", name, id, tags
