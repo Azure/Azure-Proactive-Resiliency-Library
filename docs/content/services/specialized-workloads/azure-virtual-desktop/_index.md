@@ -45,8 +45,8 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking | Medium | Verified | No |
 | [AVD-33 Ensure route tables accommodate failover](#avd-33---ensure-route-tables-accommodate-failover) | Disaster Recovery | Medium | Verified | No |
 | [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---ensure-resilient-deployment-of-keyvault-for-avd-host-pools) | Disaster Recovery | High | Verified | No |
-| [AVD-36 Configure AVD insights Workbook](#avd-36---configure-avd-insights-workbook) | Monitoring | High | Verified | No |
-| [AVD-37 Ensure separate log analytics workspaces for Prod and DR](#avd-37---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Disaster Recovery | Low | Verified | No |
+| [AVD-35 Configure AVD insights Workbook](#avd-35---configure-avd-insights-workbook) | Monitoring | High | Verified | No |
+| [AVD-36 Ensure separate log analytics workspaces for Prod and DR](#avd-36---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Disaster Recovery | Low | Verified | No |
 | [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Governance | Low | Verified | No |
 | [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Preview | Yes |
 | [CG-2 - Zone redundant storage should be used for image versions](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/#cg-2---zone-redundant-storage-should-be-used-for-image-versions) | Availability | Medium | Verified | Yes |
@@ -837,7 +837,7 @@ To ensure continuous availability and disaster recovery readiness, it is recomme
 
 {{< /collapse >}}
 
-### AVD-36 - Configure AVD Insights Workbook
+### AVD-35 - Configure AVD Insights Workbook
 
 **Category: Monitoring**
 
@@ -855,13 +855,13 @@ AVD Insights is an Azure Workbook template provided by the AVD product team. It 
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-36/avd-36.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-35/avd-35.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
 <br><br>
 
-### AVD-37 - Ensure separate log analytics workspaces for Prod and DR
+### AVD-36 - Ensure separate log analytics workspaces for Prod and DR
 
 **Category: Disaster Recovery**
 
@@ -879,7 +879,7 @@ Having separate Log Analytics ensures that your DR environment is fully operatio
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-37/avd-37.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-36/avd-36.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
