@@ -124,7 +124,7 @@ Azure offers a suite of experiences to keep you informed about the health of you
 
 ### WAMN-5 - Utilize built-in Resilience policies
 
-**Category: Monitoring**
+**Category: Governance**
 
 **Impact: Medium**
 
