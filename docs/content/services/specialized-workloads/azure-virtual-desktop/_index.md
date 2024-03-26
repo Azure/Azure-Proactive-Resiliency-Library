@@ -578,7 +578,7 @@ Leverage Azure Site Recovery (ASR) or implement Azure Backup for personal host p
 
 **Guidance:**
 Hybrid VMs should be in a unique OU.
-When using AD-joined session hosts will benefit from using a unique OU to target specific AVD configurations per hostpool. Examples include Fslogix, time out limits, session controls, and much more. It’s also important to segment your Prod and DR organization units to ensure resources are configured per environment.
+When using AD-joined session hosts will benefit from using a unique OU to target specific AVD configurations per hostpool. Examples include Fslogix, time out limits, session controls, and much more. It’s also important to segment Prod and DR organization units to ensure resources are configured per environment.
 
 **Resources:**
 
@@ -598,10 +598,10 @@ When using AD-joined session hosts will benefit from using a unique OU to target
 
 **Category: Storage**
 
-**Impact: Medium**
+**Impact: High**
 
 **Guidance:**
-After installing FSLogix, the installer will create a base set of registry keys and values which provides the framework for adding configuration settings. FSLogix doesn't create ANY configuration setting value names as part of the installation.
+Ensure all session hosts have the standard FSLogix configuration deployed. Regularly validate settings for consistency and alignment with best practices.
 
 **Resources:**
 
@@ -621,7 +621,7 @@ After installing FSLogix, the installer will create a base set of registry keys 
 
 **Category: Storage**
 
-**Impact: Medium**
+**Impact: High**
 
 **Guidance:**
 Verify user permissions are correctly set on SMB shares so that users have appropriate access to only their own profile and not other user profiles, while administrators have full access at the root volume. Also ensure secondary storage path permissions are set in case of a DR event.
