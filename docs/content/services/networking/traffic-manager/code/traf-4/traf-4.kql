@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Find traffic manager profiles that do not have dns TTL set to 60
+resources
+| where type == "microsoft.network/trafficmanagerprofiles"
+| where properties.dnsConfig.ttl  != 60
+| project recommendationId = "traf-4", name, id, tags, param1 = strcat('TTL: ', properties.dnsConfig.ttl)

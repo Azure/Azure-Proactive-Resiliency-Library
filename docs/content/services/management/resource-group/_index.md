@@ -14,7 +14,8 @@ The presented resiliency recommendations in this guidance include Resource Group
 {{< table style="table-striped" >}}
 | Recommendation                                                                                                                                                        |  Category  | Impact |  State  | ARG Query Available |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|:------:|:-------:|:-------------------:|
-| [RG-1 - Resource group location alignment](#rg-1---resource-group-location-alignment) | Disaster Recovery | High | Preview |         Yes         |
+| [RG-1 - Ensure Resource Group and its Resources are located in the same Region](#rg-1---ensure-resource-group-and-its-resources-are-located-in-the-same-region) | Disaster Recovery | High | Preview |         Yes         |
+
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -25,7 +26,7 @@ Definitions of states can be found [here]({{< ref "../../../_index.md#definition
 
 ## Recommendations Details
 
-### RG-1 - Resource group location alignment
+### RG-1 - Ensure Resource Group and its Resources are located in the same Region
 
 **Category: Disaster Recovery**
 
@@ -39,7 +40,7 @@ Ensure your resource locations match that of the containing resource group. This
 
 - [Azure Resource Manager Overview](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-group-location-alignment)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

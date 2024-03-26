@@ -49,7 +49,7 @@ Using Azure Monitor Alerts you can:
 - [Move to Azure monitor Alerts](https://learn.microsoft.com/en-us/azure/backup/move-to-azure-monitor-alerts)
 - [Classic alerts retirement announcement](https://azure.microsoft.com/en-us/updates/transition-to-builtin-azure-monitor-alerts-for-recovery-services-vaults-in-azure-backup-by-31-march-2026/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -74,7 +74,7 @@ Cross Region Restore allows you to restore Azure VMs in a secondary region, whic
 - [Minimum Role Requirements for Cross Region Restore](https://learn.microsoft.com/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-azure-vm-backup)
 - [Recovery Services Vault](https://azure.microsoft.com/documentation/articles/backup-azure-arm-vms-prepare/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

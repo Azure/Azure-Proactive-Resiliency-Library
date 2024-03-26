@@ -15,7 +15,7 @@ The presented resiliency recommendations in this guidance include Event Hub and 
 | Recommendation                                    |  Category                                                               |  Impact         |  State            | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------:        | :------:          | :-----------------: |
 | [EVHNS-1 - Enable zone redundancy for Event Hub namespace](#evhns-1---enable-zone-redundancy-for-event-hub-namespace) | High Availability | High | Preview  |         Yes         |
-| [EVHNS-2 - Enable auto-inflate on Event Hub Standard tier](#evhns-2---enable-auto-inflate-on-event-hub-standard-tier) | System Efficiency | High | Preview | No |
+| [EVHNS-2 - Enable auto-inflate on Event Hub Standard tier](#evhns-2---enable-auto-inflate-on-event-hub-standard-tier) | System Efficiency | High | Preview | Yes |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -40,7 +40,7 @@ Event Hubs supports Availability Zones, providing fault-isolated locations withi
 
 - [Azure Event Hubs - Geo-disaster recovery](https://learn.microsoft.com/azure/event-hubs/event-hubs-geo-dr?tabs=portal#availability-zones)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -64,7 +64,7 @@ Enable auto-inflate on Event Hub Standard tier namespaces. The auto-inflate feat
 
 - [Azure Event Hubs - Automatically scale throughput units](https://learn.microsoft.com/azure/event-hubs/event-hubs-auto-inflate)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

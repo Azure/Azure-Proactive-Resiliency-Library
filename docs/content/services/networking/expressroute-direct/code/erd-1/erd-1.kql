@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Find all Express Route Directs that do not have Admin State of both Links Enabled
+resources
+| where type == "microsoft.network/expressrouteports"
+| where properties['links'][0]['properties']['adminState'] == "Disabled" or properties['links'][1]['properties']['adminState'] == "Disabled"
+| project recommendationId = "erd-1", name, id, tags, param1 = strcat("Link1AdminState: ", properties['links'][0]['properties']['adminState']), param2 = strcat("Link2AdminState: ", properties['links'][1]['properties']['adminState'])

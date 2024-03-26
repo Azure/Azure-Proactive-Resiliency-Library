@@ -15,14 +15,14 @@ The presented resiliency recommendations in this guidance include Application Ga
 | Recommendation                                                                                                                               |     Category      | Impact |  State  | ARG Query Available |
 |:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
 | [AGW-1 - Set a minimum instance count of 2](#agw-1---set-a-minimum-instance-count-of-2)                                                      | System Efficiency |  High  | Preview |         Yes         |
-| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                        | Access & Security |  High  | Preview |         No          |
+| [AGW-2 - Secure all incoming connections with SSL](#agw-2---secure-all-incoming-connections-with-ssl)                                        | Access & Security |  High  | Preview |         Yes          |
 | [AGW-3 - Enable WAF policies](#agw-3---enable-web-application-firewall-policies)                                                             | Access & Security |  High  | Preview |         Yes         |
-| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                                  | System Efficiency |  High  | Preview |         No          |
+| [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                                  | System Efficiency |  High  | Preview |         Yes         |
 | [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                            |    Monitoring     | Medium | Preview |         No          |
-| [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                        |    Monitoring     | Medium | Preview |         No          |
+| [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                        |    Monitoring     | Medium | Preview |         Yes         |
 | [AGW-7 - Deploy backends in a zone-redundant configuration](#agw-7---deploy-backends-in-a-zone-redundant-configuration)                      |   Availability    |  High  | Preview |         No          |
 | [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining)      |    Governance     | Medium | Preview |         No          |
-| [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask) |    Networking     |  High  | Preview |         No          |
+| [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask) |    Networking     |  High  | Preview |         Yes          |
 
 {{< /table >}}
 {{< alert style="info" >}}
@@ -47,7 +47,7 @@ Azure Application Gateways v2 are always deployed in a highly available fashion,
 
 - [Application Gateway Autoscaling Zone-Redundant](https://learn.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#autoscaling-and-high-availability)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -65,7 +65,7 @@ Azure Application Gateways v2 are always deployed in a highly available fashion,
 
 **Guidance**
 
-Ensure that all incoming connections are using HTTP/s for production services. Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
+Ensure that all incoming connections are using HTTPs for production services. Using end to end SSL/TLS or SSL/TLS termination to ensure the security of all incoming connections to the Application Gateway allows you and your users to be safe from possible attacks as it ensures that all data passed between the web server and browsers remain private and encrypted.
 
 **Resources**
 
@@ -75,7 +75,7 @@ Ensure that all incoming connections are using HTTP/s for production services. U
 - [Application Gateway KeyVault Certs](https://learn.microsoft.com/azure/application-gateway/key-vault-certs)
 - [Application Gateway SSL Cert Management](https://learn.microsoft.com/azure/application-gateway/ssl-certificate-management)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -100,7 +100,7 @@ Use Application Gateway with Web Application Firewall (WAF) within an applicatio
 - [Well-Architected Framework Application Gateway Overview](https://learn.microsoft.com/azure/well-architected/services/networking/azure-application-gateway)
 - [Application Gateway - Web Application Firewall](https://learn.microsoft.com/azure/application-gateway/features#web-application-firewall)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -126,7 +126,7 @@ You should use Application Gateway v2 unless there is a compelling reason for us
 - [Application Gateway Feature Comparison Between V1 and V2](https://learn.microsoft.com/azure/application-gateway/overview-v2#feature-comparison-between-v1-sku-and-v2-sku)
 - [Application Gateway V1 Retirement](https://azure.microsoft.com/updates/application-gateway-v1-will-be-retired-on-28-april-2026-transition-to-application-gateway-v2/)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -151,7 +151,7 @@ Enable logs that can be stored in storage accounts, Log Analytics, and other mon
 - [Application Gateway Metrics](https://learn.microsoft.com/azure/application-gateway/application-gateway-metrics)
 - [Application Gateway Diagnostics](https://learn.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -176,7 +176,7 @@ Using custom health probes can help with understand the availability of your bac
 - [Application Gateway Probe Overview](https://learn.microsoft.com/azure/application-gateway/application-gateway-probe-overview)
 - [Well-Architected Framework Application Gateway Overview](https://learn.microsoft.com/azure/well-architected/services/networking/azure-application-gateway)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -201,7 +201,7 @@ Deploying your backend services in a zone-aware configurations ensures that if a
 - [Well-Architected Framework Application Gateway Reliability](https://learn.microsoft.com/azure/well-architected/services/networking/azure-application-gateway#reliability)
 - [Application Gateway V2 Overview](https://learn.microsoft.com/azure/application-gateway/overview-v2)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -226,7 +226,7 @@ Plan for backend maintenance by using connection draining. Connection draining h
 - [Application Gateway Connection Draining](https://learn.microsoft.com/azure/application-gateway/features#connection-draining)
 - [Application Gateway Connection Draining HTTP Settings](https://learn.microsoft.com/azure/application-gateway/configuration-http-settings#connection-draining)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/agw-8/agw-8.kql" >}} {{< /code >}}
@@ -249,7 +249,7 @@ Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances.
 
 - [Azure Application Gateway infrastructure configuration | Microsoft Learn](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#size-of-the-subnet)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 {{< code lang="sql" file="code/agw-9/agw-9.kql" >}} {{< /code >}}
