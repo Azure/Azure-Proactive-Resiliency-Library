@@ -21,7 +21,7 @@ Ongoing monitoring is essential for maintaining system reliability. Key performa
 | [WAMN-2 - Define a health model based on performance, availability, and recovery targets](#wamn-2---define-a-health-model-based-on-performance-availability-and-recovery-targets) | Monitoring    | Low        | Verified  |         No          |
 | [WAMN-3 - Create Dashboards and Alerts for Azure Platform resources](#wamn-3---create-dashboards-and-alerts-for-azure-platform-resources) | Monitoring    | Low        | Verified  |         No          |
 | [WAMN-4 - Ensure that the right people in your organization will be notified about any future service issues](#wamn-4---ensure-that-the-right-people-in-your-organization-will-be-notified-about-any-future-service-issues) | Monitoring    | Medium     | Verified  |         No          |
-| [WAMN-5 - Utilize built-in Resilience policies](#wamn-5---utilize-built-in-resilience-policies) | Monitoring | Medium | Verified | No |
+| [WAMN-5 - Utilize built-in Resilience policies](#wamn-5---utilize-built-in-resilience-policies) | Governance | Medium | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
