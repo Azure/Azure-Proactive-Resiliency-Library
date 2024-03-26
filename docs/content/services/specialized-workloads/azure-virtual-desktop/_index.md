@@ -24,12 +24,12 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-9 Ensure that FSLogix Storage Account is Redundant](#avd-9---ensure-that-fslogix-storage-account-is-redundant) | Availability | High | Verified | Yes |
 | [AVD-10 Enable Azure Backup for FSLogix Storage Account](#avd-10---enable-azure-backup-for-fslogix-storage-account) | Storage | Medium | Verified | No |
 | [AVD-11 Scaling plans should be created per region and not scaled across regions](#avd-11---scaling-plans-should-be-created-per-region-and-not-scaled-across-regions) | Disaster Recovery | Medium | Verified | No |
-| [AVD-13 Validate that the AVD session hosts can communicate with the AVD control plane and UDP ports are open if UDP is in use](#avd-13---validate-that-the-avd-session-hosts-can-communicate-with-the-avd-control-plane-and-udp-ports-are-open-if-udp-is-in-use) | Networking | Medium | Verified | No |
+| [AVD-13 Validate that the AVD session hosts can communicate with the AVD control plane and UDP ports are open if UDP is in use](#avd-13---validate-avd-session-host-connectivity-to-the-avd-control-plane-and-udp-ports-open-if-in-use) | Networking | Medium | Verified | No |
 | [AVD-14 Ensure Secondary Entra ID connect synchronization server](#avd-14---ensure-secondary-entra-id-connect-synchronization-server) | Access & Security | Low | Verified | No |
 | [AVD-15 Deploy paired Domain Controllers in the same region as AVD session hosts](#avd-15---deploy-paired-domain-controllers-in-the-same-region-as-avd-session-hosts) | Disaster Recovery | High | Verified | No |
 | [AVD-16 Ensure DNS regions are replicated to avoid single point of failure](#avd-16---ensure-dns-regions-are-replicated-to-avoid-single-point-of-failure) | Networking | Medium | Verified | No |
 | [AVD-17 Capacity Planning for AVD Resources](#avd-17---capacity-planning-for-avd-resources) | Disaster Recovery | Low | Verified | No |
-| [AVD-18 Create new version of updated image and replace session hosts rather than update host directly](#avd-18---create-new-version-of-updated-image-and-replace-session-hosts-rather-than-update-host-directly) | Governance | Low | Verified | No |
+| [AVD-18 Create new version of updated image and replace session hosts rather than update host directly](#avd-18---create-updated-image-version-and-replace-session-hosts-rather-than-updating-host-directly) | Governance | Low | Verified | No |
 | [AVD-19 Pooled Create a validation pool for testing of planned updates](#avd-19---pooled-create-a-validation-pool-for-testing-of-planned-updates) | Governance | Medium | Verified | No |
 | [AVD-20 Pooled Configure scheduled agent updates](#avd-20---pooled-configure-scheduled-agent-updates) | System Efficiency | Medium | Verified | No |
 | [AVD-21 Personal Create a validation pool for testing of planned updates](#avd-21---personal-create-a-validation-pool-for-testing-of-planned-updates) | Governance | Low | Verified | No |
@@ -44,7 +44,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-30 Ensure virtual networks have route tables/route server configured for all regions](#avd-30---ensure-virtual-networks-have-route-tablesroute-server-configured-for-all-regions) | Networking | Medium | Verified | No |
 | [AVD-31 Ensure virtual networks isolation with separate IP space and NSGs for Prod and DR](#avd-31---ensure-virtual-networks-isolation-with-separate-ip-space-and-nsgs-for-prod-and-dr) | Networking | Medium | Verified | No |
 | [AVD-33 Ensure route tables accommodate failover](#avd-33---ensure-route-tables-accommodate-failover) | Disaster Recovery | Medium | Verified | No |
-| [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---ensure-resilient-deployment-of-keyvault-for-avd-host-pools) | Disaster Recovery | High | Verified | No |
+| [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---provision-secondary-key-vault-for-disaster-recovery) | Disaster Recovery | High | Verified | No |
 | [AVD-35 Configure AVD insights Workbook](#avd-35---configure-avd-insights-workbook) | Monitoring | High | Verified | No |
 | [AVD-36 Ensure separate log analytics workspaces for Prod and DR](#avd-36---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Disaster Recovery | Low | Verified | No |
 | [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Governance | Low | Verified | No |
