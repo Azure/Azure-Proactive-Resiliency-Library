@@ -332,11 +332,11 @@ Consider using the Continuous Availability option for the following SMB-based ap
 
 **Guidance**
 
-Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events. See [What do you recommend for handling potential application disruptions due to storage service maintenance events?](https://learn.microsoft.com/azure/azure-netapp-files/faq-application-resilience#what-do-you-recommend-for-handling-potential-application-disruptions-due-to-storage-service-maintenance-events) for more information.
+Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events.
 
 **Resources**
 
-- [What do you recommend for handling potential application disruptions due to storage service maintenance events?](https://learn.microsoft.com/azure/azure-netapp-files/faq-application-resilience#what-do-you-recommend-for-handling-potential-application-disruptions-due-to-storage-service-maintenance-events)
+- [What do you recommend for handling potential application disruptions due to storage service maintenance events? | Microsoft Learn](https://learn.microsoft.com/azure/azure-netapp-files/faq-application-resilience#what-do-you-recommend-for-handling-potential-application-disruptions-due-to-storage-service-maintenance-events)
 
 **Resource Graph Query/Scripts**
 
