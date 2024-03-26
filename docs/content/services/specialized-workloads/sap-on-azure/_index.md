@@ -7,7 +7,12 @@ msAuthor = "kupole"
 draft = false
 +++
 
-The presented resiliency recommendations in this guidance include Azure Sap Solution and associated resources and settings.
+The presented resiliency recommendations in this guidance include Azure SAP Solution and associated resources and settings.
+
+Refer to -
+- Azure Center for SAP Solutions
+- Opensource Quality Checks
+- Openssource Inventory Checks
 
 ## Summary of Recommendations
 
