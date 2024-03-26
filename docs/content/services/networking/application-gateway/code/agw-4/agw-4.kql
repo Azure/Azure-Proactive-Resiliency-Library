@@ -1,6 +1,7 @@
 // Azure Resource Graph Query
-// This query will return all Application Gateways not on V2
+// Get all Application Gateways, which are using the deprecated V1 SKU
 resources
 | where type =~ 'microsoft.network/applicationgateways'
-| where properties.sku.name !contains 'v2'
+| extend tier = properties.sku.tier
+| where tier == 'Standard' or tier == 'WAF'
 | project recommendationId = "agw-4", name, id, tags
