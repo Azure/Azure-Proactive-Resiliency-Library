@@ -304,11 +304,11 @@ Mount path change permissions should be further restricted.
 Certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files supports the SMB Continuous Availability shares option.
 
 Consider using the Continuous Availability option for the following SMB-based applications:
- - Citrix App Layering
- - FSLogix user profile containers
- - FSLogix ODFC containers
- - Microsoft SQL Server
- - MSIX app attach
+- Citrix App Layering
+- FSLogix user profile containers
+- FSLogix ODFC containers
+- Microsoft SQL Server
+- MSIX app attach
 
 **Resources**
 
