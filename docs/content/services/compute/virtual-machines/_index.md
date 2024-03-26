@@ -190,11 +190,12 @@ Azure unmanaged disks will be fully retired on September 30, 2025. If you use un
 **Guidance**
 
 Host database data on a data disk instead of OS disk.
-A data disk is a managed disk that is attached to a virtual machine to store data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting your data on a data disk helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements.
+A data disk is a managed disk that is attached to a virtual machine to store data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting your data on a data disk helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to  select a different disk sku, with different type, size, and performance that meet your requirements.
 
 **Resources**
 
 - [Introduction to Azure managed disks - Data disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview#data-disk)
+- [Azure managed disk types](https://learn.microsoft.com/azure/virtual-machines/disks-types)
 
 **Resource Graph Query**
 
