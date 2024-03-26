@@ -40,7 +40,7 @@ Enable HA with zone redundancy on flexible server instances. Zone redundant high
 
 - [High availability concepts in Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-high-availability)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -64,7 +64,7 @@ Use custom maintenance schedule on flexible server instances to select a preferr
 
 - [Scheduled maintenance in Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-maintenance)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

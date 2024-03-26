@@ -18,10 +18,10 @@ The below table shows the list of resiliency recommendations for VPN Gateway and
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------:|:------:|:-------:|:-------------------:|
 | [VPNG-1 - Choose a Zone-redundant gateway](#vpng-1---choose-a-zone-redundant-gateway)                                                                               |   Availability    |  High  | Preview |         Yes         |
 | [VPNG-2 - Plan for Active-Active mode](#vpng-2---plan-for-active-active-mode)                                                                                       |   Availability    |  High  | Preview |         Yes         |
-| [VPNG-4 - Deploy active-active VPN concentrators on your premises for maximum resiliency](#vpng-4---deploy-active-active-vpn-concentrators-on-your-premises-for-maximum-resiliency)                                                                 | Availability |  Medium  | Preview |         No          |
+| [VPNG-4 - Deploy active-active VPN concentrators on your premises for maximum resiliency](#vpng-4---deploy-active-active-vpn-concentrators-on-your-premises-for-maximum-resiliency) | Availability | High | Preview | No |                                                                | Availability |  Medium  | Preview |         No          |
 | [VPNG-5 - Monitor connections and gateway health](#vpng-5---monitor-connections-and-gateway-health)                                                                 |    Monitoring     | Medium | Preview |         No          |
 | [VPNG-6 - Enable service health](#vpng-6---enable-service-health)                                                                                                   |    Monitoring     | Medium | Preview |         No          |
-| [VPNG-7 - Deploy zone-redundant VPN Gateways with zone-redundant Public IP(s)](#vpng-7---deploy-zone-redundant-vpn-gateways-with-zone-redundant-public-ips)                                                                                                   |    Availability     | High | Preview |         Yes          |
+| [VPNG-7 - Deploy zone-redundant VPN Gateways with zone-redundant Public IP(s)](#vpng-7---deploy-zone-redundant-vpn-gateways-with-zone-redundant-public-ips)         | Availability | Medium | Preview | Yes |                                                                                          |    Availability     | High | Preview |         Yes          |
 
 {{< /table >}}
 
@@ -49,7 +49,7 @@ Azure VPN gateway provides different SLAs when it's deployed in a single availab
 - [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways#gwskus)
 - [SLA summary for Azure services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -75,7 +75,7 @@ Active-active gateways have two Gateway IP configurations and two public IP addr
 - [Active-active VPN gateway](https://learn.microsoft.com/azure/vpn-gateway/active-active-portal#gateway)
 - [Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -100,7 +100,7 @@ By deploying active-active VPN concentrators on your premises, along with active
 - [Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#dual-redundancy-active-active-vpn-gateways-for-both-azure-and-on-premises-networks)
 
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -124,7 +124,7 @@ Set up monitoring and alerts for Virtual Network Gateway health based on various
 
 - [VPN gateway data reference](https://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -149,7 +149,7 @@ VPN Gateway uses service health to notify about planned and unplanned maintenanc
 - [Getting started with Azure Metrics Explorer](hhttps://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started)
 - [Monitor VPN gateway](hhttps://learn.microsoft.com/azure/vpn-gateway/monitor-vpn-gateway-reference#metrics)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -173,7 +173,7 @@ When using zone-redundant SKUs for VPN Gateways (VpnGw*AZ), make sure that you a
 
 - [About zone-redundant virtual network gateway in Azure availability zones](https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
