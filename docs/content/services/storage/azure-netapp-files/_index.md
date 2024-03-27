@@ -174,7 +174,7 @@ Note: A volume can be replicated via cross-zone replication (CZR) or cross-regio
 
 **Resources**
 
-- [Cross-zone replication of Azure NetApp Files volumes | Microsoft Learn](https://learn.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)
+- [Cross-region replication of Azure NetApp Files volumes | Microsoft Learn](https://learn.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)
 
 **Resource Graph Query**
 
