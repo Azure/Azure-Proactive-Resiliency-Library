@@ -1,9 +1,0 @@
-// Azure Resource Graph Query
-// This query will return all Application Gateways in your Azure environment and will identify if they are v1 or v2
-resources
-| where type =~ "microsoft.network/applicationGateways"
-| extend sku = tolower(tostring(properties.sku.name))
-| where sku != "waf_v2" and sku != "standard_v2"
-| project recommendationId = "agw-4", name, id, param1 = "sku: v1"
-| order by id asc
-

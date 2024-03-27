@@ -70,7 +70,7 @@ Use 12.2 LTS later. Databricks recommends that you migrate your workloads in the
 
 - [Databricks runtime support lifecycles](https://learn.microsoft.com/en-us/azure/databricks/release-notes/runtime/databricks-runtime-ver)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -94,7 +94,7 @@ Databricks pools are a standard feature of the service, pre-provisions VM’s in
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -108,7 +108,7 @@ Databricks pools are a standard feature of the service, pre-provisions VM’s in
 
 **Category: System Efficiency**
 
-**Impact: Low**
+**Impact: Medium**
 
 **Guidance**
 
@@ -124,7 +124,7 @@ Standard SSDs are acceptable for some Production workloads as well.
 
 - [Azure managed disk types](https://learn.microsoft.com/azure/virtual-machines/disks-types#premium-ssd)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -150,7 +150,7 @@ For streaming workloads, Databricks recommends using Delta Live Tables with auto
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#enable-autoscaling-for-batch-workloadss)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -176,7 +176,7 @@ To handle more concurrent users for a given warehouse, increase the cluster coun
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#enable-autoscaling-for-sql-warehouse)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -194,13 +194,14 @@ To handle more concurrent users for a given warehouse, increase the cluster coun
 
 **Guidance**
 
-A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting you data on a data disk also helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements.
+Databricks enhanced autoscaling optimizes cluster utilization by automatically allocating cluster resources based on workload volume, with minimal impact on the data processing latency of your pipelines.
 
 **Resources**
 
-- [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
+- [Best practices for reliability](https://learn.microsoft.com/azure/databricks/lakehouse-architecture/reliability/best-practices)
+- [Databricks enhanced autoscaling](https://learn.microsoft.com/azure/databricks/delta-live-tables/settings#use-autoscaling-to-increase-efficiency-and-reduce-resource-usage)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -226,7 +227,7 @@ However, The auto termination feature monitors only Spark jobs, not user-defined
 
 - [Best practices for reliability?](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -252,7 +253,7 @@ The destination of the logs depends on the cluster ID. If the specified destinat
 
 - [Create a cluster](https://learn.microsoft.com/en-us/azure/databricks/clusters/configure#cluster-log-delivery)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -276,7 +277,7 @@ Delta Lake is an open source storage format that brings reliability to data lake
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -302,7 +303,7 @@ In the Databricks Lakehouse, Photon, a native vectorized engine entirely written
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#use-apache-spark-or-photon-for-distributed-compute)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -329,7 +330,7 @@ Invalid or nonconforming data can lead to crashes of workloads that rely on an e
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -354,7 +355,7 @@ Model serving provides a scalable and production-grade model real-time serving i
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -379,7 +380,7 @@ Model serving provides a scalable and production-grade model real-time serving i
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -411,7 +412,7 @@ The final layer should only contain high-quality data and can be fully trusted f
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -435,7 +436,7 @@ Copying or duplicating data creates data redundancy and will lead to lost integr
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -462,7 +463,7 @@ Uncontrolled schema changes can lead to invalid data and failing jobs that use t
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -488,7 +489,7 @@ To further improve this handling, Delta Live Tables supports Expectations: Expec
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#use-constraints-and-data-expectations)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -512,7 +513,7 @@ To recover from a failure, regular backups need to be available. The Databricks 
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#create-regular-backups)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -536,7 +537,7 @@ Structured Streaming provides fault-tolerance and data consistency for streaming
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#recover-from-structured-streaming-query-failures)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -560,7 +561,7 @@ Despite thorough testing, a job in production can fail or produce some unexpecte
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices#recover-etl-jobs-based-on-delta-time-travel)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -584,7 +585,7 @@ Databricks Workflows are built for recovery. When a task in a multi-task job fai
 
 - [Best practices for reliability](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/reliability/best-practices)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -608,7 +609,7 @@ A clear disaster recovery pattern is critical for a cloud-native data analytics 
 
 - [Azure Databricks Best Practices](https://github.com/Azure/AzureDatabricksBestPractices/tree/master)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -632,7 +633,7 @@ The Databricks Terraform provider manages Azure Databricks workspaces and the as
 
 - [Best practices for operational excellence](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/operational-excellence/best-practices#2-automate-deployments-and-workloads)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -656,7 +657,7 @@ The Databricks Terraform provider manages Azure Databricks workspaces and the as
 
 - [Best practices for operational excellence](https://learn.microsoft.com/en-us/azure/databricks/lakehouse-architecture/operational-excellence/best-practices#system-monitoring)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -680,7 +681,7 @@ Customers commonly partition workspaces based on teams or departments and arrive
 
 - [Azure Databricks Best Practices](https://github.com/Azure/AzureDatabricksBestPractices/blob/master/toc.md#deploy-workspaces-in-multiple-subscriptions-to-honor-azure-capacity-limits)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -704,7 +705,7 @@ While you can deploy more than one Workspace in a VNet by keeping the associated
 
 - [Azure Databricks Best Practices](https://github.com/Azure/AzureDatabricksBestPractices/blob/master/toc.md#consider-isolating-each-workspace-in-its-own-vnet)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -731,7 +732,7 @@ This recommendation is driven by security and data availability concerns. Every 
 
 - [Azure Databricks Best Practices](https://github.com/Azure/AzureDatabricksBestPractices/blob/master/toc.md#do-not-store-any-production-data-in-default-dbfs-foldersr)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -755,7 +756,7 @@ Azure Spot VMs are not recommended for critical production workloads that requir
 
 - [Use Azure Spot Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/spot-vms)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

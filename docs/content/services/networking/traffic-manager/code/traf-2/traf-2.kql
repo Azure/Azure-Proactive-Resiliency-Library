@@ -1,1 +1,6 @@
-// under-development
+// Azure Resource Graph Query
+// Find traffic manager profiles that have less than 2 endpoints
+resources
+| where type == "microsoft.network/trafficmanagerprofiles"
+| where array_length(properties.endpoints) < 2
+| project recommendationId = "traf-2", name, id, tags, param1 = strcat('EndpointCount: ', array_length(properties.endpoints))

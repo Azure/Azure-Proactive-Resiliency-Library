@@ -14,7 +14,7 @@ The presented resiliency recommendations in this guidance include ExpressRoute T
 {{< table style="table-striped" >}}
 | Recommendation | Category | Impact | State | ARG Query Available |
 | :------------------------------------------------ | :---------------------------------------------------------------------: | :------: | :------: | :-----------------: |
-| [ERTC-1 - Ensure ExpressRoute Traffic Collector is enabled and configured for ExpressRoute Direct circuits](#ertc-1---ensure-expressroute-traffic-collector-is-enabled-and-configured-for-expressroute-direct-circuits) | Monitoring | Medium | Preview | No |
+| [ERTC-1 - Ensure ExpressRoute Traffic Collector is enabled and configured for ExpressRoute Direct circuits](#ertc-1---ensure-expressroute-traffic-collector-is-enabled-and-configured-for-expressroute-direct-circuits) | Monitoring | Medium | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -41,7 +41,7 @@ You can associate a single ExpressRoute Direct circuit with multiple ExpressRout
 
 - [Azure ExpressRoute Traffic Collector](https://learn.microsoft.com/en-us/azure/expressroute/traffic-collector)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

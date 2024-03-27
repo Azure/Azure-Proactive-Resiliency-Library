@@ -1,1 +1,7 @@
-// under-development
+// Azure Resource Graph Query
+// Get all Application Gateways, which are using the deprecated V1 SKU
+resources
+| where type =~ 'microsoft.network/applicationgateways'
+| extend tier = properties.sku.tier
+| where tier == 'Standard' or tier == 'WAF'
+| project recommendationId = "agw-4", name, id, tags

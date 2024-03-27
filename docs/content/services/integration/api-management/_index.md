@@ -41,7 +41,7 @@ Upgrade the API Management instance to the Premium SKU to add support for Availa
 - [Change your API Management service tier](https://learn.microsoft.com/en-us/azure/api-management/upgrade-and-scale#change-your-api-management-service-tier)
 - [Migrate Azure API Management to availability zone support](https://learn.microsoft.com/en-us/azure/reliability/migrate-api-mgt)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
@@ -66,7 +66,7 @@ Enable zone redundancy for APIM instances. With zone redundancy, the gateway and
 - [Ensure API Management availability and reliability](https://learn.microsoft.com/en-us/azure/api-management/high-availability#availability-zones)
 - [Migrate Azure API Management to availability zone support](https://learn.microsoft.com/en-us/azure/reliability/migrate-api-mgt)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
