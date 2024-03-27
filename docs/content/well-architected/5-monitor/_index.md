@@ -21,6 +21,7 @@ Ongoing monitoring is essential for maintaining system reliability. Key performa
 | [WAMN-2 - Define a health model based on performance, availability, and recovery targets](#wamn-2---define-a-health-model-based-on-performance-availability-and-recovery-targets) | Monitoring    | Low        | Verified  |         No          |
 | [WAMN-3 - Create Dashboards and Alerts for Azure Platform resources](#wamn-3---create-dashboards-and-alerts-for-azure-platform-resources) | Monitoring    | Low        | Verified  |         No          |
 | [WAMN-4 - Ensure that the right people in your organization will be notified about any future service issues](#wamn-4---ensure-that-the-right-people-in-your-organization-will-be-notified-about-any-future-service-issues) | Monitoring    | Medium     | Verified  |         No          |
+| [WAMN-5 - Utilize built-in Resilience policies](#wamn-5---utilize-built-in-resilience-policies) | Governance | Medium | Verified | No |
 {{< /table >}}
 
 {{< alert style="info" >}}
@@ -118,5 +119,22 @@ Azure offers a suite of experiences to keep you informed about the health of you
 **Resources**
 
 - [Create a Service Health alert using the Azure portal](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal#create-a-service-health-alert-using-the-azure-portal)
+
+<br><br>
+
+### WAMN-5 - Utilize built-in Resilience policies
+
+**Category: Governance**
+
+**Impact: Medium**
+
+**Recommendation/Guidance**
+
+Utilize Azure's built-in Resilience policies to audit and enforce resilient configurations of Azure services. Azure Policy helps to enforce organizational standards and to assess compliance at-scale.
+
+**Resources**
+
+- [Built-in Resilience policy definitions](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policyDefinitions/Resilience)
+- [Get policy compliance data](https://learn.microsoft.com/azure/governance/policy/how-to/get-compliance-data)
 
 <br><br>
