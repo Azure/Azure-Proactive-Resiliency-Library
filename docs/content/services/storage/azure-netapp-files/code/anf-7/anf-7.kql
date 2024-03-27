@@ -5,4 +5,4 @@ resources
 | extend volumeType = properties.volumeType
 | extend replicationType = iff((remoteVolumeRegion == location), "CZR", iff((remoteVolumeRegion == ""),"n/a","CRR"))
 | where replicationType != "CZR" and volumeType != "DataProtection"
-| project recommendationId = "ANF-7", name, id, tags, replicationType
+| project recommendationId = "ANF-7", name, id, tags
