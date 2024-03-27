@@ -51,12 +51,6 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 {{< /collapse >}}
 
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/nsg-1/nsg-1.sql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
 <br><br>
 
 ### NSG-2 - Monitor changes in Network Security Groups with Azure Monitor
@@ -103,12 +97,6 @@ You can set locks that prevent either deletions or modifications. In the portal,
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/nsg-3/nsg-3.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/nsg-3/nsg-3.sql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
