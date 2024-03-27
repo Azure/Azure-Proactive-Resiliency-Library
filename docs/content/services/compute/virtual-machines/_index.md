@@ -19,7 +19,7 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-3 - Migrate VMs using availability sets to VMSS Flex](#vm-3---migrate-vms-using-availability-sets-to-vmss-flex) | Availability | High | Verified | Yes |
 | [VM-4 - Replicate VMs using Azure Site Recovery](#vm-4---replicate-vms-using-azure-site-recovery) | Disaster Recovery | Medium | Verified | Yes |
 | [VM-5 - Use Managed Disks for Virtual Machine disks](#vm-5---use-managed-disks-for-vm-disks) | Availability | High | Verified | Yes |
-| [VM-6 - Host application or database data on a data disk](#vm-6---host-application-or-database-data-on-a-data-disk) | System Efficiency | Low | Verified | Yes |
+| [VM-6 - Host database data on a data disk](#vm-6---host-database-data-on-a-data-disk) | System Efficiency | Low | Verified | Yes |
 | [VM-7 - Enable Backups on your VMs](#vm-7---backup-vms-with-azure-backup-service) | Disaster Recovery | Medium | Verified | Yes |
 | [VM-8 - Production VMs should be using SSD disks](#vm-8---production-vms-should-be-using-ssd-disks) | System Efficiency | High | Verified | Yes |
 | [VM-9 - There are VMs in Stopped state](#vm-9---review-vms-in-stopped-state) | Governance | Low | Verified | Yes |
@@ -181,7 +181,7 @@ Azure unmanaged disks will be fully retired on September 30, 2025. If you use un
 
 <br><br>
 
-### VM-6 - Host application or database data on a data disk
+### VM-6 - Host database data on a data disk
 
 **Category: System Efficiency**
 
@@ -189,11 +189,13 @@ Azure unmanaged disks will be fully retired on September 30, 2025. If you use un
 
 **Guidance**
 
-A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting you data on a data disk also helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to also select a different disk sku, with different type, size, and performance that meet your requirements.
+Host database data on a data disk instead of OS disk.
+A data disk is a managed disk that is attached to a virtual machine to store data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Hosting your data on a data disk helps with flexibility when backuping or restoring data, as well as migrating the disk without having to migrate the entire Virtual Machine and Operating System. You will be able to  select a different disk sku, with different type, size, and performance that meet your requirements.
 
 **Resources**
 
 - [Introduction to Azure managed disks - Data disks](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview#data-disk)
+- [Azure managed disk types](https://learn.microsoft.com/azure/virtual-machines/disks-types)
 
 **Resource Graph Query**
 
@@ -452,7 +454,8 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 **Resources**
 
-- [Azure Shared Disks](https://learn.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-portal)
+- [Azure Shared Disk Introduction](https://learn.microsoft.com/azure/virtual-machines/disks-shared)
+- [Enable Shared Disks](https://learn.microsoft.com/azure/virtual-machines/disks-shared-enable?tabs=azure-portal)
 
 **Resource Graph Query**
 
@@ -472,7 +475,7 @@ Azure shared disks is a feature for Azure managed disks that enables you to atta
 
 **Guidance**
 
-Recommended changing to "Disable public access and enable private access" and creating a Private Endpoint
+Recommended changing to "Disable public access and enable private access" and creating a Private Endpoint.
 
 **Resources**
 

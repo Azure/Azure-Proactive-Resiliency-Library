@@ -1,5 +1,5 @@
 // Azure Resource Graph Query
-// Find all VMs that only have a single Disk
+// Find all VMs that only have OS Disk
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines'
 | where array_length(properties.storageProfile.dataDisks) < 1
