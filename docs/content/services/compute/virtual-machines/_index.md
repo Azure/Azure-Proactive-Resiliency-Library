@@ -35,10 +35,9 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VM-19 - Enable disk encryption, Enable data at rest encryption by default](#vm-19---enable-disk-encryption-and-data-at-rest-encryption-by-default) | Access & Security | Medium | Verified | Yes |
 | [VM-20 - Enable Insights to get more visibility into the health and performance of your virtual machine](#vm-20---enable-vm-insights) | Monitoring | Low | Verified | Yes |
 | [VM-21 - Configure diagnostic settings for all Azure Virtual Machines](#vm-21---configure-diagnostic-settings-for-all-azure-virtual-machines) | Monitoring | Low | Preview | Yes |
-| [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | Governance | High | Preview | Yes |
+| [VM-22 - Use maintenance configurations for the Virtual Machine](#vm-22---use-maintenance-configurations-for-the-vms) | Governance | High | Verified | Yes |
 | [VM-23 - Avoid using A or B-Series VM Sku for production VMs that need the full performance of the CPU continuously](#vm-23---avoid-using-a-or-b-series-vm-sku-for-production-vms-that-need-the-full-performance-of-the-cpu-continuously) | System Efficiency | High | Preview | Yes |
 | [VM-24 - Mission Critical Workloads should be using Premium or Ultra Disks](#vm-24---mission-critical-workloads-should-be-using-premium-or-ultra-disks) | System Efficiency | High | Preview | Yes |
-| [VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations](#vm-26---ensure-all-vms-part-of-a-sql-always-on-cluster-have-the-same-specifications-and-configurations) | Application Resiliency | High | Preview | No |
 | [VM-27 - Use Azure Boost VMs for Maintenance sensitive workload](#vm-27---use-azure-boost-vms-for-maintenance-sensitive-workload) | Availability | Medium | Preview | No |
 | [VM-28 - Enable Scheduled Events for Maintenance sensitive workload VMs](#vm-28---enable-scheduled-events-for-maintenance-sensitive-workload-vms) | Availability | Medium | Preview | No |
 
@@ -675,30 +674,6 @@ Azure ultra disks are the highest-performing storage option for Azure virtual ma
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/vm-24/vm-24.kql" >}} {{< /code >}}
-
-{{< /collapse >}}
-
-<br><br>
-
-### VM-26 - Ensure all VMs part of a SQL Always-on cluster have the same specifications and configurations
-
-**Category: Availability**
-
-**Impact: High**
-
-**Guidance**
-
-All VMs that are members or a SQL Always-on cluster must use the same VM Sku, same number of data disks, same disks Skus, same number of Network Interfaces, same VM Extensions, etc.
-
-**Resources**
-
-- [Prerequisites, restrictions, and recommendations for Always On availability groups](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver16)
-
-**Resource Graph Query**
-
-{{< collapse title="Show/Hide Query/Script" >}}
-
-{{< code lang="sql" file="code/vm-26/vm-26.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
