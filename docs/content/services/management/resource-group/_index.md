@@ -40,7 +40,7 @@ Ensure your resource locations match that of the containing resource group. This
 
 - [Azure Resource Manager Overview](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview#resource-group-location-alignment)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 

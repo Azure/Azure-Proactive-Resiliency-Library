@@ -39,7 +39,7 @@ Use SignalR with zone redundancy for production workloads. Zone redundancy is a 
 
 - [Availability zones support in Azure SignalR Service](https://learn.microsoft.com/azure/azure-signalr/availability-zones)
 
-**Resource Graph Query/Scripts**
+**Resource Graph Query**
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
