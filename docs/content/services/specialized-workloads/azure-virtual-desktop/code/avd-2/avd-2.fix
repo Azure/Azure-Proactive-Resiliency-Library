@@ -1,7 +1,0 @@
-// Azure Resource Graph Query
-// Provides list of Service Health Alerts enabled for AVD
-resources
-| where type == "microsoft.insights/activitylogalerts"
-| where properties.condition.allOf[0].equals == "ServiceHealth"
-| where properties.condition.allOf[1].containsAny[0] == "Windows Virtual Desktop"
-| project recommendationId = "avd-2", name, id, tags
