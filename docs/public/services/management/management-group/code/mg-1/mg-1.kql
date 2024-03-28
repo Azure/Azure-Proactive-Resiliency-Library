@@ -1,0 +1,7 @@
+// Azure Resource Graph Query
+// Provides a list of Azure Subscriptions that are placed under the Tenant Root Management Group
+resourcecontainers
+| where type == 'microsoft.resources/subscriptions'
+| extend mgParentSize = array_length(properties.managementGroupAncestorsChain)
+| where mgParentSize == 1
+| project recommendationId="mg-1", name, id, tags

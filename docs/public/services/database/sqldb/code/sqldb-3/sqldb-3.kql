@@ -1,0 +1,5 @@
+Resources
+| where type =~ 'microsoft.sql/servers/databases'
+| where tolower(tostring(properties.zoneRedundant))=~'false'
+|project recommendationId = "sqldb-3", name, id, tags
+

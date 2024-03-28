@@ -1,0 +1,13 @@
+// Azure Resource Graph Query
+// Find all VMs that do NOT have health monitoring enabled
+resources
+| where type == "microsoft.compute/virtualmachinescalesets"
+| join kind=leftouter  (
+    resources
+    | where type == "microsoft.compute/virtualmachinescalesets"
+    | mv-expand extension=properties.virtualMachineProfile.extensionProfile.extensions
+    | where extension.properties.type in ( "ApplicationHealthWindows", "ApplicationHealthLinux" )
+    | project id
+) on id
+| where id1 == ""
+| project recommendationId = "vmss-2", name, id, tags, param1 = "extension: null"

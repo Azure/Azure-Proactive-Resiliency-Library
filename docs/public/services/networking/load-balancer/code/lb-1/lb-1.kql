@@ -1,0 +1,6 @@
+// Azure Resource Graph Query
+// Find all LoadBalancers using Basic SKU
+resources
+| where type =~ 'Microsoft.Network/loadBalancers'
+| where sku.name == 'Basic'
+| project recommendationId = "lb-1", name, id, tags, Param1=strcat("sku-tier: basic")
