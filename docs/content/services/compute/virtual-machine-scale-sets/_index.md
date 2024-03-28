@@ -21,9 +21,9 @@ The presented resiliency recommendations in this guidance include Virtual Machin
 | [VMSS-5 - Enable Predictive Autoscale and configure at least for Forecast Only](#vmss-5---enable-predictive-autoscale-and-configure-at-least-for-forecast-only) | System Efficiency | Low | Verified | Yes |
 | [VMSS-6 - Disable Force strictly even balance across zones to avoid scale in and out fail attempts](#vmss-6---disable-force-strictly-even-balance-across-zones-to-avoid-scale-in-and-out-fail-attempts) | Availability | High | Verified | Yes |
 | [VMSS-7 - Configure Allocation Policy Spreading algorithm to Max Spreading](#vmss-7---configure-allocation-policy-spreading-algorithm-to-max-spreading) | System Efficiency | Medium | Preview | Yes |
-| [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex) | Availability | High | Verified | Yes |
-| [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated) | Automation | Low | Verified | Yes |
-| [VMSS-10 - Upgrade VMSS Image versions scheduled to be deprecated or already retired](#vmss-10---upgrade-vmss-image-versions-scheduled-to-be-deprecated-or-already-retired) | Governance | High | Preview | Yes |
+| [VMSS-8 - Deploy VMSS across availability zones with VMSS Flex](#vmss-8---deploy-vmss-across-availability-zones-with-vmss-flex) | Availability | High | Verified | Yes|
+| [VMSS-9 - Set Patch orchestration options to Azure-orchestrated](#vmss-9---set-patch-orchestration-options-to-azure-orchestrated) | Automation | Low | Preview | Yes |
+| [VMSS-10 - Upgrade VMSS Image versions scheduled to be deprecated or already retired](#vmss-10---upgrade-vmss-image-versions-scheduled-to-be-deprecated-or-already-retired) | Governance | High | Preview | No |
 | [VMSS-11 - Production VMSS instances should be using SSD disks](#vmss-11---production-vmss-instances-should-be-using-ssd-disks) | System Efficiency | High | Verified | Yes |
 
 {{< /table >}}
