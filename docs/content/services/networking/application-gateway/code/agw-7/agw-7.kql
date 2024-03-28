@@ -1,1 +1,7 @@
-// under-development
+// Azure Resource Graph Query
+// list Application Gateways that are not configured to use at least 2 Availability Zones
+resources
+| where type =~ "microsoft.network/applicationGateways"
+| where isnull(zones) or array_length(zones) < 2
+| extend zoneValue = iff((isnull(zones)), "null", zones)
+| project recommendationId = "agw-7", name, id, tags, param1="Zones: No Zone or Zonal", param2=strcat("Zones value: ", zoneValue )

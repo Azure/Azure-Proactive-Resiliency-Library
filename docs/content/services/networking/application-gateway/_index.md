@@ -20,6 +20,7 @@ The presented resiliency recommendations in this guidance include Application Ga
 | [AGW-4 - Use Application GW V2 instead of V1](#agw-4---use-application-gw-v2-instead-of-v1)                                                  | System Efficiency |  High  | Preview |         Yes         |
 | [AGW-5 - Monitor and Log the configurations and traffic](#agw-5---monitor-and-log-the-configurations-and-traffic)                            |    Monitoring     | Medium | Preview |         No          |
 | [AGW-6 - Use Health Probes to detect backend availability](#agw-6---use-health-probes-to-detect-backend-availability)                        |    Monitoring     | Medium | Preview |         Yes         |
+| [AGW-7 - Deploy Application Gateway in a zone-redundant configuration](#agw-7---deploy-application-gateway-in-a-zone-redundant-configuration)|   Availability    |  High  | Preview |         Yes         |
 | [AGW-8 - Plan for backend maintenance by using connection draining](#agw-8---plan-for-backend-maintenance-by-using-connection-draining)      |    Governance     | Medium | Preview |         No          |
 | [AGW-9 - Ensure Application Gateway Subnet is using a /24 subnet mask](#agw-9---ensure-application-gateway-subnet-is-using-a-24-subnet-mask) |    Networking     |  High  | Preview |         Yes          |
 
@@ -180,6 +181,31 @@ Using custom health probes can help with understand the availability of your bac
 {{< collapse title="Show/Hide Query/Script" >}}
 
 {{< code lang="sql" file="code/agw-6/agw-6.kql" >}} {{< /code >}}
+
+{{< /collapse >}}
+
+<br><br>
+
+### AGW-7 - Deploy Application Gateway in a zone-redundant configuration
+
+**Category: Availability**
+
+**Impact: High**
+
+**Guidance**
+
+Deploying your Application Gateway in a zone-aware configurations ensures that if a specific zone goes down that customers will still have access to the services as the other services located in other zones will still be available.
+
+**Resources**
+
+- [Well-Architected Framework Application Gateway Reliability](https://learn.microsoft.com/azure/well-architected/services/networking/azure-application-gateway#reliability)
+- [Application Gateway V2 Overview](https://learn.microsoft.com/azure/application-gateway/overview-v2)
+
+**Resource Graph Query**
+
+{{< collapse title="Show/Hide Query/Script" >}}
+
+{{< code lang="sql" file="code/agw-7/agw-7.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
