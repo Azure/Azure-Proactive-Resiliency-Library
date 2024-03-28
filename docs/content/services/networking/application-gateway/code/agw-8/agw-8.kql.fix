@@ -1,8 +1,0 @@
-// Azure Resource Graph Query
-// This query will check if connection draining is enabled
-Resources
-| where type =~ "microsoft.network/applicationGateways"
-| extend appGatewayResourceId = tostring(id)
-| extend connectionDrainingEnabled = tostring(properties.backendAddressPoolSettings.connectionDraining.enabled)
-| project recommendationId = "agw-8", name, id, param1 = "appGatewayResourceId", param2 ="connectionDrainingEnabled"
-
