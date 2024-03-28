@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html><head><script src="/Azure-Proactive-Resiliency-Library/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Azure-Proactive-Resiliency-Library/livereload" data-no-instant defer></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="description" content="Best practices and resiliency recommendations for ExpressRoute Gateway and associated resources.">
+    
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/index.xml" title="Azure Proactive Resiliency Library (APRL)" />
+    <link rel="canonical" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/">
+
+    <title>
+        
+        ExpressRoute Gateway | Azure Proactive Resiliency Library (APRL)
+        
+    </title>
+
+    
+    <link href="http://localhost:1313/Azure-Proactive-Resiliency-Library/css/fontawesome.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="http://localhost:1313/Azure-Proactive-Resiliency-Library/css/ace.min.css">
+
+    
+
+    
+    
+
+  
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "kxpusfirv0");
+  </script>
+
+  
+</head>
+<body>
+
+  <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+  <script>addBackToTop({
+      diameter: 75,
+      backgroundColor: 'rgb(0, 123, 255)',
+      textColor: '#ffffff',
+      cornerOffset: 25,
+      scrollDuration: 300
+    })</script><nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top" id="navbarMain">
+    <div class="container">
+        <div>
+            <a class="navbar-brand" href="/Azure-Proactive-Resiliency-Library">
+                
+                    <img src="/Azure-Proactive-Resiliency-Library/media/img/aprl-white.png" />
+                
+                Azure Proactive Resiliency Library (APRL)
+            </a>
+        </div>
+        
+            <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarMainCollapse" aria-controls="navbarMainCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMainCollapse">
+              <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/waf" target="_blank">
+                                  Well-Architected Framework
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://aka.ms/aprl/repo" target="_blank">
+                                  Source Code <i class='fab fa-github'></i>
+                                </a>
+                            </li>
+              </ul>
+            </div>
+    </div>
+    
+    
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="docs-sidenav order-0 col-12 col-md-3 col-lg-2 col-xl-2 position-sticky border-right"><nav class="navbar navbar-expand-md navbar-light pl-0">
+    <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#sidenav-left-collapse" aria-controls="sidenav-left-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+     <div class="collapse navbar-collapse align-items-start flex-column" id="sidenav-left-collapse">
+            <form class="form-inline my-2 my-lg-0 searchbox">
+                <input class="form-control mr-sm-2 w-100" data-search-input id="search-by" type="text" placeholder="Search">
+            </form>
+
+        
+
+         <ul class="navbar-nav flex-column pt-3">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/"><h6>Azure Services</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/"><h6>AI and ML</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/ai-ml/databricks/"><h6>Azure Databricks</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/batch/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/batch/"><h6>Batch</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/batch/batch-accounts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/batch/batch-accounts/"><h6>Batch Accounts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/"><h6>Compute</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/site-recovery/"><h6>Azure Site Recovery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/"><h6>Compute Gallery</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/image-templates/"><h6>Image Templates</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machine-scale-sets/"><h6>Virtual Machine Scale Sets</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/"><h6>Virtual Machines</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/"><h6>Containers</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/aks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/aks/"><h6>AKS</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/container/container-registry/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/container/container-registry/"><h6>Container Registry</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/"><h6>Databases</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/sqldb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/sqldb/"><h6>SQL DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/cosmosdb/"><h6>Cosmos DB</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-mysql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-mysql/"><h6>DB for MySQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/db-for-postgresql/"><h6>DB for PostgreSQL</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/database/redis-cache/"><h6>Redis Cache</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/general/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/general/"><h6>General</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/hybrid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/hybrid/"><h6>Hybrid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/"><h6>Integration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/api-management/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/api-management/"><h6>Api Management</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-grid/"><h6>Event Grid</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/event-hub/"><h6>Event Hub</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/integration/service-bus/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/integration/service-bus/"><h6>Service Bus</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/"><h6>Internet of Things</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/iot/iot-hub/"><h6>IoT Hub</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/"><h6>Management</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/automation-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/automation-account/"><h6>Automation Account</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/management-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/management-group/"><h6>Management Groups</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/resource-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/resource-group/"><h6>Resource Groups</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/management/subscription/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/management/subscription/"><h6>Subscription</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/"><h6>Migration</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/migration/azure-backup/"><h6>Azure Backup</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/"><h6>Monitoring</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/application-insights/"><h6>Application Insights</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/log-analytics/"><h6>Log Analytics</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/resource-health-alerts/"><h6>Resource Health Alerts</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/monitoring/service-health-alerts/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/monitoring/service-health-alerts/"><h6>Service Health Alerts</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/" class="nav-item my-1 parent haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/"><h6>Networking</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/application-gateway/"><h6>Application Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/ddos-protection-plans/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/ddos-protection-plans/"><h6>DDoS Protection Plans</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-circuits/"><h6>ExpressRoute Circuits</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-connection/"><h6>ExpressRoute Connection</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-direct/"><h6>ExpressRoute Direct</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/" class="nav-item my-1 active
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-gateway/"><h6>ExpressRoute Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/expressroute-traffic-collector/"><h6>ExpressRoute Traffic Collector</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/firewall/"><h6>Firewall</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/front-door/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/front-door/"><h6>Front Door</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/load-balancer/"><h6>Load Balancer</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-security-group/"><h6>Network Security Group</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/network-watcher/"><h6>Network Watcher</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-dns-zones/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-dns-zones/"><h6>Private DNS Zones</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/private-endpoints/"><h6>Private Endpoints</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/public-ip/"><h6>Public Ip</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/route-table/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/route-table/"><h6>Route Table</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/traffic-manager/"><h6>Traffic Manager</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/virtual-networks/"><h6>Virtual Networks</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/vpn-gateway/"><h6>VPN Gateway</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/networking/web-application-firewall/"><h6>Web Application Firewall</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/"><h6>Security</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/security/key-vault/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/security/key-vault/"><h6>Key Vault</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/"><h6>Specialized Workloads</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-hpc/"><h6>Azure High Performance Computing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-virtual-desktop/"><h6>Azure Virtual Desktop</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/azure-vmware-solution/"><h6>Azure VMware Solution</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/specialized-workloads/sap-on-azure/"><h6>SAP on Azure</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/"><h6>Storage</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/azure-netapp-files/"><h6>Azure NetApp Files</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/storage/storage-account/"><h6>Storage Accounts (Blob/Azure Data Lake Storage Gen2)</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/"><h6>Web</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/app-service-plan/"><h6>App Service Plan</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/signalr/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/signalr/"><h6>SignalR</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/services/web/web-app/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/services/web/web-app/"><h6>Web App</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/" class="nav-item my-1 haschildren
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/"><h6>Well Architected Framework</h6></a>
+        
+        <ul class="list-unstyled ml-2">
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/1-define/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/1-define/"><h6>1 - Define</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/2-design/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/2-design/"><h6>2 - Design</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/3-test/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/3-test/"><h6>3 - Test</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/4-deploy/"><h6>4 - Deploy</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/5-monitor/"><h6>5 - Monitor</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/well-architected/6-respond/"><h6>6 - Respond</h6></a>
+        
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/contributing/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/contributing/"><h6>Contributing</h6></a>
+        
+    </li>
+    <li data-nav-id="/Azure-Proactive-Resiliency-Library/privacy/" class="nav-item my-1
+        ">
+        
+        
+          <a class="nav-link p-0" href="/Azure-Proactive-Resiliency-Library/privacy/"><h6>Privacy</h6></a>
+        
+    </li>
+        </ul>
+    </div>
+</nav>
+
+
+</div>
+        <div class="main col-12 order-1 col-md-9 col-lg-10 col-xl-10 py-3">
+          
+
+<div class="d-flex flex-column">
+    <h1 class="js-title">ExpressRoute Gateway</h1>
+    <div class="d-flex align-items-center">
+        
+    </div>
+</div>
+
+<hr>
+
+
+<p>The presented resiliency recommendations in this guidance include ExpressRoute Gateway and associated ExpressRoute Gateway settings.</p>
+<h2 id="summary-of-recommendations">Summary of Recommendations
+  <a href="#summary-of-recommendations">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+
+<div class="table table-striped" role="alert">
+    <table>
+<thead>
+<tr>
+<th style="text-align:left">Recommendation</th>
+<th style="text-align:center">Category</th>
+<th style="text-align:center">Impact</th>
+<th style="text-align:center">State</th>
+<th style="text-align:center">ARG Query Available</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#ergw-1---connect-the-expressroute-gateway-to-two-or-more-circuits-from-different-peering-locations-for-higher-resiliency">ERGW-1 - Connect the ExpressRoute Gateway to two or more circuits from different peering locations for higher resiliency</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Verified</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#ergw-2---use-zone-redundant-gateway-skus">ERGW-2 - Use Zone-redundant gateway SKUs</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Verified</td>
+<td style="text-align:center">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#ergw-3---configure-an-azure-resource-lock-for-expressroute-gateway-to-prevent-accidental-deletion">ERGW-3 - Configure an Azure Resource lock for ExpressRoute Gateway to prevent accidental deletion</a></td>
+<td style="text-align:center">Availability</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Verified</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#ergw-4---monitor-gateway-health">ERGW-4 - Monitor gateway health</a></td>
+<td style="text-align:center">Monitoring</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Verified</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#ergw-6---avoid-using-expressroute-circuits-for-vnet-to-vnet-communication">ERGW-6 - Avoid using ExpressRoute circuits for VNet to VNet communication</a></td>
+<td style="text-align:center">Networking</td>
+<td style="text-align:center">Medium</td>
+<td style="text-align:center">Verified</td>
+<td style="text-align:center">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#ergw-7---configure-customer-controlled-gateway-maintenance---in-preview">ERGW-7 - Configure customer-controlled gateway maintenance - In Preview</a></td>
+<td style="text-align:center">Networking</td>
+<td style="text-align:center">High</td>
+<td style="text-align:center">Verified</td>
+<td style="text-align:center">No</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+<div class="alert alert-info" role="alert">
+    Definitions of states can be found <a href="http://localhost:1313/Azure-Proactive-Resiliency-Library/#definitions-of-terms-used-in-aprl">here</a>
+</div>
+
+<h2 id="recommendations-details">Recommendations Details
+  <a href="#recommendations-details">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h2>
+<h3 id="ergw-1---connect-the-expressroute-gateway-to-two-or-more-circuits-from-different-peering-locations-for-higher-resiliency">ERGW-1 - Connect the ExpressRoute Gateway to two or more circuits from different peering locations for higher resiliency
+  <a href="#ergw-1---connect-the-expressroute-gateway-to-two-or-more-circuits-from-different-peering-locations-for-higher-resiliency">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Connect each ExpressRoute Gateway to a minimum of two circuits, with each circuit connecting from a diverse peering location compared to the other.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering">Designing for disaster recovery with ExpressRoute private peering</a></li>
+</ul>
+<p><strong>Resource Graph Query</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_a589be6149" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_a589be6149">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_8730c10a80">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_8730c10a80">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Provides a list <span style="color:#66d9ef">of</span> ExpressRoute Gateways that <span style="color:#66d9ef">are</span> <span style="color:#66d9ef">not</span> connected <span style="color:#66d9ef">to</span> two <span style="color:#66d9ef">or</span> <span style="color:#66d9ef">more</span> ExpressRoute Circuits. Baremetal circuits <span style="color:#66d9ef">are</span> excluded <span style="color:#66d9ef">from</span> consideration
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span>This query assumes that the running entity has visibilty <span style="color:#66d9ef">to</span> the gateway, <span style="color:#66d9ef">connection</span>, <span style="color:#66d9ef">and</span> circuit scopes.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span><span style="color:#66d9ef">Start</span> <span style="color:#66d9ef">with</span> a <span style="color:#66d9ef">full</span> list <span style="color:#66d9ef">of</span> gateways
+</span></span><span style="display:flex;"><span>(resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;microsoft.network/virtualnetworkgateways&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.gatewayType <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;ExpressRoute&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend exrGatewayId <span style="color:#f92672">=</span> tostring(id)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span>(
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;microsoft.network/virtualnetworkgateways&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.gatewayType <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;ExpressRoute&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend exrGatewayId <span style="color:#f92672">=</span> tostring(id)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>leftouter(
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span>connections joined <span style="color:#66d9ef">with</span> circuit peer info
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;microsoft.network/connections&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend connectionType <span style="color:#f92672">=</span> properties.connectionType
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend exrGatewayId <span style="color:#f92672">=</span> tostring(properties.virtualNetworkGateway1.id)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend peerId <span style="color:#f92672">=</span> tostring(properties.peer.id)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend connectionId <span style="color:#f92672">=</span> tostring(id)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> connectionType <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;ExpressRoute&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>leftouter(
+</span></span><span style="display:flex;"><span>  resources
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;microsoft.network/expressroutecircuits&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span>should this be <span style="color:#66d9ef">location</span> <span style="color:#66d9ef">instead</span> <span style="color:#66d9ef">of</span> peeringLocation
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> extend circuitId <span style="color:#f92672">=</span> tostring(id)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> extend peeringLocation <span style="color:#f92672">=</span> tostring(properties.serviceProviderProperties.peeringLocation)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">|</span> extend peerId <span style="color:#f92672">=</span> id
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">on</span> peerId ) <span style="color:#66d9ef">on</span> exrGatewayId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span>remove bare metal services connections<span style="color:#f92672">/</span>circuits
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">not</span>(isnotnull(connectionId) <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">isnull</span>(sku1))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> gateway ID<span style="color:#e6db74">&#39;s and peering locations
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| summarize by exrGatewayId, peeringLocation
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">//summarize to connections with fewer than two unique connections
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| summarize connCount = count() by exrGatewayId
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| where connCount &lt; 2) on exrGatewayId
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| project recommendationId = &#34;ergw-1&#34;, name, id, tags, param1 = &#34;twoOrMoreCircuitsConnectedFromDifferentPeeringLocations: false&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| union
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">(
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">resources
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| where type == &#34;microsoft.network/virtualnetworkgateways&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| where properties.gatewayType == &#34;ExpressRoute&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| extend exrGatewayId = tostring(id)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| join kind=leftouter(
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">//connections joined with circuit peer info
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">resources
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| where type == &#34;microsoft.network/connections&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| extend connectionType = properties.connectionType
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| extend exrGatewayId = tostring(properties.virtualNetworkGateway1.id)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| extend peerId = tostring(properties.peer.id)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| extend connectionId = tostring(id)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| where connectionType == &#34;ExpressRoute&#34;) on exrGatewayId
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| where isnull(connectionType)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">| project recommendationId = &#34;ergw-1&#34;, name, id, tags, param1 = &#34;twoOrMoreCircuitsConnectedFromDifferentPeeringLocations: false&#34;, param2 = &#34;noConnectionsOnGateway: true&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">)
+</span></span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="ergw-2---use-zone-redundant-gateway-skus">ERGW-2 - Use Zone-redundant gateway SKUs
+  <a href="#ergw-2---use-zone-redundant-gateway-skus">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Azure ExpressRoute gateway provides different SLAs when it’s deployed in a single availability zone and when it’s deployed in two or more availability zones. For information about all Azure SLAs, see <a href="https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&amp;year=2023">Service Level Agreements (SLA) for Online Services</a>. To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways#zrgw">About ExpressRoute virtual network gateways - Zone-redundant gateway SKUs</a></li>
+<li><a href="https://learn.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways">About zone-redundant virtual network gateway in Azure availability zones</a></li>
+<li><a href="https://learn.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway">Create a zone-redundant virtual network gateway in Azure Availability Zones</a></li>
+</ul>
+<p><strong>Resource Graph Query</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_0751314a31" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_0751314a31">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_6b59275d28">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_6b59275d28">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">﻿</span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">For</span> <span style="color:#66d9ef">all</span> VNGs <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">type</span> ExpressRoute, <span style="color:#66d9ef">show</span> <span style="color:#66d9ef">any</span> that <span style="color:#66d9ef">do</span> <span style="color:#66d9ef">not</span> have AZ <span style="color:#66d9ef">in</span> the SKU tier
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;Microsoft.Network/virtualNetworkGateways&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.gatewayType <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;ExpressRoute&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> properties.sku.tier <span style="color:#f92672">!</span><span style="color:#66d9ef">contains</span> <span style="color:#e6db74">&#39;AZ&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ergw-1&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span> strcat(<span style="color:#e6db74">&#34;sku-tier: &#34;</span> , properties.sku.tier), param2<span style="color:#f92672">=</span><span style="color:#66d9ef">location</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> id <span style="color:#66d9ef">asc</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="ergw-3---configure-an-azure-resource-lock-for-expressroute-gateway-to-prevent-accidental-deletion">ERGW-3 - Configure an Azure Resource lock for ExpressRoute Gateway to prevent accidental deletion
+  <a href="#ergw-3---configure-an-azure-resource-lock-for-expressroute-gateway-to-prevent-accidental-deletion">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Configure an Azure Resource lock for ExpressRoute Gateway to prevent accidental deletion. As an administrator, you can lock an Azure subscription, resource group, or resource to protect them from accidental user deletions and modifications. The lock overrides any user permission.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?tabs=json">Protect your Azure resources with a lock - Azure Resource Manager | Microsoft Learn</a></li>
+</ul>
+<p><strong>Resource Graph Query</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="ergw-4---monitor-gateway-health">ERGW-4 - Monitor gateway health
+  <a href="#ergw-4---monitor-gateway-health">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Monitoring</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>Setup monitoring using Network Insights for ExpressRoute Gateway availability, performance, and scalability.</p>
+<p>Configure alerts for availability metrics for routes advertised, routes learned and number of VMs based on the supported amounts for the ExpressRoute Gateway SKU in use. Configure alerts for frequency of routes changed based on the customer environment.</p>
+<p>Configure alerts for performance metrics for bits in, bits out and CPU utilization according to <a href="https://azure.github.io/azure-monitor-baseline-alerts/services/Network/expressRouteGateways/">ExpressRoute Gateways | Azure Monitor Baseline Alerts</a>. Configure alerts for packets per second based on the supported amount for the ExpressRoute Gateway SKU in use and based on the customer environment.</p>
+<p>Configure alerts for scalability metrics for active flows based on the supported amounts for the ExpressRoute Gateway SKU in use and the expected number of flows for the customer environment, and for max flows per second for when this value exceeds a historical baseline for the customer environment.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/expressroute/expressroute-monitoring-metrics-alerts#expressroute-gateways">ExpressRoute monitoring, metrics, and alerts | ExpressRoute gateways</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/expressroute/expressroute-network-insights">Azure ExpressRoute Insights using Network Insights</a></li>
+</ul>
+<p><strong>Resource Graph Query</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_ad914cbd6e" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_ad914cbd6e">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_cf19e41e80">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_cf19e41e80">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span>The KQL files <span style="color:#66d9ef">for</span> this test <span style="color:#66d9ef">are</span> distributed <span style="color:#66d9ef">into</span> <span style="color:#ae81ff">7</span> different files.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span>Make sure <span style="color:#66d9ef">and</span> run <span style="color:#66d9ef">all</span> <span style="color:#ae81ff">7</span> <span style="color:#66d9ef">for</span> complete coverage
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="ergw-6---avoid-using-expressroute-circuits-for-vnet-to-vnet-communication">ERGW-6 - Avoid using ExpressRoute circuits for VNet to VNet communication
+  <a href="#ergw-6---avoid-using-expressroute-circuits-for-vnet-to-vnet-communication">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Networking</strong></p>
+<p><strong>Impact: Medium</strong></p>
+<p><strong>Guidance</strong></p>
+<p>By default, connectivity between virtual networks is enabled when you link multiple virtual networks, each with an ExpressRoute Gateway, to the same ExpressRoute circuit. However, Microsoft advises against using your ExpressRoute circuit for communication between virtual networks and instead use other techniques such as VNet peering, routing in a VNet hub via Azure Firewall, NVA and/or Azure Route Server, site-to-site VPN within Azure, the use of virtual WAN, or the use of SD-WAN.</p>
+<p>For more information about why VNet-to-VNet connectivity isn’t recommended over ExpressRoute, see: <a href="https://learn.microsoft.com/azure/expressroute/virtual-network-connectivity-guidance">Connectivity between virtual networks over ExpressRoute | Microsoft Learn</a></p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways#vnet-to-vnet-connectivity">About ExpressRoute virtual network gateways - VNet-to-VNet connectivity</a></li>
+</ul>
+<p><strong>Resource Graph Query</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_481d94be0d" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_481d94be0d">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_b581ba5583">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_b581ba5583">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> <span style="color:#66d9ef">under</span><span style="color:#f92672">-</span>development
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+<h3 id="ergw-7---configure-customer-controlled-gateway-maintenance---in-preview">ERGW-7 - Configure customer-controlled gateway maintenance - In Preview
+  <a href="#ergw-7---configure-customer-controlled-gateway-maintenance---in-preview">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+      <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+      <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+    </svg>
+  </a>
+</h3>
+<p><strong>Category: Availability</strong></p>
+<p><strong>Impact: High</strong></p>
+<p><strong>Guidance</strong></p>
+<p>ExpressRoute virtual network gateways undergo regular updates to enhance functionality, reliability, performance, and security. Configuring and scheduling customer-controlled maintenance will minimize the impact of these updates and align the update schedule to best fit your maintenance windows.</p>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/expressroute/customer-controlled-gateway-maintenance#azure-portal-steps">Configure customer-controlled maintenance for your virtual network gateway - ExpressRoute | Microsoft Learn</a></li>
+</ul>
+<p><strong>Resource Graph Query</strong></p>
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_6cdc399109" aria-expanded="false">
+    Show/Hide Query/Script
+</button>
+
+<div class="collapse" id="collapse_6cdc399109">
+  <div class="card card-body">
+    
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+<div class="position-relative">
+    <div class="position-absolute" style="right:0;">
+        <button class="btn btn-light" data-clipboard-target="#clipboard_cc46655941">
+        Copy
+        </button>
+    </div>
+    <div id="clipboard_cc46655941">
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">//</span> Azure Resource Graph Query
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> Find <span style="color:#66d9ef">all</span> Virtual Network Gateways <span style="color:#66d9ef">without</span> Maintenance Configurations
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;Microsoft.Network/virtualNetworkGateways&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> extend resourceId <span style="color:#f92672">=</span> tolower(id)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span>leftouter  (
+</span></span><span style="display:flex;"><span>    maintenanceresources
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;Microsoft.Maintenance/configurationAssignments&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project JsonData <span style="color:#f92672">=</span> parse_json(properties)
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> extend maintenanceConfigurationId <span style="color:#f92672">=</span> tolower(tostring(JsonData.maintenanceConfigurationId))
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> <span style="color:#66d9ef">join</span> kind<span style="color:#f92672">=</span><span style="color:#66d9ef">inner</span> (
+</span></span><span style="display:flex;"><span>        resources
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">type</span> <span style="color:#f92672">=~</span> <span style="color:#e6db74">&#34;Microsoft.Maintenance/maintenanceConfigurations&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">|</span> project maintenanceConfigurationId<span style="color:#f92672">=</span>tolower(id)
+</span></span><span style="display:flex;"><span>    ) <span style="color:#66d9ef">on</span> maintenanceConfigurationId
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">|</span> project maintenanceConfigurationId, resourceId<span style="color:#f92672">=</span>tolower(tostring(JsonData.resourceId))
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">on</span> resourceId
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> <span style="color:#66d9ef">where</span> isempty(maintenanceConfigurationId)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">|</span> project recommendationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ergw-7&#34;</span>, name, id, tags, param1<span style="color:#f92672">=</span> strcat(<span style="color:#e6db74">&#34;sku-tier: &#34;</span> , properties.sku.tier), param2<span style="color:#f92672">=</span><span style="color:#66d9ef">location</span>
+</span></span></code></pre></div>
+    </div>
+</div>
+
+
+
+
+
+
+  </div>
+</div>
+<p><br><br></p>
+
+
+    
+
+
+
+          <div class="row"></div> 
+
+        </div>
+
+      </div> 
+
+    </div> 
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/lib/jquery.min.js"></script> 
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/lib/popper.min.js"></script> 
+
+<script src="http://localhost:1313/Azure-Proactive-Resiliency-Library/js/bootstrap.min.js"></script> 
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/lunr.min.js"></script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.js"></script>
+<link href="/Azure-Proactive-Resiliency-Library/plugins/auto-complete.css" rel="stylesheet">
+<script type="text/javascript">
+  
+      var baseurl = "http:\/\/localhost:1313\/Azure-Proactive-Resiliency-Library\/";
+  
+</script>
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/search.js"></script>
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/favorites.js"></script>
+
+
+<script type="text/javascript" src="/Azure-Proactive-Resiliency-Library/plugins/clipboard.js"></script>
+<script>
+  new ClipboardJS('.btn');
+</script>
+</body>
+
+</html>

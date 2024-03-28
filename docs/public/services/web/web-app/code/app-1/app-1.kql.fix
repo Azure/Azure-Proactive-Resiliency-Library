@@ -1,0 +1,17 @@
+// Azure Resource Graph Query
+// Provides a list of Azure App Service resources and checks if they have Diagnostic logs Categories turned on or now, list settings with on or off indicator
+
+appserviceresources
+| where ['type'] == "microsoft.web/sites/config"
+| where not(name contains "/slots/")
+| project id, properties.AzureMonitorLogCategories, name
+| extend AzureMonitorLogCategories = iif(isempty(properties_AzureMonitorLogCategories), false, true)
+, AppServiceHTTPLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceHTTPLogs"), 1, 0)
+, AppServiceConsoleLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceConsoleLogs"), 1, 0)
+, AppServiceAppLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceAppLogs"), 1, 0)
+, AppServiceFileAuditLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceFileAuditLogs"), 1, 0)
+, AppServiceAuditLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceAuditLogs"), 1, 0)
+, AppServiceIPSecAuditLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceIPSecAuditLogs"), 1, 0)
+, AppServicePlatformLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServicePlatformLogs"), 1, 0)
+, AppServiceAntivirusScanAuditLogs = iif(set_has_element(properties_AzureMonitorLogCategories, "AppServiceAntivirusScanAuditLogs"), 1, 0)
+| project recommendationId="app-1" , ['id'], ["Azure Monitor Logs"]= AzureMonitorLogCategories , AppServiceAntivirusScanAuditLogs, AppServiceAppLogs, AppServiceAuditLogs, AppServiceConsoleLogs, AppServiceFileAuditLogs, AppServiceHTTPLogs,  AppServiceIPSecAuditLogs,  AppServicePlatformLogs

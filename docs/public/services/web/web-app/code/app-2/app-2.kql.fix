@@ -1,0 +1,13 @@
+
+// Azure Resource Graph Query
+// Provides a list of Azure App Service resources and checks if they have Application Insights enabled by looking for the “APPINSIGHTS_INSTRUMENTATIONKEY” or “APPLICATIONINSIGHTS_CONNECTION_STRING” settings in their configuration.
+
+appserviceresources
+| where type == "microsoft.web/sites/config"
+| extend appSettings = properties.AppSettings
+| mv-expand appSettings
+| extend settingName = tostring(appSettings.Name)
+| extend isAppInsightsInstrumentationKey = iif(settingName == "APPINSIGHTS_INSTRUMENTATIONKEY", true, false)
+| extend isApplicationInsightsConnectionString = iif(settingName == "APPLICATIONINSIGHTS_CONNECTION_STRING", true, false)
+| extend isAppInsightsEnabled = iif(isAppInsightsInstrumentationKey or isApplicationInsightsConnectionString, true, false)
+| project recommendationId="app-2", name,  id, settingName, isAppInsightsInstrumentationKey, isApplicationInsightsConnectionString, isAppInsightsEnabled

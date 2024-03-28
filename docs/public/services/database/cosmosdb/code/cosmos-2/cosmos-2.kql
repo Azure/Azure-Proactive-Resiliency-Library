@@ -1,0 +1,7 @@
+Resources
+| where type =~ 'Microsoft.DocumentDb/databaseAccounts'
+| where
+    array_length(properties.locations) > 1 and
+    tobool(properties.enableAutomaticFailover) == false and
+    tobool(properties.enableMultipleWriteLocations) == false
+| project recommendationId='cosmos-2', name, id, tags
