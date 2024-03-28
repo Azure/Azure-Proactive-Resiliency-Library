@@ -6,4 +6,4 @@ resources
 | extend connectionDrainingEnabled = backendHttpSettings.properties.connectionDraining.enabled
 | where connectionDrainingEnabled == true
 | extend backendPoolName = backendHttpSettings.name
-| project recommendationId = "agw-8", name, id, tags, param1 = "connectionDraining: Enabled", param2 = strcat("backendPoolName: ", backendPoolName)
+| project recommendationId = "agw-8", name, id, tags, param1 = "connectionDraining: Enabled", param2 = strcat("backendSettingsName: ", backendPoolName)
