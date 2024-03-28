@@ -1,1 +1,8 @@
-// cannot-be-validated-with-arg. The validation for this recommendation cannot be achieved with an Azure Resource Graph query.
+// This Resource Graph query will return all Azure NetApp Files volumes without cross-zone replication.
+resources
+| where type == "microsoft.netapp/netappaccounts/capacitypools/volumes"
+| extend remoteVolumeRegion = properties.dataProtection.replication.remoteVolumeRegion
+| extend volumeType = properties.volumeType
+| extend replicationType = iff((remoteVolumeRegion == location), "CZR", iff((remoteVolumeRegion == ""),"n/a","CRR"))
+| where replicationType != "CZR" and volumeType != "DataProtection"
+| project recommendationId = "ANF-7", name, id, tags
