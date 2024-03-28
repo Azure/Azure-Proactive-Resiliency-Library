@@ -47,7 +47,7 @@ The presented resiliency recommendations in this guidance include Azure Virtual 
 | [AVD-34 Ensure Resilient Deployment of Keyvault for AVD Host Pools](#avd-34---provision-secondary-key-vault-for-disaster-recovery) | Disaster Recovery | High | Verified | No |
 | [AVD-35 Configure AVD insights Workbook](#avd-35---configure-avd-insights-workbook) | Monitoring | High | Verified | No |
 | [AVD-36 Ensure separate log analytics workspaces for Prod and DR](#avd-36---ensure-separate-log-analytics-workspaces-for-prod-and-dr) | Disaster Recovery | Low | Verified | No |
-| [AVD-38 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-38---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Governance | Low | Verified | No |
+| [AVD-37 Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology](#avd-37---organize-avd-resources-using-the-avd-scale-unit-model-described-by-the-avd-landing-zone-methodology) | Governance | Low | Verified | No |
 | [IT-2 - Replicate your Image Templates to a secondary region](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/image-templates/#it-2---replicate-your-image-templates-to-a-secondary-region) | Disaster Recovery | Low | Preview | Yes |
 | [CG-2 - Zone redundant storage should be used for image versions](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/compute-gallery/#cg-2---zone-redundant-storage-should-be-used-for-image-versions) | Availability | Medium | Verified | Yes |
 | [VM-2 - Deploy VMs across Availability Zones](https://azure.github.io/Azure-Proactive-Resiliency-Library/services/compute/virtual-machines/#vm-2---deploy-vms-across-availability-zones) | Availability | High | Verified | Yes |
@@ -885,7 +885,7 @@ Having separate Log Analytics ensures that your DR environment is fully operatio
 
 <br><br>
 
-### AVD-38 - Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology
+### AVD-37 - Organize AVD resources using the AVD Scale unit model described by the AVD Landing Zone Methodology
 
 **Category: Governance**
 
@@ -903,7 +903,7 @@ Follow AVD Landing Zone best practices using multiple resource groups based on r
 
 {{< collapse title="Show/Hide Query/Script" >}}
 
-{{< code lang="sql" file="code/avd-38/avd-38.kql" >}} {{< /code >}}
+{{< code lang="sql" file="code/avd-37/avd-37.kql" >}} {{< /code >}}
 
 {{< /collapse >}}
 
